@@ -18,9 +18,12 @@ WinLX provides an application called Bash.exe that, when started, opens a Window
 
 ![](media/distro.png)
 
-> **Note:** You can also access your local machine’s filesystem from within the Linux Bash shell – you’ll find your local drives mounted under the `/mnt` folder. For example, your `C:` drive is mounted under `/mnt/c`:
+You can also access your local machine’s filesystem from within the Linux Bash shell – you’ll find your local drives mounted under the `/mnt` folder. For example, your `C:` drive is mounted under `/mnt/c`:  
 
 ![](media/ls.png)
+
+### How does this work?
+See the [refrence page](.reference.md) for more details about the underlying technology.
 
 ### Why would I use WinLX rather than Linux in a VM?
 WinLX requires far fewer resources (CPU, memory and storage) than a full virtualized machine environment. WinLX also allows you to run Linux tools and apps alongside your Windows command-line, desktop and store apps, enabling you to use the tools you need on the files on your local machine.
