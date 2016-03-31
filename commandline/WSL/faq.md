@@ -3,7 +3,7 @@
 ### What Windows Subsystem for Linux (WSL)?
 The Windows Subsystem for Linux (WSL) is a new Windows feature that enables native user-mode Linux shells, apps, and tools to run unmodified on top of Windows, alongside your traditional Windows desktop apps and modern store apps.
 
-See the [about page](.about.md) for more details.
+See the [about page](about.md) for more details.
 
 ### Who is this for?
 WSL is primarily a tool for software developers to run Linux shells, tools and applications on Windows.
