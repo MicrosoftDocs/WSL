@@ -1,14 +1,23 @@
-# Windows Subsystem for Linux (WSL)
+# BASH Running in Ubuntu on Windows
 
-Ubuntu on Windows provides users familiar with Linux a functional Bash shell and allows for the end user to run native Ubuntu binaries on Windows.   Doing this allows users to open a Bash shell and use familiar commands such as `ls`, `grep`, `sed`, and `awk`.  Additionally, this allows users to run `apt-get` to pull down 3rd party binaries compatible with Ubuntu such as `apt-get install ruby` to install the Ubuntu build of Ruby.
+Windows provides developers with a familiar Bash environment. This environment will allow users to:
 
-Ubuntu on Windows is made up of two main parts, the Windows Subsystem for Linux and the Ubuntu Usermode binaries.
+1.	Run common command line utilities such as `grep`, `sed`, and `awk`
+2.	Navigate the file system using these commands
+3.	Run bash shell scripts which rely on supported command line utilities
 
-* The Windows Subsystem for Linux is a translation layer between Linux and Windows kernel system calls. This light weight yet performant Microsoft technology allows Windows 10 to run Linux open source core utilities natively in a bash environment.
-* The Ubuntu Usermode binaries are provided directly by Canonical and are unmodified from the bits a Linux user would download.
+Windows is running Ubuntu user-mode binaries provided by Canonical.  
 
-Using these two systems together, a user is able to run Ubuntu within the Windows environment.  Running Ubuntu in this way is not the same as running Ubuntu as a VM.  By default, Ubuntu for Windows has access to the running Windows system such as the network stack or the machine's hard drives.
+This means the command line utilities are the same as those that run within a native Ubuntu environment.  
+This feature is provided as beta software.  While many of the coreutil commands provided by Ubuntu will work, there are some that will not.  We welcome feedback and will prioritize accordingly.  
 
-The engineering effort behind the Windows Subsystem for Linux is a continued initiative within Microsoft. With this beta release of the product we don't expect everything to work perfectly. However, we have done considerable work to ensure that certain scenarios are well covered. Web developers, students, data analysists and others who currently rely on work arounds to access Linux command line tools and apt-get packages will find this preview very useful. Users familiar with frameworks such as Ruby on Rails, node.js and .net will feel right at home. 
+Feedback and questions should be directed to:
+* Our [GitHub issue tracker](https://github.com/Microsoft/CommandLine-Documentation/issues)
+* Our [command-line UserVoice portal](https://wpdev.uservoice.com/forums/266908-command-prompt/filters/top)
+* Our [command-line team blog](https://blogs.msdn.microsoft.com/commandline/)
 
-While WSL may not be ready for an enterprise production environment today, your use of the product will help identify areas that we will focus our efforts on in the future. Your feedback will play a vital role in guiding how we focus our development efforts moving forward.
+Additionally, developers can try command line applications that are compatible with Ubuntu such as Ruby and Redis and provide feedback on their experiences.
+
+Requirements:
+* 64-bit Windows 10 
+* Windows Insider Preview build coming soon

@@ -1,5 +1,17 @@
 # Architectural Reference
 
+This scenario is comprised of two main components:
+
+1.	**Ubuntu on Windows**  
+  Genuine Ubuntu user-mode binaries provided by Canonical. 
+
+2.	**Window Subsystem for Linux (WSL)**  
+  This infrastructure supports unmodified Ubuntu binaries by exposing Linux-compatible kernel interfaces.  It includes Microsoft components that are responsible for handling Linux system call requests in coordination with the Windows NT kernel.  
+  This subsystem was developed by Microsoft and contains no Linux code.
+
+![](media/architecture.png)
+
+
 ## LXSS Manager service 
 The LXSS Manager service is a broker to the LX subsystem driver and is the way that windows applications go about launching LX binaries.  When a NT process (for example bash.exe) wants to launch the LX binary that request goes through the LXSS Manager service.  There is minimal per-user state that keeps track of if the user currently has the Ubuntu bits installed.  The service is also used for synchronization around uninstall and uninstall, allowing only one process to do those operations at a time and block LX binaries from being launched while the operation is pending.
 
