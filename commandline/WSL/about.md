@@ -37,6 +37,7 @@ This scenario is comprised of two main components:
 
 **Blogs**
 * Mike Harsh's Blog -- [Run Bash on Ubuntu on Windows](https://blogs.windows.com/buildingapps/2016/03/30/run-bash-on-ubuntu-on-windows/)
+* Scott Hanselman's Blog -- [Developers Can Run Bash And Usermode Ubuntu Linux Binaries On Windows 10](http://www.hanselman.com/blog/DevelopersCanRunBashShellAndUsermodeUbuntuLinuxBinariesOnWindows10.aspx)
 * Ubuntu News -- [Ubuntu on Windows – The Ubuntu Userspace for Windows Developers](http://insights.ubuntu.com/2016/03/30/ubuntu-on-windows-the-ubuntu-userspace-for-windows-developers/)
 
 **Build 2016**
