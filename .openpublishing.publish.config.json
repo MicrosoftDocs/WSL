@@ -1,0 +1,18 @@
+{
+    "build_entry_point": "",
+    "git_repository_url_open_to_public_contributors": "",
+    "docsets_to_publish": [
+        {
+            "docset_name": "MSFT_commandline",
+            "build_output_subfolder": "commandline",
+            "locale": "en-us",
+            "version": 0,
+            "open_to_public_contributors": "false",
+            "type_mapping": {
+                "Conceptual": "Content"
+            }
+        }
+    ],
+    "notification_subscribers": ["brianlic@microsoft.com"],
+    "branches_to_filter": ["live"]
+}
