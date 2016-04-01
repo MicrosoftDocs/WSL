@@ -31,3 +31,20 @@ This scenario is comprised of two main components:
   This subsystem was developed by Microsoft and contains no Linux code.
 
 ![](media/architecture.png)
+
+## Announcements
+
+**Blogs**
+* Mike Harsh's Blog -- [Run Bash on Ubuntu on Windows](https://blogs.windows.com/buildingapps/2016/03/30/run-bash-on-ubuntu-on-windows/)
+* Ubuntu News -- [Ubuntu on Windows – The Ubuntu Userspace for Windows Developers](http://insights.ubuntu.com/2016/03/30/ubuntu-on-windows-the-ubuntu-userspace-for-windows-developers/)
+
+**Build 2016**
+* [Day 1 Keynote](https://channel9.msdn.com/events/Build/2016/KEY01)
+* Interview with Ben Hillis, Dustin Kirkland, Russ Alexander, and Scott Hanselman -- [Linux Command Line on Windows](https://channel9.msdn.com/Events/Build/2016/C906?ocid=player)
+* Video walkthrough -- [Running Bash on Ubuntu on Windows!](https://channel9.msdn.com/events/Build/2016/P488)
+
+## Provide Feedback
+
+[GitHub issue tracker](https://github.com/Microsoft/CommandLine-Documentation/issues)
+[command-line UserVoice portal](https://wpdev.uservoice.com/forums/266908-command-prompt/filters/top)
+[command-line team blog](https://blogs.msdn.microsoft.com/commandline/)
