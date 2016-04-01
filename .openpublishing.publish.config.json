@@ -14,5 +14,5 @@
         }
     ],
     "notification_subscribers": ["richturn@microsoft.com","scooley@microsoft.com","jahammo@microsoft.com"],
-    "branches_to_filter": ["live"]
+    "branches_to_filter": [""]
 }
