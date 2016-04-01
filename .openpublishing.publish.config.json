@@ -13,6 +13,6 @@
             }
         }
     ],
-    "notification_subscribers": ["brianlic@microsoft.com"],
+    "notification_subscribers": ["richturn@microsoft.com"],
     "branches_to_filter": ["live"]
 }
