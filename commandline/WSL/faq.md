@@ -41,6 +41,10 @@ Many languages like Ruby and node are often ported to, and run great, on Windows
 
 These are just some of issues that caused many people to ask Microsoft to improve Windows’ command-line tools and what drove us to partner with Canonical to enable native Bash and Linux command-line tools to run on Windows.
 
+### What does this mean for PowerShell?
+While working with OSS projects, there are numerous scenarios where it’s immensely useful to drop into BASH from a PowerShell prompt.  Bash support is complementary and strengthens the value of the command-line on Windows, allowing PowerShell and the PowerShell community to leverage other popular technologies.
+
+Read more on the PowerShell team blog -- [Bash for Windows: Why it’s awesome and what it means for PowerShell](https://blogs.msdn.microsoft.com/powershell/2016/04/01/bash-for-windows-why-its-awesome-and-what-it-means-for-powershell/)
 
 ### Can run ALL Linux apps in WSL?
 No! WSL is a tool aimed at enabling users who need them to run Bash and core Linux command-line tools on Windows.  
