@@ -1,5 +1,6 @@
 # BASH Running in Ubuntu on Windows
 
+## Overview
 Windows provides developers with a familiar Bash environment. This environment will allow users to:
 
 1.	Run common command line utilities such as `grep`, `sed`, and `awk`
@@ -19,7 +20,7 @@ Feedback and questions should be directed to:
 * Our [command-line team blog](https://blogs.msdn.microsoft.com/commandline/)
 
 
-## Architectural Overview
+## Architecture
 
 This scenario is comprised of two main components:
 
@@ -43,7 +44,7 @@ This scenario is comprised of two main components:
 * Interview with Ben Hillis, Dustin Kirkland, Russ Alexander, and Scott Hanselman -- [Linux Command Line on Windows](https://channel9.msdn.com/Events/Build/2016/C906?ocid=player)
 * Video walkthrough -- [Running Bash on Ubuntu on Windows!](https://channel9.msdn.com/events/Build/2016/P488)
 
-## Provide Feedback
+## Feedback
 
 [GitHub issue tracker](https://github.com/Microsoft/CommandLine-Documentation/issues)
 [command-line UserVoice portal](https://wpdev.uservoice.com/forums/266908-command-prompt/filters/top)
