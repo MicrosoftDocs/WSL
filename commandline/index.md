@@ -1,3 +1,3 @@
----
-redirect_url: /commandline/wsl/about
----
+# Hello World
+
+Testing splash page
