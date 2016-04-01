@@ -1,2 +1,2 @@
 # CommandLine-Documentation
-Gathering markdown documentation for Microsoft Command Line and associated interpreters.
+Markdown documentation for Microsoft Command Line and associated interpreters.
