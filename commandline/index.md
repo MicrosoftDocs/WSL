@@ -1,3 +1,3 @@
 ---
-redirect_url: /commandline/wsl/about.md
+redirect_url: /commandline/wsl/about
 ---
