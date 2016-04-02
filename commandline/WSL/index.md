@@ -1,0 +1,3 @@
+---
+redirect_url: /about
+---
