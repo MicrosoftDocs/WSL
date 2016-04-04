@@ -48,6 +48,6 @@ This scenario is comprised of two main components:
 
 
 ## Feedback
-[GitHub issue tracker](https://github.com/Microsoft/CommandLine-Documentation/issues)
-[command-line UserVoice portal](https://wpdev.uservoice.com/forums/266908-command-prompt/filters/top)
-[command-line team blog](https://blogs.msdn.microsoft.com/commandline/)
+*[GitHub issue tracker](https://github.com/Microsoft/CommandLine-Documentation/issues)
+*[command-line UserVoice portal](https://wpdev.uservoice.com/forums/266908-command-prompt/filters/top)
+*[command-line team blog](https://blogs.msdn.microsoft.com/commandline/)
