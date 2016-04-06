@@ -1,3 +1,7 @@
+---
+author: jackchammons
+---
+
 # Installation Guide
 
 ## Requirements
