@@ -10,7 +10,7 @@
 ### What Windows Subsystem for Linux (WSL)?
 The Windows Subsystem for Linux (WSL) is a new Windows 10 feature that enables you to run native Linux command-line tools directly on Windows, alongside your traditional Windows desktop and modern store apps.
 
-See the [about page](about.md) for more details.
+See the [about page](./about.md) for more details.
 
 ### What is “Ubuntu on Windows”
 When WSL is enabled (it’s an optional feature), we download a genuine Ubuntu user-mode image, created by Canonical. Our Bash.exe application, when started, then loads and runs the native Bash shell and Linux command-line tools from the Ubuntu image.
