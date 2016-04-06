@@ -1,3 +1,7 @@
+---
+author: jackchammons
+---
+
 # Frequently Asked Questions
 
 > **Important note**  
