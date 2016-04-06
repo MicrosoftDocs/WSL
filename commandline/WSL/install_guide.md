@@ -1,4 +1,4 @@
-# Install Guide
+# Installation Guide
 
 ##Prerequisites
   1. Join the Insider Fast Ring
