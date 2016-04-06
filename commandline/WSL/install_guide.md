@@ -4,11 +4,13 @@ author: jackchammons
 
 # Installation Guide
 
-## Requirements
+> **Important note**  
+  This is the first release of this brand new technology and it is branded “beta” deliberately – it’s not yet complete! We know there are issues and incomplete features, you should expect some things to work and for many things to fail. But we appreciate you playing with this feature and helping us identify the issues we need to fix in order to deliver a great experience.
 
-1. Part of the Windows Insiders Program -- [learn more](https://insider.windows.com/)  
+##Prerequisites
+1. Windows 10 Anniversay Edition - Build 14316  
+      Available as of 4/6/2016 through the [Insider Fast Ring](http://insider.windows.com/)
 2. x64-based processor
-3. Windows build 14316+
 
 You can find the system architecture and build number by opening:  
 Settings -> System -> About
@@ -50,4 +52,4 @@ Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-L
   ![](media/bashShellInstall.png)
   
   This will download the Ubuntu user-mode image and create a Bash on Ubuntu on Windows shortcut.  To launch, either run bash at a command line or use the shortcut.
-  
+
