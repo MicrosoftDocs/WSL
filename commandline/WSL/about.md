@@ -1,3 +1,7 @@
+---
+author: jackchammons
+---
+
 # BASH Running in Ubuntu on Windows
 
 > **Important note**  
