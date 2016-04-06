@@ -1,9 +1,9 @@
 # Installation Guide
 
 ##Prerequisites
-  1. Join the [Insider Fast Ring](https://insider.windows.com/)
+  1. Windows 10 Anniversay Edition - Build 14316 <br/>
+      Available as of 4/6/2016 through the [Insider Fast Ring](https://insider.windows.com/)
   2. Be running a x64 architecture
-  2. Install build 14316+
 
 
 ## Installation
