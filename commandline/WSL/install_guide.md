@@ -1,7 +1,7 @@
 # Installation Guide
 
 ##Prerequisites
-  1. Join the Insider Fast Ring
+  1. Join the [Insider Fast Ring](https://insider.windows.com/)
   2. Be running a x64 architecture
   2. Install build 14316+
 
