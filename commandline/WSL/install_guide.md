@@ -1,7 +1,8 @@
 # Install Guide
 
 ##Prerequisites
-  1. Be running a 64 bit architecture
+  1. Join the Insider Fast Ring
+  2. Be running a x64 architecture
   2. Install build 14316+
 
 
