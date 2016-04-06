@@ -35,6 +35,14 @@ If your build is below 14316, try checking for updates.  In the "Advanced Option
 1. Click OK
 1. Reboot
 
+Alternately:
+
+Open a PowerShell prompt as administrator and run:
+
+``` PowerShell
+Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
+```
+
 ### Run “bash” at a command prompt
 1. Open a command prompt
 1. Type `bash` 
