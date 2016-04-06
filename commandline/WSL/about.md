@@ -21,11 +21,6 @@ This is provided as beta software.  While many of the coreutil commands provided
 This video from Build 2016 gives you more information and a demo of Ubuntu on Windows:  
 <iframe src="https://channel9.msdn.com/Events/Build/2016/P488/player" width="800" height="450"  allowFullScreen="true" frameBorder="0" scrolling="no"></iframe>
 
-Feedback and questions should be directed to:
-* Our [GitHub issue tracker](https://github.com/Microsoft/CommandLine-Documentation/issues)
-* Our [command-line UserVoice portal](https://wpdev.uservoice.com/forums/266908-command-prompt/filters/top)
-* Our [command-line team blog](https://blogs.msdn.microsoft.com/commandline/)
-
 ## Announcements
 
 ### Blogs
