@@ -1,8 +1,8 @@
 #Commands
 The commands `bash.exe` and `lxrun.exe` are used to interact with WSL.  These commands are installed into the \Windows\System32 directory and may be run within a Windows command prompt or in Powershell.
 
-* `bash.exe` is the primary interaction with WSL.  This command is used to launch the Bash shell.
-* `lxrun.exe` is used to manage the WSL.  This command can be used to install or uninstall the Ubuntu image.
+* `bash.exe` launches the Bash enviornment and invokes /bin/bash.
+* `lxrun.exe` is used to manage WSL.  This command can be used to install or uninstall the Ubuntu image.
 
 
 
