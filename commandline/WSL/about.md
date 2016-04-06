@@ -1,5 +1,8 @@
 # BASH Running in Ubuntu on Windows
 
+> **Important note**  
+  This is the first release of this brand new technology and it is branded “beta” deliberately – it’s not yet complete! We know there are issues and incomplete features, you should expect some things to work and for many things to fail. But we appreciate you playing with this feature and helping us identify the issues we need to fix in order to deliver a great experience.
+
 ## Overview
 Windows provides developers with a familiar Bash environment. This environment will allow users to:
 
@@ -18,20 +21,6 @@ Feedback and questions should be directed to:
 * Our [GitHub issue tracker](https://github.com/Microsoft/CommandLine-Documentation/issues)
 * Our [command-line UserVoice portal](https://wpdev.uservoice.com/forums/266908-command-prompt/filters/top)
 * Our [command-line team blog](https://blogs.msdn.microsoft.com/commandline/)
-
-
-## Architecture
-
-This scenario is comprised of two main components:
-
-1.	**Ubuntu on Windows**  
-  Genuine Ubuntu user-mode binaries provided by Canonical. 
-
-2.	**Window Subsystem for Linux (WSL)**  
-  This infrastructure supports unmodified Ubuntu binaries by exposing Linux-compatible kernel interfaces.  It includes Microsoft components that are responsible for handling Linux system call requests in coordination with the Windows NT kernel.  
-  This subsystem was developed by Microsoft and contains no Linux code.
-
-![](media/architecture.png)
 
 ## Announcements
 
