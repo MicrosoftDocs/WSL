@@ -1,5 +1,8 @@
 # BASH Running in Ubuntu on Windows
 
+> **Important note**  
+  This is the first release of this brand new technology and it is branded “beta” deliberately – it’s not yet complete! We know there are issues and incomplete features, you should expect some things to work and for many things to fail. But we appreciate you playing with this feature and helping us identify the issues we need to fix in order to deliver a great experience.
+
 ## Overview
 Windows provides developers with a familiar Bash environment. This environment will allow users to:
 
