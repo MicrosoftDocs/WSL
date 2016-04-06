@@ -4,6 +4,9 @@ author: jackchammons
 
 # Installation Guide
 
+> **Important note**  
+  This is the first release of this brand new technology and it is branded “beta” deliberately – it’s not yet complete! We know there are issues and incomplete features, you should expect some things to work and for many things to fail. But we appreciate you playing with this feature and helping us identify the issues we need to fix in order to deliver a great experience.
+
 ##Prerequisites
   1. Windows 10 Anniversay Edition - Build 14316  
       Available as of 4/6/2016 through the [Insider Fast Ring](http://insider.windows.com/)
