@@ -1,12 +1,9 @@
-## Architecture
+There are three major components of WSL that allows Windows 10 to provide a bash shell. 
 
-This scenario is comprised of two main components:
+### 1. Ubuntu Binary 
+Genuine unmodified Ubuntu user-mode binaries provided by Canonical. 
 
-1.	**Ubuntu on Windows**  
-  Genuine Ubuntu user-mode binaries provided by Canonical. 
-
-2.	**Window Subsystem for Linux (WSL)**  
-  This infrastructure supports unmodified Ubuntu binaries by exposing Linux-compatible kernel interfaces.  It includes Microsoft components that are responsible for handling Linux system call requests in coordination with the Windows NT kernel.  
-  This subsystem was developed by Microsoft and contains no Linux code.
+### 2. Window Subsystem for Linux (WSL) 
+This infrastructure supports unmodified Ubuntu binaries by exposing Linux-compatible kernel interfaces.  It includes Microsoft components that are responsible for handling Linux system call requests in coordination with the Windows NT kernel. This subsystem was developed by Microsoft and contains no Linux code.
 
 ![](media/architecture.png)
