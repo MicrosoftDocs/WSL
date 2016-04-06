@@ -1,3 +1,7 @@
+---
+author: jackchammons
+---
+
 #Command Reference
 
 > **Important note**  
