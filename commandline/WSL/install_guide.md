@@ -23,25 +23,23 @@ If your build is below 14316, try checking for updates.  In the "Advanced Option
 ## Installation
 
 ### Turn on Developer Mode
-1. Open Settings
-  1. Open Update and Security
-  1. Select For developers
-  1. Select the Developer Mode radio button
-
+1. Open Settings -> Update and Security -> For developers
+2. Select the Developer Mode radio button  
   ![](media/updateAndSecurity.png)
 
 ### Enable the Windows Subsystem for Linux feature
-  1. Search for "Turn Windows features on or off"
-  1. Select **Windows Subsystem for Linux (beta)**
-  1. Click OK (This will require a reboot)
-
+1. Search for "Turn Windows features on or off"  
+1. Select **Windows Subsystem for Linux (beta)**  
   ![](media/windowsFeatures.png)
+  
+1. Click OK
+1. Reboot
 
 ### Run “bash” at a command prompt
-  1. Open a command prompt
-  1. Type bash
+1. Open a command prompt
+1. Type `bash` 
   
   ![](media/bashShellInstall.png)
   
   This will download the Ubuntu user-mode image and create a Bash on Ubuntu on Windows shortcut.  To launch, either run bash at a command line or use the shortcut.
-
+  
