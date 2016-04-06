@@ -1,13 +1,19 @@
 #Commands
-This environment uses the following command line commands.
+The commands `bash.exe` and `lxrun.exe` are used to interact with WSL.  These commands are installed into the \Windows\System32 directory and may be run within a Windows command prompt or in Powershell.
+
+* `bash.exe` is the primary interaction with WSL.  This command is used to launch the Bash shell.
+* `lxrun.exe` is used to manage the WSL.  This command can be used to install or uninstall the Ubuntu image.
 
 
-| Command                     | Action                     |
+
+| Command                     | Description                     |
 |:----------------------------|:---------------------------|
-| `bash`                      | If the Ubuntu image is installed, this command puts the user into the bash shell in the current directory. <br/> <br/> If the Ubuntu image is not installed, this command will start the install process. |
+| `bash`                      | Launches the Bash shell in the current directory.  If the Bash shell is not installed automatically runs 'lxrun /install' |
 | `bash ~`                    | Launches the bash shell into the user's Ubuntu home directory.  Similar to running cd ~            |
 | `bash -c "<command>"`       | Runs the command, prints the output and exits back to the Windows command prompt. <br/> <br/> Example:  **bash -c "ls"** |
-| `lxrun /install`            | Starts the download and install process.                      |
-| `lxrun /install /y`         | Starts the install process without prompting the user for confirmation.            |
-| `lxrun /uninstall`          | Uninstalls and deletes the Ubuntu image.  Uninstalling does not remove the user's Ubuntu home directory.  Additionally, /y may be added to skip confirmation.                  |
-| `lxrun /uninstall /full`    | Uninstalls and deletes the Ubuntu image along with the user's home directory.  Additionally, /y may be added to skip confirmation.               |
+
+| Command                     | Description                     |
+|:----------------------------|:---------------------------|
+| `lxrun`                      | The lxrun command is used to manage the WSL instance. |
+| `lxrun /install`            | Starts the download and install process. <br/> /y may be added to automatically accept the confirmation prompt.                       |
+| `lxrun /uninstall`                | Uninstalls and deletes the Ubuntu image.  By default this does not remove the user's Ubuntu home directory. <br/> /y may be added to automatically accept the confirmation prompt <br/>/full deletes the user home directory               |
