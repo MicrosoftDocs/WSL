@@ -12,6 +12,8 @@ The commands `bash.exe` and `lxrun.exe` are used to interact with WSL.  These co
 | `bash ~`                    | Launches the bash shell into the user's Ubuntu home directory.  Similar to running cd ~            |
 | `bash -c "<command>"`       | Runs the command, prints the output and exits back to the Windows command prompt. <br/> <br/> Example:  **bash -c "ls"** |
 
+<p>
+
 | Command                     | Description                     |
 |:----------------------------|:---------------------------|
 | `lxrun`                      | The lxrun command is used to manage the WSL instance. |
