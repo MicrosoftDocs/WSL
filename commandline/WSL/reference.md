@@ -8,7 +8,7 @@ The commands `bash.exe` and `lxrun.exe` are used to interact with WSL.  These co
 
 | Command                     | Description                     |
 |:----------------------------|:---------------------------|
-| `bash`                      | Launches the Bash shell in the current directory.  If the Bash shell is not installed automatically runs 'lxrun /install' |
+| `bash`                      | Launches the Bash shell in the current directory.  If the Bash shell is not installed automatically runs `lxrun /install` |
 | `bash ~`                    | Launches the bash shell into the user's Ubuntu home directory.  Similar to running cd ~            |
 | `bash -c "<command>"`       | Runs the command, prints the output and exits back to the Windows command prompt. <br/> <br/> Example:  **bash -c "ls"** |
 
