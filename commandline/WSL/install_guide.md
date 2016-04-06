@@ -2,7 +2,7 @@
 
 ##Prerequisites
   1. Windows 10 Anniversay Edition - Build 14316 <br/>
-      Available as of 4/6/2016 through the [Insider Fast Ring](https://insider.windows.com/)
+      Available as of 4/6/2016 through the [Insider Fast Ring](http://insider.windows.com/)
   2. Be running a x64 architecture
 
 
