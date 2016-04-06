@@ -68,6 +68,24 @@ WSL is NOT a server technology and so will not be available on Server SKU’s.  
 ### What processors do we support?
 We only support x64 CPU’s.
 
+###How do I access my C drive?
+Mount points for hard drives on the local machine are automatically created and provide easy access to the Windows filesystem. 
+ 
+**/mnt/\<drive letter>/**
+ 
+Example usage would be `cd /mnt/c` to access c:\
+
+###Is there any distinction between files in the Linux drive and the mounted Windows drives?
+1. Files under the Linux root (i.e. “/”) are controlled by the subsystem.  This allows for Linux specific behavior including but is not limited to:
+  * Files which contain invalid Windows filename characters
+  * Symlinks created for non-admin users
+  * Changing file attributes through chmod and chown
+  * Support case sensitivity
+2. Files in mounted drives are controlled by Windows and have the following behaviors:
+  * Do not support case sensitivity
+  * Do not support the creation of symlinks
+  * All permissions are set to 777 (full permissions of the user who launched the bash session)
+3. It is not possible to create a symlink between the two filesystems
 
 ### Where can I provide feedback?
 You can share feedback and ask questions through multiple channels:
