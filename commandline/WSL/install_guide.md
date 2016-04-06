@@ -45,7 +45,7 @@ Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-L
 
 ### Run “bash” at a command prompt
 1. Open a command prompt
-1. Type `bash` 
+1. Run `bash` 
   
   ![](media/bashShellInstall.png)
   
