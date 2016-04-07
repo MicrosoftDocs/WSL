@@ -1,4 +1,8 @@
-# BASH Running in Ubuntu on Windows
+---
+author: jackchammons
+---
+
+# Bash on Ubuntu on Windows
 
 > **Important note**  
   This is the first release of this brand new technology and it is branded “beta” deliberately – it’s not yet complete! We know there are issues and incomplete features, you should expect some things to work and for many things to fail. But we appreciate you playing with this feature and helping us identify the issues we need to fix in order to deliver a great experience.
@@ -16,11 +20,6 @@ This is provided as beta software.  While many of the coreutil commands provided
 
 This video from Build 2016 gives you more information and a demo of Ubuntu on Windows:  
 <iframe src="https://channel9.msdn.com/Events/Build/2016/P488/player" width="800" height="450"  allowFullScreen="true" frameBorder="0" scrolling="no"></iframe>
-
-Feedback and questions should be directed to:
-* Our [GitHub issue tracker](https://github.com/Microsoft/CommandLine-Documentation/issues)
-* Our [command-line UserVoice portal](https://wpdev.uservoice.com/forums/266908-command-prompt/filters/top)
-* Our [command-line team blog](https://blogs.msdn.microsoft.com/commandline/)
 
 ## Announcements
 
