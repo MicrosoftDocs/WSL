@@ -94,7 +94,7 @@ Example usage would be `cd /mnt/c` to access c:\
 ### Where can I provide feedback?
 You can share feedback and ask questions through multiple channels:
 Feedback and questions should be directed to:
-* Our [GitHub issue tracker](https://github.com/Microsoft/CommandLine-Documentation/issues)
+* Our [GitHub issue tracker](https://github.com/Microsoft/BashOnWindows/issues)
 * Our [command-line UserVoice portal](https://wpdev.uservoice.com/forums/266908-command-prompt/filters/top)
 * Our [command-line team blog](https://blogs.msdn.microsoft.com/commandline/)
 * Via Twitter. Please follow [@richturn_ms](https://twitter.com/richturn_MS) on twitter to learn of news, updates, etc.
