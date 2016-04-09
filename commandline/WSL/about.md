@@ -36,6 +36,6 @@ This video from Build 2016 gives you more information and a demo of Ubuntu on Wi
 
 
 ## Feedback
-* [GitHub issue tracker](https://github.com/Microsoft/CommandLine-Documentation/issues)
+* [GitHub issue tracker](https://github.com/Microsoft/BashOnWindows/issues)
 * [command-line UserVoice portal](https://wpdev.uservoice.com/forums/266908-command-prompt/filters/top)
 * [command-line team blog](https://blogs.msdn.microsoft.com/commandline/)
