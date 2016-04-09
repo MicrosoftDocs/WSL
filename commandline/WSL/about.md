@@ -37,5 +37,5 @@ This video from Build 2016 gives you more information and a demo of Ubuntu on Wi
 
 ## Feedback
 * [GitHub issue tracker](https://github.com/Microsoft/BashOnWindows/issues)
-* [command-line UserVoice portal](https://wpdev.uservoice.com/forums/266908-command-prompt/filters/top)
+* [command-line UserVoice portal](https://wpdev.uservoice.com/forums/266908-command-prompt-console-bash-on-ubuntu-on-windo/category/161892-bash)
 * [command-line team blog](https://blogs.msdn.microsoft.com/commandline/)
