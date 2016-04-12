@@ -94,6 +94,19 @@ Example usage would be `cd /mnt/c` to access c:\
 ###Why are there so many errors when I run "apt-get upgrade"?
 Some packages use features that we haven't yet implemented. We're constantly working on expanding our support but for now you may see some uggliness in apt-get's output. 
 
+###How do I fully uninstall WSL?
+In Command Prompt:
+
+1. `lxrun /uninstall /full` 
+2. `sc stop lxssmanager`
+3. `rmdir /S \%LOCALAPPDATA%\lxss`
+
+###Why can't I access the internet inside of my bash prompt?
+We are currently experiencing issues with IPv6 connectivity. Stay tuned for updates.
+
+###Why isn't ICMP working?
+This is a known issues that will effect several networking commands such as "ping". Stay tuned for updates.
+
 ### Where can I provide feedback?
 You can share feedback and ask questions through multiple channels:
 Feedback and questions should be directed to:
