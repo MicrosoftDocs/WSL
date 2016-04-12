@@ -91,6 +91,9 @@ Example usage would be `cd /mnt/c` to access c:\
   * All permissions are set to 777 (full permissions of the user who launched the bash session)
 3. It is not possible to create a symlink between the two filesystems
 
+###Why are there so many errors when I run "apt-get upgrade"?
+Some packages use features that we haven't yet implemented. We're constantly working on expanding our support but for now you may see some uggliness in apt-get's output. 
+
 ### Where can I provide feedback?
 You can share feedback and ask questions through multiple channels:
 Feedback and questions should be directed to:
