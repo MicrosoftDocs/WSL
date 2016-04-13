@@ -92,7 +92,15 @@ Example usage would be `cd /mnt/c` to access c:\
 3. It is not possible to create a symlink between the two filesystems
 
 ###Why are there so many errors when I run "apt-get upgrade"?
-Some packages use features that we haven't yet implemented. We're constantly working on expanding our support but for now you may see some uggliness in apt-get's output. 
+Some packages use features that we haven't yet implemented. One of those packages is "udev" and is currently causing several errors during "apt-get upgrade". To fix this use the following steps:
+
+1. Write the following to /usr/sbin/policy-rc.d
+  * #!/bin/sh
+  * exit 101
+2. Make /usr/sbin/policy-rc.d executable
+  * dpkg-divert --local --rename --add /sbin/initctl
+  * ln -s /bin/true /sbin/initctl
+
 
 ###How do I fully uninstall WSL?
 In Command Prompt:
