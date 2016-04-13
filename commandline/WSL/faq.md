@@ -95,7 +95,7 @@ Example usage would be `cd /mnt/c` to access c:\
 Some packages use features that we haven't yet implemented. One of those packages is "udev" and is currently causing several errors during "apt-get upgrade". To fix this use the following steps:
 
 1. Write the following to /usr/sbin/policy-rc.d
-  * #!/bin/sh
+  * \#!/bin/sh
   * exit 101
 2. Make /usr/sbin/policy-rc.d executable
   * dpkg-divert --local --rename --add /sbin/initctl
