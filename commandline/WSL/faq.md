@@ -97,9 +97,9 @@ Some packages use features that we haven't yet implemented. One of those package
 1. Write the following to /usr/sbin/policy-rc.d
   * \#!/bin/sh
   * exit 101
-2. Make /usr/sbin/policy-rc.d executable
-  * dpkg-divert --local --rename --add /sbin/initctl
-  * ln -s /bin/true /sbin/initctl
+2. `chmod +x /usr/sbin/policy-rc.d`
+3. `dpkg-divert --local --rename --add /sbin/initctl`
+4. `ln -s /bin/true /sbin/initctl`
 
 
 ###How do I fully uninstall WSL?
