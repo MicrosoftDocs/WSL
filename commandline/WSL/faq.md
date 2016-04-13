@@ -91,31 +91,56 @@ Example usage would be `cd /mnt/c` to access c:\
   * All permissions are set to 777 (full permissions of the user who launched the bash session)
 3. It is not possible to create a symlink between the two filesystems
 
-###Why are there so many errors when I run "apt-get upgrade"?
-Some packages use features that we haven't yet implemented. One of those packages is "udev" and is currently causing several errors during "apt-get upgrade". To fix this use the following steps:
+### Why are there so many errors when I run apt-get upgrade?
+Some packages use features that we haven't implemented yet. `udev`, for example, isn't supported yet and causes several `apt-get upgrade` errors.
 
-1. Write the following to /usr/sbin/policy-rc.d
-  * \#!/bin/sh
-  * exit 101
-2. `chmod +x /usr/sbin/policy-rc.d`
-3. `dpkg-divert --local --rename --add /sbin/initctl`
-4. `ln -s /bin/true /sbin/initctl`
+To fix issues related to `udev`, follow the following steps:
+
+1. Write the following to `/usr/sbin/policy-rc.d` and save your changes.
+  
+  ``` BASH
+  \#!/bin/sh
+  exit 101
+  ```
+  
+2. Add execute permissions to `/usr/sbin/policy-rc.d`
+  ``` BASH
+  chmod +x /usr/sbin/policy-rc.d
+  ```
+  
+2. Run the following commands
+  ``` BASH
+  dpkg-divert --local --rename --add /sbin/initctl
+  ln -s /bin/true /sbin/initctl
+  ```
 
 
-###How do I fully uninstall WSL?
+### How do I fully uninstall WSL?
 In Command Prompt:
 
-1. `lxrun /uninstall /full` 
-2. `sc stop lxssmanager`
-3. `rmdir /S \%LOCALAPPDATA%\lxss`
+1. Uninstall WSL
+  ``` CMD
+  lxrun /uninstall /full
+  ```
+  
+2. Stop the WSL service
+  ``` CMD 
+  sc stop lxssmanager
+  ```
+  
+3. Remove the WSL app data
+  ``` CMD
+ rmdir /S \%LOCALAPPDATA%\lxss
+ ```
 
-###Why can't I access the internet inside of my bash prompt?
+### Why can't I access the internet inside of my BASH prompt?
 We are currently experiencing issues with IPv6 connectivity. Stay tuned for updates.
 
-###Why isn't ICMP working?
-This is a known issues that will effect several networking commands such as "ping". Stay tuned for updates.
+### Why isn't ICMP working?
+This is a known issues that will effect several networking commands such as `ping`. Stay tuned for updates.
 
 ### Where can I provide feedback?
+
 You can share feedback and ask questions through multiple channels:
 Feedback and questions should be directed to:
 * Our [GitHub issue tracker](https://github.com/Microsoft/BashOnWindows/issues)
