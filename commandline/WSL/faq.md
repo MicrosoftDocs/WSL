@@ -99,7 +99,7 @@ To fix issues related to `udev`, follow the following steps:
 1. Write the following to `/usr/sbin/policy-rc.d` and save your changes.
   
   ``` BASH
-  \#!/bin/sh
+  #!/bin/sh
   exit 101
   ```
   
