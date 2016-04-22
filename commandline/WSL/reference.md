@@ -24,6 +24,7 @@ The commands `bash.exe` and `lxrun.exe` are used to interact with the [Windows S
 
 | Command                     | Description                     |
 |:----------------------------|:---------------------------|
-| `lxrun`                      | The lxrun command is used to manage the WSL instance. |
-| `lxrun /install`            | Starts the download and install process. <br/> **/y** may be added to automatically accept the confirmation prompt.                       |
-| `lxrun /uninstall`                | Uninstalls and deletes the Ubuntu image.  By default this does not remove the user's Ubuntu home directory. <br/> **/y** may be added to automatically accept the confirmation prompt <br/>**/full** uninstalls and deletes the user's Ubuntu home directory               |
+| `lxrun`                     | The lxrun command is used to manage the WSL instance. |
+| `lxrun /install`            | Starts the download and install process. <br/> **/y** may be added to automatically accept the confirmation prompt.          |
+| `lxrun /uninstall`          | Uninstalls and deletes the Ubuntu image.  By default this does not remove the user's Ubuntu home directory. <br/> **/y** may be added to automatically accept the confirmation prompt <br/>**/full** uninstalls and deletes the user's Ubuntu home directory         |
+| 'lxrun /setdefaultuser \<userName\>'     | Sets the default Bash on Ubuntu user. Will prompt for a password if the specified user does not exist.  For more information visit: http://aka.ms/wslusers. <br/> **/y** Bypasses promping for the password.  The user will be created without a password.|
