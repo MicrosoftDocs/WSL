@@ -12,7 +12,6 @@ author: jackchammons
 
 ### Fixed
 * Symlink improvements for non /mnt/<drive> files
-    * tar now works with symbolic links
     * npm install now works
     * jdk / jre now installable using instructions found [here](http://xubuntugeek.blogspot.com/2012/09/how-to-install-oracle-jdk-7-manually-in.html).
     * known issue: symlinks do not work for Windows mounts.  Functionality will be available in a later build
