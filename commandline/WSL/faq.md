@@ -130,7 +130,7 @@ In Command Prompt:
   
 3. Remove the WSL app data
   ``` CMD
- rmdir /S \%LOCALAPPDATA%\lxss
+ rmdir /S %LOCALAPPDATA%\lxss
  ```
 
 ### Why can't I access the internet inside of my BASH prompt?
