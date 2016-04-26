@@ -4,6 +4,28 @@ author: jackchammons
 
 # Release Notes
 
+##Build 14332
+
+For general Windows information on build 14332, visit: http://aka.ms/wip14332
+
+###Fixed
+- Better resolv.conf generation including prioritizing DNS entries
+- Issue with moving files and directories between /mnt and non-/mnt drives 
+- Tar files can now be created with symlinks
+- Added default /run/lock directory on instance creation
+- Update /dev/null to return proper stat info
+- Additional errors when downloading during first run
+- Syscall improvements and bugfixes. Supported syscall list below.
+- Additional improvements bugfixes and improvements
+
+###Syscall Support
+Below is the new syscall that has some implementation in WSL. The syscall on this list is supported in at least one scenario, but may not have all parameters supported at this time.
+
+`READLINKAT`<br/>
+
+<br/>
+<br/>
+
 ## Build 14328
 ### New
 * Now support Linux users.  Installing Bash on Ubuntu on Windows will prompt for creation of a Linux user.  For more information, visit http://aka.ms/wslusers
