@@ -50,7 +50,7 @@ While working with OSS projects, there are numerous scenarios where it’s immen
 
 Read more on the PowerShell team blog -- [Bash for Windows: Why it’s awesome and what it means for PowerShell](https://blogs.msdn.microsoft.com/powershell/2016/04/01/bash-for-windows-why-its-awesome-and-what-it-means-for-powershell/)
 
-### Can run ALL Linux apps in WSL?
+### Can I run ALL Linux apps in WSL?
 No! WSL is a tool aimed at enabling users who need them to run Bash and core Linux command-line tools on Windows.  
 
 WSL does **not** aim to support GUI desktops or applications (e.g. Gnome, KDE, etc.)  
@@ -72,14 +72,14 @@ WSL is NOT a server technology and so will not be available on Server SKU’s.  
 ### What processors do we support?
 We only support x64 CPU’s.
 
-###How do I access my C drive?
+### How do I access my C drive?
 Mount points for hard drives on the local machine are automatically created and provide easy access to the Windows filesystem. 
  
 **/mnt/\<drive letter>/**
  
 Example usage would be `cd /mnt/c` to access c:\
 
-###Is there any distinction between files in the Linux drive and the mounted Windows drives?
+### Is there any distinction between files in the Linux drive and the mounted Windows drives?
 1. Files under the Linux root (i.e. “/”) are controlled by the subsystem.  This allows for Linux specific behavior including but is not limited to:
   * Files which contain invalid Windows filename characters
   * Symlinks created for non-admin users
