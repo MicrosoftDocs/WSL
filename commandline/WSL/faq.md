@@ -139,6 +139,14 @@ We are currently experiencing issues with IPv6 connectivity. Stay tuned for upda
 ### Why isn't ICMP working?
 This is a known issues that will effect several networking commands such as `ping`. Stay tuned for updates.
 
+### Why do I get "Error: 0x80040306" when I try to install?
+This has to do with the fact that we do not support legacy console. <br/>
+To turn off legacy console:
+
+1. Open cmd.exe
+1. Right click title bar -> Properties -> Uncheck Use legacy console
+1. Click OK
+
 ### Where can I provide feedback?
 
 You can share feedback and ask questions through multiple channels:
