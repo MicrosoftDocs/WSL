@@ -71,7 +71,7 @@ While working with OSS projects, there are numerous scenarios where it’s immen
 
 Read more on the PowerShell team blog -- [Bash for Windows: Why it’s awesome and what it means for PowerShell](https://blogs.msdn.microsoft.com/powershell/2016/04/01/bash-for-windows-why-its-awesome-and-what-it-means-for-powershell/)
 
-### Can run ALL Linux apps in WSL?
+### Can I run ALL Linux apps in WSL?
 No! WSL is a tool aimed at enabling users who need them to run Bash and core Linux command-line tools on Windows.  
 
 WSL does **not** aim to support GUI desktops or applications (e.g. Gnome, KDE, etc.)  
@@ -93,7 +93,7 @@ WSL is NOT a server technology and so will not be available on Server SKU’s.  
 ### What processors do we support?
 We only support x64 CPU’s.
 
-###How do I access my C drive?
+### How do I access my C drive?
 Mount points for hard drives on the local machine are automatically created and provide easy access to the Windows filesystem. 
  
 **/mnt/\<drive letter>/**
@@ -110,7 +110,65 @@ Example usage would be `cd /mnt/c` to access c:\
   * Do not support case sensitivity
   * All permissions are set to best reflect the Windows permissions
 
+### Why are there so many errors when I run apt-get upgrade?
+Some packages use features that we haven't implemented yet. `udev`, for example, isn't supported yet and causes several `apt-get upgrade` errors.
+
+To fix issues related to `udev`, follow the following steps:
+
+1. Write the following to `/usr/sbin/policy-rc.d` and save your changes.
+  
+  ``` BASH
+  #!/bin/sh
+  exit 101
+  ```
+  
+2. Add execute permissions to `/usr/sbin/policy-rc.d`
+  ``` BASH
+  chmod +x /usr/sbin/policy-rc.d
+  ```
+  
+2. Run the following commands
+  ``` BASH
+  dpkg-divert --local --rename --add /sbin/initctl
+  ln -s /bin/true /sbin/initctl
+  ```
+
+
+### How do I fully uninstall WSL?
+In Command Prompt:
+
+1. Uninstall WSL
+  ``` CMD
+  lxrun /uninstall /full
+  ```
+  
+2. Stop the WSL service
+  ``` CMD 
+  sc stop lxssmanager
+  ```
+  
+3. Remove the WSL app data
+  ``` CMD
+ rmdir /S %LOCALAPPDATA%\lxss
+ ```
+
+### Why can't I access the internet inside of my BASH prompt?
+We are currently experiencing issues with IPv6 connectivity. Stay tuned for updates.
+
+### Why isn't ICMP working?
+This is a known issues that will effect several networking commands such as `ping`. Stay tuned for updates.
+
+### Why do I get "Error: 0x80040306" when I try to install?
+This has to do with the fact that we do not support legacy console. <br/>
+To turn off legacy console:
+
+1. Open cmd.exe
+1. Right click title bar -> Properties -> Uncheck Use legacy console
+1. Click OK
+>>>>>>> live
+
 ### Where can I provide feedback?
+
 You can share feedback and ask questions through multiple channels:
 Feedback and questions should be directed to:
 * Our [GitHub issue tracker](https://github.com/Microsoft/BashOnWindows/issues)

@@ -1,4 +1,6 @@
 # [About Bash on Ubuntu on Windows](./about.md)
 # [Installation Guide](./install_guide.md)
 # [Command Reference](./reference.md)
+# [User Support](./user_support.md)
 # [Frequently Asked Questions](./faq.md)
+# [Release Notes](./release_notes.md)
