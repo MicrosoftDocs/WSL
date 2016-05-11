@@ -4,6 +4,55 @@ author: jackchammons
 
 # Release Notes
 
+##Build 14342
+For general Windows information on build 14342, visit: http://aka.ms/wip14342.
+
+Information on VolFs and DriveFs can be found on the WSL Blog: https://blogs.msdn.microsoft.com/wsl
+
+###Fixed
+- Fixed install issue when the Windows user had Unicode characters in the username
+- The apt-get update udev workaround in the FAQ is now provided by default on first run
+- Enabled symlinks in DriveFs (/mnt/<drive>) directories
+- Symlinks now work between DriveFs and VolFs
+- Addressed top level path parsing issue: ls .// will now work as expected
+- npm install on DriveFs and the -g options are now working
+- Fixed issue preventing PHP server from launching
+- Updated default environment values, such as $PATH to closer match native Ubuntu
+- Added a weekly maintenance task in Windows to update the apt package cache
+- Fixed issue with ELF header validation, WSL now supports all Melkor options
+- Zsh shell is functional
+- Precompiled Go binaries are now supported
+- Prompting on Bash.exe first run is now localized correctly
+- /proc/meminfo now returns correct information
+- Sockets now supported in VFS
+- /dev now mounted as tempfs
+- Fifo now supported
+- Multi-core systems now showing correctly in /proc/cpuinfo
+- Additional improvements and error messages downloading during first run
+- Syscall improvements and bugfixes. Supported syscall list below.
+- Additional bugfixes and improvements
+
+###Known Issues
+- Not resolving ‘..’ correctly on DriveFs in some cases
+
+###Syscall Support
+Below are a list of new or enhanced syscalls that have some implementation in WSL. The syscalls on this list are supported in at least one scenario, but may not have all parameters supported at this time.
+
+
+`FCHOWNAT`<br/>
+`GETEUID`<br/>
+`GETGID`<br/>
+`GETRESUID`<br/>
+`GETXATTR`<br/>
+`PTRACE`<br/>
+`SETGID`<br/>
+`SETGROUPS`<br/>
+`SETHOSTNAME`<br/>
+`SETXATTR`<br/>
+
+<br/>
+<br/>
+
 ##Build 14332
 
 For general Windows information on build 14332, visit: http://aka.ms/wip14332
