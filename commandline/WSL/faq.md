@@ -165,7 +165,6 @@ To turn off legacy console:
 1. Open cmd.exe
 1. Right click title bar -> Properties -> Uncheck Use legacy console
 1. Click OK
->>>>>>> live
 
 ### Where can I provide feedback?
 
