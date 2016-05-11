@@ -32,6 +32,27 @@ You can also access your local machine’s filesystem from within the Linux Bash
 
 ![](media/ls.png)
 
+### What is your high priority feature set for the Windows 10 Anniversary Edition?
+
+The goal is to focus on core utilities and functionality.  For the Anniversary Edition we are prioritizing:
+
+1. A Bash environment for developers to run standard GNU command line tools such as grep, sed, awk
+2. Provide access to the local hard drives through /mnt
+3. Symlink support within the WSL environment
+4. Linux user support
+5. Provide the ability to run apt / apt-get for updates and package testing
+6. Provide basic functionality for some languages:
+  * NodeJS / npm
+  * Python
+  * Perl
+  * Git
+7. Command line editors / tools
+  * vi
+  * emacs
+  * ssh
+
+Additional languges and features may work in the Anniversary Edition but bugs in those areas will be a lower priority than the list above.
+
 ### How does this work?
 See the [reference page](about.md) for more details about the underlying technology.
 
@@ -87,9 +108,7 @@ Example usage would be `cd /mnt/c` to access c:\
   * Support case sensitivity
 2. Files in mounted drives are controlled by Windows and have the following behaviors:
   * Do not support case sensitivity
-  * Do not support the creation of symlinks
-  * All permissions are set to 777 (full permissions of the user who launched the bash session)
-3. It is not possible to create a symlink between the two filesystems
+  * All permissions are set to best reflect the Windows permissions
 
 ### Where can I provide feedback?
 You can share feedback and ask questions through multiple channels:
