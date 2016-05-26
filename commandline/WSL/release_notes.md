@@ -4,6 +4,35 @@ author: jackchammons
 
 # Release Notes
 
+##Build 14352
+For general Windows information on build 14347, visit: http://aka.ms/wip14352.<br/>
+Github issues tracked: https://github.com/Microsoft/BashOnWindows/issues
+
+###Fixed
+- Fixed issue where large files were not downloaded / created correctly.  This should unblock npm and other scenarios (GH #3, GH #313)
+- Removed some instances where sockets hang
+- Corrected some ptrace errors
+- Fixed issue with WSL allowing filenames longer than 255 characters
+- Improved support for non-English characters
+- Add current Windows timezone data and set as default
+- Unique device id’s for each mount point (jre fix – GH #49)
+- Correct issue with paths containing “.” and “..”
+- Added Fifo support (GH #71)
+- Updated format of resolv.conf to match native Ubuntu format
+- Some procfs cleanup
+- Enabled ping for Administrator consoles (GH #18)
+ 
+###Syscall Support
+Below are a list of new or enhanced syscalls that have some implementation in WSL. The syscalls on this list are supported in at least one scenario, but may not have all parameters supported at this time.
+
+`FALLOCATE`<br/>
+`EXECVE`<br/>
+`LGETXATTR`<br/>
+`FGETXATTR`<br/>
+
+<br/>
+<br/>
+
 ##Build 14342
 For general Windows information on build 14342, visit: http://aka.ms/wip14342.
 
