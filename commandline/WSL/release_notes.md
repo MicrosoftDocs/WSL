@@ -5,7 +5,7 @@ author: jackchammons
 # Release Notes
 
 ##Build 14352
-For general Windows information on build 14347, visit: http://aka.ms/wip14352.<br/>
+For general Windows information on build 14352, visit: http://aka.ms/wip14352.<br/>
 Github issues tracked: https://github.com/Microsoft/BashOnWindows/issues
 
 ###Fixed
