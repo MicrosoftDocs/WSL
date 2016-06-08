@@ -32,14 +32,15 @@ Github issues tracked: https://github.com/Microsoft/BashOnWindows/issues
 - lxrun /uninstall does a better job of deleting the files and folders
 - Corrected ps -f (GH #246)
 - Improved support for x11 apps such as xEmacs (GH #481)
-- Updated initial thread stack size to match default Ubuntu setting and reporting the size correctly to the get_rlimit syscall (GH #172, #258
+- Updated initial thread stack size to match default Ubuntu setting and reporting the size correctly to the get_rlimit syscall (GH #172, #258)
 - Improved reporting of pico process image names (e.g., for auditing)
 - Implemented /proc/mountinfo for df command
 - Fixed symlink error code for child name . and ..
 - Additional improvements bugfixes and improvements
 
 ###Syscall Support
-Below are a list of new or enhanced syscalls that have some implementation in WSL. The syscalls on this list are supported in at least one scenario, but may not have all parameters supported at this time.
+Below are a list of new or enhanced syscalls that have some implementation in WSL. The syscalls on this list are supported in at least one scenario, but may not have all parameters supported at this time.<br/>
+
 `GETTIMER`<br/>
 `MKNODAT`<br/>
 `RENAMEAT`<br/>
