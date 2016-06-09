@@ -82,6 +82,20 @@ Also, even though you will be able to run many popular server applications (e.g.
 This is the first release of a brand new technology. There will be gaps. We know some of them, and we’re certain you will find many more.
 Again, this is a beta release – expect things to fail. Some tools will crash and/or not run. But please be sure to let us know when you run into issues – we’re working hard to fix problems and dramatically improve WSL over time.
 
+### How do I update Bash on Ubuntu on Windows?
+
+There are two components of Bash on Ubuntu on Windows that can require updating. 
+
+1. The Windows Subsystem for Linux
+  
+  Upgrading this portion of Bash on Ubuntu on Windows will enable any new fixes outlines in the [release notes](https://msdn.microsoft.com/en-us/commandline/wsl/release_notes). Ensure that you are subscribed to the Windows Insider Program and that your build is up to date. For finer grain control including resetting your ubuntu instance check out the [command reference page](https://msdn.microsoft.com/en-us/commandline/wsl/reference).
+
+2. The Ubuntu user binaries 
+
+  Upgrading this portion of Bash on Ubuntu on Windows will install any updates to the Ubuntu user binaries including applications that you have installed via apt-get. To update run the following commands in bash:
+  
+  1. `apt-get update`
+  2. `apt-get upgrade`
 
 ### Can I run other Linux distro’s than Ubuntu?
 Not at this time: We’re currently focused on delivering a great Ubuntu experience. We are keen to explore supporting other Linux distro’s in the future.
@@ -152,11 +166,8 @@ In Command Prompt:
  rmdir /S %LOCALAPPDATA%\lxss
  ```
 
-### Why can't I access the internet inside of my BASH prompt?
-We are currently experiencing issues with IPv6 connectivity. Stay tuned for updates.
-
-### Why isn't ICMP working?
-This is a known issues that will effect several networking commands such as `ping`. Stay tuned for updates.
+### Why does the ping command require bash to be started with admin privileges?
+This is a known issue that has to due with differences between the way the Linux and the Windows kernel handle the ICMP request that makes ping possible. We plan to address this in future releases.
 
 ### Why do I get "Error: 0x80040306" when I try to install?
 This has to do with the fact that we do not support legacy console. <br/>
