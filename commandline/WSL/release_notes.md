@@ -4,6 +4,22 @@ author: jackchammons
 
 # Release Notes
 
+##Build 14366
+For general Windows information on build 14366 visit the [Windows Blog] (https://blogs.windows.com/windowsexperience/2016/06/14/announcing-windows-10-insider-preview-build-14366-mobile-build-14364/). <br/>
+Github issues tracked: https://github.com/Microsoft/BashOnWindows/issues <br/>
+###Fixed
+- Fix in file creation through symlinks
+-	Added listxattr for Python (GH 385)
+-	Additional bugfixes and improvements
+
+###Syscall Support
+-	Below are a list of new or enhanced syscalls that have some implementation in WSL. The syscalls on this list are supported in at least one scenario, but may not have all parameters supported at this time.
+
+`listxattr`<br/>
+
+<br/>
+<br/>
+
 ##Build 14361
 For general Windows information on build 14361, visit: http://aka.ms/wip14361.
 Github issues tracked: https://github.com/Microsoft/BashOnWindows/issues
