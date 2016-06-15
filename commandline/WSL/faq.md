@@ -54,7 +54,7 @@ The goal is to focus on core utilities and functionality.  For the Anniversary E
 Additional languges and features may work in the Anniversary Edition but bugs in those areas will be a lower priority than the list above.
 
 ### How does this work?
-See the [reference page](about.md) for more details about the underlying technology.
+Check out our [blog](https://blogs.msdn.microsoft.com/wsl/) where we go into detail about the underlying technology.
 
 ### Why would I use WSL rather than Linux in a VM?
 WSL requires fewer resources (CPU, memory and storage) than a full virtualized machine. WSL also allows you to run Linux command-line tools and apps alongside your Windows command-line, desktop and store apps, and to access your Windows files from within Linux. This enables you to use Windows apps and Linux command-line tools on the same set of files if you wish.
