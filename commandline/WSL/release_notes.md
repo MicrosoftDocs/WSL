@@ -6,7 +6,7 @@ author: jackchammons
 
 ##Build 14366
 For general Windows information on build 14366 visit the [Windows Blog] (https://blogs.windows.com/windowsexperience/2016/06/14/announcing-windows-10-insider-preview-build-14366-mobile-build-14364/). <br/>
-Github issues tracked: https://github.com/Microsoft/BashOnWindows/issues <br/>
+To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
 ###Fixed
 - Fix in file creation through symlinks
 -	Added listxattr for Python (GH 385)
@@ -16,13 +16,11 @@ Github issues tracked: https://github.com/Microsoft/BashOnWindows/issues <br/>
 -	Below are a list of new or enhanced syscalls that have some implementation in WSL. The syscalls on this list are supported in at least one scenario, but may not have all parameters supported at this time.
 
 `listxattr`<br/>
-
-<br/>
 <br/>
 
 ##Build 14361
-For general Windows information on build 14361, visit: http://aka.ms/wip14361.
-Github issues tracked: https://github.com/Microsoft/BashOnWindows/issues
+For general Windows information on build 14361 visit the [Windows Blog](http://aka.ms/wip14361). <br/>
+To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
 ###Fixed
 - DrvFs is now case sensitive when running in Bash on Ubuntu on Windows.
   - Users may case.txt and CASE.TXT on their /mnt/c drives
@@ -55,7 +53,7 @@ Github issues tracked: https://github.com/Microsoft/BashOnWindows/issues
 - Additional improvements bugfixes and improvements
 
 ###Syscall Support
-Below are a list of new or enhanced syscalls that have some implementation in WSL. The syscalls on this list are supported in at least one scenario, but may not have all parameters supported at this time.<br/>
+Below are a list of new or enhanced syscalls that have some implementation in WSL. The syscalls on this list are supported in at least one scenario, but may not have all parameters supported at this time.
 
 `GETTIMER`<br/>
 `MKNODAT`<br/>
@@ -63,14 +61,11 @@ Below are a list of new or enhanced syscalls that have some implementation in WS
 `SENDFILE`<br/>
 `SENDFILE64`<br/>
 `SYNC_FILE_RANGE`<br/>
-
 <br/>
-<br/>
-
 
 ##Build 14352
-For general Windows information on build 14352, visit: http://aka.ms/wip14352.<br/>
-Github issues tracked: https://github.com/Microsoft/BashOnWindows/issues
+For general Windows information on build 14352 visit the [Windows Blog](http://aka.ms/wip14352).<br/>
+To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
 
 ###Fixed
 - Fixed issue where large files were not downloaded / created correctly.  This should unblock npm and other scenarios (GH #3, GH #313)
@@ -93,14 +88,12 @@ Below are a list of new or enhanced syscalls that have some implementation in WS
 `EXECVE`<br/>
 `LGETXATTR`<br/>
 `FGETXATTR`<br/>
-
-<br/>
 <br/>
 
 ##Build 14342
-For general Windows information on build 14342, visit: http://aka.ms/wip14342.
-
-Information on VolFs and DriveFs can be found on the WSL Blog: https://blogs.msdn.microsoft.com/wsl
+For general Windows information on build 14342 the [Windows Blog](http://aka.ms/wip14342). <br/>
+To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+Information on VolFs and DriveFs can be found on the [WSL Blog](https://blogs.msdn.microsoft.com/wsl). <br/>
 
 ###Fixed
 - Fixed install issue when the Windows user had Unicode characters in the username
@@ -131,7 +124,6 @@ Information on VolFs and DriveFs can be found on the WSL Blog: https://blogs.msd
 ###Syscall Support
 Below are a list of new or enhanced syscalls that have some implementation in WSL. The syscalls on this list are supported in at least one scenario, but may not have all parameters supported at this time.
 
-
 `FCHOWNAT`<br/>
 `GETEUID`<br/>
 `GETGID`<br/>
@@ -142,13 +134,12 @@ Below are a list of new or enhanced syscalls that have some implementation in WS
 `SETGROUPS`<br/>
 `SETHOSTNAME`<br/>
 `SETXATTR`<br/>
-
-<br/>
 <br/>
 
 ##Build 14332
 
-For general Windows information on build 14332, visit: http://aka.ms/wip14332
+For general Windows information on build 14332 visit the [Windows Blog](http://aka.ms/wip14332). <br/>
+To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
 
 ###Fixed
 - Better resolv.conf generation including prioritizing DNS entries
@@ -164,12 +155,14 @@ For general Windows information on build 14332, visit: http://aka.ms/wip14332
 Below is the new syscall that has some implementation in WSL. The syscall on this list is supported in at least one scenario, but may not have all parameters supported at this time.
 
 `READLINKAT`<br/>
-
-<br/>
 <br/>
 
 ## Build 14328
-### New
+
+For general Windows information on build 14332 visit the [Windows Blog](http://aka.ms/wip14328). <br/>
+To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+
+### New Features
 * Now support Linux users.  Installing Bash on Ubuntu on Windows will prompt for creation of a Linux user.  For more information, visit http://aka.ms/wslusers
 * Hostname is now set to the Windows computer name, no more @localhost
 * For more information on build 14328, visit: http://aka.ms/wip14328
@@ -186,7 +179,6 @@ Below is the new syscall that has some implementation in WSL. The syscall on thi
 
 ### Syscall Support
 Below is a list of syscalls that have some implementation in WSL.  Syscalls on this list are supported in at least one scenario, but may not have all parameters supported at this time.
-
 
 `ACCEPT`<br/>
 `ACCEPT4`<br/>
