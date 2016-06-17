@@ -8,19 +8,16 @@ author: jackchammons
   This is the first release of this brand new technology and it is branded “beta” deliberately – it’s not yet complete! We know there are issues and incomplete features, you should expect some things to work and for many things to fail. But we appreciate you playing with this feature and helping us identify the issues we need to fix in order to deliver a great experience.
 
 ##Prerequisites
-1. Windows 10 Anniversary Edition - Build 14316  
-      Available as of 4/6/2016 through the [Insider Fast Ring](http://insider.windows.com/)
-2. x64-based processor
-
-You can find the system architecture and build number by opening:  
-Settings -> System -> About
-
-Look for the **OS Build** and **System Type** fields.  
+1. Must be running on an AMD/Intel x64 compatible CPU & OS
+2. Must be a member of the (free) [Windows Insider Program](http://insider.windows.com/) (Preferably Fast-Ring)
+3. Must be running a 64-bit version of **Windows 10 Anniversary Update version 16xx / build 14316 or later**
+    
+> You can find the system architecture and version/build number by opening Settings -> System -> About
+> Look for the **OS Build** and **System Type** fields.  
 
 ![](media/system.png) 
 
-If your build is below 14316, try checking for updates.  In the "Advanced Options" menu, make sure you are running Fast Track insider preview builds.
-
+If your build is below 14316, try checking for updates.  In the "Advanced Options" menu, make sure you are running Fast Ring insider preview builds.
 
 ## Installation
 
