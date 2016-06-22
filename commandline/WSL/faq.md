@@ -177,6 +177,14 @@ To turn off legacy console:
 1. Right click title bar -> Properties -> Uncheck Use legacy console
 1. Click OK
 
+### How do I change the display language of WSL?
+WSL install will try to automatically change the Ubuntu locale to match the locale of your Windows install.  If you do not want this behavior you can run this command to change the Ubuntu locale after install completes.  You will have to relaunch bash.exe for this change to take effect.
+
+The below example changes to locale to en-US:</br>
+``` BASH
+sudo update-locale LANG=en_US.UTF8
+```
+
 ### Where can I provide feedback?
 
 You can share feedback and ask questions through multiple channels:
