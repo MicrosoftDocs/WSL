@@ -4,6 +4,18 @@ author: jackchammons
 
 # Release Notes
 
+## Build 14371
+For general Windows information on build 14371 visit the [Windows Blog] (https://blogs.windows.com/windowsexperience/2016/06/22/announcing-windows-10-insider-preview-build-14371-for-pc/). <br/>
+To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+### Fixed
+- Corrected timing race with SIGCHLD and wait() when using ptrace
+- Corrected some behavior when paths have a trailing /  (GH #432)
+- Fixed issue with rename/unlink failing due to open handles to children
+- Additional bugfixes and improvements
+
+<br/>
+<br/>
+
 ##Build 14366
 For general Windows information on build 14366 visit the [Windows Blog] (https://blogs.windows.com/windowsexperience/2016/06/14/announcing-windows-10-insider-preview-build-14366-mobile-build-14364/). <br/>
 To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
