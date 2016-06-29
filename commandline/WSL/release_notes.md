@@ -4,6 +4,22 @@ author: jackchammons
 
 # Release Notes
 
+## Build 14376
+For general Windows information on build 14376 visit the [Windows Blog] (https://blogs.windows.com/windowsexperience/2016/06/28/announcing-windows-10-insider-preview-build-14376-for-pc-and-mobile/). <br/>
+To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+### Fixed
+- Removed some instances where apt-get hangs (GH #493)
+- Fixed an issue where empty mounts were not handled correctly
+- Fixed an issue where ramdisks were not mounted correctly
+- Change unix socket accept to support flags (partial GH #451)
+- Fixed common network related bluescreen
+- Fixed bluescreen when accessing /proc/[pid]/task (GH #523)
+- Fixed high CPU utilization for some pty scenarios (GH #488, #504)
+- Additional bugfixes and improvements
+
+<br/>
+<br/>
+
 ## Build 14371
 For general Windows information on build 14371 visit the [Windows Blog] (https://blogs.windows.com/windowsexperience/2016/06/22/announcing-windows-10-insider-preview-build-14371-for-pc/). <br/>
 To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
