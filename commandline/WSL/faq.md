@@ -169,6 +169,9 @@ In Command Prompt:
 ### Why does the ping command require bash to be started with admin privileges?
 This is a known issue that has to due with differences between the way the Linux and the Windows kernel handle the ICMP request that makes ping possible. We plan to address this in future releases.
 
+### How do I run an OpenSSH server?
+Similar to the previous question, WSL needs to be launched with admin privileges.
+
 ### Why do I get "Error: 0x80040306" when I try to install?
 This has to do with the fact that we do not support legacy console. <br/>
 To turn off legacy console:
