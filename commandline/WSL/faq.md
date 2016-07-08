@@ -121,7 +121,7 @@ Example usage would be `cd /mnt/c` to access c:\
   * Changing file attributes through chmod and chown
   * Support case sensitivity
 2. Files in mounted drives are controlled by Windows and have the following behaviors:
-  * Do not support case sensitivity
+  * Support case sensitivity
   * All permissions are set to best reflect the Windows permissions
 
 ### Why are there so many errors when I run apt-get upgrade?
