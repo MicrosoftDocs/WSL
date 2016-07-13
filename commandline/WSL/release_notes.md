@@ -4,6 +4,17 @@ author: jackchammons
 
 # Release Notes
 
+## Build 14388+
+For general Windows information on build 14388 visit the [Windows Blog](https://aka.ms/14388wip). <br/>
+To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+### Fixed
+- Fixes to prepare for the Windows 10 Anniversary Update on 8/2
+  - More information about WSL in the Anniversary Update can be found on our [blog](https://blogs.msdn.microsoft.com/wsl/)
+
+
+<br/>
+<br/>
+
 ## Build 14376
 For general Windows information on build 14376 visit the [Windows Blog] (https://blogs.windows.com/windowsexperience/2016/06/28/announcing-windows-10-insider-preview-build-14376-for-pc-and-mobile/). <br/>
 To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
