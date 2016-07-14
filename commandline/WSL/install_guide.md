@@ -49,7 +49,7 @@ Open a PowerShell prompt as administrator and run:
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
 ```
 
-### After enabling indows Subsystem for Linux
+### After enabling Windows Subsystem for Linux
 **Reboot when prompted**
 
 > It is important that you **DO reboot when prompted** as some of the infrastructure which Bash on Windows requires can only be loaded during Windows' boot-up sequence.
