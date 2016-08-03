@@ -155,9 +155,6 @@ In Command Prompt:
 ### Why can't I access the internet inside of my BASH prompt?
 We are currently experiencing issues with IPv6 connectivity. Stay tuned for updates.
 
-### Why isn't ICMP working?
-This is a known issues that will effect several networking commands such as `ping`. Stay tuned for updates.
-
 ### Why do I get "Error: 0x80040306" when I try to install?
 This has to do with the fact that we do not support legacy console. <br/>
 To turn off legacy console:
@@ -165,6 +162,19 @@ To turn off legacy console:
 1. Open cmd.exe
 1. Right click title bar -> Properties -> Uncheck Use legacy console
 1. Click OK
+
+### Why do I get a Permission Denied error when using ping?
+Administrator privileges in Windows are required to run Ping in WSL.  To run ping run Bash on Unbutu on Windows as an administrator, or run bash.exe from a CMD / PowerShell prompt with administrator privileges.
+
+### Why do I not have internet access from WSL?
+Some users have reported issues with specific firewall applications blocking internet access in WSL.  The firewalls reported are:
+
+1. Kaspersky
+1. AVG
+1. Avast
+
+In some cases turning off the firewall allows for access.  In some cases simply having the firewall installed looks to block access.
+
 
 ### Where can I provide feedback?
 
