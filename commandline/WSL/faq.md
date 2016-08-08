@@ -150,21 +150,9 @@ To fix issues related to `udev`, follow the following steps:
 
 ### How do I fully uninstall WSL?
 In Command Prompt:
-
-1. Uninstall WSL
   ``` CMD
   lxrun /uninstall /full
   ```
-  
-2. Stop the WSL service
-  ``` CMD 
-  sc stop lxssmanager
-  ```
-  
-3. Remove the WSL app data
-  ``` CMD
- rmdir /S %LOCALAPPDATA%\lxss
- ```
 
 ### Why does the ping command require bash to be started with admin privileges?
 This is a known issue that has to due with differences between the way the Linux and the Windows kernel handle the ICMP request that makes ping possible. We plan to address this in future releases.
