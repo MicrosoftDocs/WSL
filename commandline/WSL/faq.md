@@ -11,7 +11,7 @@ author: jackchammons
 ### What is BASH?
 [BASH](https://en.wikipedia.org/wiki/Bash_%28Unix_shell%29) is a popular text-based shell and command-language. It is the default shell included within Ubuntu and other Linux distro’s, and in OSX. Users type commands into a shell to execute scripts and/or run commands and tools to accomplish many tasks.
 
-### What Windows Subsystem for Linux (WSL)?
+### What is Windows Subsystem for Linux (WSL)?
 The Windows Subsystem for Linux (WSL) is a new Windows 10 feature that enables you to run native Linux command-line tools directly on Windows, alongside your traditional Windows desktop and modern store apps.
 
 See the [about page](./about.md) for more details.
@@ -54,7 +54,7 @@ The goal is to focus on core utilities and functionality.  For the Anniversary E
 Additional languges and features may work in the Anniversary Edition but bugs in those areas will be a lower priority than the list above.
 
 ### How does this work?
-See the [reference page](about.md) for more details about the underlying technology.
+Check out our [blog](https://blogs.msdn.microsoft.com/wsl/) where we go into detail about the underlying technology.
 
 ### Why would I use WSL rather than Linux in a VM?
 WSL requires fewer resources (CPU, memory and storage) than a full virtualized machine. WSL also allows you to run Linux command-line tools and apps alongside your Windows command-line, desktop and store apps, and to access your Windows files from within Linux. This enables you to use Windows apps and Linux command-line tools on the same set of files if you wish.
@@ -82,6 +82,20 @@ Also, even though you will be able to run many popular server applications (e.g.
 This is the first release of a brand new technology. There will be gaps. We know some of them, and we’re certain you will find many more.
 Again, this is a beta release – expect things to fail. Some tools will crash and/or not run. But please be sure to let us know when you run into issues – we’re working hard to fix problems and dramatically improve WSL over time.
 
+### How do I update Bash on Ubuntu on Windows?
+
+There are two components of Bash on Ubuntu on Windows that can require updating. 
+
+1. The Windows Subsystem for Linux
+  
+  Upgrading this portion of Bash on Ubuntu on Windows will enable any new fixes outlines in the [release notes](https://msdn.microsoft.com/en-us/commandline/wsl/release_notes). Ensure that you are subscribed to the Windows Insider Program and that your build is up to date. For finer grain control including resetting your ubuntu instance check out the [command reference page](https://msdn.microsoft.com/en-us/commandline/wsl/reference).
+
+2. The Ubuntu user binaries 
+
+  Upgrading this portion of Bash on Ubuntu on Windows will install any updates to the Ubuntu user binaries including applications that you have installed via apt-get. To update run the following commands in bash:
+  
+  1. `apt-get update`
+  2. `apt-get upgrade`
 
 ### Can I run other Linux distro’s than Ubuntu?
 Not at this time: We’re currently focused on delivering a great Ubuntu experience. We are keen to explore supporting other Linux distro’s in the future.
@@ -107,7 +121,7 @@ Example usage would be `cd /mnt/c` to access c:\
   * Changing file attributes through chmod and chown
   * Support case sensitivity
 2. Files in mounted drives are controlled by Windows and have the following behaviors:
-  * Do not support case sensitivity
+  * Support case sensitivity
   * All permissions are set to best reflect the Windows permissions
 
 ### Why are there so many errors when I run apt-get upgrade?
@@ -136,24 +150,15 @@ To fix issues related to `udev`, follow the following steps:
 
 ### How do I fully uninstall WSL?
 In Command Prompt:
-
-1. Uninstall WSL
   ``` CMD
   lxrun /uninstall /full
   ```
-  
-2. Stop the WSL service
-  ``` CMD 
-  sc stop lxssmanager
-  ```
-  
-3. Remove the WSL app data
-  ``` CMD
- rmdir /S %LOCALAPPDATA%\lxss
- ```
 
-### Why can't I access the internet inside of my BASH prompt?
-We are currently experiencing issues with IPv6 connectivity. Stay tuned for updates.
+### Why does the ping command require bash to be started with admin privileges?
+This is a known issue that has to due with differences between the way the Linux and the Windows kernel handle the ICMP request that makes ping possible. We plan to address this in future releases.
+
+### How do I run an OpenSSH server?
+Similar to the previous question, WSL needs to be launched with admin privileges.
 
 ### Why do I get "Error: 0x80040306" when I try to install?
 This has to do with the fact that we do not support legacy console. <br/>
@@ -163,6 +168,15 @@ To turn off legacy console:
 1. Right click title bar -> Properties -> Uncheck Use legacy console
 1. Click OK
 
+<<<<<<< HEAD
+### How do I change the display language of WSL?
+WSL install will try to automatically change the Ubuntu locale to match the locale of your Windows install.  If you do not want this behavior you can run this command to change the Ubuntu locale after install completes.  You will have to relaunch bash.exe for this change to take effect.
+
+The below example changes to locale to en-US:</br>
+``` BASH
+sudo update-locale LANG=en_US.UTF8
+```
+=======
 ### Why do I get a Permission Denied error when using ping?
 Administrator privileges in Windows are required to run Ping in WSL.  To run ping run Bash on Unbutu on Windows as an administrator, or run bash.exe from a CMD / PowerShell prompt with administrator privileges.
 
@@ -175,6 +189,7 @@ Some users have reported issues with specific firewall applications blocking int
 
 In some cases turning off the firewall allows for access.  In some cases simply having the firewall installed looks to block access.
 
+>>>>>>> master
 
 ### Where can I provide feedback?
 
