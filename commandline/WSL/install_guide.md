@@ -5,12 +5,17 @@ author: jackchammons
 # Installation Guide
 
 > **Important note**  
-> This is the first release of Bash on Windows and it is branded "beta" deliberately - it's not yet complete! 
-> You should expect many things to work and for some things to fail! 
-> We greatly appreciate you using Bash on Windows and helping us identify the issues we need to fix in order to deliver a great experience.
+	This is the first release of Bash on Windows and it is branded "beta" deliberately - it's not yet complete! You should expect many things to work and for some things to fail! We greatly appreciate you using Bash on Windows and helping us identify the issues we need to fix in order to deliver a great experience.
 
 ##Prerequisites
 In order to run Bash on Windows, please be sure to check the following prerequisites:
+=======
+  This is the first release of this brand new technology and it is branded “beta” deliberately – it’s not yet complete! We know there are issues and incomplete features, you should expect some things to work and for many things to fail.
+
+##Prerequisites
+1. Windows 10 Anniversary Update - build 14393<br/>
+      Available as of 8/2/2016
+2. x64-based processor
 
 1. Your PC must have an AMD/Intel x64 compatible CPU
 2. You must be a member of the (free) [Windows Insider Program](http://insider.windows.com/) (Preferably Fast-Ring)
@@ -22,7 +27,8 @@ In order to run Bash on Windows, please be sure to check the following prerequis
 
 ![](media/system.png) 
 
-If your build is below 14316, try checking for updates.  In the "Advanced Options" menu, make sure you are running Fast Ring insider preview builds.
+If your build is below 14393, try checking for updates.
+
 
 ## Installation
 In order to run Bash on Windows, you will need to manually:
