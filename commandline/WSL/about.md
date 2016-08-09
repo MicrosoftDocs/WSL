@@ -14,7 +14,7 @@ Windows provides developers with a familiar Bash environment. This environment w
 2.	Navigate the file system using these commands
 3.	Run bash shell scripts which rely on supported command line utilities
 
-Windows is running Ubuntu user-mode binaries provided by Canonical.  This means the command line utilities are the same as those that run within a native Ubuntu environment.  
+Windows is running Ubuntu user-mode binaries provided by Canonical.  This means the command line utilities are the same as those that run within a native Ubuntu environment.  [Installation of Bash on Windows is just a few clicks.](https://msdn.microsoft.com/commandline/wsl/install_guide)
 
 This is provided as beta software.  While many of the coreutil commands provided by Ubuntu will work, there are some that will not.  We welcome feedback and will prioritize accordingly.  
 
