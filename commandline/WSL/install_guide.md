@@ -5,11 +5,11 @@ author: jackchammons
 # Installation Guide
 
 > **Important note**  
-  This is the first release of this brand new technology and it is branded “beta” deliberately – it’s not yet complete! We know there are issues and incomplete features, you should expect some things to work and for many things to fail. But we appreciate you playing with this feature and helping us identify the issues we need to fix in order to deliver a great experience.
+  This is the first release of this brand new technology and it is branded “beta” deliberately – it’s not yet complete! We know there are issues and incomplete features, you should expect some things to work and for many things to fail.
 
 ##Prerequisites
-1. Windows 10 Anniversary Edition - Build 14316  
-      Available as of 4/6/2016 through the [Insider Fast Ring](http://insider.windows.com/)
+1. Windows 10 Anniversary Update - build 14393<br/>
+      Available as of 8/2/2016
 2. x64-based processor
 
 You can find the system architecture and build number by opening:  
@@ -19,7 +19,7 @@ Look for the **OS Build** and **System Type** fields.
 
 ![](media/system.png) 
 
-If your build is below 14316, try checking for updates.  In the "Advanced Options" menu, make sure you are running Fast Track insider preview builds.
+If your build is below 14393, try checking for updates.
 
 
 ## Installation
