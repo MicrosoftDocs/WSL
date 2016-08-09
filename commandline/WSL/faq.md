@@ -168,6 +168,7 @@ To turn off legacy console:
 1. Right click title bar -> Properties -> Uncheck Use legacy console
 1. Click OK
 
+<<<<<<< HEAD
 ### How do I change the display language of WSL?
 WSL install will try to automatically change the Ubuntu locale to match the locale of your Windows install.  If you do not want this behavior you can run this command to change the Ubuntu locale after install completes.  You will have to relaunch bash.exe for this change to take effect.
 
@@ -175,6 +176,20 @@ The below example changes to locale to en-US:</br>
 ``` BASH
 sudo update-locale LANG=en_US.UTF8
 ```
+=======
+### Why do I get a Permission Denied error when using ping?
+Administrator privileges in Windows are required to run Ping in WSL.  To run ping run Bash on Unbutu on Windows as an administrator, or run bash.exe from a CMD / PowerShell prompt with administrator privileges.
+
+### Why do I not have internet access from WSL?
+Some users have reported issues with specific firewall applications blocking internet access in WSL.  The firewalls reported are:
+
+1. Kaspersky
+1. AVG
+1. Avast
+
+In some cases turning off the firewall allows for access.  In some cases simply having the firewall installed looks to block access.
+
+>>>>>>> master
 
 ### Where can I provide feedback?
 
