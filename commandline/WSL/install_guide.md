@@ -8,11 +8,6 @@ author: jackchammons
 	This is the first release of Bash on Windows and it is branded "beta" deliberately - it's not yet complete! You should expect many things to work and for some things to fail! We greatly appreciate you using Bash on Windows and helping us identify the issues we need to fix in order to deliver a great experience.
 
 ##Prerequisites
-In order to run Bash on Windows, please be sure to check the following prerequisites:
-=======
-  This is the first release of this brand new technology and it is branded “beta” deliberately – it’s not yet complete! We know there are issues and incomplete features, you should expect some things to work and for many things to fail.
-
-##Prerequisites
 1. Windows 10 Anniversary Update - build 14393<br/>
       Available as of 8/2/2016
 2. x64-based processor
