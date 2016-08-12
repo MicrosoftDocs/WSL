@@ -4,7 +4,45 @@ author: russalex
 
 # Release Notes
 
-## Build 14388+
+## Build 14901
+First Insider build for the post Windows 10 Anniversary Update release.
+
+For general Windows information on build 14901 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2016/08/11/announcing-windows-10-insider-preview-build-14901-for-pc/).<br/>
+To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+
+### Fixed
+- Fixed trailing slash issue
+    - Commands such as `$ mv a/c/ a/b/` now work
+- Installing now prompts if Ubuntu locale should be set to Windows locale
+- Procfs support for ns folder
+- Added mount and unmount for tmpfs, procfs and sysfs file systems
+- Fix mknod[at] 32-bit ABI signature
+- Unix sockets moved to dispatch model
+- INET socket recv buffer size set using the setsockopt should be honored
+- Implement MSG_CMSG_CLOEXEC unix socket receive message flag
+- Linux process stdin/stdout pipe redirection (GH #2)
+	- Allows for piping of bash -c commands in CMD.  Example:  >dir | bash -c "grep foo"
+- Bash can now be installed on systems with multiple pagefiles (GH #538, #358) 
+- Default INET Socket buffer size should match that of default Ubuntu setup
+- Align xattr syscalls to listxattr
+- Only return interfaces with a valid IPv4 address from SIOCGIFCONF
+- Fix signal default action when injected by ptrace
+- implement /proc/sys/vm/min_free_kbytes
+- Use machine context register values when restoring context in sigreturn
+	- This resolves the issue where java and javac were hanging for some users
+- Implement /proc/sys/kernel/hostname
+ 
+### Syscall Support
+Below are a list of new or enhanced syscalls that have some implementation in WSL. The syscalls on this list are supported in at least one scenario, but may not have all parameters supported at this time.
+
+`waitid`<br/>
+`epoll_pwait`<br/>
+
+<br/>
+<br/>
+
+
+## Build 14388 to Windows 10 Anniversary Update
 For general Windows information on build 14388 visit the [Windows Blog](https://aka.ms/14388wip). <br/>
 To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
 ### Fixed
