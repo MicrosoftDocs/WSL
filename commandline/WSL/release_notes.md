@@ -4,6 +4,21 @@ author: russalex
 
 # Release Notes
 
+## Build 14905
+
+For general Windows information on build 14905 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2016/08/17/announcing-windows-10-insider-preview-build-14905-for-pc-mobile/).<br/>
+To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+
+### Fixed
+- Restartable system calls are now supported (GH #349, GH #520)
+- Symlinks to directories ending in / now operational (GH #650)
+- Implemented RNDGETENTCNT ioctl for /dev/random
+- Implemented the /proc/[pid]/mounts, /proc/[pid]/mountinfo and /proc/[pid]/mountstats files
+- Additional bugfixes and improvements
+
+</br>
+</br>
+
 ## Build 14901
 First Insider build for the post Windows 10 Anniversary Update release.
 
