@@ -65,5 +65,9 @@ After you have accepted the License, the Ubuntu user-mode image will be download
 
 To launch Bash on Windows, either run `bash` at a cmd/PowerShell command-prompt, or use the start menu shortcut.
 
+After installation your Linux file system components will be located at: `C:\Users\<Windows user name>\AppData\Local\lxss\`
+This directory is marked as a system file which are hidden by default. <b>Accessing this location directly is not advised</b> due to caching between the Linux and Windows file systems. Check out our [blog post](https://blogs.msdn.microsoft.com/wsl/2016/06/15/wsl-file-system-support/) for more information. 
+
+
 > **Note**: The first time you install Bash on Windows, you will be prompted to create a UNIX username and password - this can be different from, and has no relationship to, your Windows username and password.
 > More information on the UNIX username and password can be found [here](https://msdn.microsoft.com/en-us/commandline/wsl/user_support).
