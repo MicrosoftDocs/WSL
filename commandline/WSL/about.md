@@ -21,6 +21,13 @@ This is provided as beta software.  While many of the coreutil commands provided
 This video from Build 2016 gives you more information and a demo of Ubuntu on Windows:  
 <iframe src="https://channel9.msdn.com/Events/Build/2016/P488/player" width="800" height="450"  allowFullScreen="true" frameBorder="0" scrolling="no"></iframe>
 
+## Get started
+[Installation guide](https://msdn.microsoft.com/en-us/commandline/wsl/install_guide) <br/>
+[Command reference](https://msdn.microsoft.com/en-us/commandline/wsl/reference) <br/>
+[User support](https://msdn.microsoft.com/en-us/commandline/wsl/user_support) <br/>
+[Frequently asked questions](https://msdn.microsoft.com/en-us/commandline/wsl/faq) <br/>
+[Release notes](https://msdn.microsoft.com/en-us/commandline/wsl/release_notes) <br/>
+
 ## Announcements
 
 ### Blogs
