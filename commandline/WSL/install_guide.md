@@ -51,9 +51,9 @@ Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-L
 ```
 
 ### After enabling Windows Subsystem for Linux
-**Reboot when prompted**
+**Restart when prompted**
 
-> It is important that you **DO reboot when prompted** as some of the infrastructure which Bash on Windows requires can only be loaded during Windows' boot-up sequence.
+> It is important that you **DO restart when prompted** as some of the infrastructure which Bash on Windows requires can only be loaded during Windows' boot-up sequence.
 
 ### Run Bash on Windows
 1. Open a command prompt
