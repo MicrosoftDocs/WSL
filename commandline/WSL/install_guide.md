@@ -16,8 +16,8 @@ author: jackchammons
 2. You must be a member of the (free) [Windows Insider Program](http://insider.windows.com/) (Preferably Fast-Ring)
 3. Your PC must be running a 64-bit version of **Windows 10 Anniversary Update build 14316 or later**
     
-> You can find your PC's CPU architecture and Windows version/build number by opening 
-> Settings -> System -> About. 
+> To find your PC's CPU architecture and Windows version/build number, open 
+> **Settings**>**System**>**About**. 
 > Look for the **OS Build** and **System Type** fields.  
 
 ![](media/system.png) 
@@ -28,7 +28,7 @@ If your build is below 14393, try checking for updates.
 ## Installation
 In order to run Bash on Windows, you will need to manually:
 1. Turn-on Developer Mode
-1. Enable the "Windows Subsystem for Linux (beta)" feature via the GUI or the command-line:
+2. Enable the "Windows Subsystem for Linux (beta)" feature via the GUI or the command-line:
 
 ### Turn on Developer Mode
 1. Open Settings -> Update and Security -> For developers
@@ -36,11 +36,11 @@ In order to run Bash on Windows, you will need to manually:
   ![](media/updateAndSecurity.png)
 
 ### Enable the Windows Subsystem for Linux feature (GUI)
-1. Hit start and search for "Turn Windows features on or off" (type 'turn')
-1. Select **Windows Subsystem for Linux (beta)**  
+1. From Start, search for "Turn Windows features on or off" (type 'turn')
+2. Select **Windows Subsystem for Linux (beta)**  
   ![](media/windowsFeatures.png)
   
-1. Click OK
+3. Click OK
 
 ### Enable the Windows Subsystem for Linux feature (command-line)
 
@@ -51,7 +51,7 @@ Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-L
 ```
 
 ### After enabling Windows Subsystem for Linux
-**Restart when prompted**
+**Restart your computer when prompted**
 
 > It is important that you **DO restart when prompted** as some of the infrastructure which Bash on Windows requires can only be loaded during Windows' boot-up sequence.
 
