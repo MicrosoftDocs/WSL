@@ -1,8 +1,10 @@
 Welcome to the markdown source documentation for Microsoft's command-line shells and console.
 
-# Trying to file an issue against Bash on Ubuntu on Windows? Check out our [dedicated repository](https://github.com/Microsoft/BashOnWindows/).
+## File an issue
 
-## CommandLine-Documentation
+Check out our [dedicated issue repository](https://github.com/Microsoft/BashOnWindows/).
+
+## External Links
 
 Rendered documentation website: [msdn.microsoft.com/commandline](https://msdn.microsoft.com/commandline) 
 
