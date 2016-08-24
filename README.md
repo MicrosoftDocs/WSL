@@ -1,4 +1,4 @@
-# Looking to track or file an issue related to Bash on Ubuntu on Windows? Check out our [dedicated repo](https://github.com/Microsoft/BashOnWindows/).
+# Trying to file an issue against Bash on Ubuntu on Windows? Check out our [dedicated repository](https://github.com/Microsoft/BashOnWindows/).
 
 ## CommandLine-Documentation
 
