@@ -1,4 +1,4 @@
-# User Support
+# Linux User Account and Permissions
 
 Bash on Ubuntu on Windows will prompt to create a default Linux user on first run.  This user:
 
