@@ -1,4 +1,4 @@
-Welcome to the markdown source documentation for Microsoft's command-line shells and console.
+Welcome to the markdown source for Microsoft's command-line shells and console documentation.
 
 ## File an issue
 
