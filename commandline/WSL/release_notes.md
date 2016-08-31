@@ -4,6 +4,31 @@ author: russalex
 
 # Release Notes
 
+## Build 14915
+
+For general Windows information on build 14915 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2016/08/31/announcing-windows-10-insider-preview-build-14915-for-pc-and-mobile).<br/>
+To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+
+### Fixed
+-  Socketpair for unix datagram sockets (GH #262)
+- Unix socket support for SO_REUSEADDR
+- UNIX socket support for SO_BROADCAST (GH #568)
+- Unix socket support for SOCK_SEQPACKET (GH #758, #546)
+- Adding support for unix datagram socket send, recv and shutdown
+- Fix bugcheck due to invalid mmap parameter validation for non-fixed addresses. (GH #847)
+- Support for suspend / resume of terminal states
+- Support for TIOCPKT ioctl to unblock the Screen utility (GH #774) 
+	- Known issue: Function keys not operational
+- Corrected a race in TimerFd that could cause a freed member 'ReaderReady' to be accessed by LxpTimerFdWorkerRoutine (GH #814)		 
+- Enable restartable system call support for futex, poll, and clock_nanosleep
+- Added bind mount support
+- unshare for mount namespace support
+	- Known issue: When creating a new mount namespace with `unshare(CLONE_NEWNS)` the current working directory will continue to point to the old namespace
+- Additional improvements and bug fixes
+
+<br/>
+<br/>
+
 ## Build 14905
 
 For general Windows information on build 14905 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2016/08/17/announcing-windows-10-insider-preview-build-14905-for-pc-mobile/).<br/>
