@@ -1,3 +1,15 @@
+---
+title: Bash on Ubuntu on Windows - Linux User Account and Permissions
+description: Linux User Account and Permissions
+keywords: BashOnWindows, bash, wsl, windows, windowssubsystem, ubuntu
+author: jackchammons
+ms.date: 9/6/2016
+ms.topic: article
+ms.prod: windows-subsystem-for-linux
+ms.service: windows-subsystem-for-linux
+ms.assetid: f70e685f-24c6-4908-9546-bf4f0291d8fd
+---
+
 # Linux User Account and Permissions
 
 Bash on Ubuntu on Windows will prompt to create a default Linux user on first run.  This user:
