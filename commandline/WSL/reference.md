@@ -1,5 +1,13 @@
 ---
+title: Bash on Ubuntu on Windows - Command Reference
+description: Command Reference
+keywords: BashOnWindows, bash, wsl, windows, windowssubsystem, ubuntu
 author: jackchammons
+ms.date: 9/6/2016
+ms.topic: article
+ms.prod: windows-subsystem-for-linux
+ms.service: windows-subsystem-for-linux
+ms.assetid: 82908295-a6bd-483c-a995-613674c2677e
 ---
 
 #Command Reference
