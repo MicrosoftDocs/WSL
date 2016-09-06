@@ -1,5 +1,5 @@
 ---
-title: Bash on Ubuntu on Windows
+title: Bash on Ubuntu on Windows - About
 description: About Bash on Ubuntu on Windows
 keywords: BashOnWindows, bash, wsl, windows, windowssubsystem, ubuntu
 author: jackchammons
