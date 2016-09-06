@@ -1,5 +1,13 @@
 ---
+title: Bash on Ubuntu on Windows - Frequently Asked Questions
+description: Frequently Asked Questions
+keywords: BashOnWindows, bash, wsl, windows, windowssubsystem, ubuntu
 author: jackchammons
+ms.date: 9/6/2016
+ms.topic: article
+ms.prod: windows-subsystem-for-linux
+ms.service: windows-subsystem-for-linux
+ms.assetid: 129101ed-b88a-43c2-b6a2-cd2c4ff6fee1
 ---
 
 # Frequently Asked Questions
