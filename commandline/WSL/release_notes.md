@@ -1,5 +1,13 @@
 ---
+title: Bash on Ubuntu on Windows - Release Notes
+description: Release Notes
+keywords: BashOnWindows, bash, wsl, windows, windowssubsystem, ubuntu
 author: russalex
+ms.date: 9/6/2016
+ms.topic: article
+ms.prod: windows-subsystem-for-linux
+ms.service: windows-subsystem-for-linux
+ms.assetid: 36ea641e-4d49-4881-84eb-a9ca85b1cdf4
 ---
 
 # Release Notes
