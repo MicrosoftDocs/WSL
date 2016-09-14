@@ -17,7 +17,7 @@ ms.assetid: 129101ed-b88a-43c2-b6a2-cd2c4ff6fee1
 
 
 ### What is BASH?
-[BASH](https://en.wikipedia.org/wiki/Bash_%28Unix_shell%29) is a popular text-based shell and command-language. It is the default shell included within Ubuntu and other Linux distro’s, and in OSX. Users type commands into a shell to execute scripts and/or run commands and tools to accomplish many tasks.
+[BASH](https://en.wikipedia.org/wiki/Bash_%28Unix_shell%29) is a popular text-based shell and command-language. It is the default shell included within Ubuntu and other Linux distros, and in OSX. Users type commands into a shell to execute scripts and/or run commands and tools to accomplish many tasks.
 
 ### What is Windows Subsystem for Linux (WSL)?
 The Windows Subsystem for Linux (WSL) is a new Windows 10 feature that enables you to run native Linux command-line tools directly on Windows, alongside your traditional Windows desktop and modern store apps.
@@ -44,7 +44,7 @@ You can also access your local machine’s filesystem from within the Linux Bash
 
 The goal is to focus on core utilities and functionality.  For the Anniversary Edition we are prioritizing:
 
-1. A Bash environment for developers to run standard GNU command line tools such as grep, sed, awk
+1. A Bash environment for developers to run standard GNU command-line tools such as grep, sed, awk
 2. Provide access to the local hard drives through /mnt
 3. Symlink support within the WSL environment
 4. Linux user support
@@ -54,18 +54,18 @@ The goal is to focus on core utilities and functionality.  For the Anniversary E
   * Python
   * Perl
   * Git
-7. Command line editors / tools
+7. Command line editors/tools
   * vi
   * emacs
   * ssh
 
-Additional languges and features may work in the Anniversary Edition but bugs in those areas will be a lower priority than the list above.
+Additional languages and features may work in the Anniversary Edition but bugs in those areas will be a lower priority than the list above.
 
 ### How does this work?
 Check out our [blog](https://blogs.msdn.microsoft.com/wsl/) where we go into detail about the underlying technology.
 
 ### Why would I use WSL rather than Linux in a VM?
-WSL requires fewer resources (CPU, memory and storage) than a full virtualized machine. WSL also allows you to run Linux command-line tools and apps alongside your Windows command-line, desktop and store apps, and to access your Windows files from within Linux. This enables you to use Windows apps and Linux command-line tools on the same set of files if you wish.
+WSL requires fewer resources (CPU, memory, and storage) than a full virtualized machine. WSL also allows you to run Linux command-line tools and apps alongside your Windows command-line, desktop and store apps, and to access your Windows files from within Linux. This enables you to use Windows apps and Linux command-line tools on the same set of files if you wish.
 
 ### Why would I use, for example, Ruby on Linux instead of on Windows?
 Some cross-platform tools were built assuming that the environment in which they run behaves like Linux. For example, some tools assume that they are able to access very long file paths or that specific files/folders exist. This often causes problems on Windows which often behaves differently from Linux.
@@ -84,7 +84,7 @@ No! WSL is a tool aimed at enabling users who need them to run Bash and core Lin
 
 WSL does **not** aim to support GUI desktops or applications (e.g. Gnome, KDE, etc.)  
 
-Also, even though you will be able to run many popular server applications (e.g. Redis), we do not recommend WSL for server scenarios – Microsoft offers a variety of solutions for running production Ubuntu workloads in Azure, Hyper-V and Docker. 
+Also, even though you will be able to run many popular server applications (e.g. Redis), we do not recommend WSL for server scenarios – Microsoft offers a variety of solutions for running production Ubuntu workloads in Azure, Hyper-V, and Docker. 
 
 ### Why is this a beta release?
 This is the first release of a brand new technology. There will be gaps. We know some of them, and we’re certain you will find many more.
@@ -96,24 +96,24 @@ There are two components of Bash on Ubuntu on Windows that can require updating.
 
 1. The Windows Subsystem for Linux
   
-  Upgrading this portion of Bash on Ubuntu on Windows will enable any new fixes outlines in the [release notes](https://msdn.microsoft.com/en-us/commandline/wsl/release_notes). Ensure that you are subscribed to the Windows Insider Program and that your build is up to date. For finer grain control including resetting your ubuntu instance check out the [command reference page](https://msdn.microsoft.com/en-us/commandline/wsl/reference).
+  Upgrading this portion of Bash on Ubuntu on Windows will enable any new fixes outlines in the [release notes](https://msdn.microsoft.com/en-us/commandline/wsl/release_notes). Ensure that you are subscribed to the Windows Insider Program and that your build is up to date. For finer grain control including resetting your Ubuntu instance check out the [command reference page](https://msdn.microsoft.com/en-us/commandline/wsl/reference).
 
 2. The Ubuntu user binaries 
 
-  Upgrading this portion of Bash on Ubuntu on Windows will install any updates to the Ubuntu user binaries including applications that you have installed via apt-get. To update run the following commands in bash:
+  Upgrading this portion of Bash on Ubuntu on Windows will install any updates to the Ubuntu user binaries including applications that you have installed via apt-get. To update run the following commands in Bash:
   
   1. `apt-get update`
   2. `apt-get upgrade`
 
-### Can I run other Linux distro’s than Ubuntu?
-Not at this time: We’re currently focused on delivering a great Ubuntu experience. We are keen to explore supporting other Linux distro’s in the future.
+### Can I run other Linux distros than Ubuntu?
+Not at this time: We’re currently focused on delivering a great Ubuntu experience. We are keen to explore supporting other Linux distros in the future.
 
-### What Windows SKU’s is WSL included in?
+### What Windows SKUs is WSL included in?
 Windows Subsystem for Linux will be available in desktop versions of Windows.  
-WSL is NOT a server technology and so will not be available on Server SKU’s.  WSL is an optional Windows feature and can be enabled via the “Turn Windows features on or off” tool or via DISM via an (elevated) command-line.
+WSL is NOT a server technology and so will not be available on Server SKUs.  WSL is an optional Windows feature and can be enabled via the “Turn Windows features on or off” tool or using PowerShell or DISM via an (elevated) command-line.
 
 ### What processors do we support?
-We only support x64 CPU’s.
+We only support x64 CPUs.
 
 ### How do I access my C drive?
 Mount points for hard drives on the local machine are automatically created and provide easy access to the Windows filesystem. 
@@ -162,14 +162,14 @@ In Command Prompt:
   lxrun /uninstall /full
   ```
 
-### Why does the ping command require bash to be started with admin privileges?
+### Why does the ping command require Bash to be started with admin privileges?
 This is a known issue that has to due with differences between the way the Linux and the Windows kernel handle the ICMP request that makes ping possible. We plan to address this in future releases.
 
 ### How do I run an OpenSSH server?
 Similar to the previous question, WSL needs to be launched with admin privileges.
 
 ### Why do I get "Error: 0x80040306" when I try to install?
-This has to do with the fact that we do not support legacy console. <br/>
+This has to do with the fact that we do not support legacy console.
 To turn off legacy console:
 
 1. Open cmd.exe
@@ -177,18 +177,18 @@ To turn off legacy console:
 1. Click OK
 
 ### Why do I get "Error: 0x80040154" when I run bash.exe after upgrading Windows?
-The Windows Subsystem for Linux feature may be disabled during a Windows update. If this happens the Windows feature must be re-enabled. Instructions for enabling the Windows Subystem for Linux can be found in the [Installation Guide](https://msdn.microsoft.com/en-us/commandline/wsl/install_guide#enable-the-windows-subsystem-for-linux-feature-guihttps://msdn.microsoft.com/en-us/commandline/wsl/install_guide#enable-the-windows-subsystem-for-linux-feature-gui).
+The Windows Subsystem for Linux feature may be disabled during a Windows update. If this happens the Windows feature must be re-enabled. Instructions for enabling the Windows Subsystem for Linux can be found in the [Installation Guide](https://msdn.microsoft.com/en-us/commandline/wsl/install_guide#enable-the-windows-subsystem-for-linux-feature-guihttps://msdn.microsoft.com/en-us/commandline/wsl/install_guide#enable-the-windows-subsystem-for-linux-feature-gui).
 
 ### How do I change the display language of WSL?
 WSL install will try to automatically change the Ubuntu locale to match the locale of your Windows install.  If you do not want this behavior you can run this command to change the Ubuntu locale after install completes.  You will have to relaunch bash.exe for this change to take effect.
 
-The below example changes to locale to en-US:</br>
+The below example changes to locale to en-US:
 ``` BASH
 sudo update-locale LANG=en_US.UTF8
 ```
 
 ### Why do I get a Permission Denied error when using ping?
-Administrator privileges in Windows are required to run Ping in WSL.  To run ping run Bash on Unbutu on Windows as an administrator, or run bash.exe from a CMD / PowerShell prompt with administrator privileges.
+Administrator privileges in Windows are required to run ping in WSL.  To run ping, run Bash on Ubuntu on Windows as an administrator, or run bash.exe from a CMD/PowerShell prompt with administrator privileges.
 
 ### Why do I not have internet access from WSL?
 Some users have reported issues with specific firewall applications blocking internet access in WSL.  The firewalls reported are:
@@ -206,4 +206,4 @@ Feedback and questions should be directed to:
 * Our [GitHub issue tracker](https://github.com/Microsoft/BashOnWindows/issues)
 * Our [command-line UserVoice portal](https://wpdev.uservoice.com/forums/266908-command-prompt/filters/top)
 * Our [command-line team blog](https://blogs.msdn.microsoft.com/commandline/)
-* Via Twitter. Please follow [@richturn_ms](https://twitter.com/richturn_MS) on twitter to learn of news, updates, etc.
+* Via Twitter. Please follow [@richturn_ms](https://twitter.com/richturn_MS) on Twitter to learn of news, updates, etc.
