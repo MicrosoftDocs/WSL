@@ -12,6 +12,32 @@ ms.assetid: 36ea641e-4d49-4881-84eb-a9ca85b1cdf4
 
 # Release Notes
 
+## Build 14926
+
+For general Windows information on build 14926 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2016/09/14/announcing-windows-10-insider-preview-build-14926-for-pc-and-mobile/).<br/>
+To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+
+### Fixed
+
+- Ping now works in consoles which do not have administrator privileges
+- Ping6 now supported, also without administrator privileges
+- Inotify support for files modified through WSL. (GH #216)  
+  -Flags supported:
+    - inotify_init1: LX_O_CLOEXEC, LX_O_NONBLOCK
+    - inotify_add_watch events: LX_IN_ACCESS, LX_IN_MODIFY, LX_IN_ATTRIB, LX_IN_CLOSE_WRITE, LX_IN_CLOSE_NOWRITE, LX_IN_OPEN, LX_IN_MOVED_FROM, LX_IN_MOVED_TO, LX_IN_CREATE, LX_IN_DELETE, LX_IN_DELETE_SELF, LX_IN_MOVE_SELF
+    - inotify_add_watch attributes: LX_IN_DONT_FOLLOW, LX_IN_EXCL_UNLINK, LX_IN_MASK_ADD, LX_IN_ONESHOT, LX_IN_ONLYDIR
+    - read output: LX_IN_ISDIR, LX_IN_IGNORED
+  - Known issue: Modifying files from Windows applications does not generate any events
+- Unix socket now supports SCM_CREDENTIALS 
+
+### LTP Results:
+Number of Passing Test: 651 </br>
+Number of non-Passing (failing, skipped, etc…): 258 </br>
+[LTP Test Run Logs] (https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/14926)<br/>
+
+<br/>
+<br/>
+
 ## Build 14915
 
 For general Windows information on build 14915 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2016/08/31/announcing-windows-10-insider-preview-build-14915-for-pc-and-mobile).<br/>
