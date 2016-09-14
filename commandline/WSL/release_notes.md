@@ -22,7 +22,7 @@ To track or report an issue visit our [Github page](https://github.com/Microsoft
 - Ping now works in consoles which do not have administrator privileges
 - Ping6 now supported, also without administrator privileges
 - Inotify support for files modified through WSL. (GH #216)  
-  -Flags supported:
+  - Flags supported:
     - inotify_init1: LX_O_CLOEXEC, LX_O_NONBLOCK
     - inotify_add_watch events: LX_IN_ACCESS, LX_IN_MODIFY, LX_IN_ATTRIB, LX_IN_CLOSE_WRITE, LX_IN_CLOSE_NOWRITE, LX_IN_OPEN, LX_IN_MOVED_FROM, LX_IN_MOVED_TO, LX_IN_CREATE, LX_IN_DELETE, LX_IN_DELETE_SELF, LX_IN_MOVE_SELF
     - inotify_add_watch attributes: LX_IN_DONT_FOLLOW, LX_IN_EXCL_UNLINK, LX_IN_MASK_ADD, LX_IN_ONESHOT, LX_IN_ONLYDIR
