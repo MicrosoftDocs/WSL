@@ -18,7 +18,7 @@ Bash on Ubuntu on Windows will prompt to create a default Linux user on first ru
 2. Will be prompted for a new password
     * Password will be used for Linux commands such as `sudo` and not used by any system outside of WSL
 3. Will be automatically added to the sudo group
-4. Will be signed-in automatically for every bash instance
+4. Will be signed-in automatically for every Bash instance
 5. Will not require a password when launching WSL
 
 Each Windows user has a unique WSL instance.  This means all changes made within the WSL environment are unique to that Windows user.  This includes Bash users created with the `adduser` command.
@@ -36,7 +36,7 @@ When Bash runs, it has the same permissions as the console.  This means if typin
 This is independent of the signed-in Linux user account.  Root privileges on the Linux side only impact the user’s rights within the Linux environment & filesystem; they have no impact on the Windows privileges granted.
 
 **Example:**  
-> A bash session with Windows admin privileges may `cd /mnt/c/Users/Administrator` while a Bash session without admin privileges would see Permission Denied.
+> A Bash session with Windows admin privileges may `cd /mnt/c/Users/Administrator` while a Bash session without admin privileges would see Permission Denied.
 > Typing `sudo cd /mnt/c/Users/Administrator` will not grant access to the Administrator’s directory since the permissions are restricted by Windows.
 
 The Linux permission model is important when inside the Ubuntu environment where the user has permissions based on the current Linux user.
