@@ -16,14 +16,8 @@ ms.assetid: 7afaeacf-435a-4e58-bff0-a9f0d75b8a51
 	This is the first release of Bash on Windows and it is branded "beta" deliberately - it's not yet complete! You should expect many things to work and for some things to fail! We greatly appreciate you using Bash on Windows and helping us identify the issues we need to fix in order to deliver a great experience.
 
 ##Prerequisites
-1. Windows 10 Anniversary Update - build 14393<br/>
-      Available as of 8/2/2016
-2. x64-based processor
+1. Your PC must be running a 64-bit version of **Windows 10 Anniversary Update build 14393 or later**
 
-1. Your PC must have an AMD/Intel x64 compatible CPU
-2. You must be a member of the (free) [Windows Insider Program](http://insider.windows.com/) (Preferably Fast-Ring)
-3. Your PC must be running a 64-bit version of **Windows 10 Anniversary Update build 14316 or later**
-    
 > To find your PC's CPU architecture and Windows version/build number, open 
 > **Settings**>**System**>**About**. 
 > Look for the **OS Build** and **System Type** fields.  
