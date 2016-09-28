@@ -12,6 +12,45 @@ ms.assetid: 36ea641e-4d49-4881-84eb-a9ca85b1cdf4
 
 # Release Notes
 
+## Build 14936
+
+For general Windows information on build 14936 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2016/09/28/announcing-windows-10-insider-preview-build-14936-for-pc/).<br/>
+To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+
+Note: WSL will install Ubuntu version 16.04 (Xenial) instead of Ubuntu 14.04 (Trusty) in an upcoming release.  This change will apply to Insiders installing new instances (lxrun.exe /install or first run of bash.exe).  Existing instances with Trusty will not be upgraded automatically. Users can upgrade their Trusty image to Xenial using the do-release-upgrade command.
+
+### Known Issue
+WSL is experiencing an issue with some socket implementations.  The bugcheck manifests itself as a crash with the error “ATTEMPTED EXECUTE OF NOEXECUTE MEMORY”.  The most common manifestation of this issue is a crash when using ssh.  The root cause is fixed on internal builds and will be pushed to Insiders at the earliest opportunity.
+
+### Fixed
+
+- Implemented the chroot system call
+- Improvements in inotify including support for notifications generated from Windows applications on DrvFs
+- Socket binding to IPV6::<port n> now supports IPV6_V6ONLY  (GH #68, #157, #393, #460, #674, #740, #982, #996)
+- WNOWAIT behavior for waitid systemcall implemented (GH #638)
+- Support for IP socket options IP_HDRINCL and IP_TTL
+- Zero-length read() should return immediately (GH #975)
+- Correctly handle filenames and filename prefixes that don't include a NULL terminator in a .tar file.
+- epoll support for /dev/null
+- Fix /dev/alarm time source
+- Bash -c now able to redirect to a file
+- Additional bugfixes and improvements
+
+
+### LTP Results:
+Number of Passing Test: 664 </br>
+Number of non-Passing (failing, skipped, etc…): 264 </br>
+[LTP Test Run Logs] (https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/14936)<br/>
+
+### Syscall Support
+Below are a list of new or enhanced syscalls that have some implementation in WSL. The syscalls on this list are supported in at least one scenario, but may not have all parameters supported at this time.
+
+`chroot`<br/>
+
+<br/>
+<br/>
+
+
 ## Build 14931
 
 For general Windows information on build 14931 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2016/09/21/announcing-windows-10-insider-preview-build-14931-for-pc/).<br/>
