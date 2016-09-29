@@ -25,7 +25,8 @@ WSL is experiencing an issue with some socket implementations.  The bugcheck man
 ### Fixed
 
 - Implemented the chroot system call
-- Improvements in inotify including support for notifications generated from Windows applications on DrvFs
+- Improvements in inotify ~~including support for notifications generated from Windows applications on DrvFs~~
+  - Correction: DrvFs support not available at this time.
 - Socket binding to IPV6::<port n> now supports IPV6_V6ONLY  (GH #68, #157, #393, #460, #674, #740, #982, #996)
 - WNOWAIT behavior for waitid systemcall implemented (GH #638)
 - Support for IP socket options IP_HDRINCL and IP_TTL
