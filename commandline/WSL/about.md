@@ -10,7 +10,7 @@ ms.service: windows-subsystem-for-linux
 ms.assetid: 3cefe0db-7616-4848-a2b6-9296746a178b
 ---
 
-# Bash on Ubuntu on Windows
+# Bash on <img src="media/2000px-Ubuntu_logo.svg.png" width="130">  on Windows
 
 > **Important note**  
   This is the first release of this brand new technology and it is branded “beta” deliberately – it’s not yet complete! We know there are issues and incomplete features, you should expect some things to work and for many things to fail. But we appreciate you playing with this feature and helping us identify the issues we need to fix in order to deliver a great experience.
@@ -39,6 +39,7 @@ This video from Build 2016 gives you more information and a demo of Ubuntu on Wi
 ## Announcements
 
 ### Blogs
+
 * Mike Harsh's Blog -- [Run Bash on Ubuntu on Windows](https://blogs.windows.com/buildingapps/2016/03/30/run-bash-on-ubuntu-on-windows/)
 * Scott Hanselman's Blog -- [Developers Can Run Bash And Usermode Ubuntu Linux Binaries On Windows 10](http://www.hanselman.com/blog/DevelopersCanRunBashShellAndUsermodeUbuntuLinuxBinariesOnWindows10.aspx)
 * Ubuntu News -- [Ubuntu on Windows – The Ubuntu Userspace for Windows Developers](http://insights.ubuntu.com/2016/03/30/ubuntu-on-windows-the-ubuntu-userspace-for-windows-developers/) 
