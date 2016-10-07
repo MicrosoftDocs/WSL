@@ -12,6 +12,35 @@ ms.assetid: 36ea641e-4d49-4881-84eb-a9ca85b1cdf4
 
 # Release Notes
 
+## Build 14942
+
+For general Windows information on build 14942 visit the [Windows Blog](https://aka.ms/onefourninefourtwoooooo).<br/>
+To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+
+
+### Fixed
+
+- A number of bugchecks addressed, including the “ATTEMPTED EXECUTE OF NOEXECUTE MEMORY” networking crash which was blocking SSH
+- inotifiy support for notifications generated from Windows applications on DrvFs is now in
+- Implement TCP_KEEPIDLE and TCP_KEEPINTVL for mongod. (GH #695)
+- Implement the pivot_root system call
+- Implement socket option for SO_DONTROUTE
+- Additional bugfixes and improvements
+
+
+### LTP Results:
+Number of Passing Test: 665 </br>
+Number of non-Passing (failing, skipped, etc…): 263 </br>
+[LTP Test Run Logs] (https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/14942)<br/>
+
+### Syscall Support
+Below are a list of new or enhanced syscalls that have some implementation in WSL. The syscalls on this list are supported in at least one scenario, but may not have all parameters supported at this time.
+
+`pivot_root`<br/>
+
+<br/>
+<br/>
+
 ## Build 14936
 
 For general Windows information on build 14936 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2016/09/28/announcing-windows-10-insider-preview-build-14936-for-pc/).<br/>
