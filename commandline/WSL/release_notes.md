@@ -12,6 +12,33 @@ ms.assetid: 36ea641e-4d49-4881-84eb-a9ca85b1cdf4
 
 # Release Notes
 
+## Build 14946
+
+For general Windows information on build 14946 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2016/10/13/announcing-windows-10-insider-preview-build-14946-for-pc-and-mobile/#xj8GdVooEqo4H7H7.97).<br/>
+To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+
+
+### Fixed
+
+- Fixed an issue that prevented creating WSL user accounts for users with NT usernames that contain spaces or quotes. 
+- Change VolFs and DrvFs to return 0 for directory's link count in stat
+- Support IPV6_MULTICAST_HOPS socket option.
+- Limit to a single console I/O loop per tty. Example: the following command is possible
+			§ bash -c "echo data" | bash -c "ssh user@example.com 'cat > foo.txt'"
+- replace spaces with tabs in /proc/cpuinfo (GH #1115)
+- DrvFs now appears in mountinfo with a name that matches mounted Windows volume
+- /home and /root now appear in mountinfo with correct names
+- Additional bugfixes and improvements
+
+
+### LTP Results:
+Number of Passing Test: 665 </br>
+Number of non-Passing (failing, skipped, etc…): 263 </br>
+[LTP Test Run Logs] (https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/14946)<br/>
+
+<br/>
+<br/>
+
 ## Build 14942
 
 For general Windows information on build 14942 visit the [Windows Blog](https://aka.ms/onefourninefourtwoooooo).<br/>
