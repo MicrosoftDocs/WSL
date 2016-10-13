@@ -23,8 +23,8 @@ To track or report an issue visit our [Github page](https://github.com/Microsoft
 - Fixed an issue that prevented creating WSL user accounts for users with NT usernames that contain spaces or quotes. 
 - Change VolFs and DrvFs to return 0 for directory's link count in stat
 - Support IPV6_MULTICAST_HOPS socket option.
-- Limit to a single console I/O loop per tty. Example: the following command is possible
-			§ bash -c "echo data" | bash -c "ssh user@example.com 'cat > foo.txt'"
+- Limit to a single console I/O loop per tty. Example: the following command is possible:
+    -  bash -c "echo data" | bash -c "ssh user@example.com 'cat > foo.txt'"
 - replace spaces with tabs in /proc/cpuinfo (GH #1115)
 - DrvFs now appears in mountinfo with a name that matches mounted Windows volume
 - /home and /root now appear in mountinfo with correct names
