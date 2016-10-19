@@ -3,7 +3,7 @@
 > **Important note**  
 	This is the first release of Bash on Windows and it is branded "beta" deliberately - it's not yet complete! You should expect many things to work and for some things to fail! We greatly appreciate you using Bash on Windows and helping us identify the issues we need to fix in order to deliver a great experience.
 
-The Windows Subsystem for Linux can invoke native Windows binaries and be invoked from a Windows command line. This feature is available to Windows 10 users running Anniversary Update [build 14951](www.microsoft.com).  This new interoperability functionality delivers a seamless experience between Windows and WSL.  Technical details on how this interoperability works can be found on the [WSL blog](www.microsoft.com). 
+The Windows Subsystem for Linux can invoke native Windows binaries and be invoked from a Windows command line. This feature is available to Windows 10 users running Anniversary Update [build 14951](https://msdn.microsoft.com/en-us/commandline/wsl/release_notes#build-14951).  This new interoperability functionality delivers a seamless experience between Windows and WSL.  Technical details on how this interoperability works can be found on the [WSL blog](https://blogs.msdn.microsoft.com/wsl/2016/10/19/windows-and-ubuntu-interoperability/). 
 
 ##Invoking WSL from the Windows Command Line
 Linux binaries can be invoked from the Windows Command Prompt or from PowerShell.  Binaries invoked in this way have the following properties:
