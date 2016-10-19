@@ -14,7 +14,7 @@ ms.assetid: 36ea641e-4d49-4881-84eb-a9ca85b1cdf4
 
 ## Build 14951
 
-For general Windows information on build 14951 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/tag/windows-insider-program/).<br/>
+For general Windows information on build 14951 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2016/10/19/announcing-windows-10-insider-preview-build-14951-for-mobile-and-pc/).<br/>
 To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
 
 ### New Feature: Windows / Ubuntu Interoperability
