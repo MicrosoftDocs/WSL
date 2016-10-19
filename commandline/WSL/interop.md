@@ -109,13 +109,13 @@ C:\temp>dir | findstr foo.txt
 
 Users may disable the ability to run Windows binaries for a single WLS session by running the following command as root:
 ```
-# echo 0 > /proc/sys/fs/binfmt_misc/WSLInterop
+$ echo 0 > /proc/sys/fs/binfmt_misc/WSLInterop
 ```
 
 To reenable Windows binaries either exit all WSL sessions and re-run bash.exe or run the following command as root:
 
 ```
-# echo 1 > /proc/sys/fs/binfmt_misc/WSLInterop
+$ echo 1 > /proc/sys/fs/binfmt_misc/WSLInterop
 ```
 
 Note that disabling interop will not persist between WSL sessions.
