@@ -12,6 +12,46 @@ ms.assetid: 36ea641e-4d49-4881-84eb-a9ca85b1cdf4
 
 # Release Notes
 
+## Build 14951
+
+For general Windows information on build 14951 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/tag/windows-insider-program/).<br/>
+To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+
+### New Feature: Windows / Ubuntu Interoperability
+Windows binaries can now be invoked directly from the WSL command line.  This gives users the ability to interact with their Windows environment and system in a way that has not been possible.  As a quick example, it is now possible for users to run the following commands:
+	
+	```
+	$ export PATH=$PATH:/mnt/c/Windows/System32
+	$ notepad.exe
+	$ ipconfig.exe | grep IPv4 | cut -d: -f2
+	$ ls -la | findstr.exe foo.txt
+	$ cmd.exe /c dir
+	```
+	
+More information can be found at:
+
+- [WSL Team Blog for Interop](https://blogs.msdn.microsoft.com/wsl/2016/10/19/windows-and-ubuntu-interoperability/)<br/>
+- [MSDN Interop Documentation](https://msdn.microsoft.com/en-us/commandline/wsl/interop)<br/>
+
+### Fixed
+
+- Ubuntu 16.04 (Xenial) is now installed for all new WSL instances.  Users with existing 14.04 (Trusty) instances will not be automatically upgraded.
+- Locale set during install is now displayed
+- Terminal improvements including bug where redirecting a WSL process to a file does not always work
+- Console lifetime should be tied to bash.exe lifetime
+- Console window size should use visible size, not buffer size
+- Additional bugfixes and improvements
+
+
+### LTP Results:
+Number of Passing Test: 665 </br>
+Number of non-Passing (failing, skipped, etc…): 263 </br>
+[LTP Test Run Logs] (https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/14951)<br/>
+
+<br/>
+<br/>
+
+
 ## Build 14946
 
 For general Windows information on build 14946 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2016/10/13/announcing-windows-10-insider-preview-build-14946-for-pc-and-mobile/#xj8GdVooEqo4H7H7.97).<br/>
