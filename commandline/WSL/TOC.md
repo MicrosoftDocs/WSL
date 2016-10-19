@@ -2,5 +2,6 @@
 # [Installation Guide](./install_guide.md)
 # [Command Reference](./reference.md)
 # [Linux User Account and Permissions](./user_support.md)
+# [Interoperability](./inerop.md)
 # [Frequently Asked Questions](./faq.md)
 # [Release Notes](./release_notes.md)
