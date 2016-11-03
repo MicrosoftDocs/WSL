@@ -12,6 +12,26 @@ ms.assetid: 36ea641e-4d49-4881-84eb-a9ca85b1cdf4
 
 # Release Notes
 
+## Build 14959
+
+For general Windows information on build 14959 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2016/11/03/announcing-windows-10-insider-preview-build-14959-for-mobile-and-pc/#iI82GufJxMF3POU1.97).<br/>
+To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+
+### Fixed
+
+- Improved Pico Process notification for Windows.  Additional information found on the [WSL Blog](https://blogs.msdn.microsoft.com/wsl/2016/11/01/wsl-antivirus-and-firewall-compatibility/).
+- Improved stability with Windows interoperability 
+- Fixed error 0x80070057 when launching bash.exe when Enterprise Data Protection (EDP) is enabled
+- Additional bugfixes and improvements
+
+### LTP Results:
+Number of Passing Test: 665 </br>
+Number of non-Passing (failing, skipped, etc…): 263 </br>
+[LTP Test Run Logs] (https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/14959)<br/>
+
+<br/>
+<br/>
+
 ## Build 14955
 
 For general Windows information on build 14955 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2016/10/25/announcing-windows-10-insider-preview-build-14955-for-mobile-and-pc/#guGXQzKVFrZIDUYR.97).<br/>
