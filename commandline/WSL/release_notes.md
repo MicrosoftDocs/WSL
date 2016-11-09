@@ -12,6 +12,43 @@ ms.assetid: 36ea641e-4d49-4881-84eb-a9ca85b1cdf4
 
 # Release Notes
 
+## Build 14965
+
+For general Windows information on build 14965 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2016/11/09/announcing-windows-10-insider-preview-build-14965-for-mobile-and-pc/).<br/>
+To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+
+### Fixed
+
+- Support for Netlink sockets NETLINK_ROUTE protocol's RTM_GETLINK and RTM_GETADDR (GH #468)
+  - Enables ifconfig and ip commands for network enumeration
+- /sbin is now in the user's path by default
+- NT user path now appended to the WSL path by default (i.e. you can now type notepad.exe without adding System32 to the Linux path)
+- Added support for /proc/sys/kernel/cap_last_cap
+- NT Binaries can now be launched from WSL when the current working directory contains non-ansi characters (GH #1254)
+- Allow shutdown on disconnected unix stream socket.
+- Added support for PR_GET_PDEATHSIG.
+- Added support for CLONE_PARENT
+- Fixed error where piping gets stuck i.e. bash -c "ls -alR /" | bash -c "cat" (GH #1214)
+- Handle requests to connect to the current terminal.
+- Mark /proc/<pid>/oom_score_adj as writable.
+- Add /sys/fs/cgroup folder.
+- sched_setaffinity should return number of affinity bits mask
+- Fix ELF validation logic which incorrectly assumes interpreter paths must be less than 64 characters long. (GH #743)
+- Open file descriptors can keep console window open (GH #1187)
+- Fixeed error where rename() failed with trailing slash on target name (GH #1008)
+- Implement /proc/net/dev file
+- Fixed 0.000ms pings due to timer resolution.
+- Implemented /proc/self/environ (GH #730)
+- Additional bugfixes and improvements
+
+### LTP Results:
+Number of Passing Test: 664 </br>
+Number of non-Passing (failing, skipped, etc…): 263 </br>
+[LTP Test Run Logs] (https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/14965)<br/>
+
+<br/>
+<br/>
+
 ## Build 14959
 
 For general Windows information on build 14959 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2016/11/03/announcing-windows-10-insider-preview-build-14959-for-mobile-and-pc/#iI82GufJxMF3POU1.97).<br/>
