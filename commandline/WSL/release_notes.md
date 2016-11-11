@@ -21,6 +21,7 @@ To track or report an issue visit our [Github page](https://github.com/Microsoft
 
 - Support for Netlink sockets NETLINK_ROUTE protocol's RTM_GETLINK and RTM_GETADDR (GH #468)
   - Enables ifconfig and ip commands for network enumeration
+  - More information can be found in our [WSL Networking blog post] (https://blogs.msdn.microsoft.com/wsl/2016/11/08/225/).
 - /sbin is now in the user's path by default
 - NT user path now appended to the WSL path by default (i.e. you can now type notepad.exe without adding System32 to the Linux path)
 - Added support for /proc/sys/kernel/cap_last_cap
