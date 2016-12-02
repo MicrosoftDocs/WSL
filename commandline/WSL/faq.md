@@ -1,5 +1,5 @@
 ---
-title: Bash on Ubuntu on Windows - Frequently Asked Questions
+title: Bash on Ubuntu on Windows - Frequently Asked Questions (FAQ)
 description: Frequently Asked Questions
 keywords: BashOnWindows, bash, wsl, windows, windowssubsystem, ubuntu
 author: jackchammons

@@ -1,7 +1,7 @@
 ---
 title: Bash on Ubuntu on Windows - Linux User Account and Permissions
 description: Linux User Account and Permissions
-keywords: BashOnWindows, bash, wsl, windows, windowssubsystem, ubuntu
+keywords: BashOnWindows, bash, wsl, windows, windows subsystem for linux, windowssubsystem, ubuntu
 author: jackchammons
 ms.date: 9/6/2016
 ms.topic: article

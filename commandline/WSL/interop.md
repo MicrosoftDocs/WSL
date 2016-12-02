@@ -1,3 +1,14 @@
+---
+title: Bash on Ubuntu on Windows - Bash-Windows Interop
+description: Bash - Windows interop in Bash on Windows
+author: jackchammons
+ms.date: 9/4/2016
+ms.topic: article
+ms.prod: windows-subsystem-for-linux
+ms.service: windows-subsystem-for-linux
+ms.assetid: 3cefe0db-7616-4848-a2b6-9296746a178b
+---
+
 #Windows Interoperability
 
 > **Important note**  

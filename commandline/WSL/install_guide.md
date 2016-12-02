@@ -1,7 +1,7 @@
 ---
 title: Bash on Ubuntu on Windows - Installation Guide
 description: Installation Guide
-keywords: BashOnWindows, bash, wsl, windows, windowssubsystem, ubuntu
+keywords: BashOnWindows, bash, wsl, windows, windows subsystem for linux, windowssubsystem, ubuntu
 author: jackchammons
 ms.date: 9/6/2016
 ms.topic: article
