@@ -12,6 +12,46 @@ ms.assetid: 36ea641e-4d49-4881-84eb-a9ca85b1cdf4
 
 # Release Notes
 
+## Build 14986
+
+For general Windows information on build 14986 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2016/12/07/announcing-windows-10-insider-preview-build-14986-pc/).<br/>
+To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+
+### Fixed
+
+- Fixed bugchecks with Netlink and Pty IOCTLs
+- Kernel version now reports 4.4.0-43 for consistency with Xenial
+- Bash.exe now launches when input directed to 'nul:' (GH #1259)
+- Thread IDs now reported correctly in procfs (GH #967)
+- IN_UNMOUNT | IN_Q_OVERFLOW | IN_IGNORED | IN_ISDIR flags now supported in inotify_add_watch() (GH #1280)
+- Implement timer_create and related system calls.  This enables GHC support (GH #307)
+- Fixed issue where ping returned a time of 0.000ms (GH #1296)
+- Return correct error code when too many files are opened.
+- Fixed issue in WSL where Netlink request for network interface data would fail with EINVAL if the interface's hardware address is 32-bytes (such as the Teredo interface)
+   - Note that the Linux "ip" utility contains a bug where it will crash if WSL reports a 32-byte hardware address. This is a bug in "ip", not WSL. The “ip” utility hard-codes the length of the string buffer used to print the hardware address, and that buffer is too small to print a 32-byte hardware address.
+- Additional fixes and improvements
+
+
+### LTP Results:
+Number of Passing Test: 669 </br>
+Number of non-Passing (failing, skipped, etc…): 258 </br>
+[LTP Test Run Logs] (https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/14986)<br/>
+
+<br/>
+<br/>
+
+
+### Syscall Support
+Below are a list of new or enhanced syscalls that have some implementation in WSL. The syscalls on this list are supported in at least one scenario, but may not have all parameters supported at this time.
+
+`timer_create`<br/>
+`timer_delete`<br/>
+`timer_gettime`<br/>
+`timer_settime`<br/>
+
+<br/>
+<br/>
+
 ## Build 14971
 
 For general Windows information on build 14971 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2016/11/17/announcing-windows-10-insider-preview-build-14971-for-pc/).<br/>
