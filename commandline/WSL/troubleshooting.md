@@ -16,7 +16,7 @@ ms.assetid: 6753f1b2-200e-49cc-93a5-4323e1117246
   This is the first release of this brand new technology and it is branded “beta” deliberately – it’s not yet complete! We know there are issues and incomplete features, you should expect some things to work and for many things to fail. But we appreciate you playing with this feature and helping us identify the issues we need to fix in order to deliver a great experience.
 
 
-### Collecting logs for WSL
+### Starting bash gives an error code
 1. Download these two .txt files and rename them .cmd
   https://github.com/Microsoft/BashOnWindows/files/288621/start_lxcore_trace.txt <br/>
   https://github.com/Microsoft/BashOnWindows/files/288622/stop_lxcore_trace.txt
