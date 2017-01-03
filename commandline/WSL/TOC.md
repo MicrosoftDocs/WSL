@@ -4,4 +4,5 @@
 # [Linux User Account and Permissions](./user_support.md)
 # [Interoperability](./interop.md)
 # [Frequently Asked Questions](./faq.md)
+# [Troubleshooting](./troubleshooting.md)
 # [Release Notes](./release_notes.md)
