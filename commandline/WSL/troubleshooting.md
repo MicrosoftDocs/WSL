@@ -26,7 +26,7 @@ ms.assetid: 6753f1b2-200e-49cc-93a5-4323e1117246
 6. You should now see three .etl files in the directory you ran the script from.
 7. Post the files with your GitHub post to our [issue page](https://github.com/Microsoft/BashOnWindows/issues). 
 
-### How do I update Bash on Ubuntu on Windows?
+### Updating Bash on Ubuntu on Windows
 
 There are two components of Bash on Ubuntu on Windows that can require updating. 
 
@@ -41,7 +41,7 @@ There are two components of Bash on Ubuntu on Windows that can require updating.
   1. `apt-get update`
   2. `apt-get upgrade`
   
-### Why are there so many errors when I run apt-get upgrade?
+### Apt-get upgrade errors
 Some packages use features that we haven't implemented yet. `udev`, for example, isn't supported yet and causes several `apt-get upgrade` errors.
 
 To fix issues related to `udev`, follow the following steps:
@@ -64,7 +64,7 @@ To fix issues related to `udev`, follow the following steps:
   ln -s /bin/true /sbin/initctl
   ```
   
-### Why do I get "Error: 0x80040306" when I try to install?
+### "Error: 0x80040306" on installation
 This has to do with the fact that we do not support legacy console.
 To turn off legacy console:
 
@@ -72,10 +72,10 @@ To turn off legacy console:
 1. Right click title bar -> Properties -> Uncheck Use legacy console
 1. Click OK
 
-### Why do I get "Error: 0x80040154" when I run bash.exe after upgrading Windows?
+### "Error: 0x80040154" after Windows update
 The Windows Subsystem for Linux feature may be disabled during a Windows update. If this happens the Windows feature must be re-enabled. Instructions for enabling the Windows Subsystem for Linux can be found in the [Installation Guide](https://msdn.microsoft.com/en-us/commandline/wsl/install_guide#enable-the-windows-subsystem-for-linux-feature-guihttps://msdn.microsoft.com/en-us/commandline/wsl/install_guide#enable-the-windows-subsystem-for-linux-feature-gui).
 
-### How do I change the display language of WSL?
+### Changing the display language
 WSL install will try to automatically change the Ubuntu locale to match the locale of your Windows install.  If you do not want this behavior you can run this command to change the Ubuntu locale after install completes.  You will have to relaunch bash.exe for this change to take effect.
 
 The below example changes to locale to en-US:
@@ -83,7 +83,7 @@ The below example changes to locale to en-US:
 sudo update-locale LANG=en_US.UTF8
 ```
 
-### Why do I not have internet access from WSL?
+### No internet access in WSL
 Some users have reported issues with specific firewall applications blocking internet access in WSL.  The firewalls reported are:
 
 1. Kaspersky
