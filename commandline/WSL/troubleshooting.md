@@ -18,7 +18,7 @@ ms.assetid: 6753f1b2-200e-49cc-93a5-4323e1117246
 
 ### Collecting logs on for WSL
 1. Download these two .txt files and rename them .cmd
-  https://github.com/Microsoft/BashOnWindows/files/288621/start_lxcore_trace.txt
+  https://github.com/Microsoft/BashOnWindows/files/288621/start_lxcore_trace.txt <br/>
   https://github.com/Microsoft/BashOnWindows/files/288622/stop_lxcore_trace.txt
 2. Run start_lxcore_trace.cmd from an admin command prompt
 3. Launch bash.exe (repro the scenario).
