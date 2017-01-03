@@ -93,4 +93,9 @@ Some users have reported issues with specific firewall applications blocking int
 In some cases turning off the firewall allows for access.  In some cases simply having the firewall installed looks to block access.
 
 ### Permission Denied error when using ping
-In the Anniversary Update administrator privileges in Windows are required to run ping in WSL.  To run ping, run Bash on Ubuntu on Windows as an administrator, or run bash.exe from a CMD/PowerShell prompt with administrator privileges.
+#### [Anniversary Update](https://msdn.microsoft.com/en-us/commandline/wsl/release_notes#build-14388-to-windows-10-anniversary-update) 
+
+Administrator privileges in Windows are required to run ping in WSL.  To run ping, run Bash on Ubuntu on Windows as an administrator, or run bash.exe from a CMD/PowerShell prompt with administrator privileges.
+
+#### [Build 14926+](https://msdn.microsoft.com/en-us/commandline/wsl/release_notes#build-14926)
+  Administrator privileges no longer required.
