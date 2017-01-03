@@ -83,6 +83,16 @@ The below example changes to locale to en-US:
 sudo update-locale LANG=en_US.UTF8
 ```
 
+### Installation issues after Windows system restore
+1.	Delete the `%windir%\System32\Tasks\Microsoft\Windows\Windows Subsystem for Linux` folder. <br/>
+  **Note: Do not do this if your optional feature is fully installed and working.**
+2.	Enable the WSL optional feature (if not already)
+3.	Reboot
+4.	lxrun /uninstall /full
+5.	Install bash
+
+
+
 ### No internet access in WSL
 Some users have reported issues with specific firewall applications blocking internet access in WSL.  The firewalls reported are:
 
