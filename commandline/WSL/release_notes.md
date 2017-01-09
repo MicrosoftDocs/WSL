@@ -12,6 +12,79 @@ ms.assetid: 36ea641e-4d49-4881-84eb-a9ca85b1cdf4
 
 # Release Notes
 
+## Build 15002
+
+For general Windows information on build 14999 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/01/09/announcing-windows-10-insider-preview-build-15002-pc/).<br/>
+To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+
+### Known Issue
+
+Two known issues:
+- There is a known bug where the console does not recognize some Ctrl + <key> input.  This includes the ctrl-c command which will act as a normal ‘c’ keypress. 
+
+  - Workaround: Map an alternate key to Ctrl+C. For example, to map Ctrl+K to Ctrl+C do:
+`stty intr \^k`.  This mapping is per terminal and will have to be done *every* time bash is launched. Users can explore the option to include this in their `.bashrc`
+
+- While WSL is running a system thread will consume 100% of a CPU core.  The root cause has been addressed and fixed internally. 
+
+### Fixed
+ 
+- All bash sessions must now be created at the same permission level.  Attempting to start a session at a different level will be blocked.  This means admin and non-admin consoles cannot run at the same time. (GH #626)
+<br/>
+- Implemented the following NETLINK_ROUTE messages (requires Windows admin)
+     - RTM_NEWADDR (supports `ip addr add`)
+     - RTM_NEWROUTE (supports `ip route add`)
+     - RTM_DELADDR (supports `ip addr del`)
+     - RTM_DELROUTE (supports `ip route del`)
+- Scheduled task checking for packages to update will no longer run on a metered connection (GH #1371)
+- Fixed error where piping gets stuck i.e. bash -c "ls -alR /" | bash -c "cat" (GH #1214)
+- Implemented TCP_KEEPCNT socket option (GH #843)
+- Implemented IP_MTU_DISCOVER INET socket option (GH #720, 717, 170, 69)
+- Removed legacy functionality to run NT binaries from init with NT path lookup. (GH #1325)
+- Fix mode of /dev/kmsg to allow group / other read access (0644) (GH #1321)
+- Implemented /proc/sys/kernel/random/uuid  (GH #1092)
+- Corrected error where process start time was showing as year 2432 (GH #974)
+- Switched default TERM environment variable to xterm-256color (GH #1446)
+- Modified the way that process commit is calculated during process fork. (GH #1286)
+- Implemented /proc/sys/vm/overcommit_memory. (GH #1286)
+- Implemented /proc/net/route file (GH #69)
+- Fixed error where shortcut name was incorrectly localized (GH #696)
+- Fixed elf parsing logic that is incorrectly validating the program headers must be less than (or equal to) PATH_MAX. (GH #1048)
+- Implemented statfs callback for procfs, sysfs, cgroupfs, and binfmtfs (GH #1378)
+- Fixed AptPackageIndexUpdate windows that won’t close (GH #1184, also discussed in GH #1193)
+- Added ASLR personality  ADDR_NO_RANDOMIZE support. (GH #1148, 1128)
+- Improved PTRACE_GETSIGINFO, SIGSEGV, for proper gdb stack traces during AV (GH #875)
+- Elf parsing no longer fails for patchelf binaries. (GH #471)
+- VPN DNS propagated to /etc/resolv.conf (GH #416, 1350)
+- Improvements to TCP close for more reliable data transfer. (GH #610, 616, 1025, 1335)
+- Now return correct error code when too many files are opened (EMFILE). (GH #1126, 2090)
+- Windows Audit log now reports the image name in process create audit.
+- Now gracefully fail when launching bash.exe from within a bash window
+- Added error message when interop is unable to access a working directory under LxFs (i.e. notepad.exe .bashrc)
+- Fixed issue where Windows path was truncated in WSL
+- Additional fixes and improvements
+
+
+### LTP Results:
+Number of Passing Test: 690 </br>
+Number of non-Passing (failing, skipped, etc…): 274 </br>
+[LTP Test Run Logs] (https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/15002)<br/>
+
+<br/>
+<br/>
+
+
+### Syscall Support
+Below are a list of new or enhanced syscalls that have some implementation in WSL. The syscalls on this list are supported in at least one scenario, but may not have all parameters supported at this time.
+
+`shmctl`<br/>
+`shmget`<br/>
+`shmdt`<br/>
+`shmat`<br/>
+
+<br/>
+<br/>
+
 ## Build 14986
 
 For general Windows information on build 14986 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2016/12/07/announcing-windows-10-insider-preview-build-14986-pc/).<br/>
