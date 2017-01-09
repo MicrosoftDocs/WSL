@@ -14,7 +14,7 @@ ms.assetid: 36ea641e-4d49-4881-84eb-a9ca85b1cdf4
 
 ## Build 15002
 
-For general Windows information on build 14999 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/01/09/announcing-windows-10-insider-preview-build-15002-pc/).<br/>
+For general Windows information on build 15002 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/01/09/announcing-windows-10-insider-preview-build-15002-pc/).<br/>
 To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
 
 ### Known Issue
