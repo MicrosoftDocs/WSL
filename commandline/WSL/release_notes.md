@@ -12,6 +12,36 @@ ms.assetid: 36ea641e-4d49-4881-84eb-a9ca85b1cdf4
 
 # Release Notes
 
+## Build 15007
+ 
+For general Windows information on build 15007 visit the [Windows Blog]( https://blogs.windows.com/windowsexperience/2017/01/12/announcing-windows-10-insider-preview-build-15007-pc-mobile).<br/>
+To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+ 
+### Known Issue
+ 
+- There is a known bug where the console does not recognize some Ctrl + <key> input.  This includes the ctrl-c command which will act as a normal ‘c’ keypress. 
+ 
+  - Workaround: Map an alternate key to Ctrl+C. For example, to map Ctrl+K to Ctrl+C do:
+`stty intr \^k`.  This mapping is per terminal and will have to be done *every* time bash is launched. Users can explore the option to include this in their `.bashrc`
+ 
+### Fixed
+ 
+- Corrected the issue where running WSL would consume 100% of a CPU core
+- Socket option IP_PKTINFO, IPV6_RECVPKTINFO now supported. (GH #851, 987)
+- Truncate network interface physical address to 16 bytes in lxcore (GH #1452, 1414, 1343, 468, 308)
+- Additional fixes and improvements
+ 
+ 
+### LTP Results:
+Number of Passing Test: 709 </br>
+Number of non-Passing (failing, skipped, etc…): 255 </br>
+[LTP Test Run Logs] (https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/15007)<br/>
+ 
+ 
+<br/>
+<br/>
+
+
 ## Build 15002
 
 For general Windows information on build 15002 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/01/09/announcing-windows-10-insider-preview-build-15002-pc/).<br/>
