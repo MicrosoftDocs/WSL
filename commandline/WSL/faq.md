@@ -78,6 +78,7 @@ WSL does **not** aim to support GUI desktops or applications (e.g. Gnome, KDE, e
 
 Also, even though you will be able to run many popular server applications (e.g. Redis), we do not recommend WSL for server scenarios – Microsoft offers a variety of solutions for running production Ubuntu workloads in Azure, Hyper-V and Docker. 
 
+
 ### Why is this a beta release?
 This is the first release of a brand new technology. There will be gaps. We know some of them, and we’re certain you will find many more.
 Again, this is a beta release – expect things to fail. Some tools will crash and/or not run. But please be sure to let us know when you run into issues – we’re working hard to fix problems and dramatically improve WSL over time.
@@ -123,6 +124,23 @@ Example usage would be `cd /mnt/c` to access c:\
 2. Files in mounted drives are controlled by Windows and have the following behaviors:
   * Support case sensitivity
   * All permissions are set to best reflect the Windows permissions
+
+### How do I use a Windows file with a Linux app?
+
+For example you are using [SWI-Prolog](http://www.swi-prolog.org/) on WSL and want to edit the Prolog source code files with [Visual Studio Code](https://code.visualstudio.com/) on Windows.  
+
+Windows directory: `C:\Users\Eric\Documents\Prolog`    Note: This directory exist.  
+Linux directory:   `/home/eric/Prolog`                 Note: This directory does not exist.  
+
+The solution is to create a [symbolic link](http://manpages.ubuntu.com/manpages/precise/man7/symlink.7.html).  
+
+`ln -s "/mnt/c/Users/Eric/Documents/Prolog" /home/eric/Prolog`  
+
+Now in WSL you can access the Windows directory with commands such as `ll`.  
+
+Also within the application you can access the Windows file.  
+
+e.g. `consult('Prolog/example.pl').`
 
 ### Why are there so many errors when I run apt-get upgrade?
 Some packages use features that we haven't implemented yet. `udev`, for example, isn't supported yet and causes several `apt-get upgrade` errors.
