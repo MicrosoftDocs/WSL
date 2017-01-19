@@ -12,6 +12,42 @@ ms.assetid: 36ea641e-4d49-4881-84eb-a9ca85b1cdf4
 
 # Release Notes
 
+## Build 15014
+ 
+For general Windows information on build 15014 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/01/19/announcing-windows-10-insider-preview-build-15014-for-pc-and-mobile-hello-windows-insiders-today-we-are-excited-to-be-releasing-windows-10-insider-preview-build-15014-for-pc-and-mobile).<br/>
+To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+ 
+### Fixed
+ 
+- Ctrl+C now works as intended
+- htop and ps auxw now show correct resource utilization (GH #516)
+- Basic translation of NT exceptions to signals. (GH #513)
+- fallocate now fails with ENOSPC  when running out of space instead of EINVAL (GH #1571)
+- Added /proc/sys/kernel/sem.
+- Implemented semop and semtimedop system calls
+- Fixed nslookup errors with IP_RECVTOS & IPV6_RECVTCLASS socket option (GH 69)
+- Support for socket options IP_RECVTTL and IPV6_RECVHOPLIMIT 
+- Additional fixes and improvements
+ 
+ 
+### LTP Results:
+Number of Passing Test: 709 </br>
+Number of non-Passing (failing, skipped, etc…): 255 </br>
+[LTP Test Run Logs](https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/15014)<br/>
+ 
+
+### Syscall Summary
+Total Syscalls: 384 </br>
+Total Implemented: 235 </br>
+Total Stubbed: 22 </br>
+Total Unimplemented: 127 </br>
+[Detailed Breakdown](https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/15014/Syscalls.txt)<br/>
+
+
+<br/>
+<br/>
+
+
 ## Build 15007
  
 For general Windows information on build 15007 visit the [Windows Blog]( https://blogs.windows.com/windowsexperience/2017/01/12/announcing-windows-10-insider-preview-build-15007-pc-mobile).<br/>
