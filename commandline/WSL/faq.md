@@ -127,20 +127,25 @@ Example usage would be `cd /mnt/c` to access c:\
 
 ### How do I use a Windows file with a Linux app?
 
-For example you are using [SWI-Prolog](http://www.swi-prolog.org/) on WSL and want to edit the Prolog source code files with [Visual Studio Code](https://code.visualstudio.com/) on Windows.  
+One of the benefits of WSL is being able to use the same file with both Windows and Linux apps or tools.
 
-Windows directory: `C:\Users\Eric\Documents\Prolog`    Note: This directory exist.  
-Linux directory:   `/home/eric/Prolog`                 Note: This directory does not exist.  
+One of the main limitations of using WSL is that changing Linux files with a Windows app or tool is not allowed. See: [Do not change Linux files using Windows apps and tools](https://blogs.msdn.microsoft.com/commandline/2016/11/17/do-not-change-linux-files-using-windows-apps-and-tools/)
 
-The solution is to create a [symbolic link](http://manpages.ubuntu.com/manpages/precise/man7/symlink.7.html).  
+However changing Windows files with a Linux app or tools is allowed.
 
-`ln -s "/mnt/c/Users/Eric/Documents/Prolog" /home/eric/Prolog`  
+One way to use a Windows file with a Linux app is to use an absolute path, e.g. `/mnt/c/Users/<Windows User>/Documents/Projectes/<filename>`.
 
-Now in WSL you can access the Windows directory with commands such as `ll`.  
+However not all Linux apps or tools can access a file using `/mnt`.
 
-Also within the application you can access the Windows file.  
+A solution is to create a [symbolic link](http://manpages.ubuntu.com/manpages/precise/man7/symlink.7.html).
 
-e.g. `consult('Prolog/example.pl').`
+Windows directory: `C:\Users\<Windows User>\Documents\Projects`    Note: This directory exist.
+
+Linux directory:   `/home/<Linux User>/Projects`                   Note: This directory does not exist.
+
+`ln -s "/mnt/c/Users/<Windows User>/Documents/Projects" /home/<Linux User>/Projects`
+
+Now in WSL you can access the Windows directory as `/home/<Linux User>/Projects` or a specific file as `/home/<Linux User>/Projects/<filename>`, and if in WSL the current directory is `~` then `Projects/<filename>`.
 
 ### Why are there so many errors when I run apt-get upgrade?
 Some packages use features that we haven't implemented yet. `udev`, for example, isn't supported yet and causes several `apt-get upgrade` errors.
