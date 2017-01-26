@@ -105,6 +105,7 @@ There are two components of Bash on Ubuntu on Windows that can require updating.
   1. `apt-get update`
   2. `apt-get upgrade`
 
+
 ### Can I run other Linux distros than Ubuntu?
 Not at this time: We’re currently focused on delivering a great Ubuntu experience. We are keen to explore supporting other Linux distros in the future.
 
@@ -121,6 +122,28 @@ Mount points for hard drives on the local machine are automatically created and 
 **/mnt/\<drive letter>/**
  
 Example usage would be `cd /mnt/c` to access c:\
+
+### How do I use a Windows file with a Linux app?
+
+One of the benefits of WSL is being able to use the same file with both Windows and Linux apps or tools.
+
+One of the main limitations of using WSL is that changing Linux files with a Windows app or tool is not allowed. See: [Do not change Linux files using Windows apps and tools](https://blogs.msdn.microsoft.com/commandline/2016/11/17/do-not-change-linux-files-using-windows-apps-and-tools/)
+
+However changing Windows files with a Linux app or tools is allowed.
+
+One way to use a Windows file with a Linux app is to use an absolute path, e.g. `/mnt/c/Users/<Windows User>/Documents/Projectes/<filename>`.
+
+However not all Linux apps or tools can access a file using `/mnt`.
+
+A solution is to create a [symbolic link](http://manpages.ubuntu.com/manpages/precise/man7/symlink.7.html).
+
+Windows directory: `C:\Users\<Windows User>\Documents\Projects`    Note: This directory exist.
+
+Linux directory:   `/home/<Linux User>/Projects`                   Note: This directory does not exist.
+
+`ln -s "/mnt/c/Users/<Windows User>/Documents/Projects" /home/<Linux User>/Projects`
+
+Now in WSL you can access the Windows directory as `/home/<Linux User>/Projects` or a specific file as `/home/<Linux User>/Projects/<filename>`, and if in WSL the current directory is `~` then `Projects/<filename>`.
 
 ###Is there any distinction between files in the Linux drive and the mounted Windows drives?
 1. Files under the Linux root (i.e. “/”) are controlled by the subsystem.  This allows for Linux specific behavior including but is not limited to:
