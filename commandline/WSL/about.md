@@ -10,7 +10,7 @@ ms.service: windows-subsystem-for-linux
 ms.assetid: 3cefe0db-7616-4848-a2b6-9296746a178b
 ---
 
-# <img src="media/bash_logo.tif" width="600">
+# <img src="media/bash_logo.png" width="600">
 
 > **Important note**  
   This is the first release of this brand new technology and it is branded “beta” deliberately – it’s not yet complete! We know there are issues and incomplete features, you should expect some things to work and for many things to fail. But we appreciate you playing with this feature and helping us identify the issues we need to fix in order to deliver a great experience.
