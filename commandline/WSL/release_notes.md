@@ -12,6 +12,32 @@ ms.assetid: 36ea641e-4d49-4881-84eb-a9ca85b1cdf4
 
 # Release Notes
 
+
+## Build 15019
+
+For general Windows information on build 15019 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/01/27/announcing-windows-10-insider-preview-build-15019-pc/).<br/>
+To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+
+### Fixed
+
+- Fixed bug that incorrectly reported CPU usage in procfs for tools like htop (GH 823, 945, 971)
+- When calling open() with O_TRUNC on an existing file inotify now generates IN_MODIFY before IN_OPEN
+- Fixes to unix socket getsockopt SO_ERROR to enable postgress [GH 61, 1354]
+- Implement /proc/sys/net/core/somaxconn for the GO language
+- Apt-get package update background task now runs hidden from view
+- Clear scope for ipv6 localhost (Spring-Framework(Java) failure).
+- Additional fixes and improvements
+
+
+### LTP Results:
+Number of Passing Test: 714 </br>
+Number of non-Passing (failing, skipped, etc…): 249 </br>
+[LTP Test Run Logs] (https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/15019)<br/>
+<br/>
+
+
+
+
 ## Build 15014
  
 For general Windows information on build 15014 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/01/19/announcing-windows-10-insider-preview-build-15014-for-pc-and-mobile-hello-windows-insiders-today-we-are-excited-to-be-releasing-windows-10-insider-preview-build-15014-for-pc-and-mobile).<br/>
