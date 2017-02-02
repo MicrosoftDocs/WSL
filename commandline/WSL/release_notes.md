@@ -12,6 +12,36 @@ ms.assetid: 36ea641e-4d49-4881-84eb-a9ca85b1cdf4
 
 # Release Notes
 
+## Build 15025
+
+For general Windows information on build 15025 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/02/01/announcing-windows-10-insider-preview-build-15025-pc/).<br/>
+To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+
+### Fixed
+
+- Fix for bug that broke grep 2.27 [GH 1578]
+- Implemented EFD_SEMAPHORE flag for eventfd2 syscall [GH 452]
+- Implemented /proc/[pid]/net/ipv6_route [GH 1608]
+- Signal driven IO support for unix stream sockets [GH 393, 68]
+- Support F_GETPIPE_SZ and F_SETPIPE_SZ [GH 1012]
+- Implement recvmmsg() syscall [GH 1531]
+- Fixed bug where epoll_wait() wasn't waiting [GH 1609]
+- Implement /proc/version_signature
+- Tee syscall now returns failure if both file descriptors refer to the same pipe
+- Implemented correct behavior for SO_PEERCRED for Unix sockets
+- Fixed tkill syscall invalid parameter handling
+- Changes to increase the preformace of drvfs
+- Minor fix for Ruby IO blocking
+- Fixed recvmsg() returning EINVAL for the MSG_DONTWAIT flag for inet sockets [GH 1296]
+- Additional fixes and improvements 
+
+### LTP Results:
+Number of Passing Test: 732</br>
+Number of non-Passing (failing, skipped, etc…): 255 </br>
+[LTP Test Run Logs] (https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/15025)<br/>
+
+<br/>
+
 
 ## Build 15019
 
