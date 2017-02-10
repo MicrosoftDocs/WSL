@@ -12,6 +12,32 @@ ms.assetid: 36ea641e-4d49-4881-84eb-a9ca85b1cdf4
 
 # Release Notes
 
+
+## Build 15031
+
+For general Windows information on build 15031 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/02/08/announcing-windows-10-insider-preview-build-15031-pc/).<br/>
+To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+
+### Fixed
+
+- Fixed a bug where time(2) would sporadically misbehave.
+- Fixed and issue where *SIGPROCMASK syscalls could corrupt signal mask.
+- Now return full command line length in WSL process creation notification. [GH 1632]
+- WSL now reports thread exit through ptrace for GDB hangs. [GH 1196]
+- Fixed bug where ptys would hang after heavy tmux IO. [GH 1358]
+- Fixed timeout validation in many system calls (futex, semtimedop, ppoll, sigtimedwait, itimer, timer_create)
+- Added eventfd EFD_SEMAPHORE support [GH 452]
+- Additional fixes and improvements 
+
+### LTP Results:
+Number of Passing Test: 737</br>
+Number of non-Passing (failing, skipped, etc…): 255 </br>
+[LTP Test Run Logs] (https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/15031)<br/>
+
+<br/>
+
+
+
 ## Build 15025
 
 For general Windows information on build 15025 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/02/01/announcing-windows-10-insider-preview-build-15025-pc/).<br/>
