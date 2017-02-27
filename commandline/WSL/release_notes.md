@@ -12,6 +12,24 @@ ms.assetid: 36ea641e-4d49-4881-84eb-a9ca85b1cdf4
 
 # Release Notes
 
+## Build 15042
+
+For general Windows information on build 15042 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/02/24/announcing-windows-10-insider-preview-build-15042-pc-build-15043-mobile/).<br/>
+To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+
+### Fixed
+
+- Fix for a deadlock when removing a path ending in ".."
+- Fixed an issue where FIONBIO not returning 0 on success [GH 1683]
+- Fixed issue with zero-length reads of inet datagram sockets
+- Fix possible deadlock due to race condition in drvfs inode lookup [GH 1675]
+- Additional fixes and improvements 
+
+### LTP Results:
+Number of Passing Test: 737</br>
+Number of non-Passing (failing, skipped, etc…): 255 
+
+</br>
 
 ## Build 15031
 
