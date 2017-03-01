@@ -23,6 +23,7 @@ To track or report an issue visit our [Github page](https://github.com/Microsoft
 - Fixed an issue where FIONBIO not returning 0 on success [GH 1683]
 - Fixed issue with zero-length reads of inet datagram sockets
 - Fix possible deadlock due to race condition in drvfs inode lookup [GH 1675]
+- Extended support for unix socket ancillary data; SCM_CREDENTIALS and SCM_RIGHTS [GH 514, 613, 1326]
 - Additional fixes and improvements 
 
 ### LTP Results:
