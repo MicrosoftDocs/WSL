@@ -49,7 +49,7 @@ command-line utilities are the same as those that run within a native Ubuntu env
 
 ## Learn About Bash on Windows Subsystem for Linux
 To learn all about Bash and the Windows Subsystem for Linux (WSL), we've [collected several 
-videos and blog posts](1) demonstrating Bash/WSL and detailing its inner workings!
+videos and blog posts][1] demonstrating Bash/WSL and detailing its inner workings!
 <br/>
 <a href="">
   <img title="Learn more about Bash on WSL image" 
