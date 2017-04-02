@@ -26,15 +26,15 @@ an entire Linux virtual machine!
 
 Bash/WSL allows you to:
 
-1. Run common command-line utilities such as `grep`, `sed`, `awk`, etc. delivered by an
+1. Run common command-line utilities such as `grep`, `sed`, `awk`, etc. delivered by any Unix-like environment. 
 1. Use the Linux-compatible filesystem & heirarchy and access fixed Windows storage 
-mounted under `/mnt/...`
-1. Run Bash shell scripts and Linux command-line apps. including
-    * Tools: vim, emacs, tmux
+mounted under `/mnt/...`.
+1. Run Bash shell scripts and Linux command-line apps, including:
+    * Tools: vim, emacs, tmux.
     * Languages: Javascript/node.js, Ruby, Python, C/C++, C# & F#, Rust, Go, etc.
-    * Services: sshd, MySQL, Apache, lighttpd, 
-1. Install additional Linux tools using `apt`
-1. Invoke Windows applications from within Bash
+    * Services: sshd, MySQL, Apache, lighttpd. 
+1. Install additional Linux tools using `apt`.
+1. Invoke Windows applications from within Bash.
 1. Invoke Linux applications from within Windows!
 
 Bash on Windows runs Ubuntu user-mode binaries provided by Canonical.  This means the 
