@@ -12,6 +12,32 @@ ms.assetid: 36ea641e-4d49-4881-84eb-a9ca85b1cdf4
 
 # Release Notes
 
+## Build 16176
+
+For general Windows information on build 16176 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/04/14/announcing-windows-10-insider-preview-build-16176-pc-build-15204-mobile/).<br/>
+To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+
+- [Enabled serial support](https://blogs.msdn.microsoft.com/wsl/2017/04/14/serial-support-on-the-windows-subsystem-for-linux/)
+- Added IP socket option IP_OPTIONS [GH 1116]
+- Implemented pwritev function (while uploading file to nginx/PHP-FPM) [GH 1506]
+- Added IP socket options IP_MULTICAST_IF & IPV6_MULTICAST_IF [GH 990]
+- Support for socket option IP_MULTICAST_LOOP & IPV6_MULTICAST_LOOP [GH 1678]
+- Added IP(V6)_MTU socket option for apps node, traceroute, dig, nslookup, host
+- Added IP socket option IPV6_UNICAST_HOPS
+- Filesystem Improvements
+	* Allow mounting of UNC paths
+	* Enable CDFS support in drvfs
+	* Correctly handle permissions for network file systems in drvfs
+	* Add support for remote drives to drvfs
+	* Enable FAT support in drvfs
+- Additional fixes and Improvements
+
+### LTP Results
+No changes since 15042
+
+</br>
+
+
 ## Build 16170
 
 For general Windows information on build 16170 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/04/07/announcing-windows-10-insider-preview-build-16170-pc/).<br/>
