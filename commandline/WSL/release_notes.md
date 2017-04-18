@@ -24,7 +24,7 @@ To track or report an issue visit our [Github page](https://github.com/Microsoft
 - Support for socket option IP_MULTICAST_LOOP & IPV6_MULTICAST_LOOP [GH 1678]
 - Added IP(V6)_MTU socket option for apps node, traceroute, dig, nslookup, host
 - Added IP socket option IPV6_UNICAST_HOPS
-- Filesystem Improvements
+- [Filesystem Improvements](https://blogs.msdn.microsoft.com/wsl/2017/04/18/file-system-improvements-to-the-windows-subsystem-for-linux/)
 	* Allow mounting of UNC paths
 	* Enable CDFS support in drvfs
 	* Correctly handle permissions for network file systems in drvfs
