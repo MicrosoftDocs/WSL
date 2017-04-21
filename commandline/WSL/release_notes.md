@@ -18,7 +18,7 @@ For general Windows information on build 16179 visit the [Windows Blog](https://
 To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
 
 ### Fixed 
-No WSL changes this week.
+- No WSL changes this week.
 
 
 ## Build 16176
