@@ -12,6 +12,21 @@ ms.assetid: 36ea641e-4d49-4881-84eb-a9ca85b1cdf4
 
 # Release Notes
 
+## Build 16184
+
+For general Windows information on build 16184 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/04/28/announcing-windows-10-insider-preview-build-16184-pc-build-15208-mobile/).<br/>
+To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+
+### Fixed 
+- Removed apt package maintenance task (lxrun.exe /update)
+- Fixed output not showing up in from Windows processes in node.js [GH 1840] 
+- Relax alignment requirements in lxcore [GH 1794] 
+- Fixed handling of the AT_EMPTY_PATH flag in a numer of system calls.
+- Fixed issue where deleting DrvFs files with open handles will cause the file to exhibit undefined behavior [GH 544,966,1357,1535,1615] 
+- /etc/hosts will now inherit entries from the Windows hosts file (%windir%\system32\drivers\etc\hosts) [GH 1495] 
+
+</br>
+
 ## Build 16179
 
 For general Windows information on build 16179 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/04/19/announcing-windows-10-insider-preview-build-16179-pc-build-15205-mobile/).<br/>
