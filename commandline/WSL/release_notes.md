@@ -24,6 +24,7 @@ To track or report an issue visit our [Github page](https://github.com/Microsoft
 - Fixed handling of the AT_EMPTY_PATH flag in a numer of system calls.
 - Fixed issue where deleting DrvFs files with open handles will cause the file to exhibit undefined behavior [GH 544,966,1357,1535,1615] 
 - /etc/hosts will now inherit entries from the Windows hosts file (%windir%\system32\drivers\etc\hosts) [GH 1495] 
+- bash has now become login shell.
 
 </br>
 
