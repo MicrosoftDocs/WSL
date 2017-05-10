@@ -102,8 +102,8 @@ There are two components of Bash on Ubuntu on Windows that can require updating.
 
   Upgrading this portion of Bash on Ubuntu on Windows will install any updates to the Ubuntu user binaries including applications that you have installed via apt-get. To update run the following commands in Bash:
   
-  1. `apt-get update`
-  2. `apt-get upgrade`
+  1. `sudo apt-get update`
+  2. `sudo apt-get upgrade`
 
 
 ### Can I run other Linux distros than Ubuntu?
