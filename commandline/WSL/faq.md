@@ -187,7 +187,7 @@ In Command Prompt:
   ```
 
 ### Why does the ping command require Bash to be started with admin privileges?
-This is a known issue that has to due with differences between the way the Linux and the Windows kernel handle the ICMP request that makes ping possible. We plan to address this in future releases.
+Executing the PING command no longer requires admin privileges since Build 14926.
 
 ### How do I run an OpenSSH server?
 Similar to the previous question, WSL needs to be launched with admin privileges.
