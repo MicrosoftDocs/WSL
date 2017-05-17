@@ -110,8 +110,9 @@ There are two components of Bash on Ubuntu on Windows that can require updating.
 Not at this time: We’re currently focused on delivering a great Ubuntu experience. We are keen to explore supporting other Linux distros in the future.
 
 ### What Windows SKUs is WSL included in?
-Windows Subsystem for Linux will be available in desktop versions of Windows.  
-WSL is NOT a server technology and so will not be available on Server SKUs.  WSL is an optional Windows feature and can be enabled via the “Turn Windows features on or off” tool or using PowerShell or DISM via an (elevated) command-line.
+Windows Subsystem for Linux is available only on the desktop version of Windows for the Anniversary and Creators update.
+
+Beginning in the Fall Creators update WSL will be available on both the desktop and server SKUs of Windows.
 
 ### What processors do we support?
 We only support x64 CPUs.
