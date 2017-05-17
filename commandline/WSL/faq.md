@@ -86,6 +86,7 @@ WSL does **not** aim to support GUI desktops or applications (e.g. Gnome, KDE, e
 
 Also, even though you will be able to run many popular server applications (e.g. Redis), we do not recommend WSL for server scenarios – Microsoft offers a variety of solutions for running production Ubuntu workloads in Azure, Hyper-V, and Docker. 
 
+
 ### Why is this a beta release?
 This is the first release of a brand new technology. There will be gaps. We know some of them, and we’re certain you will find many more.
 Again, this is a beta release – expect things to fail. Some tools will crash and/or not run. But please be sure to let us know when you run into issues – we’re working hard to fix problems and dramatically improve WSL over time.
@@ -155,6 +156,28 @@ Now in WSL you can access the Windows directory as `/home/<Linux User>/Projects`
 2. Files in mounted drives are controlled by Windows and have the following behaviors:
   * Support case sensitivity
   * All permissions are set to best reflect the Windows permissions
+
+### How do I use a Windows file with a Linux app?
+
+One of the benefits of WSL is being able to use the same file with both Windows and Linux apps or tools.
+
+One of the main limitations of using WSL is that changing Linux files with a Windows app or tool is not allowed. See: [Do not change Linux files using Windows apps and tools](https://blogs.msdn.microsoft.com/commandline/2016/11/17/do-not-change-linux-files-using-windows-apps-and-tools/)
+
+However changing Windows files with a Linux app or tools is allowed.
+
+One way to use a Windows file with a Linux app is to use an absolute path, e.g. `/mnt/c/Users/<Windows User>/Documents/Projectes/<filename>`.
+
+However not all Linux apps or tools can access a file using `/mnt`.
+
+A solution is to create a [symbolic link](http://manpages.ubuntu.com/manpages/precise/man7/symlink.7.html).
+
+Windows directory: `C:\Users\<Windows User>\Documents\Projects`    Note: This directory exist.
+
+Linux directory:   `/home/<Linux User>/Projects`                   Note: This directory does not exist.
+
+`ln -s "/mnt/c/Users/<Windows User>/Documents/Projects" /home/<Linux User>/Projects`
+
+Now in WSL you can access the Windows directory as `/home/<Linux User>/Projects` or a specific file as `/home/<Linux User>/Projects/<filename>`, and if in WSL the current directory is `~` then `Projects/<filename>`.
 
 ### Why are there so many errors when I run apt-get upgrade?
 Some packages use features that we haven't implemented yet. `udev`, for example, isn't supported yet and causes several `apt-get upgrade` errors.
