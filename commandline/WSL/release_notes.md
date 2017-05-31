@@ -12,14 +12,27 @@ ms.assetid: 36ea641e-4d49-4881-84eb-a9ca85b1cdf4
 
 # Release Notes
 
-## Build 16193, 16199
+## Build 16199
 
-For general Windows information on build 16193 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/05/11/announcing-windows-10-insider-preview-build-16193-pc-build-15213-mobile/).<br/>
 For general Windows information on build 16199 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/05/17/announcing-windows-10-insider-preview-build-16199-pc-build-15215-mobile/).<br/>
 To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
 
 ### Fixed 
 - No WSL related changes in these releases.
+
+</br>
+
+## Build 16193
+
+For general Windows information on build 16193 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/05/11/announcing-windows-10-insider-preview-build-16193-pc-build-15213-mobile/).<br/>
+To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+
+### Fixed 
+- Race condition between sending SIGCONT and a threadgroup terminating [GH 1973]
+- change tty and pty devices to report FILE_DEVICE_NAMED_PIPE instead of FILE_DEVICE_CONSOLE [GH 1840]
+- SSH fix for IP_OPTIONS
+- Moved DrvFs mounting to init daemon [GH 1862, 1968, 1767, 1933]
+- Added support in DrvFs for following NT symlinks. 
 
 </br>
 
