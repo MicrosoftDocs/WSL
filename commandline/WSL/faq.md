@@ -190,7 +190,7 @@ In Command Prompt:
 Executing the PING command no longer requires admin privileges since Build 14926.
 
 ### How do I run an OpenSSH server?
-Similar to the previous question, WSL needs to be launched with admin privileges.
+Administrator privileges in Windows are required to run OpenSSH in WSL. To run an OpenSSH server, run Bash on Ubuntu on Windows as an administrator, or run bash.exe from a CMD/PowerShell prompt with administrator privileges.
 
 ### Why do I get "Error: 0x80040306" when I try to install?
 This has to do with the fact that we do not support legacy console.
@@ -212,7 +212,7 @@ sudo update-locale LANG=en_US.UTF8
 ```
 
 ### Why do I get a Permission Denied error when using ping?
-Administrator privileges in Windows are required to run ping in WSL.  To run ping, run Bash on Ubuntu on Windows as an administrator, or run bash.exe from a CMD/PowerShell prompt with administrator privileges.
+Executing the PING command no longer requires admin privileges since Build 14926.
 
 ### Why do I not have internet access from WSL?
 Some users have reported issues with specific firewall applications blocking internet access in WSL.  The firewalls reported are:
