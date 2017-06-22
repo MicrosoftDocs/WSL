@@ -12,6 +12,23 @@ ms.assetid: 36ea641e-4d49-4881-84eb-a9ca85b1cdf4
 
 # Release Notes
 
+## Build 16215
+
+For general Windows information on build 16199 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/05/17/announcing-windows-10-insider-preview-build-16199-pc-build-15215-mobile/).<br/>
+To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+
+### Fixed 
+- WSL no longer requires developer mode.
+- Support directory junctions in drvfs.
+- Handle uninstalling of WSL distribution appx packages.
+- Update procfs to show private and shared mappings.
+- Add ability for wslconfig.exe to clean up distributions that are partially installed or uninstalled.
+- Added support for IP_MTU_DISCOVER for TCP sockets. [GH 1639, 2115, 2205]
+- Infer protocol family for routes to AF_INADDR.
+- Serial device improvements [GH 1929].
+
+</br>
+
 ## Build 16199
 
 For general Windows information on build 16199 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/05/17/announcing-windows-10-insider-preview-build-16199-pc-build-15215-mobile/).<br/>
