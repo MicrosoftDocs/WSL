@@ -12,6 +12,20 @@ ms.assetid: 36ea641e-4d49-4881-84eb-a9ca85b1cdf4
 
 # Release Notes
 
+## Build 16226
+
+For general Windows information on build 16199 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/06/21/announcing-windows-10-insider-preview-build-16226-pc/).<br/>
+To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+
+### Fixed 
+- xattr related syscalls support (getxattr, setxattr, listxattr, removexattr).
+- security.capablity xattr support.
+- Improved compatibility with certain file systems and filters, including non-MS SMB servers. [GH #1952]
+- Improved support for OneDrive placeholders, GVFS placeholders, and Compact OS compressed files.
+- Additional improvements and bug fixes
+
+</br>
+
 ## Build 16215
 
 For general Windows information on build 16199 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/05/17/announcing-windows-10-insider-preview-build-16199-pc-build-15215-mobile/).<br/>
