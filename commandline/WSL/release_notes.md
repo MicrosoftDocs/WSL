@@ -14,7 +14,7 @@ ms.assetid: 36ea641e-4d49-4881-84eb-a9ca85b1cdf4
 
 ## Build 16226
 
-For general Windows information on build 16199 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/06/21/announcing-windows-10-insider-preview-build-16226-pc/).<br/>
+For general Windows information on build 16226 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/06/21/announcing-windows-10-insider-preview-build-16226-pc/).<br/>
 To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
 
 ### Fixed 
@@ -28,7 +28,7 @@ To track or report an issue visit our [Github page](https://github.com/Microsoft
 
 ## Build 16215
 
-For general Windows information on build 16199 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/05/17/announcing-windows-10-insider-preview-build-16199-pc-build-15215-mobile/).<br/>
+For general Windows information on build 16215 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/06/08/announcing-windows-10-insider-preview-build-16215-pc-build-15222-mobile/).<br/>
 To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
 
 ### Fixed 
