@@ -40,15 +40,17 @@ Enable the "Windows Subsystem for Linux" optional feature and reboot.
     * [OpenSUSE](https://www.microsoft.com/store/apps/9njvjts82tjx)
     * [SLES](https://www.microsoft.com/store/apps/9p32mwbh6cns)
 
-2. Select "Install"  
+    ![](media/UbuntuStore.png)
+
+2. Select "Get"
+3. Once the download has completed, select "Launch".  
+    This will open a console window.  Wait for installation to complete then you will be prompted to create your UNIX user account.
+    ![](media/UbuntuInstall.png)
     
+5. Create your UNIX username and password.  This user account can be different from, and has no relationship to, your Windows username and password. [Read more](https://msdn.microsoft.com/en-us/commandline/wsl/user_support).
 
-### Create a UNIX user
-The first time you install Bash on Windows, you will be prompted to create a UNIX username and password.
+You're done!  Now you can use your Linux environment.
 
-![](media/new-user.png)
-  
-This UNIX username and password can be different from, and has no relationship to your Windows username and password. [Read more](https://msdn.microsoft.com/en-us/commandline/wsl/user_support).
 
 ## For Anniversary Update and Creators Update
 1. Turn on Developer Mode
