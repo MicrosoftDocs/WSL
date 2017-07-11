@@ -17,11 +17,12 @@ Your PC must be running a 64-bit version of Windows 10.
 
 This guide is based on the Fall Creator's Update.  For earlier versions of Windows 10, follow [these instructions using lxrun](install_guide.md#For-Anniversary-Update-and-Creators-Update).
 
-> To find your PC's CPU architecture and Windows version/build number, open **Settings** > **System** > **About**.  
-  Look for the **OS Build** and **System Type** fields.
-  ![](media/system.png) 
+> To find your PC's architecture and Windows build number, open  
+    **Settings** > **System** > **About**.  
+    Look for the **OS Build** and **System Type** fields.
+    ![](media/system.png) 
 
-## Installation
+## Install the Windows Subsystem for Linux
 Enable the "Windows Subsystem for Linux" optional feature and reboot.
 
 Open PowerShell as Administrator and run:
@@ -33,12 +34,12 @@ Restart your computer when prompted.
 
 ### Install Linux distribution of choice
 Open the Windows Store and choose your favorite Linux distribution.  
-Here are links directly to a few options:
-* Ubuntu
-* OpenSUSE
-*
 
-  
+Here are links directly to the store installers:
+* [Ubuntu](https://www.microsoft.com/store/p/ubuntu/9nblggh4msv6)
+* [OpenSUSE](https://www.microsoft.com/store/apps/9njvjts82tjx)
+* [SLES](https://www.microsoft.com/store/apps/9p32mwbh6cns)
+
 After you have accepted the License, the Ubuntu user-mode image will be downloaded and a "Bash on Ubuntu on Windows" shortcut will be added to your start menu.
 
 To launch Bash on Windows, either run `bash` at a cmd/PowerShell command-prompt, or use the start menu shortcut.
