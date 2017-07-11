@@ -25,40 +25,30 @@ This guide is based on the Fall Creator's Update.  For earlier versions of Windo
 ## Install the Windows Subsystem for Linux
 Enable the "Windows Subsystem for Linux" optional feature and reboot.
 
-Open PowerShell as Administrator and run:
-``` PowerShell
-Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
-```
+1. Open PowerShell as Administrator and run:
+    ``` PowerShell
+    Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
+    ```
 
-Restart your computer when prompted.
+2. Restart your computer when prompted.
 
 ### Install Linux distribution of choice
-Open the Windows Store and choose your favorite Linux distribution.  
 
-Here are links directly to the store installers:
-* [Ubuntu](https://www.microsoft.com/store/p/ubuntu/9nblggh4msv6)
-* [OpenSUSE](https://www.microsoft.com/store/apps/9njvjts82tjx)
-* [SLES](https://www.microsoft.com/store/apps/9p32mwbh6cns)
+1. Open the Windows Store and choose your favorite Linux distribution.      
+    Here are links directly to the store installers:
+    * [Ubuntu](https://www.microsoft.com/store/p/ubuntu/9nblggh4msv6)
+    * [OpenSUSE](https://www.microsoft.com/store/apps/9njvjts82tjx)
+    * [SLES](https://www.microsoft.com/store/apps/9p32mwbh6cns)
 
-After you have accepted the License, the Ubuntu user-mode image will be downloaded and a "Bash on Ubuntu on Windows" shortcut will be added to your start menu.
-
-To launch Bash on Windows, either run `bash` at a cmd/PowerShell command-prompt, or use the start menu shortcut.
-
-After installation your Linux distribution will be located at: `%localappdata%\lxss\`
-This directory is marked as a hidden system folder for a very good reason: 
-
-> **Avoid creating and/or modifying files in this location using Windows tools 
-> and apps!** If you do, it is likely that your Linux files will be corrupted and data loss may occur. 
-> Please read this [blog post](https://blogs.msdn.microsoft.com/commandline/2016/11/17/do-not-change-linux-files-using-windows-apps-and-tools/) 
-> for more information.
+2. Select "Install"  
+    
 
 ### Create a UNIX user
 The first time you install Bash on Windows, you will be prompted to create a UNIX username and password.
 
 ![](media/new-user.png)
   
-This UNIX username and password can be different from, and has no relationship to your Windows username 
-and password. [Read more](https://msdn.microsoft.com/en-us/commandline/wsl/user_support).
+This UNIX username and password can be different from, and has no relationship to your Windows username and password. [Read more](https://msdn.microsoft.com/en-us/commandline/wsl/user_support).
 
 ## For Anniversary Update and Creators Update
 1. Turn on Developer Mode
