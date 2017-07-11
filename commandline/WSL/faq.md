@@ -17,7 +17,7 @@ ms.assetid: 129101ed-b88a-43c2-b6a2-cd2c4ff6fee1
 
 
 ### What is BASH?
-[BASH](https://en.wikipedia.org/wiki/Bash_%28Unix_shell%29) is a popular text-based shell and command-language. It is the default shell included within Ubuntu and other Linux distros, and in OSX. Users type commands into a shell to execute scripts and/or run commands and tools to accomplish many tasks.
+[BASH](https://en.wikipedia.org/wiki/Bash_%28Unix_shell%29) is a popular text-based shell and command-language. It is the default shell included within Ubuntu and other Linux distros, and in macOS. Users type commands into a shell to execute scripts and/or run commands and tools to accomplish many tasks.
 
 ### What is Windows Subsystem for Linux (WSL)?
 The Windows Subsystem for Linux (WSL) is a new Windows 10 feature that enables you to run native Linux command-line tools directly on Windows, alongside your traditional Windows desktop and modern store apps.
@@ -50,7 +50,7 @@ The goal is to focus on core utilities and functionality.  For the Anniversary E
 4. Linux user support
 5. Provide the ability to run apt / apt-get for updates and package testing
 6. Provide basic functionality for some languages:
-  * NodeJS / npm
+  * Node.js / npm
   * Python
   * Perl
   * Git
