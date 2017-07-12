@@ -1,4 +1,4 @@
-# [About Bash on Ubuntu on Windows](./about.md)
+# [About the Linux subsystem](./about.md)
 # [Installation Guide](./install_guide.md)
 # [Command Reference](./reference.md)
 # [Linux User Account and Permissions](./user_support.md)

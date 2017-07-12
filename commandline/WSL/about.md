@@ -1,7 +1,7 @@
 ---
-title: About Bash on Windows
-description: About Bash on Ubuntu on Windows and the Linux subsystem for Windows
-keywords: BashOnWindows, bash, wsl, windows, windowssubsystem, ubuntu
+title: Learn about the Linux subsystem for Windows
+description: Learn more about how the Linux subsystem for Windows works.
+keywords: BashOnWindows, bash, wsl, windows, windowssubsystem
 author: scooley
 ms.date: 7/11/2016
 ms.topic: article
@@ -24,8 +24,8 @@ The Windows subsystem for Linux allows you to:
     * Languages: Javascript/node.js, Ruby, Python, C/C++, C# & F#, Rust, Go, etc.
     * Services: sshd, MySQL, Apache, lighttpd
 1. Install additional Linux tools using `apt`
-1. Invoke Windows applications from within Bash
-1. Invoke Linux applications from within Windows
+1. Invoke Windows applications from the Linux console.
+1. Invoke Linux applications on Windows.
 
 ## Getting started
 
