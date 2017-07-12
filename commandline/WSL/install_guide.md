@@ -1,5 +1,5 @@
 ---
-title: Install Linux Subsystem on Windows 10
+title: Install the Linux Subsystem on Windows 10
 description: Installation instructions for the Linux Subsystem on Windows 10.
 keywords: BashOnWindows, bash, wsl, windows, windows subsystem for linux, windowssubsystem, ubuntu, windows 10
 author: scooley
