@@ -16,9 +16,9 @@ The Linux subsystem for Windows lets developers run Linux environments -- includ
 
 The Windows subsystem for Linux allows you to:
 
-1. Run common command-line utilities such as `grep`, `sed`, `awk`, etc.
-1. Use the Linux-compatible filesystem & hierarchy and access fixed Windows storage 
-mounted under `/mnt/...`
+1. Choose your favorite Linux distribution from the Windows Store.
+1. Run common command-line utilities such as `grep`, `sed`, `awk`, etc. 
+1. Use the Linux-compatible filesystem and access fixed Windows storage mounted under `/mnt/...`
 1. Run Bash shell scripts and Linux command-line applications including:  
     * Tools: vim, emacs, tmux
     * Languages: Javascript/node.js, Ruby, Python, C/C++, C# & F#, Rust, Go, etc.
@@ -28,9 +28,10 @@ mounted under `/mnt/...`
 1. Invoke Linux applications from within Windows!
 
 ## Getting started
-* [Installation guide](install_guide.md)
-* [Command reference](reference.md)
-* [Frequently asked questions](faq.md)
+
+* [Install Linux on Windows](install_guide.md)
+* [Visit the command reference](reference.md)
+* [Read frequently asked questions](faq.md)
 
 ## Team Blogs
 * [Overview post with a collection of videos and blogs](https://blogs.msdn.microsoft.com/commandline/learn-about-bash-on-windows-subsystem-for-linux/)
