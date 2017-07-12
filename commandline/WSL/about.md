@@ -25,7 +25,7 @@ The Windows subsystem for Linux allows you to:
     * Services: sshd, MySQL, Apache, lighttpd
 1. Install additional Linux tools using `apt`
 1. Invoke Windows applications from within Bash
-1. Invoke Linux applications from within Windows!
+1. Invoke Linux applications from within Windows
 
 ## Getting started
 
