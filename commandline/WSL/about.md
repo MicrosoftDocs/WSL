@@ -1,6 +1,6 @@
 ---
 title: About Bash on Windows
-description: About Bash on Ubuntu on Windows
+description: About Bash on Ubuntu on Windows and the Linux subsystem for Windows
 keywords: BashOnWindows, bash, wsl, windows, windowssubsystem, ubuntu
 author: scooley
 ms.date: 7/11/2016
@@ -10,9 +10,9 @@ ms.service: windows-subsystem-for-linux
 ms.assetid: 3cefe0db-7616-4848-a2b6-9296746a178b
 ---
 
-# Bash on Windows 10
+# Linux subsystem for Windows 10
 
-Bash on Windows provides developers with a Linux environment in which to run most command-line tools, utilities, and applications.  Using the Windows subsystem for Linux (WSL), most Linux tools can run directly on Windows, unmodified, without the overhead of a virtual machine.  
+The Linux subsystem for Windows lets developers run Linux environments -- including most command-line tools, utilities, and applications -- directly on Windows, unmodified, without the overhead of a virtual machine.  
 
 The Windows subsystem for Linux allows you to:
 
