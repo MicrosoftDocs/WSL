@@ -45,13 +45,13 @@ Enable the "Windows Subsystem for Linux" optional feature and reboot.
 
 2. Select "Get"
 
-    > **Troubleshooting:  Installation failed with error 0x8007007e**  
+    > **Troubleshooting:**  
+    > **Installation failed with error 0x8007007e**  
     > This error occurs when your system doesn't support Linux from the store.  Make sure that:
     > * You're running Windows build 16215 or later. [Check your build](install_guide.md#prerequisites).
     > * The Windows Subsystem for Linux optional component is enabled. [Instructions here](install_guide.md#Install-the-Windows-Subsystem-for-Linux).
-
-
-    > **Troubleshooting:  Installation failed with error 0x80070003**
+    > 
+    > Installation failed with error 0x80070003**
     > The Windows Subsystem for Linux only runs on your system drive (usually this is your C: drive).  Make sure that new apps are stored on your system drive.  
     > Open **Settings** -> **Storage** -> **More Storage Settings: Change where new content is saved**
     > ![](media/AppStorage.png)
