@@ -13,6 +13,6 @@
             }
         }
     ],
-    "notification_subscribers": ["richturn@microsoft.com","jahammo@microsoft.com"],
+    "notification_subscribers": ["richturn@microsoft.com","scooley@microsoft.com"],
     "branches_to_filter": [""]
 }

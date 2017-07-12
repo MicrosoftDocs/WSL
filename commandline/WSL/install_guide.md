@@ -42,6 +42,12 @@ Enable the "Windows Subsystem for Linux" optional feature and reboot.
     ![](media/UbuntuStore.png)
 
 2. Select "Get"
+
+    >  **Troubleshooting:  Installation failed with error 0x8007007e**  
+    >  This error occurs when your system doesn't support Linux from the store.  Make sure that:
+    > * You're running Windows build 16215 or later. [Check your build](install_guide.md#prerequisites).
+    > * The Windows Subsystem for Linux optional component is enabled. [Instructions here](install_guide.md#Install-the-Windows-Subsystem-for-Linux).
+    
 3. Once the download has completed, select "Launch".  
     This will open a console window.  Wait for installation to complete then you will be prompted to create your UNIX user account.
     ![](media/UbuntuInstall.png)
