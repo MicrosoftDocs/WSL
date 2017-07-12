@@ -1,6 +1,6 @@
 ---
 title: Install Linux Subsystem on Windows 10
-description: Install the Windows Subsystem for Linux on Windows 10.
+description: Installation instructions for the Linux Subsystem on Windows 10.
 keywords: BashOnWindows, bash, wsl, windows, windows subsystem for linux, windowssubsystem, ubuntu, windows 10
 author: scooley
 ms.date: 7/11/2017
@@ -16,7 +16,9 @@ ms.assetid: 7afaeacf-435a-4e58-bff0-a9f0d75b8a51
 Your PC must be running a 64-bit version of Windows 10.
 
 To find your PC's architecture and Windows build number, open  
-**Settings** > **System** > **About**.  Look for the **OS Build** and **System Type** fields.  
+**Settings** > **System** > **About**
+
+Look for the **OS Build** and **System Type** fields.  
     ![](media/system.png) 
 
 ## Install the Windows Subsystem for Linux
@@ -29,9 +31,9 @@ Enable the "Windows Subsystem for Linux" optional feature and reboot.
 
 2. Restart your computer when prompted.
 
-## Install Linux distribution of choice
+## For Windows Insiders -- Install Linux distribution of choice
 
-> This section is based on the Fall Creator's Update.  For earlier versions of Windows 10, follow [these instructions using lxrun](install_guide.md#Install-using-lxrun-Anniversary-Update-and-Creators-Update).
+> This section is for Windows Insiders (build 16215 or later).  For earlier versions of Windows 10, follow [these instructions using lxrun](install_guide.md#Install-using-lxrun-Anniversary-Update-and-Creators-Update).
 
 1. Open the Windows Store and choose your favorite Linux distribution.      
     Here are links directly to the store installers:
@@ -55,7 +57,6 @@ Enable the "Windows Subsystem for Linux" optional feature and reboot.
 5. Create your UNIX username and password.  This user account can be different from, and has no relationship to, your Windows username and password. [Read more](https://msdn.microsoft.com/en-us/commandline/wsl/user_support).
 
 You're done!  Now you can use your Linux environment.
-
 
 ## Install using lxrun (Anniversary Update and Creators Update)
 
