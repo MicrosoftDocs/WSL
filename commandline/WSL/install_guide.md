@@ -13,7 +13,7 @@ ms.assetid: 7afaeacf-435a-4e58-bff0-a9f0d75b8a51
 # Windows 10 Installation Guide
 
 ## Prerequisites
-Your PC must be running a 64-bit version of Windows 10.
+Your PC must be running a 64-bit version of Windows 10 Anniversary Update or later (build 1607+).
 
 To find your PC's architecture and Windows build number, open  
 **Settings** > **System** > **About**
@@ -59,6 +59,7 @@ Enable the "Windows Subsystem for Linux" optional feature and reboot.
 You're done!  Now you can use your Linux environment.
 
 ## Install using lxrun (Anniversary Update and Creators Update)
+lxrun installs Ubuntu user-mode by default.  Since moving to the store, we have stopped keeping this user-mode image up to date. 
 
 1. Turn on Developer Mode  
 
@@ -74,13 +75,13 @@ You're done!  Now you can use your Linux environment.
 
     After you have accepted the License, the Ubuntu user-mode image will be downloaded and extracted. A "Bash on Ubuntu on Windows" shortcut will be added to your start menu.
 
-3. Launch Bash by either:
+3. Launch a new Ubuntu shell by either:
     * Running `bash` from a command-prompt
     * Clicking the start menu shortcut
 
 4. Create a UNIX user
     
-    The first time you install Bash on Windows, you will be prompted to create a UNIX username and password.  
+    The first time you install the Windows subsystem for Linux, you will be prompted to create a UNIX username and password.  
     ![](media/new-user.png)
     
     This UNIX username and password can be different from, and has no relationship to, your Windows username and password. [Learn more about your UNIX account.](https://msdn.microsoft.com/en-us/commandline/wsl/user_support).
