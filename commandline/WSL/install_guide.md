@@ -33,13 +33,13 @@ Enable the "Windows Subsystem for Linux" optional feature and reboot.
 
 ## For Windows Insiders -- Install Linux distribution of choice
 
-> This section is for Windows Insiders (build 16215 or later).  For earlier versions of Windows 10, follow [these instructions using lxrun](install_guide.md#Install-using-lxrun-Anniversary-Update-and-Creators-Update).
+> This section is for Windows Insiders (build 16215 or later).  Follow these steps to [Check your build](install_guide.md#prerequisites).  For earlier versions of Windows 10, follow [these instructions using lxrun](install_guide.md#Install-using-lxrun-Anniversary-Update-and-Creators-Update).
 
 1. Open the Windows Store and choose your favorite Linux distribution.      
     Here are links directly to the store installers:
     * [Ubuntu](https://www.microsoft.com/store/p/ubuntu/9nblggh4msv6)
-    * [OpenSUSE](https://www.microsoft.com/store/apps/9njvjts82tjx)
-    * [SLES](https://www.microsoft.com/store/apps/9p32mwbh6cns)
+    * comming soon -- [OpenSUSE](https://www.microsoft.com/store/apps/9njvjts82tjx)
+    * comming soon --[SLES](https://www.microsoft.com/store/apps/9p32mwbh6cns)
 
     ![](media/UbuntuStore.png)
 
@@ -49,6 +49,11 @@ Enable the "Windows Subsystem for Linux" optional feature and reboot.
     >  This error occurs when your system doesn't support Linux from the store.  Make sure that:
     > * You're running Windows build 16215 or later. [Check your build](install_guide.md#prerequisites).
     > * The Windows Subsystem for Linux optional component is enabled. [Instructions here](install_guide.md#Install-the-Windows-Subsystem-for-Linux).
+
+    >  **Troubleshooting:  Installation failed with error 0x80070003**
+    >  The Windows Subsystem for Linux only runs on your system drive (usually this is your C: drive).  Make sure that new apps are stored on your system drive.  
+    >  Open **Settings** -> **Storage** -> **More Storage Settings: Change where new content is saved**
+    >  ![](media/AppStorage.png)
     
 3. Once the download has completed, select "Launch".  
     This will open a console window.  Wait for installation to complete then you will be prompted to create your UNIX user account.
@@ -59,7 +64,9 @@ Enable the "Windows Subsystem for Linux" optional feature and reboot.
 You're done!  Now you can use your Linux environment.
 
 ## Install using lxrun (Anniversary Update and Creators Update)
-lxrun installs Ubuntu user-mode by default.  Since moving to the store, we have stopped keeping this user-mode image up to date. 
+lxrun installs Ubuntu user-mode by default on top of the Windows subsystem for Linux.  
+
+> Since moving to the store, we have stopped keeping this user-mode image up to date.  When you're done, run apt-get update.
 
 1. Turn on Developer Mode  
 
@@ -67,8 +74,6 @@ lxrun installs Ubuntu user-mode by default.  Since moving to the store, we have 
 
     Select the Developer Mode radio button  
     ![](media/updateAndSecurity.png)
-
-    Restart your Computer.
 
 2. Open a command prompt.  Run `bash`  
     ![](media/bashShellInstall.png)
