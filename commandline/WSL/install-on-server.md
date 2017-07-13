@@ -12,14 +12,19 @@ ms.assetid: 9281ffa2-4fa9-4078-bf6f-b51c967617e3
 
 # Windows Server 2016 Installation Guide
 
+At //Build2017, Microsoft announced that Windows Subsystem for Linux will be [available on Windows Server](https://blogs.technet.microsoft.com/hybridcloud/2017/05/10/windows-server-for-developers-news-from-microsoft-build-2017/)!
+
 ## Prerequisites
-Your PC must be running a Windows Insider's build of Windows Server 2016 (build 16215+).  
+Windows Server 2016 (build 16215+).  Right now, that means a Windows Insider's build.
 
-To find your PC's architecture and Windows build number
-
-You can also confirm that your build has the subsystem by running the following in PowerShell: 
+To find your Windows Server build number, run the following in PowerShell:  
 ``` PowerShell
-Get-WindowsFeature -Name "*Linux*"
+systeminfo | findstr /B /C:"OS Name" /C:"OS Version"
+```
+
+You can also confirm that your build has the Windows subsystem for Linux by running the following in PowerShell:  
+``` PowerShell
+Get-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
 ```
 
 ## Install the Windows Subsystem for Linux
@@ -35,7 +40,7 @@ Enable the "Windows Subsystem for Linux" optional feature and reboot.
 ## For Windows Insiders: Install Linux distribution of choice
 
 1. Download the appx for your favorite Linux distribution.  
-Note: This requires us to set up aka.ms/server/ubuntu, aka.ms/server/fedora, aka.ms/server/*     
+Note: This requires us to set up     
     Here are links directly to the store installers:
     * [Ubuntu](https://www.microsoft.com/store/p/ubuntu/9nblggh4msv6)
     * comming soon -- [OpenSUSE](https://www.microsoft.com/store/apps/9njvjts82tjx)
