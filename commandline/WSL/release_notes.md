@@ -2,7 +2,7 @@
 title: Bash on Ubuntu on Windows - Release Notes
 description: Release Notes
 keywords: BashOnWindows, bash, wsl, windows, windows subsystem for linux, windowssubsystem, ubuntu
-author: russalex
+author: benhillis
 ms.date: 9/6/2016
 ms.topic: article
 ms.prod: windows-subsystem-for-linux
@@ -11,6 +11,16 @@ ms.assetid: 36ea641e-4d49-4881-84eb-a9ca85b1cdf4
 ---
 
 # Release Notes
+
+## Build 16241
+
+For general Windows information on build 16241 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/07/13/announcing-windows-10-insider-preview-build-16241-pc-build-15230-mobile/).<br/>
+To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+
+### Fixed 
+- No WSL related changes in this release.
+
+</br>
 
 ## Build 16237
 
