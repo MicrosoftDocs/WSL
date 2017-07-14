@@ -18,15 +18,20 @@ At //Build2017, Microsoft announced that Windows Subsystem for Linux will be [av
 
 Windows Server 2016 (build 16215+).  Right now, that means a Windows Insider's build.
 
-### Become a Windows Insider
+### Join Windows Insiders and Download Windows Server
 
 1. Join a Windows Insiders program:
     * [Windows Insiders](https://insider.windows.com)
     * [Windows Insiders for Business](https://insider.windows.com/ForBusiness)
 
-2. Download [Windows Server 2016 -- Insider Preview](https://www.microsoft.com/software-download/windowsinsiderpreviewserver).  Make sure you're logged in, images are only available to Windows Insiders.
+2. Download [Windows Server 2016 -- Insider Preview](https://www.microsoft.com/software-download/windowsinsiderpreviewserver).  
+Make sure you're logged in, images are only available to Windows Insiders.
 
+Now that you have a Windows Server image, there are many ways to get it up and running.  I'm going to use a virtual machine.  
 
+The following keys are available for unlimited activations of Windows Server. These keys may be used throughout the pre-release cycle.  Read more [here](https://blogs.windows.com/windowsexperience/2017/07/13/announcing-windows-server-insider-preview-build-16237).
+* Server Datacenter Core: B69WH-PRNHK-BXVK3-P9XF7-XD84W
+* Server Standard Core: V6N4W-86M3X-J77X3-JF6XW-D9PRV
 
 ### Check your build number
 To find your Windows Server build number, run the following in PowerShell:  
