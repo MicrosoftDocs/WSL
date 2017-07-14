@@ -9,14 +9,14 @@ ms.service: windows-subsystem-for-linux
 ms.assetid: 3cefe0db-7616-4848-a2b6-9296746a178b
 ---
 
-#Windows Interoperability
+# Windows Interoperability
 
 > **Important note**  
 	This is the first release of Bash on Windows and it is branded "beta" deliberately - it's not yet complete! You should expect many things to work and for some things to fail! We greatly appreciate you using Bash on Windows and helping us identify the issues we need to fix in order to deliver a great experience.
 
 The Windows Subsystem for Linux can invoke native Windows binaries and be invoked from a Windows command line. This feature is available to Windows 10 users running Anniversary Update [build 14951](https://msdn.microsoft.com/en-us/commandline/wsl/release_notes#build-14951).  This new interoperability functionality delivers a seamless experience between Windows and WSL.  Technical details on how this interoperability works can be found on the [WSL blog](https://blogs.msdn.microsoft.com/wsl/2016/10/19/windows-and-ubuntu-interoperability/). 
 
-##Invoking WSL from the Windows Command Line
+## Invoking WSL from the Windows Command Line
 Linux binaries can be invoked from the Windows Command Prompt or from PowerShell.  Binaries invoked in this way have the following properties:
 
 1. Use the same working directory as the CMD or PowerShell prompt
@@ -60,7 +60,7 @@ C:\temp>bash -c "ls -la \"/mnt/c/Program Files\"”
 <- contents of C:\Program Files ->
 ```
 
-##Invoking Windows binaries from WSL
+## Invoking Windows binaries from WSL
 The Windows Subsystem for Linux can invoke Windows binaries directly from the WSL command line.  Applications run this way have the following properties:
 
 1. Retain the working directory as the WSL command prompt except in the scenario explained below 
