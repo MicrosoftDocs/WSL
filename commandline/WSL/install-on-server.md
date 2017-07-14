@@ -15,10 +15,20 @@ ms.assetid: 9281ffa2-4fa9-4078-bf6f-b51c967617e3
 At //Build2017, Microsoft announced that Windows Subsystem for Linux will be [available on Windows Server](https://blogs.technet.microsoft.com/hybridcloud/2017/05/10/windows-server-for-developers-news-from-microsoft-build-2017/).  These instructions help you become a Windows Insider, download Windows Server, and get Linux running on the Windows subsystem for Linux.
 
 ## Prerequisites
+
 Windows Server 2016 (build 16215+).  Right now, that means a Windows Insider's build.
 
+### Become a Windows Insider
+
+1. Join a Windows Insiders program:
+    * [Windows Insiders](https://insider.windows.com)
+    * [Windows Insiders for Business](https://insider.windows.com/ForBusiness)
+
+2. Download [Windows Server 2016 -- Insider Preview](https://www.microsoft.com/software-download/windowsinsiderpreviewserver).  Make sure you're logged in, images are only available to Windows Insiders.
 
 
+
+### Check your build number
 To find your Windows Server build number, run the following in PowerShell:  
 ``` PowerShell
 systeminfo | findstr /B /C:"OS Name" /C:"OS Version"
