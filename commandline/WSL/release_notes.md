@@ -2,7 +2,7 @@
 title: Bash on Ubuntu on Windows - Release Notes
 description: Release Notes
 keywords: BashOnWindows, bash, wsl, windows, windows subsystem for linux, windowssubsystem, ubuntu
-author: russalex
+author: benhillis
 ms.date: 9/6/2016
 ms.topic: article
 ms.prod: windows-subsystem-for-linux
@@ -11,6 +11,36 @@ ms.assetid: 36ea641e-4d49-4881-84eb-a9ca85b1cdf4
 ---
 
 # Release Notes
+
+## Build 16241
+
+For general Windows information on build 16241 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/07/13/announcing-windows-10-insider-preview-build-16241-pc-build-15230-mobile/).<br/>
+To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+
+### Fixed 
+- No WSL related changes in this release.
+
+</br>
+
+## Build 16237
+
+For general Windows information on build 16237 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/07/07/announcing-windows-10-insider-preview-build-16237-pc/).<br/>
+To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+
+### Fixed 
+- Use default attributes for files without EAs in lxfs (root, root, 0000)
+- Added support for distributions that use extended attributes
+- Fix padding for entries returned by getdents and getdents64
+- Fix permissions check for the shmctl SHM_STAT system call [GH 2068]
+- Fixed incorrect initial epoll state for ttys [GH 2231]
+- Fix DrvFs readdir not returning all entries [GH 2077]
+- Fix LxFs readdir when files are unlinked [GH 2077]
+- Allow unlinked drvfs files to be reopened through procfs
+- Added global registry key override for disabling WSL features (interop / drive mounting)
+- Fix incorrect block count in "stat" for DrvFs (and LxFs) [GH 1894]
+- Additional improvements and bug fixes
+
+</br>
 
 ## Build 16232
 

@@ -17,7 +17,7 @@ ms.assetid: 129101ed-b88a-43c2-b6a2-cd2c4ff6fee1
 
 
 ### What is BASH?
-[BASH](https://en.wikipedia.org/wiki/Bash_%28Unix_shell%29) is a popular text-based shell and command-language. It is the default shell included within Ubuntu and other Linux distros, and in OSX. Users type commands into a shell to execute scripts and/or run commands and tools to accomplish many tasks.
+[BASH](https://en.wikipedia.org/wiki/Bash_%28Unix_shell%29) is a popular text-based shell and command-language. It is the default shell included within Ubuntu and other Linux distros, and in macOS. Users type commands into a shell to execute scripts and/or run commands and tools to accomplish many tasks.
 
 ### What is Windows Subsystem for Linux (WSL)?
 The Windows Subsystem for Linux (WSL) is a new Windows 10 feature that enables you to run native Linux command-line tools directly on Windows, alongside your traditional Windows desktop and modern store apps.
@@ -50,7 +50,7 @@ The goal is to focus on core utilities and functionality.  For the Anniversary E
 4. Linux user support
 5. Provide the ability to run apt / apt-get for updates and package testing
 6. Provide basic functionality for some languages:
-  * NodeJS / npm
+  * Node.js / npm
   * Python
   * Perl
   * Git
@@ -102,8 +102,8 @@ There are two components of Bash on Ubuntu on Windows that can require updating.
 
   Upgrading this portion of Bash on Ubuntu on Windows will install any updates to the Ubuntu user binaries including applications that you have installed via apt-get. To update run the following commands in Bash:
   
-  1. `apt-get update`
-  2. `apt-get upgrade`
+  1. `sudo apt-get update`
+  2. `sudo apt-get upgrade`
 
 
 ### Can I run other Linux distros than Ubuntu?
@@ -190,7 +190,7 @@ In Command Prompt:
 Executing the PING command no longer requires admin privileges since Build 14926.
 
 ### How do I run an OpenSSH server?
-Similar to the previous question, WSL needs to be launched with admin privileges.
+Administrator privileges in Windows are required to run OpenSSH in WSL. To run an OpenSSH server, run Bash on Ubuntu on Windows as an administrator, or run bash.exe from a CMD/PowerShell prompt with administrator privileges.
 
 ### Why do I get "Error: 0x80040306" when I try to install?
 This has to do with the fact that we do not support legacy console.
@@ -212,7 +212,7 @@ sudo update-locale LANG=en_US.UTF8
 ```
 
 ### Why do I get a Permission Denied error when using ping?
-Administrator privileges in Windows are required to run ping in WSL.  To run ping, run Bash on Ubuntu on Windows as an administrator, or run bash.exe from a CMD/PowerShell prompt with administrator privileges.
+Executing the PING command no longer requires admin privileges since Build 14926.
 
 ### Why do I not have internet access from WSL?
 Some users have reported issues with specific firewall applications blocking internet access in WSL.  The firewalls reported are:
