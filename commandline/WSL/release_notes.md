@@ -17,8 +17,24 @@ ms.assetid: 36ea641e-4d49-4881-84eb-a9ca85b1cdf4
 For general Windows information on build 16241 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/07/13/announcing-windows-10-insider-preview-build-16241-pc-build-15230-mobile/).<br/>
 To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
 
-### Fixed 
+### Fixed
+#### WSL
 - No WSL related changes in this release.
+
+#### Console
+- Fix for outputting the wrong character for the crossing-lines DEC, originally reported [here](https://www.reddit.com/r/Windows10/comments/6in82t/i_believe_ive_found_the_most_obscure_bug_ever/)
+- Fix for no output text being displayed in codepage 65001 (utf8)
+- Do not transfer changes made to one color's RGB values to other parts of the palette on selection change. This will make the console properties sheet a lot easier to use.
+- Ctrl+S doesn't appear to work correctly
+- Un-Bold/-Dim completely absent from ANSI escape codes [GH #2174]
+- Console doesn't correctly support Vim color themes [GH #1706]
+- Cannot paste particular characters [GH #2149]
+- Reflow resize interacts strangely with resizing a bash window when stuff is on the edit/command line [GH ConEmu #1123]
+- Ctrl-L leaves the screen dirty [GH #1978]
+- Console rendering bug when displaying VT on HDPI [GH #1907]
+- Japansese characters look strange with Unicode Character U+30FB [GH #2146]
+- Additional improvements and bug fixes
+
 
 </br>
 
