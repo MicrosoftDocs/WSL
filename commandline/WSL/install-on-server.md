@@ -70,6 +70,42 @@ Enable the "Windows Subsystem for Linux" optional feature and reboot.
 
 2. Restart your computer when prompted.
 
+
+## Install a Linux distribution
+
+1. Download the appx for your favorite Linux distribution.  
+    Here are links directly to the apps available through the store:
+    * [Ubuntu]()
+    * comming soon -- [OpenSUSE]()
+    * comming soon --[SLES]()
+
+    You can download the distributions to Windows Server the PowerShell cmdlet [`Invoke-WebRequest`]().  Here's a sample instruction to download Ubuntu.
+    
+    ``` PowerShell
+    $destinationfilename = Ununtu.zip
+
+    cd ~
+    Invoke-Webrequest "$UbuntuLink" -outfile "$destinationfilename" -passthru | select -Expand headers
+    ```
+
+    > The Windows Subsystem for Linux only runs on your system drive (usually this is your C: drive).  
+    Example: `C:\Distros\Ubuntu`
+
+3. Unzip the file into the install directory
+
+    ``` PowerShell
+    [System.Reflection.Assembly]::LoadWithPartialName("System.IO.Compression.FileSystem") | Out-Null
+    Expand-Archive $pathToZip $targetDir
+    ```
+
+5. Run the installer, named distro.exe  
+    For example: `ubuntu.exe`, `fedora.exe`, etc.
+ 
+5. Create your UNIX username and password.  This user account can be different from, and has no relationship to, your Windows username and password. [Read more](https://msdn.microsoft.com/en-us/commandline/wsl/user_support).
+
+You're done!  Now you can use your Linux environment.
+
+
 ## Install default Linux environment using lxrun
 
 lxrun installs Ubuntu user-mode by default on top of the Windows subsystem for Linux.  
