@@ -38,8 +38,8 @@ Enable the "Windows Subsystem for Linux" optional feature and reboot.
 1. Open the Windows Store and choose your favorite Linux distribution.      
     Here are links directly to the store installers:
     * [Ubuntu](https://www.microsoft.com/store/p/ubuntu/9nblggh4msv6)
-    * coming soon -- [OpenSUSE](https://www.microsoft.com/store/apps/9njvjts82tjx)
-    * coming soon --[SLES](https://www.microsoft.com/store/apps/9p32mwbh6cns)
+    * [OpenSUSE](https://www.microsoft.com/store/apps/9njvjts82tjx)
+    * [SLES](https://www.microsoft.com/store/apps/9p32mwbh6cns)
 
     ![](media/UbuntuStore.png)
 
