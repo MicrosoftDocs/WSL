@@ -12,6 +12,25 @@ ms.assetid: 36ea641e-4d49-4881-84eb-a9ca85b1cdf4
 
 # Release Notes
 
+## Build 16251
+
+For general Windows information on build 16251 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/07/26/announcing-windows-10-insider-preview-build-16251-pc-build-15235-mobile/).<br/>
+To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+
+### Fixed
+#### WSL
+- Remove beta tag from WSL optional component
+- Correctly initialize saved-set uid and gid for set-user-ID and set-group-ID binaries on exec [GH 962, 1415, 2072]
+- Added support for ptrace PTRACE_O_TRACEEXIT [GH 555]
+- Added support for ptrace PTRACE_GETFPREGS and PTRACE_GETREGSET with NT_FPREGSET [GH 555]
+- Fixed ptrace to stop on ignored signals
+- Additional improvements and bug fixes
+
+#### Console
+- No Console related changes in this release.
+
+</br>
+
 ## Build 16241
 
 For general Windows information on build 16241 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/07/13/announcing-windows-10-insider-preview-build-16241-pc-build-15230-mobile/).<br/>
@@ -26,15 +45,14 @@ To track or report an issue visit our [Github page](https://github.com/Microsoft
 - Fix for no output text being displayed in codepage 65001 (utf8)
 - Do not transfer changes made to one color's RGB values to other parts of the palette on selection change. This will make the console properties sheet a lot easier to use.
 - Ctrl+S doesn't appear to work correctly
-- Un-Bold/-Dim completely absent from ANSI escape codes [GH #2174]
-- Console doesn't correctly support Vim color themes [GH #1706]
-- Cannot paste particular characters [GH #2149]
-- Reflow resize interacts strangely with resizing a bash window when stuff is on the edit/command line [GH ConEmu #1123]
-- Ctrl-L leaves the screen dirty [GH #1978]
-- Console rendering bug when displaying VT on HDPI [GH #1907]
-- Japansese characters look strange with Unicode Character U+30FB [GH #2146]
+- Un-Bold/-Dim completely absent from ANSI escape codes [GH 2174]
+- Console doesn't correctly support Vim color themes [GH 1706]
+- Cannot paste particular characters [GH 2149]
+- Reflow resize interacts strangely with resizing a bash window when stuff is on the edit/command line [GH ConEmu 1123]
+- Ctrl-L leaves the screen dirty [GH 1978]
+- Console rendering bug when displaying VT on HDPI [GH 1907]
+- Japansese characters look strange with Unicode Character U+30FB [GH 2146]
 - Additional improvements and bug fixes
-
 
 </br>
 
@@ -146,6 +164,7 @@ To track or report an issue visit our [Github page](https://github.com/Microsoft
 ### Fixed 
 - No WSL changes this week.
 
+</br>
 
 ## Build 16176
 
@@ -174,7 +193,6 @@ No changes since 15042
 
 </br>
 
-
 ## Build 16170
 
 For general Windows information on build 16170 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/04/07/announcing-windows-10-insider-preview-build-16170-pc/).<br/>
@@ -192,15 +210,9 @@ No changes since 15042
 
 </br>
 
-
-
-
 ## Build 15046 to Windows 10 Creators Update
 There are no more WSL fixes or features planned for inclusion in the Creators Update to Windows 10. Release notes for WSL will resume in the coming weeks for additions targeting the next major Windows Update. For general Windows information on build 15046 and future Insider releases visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/02/28/announcing-windows-10-insider-preview-build-15046-pc/). <br/><br/>
 To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/><br/>
-
-
-
 
 ## Build 15042
 
@@ -245,8 +257,6 @@ Number of non-Passing (failing, skipped, etc…): 255 </br>
 
 <br/>
 
-
-
 ## Build 15025
 
 For general Windows information on build 15025 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/02/01/announcing-windows-10-insider-preview-build-15025-pc/).<br/>
@@ -277,7 +287,6 @@ Number of non-Passing (failing, skipped, etc…): 255 </br>
 
 <br/>
 
-
 ## Build 15019
 
 For general Windows information on build 15019 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/01/27/announcing-windows-10-insider-preview-build-15019-pc/).<br/>
@@ -293,15 +302,12 @@ To track or report an issue visit our [Github page](https://github.com/Microsoft
 - Clear scope for ipv6 localhost (Spring-Framework(Java) failure).
 - Additional fixes and improvements
 
-
 ### LTP Results:
 Number of Passing Test: 714 </br>
 Number of non-Passing (failing, skipped, etc…): 249 </br>
 [LTP Test Run Logs] (https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/15019)<br/>
+
 <br/>
-
-
-
 
 ## Build 15014
  
@@ -320,12 +326,10 @@ To track or report an issue visit our [Github page](https://github.com/Microsoft
 - Support for socket options IP_RECVTTL and IPV6_RECVHOPLIMIT 
 - Additional fixes and improvements
  
- 
 ### LTP Results:
 Number of Passing Test: 709 </br>
 Number of non-Passing (failing, skipped, etc…): 255 </br>
 [LTP Test Run Logs](https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/15014)<br/>
- 
 
 ### Syscall Summary
 Total Syscalls: 384 </br>
@@ -334,10 +338,7 @@ Total Stubbed: 22 </br>
 Total Unimplemented: 127 </br>
 [Detailed Breakdown](https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/15014/Syscalls.txt)<br/>
 
-
 <br/>
-<br/>
-
 
 ## Build 15007
  
@@ -358,16 +359,12 @@ To track or report an issue visit our [Github page](https://github.com/Microsoft
 - Truncate network interface physical address to 16 bytes in lxcore (GH #1452, 1414, 1343, 468, 308)
 - Additional fixes and improvements
  
- 
 ### LTP Results:
 Number of Passing Test: 709 </br>
 Number of non-Passing (failing, skipped, etc…): 255 </br>
 [LTP Test Run Logs] (https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/15007)<br/>
- 
- 
-<br/>
-<br/>
 
+<br/>
 
 ## Build 15002
 
@@ -421,15 +418,12 @@ Two known issues:
 - Fixed issue where Windows path was truncated in WSL
 - Additional fixes and improvements
 
-
 ### LTP Results:
 Number of Passing Test: 690 </br>
 Number of non-Passing (failing, skipped, etc…): 274 </br>
 [LTP Test Run Logs] (https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/15002)<br/>
 
 <br/>
-<br/>
-
 
 ### Syscall Support
 Below are a list of new or enhanced syscalls that have some implementation in WSL. The syscalls on this list are supported in at least one scenario, but may not have all parameters supported at this time.
@@ -438,8 +432,6 @@ Below are a list of new or enhanced syscalls that have some implementation in WS
 `shmget`<br/>
 `shmdt`<br/>
 `shmat`<br/>
-
-<br/>
 <br/>
 
 ## Build 14986
@@ -461,15 +453,12 @@ To track or report an issue visit our [Github page](https://github.com/Microsoft
    - Note that the Linux "ip" utility contains a bug where it will crash if WSL reports a 32-byte hardware address. This is a bug in "ip", not WSL. The “ip” utility hard-codes the length of the string buffer used to print the hardware address, and that buffer is too small to print a 32-byte hardware address.
 - Additional fixes and improvements
 
-
 ### LTP Results:
 Number of Passing Test: 669 </br>
 Number of non-Passing (failing, skipped, etc…): 258 </br>
 [LTP Test Run Logs] (https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/14986)<br/>
 
 <br/>
-<br/>
-
 
 ### Syscall Support
 Below are a list of new or enhanced syscalls that have some implementation in WSL. The syscalls on this list are supported in at least one scenario, but may not have all parameters supported at this time.
@@ -478,8 +467,6 @@ Below are a list of new or enhanced syscalls that have some implementation in WS
 `timer_delete`<br/>
 `timer_gettime`<br/>
 `timer_settime`<br/>
-
-<br/>
 <br/>
 
 ## Build 14971
@@ -497,7 +484,6 @@ Number of Passing Test: 664 </br>
 Number of non-Passing (failing, skipped, etc…): 263 </br>
 [LTP Test Run Logs] (https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/14965)<br/>
 
-<br/>
 <br/>
 
 ## Build 14965
@@ -536,7 +522,6 @@ Number of non-Passing (failing, skipped, etc…): 263 </br>
 [LTP Test Run Logs] (https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/14965)<br/>
 
 <br/>
-<br/>
 
 ## Build 14959
 
@@ -556,7 +541,6 @@ Number of non-Passing (failing, skipped, etc…): 263 </br>
 [LTP Test Run Logs] (https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/14959)<br/>
 
 <br/>
-<br/>
 
 ## Build 14955
 
@@ -572,7 +556,6 @@ Number of Passing Test: 665 </br>
 Number of non-Passing (failing, skipped, etc…): 263 </br>
 [LTP Test Run Logs] (https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/14955)<br/>
 
-<br/>
 <br/>
 
 ## Build 14951
@@ -605,21 +588,17 @@ More information can be found at:
 - Console window size should use visible size, not buffer size
 - Additional bugfixes and improvements
 
-
 ### LTP Results:
 Number of Passing Test: 665 </br>
 Number of non-Passing (failing, skipped, etc…): 263 </br>
 [LTP Test Run Logs] (https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/14951)<br/>
 
 <br/>
-<br/>
-
 
 ## Build 14946
 
 For general Windows information on build 14946 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2016/10/13/announcing-windows-10-insider-preview-build-14946-for-pc-and-mobile/#xj8GdVooEqo4H7H7.97).<br/>
 To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
-
 
 ### Fixed
 
@@ -633,20 +612,17 @@ To track or report an issue visit our [Github page](https://github.com/Microsoft
 - /home and /root now appear in mountinfo with correct names
 - Additional bugfixes and improvements
 
-
 ### LTP Results:
 Number of Passing Test: 665 </br>
 Number of non-Passing (failing, skipped, etc…): 263 </br>
 [LTP Test Run Logs] (https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/14946)<br/>
 
 <br/>
-<br/>
 
 ## Build 14942
 
 For general Windows information on build 14942 visit the [Windows Blog](https://aka.ms/onefourninefourtwoooooo).<br/>
 To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
-
 
 ### Fixed
 
@@ -667,8 +643,6 @@ Number of non-Passing (failing, skipped, etc…): 263 </br>
 Below are a list of new or enhanced syscalls that have some implementation in WSL. The syscalls on this list are supported in at least one scenario, but may not have all parameters supported at this time.
 
 `pivot_root`<br/>
-
-<br/>
 <br/>
 
 ## Build 14936
@@ -696,7 +670,6 @@ WSL is experiencing an issue with some socket implementations.  The bugcheck man
 - Bash -c now able to redirect to a file
 - Additional bugfixes and improvements
 
-
 ### LTP Results:
 Number of Passing Test: 664 </br>
 Number of non-Passing (failing, skipped, etc…): 264 </br>
@@ -706,10 +679,7 @@ Number of non-Passing (failing, skipped, etc…): 264 </br>
 Below are a list of new or enhanced syscalls that have some implementation in WSL. The syscalls on this list are supported in at least one scenario, but may not have all parameters supported at this time.
 
 `chroot`<br/>
-
 <br/>
-<br/>
-
 
 ## Build 14931
 
@@ -720,7 +690,6 @@ To track or report an issue visit our [Github page](https://github.com/Microsoft
 
  - Due to circumstances beyond our control there are no updates in this build for the Windows Subsystem for Linux.  Regularly scheduled updates will resume in the next release.
 
-<br/>
 <br/>
 
 ## Build 14926
@@ -747,7 +716,6 @@ Number of non-Passing (failing, skipped, etc…): 258 </br>
 [LTP Test Run Logs] (https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/14926)<br/>
 
 <br/>
-<br/>
 
 ## Build 14915
 
@@ -772,7 +740,6 @@ To track or report an issue visit our [Github page](https://github.com/Microsoft
 - Additional improvements and bug fixes
 
 <br/>
-<br/>
 
 ## Build 14905
 
@@ -786,7 +753,6 @@ To track or report an issue visit our [Github page](https://github.com/Microsoft
 - Implemented the /proc/[pid]/mounts, /proc/[pid]/mountinfo and /proc/[pid]/mountstats files
 - Additional bugfixes and improvements
 
-</br>
 </br>
 
 ## Build 14901
@@ -824,8 +790,6 @@ Below are a list of new or enhanced syscalls that have some implementation in WS
 `epoll_pwait`<br/>
 
 <br/>
-<br/>
-
 
 ## Build 14388 to Windows 10 Anniversary Update
 For general Windows information on build 14388 visit the [Windows Blog](https://aka.ms/14388wip). <br/>
@@ -834,8 +798,6 @@ To track or report an issue visit our [Github page](https://github.com/Microsoft
 - Fixes to prepare for the Windows 10 Anniversary Update on 8/2
   - More information about WSL in the Anniversary Update can be found on our [blog](https://blogs.msdn.microsoft.com/wsl/)
 
-
-<br/>
 <br/>
 
 ## Build 14376
@@ -852,7 +814,6 @@ To track or report an issue visit our [Github page](https://github.com/Microsoft
 - Additional bugfixes and improvements
 
 <br/>
-<br/>
 
 ## Build 14371
 For general Windows information on build 14371 visit the [Windows Blog] (https://blogs.windows.com/windowsexperience/2016/06/22/announcing-windows-10-insider-preview-build-14371-for-pc/). <br/>
@@ -864,9 +825,8 @@ To track or report an issue visit our [Github page](https://github.com/Microsoft
 - Additional bugfixes and improvements
 
 <br/>
-<br/>
 
-##Build 14366
+## Build 14366
 For general Windows information on build 14366 visit the [Windows Blog] (https://blogs.windows.com/windowsexperience/2016/06/14/announcing-windows-10-insider-preview-build-14366-mobile-build-14364/). <br/>
 To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
 ###Fixed
@@ -880,10 +840,10 @@ To track or report an issue visit our [Github page](https://github.com/Microsoft
 `listxattr`<br/>
 <br/>
 
-##Build 14361
+## Build 14361
 For general Windows information on build 14361 visit the [Windows Blog](http://aka.ms/wip14361). <br/>
 To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
-###Fixed
+### Fixed
 - DrvFs is now case sensitive when running in Bash on Ubuntu on Windows.
   - Users may case.txt and CASE.TXT on their /mnt/c drives
   - Case sensitivity is only supported within Bash on Ubuntu on Windows. When outside of Bash NTFS will report the files correctly, but unexpected behavior may occur interacting with the files from Windows.
@@ -914,7 +874,7 @@ To track or report an issue visit our [Github page](https://github.com/Microsoft
 - Fixed symlink error code for child name . and ..
 - Additional improvements bugfixes and improvements
 
-###Syscall Support
+### Syscall Support
 Below are a list of new or enhanced syscalls that have some implementation in WSL. The syscalls on this list are supported in at least one scenario, but may not have all parameters supported at this time.
 
 `GETTIMER`<br/>
@@ -925,11 +885,11 @@ Below are a list of new or enhanced syscalls that have some implementation in WS
 `SYNC_FILE_RANGE`<br/>
 <br/>
 
-##Build 14352
+## Build 14352
 For general Windows information on build 14352 visit the [Windows Blog](http://aka.ms/wip14352).<br/>
 To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
 
-###Fixed
+### Fixed
 - Fixed issue where large files were not downloaded / created correctly.  This should unblock npm and other scenarios (GH #3, GH #313)
 - Removed some instances where sockets hang
 - Corrected some ptrace errors
@@ -943,7 +903,7 @@ To track or report an issue visit our [Github page](https://github.com/Microsoft
 - Some procfs cleanup
 - Enabled ping for Administrator consoles (GH #18)
  
-###Syscall Support
+### Syscall Support
 Below are a list of new or enhanced syscalls that have some implementation in WSL. The syscalls on this list are supported in at least one scenario, but may not have all parameters supported at this time.
 
 `FALLOCATE`<br/>
@@ -952,12 +912,12 @@ Below are a list of new or enhanced syscalls that have some implementation in WS
 `FGETXATTR`<br/>
 <br/>
 
-##Build 14342
+## Build 14342
 For general Windows information on build 14342 the [Windows Blog](http://aka.ms/wip14342). <br/>
 To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
 Information on VolFs and DriveFs can be found on the [WSL Blog](https://blogs.msdn.microsoft.com/wsl). <br/>
 
-###Fixed
+### Fixed
 - Fixed install issue when the Windows user had Unicode characters in the username
 - The apt-get update udev workaround in the FAQ is now provided by default on first run
 - Enabled symlinks in DriveFs (/mnt/<drive>) directories
@@ -980,10 +940,10 @@ Information on VolFs and DriveFs can be found on the [WSL Blog](https://blogs.ms
 - Syscall improvements and bugfixes. Supported syscall list below.
 - Additional bugfixes and improvements
 
-###Known Issues
+### Known Issues
 - Not resolving ‘..’ correctly on DriveFs in some cases
 
-###Syscall Support
+### Syscall Support
 Below are a list of new or enhanced syscalls that have some implementation in WSL. The syscalls on this list are supported in at least one scenario, but may not have all parameters supported at this time.
 
 `FCHOWNAT`<br/>
@@ -998,12 +958,12 @@ Below are a list of new or enhanced syscalls that have some implementation in WS
 `SETXATTR`<br/>
 <br/>
 
-##Build 14332
+## Build 14332
 
 For general Windows information on build 14332 visit the [Windows Blog](http://aka.ms/wip14332). <br/>
 To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
 
-###Fixed
+### Fixed
 - Better resolv.conf generation including prioritizing DNS entries
 - Issue with moving files and directories between /mnt and non-/mnt drives 
 - Tar files can now be created with symlinks
@@ -1013,7 +973,7 @@ To track or report an issue visit our [Github page](https://github.com/Microsoft
 - Syscall improvements and bugfixes. Supported syscall list below.
 - Additional improvements bugfixes and improvements
 
-###Syscall Support
+### Syscall Support
 Below is the new syscall that has some implementation in WSL. The syscall on this list is supported in at least one scenario, but may not have all parameters supported at this time.
 
 `READLINKAT`<br/>
