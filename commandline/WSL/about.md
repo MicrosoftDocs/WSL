@@ -1,5 +1,9 @@
 ---
+<<<<<<< HEAD
 title: Bash on Ubuntu on Windows - About
+=======
+title: Bash on Ubuntu on Windows
+>>>>>>> origin/master
 description: About Bash on Ubuntu on Windows
 keywords: BashOnWindows, bash, wsl, windows, windowssubsystem, ubuntu
 author: jackchammons
@@ -7,7 +11,11 @@ ms.date: 9/6/2016
 ms.topic: article
 ms.prod: windows-subsystem-for-linux
 ms.service: windows-subsystem-for-linux
+<<<<<<< HEAD
 ms.assetid: 3cefe0db-7616-4848-a2b6-9296746a178b
+=======
+ms.assetid: 8da49cd8-210d-4a35-a6e6-d5da439151ee
+>>>>>>> origin/master
 ---
 
 # <img src="media/bash_logo.png" width="600">
