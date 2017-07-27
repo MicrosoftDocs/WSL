@@ -29,6 +29,12 @@ To track or report an issue visit our [Github page](https://github.com/Microsoft
 #### Console
 - No Console related changes in this release.
 
+### LTP Results:
+Number of Passing Tests: 768</br>
+Number of Failing Tests: 244</br>
+Number of Skipped Tests: 96</br>
+[LTP Test Run Logs](https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/16251)<br/>
+
 </br>
 
 ## Build 16241
