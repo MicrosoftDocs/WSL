@@ -1,0 +1,661 @@
+acct01      1  TCONF  :  acct01.c:112: BSD process accounting is not configured in this kernel
+acct01      2  TCONF  :  acct01.c:112: Remaining cases not appropriate for configuration
+add_key01.c:39: CONF: syscall(248) __NR_add_keynot supported
+add_key02.c:51: CONF: syscall(248) __NR_add_keynot supported
+adjtimex01    1  TBROK  :  adjtimex01.c:107: failed to save current parameters: errno=ENOSYS(38): Function not implemented
+adjtimex01    2  TBROK  :  adjtimex01.c:107: Remaining cases broken
+adjtimex02    1  TBROK  :  adjtimex02.c:217: Failed to save current parameters
+adjtimex02    2  TBROK  :  adjtimex02.c:217: Remaining cases broken
+futimesat01    1  TCONF  :  futimesat01.c:62: syscall(261) __NR_futimesat not supported on your arch
+futimesat01    2  TCONF  :  futimesat01.c:62: Remaining cases not appropriate for configuration
+fanotify01    1  TCONF  :  fanotify01.c:348: fanotify is not configured in this kernel.
+fanotify01    2  TCONF  :  fanotify01.c:348: Remaining cases not appropriate for configuration
+fanotify02    1  TCONF  :  fanotify02.c:237: fanotify is not configured in this kernel.
+fanotify02    2  TCONF  :  fanotify02.c:237: Remaining cases not appropriate for configuration
+fanotify03    1  TCONF  :  fanotify03.c:286: fanotify is not configured in this kernel.
+fanotify03    2  TCONF  :  fanotify03.c:286: Remaining cases not appropriate for configuration
+fanotify04    1  TCONF  :  fanotify04.c:280: fanotify is not configured in this kernel.
+fanotify04    2  TCONF  :  fanotify04.c:280: Remaining cases not appropriate for configuration
+fanotify05    1  TCONF  :  fanotify05.c:145: fanotify is not configured in this kernel.
+fanotify05    2  TCONF  :  fanotify05.c:145: Remaining cases not appropriate for configuration
+fanotify06    1  TCONF  :  fanotify06.c:97: fanotify is not configured in this kernel.
+fanotify06    2  TCONF  :  fanotify06.c:97: Remaining cases not appropriate for configuration
+ioperm01    1  TFAIL  :  ioperm01.c:110: ioperm() failed for port address 1021,  errno=38 : Function not implemented
+ioperm01    2  TBROK  :  ioperm01.c:160: ioperm() cleanup failed
+ioperm01    3  TBROK  :  ioperm01.c:160: Remaining cases broken
+ioperm02    1  TFAIL  :  ioperm02.c:147: Unexpected results for Invalid I/O address ; returned -1 (expected -1), errno 38 (expected errno  22)
+ioperm02    2  TFAIL  :  ioperm02.c:147: Unexpected results for Non super-user ; returned -1 (expected -1), errno 38 (expected errno  1)
+iopl01      1  TFAIL  :  iopl01.c:108: iopl() failed for level 0, errno=38 : Function not implemented
+iopl01      2  TFAIL  :  iopl01.c:108: iopl() failed for level 1, errno=38 : Function not implemented
+iopl01      3  TFAIL  :  iopl01.c:108: iopl() failed for level 2, errno=38 : Function not implemented
+iopl01      4  TFAIL  :  iopl01.c:108: iopl() failed for level 3, errno=38 : Function not implemented
+iopl01      0  TWARN  :  iopl01.c:144: iopl() cleanup failed
+iopl02      1  TFAIL  :  iopl02.c:144: Unexpected results for Invalid privilege level ; returned -1 (expected -1), errno 38 (expected errno  22)
+iopl02      2  TFAIL  :  iopl02.c:144: Unexpected results for Non super-user ; returned -1 (expected -1), errno 38 (expected errno  1)
+kcmp01      1  TCONF  :  kcmp.h:49: syscall(312) __NR_kcmp not supported on your arch
+kcmp01      2  TCONF  :  kcmp.h:49: Remaining cases not appropriate for configuration
+kcmp01      0  TINFO  :  Child process returned TCONF
+kcmp01      2  TCONF  :  kcmp.h:49: syscall(312) __NR_kcmp not supported on your arch
+kcmp01      3  TCONF  :  kcmp.h:49: Remaining cases not appropriate for configuration
+kcmp01      0  TINFO  :  Child process returned TCONF
+kcmp01      3  TCONF  :  kcmp.h:49: syscall(312) __NR_kcmp not supported on your arch
+kcmp01      4  TCONF  :  kcmp.h:49: Remaining cases not appropriate for configuration
+kcmp01      0  TINFO  :  Child process returned TCONF
+kcmp01      4  TCONF  :  kcmp.h:49: syscall(312) __NR_kcmp not supported on your arch
+kcmp01      5  TCONF  :  kcmp.h:49: Remaining cases not appropriate for configuration
+kcmp01      0  TINFO  :  Child process returned TCONF
+kcmp01      5  TCONF  :  kcmp.h:49: syscall(312) __NR_kcmp not supported on your arch
+kcmp01      6  TCONF  :  kcmp.h:49: Remaining cases not appropriate for configuration
+kcmp01      0  TINFO  :  Child process returned TCONF
+kcmp02      1  TCONF  :  kcmp.h:49: syscall(312) __NR_kcmp not supported on your arch
+kcmp02      2  TCONF  :  kcmp.h:49: Remaining cases not appropriate for configuration
+mlockall01    1  TFAIL  :  mlockall01.c:115: mlockall(MCL_CURRENT) Failed with return=-1: TEST_ERRNO=ENOSYS(38): Function not implemented
+mlockall01    2  TFAIL  :  mlockall01.c:115: mlockall(MCL_FUTURE) Failed with return=-1: TEST_ERRNO=ENOSYS(38): Function not implemented
+mlockall01    3  TFAIL  :  mlockall01.c:115: mlockall(MCL_CURRENT|MCL_FUTURE) Failed with return=-1: TEST_ERRNO=ENOSYS(38): Function not implemented
+mlockall02    1  TFAIL  :  mlockall02.c:134: mlock() Failed with wrong errno, expected errno=Process exceeds max locked pages, got errno=38 : Function not implemented
+mlockall03    1  TFAIL  :  mlockall03.c:157: mlockall() Failed with wrong errno, expected errno=tried to lock more memory than the limit permitted, got errno=38 : Function not implemented
+move_pages01    1  TCONF  :  move_pages_support.c:412: NUMA support not provided
+move_pages01    2  TCONF  :  move_pages_support.c:412: Remaining cases not appropriate for configuration
+move_pages02    1  TCONF  :  move_pages_support.c:412: NUMA support not provided
+move_pages02    2  TCONF  :  move_pages_support.c:412: Remaining cases not appropriate for configuration
+move_pages03    1  TCONF  :  move_pages_support.c:412: NUMA support not provided
+move_pages03    2  TCONF  :  move_pages_support.c:412: Remaining cases not appropriate for configuration
+move_pages04    1  TCONF  :  move_pages_support.c:412: NUMA support not provided
+move_pages04    2  TCONF  :  move_pages_support.c:412: Remaining cases not appropriate for configuration
+move_pages05    1  TCONF  :  move_pages_support.c:412: NUMA support not provided
+move_pages05    2  TCONF  :  move_pages_support.c:412: Remaining cases not appropriate for configuration
+move_pages06    1  TCONF  :  move_pages_support.c:412: NUMA support not provided
+move_pages06    2  TCONF  :  move_pages_support.c:412: Remaining cases not appropriate for configuration
+move_pages07    1  TCONF  :  move_pages_support.c:412: NUMA support not provided
+move_pages07    2  TCONF  :  move_pages_support.c:412: Remaining cases not appropriate for configuration
+move_pages08    1  TCONF  :  move_pages08.c:138: move_pages: E2BIG was removed in commit 3140a227
+move_pages08    2  TCONF  :  move_pages08.c:138: Remaining cases not appropriate for configuration
+move_pages09    1  TCONF  :  move_pages_support.c:412: NUMA support not provided
+move_pages09    2  TCONF  :  move_pages_support.c:412: Remaining cases not appropriate for configuration
+move_pages10    1  TCONF  :  move_pages_support.c:412: NUMA support not provided
+move_pages10    2  TCONF  :  move_pages_support.c:412: Remaining cases not appropriate for configuration
+move_pages11    1  TCONF  :  move_pages_support.c:412: NUMA support not provided
+move_pages11    2  TCONF  :  move_pages_support.c:412: Remaining cases not appropriate for configuration
+EXPECT: return value(ret)=-1 errno=9 (Bad file descriptor)
+RESULT: return value(ret)=-1 errno=38 (Function not implemented)
+EXPECT: return value(ret)=-1 errno=9 (Bad file descriptor)
+RESULT: return value(ret)=-1 errno=38 (Function not implemented)
+EXPECT: return value(ret)=-1 errno=9 (Bad file descriptor)
+RESULT: return value(ret)=-1 errno=38 (Function not implemented)
+mq_notify01    0  TINFO  :  (case00) START
+mq_notify01    1  TFAIL  :  mq_notify01.c:207: mq_open failed: TEST_ERRNO=ENOSYS(38): Function not implemented
+mq_notify01    0  TINFO  :  (case00) END => NG
+mq_notify01    0  TINFO  :  (case01) START
+mq_notify01    2  TFAIL  :  mq_notify01.c:207: mq_open failed: TEST_ERRNO=ENOSYS(38): Function not implemented
+mq_notify01    0  TINFO  :  (case01) END => NG
+mq_notify01    0  TINFO  :  (case02) START
+mq_notify01    3  TFAIL  :  mq_notify01.c:207: mq_open failed: TEST_ERRNO=ENOSYS(38): Function not implemented
+mq_notify01    0  TINFO  :  (case02) END => NG
+mq_notify01    0  TINFO  :  (case03) START
+mq_notify01    0  TINFO  :  (case03) END => NG
+mq_notify01    0  TINFO  :  (case04) START
+mq_notify01    0  TINFO  :  (case04) END => NG
+mq_notify01    0  TINFO  :  (case05) START
+mq_notify01    0  TINFO  :  (case05) END => NG
+mq_notify01    0  TINFO  :  (case06) START
+mq_notify01    4  TFAIL  :  mq_notify01.c:207: mq_open failed: TEST_ERRNO=ENOSYS(38): Function not implemented
+mq_notify01    0  TINFO  :  (case06) END => NG
+mq_notify01    5  TFAIL  :  mq_notify01.c:351: mq_notify failed
+mq_notify02    1  TFAIL  :  mq_notify02.c:83: mq_notify failed unexpectedly; expected: 22 - Invalid argument: TEST_ERRNO=ENOSYS(38): Function not implemented
+mq_notify02    2  TFAIL  :  mq_notify02.c:83: mq_notify failed unexpectedly; expected: 22 - Invalid argument: TEST_ERRNO=ENOSYS(38): Function not implemented
+EXPECT: return value(ret)=0 errno=0 (Success)
+RESULT: return value(ret)=-1 errno=38 (Function not implemented)
+mq_open01    0  TINFO  :  (case00) START
+mq_open01    0  TINFO  :  (case00) END => NG
+mq_open01    1  TFAIL  :  mq_open01.c:429: mq_open failed: TEST_ERRNO=ENOSYS(38): Function not implemented
+EXPECT: return value(ret)=-1 errno=9 (Bad file descriptor)
+RESULT: return value(ret)=-1 errno=38 (Function not implemented)
+EXPECT: return value(ret)=-1 errno=9 (Bad file descriptor)
+RESULT: return value(ret)=-1 errno=38 (Function not implemented)
+EXPECT: return value(ret)=-1 errno=9 (Bad file descriptor)
+RESULT: return value(ret)=-1 errno=38 (Function not implemented)
+mq_timedreceive01    0  TINFO  :  (case00) START
+mq_timedreceive01    1  TFAIL  :  mq_timedreceive01.c:336: mq_open failed: TEST_ERRNO=ENOSYS(38): Function not implemented
+mq_timedreceive01    0  TINFO  :  (case00) END => NG
+mq_timedreceive01    0  TINFO  :  (case01) START
+mq_timedreceive01    2  TFAIL  :  mq_timedreceive01.c:336: mq_open failed: TEST_ERRNO=ENOSYS(38): Function not implemented
+mq_timedreceive01    0  TINFO  :  (case01) END => NG
+mq_timedreceive01    0  TINFO  :  (case02) START
+mq_timedreceive01    3  TFAIL  :  mq_timedreceive01.c:336: mq_open failed: TEST_ERRNO=ENOSYS(38): Function not implemented
+mq_timedreceive01    0  TINFO  :  (case02) END => NG
+mq_timedreceive01    0  TINFO  :  (case03) START
+mq_timedreceive01    4  TFAIL  :  mq_timedreceive01.c:336: mq_open failed: TEST_ERRNO=ENOSYS(38): Function not implemented
+mq_timedreceive01    0  TINFO  :  (case03) END => NG
+mq_timedreceive01    0  TINFO  :  (case04) START
+mq_timedreceive01    5  TFAIL  :  mq_timedreceive01.c:336: mq_open failed: TEST_ERRNO=ENOSYS(38): Function not implemented
+mq_timedreceive01    0  TINFO  :  (case04) END => NG
+mq_timedreceive01    0  TINFO  :  (case05) START
+mq_timedreceive01    0  TINFO  :  (case05) END => NG
+mq_timedreceive01    0  TINFO  :  (case06) START
+mq_timedreceive01    0  TINFO  :  (case06) END => NG
+mq_timedreceive01    0  TINFO  :  (case07) START
+mq_timedreceive01    0  TINFO  :  (case07) END => NG
+mq_timedreceive01    0  TINFO  :  (case08) START
+mq_timedreceive01    6  TFAIL  :  mq_timedreceive01.c:336: mq_open failed: TEST_ERRNO=ENOSYS(38): Function not implemented
+mq_timedreceive01    0  TINFO  :  (case08) END => NG
+mq_timedreceive01    0  TINFO  :  (case09) START
+mq_timedreceive01    7  TFAIL  :  mq_timedreceive01.c:336: mq_open failed: TEST_ERRNO=ENOSYS(38): Function not implemented
+mq_timedreceive01    0  TINFO  :  (case09) END => NG
+mq_timedreceive01    0  TINFO  :  (case10) START
+mq_timedreceive01    8  TFAIL  :  mq_timedreceive01.c:336: mq_open failed: TEST_ERRNO=ENOSYS(38): Function not implemented
+mq_timedreceive01    0  TINFO  :  (case10) END => NG
+mq_timedreceive01    0  TINFO  :  (case11) START
+mq_timedreceive01    9  TFAIL  :  mq_timedreceive01.c:336: mq_open failed: TEST_ERRNO=ENOSYS(38): Function not implemented
+mq_timedreceive01    0  TINFO  :  (case11) END => NG
+mq_timedreceive01    0  TINFO  :  (case12) START
+mq_timedreceive01   10  TFAIL  :  mq_timedreceive01.c:336: mq_open failed: TEST_ERRNO=ENOSYS(38): Function not implemented
+mq_timedreceive01    0  TINFO  :  (case12) END => NG
+mq_timedreceive01    0  TINFO  :  (case13) START
+mq_timedreceive01   11  TFAIL  :  mq_timedreceive01.c:336: mq_open failed: TEST_ERRNO=ENOSYS(38): Function not implemented
+mq_timedreceive01    0  TINFO  :  (case13) END => NG
+mq_timedreceive01   12  TFAIL  :  mq_timedreceive01.c:472: mq_timedreceive failed: TEST_ERRNO=ENOSYS(38): Function not implemented
+EXPECT: return value(ret)=-1 errno=9 (Bad file descriptor)
+RESULT: return value(ret)=-1 errno=38 (Function not implemented)
+EXPECT: return value(ret)=-1 errno=9 (Bad file descriptor)
+RESULT: return value(ret)=-1 errno=38 (Function not implemented)
+EXPECT: return value(ret)=-1 errno=9 (Bad file descriptor)
+RESULT: return value(ret)=-1 errno=38 (Function not implemented)
+mq_timedsend01    0  TINFO  :  (case00) START
+mq_timedsend01    1  TFAIL  :  mq_timedsend01.c:341: mq_open failed - errno = 38 : Function not implemented
+
+mq_timedsend01    0  TINFO  :  (case00) END => NG
+mq_timedsend01    0  TINFO  :  (case01) START
+mq_timedsend01    2  TFAIL  :  mq_timedsend01.c:341: mq_open failed - errno = 38 : Function not implemented
+
+mq_timedsend01    0  TINFO  :  (case01) END => NG
+mq_timedsend01    0  TINFO  :  (case02) START
+mq_timedsend01    3  TFAIL  :  mq_timedsend01.c:341: mq_open failed - errno = 38 : Function not implemented
+
+mq_timedsend01    0  TINFO  :  (case02) END => NG
+mq_timedsend01    0  TINFO  :  (case03) START
+mq_timedsend01    4  TFAIL  :  mq_timedsend01.c:341: mq_open failed - errno = 38 : Function not implemented
+
+mq_timedsend01    0  TINFO  :  (case03) END => NG
+mq_timedsend01    0  TINFO  :  (case04) START
+mq_timedsend01    5  TFAIL  :  mq_timedsend01.c:341: mq_open failed - errno = 38 : Function not implemented
+
+mq_timedsend01    0  TINFO  :  (case04) END => NG
+mq_timedsend01    0  TINFO  :  (case05) START
+mq_timedsend01    0  TINFO  :  (case05) END => NG
+mq_timedsend01    0  TINFO  :  (case06) START
+mq_timedsend01    0  TINFO  :  (case06) END => NG
+mq_timedsend01    0  TINFO  :  (case07) START
+mq_timedsend01    0  TINFO  :  (case07) END => NG
+mq_timedsend01    0  TINFO  :  (case08) START
+mq_timedsend01    6  TFAIL  :  mq_timedsend01.c:341: mq_open failed - errno = 38 : Function not implemented
+
+mq_timedsend01    0  TINFO  :  (case08) END => NG
+mq_timedsend01    0  TINFO  :  (case09) START
+mq_timedsend01    7  TFAIL  :  mq_timedsend01.c:341: mq_open failed - errno = 38 : Function not implemented
+
+mq_timedsend01    0  TINFO  :  (case09) END => NG
+mq_timedsend01    0  TINFO  :  (case10) START
+mq_timedsend01    8  TFAIL  :  mq_timedsend01.c:341: mq_open failed - errno = 38 : Function not implemented
+
+mq_timedsend01    0  TINFO  :  (case10) END => NG
+mq_timedsend01    0  TINFO  :  (case11) START
+mq_timedsend01    9  TFAIL  :  mq_timedsend01.c:341: mq_open failed - errno = 38 : Function not implemented
+
+mq_timedsend01    0  TINFO  :  (case11) END => NG
+mq_timedsend01    0  TINFO  :  (case12) START
+mq_timedsend01   10  TFAIL  :  mq_timedsend01.c:341: mq_open failed - errno = 38 : Function not implemented
+
+mq_timedsend01    0  TINFO  :  (case12) END => NG
+mq_timedsend01    0  TINFO  :  (case13) START
+mq_timedsend01   11  TFAIL  :  mq_timedsend01.c:341: mq_open failed - errno = 38 : Function not implemented
+
+mq_timedsend01    0  TINFO  :  (case13) END => NG
+mq_timedsend01    0  TINFO  :  (case14) START
+mq_timedsend01   12  TFAIL  :  mq_timedsend01.c:341: mq_open failed - errno = 38 : Function not implemented
+
+mq_timedsend01    0  TINFO  :  (case14) END => NG
+mq_timedsend01   13  TFAIL  :  mq_timedsend01.c:473: mq_timedsend failed: TEST_ERRNO=ENOSYS(38): Function not implemented
+mq_ulink01    1  TFAIL  :  mq_unlink01.c:221: mq_open failed: TEST_ERRNO=ENOSYS(38): Function not implemented
+mq_ulink01    2  TFAIL  :  mq_unlink01.c:221: mq_open failed: TEST_ERRNO=ENOSYS(38): Function not implemented
+mq_ulink01    3  TFAIL  :  mq_unlink01.c:221: mq_open failed: TEST_ERRNO=ENOSYS(38): Function not implemented
+mq_ulink01    4  TFAIL  :  mq_unlink01.c:221: mq_open failed: TEST_ERRNO=ENOSYS(38): Function not implemented
+msgctl01    1  TBROK  :  msgctl01.c:138: Can't create message queue
+msgctl01    2  TBROK  :  msgctl01.c:138: Remaining cases broken
+msgctl02    1  TBROK  :  msgctl02.c:151: Can't create message queue
+msgctl02    2  TBROK  :  msgctl02.c:151: Remaining cases broken
+msgctl03    1  TBROK  :  msgctl03.c:128: Can't create message queue
+msgctl03    2  TBROK  :  msgctl03.c:128: Remaining cases broken
+msgctl04    1  TBROK  :  msgctl04.c:177: Can't create message queue #1: errno=ENOSYS(38): Function not implemented
+msgctl04    2  TBROK  :  msgctl04.c:177: Remaining cases broken
+msgctl05    1  TBROK  :  msgctl05.c:172: Can't create message queue #1
+msgctl05    2  TBROK  :  msgctl05.c:172: Remaining cases broken
+msgctl06    1  TFAIL  :  msgctl06.c:75: msgget() failed: TEST_ERRNO=ENOSYS(38): Function not implemented
+msgctl07    1  TFAIL  :  msgctl07.c:91: msgget() failed: errno=ENOSYS(38): Function not implemented
+msgctl08    1  TBROK  :  libipc.c:211: Could not open /proc/sys/kernel/msgmni
+sh: 0: getcwd() failed: No such file or directory
+msgctl08    2  TBROK  :  msgctl08.c:318: Max number of message queues already used, cannot create more.
+msgctl08    0  TWARN  :  tst_tmpdir.c:219: tst_rmdir: rmobj(/tmp/ltp-RVTubSbXQ3/msgNZTeYN) failed: unlink(/tmp/ltp-RVTubSbXQ3/msgNZTeYN) failed; errno=2: No such file or directory
+msgctl08    3  TFAIL  :  msgctl08.c:210: Wrong number of children exited, Saw 0, Expected -1
+msgctl09    1  TBROK  :  libipc.c:211: Could not open /proc/sys/kernel/msgmni
+sh: 0: getcwd() failed: No such file or directory
+msgctl09    2  TBROK  :  msgctl09.c:443: Max number of message queues already used, cannot create more.
+msgctl09    0  TWARN  :  tst_tmpdir.c:219: tst_rmdir: rmobj(/tmp/ltp-dxqjNoC9aG/msgm91aC1) failed: unlink(/tmp/ltp-dxqjNoC9aG/msgm91aC1) failed; errno=2: No such file or directory
+msgctl09    3  TFAIL  :  msgctl09.c:220: Wrong number of children exited, Saw 0, Expected -1
+msgctl10    1  TBROK  :  libipc.c:211: Could not open /proc/sys/kernel/msgmni
+sh: 0: getcwd() failed: No such file or directory
+msgctl10    2  TBROK  :  msgctl10.c:314: Max number of message queues already used, cannot create more.
+msgctl10    0  TWARN  :  tst_tmpdir.c:219: tst_rmdir: rmobj(/tmp/ltp-wVjAHIGwcS/msgFHLctt) failed: unlink(/tmp/ltp-wVjAHIGwcS/msgFHLctt) failed; errno=2: No such file or directory
+msgctl10    3  TFAIL  :  msgctl10.c:206: Wrong number of children exited, Saw 0, Expected -1
+msgctl11    1  TBROK  :  libipc.c:211: Could not open /proc/sys/kernel/msgmni
+msgctl11    2  TBROK  :  msgctl11.c:465: get_max_msgqueues() failed
+msgctl11    3  TBROK  :  msgctl11.c:465: Remaining cases broken
+msgctl12    1  TBROK  :  msgctl12.c:90: Can't create message queue
+msgctl12    2  TBROK  :  msgctl12.c:90: Remaining cases broken
+msgctl13    1  TBROK  :  msgctl13.c:67: Can't create message queue
+msgctl13    2  TBROK  :  msgctl13.c:67: Remaining cases broken
+msgget01    1  TFAIL  :  msgget01.c:90: msgget01 call failed - errno = 38 : Function not implemented
+msgget02    1  TBROK  :  tst_sig.c:233: unexpected signal SIGCHLD/SIGCLD(17) received (pid = 2666).
+msgget02    2  TBROK  :  tst_sig.c:233: Remaining cases broken
+msgget03    1  TBROK  :  libipc.c:211: Could not open /proc/sys/kernel/msgmni
+msgget03    2  TBROK  :  msgget03.c:138: get_max_msgqueues failed
+msgget03    3  TBROK  :  msgget03.c:138: Remaining cases broken
+msgget04    1  TBROK  :  msgget04.c:154: Could not create message queue - errno = 38 : Function not implemented
+msgget04    2  TBROK  :  msgget04.c:154: Remaining cases broken
+msgrcv01    1  TBROK  :  msgrcv01.c:192: Can't create message queue
+msgrcv01    2  TBROK  :  msgrcv01.c:192: Remaining cases broken
+msgrcv02    1  TBROK  :  msgrcv02.c:173: Can't create message queue #1
+msgrcv02    2  TBROK  :  msgrcv02.c:173: Remaining cases broken
+msgrcv03    1  TBROK  :  msgrcv03.c:147: Can't create message queue
+msgrcv03    2  TBROK  :  msgrcv03.c:147: Remaining cases broken
+msgrcv04    1  TBROK  :  msgrcv04.c:158: Can't create message queue
+msgrcv04    2  TBROK  :  msgrcv04.c:158: Remaining cases broken
+msgrcv05    1  TBROK  :  msgrcv05.c:192: Can't create message queue
+msgrcv05    2  TBROK  :  msgrcv05.c:192: Remaining cases broken
+msgrcv06    1  TBROK  :  msgrcv06.c:110: Can't create message queue
+msgrcv06    2  TBROK  :  msgrcv06.c:110: Remaining cases broken
+msgrcv07    1  TBROK  :  msgrcv07.c:81: Can't create message queue: errno=ENOSYS(38): Function not implemented
+msgrcv07    2  TBROK  :  msgrcv07.c:81: Remaining cases broken
+msgrcv08    1  TCONF  :  msgrcv08.c:115: not works when compiled as 64-bit application.
+msgrcv08    2  TCONF  :  msgrcv08.c:115: Remaining cases not appropriate for configuration
+msgsnd01    1  TBROK  :  msgsnd01.c:151: Can't create message queue
+msgsnd01    2  TBROK  :  msgsnd01.c:151: Remaining cases broken
+msgsnd02    1  TBROK  :  msgsnd02.c:156: Can't create message queue
+msgsnd02    2  TBROK  :  msgsnd02.c:156: Remaining cases broken
+msgsnd03    1  TBROK  :  msgsnd03.c:159: Can't create message queue
+msgsnd03    2  TBROK  :  msgsnd03.c:159: Remaining cases broken
+msgsnd04    1  TBROK  :  msgsnd04.c:132: Can't create message queue
+msgsnd04    2  TBROK  :  msgsnd04.c:132: Remaining cases broken
+msgsnd05    1  TBROK  :  msgsnd05.c:211: Can't create message queue
+msgsnd05    2  TBROK  :  msgsnd05.c:211: Remaining cases broken
+msgsnd06    1  TBROK  :  msgsnd06.c:104: Can't create message queue
+msgsnd06    2  TBROK  :  msgsnd06.c:104: Remaining cases broken
+munlockall01    1  TFAIL  :  munlockall01.c:94: munlockall() Failed with return=-1: TEST_ERRNO=ENOSYS(38): Function not implemented
+mincore01    1  TFAIL  :  mincore01.c:212: mincore failed unexpectedly; expected: 22 - Invalid argument: TEST_ERRNO=ENOSYS(38): Function not implemented
+mincore01    2  TFAIL  :  mincore01.c:212: mincore failed unexpectedly; expected: 14 - Bad address: TEST_ERRNO=ENOSYS(38): Function not implemented
+mincore01    3  TFAIL  :  mincore01.c:212: mincore failed unexpectedly; expected: 12 - Cannot allocate memory: TEST_ERRNO=ENOSYS(38): Function not implemented
+mincore01    4  TFAIL  :  mincore01.c:212: mincore failed unexpectedly; expected: 12 - Cannot allocate memory: TEST_ERRNO=ENOSYS(38): Function not implemented
+mincore02    1  TBROK  :  mincore02.c:115: Unable to execute mincore system call: errno=ENOSYS(38): Function not implemented
+mincore02    2  TBROK  :  mincore02.c:115: Remaining cases broken
+posix_fadvise02    1  TFAIL  :  posix_fadvise02.c:116: call succeeded unexpectedly
+posix_fadvise02    2  TFAIL  :  posix_fadvise02.c:116: call succeeded unexpectedly
+posix_fadvise02    3  TFAIL  :  posix_fadvise02.c:116: call succeeded unexpectedly
+posix_fadvise02    4  TFAIL  :  posix_fadvise02.c:116: call succeeded unexpectedly
+posix_fadvise02    5  TFAIL  :  posix_fadvise02.c:116: call succeeded unexpectedly
+posix_fadvise02    6  TFAIL  :  posix_fadvise02.c:116: call succeeded unexpectedly
+posix_fadvise02_64    1  TFAIL  :  posix_fadvise02.c:116: call succeeded unexpectedly
+posix_fadvise02_64    2  TFAIL  :  posix_fadvise02.c:116: call succeeded unexpectedly
+posix_fadvise02_64    3  TFAIL  :  posix_fadvise02.c:116: call succeeded unexpectedly
+posix_fadvise02_64    4  TFAIL  :  posix_fadvise02.c:116: call succeeded unexpectedly
+posix_fadvise02_64    5  TFAIL  :  posix_fadvise02.c:116: call succeeded unexpectedly
+posix_fadvise02_64    6  TFAIL  :  posix_fadvise02.c:116: call succeeded unexpectedly
+posix_fadvise03    1  TFAIL  :  posix_fadvise03.c:156: call succeeded unexpectedly
+posix_fadvise03    2  TFAIL  :  posix_fadvise03.c:156: call succeeded unexpectedly
+posix_fadvise03    3  TFAIL  :  posix_fadvise03.c:156: call succeeded unexpectedly
+posix_fadvise03    4  TFAIL  :  posix_fadvise03.c:156: call succeeded unexpectedly
+posix_fadvise03    5  TFAIL  :  posix_fadvise03.c:156: call succeeded unexpectedly
+posix_fadvise03    6  TFAIL  :  posix_fadvise03.c:156: call succeeded unexpectedly
+posix_fadvise03    7  TFAIL  :  posix_fadvise03.c:156: call succeeded unexpectedly
+posix_fadvise03    8  TFAIL  :  posix_fadvise03.c:156: call succeeded unexpectedly
+posix_fadvise03    9  TFAIL  :  posix_fadvise03.c:156: call succeeded unexpectedly
+posix_fadvise03   10  TFAIL  :  posix_fadvise03.c:156: call succeeded unexpectedly
+posix_fadvise03   11  TFAIL  :  posix_fadvise03.c:156: call succeeded unexpectedly
+posix_fadvise03   12  TFAIL  :  posix_fadvise03.c:156: call succeeded unexpectedly
+posix_fadvise03   13  TFAIL  :  posix_fadvise03.c:156: call succeeded unexpectedly
+posix_fadvise03   14  TFAIL  :  posix_fadvise03.c:156: call succeeded unexpectedly
+posix_fadvise03   15  TFAIL  :  posix_fadvise03.c:156: call succeeded unexpectedly
+posix_fadvise03   16  TFAIL  :  posix_fadvise03.c:156: call succeeded unexpectedly
+posix_fadvise03   17  TFAIL  :  posix_fadvise03.c:156: call succeeded unexpectedly
+posix_fadvise03   18  TFAIL  :  posix_fadvise03.c:156: call succeeded unexpectedly
+posix_fadvise03   19  TFAIL  :  posix_fadvise03.c:156: call succeeded unexpectedly
+posix_fadvise03   20  TFAIL  :  posix_fadvise03.c:156: call succeeded unexpectedly
+posix_fadvise03   21  TFAIL  :  posix_fadvise03.c:156: call succeeded unexpectedly
+posix_fadvise03   22  TFAIL  :  posix_fadvise03.c:156: call succeeded unexpectedly
+posix_fadvise03   23  TFAIL  :  posix_fadvise03.c:156: call succeeded unexpectedly
+posix_fadvise03   24  TFAIL  :  posix_fadvise03.c:156: call succeeded unexpectedly
+posix_fadvise03   25  TFAIL  :  posix_fadvise03.c:156: call succeeded unexpectedly
+posix_fadvise03   26  TFAIL  :  posix_fadvise03.c:156: call succeeded unexpectedly
+posix_fadvise03_64    1  TFAIL  :  posix_fadvise03.c:156: call succeeded unexpectedly
+posix_fadvise03_64    2  TFAIL  :  posix_fadvise03.c:156: call succeeded unexpectedly
+posix_fadvise03_64    3  TFAIL  :  posix_fadvise03.c:156: call succeeded unexpectedly
+posix_fadvise03_64    4  TFAIL  :  posix_fadvise03.c:156: call succeeded unexpectedly
+posix_fadvise03_64    5  TFAIL  :  posix_fadvise03.c:156: call succeeded unexpectedly
+posix_fadvise03_64    6  TFAIL  :  posix_fadvise03.c:156: call succeeded unexpectedly
+posix_fadvise03_64    7  TFAIL  :  posix_fadvise03.c:156: call succeeded unexpectedly
+posix_fadvise03_64    8  TFAIL  :  posix_fadvise03.c:156: call succeeded unexpectedly
+posix_fadvise03_64    9  TFAIL  :  posix_fadvise03.c:156: call succeeded unexpectedly
+posix_fadvise03_64   10  TFAIL  :  posix_fadvise03.c:156: call succeeded unexpectedly
+posix_fadvise03_64   11  TFAIL  :  posix_fadvise03.c:156: call succeeded unexpectedly
+posix_fadvise03_64   12  TFAIL  :  posix_fadvise03.c:156: call succeeded unexpectedly
+posix_fadvise03_64   13  TFAIL  :  posix_fadvise03.c:156: call succeeded unexpectedly
+posix_fadvise03_64   14  TFAIL  :  posix_fadvise03.c:156: call succeeded unexpectedly
+posix_fadvise03_64   15  TFAIL  :  posix_fadvise03.c:156: call succeeded unexpectedly
+posix_fadvise03_64   16  TFAIL  :  posix_fadvise03.c:156: call succeeded unexpectedly
+posix_fadvise03_64   17  TFAIL  :  posix_fadvise03.c:156: call succeeded unexpectedly
+posix_fadvise03_64   18  TFAIL  :  posix_fadvise03.c:156: call succeeded unexpectedly
+posix_fadvise03_64   19  TFAIL  :  posix_fadvise03.c:156: call succeeded unexpectedly
+posix_fadvise03_64   20  TFAIL  :  posix_fadvise03.c:156: call succeeded unexpectedly
+posix_fadvise03_64   21  TFAIL  :  posix_fadvise03.c:156: call succeeded unexpectedly
+posix_fadvise03_64   22  TFAIL  :  posix_fadvise03.c:156: call succeeded unexpectedly
+posix_fadvise03_64   23  TFAIL  :  posix_fadvise03.c:156: call succeeded unexpectedly
+posix_fadvise03_64   24  TFAIL  :  posix_fadvise03.c:156: call succeeded unexpectedly
+posix_fadvise03_64   25  TFAIL  :  posix_fadvise03.c:156: call succeeded unexpectedly
+posix_fadvise03_64   26  TFAIL  :  posix_fadvise03.c:156: call succeeded unexpectedly
+posix_fadvise04    1  TFAIL  :  posix_fadvise04.c:122: call succeeded unexpectedly
+posix_fadvise04    2  TFAIL  :  posix_fadvise04.c:122: call succeeded unexpectedly
+posix_fadvise04    3  TFAIL  :  posix_fadvise04.c:122: call succeeded unexpectedly
+posix_fadvise04    4  TFAIL  :  posix_fadvise04.c:122: call succeeded unexpectedly
+posix_fadvise04    5  TFAIL  :  posix_fadvise04.c:122: call succeeded unexpectedly
+posix_fadvise04    6  TFAIL  :  posix_fadvise04.c:122: call succeeded unexpectedly
+posix_fadvise04_64    1  TFAIL  :  posix_fadvise04.c:122: call succeeded unexpectedly
+posix_fadvise04_64    2  TFAIL  :  posix_fadvise04.c:122: call succeeded unexpectedly
+posix_fadvise04_64    3  TFAIL  :  posix_fadvise04.c:122: call succeeded unexpectedly
+posix_fadvise04_64    4  TFAIL  :  posix_fadvise04.c:122: call succeeded unexpectedly
+posix_fadvise04_64    5  TFAIL  :  posix_fadvise04.c:122: call succeeded unexpectedly
+posix_fadvise04_64    6  TFAIL  :  posix_fadvise04.c:122: call succeeded unexpectedly
+readahead01    1  TCONF  :  readahead01.c:153: syscall(187) __NR_readahead not supported on your arch
+readahead01    2  TCONF  :  readahead01.c:153: Remaining cases not appropriate for configuration
+remap_file_pages01    1  TFAIL  :  remap_file_pages01.c:184: remap_file_pages error for page=0x48000000, page_sz=8192, window_pages=14: errno=ENOSYS(38): Function not implemented
+remap_file_pages01    2  TFAIL  :  remap_file_pages01.c:184: remap_file_pages error for page=0x48002000, page_sz=8192, window_pages=12: errno=ENOSYS(38): Function not implemented
+remap_file_pages01    0  TWARN  :  tst_tmpdir.c:219: tst_rmdir: rmobj(/tmp/ltp-hj4ntNUYzw/remxtxdM3) failed: unlink(/tmp/ltp-hj4ntNUYzw/remxtxdM3) failed; errno=2: No such file or directory
+remap_file_pages01    3  TFAIL  :  remap_file_pages01.c:184: remap_file_pages error for page=0x48004000, page_sz=8192, window_pages=10: errno=ENOSYS(38): Function not implemented
+remap_file_pages01    0  TWARN  :  tst_tmpdir.c:219: tst_rmdir: rmobj(/tmp/ltp-hj4ntNUYzw/remxtxdM3) failed: unlink(/tmp/ltp-hj4ntNUYzw/remxtxdM3) failed; errno=2: No such file or directory
+remap_file_pages01    4  TFAIL  :  remap_file_pages01.c:184: remap_file_pages error for page=0x48006000, page_sz=8192, window_pages=8: errno=ENOSYS(38): Function not implemented
+remap_file_pages01    0  TWARN  :  tst_tmpdir.c:219: tst_rmdir: rmobj(/tmp/ltp-hj4ntNUYzw/remxtxdM3) failed: unlink(/tmp/ltp-hj4ntNUYzw/remxtxdM3) failed; errno=2: No such file or directory
+remap_file_pages01    5  TFAIL  :  remap_file_pages01.c:184: remap_file_pages error for page=0x48008000, page_sz=8192, window_pages=6: errno=ENOSYS(38): Function not implemented
+remap_file_pages01    0  TWARN  :  tst_tmpdir.c:219: tst_rmdir: rmobj(/tmp/ltp-hj4ntNUYzw/remxtxdM3) failed: unlink(/tmp/ltp-hj4ntNUYzw/remxtxdM3) failed; errno=2: No such file or directory
+remap_file_pages01    6  TFAIL  :  remap_file_pages01.c:184: remap_file_pages error for page=0x4800a000, page_sz=8192, window_pages=4: errno=ENOSYS(38): Function not implemented
+remap_file_pages01    0  TWARN  :  tst_tmpdir.c:219: tst_rmdir: rmobj(/tmp/ltp-hj4ntNUYzw/remxtxdM3) failed: unlink(/tmp/ltp-hj4ntNUYzw/remxtxdM3) failed; errno=2: No such file or directory
+remap_file_pages01    7  TFAIL  :  remap_file_pages01.c:184: remap_file_pages error for page=0x4800c000, page_sz=8192, window_pages=2: errno=ENOSYS(38): Function not implemented
+remap_file_pages01    0  TWARN  :  tst_tmpdir.c:219: tst_rmdir: rmobj(/tmp/ltp-hj4ntNUYzw/remxtxdM3) failed: unlink(/tmp/ltp-hj4ntNUYzw/remxtxdM3) failed; errno=2: No such file or directory
+remap_file_pages01    8  TFAIL  :  remap_file_pages01.c:184: remap_file_pages error for page=0x4800e000, page_sz=8192, window_pages=0: errno=ENOSYS(38): Function not implemented
+remap_file_pages01    0  TWARN  :  tst_tmpdir.c:219: tst_rmdir: rmobj(/tmp/ltp-hj4ntNUYzw/remxtxdM3) failed: unlink(/tmp/ltp-hj4ntNUYzw/remxtxdM3) failed; errno=2: No such file or directory
+remap_file_pages01    9  TBROK  :  tst_sig.c:233: unexpected signal SIGSEGV(11) received (pid = 4018).
+remap_file_pages01   10  TBROK  :  tst_sig.c:233: Remaining cases broken
+remap_file_pages01    0  TWARN  :  tst_tmpdir.c:219: tst_rmdir: rmobj(/tmp/ltp-hj4ntNUYzw/remxtxdM3) failed: unlink(/tmp/ltp-hj4ntNUYzw/remxtxdM3) failed; errno=2: No such file or directory
+remap_file_pages02    1  TFAIL  :  remap_file_pages02.c:190: remap_file_pages(2) failed to produce expected error: 22, errno: EINVAL. because got error 38
+remap_file_pages02    2  TFAIL  :  remap_file_pages02.c:190: remap_file_pages(2) failed to produce expected error: 22, errno: EINVAL. because got error 38
+remap_file_pages02    3  TFAIL  :  remap_file_pages02.c:190: remap_file_pages(2) failed to produce expected error: 22, errno: EINVAL. because got error 38
+remap_file_pages02    4  TFAIL  :  remap_file_pages02.c:190: remap_file_pages(2) failed to produce expected error: 22, errno: EINVAL. because got error 38
+renameat201    1  TCONF  :  renameat2.h:31: syscall(316) __NR_renameat2 not supported on your arch
+renameat201    2  TCONF  :  renameat2.h:31: Remaining cases not appropriate for configuration
+renameat202    1  TCONF  :  renameat2.h:31: syscall(316) __NR_renameat2 not supported on your arch
+renameat202    2  TCONF  :  renameat2.h:31: Remaining cases not appropriate for configuration
+request_key01.c:71: CONF: keyutils.h was missing at compilation
+request_key02.c:118: CONF: keyutils.h was missing at compilation
+rt_sigqueueinfo01    1  TCONF  :  rt_sigqueueinfo01.c:88: syscall(129) __NR_rt_sigqueueinfo not supported on your arch
+rt_sigqueueinfo01    2  TCONF  :  rt_sigqueueinfo01.c:88: Remaining cases not appropriate for configuration
+rt_sigqueueinfo01    1  TFAIL  :  rt_sigqueueinfo01.c:97: Test Failed
+rt_sigqueueinfo01    0  TINFO  :  Failed to record test working dir
+rt_sigqueueinfo01    2  TCONF  :  rt_sigqueueinfo01.c:88: syscall(129) __NR_rt_sigqueueinfo not supported on your arch
+rt_sigqueueinfo01    3  TCONF  :  rt_sigqueueinfo01.c:88: Remaining cases not appropriate for configuration
+rt_sigqueueinfo01    1  TFAIL  :  rt_sigqueueinfo01.c:97: Test Failed
+rt_sigqueueinfo01    0  TINFO  :  Failed to record test working dir
+rt_sigqueueinfo01    2  TFAIL  :  rt_sigqueueinfo01.c:97: Test Failed
+sched_setattr01    1  TFAIL  :  sched_setattr01.c:96: sched_setattr(0,attr,0) returned: -1 expected: 0: TEST_ERRNO=ENOSYS(38): Function not implemented
+sched_setattr01    2  TFAIL  :  sched_setattr01.c:109: sched_setattr(32768,attr,0): expected: 3 - ESRCH: TEST_ERRNO=ENOSYS(38): Function not implemented
+sched_setattr01    3  TFAIL  :  sched_setattr01.c:109: sched_setattr(0,attr,0): expected: 22 - EINVAL: TEST_ERRNO=ENOSYS(38): Function not implemented
+sched_setattr01    4  TFAIL  :  sched_setattr01.c:109: sched_setattr(0,attr,1000): expected: 22 - EINVAL: TEST_ERRNO=ENOSYS(38): Function not implemented
+sched_getattr01    1  TFAIL  :  sched_getattr01.c:60: sched_setattr() failed: errno=ENOSYS(38): Function not implemented
+sched_getattr02    1  TFAIL  :  sched_getattr02.c:83: sched_getattr() failed unexpectedly : expected: 3 - ESRCH: TEST_ERRNO=ENOSYS(38): Function not implemented
+sched_getattr02    2  TFAIL  :  sched_getattr02.c:83: sched_getattr() failed unexpectedly : expected: 22 - EINVAL: TEST_ERRNO=ENOSYS(38): Function not implemented
+sched_getattr02    3  TFAIL  :  sched_getattr02.c:83: sched_getattr() failed unexpectedly : expected: 22 - EINVAL: TEST_ERRNO=ENOSYS(38): Function not implemented
+sched_getattr02    4  TFAIL  :  sched_getattr02.c:83: sched_getattr() failed unexpectedly : expected: 22 - EINVAL: TEST_ERRNO=ENOSYS(38): Function not implemented
+sched_rr_get_interval01    1  TFAIL  :  sched_rr_get_interval01.c:105: Test Failed, sched_rr_get_interval()returned -1: TEST_ERRNO=ENOSYS(38): Function not implemented
+sched_rr_get_interval02    1  TFAIL  :  sched_rr_get_interval02.c:109: Test Failed, sched_rr_get_interval()returned -1, errno = 38 : Function not implemented, tp.tv_sec = 99, tp.tv_nsec = 99
+sched_rr_get_interval03    1  TFAIL  :  sched_rr_get_interval03.c:130: Test Failed, sched_rr_get_interval() returned -1: TEST_ERRNO=ENOSYS(38): Function not implemented
+sched_rr_get_interval03    2  TFAIL  :  sched_rr_get_interval03.c:130: Test Failed, sched_rr_get_interval() returned -1: TEST_ERRNO=ENOSYS(38): Function not implemented
+sched_rr_get_interval03    3  TFAIL  :  sched_rr_get_interval03.c:130: Test Failed, sched_rr_get_interval() returned -1: TEST_ERRNO=ENOSYS(38): Function not implemented
+signalfd01    1  TFAIL  :  signalfd01.c:119: signalfd() Failed, errno=38 : Function not implemented
+signalfd4_01    1  TCONF  :  signalfd4_01.c:146: syscall(289) __NR_signalfd4 not supported on your arch
+signalfd4_01    2  TCONF  :  signalfd4_01.c:146: Remaining cases not appropriate for configuration
+signalfd4_02    1  TCONF  :  signalfd4_02.c:141: syscall(289) __NR_signalfd4 not supported on your arch
+signalfd4_02    2  TCONF  :  signalfd4_02.c:141: Remaining cases not appropriate for configuration
+swapoff01    1  TCONF  :  swapoff01.c:57: syscall(167) __NR_swapon not supported on your arch
+swapoff01    2  TCONF  :  swapoff01.c:57: Remaining cases not appropriate for configuration
+swapoff02    1  TCONF  :  swapoff02.c:77: syscall(168) __NR_swapoff not supported on your arch
+swapoff02    2  TCONF  :  swapoff02.c:77: Remaining cases not appropriate for configuration
+swapon01    1  TCONF  :  swapon01.c:39: syscall(167) __NR_swapon not supported on your arch
+swapon01    2  TCONF  :  swapon01.c:39: Remaining cases not appropriate for configuration
+swapon02    1  TCONF  :  swapon02.c:148: syscall(167) __NR_swapon not supported on your arch
+swapon02    2  TCONF  :  swapon02.c:148: Remaining cases not appropriate for configuration
+grep: /proc/swaps: No such file or directory
+grep: /proc/swaps: No such file or directory
+grep: /proc/swaps: No such file or directory
+swapon03    1  TFAIL  :  swapon03.c:169: Failed to find out existing number of swap files: errno=ENOENT(2): No such file or directory
+sync_file_range01    1  TCONF  :  sync_file_range01.c:221: syscall(277) __NR_sync_file_range not supported on your arch
+sync_file_range01    2  TCONF  :  sync_file_range01.c:221: Remaining cases not appropriate for configuration
+sysfs01     1  TCONF  :  sysfs01.c:94: syscall(139) __NR_sysfs not supported on your arch
+sysfs01     2  TCONF  :  sysfs01.c:94: Remaining cases not appropriate for configuration
+sysfs02     1  TCONF  :  sysfs02.c:93: syscall(139) __NR_sysfs not supported on your arch
+sysfs02     2  TCONF  :  sysfs02.c:93: Remaining cases not appropriate for configuration
+sysfs03     1  TCONF  :  sysfs03.c:91: syscall(139) __NR_sysfs not supported on your arch
+sysfs03     2  TCONF  :  sysfs03.c:91: Remaining cases not appropriate for configuration
+sysfs04     1  TCONF  :  sysfs04.c:94: syscall(139) __NR_sysfs not supported on your arch
+sysfs04     2  TCONF  :  sysfs04.c:94: Remaining cases not appropriate for configuration
+sysfs05     1  TCONF  :  sysfs05.c:110: syscall(139) __NR_sysfs not supported on your arch
+sysfs05     2  TCONF  :  sysfs05.c:110: Remaining cases not appropriate for configuration
+sysfs06     1  TCONF  :  sysfs06.c:114: syscall(139) __NR_sysfs not supported on your arch
+sysfs06     2  TCONF  :  sysfs06.c:114: Remaining cases not appropriate for configuration
+syslog01    0  TINFO  :  Send messages to syslogd at some level 
+syslog01    0  TINFO  :  and facility and grep for those messages.
+syslog01    0  TINFO  :  testing whether messages are logged into log file
+syslog01    0  TINFO  :  restarting syslog daemon
+syslog01    0  TINFO  :  restarting syslog daemon
+syslog02    0  TINFO  :  Test if messages of all levels are logged.
+syslog02    0  TINFO  :  For each level, a separate configuration file is
+syslog02    0  TINFO  :  created and that will be used as syslog.conf file.
+syslog02    0  TINFO  :  testing whether messages are logged into log file
+syslog02    0  TINFO  :  Doing level: emerg...
+syslog02    0  TINFO  :  restarting syslog daemon
+syslog02    0  TINFO  :  restarting syslog daemon
+syslog03    0  TINFO  :  Do openlog(), log the messages and see whether
+syslog03    0  TINFO  :  ident string is prepended to the message.
+syslog03    0  TINFO  :  restarting syslog daemon
+syslog03    0  TINFO  :  restarting syslog daemon
+syslog04    0  TINFO  :  case4: Test the logging option: LOG_PID
+syslog04    0  TINFO  :  Do openlog() with LOG_PID option and see whether pid
+syslog04    0  TINFO  :  is logged with message.
+syslog04    0  TINFO  :  Testing the log option: LOG_PID...
+syslog04    0  TINFO  :  restarting syslog daemon
+syslog04    0  TINFO  :  restarting syslog daemon
+syslog05    0  TINFO  :   case5: Test the logging option: LOG_CONS
+syslog05    0  TINFO  :   o Do openlog() with LOG_CONS option.
+syslog05    0  TINFO  :   o Disable /dev/syslog by moving it to a temporary file name.
+syslog05    0  TINFO  :   o Send the syslog message.
+syslog05    0  TINFO  :   o Check whether this is written to the console i.e to
+syslog05    0  TINFO  :     the file /usr/adm/ktlog/<this year>/<this month>/<to_day>
+syslog05    0  TINFO  :  syslog: Testing the log option: LOG_CONS...
+syslog05    0  TINFO  :  restarting syslog daemon
+syslog05    0  TINFO  :  restarting syslog daemon
+syslog06    0  TINFO  :   Test the logging option: LOG_NDELAY
+syslog06    0  TINFO  :   o Do openlog() without LOG_NDELAY option.
+syslog06    0  TINFO  :   o open a file and check the returned file descriptor
+syslog06    0  TINFO  :     It should be 3.
+syslog06    0  TINFO  :   o Now do openlog() with LOG_NDELAY option.
+syslog06    0  TINFO  :   o open a file and check the returned file descriptor.
+syslog06    0  TINFO  :     It should be greater than 3.
+syslog06    0  TINFO  :  syslog: Testing the log option: LOG_NDELAY...
+syslog06    0  TINFO  :  restarting syslog daemon
+syslog06    0  TINFO  :  restarting syslog daemon
+syslog07    0  TINFO  :  testing syslog priorities ...
+syslog07    0  TINFO  :   o Send syslog messages at all levels and see whether
+syslog07    0  TINFO  :     All level messages are logged.
+syslog07    0  TINFO  :  restarting syslog daemon
+syslog07    0  TINFO  :  restarting syslog daemon
+syslog08    0  TINFO  :   Test all the facilities at a particular level.
+syslog08    0  TINFO  :   Facilities available are: LOG_KERN, LOG_USER, LOG_MAIL
+syslog08    0  TINFO  :   LOG_DAEMON, LOG_AUTH, LOG_LPR.
+syslog08    0  TINFO  :   Don't know how to send kernel messages from syslog()
+syslog08    0  TINFO  :   o Create seperate entries in config file for each facility.
+syslog08    0  TINFO  :   o Send the message and grep for the entry in log file.
+syslog08    0  TINFO  :  testing all the facilities
+syslog08    0  TINFO  :  Doing facility: user...
+syslog08    0  TINFO  :  restarting syslog daemon
+syslog08    0  TINFO  :  restarting syslog daemon
+syslog09    0  TINFO  :   Test setlogmask() with LOG_UPTO macro.
+syslog09    0  TINFO  :   o Use setlogmask() with LOG_UPTO macro to set some priority
+syslog09    0  TINFO  :     level.
+syslog09    0  TINFO  :   o Send message which is lower priority than the one
+syslog09    0  TINFO  :     set above, which should not be logged
+syslog09    0  TINFO  :  syslog: Testing setlogmask() with LOG_UPTO macro
+syslog09    0  TINFO  :  restarting syslog daemon
+syslog09    0  TINFO  :  restarting syslog daemon
+syslog10    0  TINFO  :   Test setlogmask() with LOG_MASK macro.
+syslog10    0  TINFO  :   o Use setlogmask() with LOG_MASK macro to set an
+syslog10    0  TINFO  :     individual priority level.
+syslog10    0  TINFO  :   o Send the message of above prority and expect it to be
+syslog10    0  TINFO  :     logged.
+syslog10    0  TINFO  :   o Send message which is at other priority level to
+syslog10    0  TINFO  :     the one set above, which should not be logged.
+syslog10    0  TINFO  :  syslog: Testing setlogmask() with LOG_MASK macro...
+syslog10    0  TINFO  :  restarting syslog daemon
+syslog10    0  TINFO  :  restarting syslog daemon
+syslog11    1  TFAIL  :  syslog11.c:147: syslog() failed for type 0/Close the log: errno 38 (Function not implemented)
+syslog11    2  TFAIL  :  syslog11.c:147: syslog() failed for type 1/Open the log: errno 38 (Function not implemented)
+syslog11    3  TFAIL  :  syslog11.c:147: syslog() failed for type 2/Read from the log: errno 38 (Function not implemented)
+syslog11    4  TFAIL  :  syslog11.c:147: syslog() failed for type 3/Read ring buffer: errno 38 (Function not implemented)
+syslog11    5  TFAIL  :  syslog11.c:147: syslog() failed for type 3/Read ring buffer for non-root user: errno 38 (Function not implemented)
+syslog11    6  TFAIL  :  syslog11.c:147: syslog() failed for type 8/Set log level to 1: errno 38 (Function not implemented)
+syslog11    7  TFAIL  :  syslog11.c:147: syslog() failed for type 8/Set log level to 7(default): errno 38 (Function not implemented)
+syslog11    8  TFAIL  :  syslog11.c:147: syslog() failed for type 6/Disable printk's to console: errno 38 (Function not implemented)
+syslog11    9  TFAIL  :  syslog11.c:147: syslog() failed for type 7/Enable printk's to console: errno 38 (Function not implemented)
+syslog12    1  TFAIL  :  syslog12.c:172: syslog() returned unexpected results for invalid type/command ; returned -1 (expected -1), errno 38 (expected 22)
+syslog12    2  TFAIL  :  syslog12.c:172: syslog() returned unexpected results for NULL buffer argument ; returned -1 (expected -1), errno 38 (expected 22)
+syslog12    3  TFAIL  :  syslog12.c:172: syslog() returned unexpected results for negative length argument ; returned -1 (expected -1), errno 38 (expected 22)
+syslog12    4  TFAIL  :  syslog12.c:172: syslog() returned unexpected results for non-root user ; returned -1 (expected -1), errno 38 (expected 1)
+syslog12    5  TFAIL  :  syslog12.c:172: syslog() returned unexpected results for console level less than 0 ; returned -1 (expected -1), errno 38 (expected 22)
+syslog12    6  TFAIL  :  syslog12.c:172: syslog() returned unexpected results for console level greater than 8 ; returned -1 (expected -1), errno 38 (expected 22)
+ustat01     1  TCONF  :  ustat01.c:54: ustat not supported
+ustat01     2  TCONF  :  ustat01.c:54: Remaining cases not appropriate for configuration
+ustat02     1  TPASS  :  ustat(2) expected failure; Got errno - EINVAL : Invalid parameter
+ustat02     2  TCONF  :  ustat02.c:70: ustat not supported
+ustat02     3  TCONF  :  ustat02.c:70: Remaining cases not appropriate for configuration
+vhangup01    1  TFAIL  :  vhangup01.c:71: expected EPERM got 38
+vhangup01    0  TINFO  :  Child process returned TFAIL
+vmsplice01    1  TBROK  :  vmsplice01.c:123: vmsplice() failed: errno=ENOSYS(38): Function not implemented
+vmsplice01    2  TBROK  :  vmsplice01.c:123: Remaining cases broken
+vmsplice02    1  TFAIL  :  vmsplice02.c:133: vmsplice() failed unexpectedly; expected: 9 - Bad file descriptor: TEST_ERRNO=ENOSYS(38): Function not implemented
+vmsplice02    2  TFAIL  :  vmsplice02.c:133: vmsplice() failed unexpectedly; expected: 9 - Bad file descriptor: TEST_ERRNO=ENOSYS(38): Function not implemented
+vmsplice02    3  TFAIL  :  vmsplice02.c:133: vmsplice() failed unexpectedly; expected: 22 - Invalid argument: TEST_ERRNO=ENOSYS(38): Function not implemented
+access06    0  TINFO  :  No free devices found
+access06    1  TCONF  :  access06.c:94: Failed to obtain block device
+access06    2  TCONF  :  access06.c:94: Remaining cases not appropriate for configuration
+chmod06     0  TINFO  :  No free devices found
+chmod06     1  TCONF  :  chmod06.c:187: Failed to obtain block device
+chmod06     2  TCONF  :  chmod06.c:187: Remaining cases not appropriate for configuration
+chmod06     3  TBROK  :  chmod06.c:221: chmod(testdir_1) failed: errno=ENOENT(2): No such file or directory
+chown04     0  TINFO  :  No free devices found
+chown04     1  TCONF  :  chown04.c:150: Failed to obtain block device
+chown04     2  TCONF  :  chown04.c:150: Remaining cases not appropriate for configuration
+tst_device.c:125: INFO: No free devices found
+tst_test.c:546: CONF: Failed to acquire device
+fchmod06    0  TINFO  :  No free devices found
+fchmod06    1  TCONF  :  fchmod06.c:128: Failed to obtain block device
+fchmod06    2  TCONF  :  fchmod06.c:128: Remaining cases not appropriate for configuration
+fchown04    0  TINFO  :  No free devices found
+fchown04    1  TCONF  :  fchown04.c:110: Failed to acquire device
+fchown04    2  TCONF  :  fchown04.c:110: Remaining cases not appropriate for configuration
+ftruncate04    0  TINFO  :  TMPDIR does not support mandatory locks
+ftruncate04    0  TINFO  :  No free devices found
+ftruncate04    1  TCONF  :  ftruncate04.c:241: Failed to obtain block device
+ftruncate04    2  TCONF  :  ftruncate04.c:241: Remaining cases not appropriate for configuration
+ftruncate04    0  TINFO  :  TMPDIR does not support mandatory locks
+ftruncate04    0  TINFO  :  No free devices found
+ftruncate04    1  TCONF  :  ftruncate04.c:241: Failed to obtain block device
+ftruncate04    2  TCONF  :  ftruncate04.c:241: Remaining cases not appropriate for configuration
+inotify03    0  TINFO  :  No free devices found
+inotify03    1  TCONF  :  inotify03.c:179: Failed to obtain block device
+inotify03    2  TCONF  :  inotify03.c:179: Remaining cases not appropriate for configuration
+inotify03    0  TWARN  :  tst_device.c:157: open((null)) failed: errno=EFAULT(14): Bad address
+lchown03    0  TINFO  :  No free devices found
+lchown03    1  TCONF  :  lchown03.c:103: Failed to acquire device
+lchown03    2  TCONF  :  lchown03.c:103: Remaining cases not appropriate for configuration
+link08      0  TINFO  :  No free devices found
+link08      1  TCONF  :  link08.c:137: Failed to acquire device
+link08      2  TCONF  :  link08.c:137: Remaining cases not appropriate for configuration
+linkat02    0  TINFO  :  No free devices found
+linkat02    1  TCONF  :  linkat02.c:156: Failed to acquire device
+linkat02    2  TCONF  :  linkat02.c:156: Remaining cases not appropriate for configuration
+mkdir03     0  TINFO  :  No free devices found
+mkdir03     1  TCONF  :  mkdir03.c:112: Failed to acquire device
+mkdir03     2  TCONF  :  mkdir03.c:112: Remaining cases not appropriate for configuration
+mkdirat02    0  TINFO  :  No free devices found
+mkdirat02    1  TCONF  :  mkdirat02.c:101: Failed to acquire device
+mkdirat02    2  TCONF  :  mkdirat02.c:101: Remaining cases not appropriate for configuration
+mknod07     0  TINFO  :  No free devices found
+mknod07     1  TCONF  :  mknod07.c:124: Failed to acquire device
+mknod07     2  TCONF  :  mknod07.c:124: Remaining cases not appropriate for configuration
+mknodat     0  TINFO  :  No free devices found
+mknodat     1  TCONF  :  mknodat02.c:125: Failed to acquire device
+mknodat     2  TCONF  :  mknodat02.c:125: Remaining cases not appropriate for configuration
+mmap16      0  TINFO  :  No free devices found
+mmap16      1  TCONF  :  mmap16.c:160: Failed to obtain block device
+mmap16      2  TCONF  :  mmap16.c:160: Remaining cases not appropriate for configuration
+mount01     0  TINFO  :  No free devices found
+mount01     1  TCONF  :  mount01.c:84: Failed to obtain block device
+mount01     2  TCONF  :  mount01.c:84: Remaining cases not appropriate for configuration
+mount02     0  TINFO  :  No free devices found
+mount02     1  TCONF  :  mount02.c:187: Failed to obtain block device
+mount02     2  TCONF  :  mount02.c:187: Remaining cases not appropriate for configuration
+mount03     0  TINFO  :  No free devices found
+mount03     1  TCONF  :  mount03.c:356: Failed to obtain block device
+mount03     2  TCONF  :  mount03.c:356: Remaining cases not appropriate for configuration
+mount04     0  TINFO  :  No free devices found
+mount04     1  TCONF  :  mount04.c:99: Failed to obtain block device
+mount04     2  TCONF  :  mount04.c:99: Remaining cases not appropriate for configuration
+mount06     0  TINFO  :  No free devices found
+mount06     1  TCONF  :  mount06.c:130: Failed to obtain block device
+mount06     2  TCONF  :  mount06.c:130: Remaining cases not appropriate for configuration
+rename11    0  TINFO  :  No free devices found
+rename11    1  TCONF  :  rename11.c:105: Failed to obtain block device
+rename11    2  TCONF  :  rename11.c:105: Remaining cases not appropriate for configuration
+renameat01    0  TINFO  :  No free devices found
+renameat01    1  TCONF  :  renameat01.c:154: Failed to obtain block device
+renameat01    2  TCONF  :  renameat01.c:154: Remaining cases not appropriate for configuration
+rmdir02     0  TINFO  :  No free devices found
+rmdir02     1  TCONF  :  rmdir02.c:138: Failed to acquire device
+rmdir02     2  TCONF  :  rmdir02.c:138: Remaining cases not appropriate for configuration
+umount01    0  TINFO  :  No free devices found
+umount01    1  TCONF  :  umount01.c:94: Failed to obtain block device
+umount01    2  TCONF  :  umount01.c:94: Remaining cases not appropriate for configuration
+umount02    0  TINFO  :  No free devices found
+umount02    1  TCONF  :  umount02.c:118: Failed to obtain block device
+umount02    2  TCONF  :  umount02.c:118: Remaining cases not appropriate for configuration
+umount03    0  TINFO  :  No free devices found
+umount03    1  TCONF  :  umount03.c:100: Failed to obtain block device
+umount03    2  TCONF  :  umount03.c:100: Remaining cases not appropriate for configuration
+umount2_01    0  TINFO  :  No free devices found
+umount2_01    1  TCONF  :  umount2_01.c:79: Failed to obtain block device
+umount2_01    2  TCONF  :  umount2_01.c:79: Remaining cases not appropriate for configuration
+umount2_02    0  TINFO  :  No free devices found
+umount2_02    1  TCONF  :  umount2_02.c:119: Failed to obtain block device
+umount2_02    2  TCONF  :  umount2_02.c:119: Remaining cases not appropriate for configuration
+umount2_03    0  TINFO  :  No free devices found
+umount2_03    1  TCONF  :  umount2_03.c:99: Failed to obtain block device
+umount2_03    2  TCONF  :  umount2_03.c:99: Remaining cases not appropriate for configuration
+utime06     0  TINFO  :  No free devices found
+utime06     1  TCONF  :  utime06.c:120: Failed to acquire test device
+utime06     2  TCONF  :  utime06.c:120: Remaining cases not appropriate for configuration
+utimes01    0  TINFO  :  No free devices found
+utimes01    1  TCONF  :  utimes01.c:130: Failed to obtain block device
+utimes01    2  TCONF  :  utimes01.c:130: Remaining cases not appropriate for configuration
