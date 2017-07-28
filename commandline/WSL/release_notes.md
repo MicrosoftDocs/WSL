@@ -19,7 +19,7 @@ To track or report an issue visit our [Github page](https://github.com/Microsoft
 
 ### Fixed
 #### WSL
-- Remove beta tag from WSL optional component
+- Remove beta tag from WSL optional component, see [blog post](https://blogs.msdn.microsoft.com/commandline/2017/07/28/windows-subsystem-for-linux-out-of-beta/) for details.
 - Correctly initialize saved-set uid and gid for set-user-ID and set-group-ID binaries on exec [GH 962, 1415, 2072]
 - Added support for ptrace PTRACE_O_TRACEEXIT [GH 555]
 - Added support for ptrace PTRACE_GETFPREGS and PTRACE_GETREGSET with NT_FPREGSET [GH 555]
