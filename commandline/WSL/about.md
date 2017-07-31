@@ -1,6 +1,6 @@
 ---
 title: Learn about the Linux subsystem for Windows
-description: Learn more about how the Linux subsystem for Windows works.
+description: Learn more about how the Linux Subsystem for Windows works.
 keywords: BashOnWindows, bash, wsl, windows, windowssubsystem
 author: scooley
 ms.date: 7/11/2016
@@ -12,11 +12,11 @@ ms.assetid: 3cefe0db-7616-4848-a2b6-9296746a178b
 
 # Windows Subsystem for Linux Documentation
 
-The Windows subsystem for Linux lets developers run Linux environments -- including most command-line tools, utilities, and applications -- directly on Windows, unmodified, without the overhead of a virtual machine.  
+The Windows Subsystem for Linux lets developers run Linux environments -- including most command-line tools, utilities, and applications -- directly on Windows, unmodified, without the overhead of a virtual machine.  
 
 You can:
 
-1. Choose your favorite Linux distribution [from the Windows Store](https://aka.ms/wslstore).
+1. Choose your favorite Linux distributions [from the Windows Store](https://aka.ms/wslstore).
 1. Run common command-line utilities such as `grep`, `sed`, `awk`, etc. 
 1. Run Bash shell scripts and Linux command-line applications including:  
     * Tools: vim, emacs, tmux

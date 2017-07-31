@@ -13,9 +13,9 @@ ms.assetid: 3cefe0db-7616-4848-a2b6-9296746a178b
 
 > Available in Windows 10 Anniversary Update [build 14951](https://msdn.microsoft.com/en-us/commandline/wsl/release_notes#build-14951) and later.
 
-Starting in Windows 10 Anniversary Update, Windows Subsystem for Linux can invoke native Windows binaries from the Linux console and Linux binaries from a Windows console.
+Starting in Windows 10 Anniversary Update, the Windows Subsystem for Linux can invoke native Windows binaries from the Linux console and Linux binaries from a Windows console.
 
-This new interoperability functionality delivers a seamless experience between Windows and WSL.  Technical details can be found on the [WSL blog](https://blogs.msdn.microsoft.com/wsl/2016/10/19/windows-and-ubuntu-interoperability/).  
+This interoperability functionality delivers a seamless experience between Windows and WSL.  Technical details can be found on the [WSL blog](https://blogs.msdn.microsoft.com/wsl/2016/10/19/windows-and-ubuntu-interoperability/).  
 
 ## Invoking WSL from the Windows Command Line
 Linux binaries can be invoked from the Windows Command Prompt or from PowerShell.  Binaries invoked in this way have the following properties:
