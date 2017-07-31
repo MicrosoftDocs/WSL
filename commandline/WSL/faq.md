@@ -12,10 +12,6 @@ ms.assetid: 129101ed-b88a-43c2-b6a2-cd2c4ff6fee1
 
 # Frequently Asked Questions
 
-> **Important note**  
-  This is the first release of this brand new technology and it is branded “beta” deliberately – it’s not yet complete! We know there are issues and incomplete features, you should expect some things to work and for many things to fail. But we appreciate you playing with this feature and helping us identify the issues we need to fix in order to deliver a great experience.
-
-
 ### What is BASH?
 [BASH](https://en.wikipedia.org/wiki/Bash_%28Unix_shell%29) is a popular text-based shell and command-language. It is the default shell included within Ubuntu and other Linux distros, and in macOS. Users type commands into a shell to execute scripts and/or run commands and tools to accomplish many tasks.
 

@@ -1,23 +1,14 @@
----
-title: Bash on Ubuntu on Windows - About
-description: About Bash on Ubuntu on Windows
+title: About Windows Subsystem for Linux
+description: Learn more about the Windows Subsystem for Linux
 keywords: BashOnWindows, bash, wsl, windows, windowssubsystem, ubuntu
-author: jackchammons
+author: scooley
 ms.date: 9/6/2016
 ms.topic: article
 ms.prod: windows-subsystem-for-linux
 ms.service: windows-subsystem-for-linux
 ms.assetid: 3cefe0db-7616-4848-a2b6-9296746a178b
----
 
 # <img src="media/bash_logo.png" width="600">
-
-> **Important note**:
-> Bash/WSL is deliberately branded as a “beta” feature: We know there are issues and incomplete 
-> features. You should expect many things to work and for some things to fail. We appreciate 
-> any and all constructive feedback you can share from your experiences in using Bash/WSL. 
-> Your [bug reports](https://github.com/microsoft/bashonwindows) help us diagnose issues we 
-> need to fix in order to deliver a great experience.
 
 ## Overview
 Bash on Windows provides developers with a familiar Bash shell and Linux environment in which 

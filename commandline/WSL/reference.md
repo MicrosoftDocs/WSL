@@ -12,9 +12,6 @@ ms.assetid: 82908295-a6bd-483c-a995-613674c2677e
 
 # Command Reference
 
-> **Important note**  
-  This is the first release of this brand new technology and it is branded “beta” deliberately – it’s not yet complete! We know there are issues and incomplete features, you should expect some things to work and for many things to fail. But we appreciate you playing with this feature and helping us identify the issues we need to fix in order to deliver a great experience.
-
 The commands `bash.exe` and `lxrun.exe` are used to interact with the [Windows Subsystem for Linux (WSL)](https://msdn.microsoft.com/en-us/commandline/wsl/faq#what-windows-subsystem-for-linux-wsl-).  These commands are installed into the \Windows\System32 directory and may be run within a Windows command prompt or in PowerShell.
 
 * `bash.exe` launches the Bash environment and invokes /bin/bash.
