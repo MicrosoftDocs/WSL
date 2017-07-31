@@ -33,13 +33,13 @@ Enable the "Windows Subsystem for Linux" optional feature and reboot.
 
 ## For Windows Insiders: Install Linux distribution of choice
 
-> This section is for Windows Insiders (build 16215 or later).  Follow these steps to [Check your build](install_guide.md#prerequisites).  For earlier versions of Windows 10, follow [these instructions using lxrun](install_guide.md#Install-using-lxrun-Anniversary-Update-and-Creators-Update).
+> This section is for Windows Insiders (build 16215 or later).  Follow these steps to [Check your build](install_guide.md#prerequisites).  For earlier versions of Windows 10, follow [these instructions using lxrun](install_guide.md#for-anniversary-update-and-creators-update-install-using-lxrun).
 
 1. Open the Windows Store and choose your favorite Linux distribution.      
     Here are links directly to the store installers:
     * [Ubuntu](https://www.microsoft.com/store/p/ubuntu/9nblggh4msv6)
-    * comming soon -- [OpenSUSE](https://www.microsoft.com/store/apps/9njvjts82tjx)
-    * comming soon --[SLES](https://www.microsoft.com/store/apps/9p32mwbh6cns)
+    * [OpenSUSE](https://www.microsoft.com/store/apps/9njvjts82tjx)
+    * [SLES](https://www.microsoft.com/store/apps/9p32mwbh6cns)
 
     ![](media/UbuntuStore.png)
 
