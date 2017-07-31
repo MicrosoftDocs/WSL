@@ -8,7 +8,7 @@ ms.prod: windows-subsystem-for-linux
 ms.service: windows-subsystem-for-linux
 ms.assetid: 3cefe0db-7616-4848-a2b6-9296746a178b
 
-# <img src="media/bash_logo.png" width="600">
+# Windows Subsystem for Linux Docs
 
 ## Overview
 Bash on Windows provides developers with a familiar Bash shell and Linux environment in which 
