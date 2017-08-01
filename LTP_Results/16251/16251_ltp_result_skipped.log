@@ -1,0 +1,1344 @@
+Test Start Time: Thu Jul 27 11:36:20 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+bdflush01                      CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:36:22 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+cacheflush01                   CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:36:23 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+chown01_16                     CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:36:24 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+chown02_16                     CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:36:26 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+chown03_16                     CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:36:27 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+chown04_16                     CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:36:34 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+chown05_16                     CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:36:35 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+eventfd01                      CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:36:37 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+fchown01_16                    CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:36:38 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+fchown02_16                    CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:36:40 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+fchown03_16                    CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:36:41 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+fchown04_16                    CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:36:48 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+fchown05_16                    CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:36:49 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+fcntl06                        CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:36:50 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+fcntl06_64                     CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:36:51 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+getegid01_16                   CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:36:52 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+getegid02_16                   CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:36:54 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+geteuid01_16                   CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:36:55 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+geteuid02_16                   CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:36:56 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+getgid01_16                    CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:36:57 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+getgid03_16                    CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:36:58 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+getgroups01_16                 CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:36:59 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+getgroups03_16                 CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:37:00 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+get_mempolicy01                CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:37:01 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+getuid01_16                    CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:37:02 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+getuid03_16                    CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:37:03 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+io_cancel01                    CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:37:04 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+io_destroy01                   CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:37:05 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+io_getevents01                 CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:37:06 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+io_setup01                     CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:37:06 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+io_submit01                    CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:37:07 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+lchown01_16                    CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:37:08 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+lchown02_16                    CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:37:09 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+lchown03_16                    CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:37:14 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+mbind01                        CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:37:15 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+migrate_pages01                CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:37:15 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+migrate_pages02                CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:37:16 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+modify_ldt01                   CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:37:17 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+modify_ldt02                   CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:37:18 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+modify_ldt03                   CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:37:19 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+munlockall02                   CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:37:20 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+ptrace04                       CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:37:21 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+quotactl01                     CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:37:21 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+quotactl02                     CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:37:22 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+readahead02                    CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:37:23 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+readdir21                      CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:37:24 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+rmdir05                        CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:37:26 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+setfsgid01_16                  CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:37:27 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+setfsgid02_16                  CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:37:28 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+setfsgid03_16                  CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:37:29 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+setfsuid01_16                  CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:37:30 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+setfsuid02_16                  CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:37:31 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+setfsuid03_16                  CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:37:32 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+setfsuid04_16                  CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:37:33 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+setgid01_16                    CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:37:34 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+setgid02_16                    CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:37:35 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+setgid03_16                    CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:37:36 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+sgetmask01                     CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:37:38 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+setgroups01_16                 CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:37:39 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+setgroups02_16                 CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:37:40 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+setgroups03_16                 CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:37:41 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+setgroups04_16                 CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:37:42 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+setregid01_16                  CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:37:43 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+setregid03_16                  CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:37:44 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+setregid04_16                  CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:37:45 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+setresgid01_16                 CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:37:46 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+setresgid02_16                 CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:37:46 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+setresgid03_16                 CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:37:47 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+setresgid04_16                 CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:37:48 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+setresuid01_16                 CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:37:49 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+setresuid02_16                 CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:37:51 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+setresuid03_16                 CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:37:52 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+setresuid04_16                 CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:37:54 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+setresuid05_16                 CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:37:55 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+setreuid01_16                  CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:37:56 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+setreuid02_16                  CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:37:58 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+setreuid03_16                  CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:37:59 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+setreuid04_16                  CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:37:59 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+setreuid05_16                  CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:38:00 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+setreuid06_16                  CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:38:01 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+setreuid07_16                  CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:38:02 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+set_thread_area01              CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:38:03 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+setuid01_16                    CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:38:03 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+setuid02_16                    CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:38:04 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+setuid03_16                    CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:38:04 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+setuid04_16                    CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:38:06 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+shmctl02                       CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:38:06 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+ssetmask01                     CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:38:08 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+switch01                       CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:38:08 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+sysconf01                      CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:38:10 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+sysctl01                       CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:38:11 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+sysctl03                       CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:38:13 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+sysctl04                       CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:38:14 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+sysctl05                       CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:38:15 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+perf_event_open01              CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+
+Test Start Time: Thu Jul 27 11:38:17 2017
+-----------------------------------------
+Testcase                       Result     Exit Value
+--------                       ------     ----------
+perf_event_open02              CONF       32   
+
+-----------------------------------------------
+Total Tests: 1
+Total Skipped Tests: 1
+Total Failures: 0
+Kernel Version: 4.4.0-43-Microsoft
+Machine Architecture: x86_64
+Hostname: BENHILL-VM2
+

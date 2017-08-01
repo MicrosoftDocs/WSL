@@ -1,9 +1,9 @@
 ---
-title: Bash on Ubuntu on Windows - Troubleshooting
-description: Troubleshooting Bash on Ubuntu on Windows
+title: Troubleshooting the Windows Susbystem for Linux
+description: Provides detailed information about common errors and issues people run into while running Linux on the Windows Susbystem for Linux. 
 keywords: BashOnWindows, bash, wsl, windows, windowssubsystem, ubuntu
-author: jackchammons
-ms.date: 1/2/2017
+author: scooley
+ms.date: 7/31/2017
 ms.topic: article
 ms.prod: windows-subsystem-for-linux
 ms.service: windows-subsystem-for-linux
@@ -11,10 +11,6 @@ ms.assetid: 6753f1b2-200e-49cc-93a5-4323e1117246
 ---
 
 # Troubleshooting
-
-> **Important note**  
-  This is the first release of this brand new technology and it is branded “beta” deliberately – it’s not yet complete! We know there are issues and incomplete features, you should expect some things to work and for many things to fail. But we appreciate you playing with this feature and helping us identify the issues we need to fix in order to deliver a great experience.
-
 
 ### Bash loses network connectivity once connected to a VPN
 
