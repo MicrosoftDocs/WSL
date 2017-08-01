@@ -107,8 +107,6 @@ sudo update-locale LANG=en_US.UTF8
 4.	lxrun /uninstall /full
 5.	Install bash
 
-
-
 ### No internet access in WSL
 Some users have reported issues with specific firewall applications blocking internet access in WSL.  The firewalls reported are:
 
@@ -125,3 +123,14 @@ Administrator privileges in Windows are required to run ping in WSL.  To run pin
 
 #### [Build 14926+](https://msdn.microsoft.com/en-us/commandline/wsl/release_notes#build-14926)
   Administrator privileges no longer required.
+
+### Bash is hung
+If while working with bash, you find that bash is hung (or deadlocked) and not responding to inputs, help us diagnose the issue by collecting and reporting a memory dump. Note that these steps will crash your system. Do not do this if you are not comfortable with that or save your work prior to doing this.  <br/>
+To collect a memory dump:
+1. Change the memory dump type to "complete memory dump". While changing the dump type, take a note of your current type.
+2. Use the [steps](https://blogs.technet.microsoft.com/askpfeplat/2015/04/05/how-to-force-a-diagnostic-memory-dump-when-a-computer-hangs/) to congigure crash using keyboard control.
+3. Repro the hang or deadlock.
+4. Crash the sysetem using the key sequence from (2).
+5. The system will crash and collect the memory dump.
+6. Once the system reboots, report the memory.dmp to secure@microsoft.com. The default location of the dump file is %SystemRoot%\memory.dmp or C:\Windows\memory.dmp if C: is the system drive. In the email, note that the dump is for the WSL or Bash on Windows team.
+7. Restore the memory dump type to the original setting.
