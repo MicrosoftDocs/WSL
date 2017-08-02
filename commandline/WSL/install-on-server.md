@@ -29,7 +29,6 @@ Already have Windows Server preview?  [Skip ahead](install-on-server.md#Enable-t
 2. Download [Windows Server 2016 -- Insider Preview](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewserver).  
 Make sure you're logged in, images are only available to Windows Insiders.
 
-
 ### Setting up Windows Server
 
 Now that you have a Windows Server image (.iso), install Windows Server on a physical computer or a virtual machine.  I'm going to use a virtual machine on Hyper-V.
@@ -75,17 +74,14 @@ Enable the "Windows Subsystem for Linux" optional feature and reboot.
 
 1. Download the appx for your favorite Linux distribution.  
     Here are links directly to the apps available through the store:
-    * [Ubuntu]()
-    * comming soon -- [OpenSUSE]()
-    * comming soon --[SLES]()
+    * comming soon: [Ubuntu]()
+    * [OpenSUSE](https://aka.ms/wsl-opensuse-42)
+    * [SLES](https://aka.ms/wsl-sles-12)
 
-    You can download the distributions to Windows Server with [`Invoke-WebRequest`]() cmdlet.  Here's a sample instruction to download Ubuntu.
+    You can download the distributions to Windows Server with [`Invoke-WebRequest`](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.utility/invoke-webrequest) cmdlet.  Here's a sample instruction to download OpenSUSE.
     
     ``` PowerShell
-    $destinationfilename = Ubuntu.zip
-
-    cd ~
-    Invoke-WebRequest -Uri $UbuntuLink -OutFile $destinationfilename -PassThru | select -ExpandProperty headers
+    Invoke-WebRequest -Uri https://aka.ms/wsl-opensuse-42 -OutFile ~/OpenSuse.zip -UseBasicParsing
     ```
 
     > The Windows Subsystem for Linux only runs on your system drive (usually this is your C: drive).  
@@ -95,7 +91,7 @@ Enable the "Windows Subsystem for Linux" optional feature and reboot.
 
     ``` PowerShell
     [System.Reflection.Assembly]::LoadWithPartialName("System.IO.Compression.FileSystem") | Out-Null
-    Expand-Archive $pathToZip $targetDir
+    Expand-Archive ~/OpenSuse.zip ~/
     ```
 
 5. Run the installer, named `<distro>.exe`  
