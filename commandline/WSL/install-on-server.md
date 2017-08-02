@@ -96,33 +96,12 @@ Enable the "Windows Subsystem for Linux" optional feature and reboot.
 
 5. Run the installer, named `<distro>.exe`  
     For example: `ubuntu.exe`, `fedora.exe`, etc.
- 
-5. Create your UNIX username and password.  This user account can be different from, and has no relationship to, your Windows username and password. [Read more](https://msdn.microsoft.com/en-us/commandline/wsl/user_support).
-
-You're done!  Now you can use your Linux environment.
-
-
-## Install default Linux environment using lxrun
-
-lxrun installs Ubuntu user-mode by default on top of the Windows Subsystem for Linux.  
-
-2. Run `lxrun /install`  
-  After you have accepted the License, the Ubuntu user-mode image will be downloaded and extracted.
-  
-    ![](media/server-bash-install.png)
-
-3. Launch a new Ubuntu shell by running `bash` from a command-prompt
 
 4. Create a UNIX user
     
     The first time you install the Windows Subsystem for Linux, you will be prompted to create a UNIX username and password.  
     
     This UNIX username and password can be different from, and has no relationship to, your Windows username and password. [Learn more about your UNIX account.](https://msdn.microsoft.com/en-us/commandline/wsl/user_support).
-
-After installation your Linux distribution will be located at: `%localappdata%\lxss\`.
-
-**Avoid creating and/or modifying files in %localappdata%\lxss\ using Windows tools and apps!** If you do, it is likely that your Linux files will be corrupted and data loss may occur. Avoid this issue by using a directory located under /mnt/.  
-Read this [blog post](https://blogs.msdn.microsoft.com/commandline/2016/11/17/do-not-change-linux-files-using-windows-apps-and-tools/) for more information.
 
 You're done!  Go use your new Linux environment!
 
