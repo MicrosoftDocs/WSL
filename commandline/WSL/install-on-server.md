@@ -26,7 +26,7 @@ Already have Windows Server preview?  [Skip ahead](install-on-server.md#Enable-t
     * [Windows Insiders](https://insider.windows.com)
     * [Windows Insiders for Business](https://insider.windows.com/ForBusiness)
 
-2. Download [Windows Server 2016 -- Insider Preview](https://www.microsoft.com/software-download/windowsinsiderpreviewserver).  
+2. Download [Windows Server 2016 -- Insider Preview](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewserver).  
 Make sure you're logged in, images are only available to Windows Insiders.
 
 
