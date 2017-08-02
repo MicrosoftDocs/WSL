@@ -106,5 +106,3 @@ Enable the "Windows Subsystem for Linux" optional feature and reboot.
     This UNIX username and password can be different from, and has no relationship to, your Windows username and password. [Learn more about your UNIX account.](https://msdn.microsoft.com/en-us/commandline/wsl/user_support).
 
 You're done!  Go use your new Linux environment!
-
-![](media/server-cowsay.png)
