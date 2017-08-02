@@ -1,9 +1,9 @@
 ---
-title: Bash on Ubuntu on Windows - Troubleshooting
-description: Troubleshooting Bash on Ubuntu on Windows
+title: Troubleshooting the Windows Susbystem for Linux
+description: Provides detailed information about common errors and issues people run into while running Linux on the Windows Susbystem for Linux. 
 keywords: BashOnWindows, bash, wsl, windows, windowssubsystem, ubuntu
-author: jackchammons
-ms.date: 1/2/2017
+author: scooley
+ms.date: 7/31/2017
 ms.topic: article
 ms.prod: windows-subsystem-for-linux
 ms.service: windows-subsystem-for-linux
@@ -11,10 +11,6 @@ ms.assetid: 6753f1b2-200e-49cc-93a5-4323e1117246
 ---
 
 # Troubleshooting
-
-> **Important note**  
-  This is the first release of this brand new technology and it is branded “beta” deliberately – it’s not yet complete! We know there are issues and incomplete features, you should expect some things to work and for many things to fail. But we appreciate you playing with this feature and helping us identify the issues we need to fix in order to deliver a great experience.
-
 
 ### Bash loses network connectivity once connected to a VPN
 
@@ -111,8 +107,6 @@ sudo update-locale LANG=en_US.UTF8
 4.	lxrun /uninstall /full
 5.	Install bash
 
-
-
 ### No internet access in WSL
 Some users have reported issues with specific firewall applications blocking internet access in WSL.  The firewalls reported are:
 
@@ -129,3 +123,14 @@ Administrator privileges in Windows are required to run ping in WSL.  To run pin
 
 #### [Build 14926+](https://msdn.microsoft.com/en-us/commandline/wsl/release_notes#build-14926)
   Administrator privileges no longer required.
+
+### Bash is hung
+If while working with bash, you find that bash is hung (or deadlocked) and not responding to inputs, help us diagnose the issue by collecting and reporting a memory dump. Note that these steps will crash your system. Do not do this if you are not comfortable with that or save your work prior to doing this.  <br/>
+To collect a memory dump:
+1. Change the memory dump type to "complete memory dump". While changing the dump type, take a note of your current type.
+2. Use the [steps](https://blogs.technet.microsoft.com/askpfeplat/2015/04/05/how-to-force-a-diagnostic-memory-dump-when-a-computer-hangs/) to congigure crash using keyboard control.
+3. Repro the hang or deadlock.
+4. Crash the sysetem using the key sequence from (2).
+5. The system will crash and collect the memory dump.
+6. Once the system reboots, report the memory.dmp to secure@microsoft.com. The default location of the dump file is %SystemRoot%\memory.dmp or C:\Windows\memory.dmp if C: is the system drive. In the email, note that the dump is for the WSL or Bash on Windows team.
+7. Restore the memory dump type to the original setting.
