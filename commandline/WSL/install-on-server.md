@@ -87,7 +87,6 @@ Enable the "Windows Subsystem for Linux" optional feature and reboot.
 
 3. Unzip the file
     ``` PowerShell
-    PowerShell
     Expand-Archive ~/OpenSuse.zip ~/OpenSuse
     ```
     
