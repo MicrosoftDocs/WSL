@@ -35,14 +35,12 @@ Now that you have a Windows Server image (.iso), install Windows Server on a phy
 
 Here are instructions for [enabling Hyper-V](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v) and [creating a new virtual machine from an .iso](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/quick-create-virtual-machine).
 
-During installation, Windows Server will ask for a product key.  The following keys are available for unlimited activations of Windows Server. These keys may be used throughout the pre-release cycle.  Read more [here](https://blogs.windows.com/windowsexperience/2017/07/13/announcing-windows-server-insider-preview-build-16237).
+During installation, Windows Server will ask for a product key.  The following keys are available for unlimited activations of Windows Server (pre-release builds only). These keys may be used throughout the pre-release cycle.  Read more [here](https://blogs.windows.com/windowsexperience/2017/07/13/announcing-windows-server-insider-preview-build-16237).
 * Server Datacenter Core: B69WH-PRNHK-BXVK3-P9XF7-XD84W
 * Server Standard Core: V6N4W-86M3X-J77X3-JF6XW-D9PRV
 
 When you're done, you should see something like this:  
 ![](media/WindowsServer.png)
-
-Remember to start PowerShell.
 
 ### Check your build number
 
@@ -53,6 +51,7 @@ systeminfo | Select-String "^OS Name","^OS Version"
 
 You can also confirm that your build has the Windows Subsystem for Linux by running the following in PowerShell:  
 ``` PowerShell
+PowerShell
 Get-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
 ```
 
@@ -61,11 +60,9 @@ Enable the "Windows Subsystem for Linux" optional feature and reboot.
 
 1. Open PowerShell as Administrator and run:
     ``` PowerShell
+    PowerShell
     Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
     ```
-    
-    > **Troubleshooting: Enable-WindowsOptionalFeature is not recognized**  
-    > Make sure you started PowerShell.  Windows Server Core starts cmd by default.
 
 2. Restart your computer when prompted.
 
@@ -81,17 +78,21 @@ Enable the "Windows Subsystem for Linux" optional feature and reboot.
     You can download the distributions to Windows Server with [`Invoke-WebRequest`](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.utility/invoke-webrequest) cmdlet.  Here's a sample instruction to download OpenSUSE.
     
     ``` PowerShell
+    PowerShell
     Invoke-WebRequest -Uri https://aka.ms/wsl-opensuse-42 -OutFile ~/OpenSuse.zip -UseBasicParsing
     ```
+    
+    > **Tip:**  If the download is taking a long time, turn off the progress bar by setting `$ProgressPreference = 'SilentlyContinue'`
 
-    > The Windows Subsystem for Linux only runs on your system drive (usually this is your C: drive).  
-    Example: `C:\Distros\Ubuntu`
 
 3. Unzip the file
-
     ``` PowerShell
+    PowerShell
     Expand-Archive ~/OpenSuse.zip ~/OpenSuse
     ```
+    
+    Make sure your target directory (`~/OpenSuse` in this example) is on your system drive.  Usually this is your C: drive.  
+    Example: `C:\Distros\Ubuntu`
 
     The contents should look like this:
     ![](media/server-appx-expand.png)
