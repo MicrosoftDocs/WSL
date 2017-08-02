@@ -26,7 +26,7 @@ Already have Windows Server preview?  [Skip ahead](install-on-server.md#Enable-t
     * [Windows Insiders](https://insider.windows.com)
     * [Windows Insiders for Business](https://insider.windows.com/ForBusiness)
 
-2. Download [Windows Server 2016 -- Insider Preview](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewserver).  
+2. Download [Windows Server 2016 - Insider Preview](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewserver).  
 Make sure you're logged in, images are only available to Windows Insiders.
 
 ### Setting up Windows Server
@@ -87,12 +87,14 @@ Enable the "Windows Subsystem for Linux" optional feature and reboot.
     > The Windows Subsystem for Linux only runs on your system drive (usually this is your C: drive).  
     Example: `C:\Distros\Ubuntu`
 
-3. Unzip the file into the install directory
+3. Unzip the file
 
     ``` PowerShell
-    [System.Reflection.Assembly]::LoadWithPartialName("System.IO.Compression.FileSystem") | Out-Null
-    Expand-Archive ~/OpenSuse.zip ~/
+    Expand-Archive ~/OpenSuse.zip ~/OpenSuse
     ```
+
+    The contents should look like this:
+    ![](media/server-appx-expand.png)
 
 5. Run the installer, named `<distro>.exe`  
     For example: `ubuntu.exe`, `fedora.exe`, etc.
