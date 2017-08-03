@@ -71,7 +71,7 @@ Enable the "Windows Subsystem for Linux" optional feature and reboot.
 
 1. Download the appx for your favorite Linux distribution.  
     Here are links directly to the apps available through the store:
-    * comming soon: [Ubuntu]()
+    * [Ubuntu](https://aka.ms/wsl-ubuntu-1604)
     * [OpenSUSE](https://aka.ms/wsl-opensuse-42)
     * [SLES](https://aka.ms/wsl-sles-12)
 
@@ -79,7 +79,7 @@ Enable the "Windows Subsystem for Linux" optional feature and reboot.
     
     ``` PowerShell
     PowerShell
-    Invoke-WebRequest -Uri https://aka.ms/wsl-opensuse-42 -OutFile ~/OpenSuse.zip -UseBasicParsing
+    Invoke-WebRequest -Uri https://aka.ms/wsl-ubuntu-1604 -OutFile ~/Ubuntu.zip -UseBasicParsing
     ```
     
     > **Tip:**  If the download is taking a long time, turn off the progress bar by setting `$ProgressPreference = 'SilentlyContinue'`
@@ -87,10 +87,10 @@ Enable the "Windows Subsystem for Linux" optional feature and reboot.
 
 3. Unzip the file
     ``` PowerShell
-    Expand-Archive ~/OpenSuse.zip ~/OpenSuse
+    Expand-Archive ~/Ubuntu.zip ~/Ubuntu
     ```
     
-    Make sure your target directory (`~/OpenSuse` in this example) is on your system drive.  Usually this is your C: drive.  
+    Make sure your target directory (`~/Ubuntu` in this example) is on your system drive.  Usually this is your C: drive.  
     Example: `C:\Distros\Ubuntu`
 
     The contents should look like this:
