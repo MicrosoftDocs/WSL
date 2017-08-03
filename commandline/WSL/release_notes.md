@@ -26,7 +26,7 @@ To track or report an issue visit our [Github page](https://github.com/Microsoft
 - Fix copy/paste behavior for console/tty, and add better full buffer handling [GH 2204, 2131]
 - Set AT_SECURE in auxiliary vector for set-user-ID and set-group-ID programs [GH 2031]
 - Psuedo-terminal master endpoint not handling TIOCPGRP [GH 1063]
-- Fix lseek does to rewind directories in volfs [GH 2310]
+- Fix lseek does to rewind directories in LxFs [GH 2310]
 - /dev/ptmx locks up after heavy usage [GH 1882]
 
 #### Console
