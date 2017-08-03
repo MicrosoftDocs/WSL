@@ -27,7 +27,6 @@ To track or report an issue visit our [Github page](https://github.com/Microsoft
 - Set AT_SECURE in auxiliary vector for set-user-ID and set-group-ID programs [GH 2031]
 - Psuedo-terminal master endpoint not handling TIOCPGRP [GH 1063]
 - Fix lseek does to rewind directories in volfs [GH 2310]
-- Socket error when using memcached as php session storage with session data over 8112 bytes [GH 2351]
 - /dev/ptmx locks up after heavy usage [GH 1882]
 
 #### Console
