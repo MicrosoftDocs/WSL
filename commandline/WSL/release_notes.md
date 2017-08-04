@@ -12,6 +12,38 @@ ms.assetid: 36ea641e-4d49-4881-84eb-a9ca85b1cdf4
 
 # Release Notes
 
+## Build 16257
+
+For general Windows information on build 16257 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/08/02/announcing-windows-10-insider-preview-build-16257-pc-build-15237-mobile/).<br/>
+To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+
+### Fixed
+#### WSL
+- Implement prlimit64 system call
+- Add support for ulimit -n (setrlimit RLIMIT_NOFILE) [GH 1688]
+- Stub MSG_MORE for TCP sockets [GH 2351]
+- Fix invalid AT_EXECFN auxiliary vector behavior [GH 2133]
+- Fix copy/paste behavior for console/tty, and add better full buffer handling [GH 2204, 2131]
+- Set AT_SECURE in auxiliary vector for set-user-ID and set-group-ID programs [GH 2031]
+- Psuedo-terminal master endpoint not handling TIOCPGRP [GH 1063]
+- Fix lseek does to rewind directories in LxFs [GH 2310]
+- /dev/ptmx locks up after heavy usage [GH 1882]
+
+#### Console
+- Fix for horizontal Lines/Underscores Everywhere [GH 2168]
+- Fix for process order changed making NPM harder to close [GH 2170]
+- Added our new color scheme: https://blogs.msdn.microsoft.com/commandline/2017/08/02/updating-the-windows-console-colors/ 
+
+### LTP Results:
+No change since 16251
+
+### Syscall Support
+Below are a list of new or enhanced syscalls that have some implementation in WSL. The syscalls on this list are supported in at least one scenario, but may not have all parameters supported at this time.
+
+`prlimit64`<br/>
+
+<br/>
+
 ## Build 16251
 
 For general Windows information on build 16251 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/07/26/announcing-windows-10-insider-preview-build-16251-pc-build-15235-mobile/).<br/>
