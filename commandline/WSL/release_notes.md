@@ -42,6 +42,11 @@ Below are a list of new or enhanced syscalls that have some implementation in WS
 
 `prlimit64`<br/>
 
+### Known Issues
+#### [GitHub Issue 2392: Windows Folders not recognized by WSL ...](https://github.com/Microsoft/BashOnWindows/issues/2392)
+In build 16257, WSL has issues when enumerating Windows files/folders via `/mnt/c/...`. 
+This issue has been fixed and should be released in Insiders build during week commencing 8/14/2017.
+
 <br/>
 
 ## Build 16251
