@@ -18,7 +18,7 @@ At //Build2017, Microsoft announced that Windows Subsystem for Linux will be [av
 
 Windows Server 2016 (build 16215+).  Right now, that means a Windows Insider's build.
 
-Already have Windows Server preview?  [Skip ahead](install-on-server.md#Enable-the-Windows-Subsystem-for-Linux).
+Already have Windows Server preview?  [Skip ahead](install-on-server.md#enable-the-windows-subsystem-for-linux).
 
 ### Join Windows Insiders and Download Windows Server
 
