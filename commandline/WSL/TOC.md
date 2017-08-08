@@ -1,6 +1,6 @@
 
 # [About the Windows Subsystem for Linux](./about.md)
-# [Installation on Windows 10](./install_guide.md)
+# [Install on Windows 10](./install_guide.md)
 # [Install on Windows Server](./install-on-server.md)
 # [Command Reference](./reference.md)
 # [Linux User Accounts and Permissions](./user_support.md)
