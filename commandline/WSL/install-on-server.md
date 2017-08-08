@@ -29,7 +29,7 @@ Already have Windows Server preview?  [Skip ahead](install-on-server.md#enable-t
 2. Download [Windows Server 2016 - Insider Preview](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewserver).  
 Make sure you're logged in, images are only available to Windows Insiders.
 
-### Setting up Windows Server
+### Set up Windows Server
 
 Now that you have a Windows Server image (.iso), install Windows Server on a physical computer or a virtual machine.  I'm going to use a virtual machine on Hyper-V.
 
