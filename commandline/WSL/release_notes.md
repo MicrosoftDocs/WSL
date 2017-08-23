@@ -40,7 +40,10 @@ To track or report an issue visit our [Github page](https://github.com/Microsoft
 - No Console related changes in this release.
 
 ### LTP Results:
-No change since 16251
+Total Tests: 1904<br/>
+Total Skipped Tests: 209<br/>
+Total Failures: 229<br/>
+[LTP Test Run Logs](https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/16273)<br/>
 
 ## Build 16257
 
