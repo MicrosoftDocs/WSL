@@ -100,9 +100,9 @@ Enable the "Windows Subsystem for Linux" optional feature and reboot.
     For example: `ubuntu.exe`, `fedora.exe`, etc.
 
     > **Troubleshooting: Installation failed with error 0x8007007e**  
-    > This error occurs when your system doesn't support Linux from the store.  Make sure that:
+    > This error occurs when your system doesn't support WSL.  Make sure that:
     > * You're running Windows build 16215 or later. [Check your build](install_guide.md#prerequisites).
-    > * The Windows Subsystem for Linux optional component is enabled. [Instructions here](install_guide.md#Install-the-Windows-Subsystem-for-Linux).
+    > * The Windows Subsystem for Linux optional component is enabled and the computer has restarted.  [Instructions here](install_guide.md#Install-the-Windows-Subsystem-for-Linux).
 
 4. Create a UNIX user
     
