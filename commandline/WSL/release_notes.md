@@ -12,6 +12,36 @@ ms.assetid: 36ea641e-4d49-4881-84eb-a9ca85b1cdf4
 
 # Release Notes
 
+## Build 16273
+
+For general Windows information on build 16273 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/08/23/announcing-windows-10-insider-preview-build-16273-pc/).<br/>
+To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+
+### Fixed
+#### WSL
+- Fixed an issue where DrvFs sometimes reported the wrong file type for directories [GH 2392]
+- Allow creation of NETLINK_KOBJECT_UEVENT sockets to unblock programs that use uevent [GH 1121, 2293, 2242, 2295, 2235, 648, 637]
+- Add support for non-blocking connect [GH 903, 1391, 1584, 1585, 1829, 2290, 2314]
+- Implement CLONE_FS clone system call flag [GH 2242]
+- Fix issues around not handling tabs or quotes correctly in NT interop [GH 1625, 2164]
+- Resolve access denied error when trying to re-launch WSL instances [GH 651, 2095]
+- Implement futex FUTEX_REQUEUE and FUTEX_CMP_REQUEUE operations [GH 2242]
+- Fix permissions for various SysFs files [GH 2214]
+- Fix Haskell stack hang during setup [GH 2290]
+- Implement binfmt_misc 'C' 'O' and 'P' flags [GH 2013]
+- Add /proc/sys/kernel /shmmax /shmmni & /threads-max [GH 1753]
+- Add partial support for ioprio_set system call [GH 498]
+- Stub SO_REUSEPORT & adding support for SO_PASSCRED for netlink sockets [GH 69]
+- Return different error codes from RegisterDistribuiton if a distribution is currently being installed or uninstalled.
+- Allow unregistration of partially installed WSL distributions via wslconfig.exe
+- Fix python socket test hang from udp::msg_peek
+
+#### Console
+- No Console related changes in this release.
+
+### LTP Results:
+No change since 16251
+
 ## Build 16257
 
 For general Windows information on build 16257 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/08/02/announcing-windows-10-insider-preview-build-16257-pc-build-15237-mobile/).<br/>
