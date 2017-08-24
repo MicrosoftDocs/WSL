@@ -28,7 +28,7 @@ To track or report an issue visit our [Github page](https://github.com/Microsoft
 - Implement futex FUTEX_REQUEUE and FUTEX_CMP_REQUEUE operations [GH 2242]
 - Fix permissions for various SysFs files [GH 2214]
 - Fix Haskell stack hang during setup [GH 2290]
-- Implement binfmt_misc 'C' 'O' and 'P' flags [GH 2013]
+- Implement binfmt_misc 'C' 'O' and 'P' flags [GH 2103]
 - Add /proc/sys/kernel /shmmax /shmmni & /threads-max [GH 1753]
 - Add partial support for ioprio_set system call [GH 498]
 - Stub SO_REUSEPORT & adding support for SO_PASSCRED for netlink sockets [GH 69]
