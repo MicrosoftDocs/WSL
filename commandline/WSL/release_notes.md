@@ -12,6 +12,22 @@ ms.assetid: 36ea641e-4d49-4881-84eb-a9ca85b1cdf4
 
 # Release Notes
 
+## Build 16278
+
+For general Windows information on build 162738 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/08/29/announcing-windows-10-insider-preview-build-16278-pc/#HMz6Xq7Su68WKi0t.97/).<br/>
+To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+
+### Fixed
+#### WSL
+- Explicitly unmap mapped views of file backed sections when tearing down LX MM state [GH 2415]
+- Additional improvements and bug fixes
+
+#### Console
+- No Console related changes in this release.
+
+### LTP Results:
+No change since 16273
+
 ## Build 16275
 
 For general Windows information on build 162735 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/08/25/announcing-windows-10-insider-preview-build-16275-pc-build-15245-mobile/#8QkxWqQbY37yZslV.97/).<br/>
@@ -23,6 +39,9 @@ To track or report an issue visit our [Github page](https://github.com/Microsoft
 
 #### Console
 - No Console related changes in this release.
+
+### LTP Results:
+No change since 16273
 
 ## Build 16273
 
@@ -47,6 +66,7 @@ To track or report an issue visit our [Github page](https://github.com/Microsoft
 - Return different error codes from RegisterDistribuiton if a distribution is currently being installed or uninstalled.
 - Allow unregistration of partially installed WSL distributions via wslconfig.exe
 - Fix python socket test hang from udp::msg_peek
+- Additional improvements and bug fixes
 
 #### Console
 - No Console related changes in this release.
@@ -73,6 +93,7 @@ To track or report an issue visit our [Github page](https://github.com/Microsoft
 - Psuedo-terminal master endpoint not handling TIOCPGRP [GH 1063]
 - Fix lseek does to rewind directories in LxFs [GH 2310]
 - /dev/ptmx locks up after heavy usage [GH 1882]
+- Additional improvements and bug fixes
 
 #### Console
 - Fix for horizontal Lines/Underscores Everywhere [GH 2168]
