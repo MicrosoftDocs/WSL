@@ -1,7 +1,7 @@
 ---
 title: Install the Linux Subsystem on Windows Server
 description: Installation instructions for the Linux Subsystem on Windows Server.
-keywords: BashOnWindows, bash, wsl, windows, windows subsystem for linux, windowssubsystem, ubuntu, windows 2016
+keywords: BashOnWindows, bash, wsl, windows, windows subsystem for linux, windowssubsystem, ubuntu, windows server
 author: scooley
 ms.date: 7/11/2017
 ms.topic: article
@@ -10,13 +10,13 @@ ms.service: windows-subsystem-for-linux
 ms.assetid: 9281ffa2-4fa9-4078-bf6f-b51c967617e3
 ---
 
-# Windows Server 2016 Installation Guide
+# Windows Server Installation Guide
 
 At //Build2017, Microsoft announced that Windows Subsystem for Linux will be [available on Windows Server](https://blogs.technet.microsoft.com/hybridcloud/2017/05/10/windows-server-for-developers-news-from-microsoft-build-2017/).  These instructions help you become a Windows Insider, download Windows Server, and get Linux running on the Windows Subsystem for Linux.
 
 ## Prerequisites
 
-Windows Server 2016 (build 16215+).  Right now, that means a Windows Insider's build.
+Windows Server (build 16215+).  Right now, that means a Windows Insider's build.
 
 Already have Windows Server preview?  [Skip ahead](install-on-server.md#enable-the-windows-subsystem-for-linux).
 
@@ -26,7 +26,7 @@ Already have Windows Server preview?  [Skip ahead](install-on-server.md#enable-t
     * [Windows Insiders](https://insider.windows.com)
     * [Windows Insiders for Business](https://insider.windows.com/ForBusiness)
 
-2. Download [Windows Server 2016 - Insider Preview](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewserver).  
+2. Download [Windows Server - Insider Preview](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewserver).  
 Make sure you're logged in, images are only available to Windows Insiders.
 
 ### Set up Windows Server
