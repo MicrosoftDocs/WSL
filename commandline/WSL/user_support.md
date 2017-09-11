@@ -14,7 +14,7 @@ ms.assetid: f70e685f-24c6-4908-9546-bf4f0291d8fd
 
 When you install a Linux distribution on the Windows Subsystem for Linux, you probably created a Linux user account and password when Linux launched.  Here are some things you should know about your Linux user account(s) and how WSL handles users and permissions.
 
-# Your first Linux user account
+## Your first Linux user account
 Each Linux distribution writes their own app installer so, while the experience may vary between distributions, all of them will ask you for a Linux username and password.
 
 This initial Linux user account is:
@@ -24,7 +24,8 @@ This initial Linux user account is:
 1. Signed-in automatically for every WSL instance.
 1. Unique to the WSL environment for your current Windows user.
 
-Users may change their default Bash user with the `lxrun /setdefaultuser` command. Users who have a previous build may use lxrun to set their default user without having to uninstall.  The default user ‘root’ is valid for users who would like to run directly as root, or require root access for troubleshooting.  Setting the default user to ‘root’ does not require a password.
+## I forgot my Linux password
+Users can change their default Bash user with the `lxrun /setdefaultuser` command.  The default user ‘root’ is valid for users who would like to run directly as root, or require root access for troubleshooting.  Setting the default user to ‘root’ does not require a password.
 
 ## Permissions
 There are two important concepts to keep in mind when it comes to permissions:
