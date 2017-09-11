@@ -24,14 +24,34 @@ This initial Linux user account is:
 1. Signed-in automatically for every WSL instance.
 1. Unique to the WSL environment for your current Windows user.
 
-## I forgot my Linux password
-Users can change their default Bash user with the `lxrun /setdefaultuser` command.  The default user ‘root’ is valid for users who would like to run directly as root, or require root access for troubleshooting.  Setting the default user to ‘root’ does not require a password.
+## Resetting your Linux password
+The best option is to reset your password from Linux using the distribution's particular command (`passwd`).
+
+If that's not an option, however, you can recover your Linux account from Windows.
+
+1. Open CMD as Administrator.
+1. Set the default Linux user to `root` with the `lxrun /setdefaultuser` command.  Run:  
+    
+    ``` CMD
+    lxrun /setdefaultuser root
+    ```
+    
+    Setting the default user to ‘root’ does not require a password.
+
+1. Run your Linux distribution.  You should automatically login as `root`.
+1. Reset your password using the distribution's specific user/password management commands.  In Ubuntu this would be:
+
+    ``` BASH
+    passwd username
+    ```
+
+The default user `root` is valid for users who would like to run directly as root, or require root access for troubleshooting.  
 
 ## Permissions
 There are two important concepts to keep in mind when it comes to permissions:
 
 1. The Windows permission model, i.e. administrator
-2. The Linux permission model, i.e. root access
+2. The Linux permission model, i.e. root access, sudoers
 
 When Bash runs, it has the same permissions as the console.  This means if typing `bash` from a normal CMD or PowerShell prompt, it is given the same permissions as the logged-in Windows user.  Running `bash` from an “elevated” or “Administrator” command prompt then runs Bash with elevated permissions.
 
