@@ -25,24 +25,29 @@ This initial Linux user account is:
 1. Unique to the WSL environment for your current Windows user.
 
 ## Resetting your Linux password
-The best option is to reset your password from Linux using the distribution's particular command (`passwd`).
+The best option is to reset your password from your Linux user account using the distribution's particular command (`passwd`, for example).
 
 If that's not an option, however, you can recover your Linux account from Windows.
 
-1. Open CMD as Administrator.
-1. Set the default Linux user to `root` with the `lxrun /setdefaultuser` command.  Run:  
+1. Open CMD.
+1. Set the default Linux user to `root` using `lxrun /setdefaultuser`.  Run:  
     
     ``` CMD
     lxrun /setdefaultuser root
     ```
     
-    Setting the default user to ‘root’ does not require a password.
+    Setting the default user to root does not require a password.
 
 1. Run your Linux distribution.  You should automatically login as `root`.
-1. Reset your password using the distribution's specific user/password management commands.  In Ubuntu this would be:
+1. Reset your password using the distribution's password management commands.  In Ubuntu, this would be:
 
     ``` BASH
     passwd username
+    ```
+
+1. Set your default user back to your normal Linux user.
+    ``` CMD
+    lxrun /setdefaultuser username
     ```
 
 The default user `root` is valid for users who would like to run directly as root, or require root access for troubleshooting.  
