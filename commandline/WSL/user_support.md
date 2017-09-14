@@ -12,53 +12,60 @@ ms.assetid: f70e685f-24c6-4908-9546-bf4f0291d8fd
 
 # User Accounts and Permissions
 
-When you install a Linux distribution on the Windows Subsystem for Linux, you probably created a Linux user account and password when Linux launched.  Here are some things you should know about your Linux user account(s) and how WSL handles users and permissions.
+Creating your Linux user is the first step in setting up a new Linux distribution on WSL.  The user account you create is automatically configured with a few special attributes:
 
-## Your first Linux user account
-Each Linux distribution writes their own app installer so, while the experience may vary between distributions, all of them will ask you for a Linux username and password.
+1. It is your default user -- it signs-in automatically on launch.
+1. It is a Linux superuser (sudo) by default.
 
-This initial Linux user account is:
-
-1. Independent from your Windows user account.
-1. Linux admin (sudo) by default.
-1. Signed-in automatically for every WSL instance.
-1. Unique to the WSL environment for your current Windows user.
+Each Linux distribution running on the Windows Subsystem for Linux has its own Linux user accounts and passwords.  You will have to configure a Linux user account any time you add a distribution, reinstall, or reset.  Linux user accounts are not only independent per distribution, they are also independent from your Windows user account.
 
 ## Resetting your Linux password
-The best option is to reset your password from your Linux user account using the distribution's particular command (`passwd`, for example).
 
-If that's not an option, however, you can recover your Linux account from Windows.
+If you have access to your Linux user account, know your password but want to change it, use the password reset command for that distribution -- most likely `passwd`.
+
+If that's not an option, many distributions include commands for setting the default user to root.  Setting the default user to root does not require a password.  Once connected as root, you can reset your password.
+
+To see what commands are available for a particular distribution, run `[distro.exe] /?`.
+    
+For example:
+
+``` BASH
+ubuntu /?
+```
+
+Step by step instructions using Ubuntu:
 
 1. Open CMD.
-1. Set the default Linux user to `root` using `lxrun /setdefaultuser`.  Run:  
-    
-    ``` CMD
-    lxrun /setdefaultuser root
-    ```
-    
-    Setting the default user to root does not require a password.
+1. Set the default Linux user to `root`.
 
-1. Run your Linux distribution.  You should automatically login as `root`.
-1. Reset your password using the distribution's password management commands.  In Ubuntu, this would be:
+    ``` CMD
+    ubuntu config --default-user root
+    ```    
+
+1. Launch your Linux distribution (`ubuntu`).  You will automatically login as `root`.
+
+1. Reset your password using the distribution's password command.
 
     ``` BASH
     passwd username
     ```
 
-1. Set your default user back to your normal Linux user.
+1. From Windows CMD, reset your default user back to your normal Linux user account.
+
     ``` CMD
-    lxrun /setdefaultuser username
+    ubuntu config --default-user username
     ```
 
-The default user `root` is valid for users who would like to run directly as root, or require root access for troubleshooting.  
+Setting the default user `root` can be useful.  It's great for users who would like to run directly as root or require root access for troubleshooting.
 
 ## Permissions
-There are two important concepts to keep in mind when it comes to permissions:
+
+There are two important concepts to keep in mind when it comes to permissions in WSL:
 
 1. The Windows permission model, i.e. administrator
 2. The Linux permission model, i.e. root access, sudoers
 
-When Bash runs, it has the same permissions as the console.  This means if typing `bash` from a normal CMD or PowerShell prompt, it is given the same permissions as the logged-in Windows user.  Running `bash` from an “elevated” or “Administrator” command prompt then runs Bash with elevated permissions.
+When running Linux on WSL, Linux will have the same permissions as the console it is running in.  This means if you run WSL (or any distribution in WSL) from a normal CMD or PowerShell prompt, it is given the same permissions as the logged-in Windows user.  Running WSL from an "elevated" or "Administrator" command prompt runs with elevated permissions.
 
 This is independent of the signed-in Linux user account.  Root privileges on the Linux side only impact the user’s rights within the Linux environment & filesystem; they have no impact on the Windows privileges granted.
 
