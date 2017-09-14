@@ -15,7 +15,7 @@ ms.assetid: f70e685f-24c6-4908-9546-bf4f0291d8fd
 Creating your Linux user is the first step in setting up a new Linux distribution on WSL.  The user account you create is automatically configured with a few special attributes:
 
 1. It is your default user -- it signs-in automatically on launch.
-1. It is a Linux superuser (sudo) by default.
+1. It is Linux administrator (a member of the sudo group)  by default.
 
 Each Linux distribution running on the Windows Subsystem for Linux has its own Linux user accounts and passwords.  You will have to configure a Linux user account any time you add a distribution, reinstall, or reset.  Linux user accounts are not only independent per distribution, they are also independent from your Windows user account.
 
