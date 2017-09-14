@@ -77,3 +77,11 @@ The Linux permission model is important when inside the Ubuntu environment where
 
 **Example:**
 > A user in the sudo group may run `sudo apt update`
+
+## Resetting your password -- Creators Update and earlier
+
+If you're running Windows 10 Creators update or earlier, you can change the default Bash user by running:
+
+``` CMD
+lxrun /setdefaultuser root
+```
