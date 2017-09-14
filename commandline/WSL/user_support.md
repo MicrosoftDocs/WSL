@@ -58,6 +58,14 @@ Step by step instructions using Ubuntu:
 
 Setting the default user `root` can be useful.  It's great for users who would like to run directly as root or require root access for troubleshooting.
 
+### Resetting your password -- Creators Update and earlier
+
+If you're running Windows 10 Creators update or earlier, you can change the default Bash user by running:
+
+``` CMD
+lxrun /setdefaultuser root
+```
+
 ## Permissions
 
 There are two important concepts to keep in mind when it comes to permissions in WSL:
@@ -77,11 +85,3 @@ The Linux permission model is important when inside the Ubuntu environment where
 
 **Example:**
 > A user in the sudo group may run `sudo apt update`
-
-## Resetting your password -- Creators Update and earlier
-
-If you're running Windows 10 Creators update or earlier, you can change the default Bash user by running:
-
-``` CMD
-lxrun /setdefaultuser root
-```
