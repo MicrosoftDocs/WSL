@@ -23,7 +23,9 @@ Each Linux distribution running on the Windows Subsystem for Linux has its own L
 
 If you have access to your Linux user account and know your current password, change it using Linux password reset tools that distribution -- most likely `passwd`.
 
-If that's not an option, WSL has the concept of a default user.  This is the user that automatically logs in when you start WSL.  Since WSL offers the concept of a default user, many distributions have included commands for setting the default user to root without a password.
+If that's not an option, depending on the distribution, you may be able to reset your password by resetting the default user.
+
+WSL offers a default user tag to identify which user account automatically logs in when you start a WSL.  Since many distributions include commands to set the default user to root and also a root user with no password set, changing the default user to root is a handy tool for things like password reset.
 
 To see what commands are available for a particular distribution, run `[distro.exe] /?`.
     
@@ -40,7 +42,7 @@ Usage:
 
     run <command line>
       - Run the given command line in that distro, using the default configuration.
-      - Everything after `run ` is passed to the linux LaunchProcess call.
+      - Everything after `run ` is passed to the linux LaunchProcess cal
 
     config [setting [value]]
       - Configure certain settings for this distro.
@@ -80,9 +82,8 @@ Step by step instructions using Ubuntu:
     ubuntu config --default-user username
     ```
 
-Setting the default user `root` can be useful.  It's great for users who would like to run directly as root or require root access for troubleshooting.
 
-### Resetting your password -- Creators Update and earlier
+### For Creators Update and earlier
 
 If you're running Windows 10 Creators update or earlier, you can change the default Bash user by running:
 
