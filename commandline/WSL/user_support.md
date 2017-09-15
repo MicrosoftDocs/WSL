@@ -12,25 +12,49 @@ ms.assetid: f70e685f-24c6-4908-9546-bf4f0291d8fd
 
 # User Accounts and Permissions
 
-Creating your Linux user is the first step in setting up a new Linux distribution on WSL.  The user account you create is automatically configured with a few special attributes:
+Creating your Linux user is the first step in setting up a new Linux distribution on WSL.  The first user account you create is automatically configured with a few special attributes:
 
 1. It is your default user -- it signs-in automatically on launch.
-1. It is Linux administrator (a member of the sudo group)  by default.
+1. It is Linux administrator (a member of the sudo group) by default.
 
 Each Linux distribution running on the Windows Subsystem for Linux has its own Linux user accounts and passwords.  You will have to configure a Linux user account any time you add a distribution, reinstall, or reset.  Linux user accounts are not only independent per distribution, they are also independent from your Windows user account.
 
 ## Resetting your Linux password
 
-If you have access to your Linux user account, know your password but want to change it, use the password reset command for that distribution -- most likely `passwd`.
+If you have access to your Linux user account and know your current password, change it using Linux password reset tools that distribution -- most likely `passwd`.
 
-If that's not an option, many distributions include commands for setting the default user to root.  Setting the default user to root does not require a password.  Once connected as root, you can reset your password.
+If that's not an option, WSL has the concept of a default user.  This is the user that automatically logs in when you start WSL.  Since WSL offers the concept of a default user, many distributions have included commands for setting the default user to root without a password.
 
 To see what commands are available for a particular distribution, run `[distro.exe] /?`.
     
-For example:
+For example, running `ubuntu.exe /?` yields:
 
-``` BASH
-ubuntu /?
+``` 
+> ubuntu.exe /?
+
+Launches or configures a linux distribution.
+
+Usage:
+    <no args>
+      - Launches the distro's default behavior. By default, this launches your default shell.
+
+    run <command line>
+      - Run the given command line in that distro, using the default configuration.
+      - Everything after `run ` is passed to the linux LaunchProcess call.
+
+    config [setting [value]]
+      - Configure certain settings for this distro.
+      - Settings are any of the following (by default)
+        - `--default-user <username>`: Set the default user for this distro to <username>
+
+    clean
+      - Uninstalls the distro. The appx remains on your machine. This can be
+        useful for "factory resetting" your instance. This removes the linux
+        filesystem from the disk, but not the app from your PC, so you don't
+        need to redownload the entire tar.gz again.
+
+    help
+      - Print this usage message.
 ```
 
 Step by step instructions using Ubuntu:
@@ -77,11 +101,11 @@ When running Linux on WSL, Linux will have the same permissions as the console i
 
 This is independent of the signed-in Linux user account.  Root privileges on the Linux side only impact the user’s rights within the Linux environment & filesystem; they have no impact on the Windows privileges granted.
 
-**Example:**  
-> A Bash session with Windows admin privileges may `cd /mnt/c/Users/Administrator` while a Bash session without admin privileges would see Permission Denied.
-> Typing `sudo cd /mnt/c/Users/Administrator` will not grant access to the Administrator’s directory since the permissions are restricted by Windows.
+**Example:**    
+A Bash session with Windows admin privileges may `cd /mnt/c/Users/Administrator` while a Bash session without admin privileges would see Permission Denied.  
+Typing `sudo cd /mnt/c/Users/Administrator` will not grant access to the Administrator’s directory since the permissions are restricted by Windows.
 
 The Linux permission model is important when inside the Ubuntu environment where the user has permissions based on the current Linux user.
 
-**Example:**
-> A user in the sudo group may run `sudo apt update`
+**Example:**  
+A user in the sudo group may run `sudo apt update`.
