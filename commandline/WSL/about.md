@@ -1,6 +1,6 @@
 ---
-title: Learn about the Linux subsystem for Windows
-description: Learn more about how the Linux Subsystem for Windows works.
+title: Learn about the Windows Subsystem for Linux
+description: Learn more about how the Windows Subsystem for Linux works.
 keywords: BashOnWindows, bash, wsl, windows, windowssubsystem
 author: scooley
 ms.date: 7/11/2016
