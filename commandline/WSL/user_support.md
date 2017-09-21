@@ -89,15 +89,15 @@ If you're running Windows 10 Creators update or earlier, you can change the defa
 
 1. Change the default user to `root`
 
-``` CMD
-lxrun /setdefaultuser root
-```
+    ``` CMD
+    lxrun /setdefaultuser root
+    ```
 
 1. Run `bash.exe` to log in as root
 
-``` CMD
-bash.exe
-```
+    ``` CMD
+    bash.exe
+    ```
 
 1. Reset your password using the distribution's password command.
 
