@@ -85,11 +85,31 @@ Step by step instructions using Ubuntu:
 
 ### For Creators Update and earlier
 
-If you're running Windows 10 Creators update or earlier, you can change the default Bash user by running:
+If you're running Windows 10 Creators update or earlier, you can change the default Bash user by:
+
+1. Change the default user to `root`
 
 ``` CMD
 lxrun /setdefaultuser root
 ```
+
+1. Run `bash.exe` to log in as root
+
+``` CMD
+bash.exe
+```
+
+1. Reset your password using the distribution's password command.
+
+    ``` BASH
+    passwd username
+    ```
+
+1. From Windows CMD, reset your default user back to your normal Linux user account.
+
+    ``` CMD
+    lxrun.exe /setdefaultuser username
+    ```
 
 ## Permissions
 
