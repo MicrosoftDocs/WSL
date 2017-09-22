@@ -27,12 +27,41 @@ If that's not an option, depending on the distribution, you may be able to reset
 
 WSL offers a default user tag to identify which user account automatically logs in when you start a WSL.  Since many distributions include commands to set the default user to root and also a root user with no password set, changing the default user to root is a handy tool for things like password reset.
 
+### For Creators Update and earlier
+If you're running Windows 10 Creators update or earlier, you can change the default Bash user by running the following commands:
+
+1. Change the default user to `root`:
+
+    ``` CMD
+    C:\> lxrun /setdefaultuser root
+    ```
+
+1. Run `bash.exe` to now login as `root`:
+
+    ``` CMD
+    C:\> bash.exe
+    ```
+
+1. Reset your password using the distribution's password command, and close the Linux Console:
+
+    ``` BASH
+    $ passwd username
+    $ exit
+    ```
+
+1. From Windows CMD, reset your default user back to your normal Linux user account:
+
+    ``` CMD
+    C:\> lxrun.exe /setdefaultuser username
+    ```
+
+### For Fall Creators Update and later
 To see what commands are available for a particular distribution, run `[distro.exe] /?`.
     
-For example, running `ubuntu.exe /?` yields:
+For example, with Ubuntu installed:
 
 ``` 
-> ubuntu.exe /?
+C:\> ubuntu.exe /?
 
 Launches or configures a linux distribution.
 
@@ -61,70 +90,47 @@ Usage:
 
 Step by step instructions using Ubuntu:
 
-1. Open CMD.
-1. Set the default Linux user to `root`.
+1. Open CMD
+1. Set the default Linux user to `root`:
 
     ``` CMD
-    ubuntu config --default-user root
+    C:\> ubuntu config --default-user root
     ```    
 
-1. Launch your Linux distribution (`ubuntu`).  You will automatically login as `root`.
+1. Launch your Linux distribution (`ubuntu`).  You will automatically login as `root`:
 
-1. Reset your password using the distribution's password command.
+1. Reset your password using the `passwd` command:
 
     ``` BASH
-    passwd username
+    $ passwd username
     ```
 
 1. From Windows CMD, reset your default user back to your normal Linux user account.
 
     ``` CMD
-    ubuntu config --default-user username
-    ```
-
-
-### For Creators Update and earlier
-
-If you're running Windows 10 Creators update or earlier, you can change the default Bash user by:
-
-1. Change the default user to `root`
-
-    ``` CMD
-    lxrun /setdefaultuser root
-    ```
-
-1. Run `bash.exe` to log in as root
-
-    ``` CMD
-    bash.exe
-    ```
-
-1. Reset your password using the distribution's password command.
-
-    ``` BASH
-    passwd username
-    ```
-
-1. From Windows CMD, reset your default user back to your normal Linux user account.
-
-    ``` CMD
-    lxrun.exe /setdefaultuser username
+    C:\> ubuntu config --default-user username
     ```
 
 ## Permissions
 
 There are two important concepts to keep in mind when it comes to permissions in WSL:
 
-1. The Windows permission model, i.e. administrator
-2. The Linux permission model, i.e. root access, sudoers
+1. The Windows permission model governs a process' rights to Windows resources
+2. The Linux permission model controls a process' rights to Linux resources
 
-When running Linux on WSL, Linux will have the same permissions as the console it is running in.  This means if you run WSL (or any distribution in WSL) from a normal CMD or PowerShell prompt, it is given the same permissions as the logged-in Windows user.  Running WSL from an "elevated" or "Administrator" command prompt runs with elevated permissions.
+When running Linux on WSL, Linux will have the same Windows permissions as the process that launches it. Linux can be launched in one of two permission levels:
 
-This is independent of the signed-in Linux user account.  Root privileges on the Linux side only impact the user’s rights within the Linux environment & filesystem; they have no impact on the Windows privileges granted.
+* Normal (non-elevated): Linux runs with the permissions of the logged-in user
+* Elevated/admin: Linux runs with elevated/admin Windows permissions
+
+> Because that elevated processes can change/damage system-wide settings and data, and can access/modify protected files and folders, **AVOID** launching elevated processes untless you absolutely have to - whether they're Windows or Linux applications/tools/shells!
+
+The above Windows permissions are independent of the permissions within a Linux instance: Linux "Root privileges" only impact the user’s rights within the Linux environment & filesystem; they have no impact on the Windows privileges granted. Thus, running a Linux process as root (e.g. via `sudo`) only grants that process admin rights within the Linux environment.
 
 **Example:**    
-A Bash session with Windows admin privileges may `cd /mnt/c/Users/Administrator` while a Bash session without admin privileges would see Permission Denied.  
-Typing `sudo cd /mnt/c/Users/Administrator` will not grant access to the Administrator’s directory since the permissions are restricted by Windows.
+A Bash session with Windows admin privileges may access `cd /mnt/c/Users/Administrator` while a Bash session without admin privileges would see a "Permission Denied" error.
+
+In Linux, typing `sudo cd /mnt/c/Users/Administrator` will not grant access to the Administrator’s directory since permissions within Windows are managed by Windows.
 
 The Linux permission model is important when inside the Ubuntu environment where the user has permissions based on the current Linux user.
 
