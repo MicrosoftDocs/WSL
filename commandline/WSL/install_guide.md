@@ -13,7 +13,7 @@ ms.assetid: 7afaeacf-435a-4e58-bff0-a9f0d75b8a51
 # Windows 10 Installation Guide
 
 ## Prerequisites
-Your PC must be running a 64-bit version of Windows 10 Anniversary Update or later (build 1607+).
+Your PC must be running a 64-bit version of Windows 10 Anniversary Update or later (build 1607+) and you must have Developer Mode activated.
 
 To find your PC's architecture and Windows build number, open  
 **Settings** > **System** > **About**
@@ -30,6 +30,10 @@ Enable the "Windows Subsystem for Linux" optional feature and reboot.
     ```
 
 2. Restart your computer when prompted.
+
+## Activate Developer Mode
+Follow [these instructions for activating Developer Mode](https://docs.microsoft.com/en-us/windows/uwp/get-started/enable-your-device-for-development).
+
 
 ## For Windows Insiders: Install Linux distribution of choice
 
