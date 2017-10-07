@@ -1,16 +1,22 @@
-## Microsoft Open Source Code of Conduct
+# Windows Subsystem for Linux (WSL) Documentation
 
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
-For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+## Issues
+If you find doc issues / errors or have an improvement you'd like to suggest, please file an issue and/or submit a pull-request - we greatly appreciate PR's in particular :)
 
-Welcome to the markdown source for Microsoft's command-line shells and console documentation.
-
-## File an issue
-
-[Dedicated issue repository](https://github.com/Microsoft/BashOnWindows/)
+> **Note:** This repo's issue tracker is only for reporting issues with the WSL docs.
+> Other related issue repo's:
+> * WSL: https://github.com/Microsoft/BashOnWindows/
+> * Windows Console: https://github.com/Microsoft/Console/
 
 ## External Links
 
 [Rendered documentation website](https://msdn.microsoft.com/commandline) 
 
 [Release notes for WSL](https://msdn.microsoft.com/en-us/commandline/wsl/release_notes)
+
+## Microsoft Open Source Code of Conduct
+
+This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
+For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+
+Welcome to the markdown source for Microsoft's command-line shells and console documentation.
