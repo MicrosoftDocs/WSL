@@ -79,7 +79,7 @@ One of the main limitations of using WSL is that changing Linux files with a Win
 
 However changing Windows files with a Linux app or tools is allowed.
 
-One way to use a Windows file with a Linux app is to use an absolute path, e.g. `/mnt/c/Users/<Windows User>/Documents/Projectes/<filename>`.
+One way to use a Windows file with a Linux app is to use an absolute path, e.g. `/mnt/c/Users/<Windows User>/Documents/Projects/<filename>`.
 
 However not all Linux apps or tools can access a file using `/mnt`.
 
