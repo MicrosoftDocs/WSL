@@ -16,6 +16,7 @@ ms.assetid: 7ca59bd7-d9d3-4f6d-8b92-b8faa9bcf250
 
 WSL Config is a command line tool for managing Linux distributions running on the Windows Subsystem for Linux (WSL).
 
+``` 
 wslconfig.exe
 Performs administrative operations on Windows Subsystem for Linux
 
@@ -25,3 +26,5 @@ Usage:
                are currently being installed or uninstalled.
     /s, /setdefault <DistributionName> - Sets the specified distribution as the default.
     /u, /unregister <DistributionName> - Unregisters a distribution.
+```
+
