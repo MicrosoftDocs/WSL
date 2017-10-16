@@ -1,6 +1,6 @@
 ---
 title: Manage Linux Distributions
-description: List of commands that manage the Windows Subsystem for Linux
+description: Reference listing and configuring multiple Linux distributions running on the Windows Subsystem for Linux.
 keywords: BashOnWindows, bash, wsl, windows, windows subsystem for linux, windowssubsystem, ubuntu
 author: scooley
 ms.date: 10/13/2017
@@ -12,9 +12,11 @@ ms.assetid: 7ca59bd7-d9d3-4f6d-8b92-b8faa9bcf250
 
 # Manage multiple Linux Distributions in WSL
 
-> Applies to Windows 10 Fall Creators Update and later
+> Applies to Windows 10 Fall Creators Update and later.
 
-WSL Config (`wslconfig.exe`) is a command line tool for managing Linux distributions running on the Windows Subsystem for Linux (WSL).
+WSL Config (`wslconfig.exe`) is a command line tool for managing Linux distributions running on the Windows Subsystem for Linux (WSL).  It lets you list available distributions, set a default distribution, and uninstall specific distributions.
+
+To see all available options for wslconfig, run:  `wslconfig /?`
 
 ```  txt
 wslconfig.exe
@@ -28,8 +30,19 @@ Usage:
     /u, /unregister <DistributionName> - Unregisters a distribution.
 ```
 
-## list
+## List distributions
 
-## setdefault distribution
+`wslconfig /list`  
+Lists availabls Linux distributions available to WSL.  If a distribution is listed, it's installed and ready to use.
 
-## unregister distribution
+`wslconfig /list /all`  
+Lists all distributions, including ones that aren't currelty usable.  They may be in the process of installing, uninstalling, or are in a broken state.  
+
+## Set a default distribution
+
+`wslconfig /setdefault <DistributionName>`  
+
+
+## Unregister distribution
+
+`wslconfig /unregister <DistributionName>`  
