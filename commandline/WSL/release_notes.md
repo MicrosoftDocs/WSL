@@ -15,7 +15,7 @@ ms.assetid: 36ea641e-4d49-4881-84eb-a9ca85b1cdf4
 ## Build 17017
 
 For general Windows information on build 17017 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/10/13/announcing-windows-10-insider-preview-build-17017-pc).<br/>
-To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+ 
 
 ### Fixed
 #### WSL
@@ -42,7 +42,7 @@ Testing in progress.
 ## Build 16288
 
 For general Windows information on build 16288 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/09/12/announcing-windows-10-insider-preview-build-16288-pc-build-15250-mobile/#7pLWQbj23JisfzV5.97/).<br/>
-To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+ 
 
 ### Fixed
 #### WSL
@@ -58,7 +58,7 @@ No change since 16273
 ## Build 16278
 
 For general Windows information on build 162738 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/08/29/announcing-windows-10-insider-preview-build-16278-pc/#HMz6Xq7Su68WKi0t.97/).<br/>
-To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+ 
 
 ### Fixed
 #### WSL
@@ -74,7 +74,7 @@ No change since 16273
 ## Build 16275
 
 For general Windows information on build 162735 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/08/25/announcing-windows-10-insider-preview-build-16275-pc-build-15245-mobile/#8QkxWqQbY37yZslV.97/).<br/>
-To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+ 
 
 ### Fixed
 #### WSL
@@ -89,7 +89,7 @@ No change since 16273
 ## Build 16273
 
 For general Windows information on build 16273 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/08/23/announcing-windows-10-insider-preview-build-16273-pc/).<br/>
-To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+ 
 
 ### Fixed
 #### WSL
@@ -123,7 +123,7 @@ Total Failures: 229<br/>
 ## Build 16257
 
 For general Windows information on build 16257 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/08/02/announcing-windows-10-insider-preview-build-16257-pc-build-15237-mobile/).<br/>
-To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+ 
 
 ### Fixed
 #### WSL
@@ -161,7 +161,7 @@ This issue has been fixed and should be released in Insiders build during week c
 ## Build 16251
 
 For general Windows information on build 16251 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/07/26/announcing-windows-10-insider-preview-build-16251-pc-build-15235-mobile/).<br/>
-To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+ 
 
 ### Fixed
 #### WSL
@@ -186,7 +186,7 @@ Number of Skipped Tests: 96</br>
 ## Build 16241
 
 For general Windows information on build 16241 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/07/13/announcing-windows-10-insider-preview-build-16241-pc-build-15230-mobile/).<br/>
-To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+ 
 
 ### Fixed
 #### WSL
@@ -211,7 +211,7 @@ To track or report an issue visit our [Github page](https://github.com/Microsoft
 ## Build 16237
 
 For general Windows information on build 16237 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/07/07/announcing-windows-10-insider-preview-build-16237-pc/).<br/>
-To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+ 
 
 ### Fixed 
 - Use default attributes for files without EAs in lxfs (root, root, 0000)
@@ -231,7 +231,7 @@ To track or report an issue visit our [Github page](https://github.com/Microsoft
 ## Build 16232
 
 For general Windows information on build 16232 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/06/28/announcing-windows-10-insider-preview-build-16232-pc-build-15228-mobile/).<br/>
-To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+ 
 
 ### Fixed 
 - No WSL related changes in this release.
@@ -241,7 +241,7 @@ To track or report an issue visit our [Github page](https://github.com/Microsoft
 ## Build 16226
 
 For general Windows information on build 16226 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/06/21/announcing-windows-10-insider-preview-build-16226-pc/).<br/>
-To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+ 
 
 ### Fixed 
 - xattr related syscalls support (getxattr, setxattr, listxattr, removexattr).
@@ -255,7 +255,7 @@ To track or report an issue visit our [Github page](https://github.com/Microsoft
 ## Build 16215
 
 For general Windows information on build 16215 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/06/08/announcing-windows-10-insider-preview-build-16215-pc-build-15222-mobile/).<br/>
-To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+ 
 
 ### Fixed 
 - WSL no longer requires developer mode.
@@ -272,7 +272,7 @@ To track or report an issue visit our [Github page](https://github.com/Microsoft
 ## Build 16199
 
 For general Windows information on build 16199 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/05/17/announcing-windows-10-insider-preview-build-16199-pc-build-15215-mobile/).<br/>
-To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+ 
 
 ### Fixed 
 - No WSL related changes in these releases.
@@ -282,7 +282,7 @@ To track or report an issue visit our [Github page](https://github.com/Microsoft
 ## Build 16193
 
 For general Windows information on build 16193 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/05/11/announcing-windows-10-insider-preview-build-16193-pc-build-15213-mobile/).<br/>
-To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+ 
 
 ### Fixed 
 - Race condition between sending SIGCONT and a threadgroup terminating [GH 1973]
@@ -296,7 +296,7 @@ To track or report an issue visit our [Github page](https://github.com/Microsoft
 ## Build 16184
 
 For general Windows information on build 16184 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/04/28/announcing-windows-10-insider-preview-build-16184-pc-build-15208-mobile/).<br/>
-To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+ 
 
 ### Fixed 
 - Removed apt package maintenance task (lxrun.exe /update)
@@ -311,7 +311,7 @@ To track or report an issue visit our [Github page](https://github.com/Microsoft
 ## Build 16179
 
 For general Windows information on build 16179 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/04/19/announcing-windows-10-insider-preview-build-16179-pc-build-15205-mobile/).<br/>
-To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+ 
 
 ### Fixed 
 - No WSL changes this week.
@@ -321,7 +321,7 @@ To track or report an issue visit our [Github page](https://github.com/Microsoft
 ## Build 16176
 
 For general Windows information on build 16176 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/04/14/announcing-windows-10-insider-preview-build-16176-pc-build-15204-mobile/).<br/>
-To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+ 
 
 ### Fixed
 
@@ -348,7 +348,7 @@ No changes since 15042
 ## Build 16170
 
 For general Windows information on build 16170 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/04/07/announcing-windows-10-insider-preview-build-16170-pc/).<br/>
-To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+ 
 We released a new [blog post](https://blogs.msdn.microsoft.com/wsl/2017/04/11/testing-the-windows-subsystem-for-linux/) discussing our efforts to test WSL.
 
 ### Fixed
@@ -364,12 +364,12 @@ No changes since 15042
 
 ## Build 15046 to Windows 10 Creators Update
 There are no more WSL fixes or features planned for inclusion in the Creators Update to Windows 10. Release notes for WSL will resume in the coming weeks for additions targeting the next major Windows Update. For general Windows information on build 15046 and future Insider releases visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/02/28/announcing-windows-10-insider-preview-build-15046-pc/). <br/><br/>
-To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/><br/>
+ <br/>
 
 ## Build 15042
 
 For general Windows information on build 15042 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/02/24/announcing-windows-10-insider-preview-build-15042-pc-build-15043-mobile/).<br/>
-To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+ 
 
 ### Fixed
 
@@ -389,7 +389,7 @@ Number of non-Passing (failing, skipped, etc…): 255
 ## Build 15031
 
 For general Windows information on build 15031 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/02/08/announcing-windows-10-insider-preview-build-15031-pc/).<br/>
-To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+ 
 
 ### Fixed
 
@@ -412,7 +412,7 @@ Number of non-Passing (failing, skipped, etc…): 255 </br>
 ## Build 15025
 
 For general Windows information on build 15025 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/02/01/announcing-windows-10-insider-preview-build-15025-pc/).<br/>
-To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+ 
 
 ### Fixed
 
@@ -442,7 +442,7 @@ Number of non-Passing (failing, skipped, etc…): 255 </br>
 ## Build 15019
 
 For general Windows information on build 15019 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/01/27/announcing-windows-10-insider-preview-build-15019-pc/).<br/>
-To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+ 
 
 ### Fixed
 
@@ -464,7 +464,7 @@ Number of non-Passing (failing, skipped, etc…): 249 </br>
 ## Build 15014
  
 For general Windows information on build 15014 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/01/19/announcing-windows-10-insider-preview-build-15014-for-pc-and-mobile-hello-windows-insiders-today-we-are-excited-to-be-releasing-windows-10-insider-preview-build-15014-for-pc-and-mobile).<br/>
-To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+ 
  
 ### Fixed
  
@@ -495,7 +495,7 @@ Total Unimplemented: 127 </br>
 ## Build 15007
  
 For general Windows information on build 15007 visit the [Windows Blog]( https://blogs.windows.com/windowsexperience/2017/01/12/announcing-windows-10-insider-preview-build-15007-pc-mobile).<br/>
-To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+ 
  
 ### Known Issue
  
@@ -521,7 +521,7 @@ Number of non-Passing (failing, skipped, etc…): 255 </br>
 ## Build 15002
 
 For general Windows information on build 15002 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/01/09/announcing-windows-10-insider-preview-build-15002-pc/).<br/>
-To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+ 
 
 ### Known Issue
 
@@ -589,7 +589,7 @@ Below are a list of new or enhanced syscalls that have some implementation in WS
 ## Build 14986
 
 For general Windows information on build 14986 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2016/12/07/announcing-windows-10-insider-preview-build-14986-pc/).<br/>
-To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+ 
 
 ### Fixed
 
@@ -624,7 +624,7 @@ Below are a list of new or enhanced syscalls that have some implementation in WS
 ## Build 14971
 
 For general Windows information on build 14971 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2016/11/17/announcing-windows-10-insider-preview-build-14971-for-pc/).<br/>
-To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+ 
 
 ### Fixed
 
@@ -641,7 +641,7 @@ Number of non-Passing (failing, skipped, etc…): 263 </br>
 ## Build 14965
 
 For general Windows information on build 14965 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2016/11/09/announcing-windows-10-insider-preview-build-14965-for-mobile-and-pc/).<br/>
-To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+ 
 
 ### Fixed
 
@@ -678,7 +678,7 @@ Number of non-Passing (failing, skipped, etc…): 263 </br>
 ## Build 14959
 
 For general Windows information on build 14959 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2016/11/03/announcing-windows-10-insider-preview-build-14959-for-mobile-and-pc/#iI82GufJxMF3POU1.97).<br/>
-To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+ 
 
 ### Fixed
 
@@ -697,7 +697,7 @@ Number of non-Passing (failing, skipped, etc…): 263 </br>
 ## Build 14955
 
 For general Windows information on build 14955 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2016/10/25/announcing-windows-10-insider-preview-build-14955-for-mobile-and-pc/#guGXQzKVFrZIDUYR.97).<br/>
-To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+ 
 
 ### Fixed
 
@@ -713,7 +713,7 @@ Number of non-Passing (failing, skipped, etc…): 263 </br>
 ## Build 14951
 
 For general Windows information on build 14951 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2016/10/19/announcing-windows-10-insider-preview-build-14951-for-mobile-and-pc/).<br/>
-To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+ 
 
 ### New Feature: Windows / Ubuntu Interoperability
 Windows binaries can now be invoked directly from the WSL command line.  This gives users the ability to interact with their Windows environment and system in a way that has not been possible.  As a quick example, it is now possible for users to run the following commands:
@@ -750,7 +750,7 @@ Number of non-Passing (failing, skipped, etc…): 263 </br>
 ## Build 14946
 
 For general Windows information on build 14946 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2016/10/13/announcing-windows-10-insider-preview-build-14946-for-pc-and-mobile/#xj8GdVooEqo4H7H7.97).<br/>
-To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+ 
 
 ### Fixed
 
@@ -774,7 +774,7 @@ Number of non-Passing (failing, skipped, etc…): 263 </br>
 ## Build 14942
 
 For general Windows information on build 14942 visit the [Windows Blog](https://aka.ms/onefourninefourtwoooooo).<br/>
-To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+ 
 
 ### Fixed
 
@@ -800,7 +800,7 @@ Below are a list of new or enhanced syscalls that have some implementation in WS
 ## Build 14936
 
 For general Windows information on build 14936 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2016/09/28/announcing-windows-10-insider-preview-build-14936-for-pc/).<br/>
-To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+ 
 
 Note: WSL will install Ubuntu version 16.04 (Xenial) instead of Ubuntu 14.04 (Trusty) in an upcoming release.  This change will apply to Insiders installing new instances (lxrun.exe /install or first run of bash.exe).  Existing instances with Trusty will not be upgraded automatically. Users can upgrade their Trusty image to Xenial using the do-release-upgrade command.
 
@@ -836,7 +836,7 @@ Below are a list of new or enhanced syscalls that have some implementation in WS
 ## Build 14931
 
 For general Windows information on build 14931 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2016/09/21/announcing-windows-10-insider-preview-build-14931-for-pc/).<br/>
-To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+ 
 
 ### Fixed
 
@@ -847,7 +847,7 @@ To track or report an issue visit our [Github page](https://github.com/Microsoft
 ## Build 14926
 
 For general Windows information on build 14926 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2016/09/14/announcing-windows-10-insider-preview-build-14926-for-pc-and-mobile/).<br/>
-To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+ 
 
 ### Fixed
 
@@ -872,7 +872,7 @@ Number of non-Passing (failing, skipped, etc…): 258 </br>
 ## Build 14915
 
 For general Windows information on build 14915 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2016/08/31/announcing-windows-10-insider-preview-build-14915-for-pc-and-mobile).<br/>
-To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+ 
 
 ### Fixed
 -  Socketpair for unix datagram sockets (GH #262)
@@ -896,7 +896,7 @@ To track or report an issue visit our [Github page](https://github.com/Microsoft
 ## Build 14905
 
 For general Windows information on build 14905 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2016/08/17/announcing-windows-10-insider-preview-build-14905-for-pc-mobile/).<br/>
-To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+ 
 
 ### Fixed
 - Restartable system calls are now supported (GH #349, GH #520)
@@ -911,7 +911,7 @@ To track or report an issue visit our [Github page](https://github.com/Microsoft
 First Insider build for the post Windows 10 Anniversary Update release.
 
 For general Windows information on build 14901 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2016/08/11/announcing-windows-10-insider-preview-build-14901-for-pc/).<br/>
-To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+ 
 
 ### Fixed
 - Fixed trailing slash issue
@@ -945,7 +945,7 @@ Below are a list of new or enhanced syscalls that have some implementation in WS
 
 ## Build 14388 to Windows 10 Anniversary Update
 For general Windows information on build 14388 visit the [Windows Blog](https://aka.ms/14388wip). <br/>
-To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+ 
 ### Fixed
 - Fixes to prepare for the Windows 10 Anniversary Update on 8/2
   - More information about WSL in the Anniversary Update can be found on our [blog](https://blogs.msdn.microsoft.com/wsl/)
@@ -954,7 +954,7 @@ To track or report an issue visit our [Github page](https://github.com/Microsoft
 
 ## Build 14376
 For general Windows information on build 14376 visit the [Windows Blog] (https://blogs.windows.com/windowsexperience/2016/06/28/announcing-windows-10-insider-preview-build-14376-for-pc-and-mobile/). <br/>
-To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+ 
 ### Fixed
 - Removed some instances where apt-get hangs (GH #493)
 - Fixed an issue where empty mounts were not handled correctly
@@ -969,7 +969,7 @@ To track or report an issue visit our [Github page](https://github.com/Microsoft
 
 ## Build 14371
 For general Windows information on build 14371 visit the [Windows Blog] (https://blogs.windows.com/windowsexperience/2016/06/22/announcing-windows-10-insider-preview-build-14371-for-pc/). <br/>
-To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+ 
 ### Fixed
 - Corrected timing race with SIGCHLD and wait() when using ptrace
 - Corrected some behavior when paths have a trailing /  (GH #432)
@@ -980,7 +980,7 @@ To track or report an issue visit our [Github page](https://github.com/Microsoft
 
 ## Build 14366
 For general Windows information on build 14366 visit the [Windows Blog] (https://blogs.windows.com/windowsexperience/2016/06/14/announcing-windows-10-insider-preview-build-14366-mobile-build-14364/). <br/>
-To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+ 
 ###Fixed
 - Fix in file creation through symlinks
 -	Added listxattr for Python (GH 385)
@@ -994,7 +994,7 @@ To track or report an issue visit our [Github page](https://github.com/Microsoft
 
 ## Build 14361
 For general Windows information on build 14361 visit the [Windows Blog](http://aka.ms/wip14361). <br/>
-To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+ 
 ### Fixed
 - DrvFs is now case sensitive when running in Bash on Ubuntu on Windows.
   - Users may case.txt and CASE.TXT on their /mnt/c drives
@@ -1039,7 +1039,7 @@ Below are a list of new or enhanced syscalls that have some implementation in WS
 
 ## Build 14352
 For general Windows information on build 14352 visit the [Windows Blog](http://aka.ms/wip14352).<br/>
-To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+ 
 
 ### Fixed
 - Fixed issue where large files were not downloaded / created correctly.  This should unblock npm and other scenarios (GH #3, GH #313)
@@ -1066,7 +1066,7 @@ Below are a list of new or enhanced syscalls that have some implementation in WS
 
 ## Build 14342
 For general Windows information on build 14342 the [Windows Blog](http://aka.ms/wip14342). <br/>
-To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+ 
 Information on VolFs and DriveFs can be found on the [WSL Blog](https://blogs.msdn.microsoft.com/wsl). <br/>
 
 ### Fixed
@@ -1113,7 +1113,7 @@ Below are a list of new or enhanced syscalls that have some implementation in WS
 ## Build 14332
 
 For general Windows information on build 14332 visit the [Windows Blog](http://aka.ms/wip14332). <br/>
-To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+ 
 
 ### Fixed
 - Better resolv.conf generation including prioritizing DNS entries
@@ -1134,7 +1134,7 @@ Below is the new syscall that has some implementation in WSL. The syscall on thi
 ## Build 14328
 
 For general Windows information on build 14332 visit the [Windows Blog](http://aka.ms/wip14328). <br/>
-To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+ 
 
 ### New Features
 * Now support Linux users.  Installing Bash on Ubuntu on Windows will prompt for creation of a Linux user.  For more information, visit http://aka.ms/wslusers
