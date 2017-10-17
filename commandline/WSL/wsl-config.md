@@ -62,5 +62,12 @@ While Linux distributions can be installed through the Windows store, they can't
 
 Unregistering also allows distributions to be reinstalled.
 
-`wslconfig /unregister <DistributionName>`  
+> **Caution:** Once unregistered, all data, settings, and software associated with that distribution will be perminently lost.  Reinstalling from the store will install a clean copy of the distribution.
 
+`wslconfig /unregister <DistributionName>`  
+Unregisters the distribution from WSL so it can be reinstalled or cleaned up.
+
+For example:
+`wslconfig /unregister Ubuntu` would remove Ubuntu from the distributions available in WSL.  When I run `wsl /list` it will not be listed.  
+
+To reinstall, find the distribution in the Windows Store and select "Launch".
