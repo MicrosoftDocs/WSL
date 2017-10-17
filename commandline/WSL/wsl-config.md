@@ -14,7 +14,9 @@ ms.assetid: 7ca59bd7-d9d3-4f6d-8b92-b8faa9bcf250
 
 > Applies to Windows 10 Fall Creators Update and later.
 
-WSL Config (`wslconfig.exe`) is a command line tool for managing Linux distributions running on the Windows Subsystem for Linux (WSL).  It lets you list available distributions, set a default distribution, and uninstall specific distributions.
+WSL Config (`wslconfig.exe`) is a command line tool for managing Linux distributions running on the Windows Subsystem for Linux (WSL).  It lets you list available distributions, set a default distribution, and uninstall distributions.
+
+While WSL config is helpful for settings that span or coordinate distributions, each distribution independently manages it's own configurations.  To see distribution-specific commands, run `[distroname] /?`.  For example `ubuntu /?`.
 
 To see all available options for wslconfig, run:  `wslconfig /?`
 
