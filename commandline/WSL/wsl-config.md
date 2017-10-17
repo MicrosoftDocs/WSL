@@ -56,9 +56,11 @@ Sets the default distribution to `<DistributionName>`.
 For example:
 `wslconfig /setdefault Ubuntu` would set my default distribution to Ubuntu.  Now when I run `wsl -c npm init` it will run in Ubuntu.  If I run `wsl` it will open an Ubuntu session.
 
-
 ## Unregister distribution
 
+While Linux distributions can be installed through the Windows store, they can't be uninstalled through the store.  WSL congig allows distributions to be unregistered/uninstalled.
+
+Unregistering also allows distributions to be reinstalled.
 
 `wslconfig /unregister <DistributionName>`  
 
