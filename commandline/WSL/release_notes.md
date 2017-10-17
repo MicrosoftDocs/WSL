@@ -20,6 +20,7 @@ For general Windows information on build 17017 visit the [Windows Blog](https://
 ### Fixed
 #### WSL
 - Ignore empty ELF program headers [GH 330].
+- Allow LxssManager to create WSL instances for non-interactive users (ssh and scheduled task support) [GH 777 1602].
 - Support WSL->Win32->WSL ("inception") scenarios [GH 1228].
 - Limited support for termination of console apps invoked via interop [GH 1614].
 - Support mount options for devpts [GH 1948].
