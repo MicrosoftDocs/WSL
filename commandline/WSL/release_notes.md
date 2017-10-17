@@ -12,6 +12,31 @@ ms.assetid: 36ea641e-4d49-4881-84eb-a9ca85b1cdf4
 
 # Release Notes
 
+## Build 17017
+
+For general Windows information on build 17017 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/10/13/announcing-windows-10-insider-preview-build-17017-pc).<br/>
+To track or report an issue visit our [Github page](https://github.com/Microsoft/BashOnWindows/issues). <br/>
+
+### Fixed
+#### WSL
+- Ignore empty ELF program headers [GH 330].
+- Support WSL->Win32->WSL ("inception") scenarios [GH 1228].
+- Limited support for termination of console apps invoked via interop [GH 1614].
+- Support mount options for devpts [GH 1948].
+- Ptrace blocking child startup [GH 2333].
+- EPOLLET missing some events [GH 2462].
+- Return more data for PTRACE_GETSIGINFO.
+- Getdents with lseek gives incorrect results.
+- Fix some Win32 interop app hangs, waiting for input on a pipe that has no more data.
+- O_ASYNC support for tty/pty files.
+- Additional improvements and bug fixes
+
+#### Console
+- No Console related changes in this release.
+
+### LTP Results:
+Testing in progress.
+
 ## Build 16288
 
 For general Windows information on build 16288 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/09/12/announcing-windows-10-insider-preview-build-16288-pc-build-15250-mobile/#7pLWQbj23JisfzV5.97/).<br/>
