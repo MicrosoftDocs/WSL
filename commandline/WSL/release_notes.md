@@ -37,6 +37,8 @@ To track or report an issue visit our [Github page](https://github.com/Microsoft
 ### LTP Results:
 Testing in progress.
 
+# Fall Creators Update
+
 ## Build 16288
 
 For general Windows information on build 16288 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/09/12/announcing-windows-10-insider-preview-build-16288-pc-build-15250-mobile/#7pLWQbj23JisfzV5.97/).<br/>
