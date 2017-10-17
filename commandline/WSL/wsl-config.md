@@ -12,7 +12,7 @@ ms.assetid: 7ca59bd7-d9d3-4f6d-8b92-b8faa9bcf250
 
 # Manage multiple Linux Distributions in WSL
 
-> Applies to Windows 10 Fall Creators Update and later.
+> Applies to Windows 10 Fall Creators Update and later.  See our updated [installation guide](./install_guide.md) to start running multiple Linux distros from the Windows Store.
 
 WSL Config (`wslconfig.exe`) is a command line tool for managing Linux distributions running on the Windows Subsystem for Linux (WSL).  It lets you list available distributions, set a default distribution, and uninstall distributions.
 
