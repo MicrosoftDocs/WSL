@@ -31,7 +31,7 @@ Enable the "Windows Subsystem for Linux" optional feature and reboot.
 
 2. Restart your computer when prompted.
 
-## For Windows Insiders: Install Linux distribution of choice
+## Fall Creators Update and later: Install from the Windows Store
 
 > This section is for Windows Insiders (build 16215 or later).  Follow these steps to [Check your build](install_guide.md#prerequisites).  For earlier versions of Windows 10, follow [these instructions using lxrun](install_guide.md#for-anniversary-update-and-creators-update-install-using-lxrun).
 
