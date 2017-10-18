@@ -1,10 +1,22 @@
-# CommandLine-Documentation
+# Windows Subsystem for Linux (WSL) Documentation
 
-Rendered documentation website: [msdn.microsoft.com/commandline](https://msdn.microsoft.com/commandline) 
+## Issues
+If you find doc issues / errors or have an improvement you'd like to suggest, please file an issue and/or submit a pull-request - we greatly appreciate PR's in particular :)
 
-Release notes for WSL: [https://msdn.microsoft.com/en-us/commandline/wsl/release_notes](https://msdn.microsoft.com/en-us/commandline/wsl/release_notes)
+> **Note:** This repo's issue tracker is only for reporting issues with the WSL docs.
+> Other related issue repo's:
+> * WSL: https://github.com/Microsoft/BashOnWindows/
+> * Windows Console: https://github.com/Microsoft/Console/
 
-Welcome to the markdown source documentation for Microsoft's command-line shells and console.
+## External Links
 
-**Note**: Please do not file any new issues related to Bash on Ubuntu on Windows in this repo. Instead, we've created a repo specifically for all Bash related issues: https://github.com/Microsoft/BashOnWindows/.
+[Rendered documentation website](https://msdn.microsoft.com/commandline) 
 
+[Release notes for WSL](https://msdn.microsoft.com/en-us/commandline/wsl/release_notes)
+
+## Microsoft Open Source Code of Conduct
+
+This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
+For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+
+Welcome to the markdown source for Microsoft's command-line shells and console documentation.

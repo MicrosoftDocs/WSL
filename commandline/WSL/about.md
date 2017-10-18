@@ -1,50 +1,47 @@
 ---
-title: Bash on Ubuntu on Windows
-description: About Bash on Ubuntu on Windows
-keywords: BashOnWindows, bash, wsl, windows, windowssubsystem, ubuntu
-author: jackchammons
-ms.date: 9/6/2016
+title: Learn about the Windows Subsystem for Linux
+description: Learn more about how the Windows Subsystem for Linux works.
+keywords: BashOnWindows, bash, wsl, windows, windowssubsystem
+author: scooley
+ms.date: 7/11/2016
 ms.topic: article
 ms.prod: windows-subsystem-for-linux
 ms.service: windows-subsystem-for-linux
-ms.assetid: 8da49cd8-210d-4a35-a6e6-d5da439151ee
+ms.assetid: 3cefe0db-7616-4848-a2b6-9296746a178b
 ---
 
-# Bash on Ubuntu on Windows
+# Windows Subsystem for Linux Documentation
 
-> **Important note**  
-  This is the first release of this brand new technology and it is branded “beta” deliberately – it’s not yet complete! We know there are issues and incomplete features, you should expect some things to work and for many things to fail. But we appreciate you playing with this feature and helping us identify the issues we need to fix in order to deliver a great experience.
+The Windows Subsystem for Linux lets developers run Linux environments -- including most command-line tools, utilities, and applications -- directly on Windows, unmodified, without the overhead of a virtual machine.  
 
-## Overview
-Windows provides developers with a familiar Bash environment. This environment will allow users to:
+You can:
 
-1.	Run common command line utilities such as `grep`, `sed`, and `awk`
-2.	Navigate the file system using these commands
-3.	Run bash shell scripts which rely on supported command line utilities
+1. Choose your favorite Linux distributions [from the Windows Store](https://aka.ms/wslstore).
+1. Run common command-line utilities such as `grep`, `sed`, `awk`, etc. 
+1. Run Bash shell scripts and Linux command-line applications including:  
+    * Tools: vim, emacs, tmux
+    * Languages: Javascript/node.js, Ruby, Python, C/C++, C# & F#, Rust, Go, etc.
+    * Services: sshd, MySQL, Apache, lighttpd
+1. Install additional Linux tools using the distribution's built in package manager (`apt-get`, for example).
+1. Invoke Windows applications from the Linux console.
+1. Invoke Linux applications on Windows.
 
-Windows is running Ubuntu user-mode binaries provided by Canonical.  This means the command line utilities are the same as those that run within a native Ubuntu environment.  
+## Getting started
 
-This is provided as beta software.  While many of the coreutil commands provided by Ubuntu will work, there are some that will not.  We welcome feedback and will prioritize accordingly.  
+* [Install Linux on Windows](install_guide.md)
+* [Visit the command reference](reference.md)
+* [Read frequently asked questions](faq.md)
 
-This video from Build 2016 gives you more information and a demo of Ubuntu on Windows:  
-<iframe src="https://channel9.msdn.com/Events/Build/2016/P488/player" width="800" height="450"  allowFullScreen="true" frameBorder="0" scrolling="no"></iframe>
+## Team Blogs
+* [Overview post with a collection of videos and blogs](https://blogs.msdn.microsoft.com/commandline/learn-about-bash-on-windows-subsystem-for-linux/)
+* [Command-Line blog](https://blogs.msdn.microsoft.com/commandline/)
+* [Windows Subsystem for Linux Blog](https://blogs.msdn.microsoft.com/wsl/)
 
-## Announcements
+## Posts & Articles
+* [Run Bash on Ubuntu on Windows](https://blogs.windows.com/buildingapps/2016/03/30/run-bash-on-ubuntu-on-windows/)
+* [Developers Can Run Bash And Usermode Ubuntu Linux Binaries On Windows 10](http://www.hanselman.com/blog/DevelopersCanRunBashShellAndUsermodeUbuntuLinuxBinariesOnWindows10.aspx)
+* [Ubuntu on Windows – The Ubuntu Userspace for Windows Developers](http://insights.ubuntu.com/2016/03/30/ubuntu-on-windows-the-ubuntu-userspace-for-windows-developers/) 
 
-### Blogs
-* Mike Harsh's Blog -- [Run Bash on Ubuntu on Windows](https://blogs.windows.com/buildingapps/2016/03/30/run-bash-on-ubuntu-on-windows/)
-* Scott Hanselman's Blog -- [Developers Can Run Bash And Usermode Ubuntu Linux Binaries On Windows 10](http://www.hanselman.com/blog/DevelopersCanRunBashShellAndUsermodeUbuntuLinuxBinariesOnWindows10.aspx)
-* Ubuntu News -- [Ubuntu on Windows – The Ubuntu Userspace for Windows Developers](http://insights.ubuntu.com/2016/03/30/ubuntu-on-windows-the-ubuntu-userspace-for-windows-developers/) 
-
-
-### Presentations
-* Build 2016 [Day 1 Keynote](https://channel9.msdn.com/events/Build/2016/KEY01)
-* Build 2016 Interview with Ben Hillis, Dustin Kirkland, Russ Alexander, and Scott Hanselman -- [Linux Command Line on Windows](https://channel9.msdn.com/Events/Build/2016/C906?ocid=player)
-* Build 2016 Video walkthrough -- [Running Bash on Ubuntu on Windows!](https://channel9.msdn.com/events/Build/2016/P488)
-
-
-## Feedback
+## Provide Feedback
 * [GitHub issue tracker](https://github.com/Microsoft/BashOnWindows/issues)
-* [WSL Blog](https://blogs.msdn.microsoft.com/wsl/)
-* [command-line UserVoice portal](https://wpdev.uservoice.com/forums/266908-command-prompt-console-bash-on-ubuntu-on-windo/category/161892-bash)
-* [command-line team blog](https://blogs.msdn.microsoft.com/commandline/)
+* [Command-line UserVoice portal](https://wpdev.uservoice.com/forums/266908-command-prompt-console-bash-on-ubuntu-on-windo/category/161892-bash)
