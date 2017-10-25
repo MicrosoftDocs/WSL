@@ -1,3 +1,3 @@
 ---
-redirect_url: release-notes.md
+redirect_url: release-notes
 ---

@@ -1,3 +1,3 @@
 ---
-redirect_url: user-support.md
+redirect_url: user-support
 ---
