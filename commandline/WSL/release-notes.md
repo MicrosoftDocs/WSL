@@ -22,7 +22,7 @@ For general Windows information on build 17025 visit the [Windows Blog](https://
 #### WSL
 - Start initial processes in a new foreground process group [GH 1653, 2510].
 - SIGHUP delivery fixes [GH 2496].
-- Generate default virtual bridge name if none provided [GH 2479].
+- Generate default virtual bridge name if none provided [GH 2497].
 - Implement /proc/sys/kernel/random/boot_id [GH 2518].
 - More interop stdout/stderr pipe fixes.
 - Stub syncfs system call.
