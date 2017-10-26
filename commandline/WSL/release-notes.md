@@ -1,3 +1,4 @@
+
 ---
 title: Release Notes
 description: Release notes for the Windows Subsystem for Linux.  Updated weekly.
@@ -11,6 +12,26 @@ ms.assetid: 36ea641e-4d49-4881-84eb-a9ca85b1cdf4
 ---
 
 # Release Notes
+
+## Build 17025
+
+For general Windows information on build 17025 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/10/25/announcing-windows-10-insider-preview-build-17025-pc).<br/>
+
+
+### Fixed
+#### WSL
+- Start initial processes in a new foreground process group [GH 1653, 2510].
+- SIGHUP delivery fixes [GH 2496].
+- Generate default virtual bridge name if none provided [GH 2479].
+- Implement /proc/sys/kernel/random/boot_id [GH 2518].
+- More interop stdout/stderr pipe fixes.
+- Stub syncfs system call.
+
+#### Console
+- Fix input VT translation for third party consoles [GH 111]
+
+### LTP Results:
+Testing in progress.
 
 ## Build 17017
 
