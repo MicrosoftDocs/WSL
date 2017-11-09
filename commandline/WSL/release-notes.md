@@ -13,6 +13,21 @@ ms.assetid: 36ea641e-4d49-4881-84eb-a9ca85b1cdf4
 
 # Release Notes
 
+## Build 17035
+
+For general Windows information on build 17035 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/11/08/announcing-windows-10-insider-preview-build-17035-pc).<br/>
+
+
+### Fixed
+#### WSL
+- Accessing files on DrvFs could occasionally fail with EINVAL. [GH 2448]
+
+#### Console
+- Some color loss when inserting/deleting lines in VT mode.
+
+### LTP Results:
+Testing in progress.
+
 ## Build 17025
 
 For general Windows information on build 17025 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/10/25/announcing-windows-10-insider-preview-build-17025-pc).<br/>
