@@ -3,6 +3,7 @@ title: Manage Linux Distributions
 description: Reference listing and configuring multiple Linux distributions running on the Windows Subsystem for Linux.
 keywords: BashOnWindows, bash, wsl, windows, windows subsystem for linux, windowssubsystem, ubuntu
 author: scooley
+ms.author: scooley
 ms.date: 10/13/2017
 ms.topic: article
 ms.prod: windows-subsystem-for-linux
@@ -16,7 +17,7 @@ ms.assetid: 7ca59bd7-d9d3-4f6d-8b92-b8faa9bcf250
 
 WSL Config (`wslconfig.exe`) is a command line tool for managing Linux distributions running on the Windows Subsystem for Linux (WSL).  It lets you list available distributions, set a default distribution, and uninstall distributions.
 
-While WSL config is helpful for settings that span or coordinate distributions, each Linux distribution independently manages its own configurations.  To see distribution-specific commands, run `[distribution.exe] /?`.  For example `ubuntu /?`.
+While WSL Config is helpful for settings that span or coordinate distributions, each Linux distribution independently manages its own configurations.  To see distribution-specific commands, run `[distribution.exe] /?`.  For example `ubuntu /?`.
 
 To see all available options for wslconfig, run:  `wslconfig /?`
 
@@ -46,7 +47,7 @@ There are three ways to launch and run WSL:
 
 1. `wsl.exe` or `bash.exe`
 1. `wsl -c [command]` or `bash -c [command]`
-1. `[distro]` ie `ubuntu` -- this is the same as launching the installed app from the windows menu.
+1. `[distro]` ie `ubuntu` -- this is the same as launching the installed app from the Windows menu.
 
 In the first two cases, WSL must pick a distribution to run - a default distribution.  If you don't explicitly set a default, it will be the first one installed.
 
@@ -58,7 +59,7 @@ For example:
 
 ## Unregister and reinstall a distribution
 
-While Linux distributions can be installed through the Windows store, they can't be uninstalled through the store.  WSL config allows distributions to be unregistered/uninstalled.
+While Linux distributions can be installed through the Windows store, they can't be uninstalled through the store.  WSL Config allows distributions to be unregistered/uninstalled.
 
 Unregistering also allows distributions to be reinstalled.
 

@@ -3,7 +3,8 @@ title: Troubleshooting the Windows Susbystem for Linux
 description: Provides detailed information about common errors and issues people run into while running Linux on the Windows Susbystem for Linux. 
 keywords: BashOnWindows, bash, wsl, windows, windowssubsystem, ubuntu
 author: scooley
-ms.date: 7/31/2017
+ms.author: scooley
+ms.date: 11/15/2017
 ms.topic: article
 ms.prod: windows-subsystem-for-linux
 ms.service: windows-subsystem-for-linux
@@ -134,3 +135,24 @@ To collect a memory dump:
 5. The system will crash and collect the memory dump.
 6. Once the system reboots, report the memory.dmp to secure@microsoft.com. The default location of the dump file is %SystemRoot%\memory.dmp or C:\Windows\memory.dmp if C: is the system drive. In the email, note that the dump is for the WSL or Bash on Windows team.
 7. Restore the memory dump type to the original setting.
+
+### Check your build number
+
+To find your PC's architecture and Windows build number, open  
+**Settings** > **System** > **About**
+
+Look for the **OS Build** and **System Type** fields.  
+    ![](media/system.png) 
+
+
+To find your Windows Server build number, run the following in PowerShell:  
+``` PowerShell
+systeminfo | Select-String "^OS Name","^OS Version"
+```
+
+### Confirm WSL is enabled
+You can confirm that the Windows Subsystem for Linux is enabled by running the following in PowerShell:  
+``` PowerShell
+PowerShell
+Get-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
+```
