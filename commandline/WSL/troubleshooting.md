@@ -3,7 +3,7 @@ title: Troubleshooting the Windows Susbystem for Linux
 description: Provides detailed information about common errors and issues people run into while running Linux on the Windows Susbystem for Linux. 
 keywords: BashOnWindows, bash, wsl, windows, windowssubsystem, ubuntu
 ms.author: scooley
-ms.date: 7/31/2017
+ms.date: 11/15/2017
 ms.topic: article
 ms.prod: windows-subsystem-for-linux
 ms.service: windows-subsystem-for-linux
