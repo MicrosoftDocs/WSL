@@ -62,14 +62,14 @@ Enable the "Windows Subsystem for Linux" optional feature and reboot.
 
     > **Troubleshooting: Installation failed with error 0x8007007e**  
     > This error occurs when your system doesn't support WSL.  Make sure that:
-    > * You're running Windows build 16215 or later. [Check your build](install_guide.md#prerequisites).
-    > * The Windows Subsystem for Linux optional component is enabled and the computer has restarted.  [Instructions here](install_guide.md#install-the-windows-subsystem-for-linux).
+    > * You're running Windows build 16215 or later. [Check your build](troubleshooting.md#check-your-build-number).
+    > * The Windows Subsystem for Linux optional component is enabled and the computer has restarted.  [Make sure WSL is enabled](troubleshooting.md#confirm-wsl-is-enabled).
 
 4. Create a UNIX user
     
     The first time you install the Windows Subsystem for Linux, you will be prompted to create a UNIX username and password.  
     
-    This UNIX username and password can be different from, and has no relationship to, your Windows username and password. [Learn more about your UNIX account.](https://msdn.microsoft.com/en-us/commandline/wsl/user_support).
+    This UNIX username and password can be different from, and has no relationship to, your Windows username and password. [Learn more about your UNIX account.](user-support.md).
 
 5.  Run distro's preferred update/upgrade.
 
