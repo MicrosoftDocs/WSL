@@ -3,6 +3,7 @@ title: Linux User Account and Permissions
 description: Reference for user accounts and permission management with the Windows Subsystem for Linux.
 keywords: BashOnWindows, bash, wsl, windows, windows subsystem for linux, windowssubsystem, ubuntu, user accounts
 author: scooley
+ms.author: scooley
 ms.date: 9/11/2017
 ms.topic: article
 ms.prod: windows-subsystem-for-linux
