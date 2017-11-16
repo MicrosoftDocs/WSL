@@ -59,7 +59,7 @@ You're done!  Now you can use your Linux environment.
 ## For Anniversary Update and Creators Update: Install using lxrun
 lxrun installs Ubuntu user-mode by default on top of the Windows subsystem for Linux.  
 
-> Since moving to the store, we have stopped keeping this user-mode image up to date.  When you're done, run apt-get update.
+> Since moving to the store, we have stopped keeping this user-mode image up to date.  When you're done, run `apt-get update`.
 
 1. Turn on Developer Mode  
 
