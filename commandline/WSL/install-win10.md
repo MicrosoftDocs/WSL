@@ -33,7 +33,7 @@ Enable the "Windows Subsystem for Linux" optional feature and reboot.
 
 ## Fall Creators Update and later: Install from the Windows Store
 
-> This section is for Windows Insiders (build 16215 or later).  Follow these steps to [Check your build](install_guide.md#prerequisites).  For earlier versions of Windows 10, follow [these instructions using lxrun](install_guide.md#for-anniversary-update-and-creators-update-install-using-lxrun).
+> This section is for Windows Insiders (build 16215 or later).  Follow these steps to [Check your build](install-guide.md#prerequisites).  For earlier versions of Windows 10, follow [these instructions using lxrun](install-guide.md#for-anniversary-update-and-creators-update-install-using-lxrun).
 
 1. Open the Windows Store and choose your favorite Linux distribution.      
     Here are links directly to the store installers:
@@ -56,11 +56,11 @@ Enable the "Windows Subsystem for Linux" optional feature and reboot.
     
     > **Troubleshooting: Installation failed with error 0x8007007e**  
     > This error occurs when your system doesn't support Linux from the store.  Make sure that:
-    > * You're running Windows build 16215 or later. [Check your build](install_guide.md#prerequisites).
-    > * The Windows Subsystem for Linux optional component is enabled. [Instructions here](install_guide.md#Install-the-Windows-Subsystem-for-Linux).
+    > * You're running Windows build 16215 or later. [Check your build](install-guide.md#prerequisites).
+    > * The Windows Subsystem for Linux optional component is enabled. [Instructions here](install-guide.md#Install-the-Windows-Subsystem-for-Linux).
 
     
-5. Create your UNIX username and password.  This user account can be different from, and has no relationship to, your Windows username and password. [Read more](https://msdn.microsoft.com/en-us/commandline/wsl/user_support).
+5. Create your UNIX username and password.  This user account can be different from, and has no relationship to, your Windows username and password. [Read more](user-support.md).
 
 You're done!  Now you can use your Linux environment.
 
@@ -90,7 +90,7 @@ lxrun installs Ubuntu user-mode by default on top of the Windows subsystem for L
     The first time you install the Windows subsystem for Linux, you will be prompted to create a UNIX username and password.  
     ![](media/new-user.png)
     
-    This UNIX username and password can be different from, and has no relationship to, your Windows username and password. [Learn more about your UNIX account.](https://msdn.microsoft.com/en-us/commandline/wsl/user_support).
+    This UNIX username and password can be different from, and has no relationship to, your Windows username and password. [Learn more about your UNIX account.](user-support.md).
 
 After installation your Linux distribution will be located at: `%localappdata%\lxss\`.
 
