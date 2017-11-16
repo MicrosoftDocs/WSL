@@ -12,15 +12,6 @@ ms.assetid: 7afaeacf-435a-4e58-bff0-a9f0d75b8a51
 
 # Windows 10 Installation Guide
 
-## Prerequisites
-Your PC must be running a 64-bit version of Windows 10 Anniversary Update or later (build 1607+).
-
-To find your PC's architecture and Windows build number, open  
-**Settings** > **System** > **About**
-
-Look for the **OS Build** and **System Type** fields.  
-    ![](media/system.png) 
-
 ## Install the Windows Subsystem for Linux
 Enable the "Windows Subsystem for Linux" optional feature and reboot.
 
@@ -33,7 +24,7 @@ Enable the "Windows Subsystem for Linux" optional feature and reboot.
 
 ## Fall Creators Update and later: Install from the Windows Store
 
-> This section is for Windows Insiders (build 16215 or later).  Follow these steps to [Check your build](install-guide.md#prerequisites).  For earlier versions of Windows 10, follow [these instructions using lxrun](install-guide.md#for-anniversary-update-and-creators-update-install-using-lxrun).
+> This section is for Windows Insiders (build 16215 or later).  Follow these steps to [Check your build](troubleshooting.md#check-your-build-number).  For earlier versions of Windows 10, follow [these instructions using lxrun](install-win10.md#for-anniversary-update-and-creators-update-install-using-lxrun).
 
 1. Open the Windows Store and choose your favorite Linux distribution.      
     Here are links directly to the store installers:
@@ -56,8 +47,9 @@ Enable the "Windows Subsystem for Linux" optional feature and reboot.
     
     > **Troubleshooting: Installation failed with error 0x8007007e**  
     > This error occurs when your system doesn't support Linux from the store.  Make sure that:
-    > * You're running Windows build 16215 or later. [Check your build](install-guide.md#prerequisites).
-    > * The Windows Subsystem for Linux optional component is enabled. [Instructions here](install-guide.md#Install-the-Windows-Subsystem-for-Linux).
+    > * You're running Windows build 16215 or later. [Check your build](troubleshooting.md#check-your-build-number).
+    > * The Windows Subsystem for Linux optional component is enabled and the computer has restarted.  [Make sure WSL is enabled](troubleshooting.md#confirm-wsl-is-enabled).
+
 
     
 5. Create your UNIX username and password.  This user account can be different from, and has no relationship to, your Windows username and password. [Read more](user-support.md).
