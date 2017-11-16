@@ -3,6 +3,7 @@ title: Install the Linux Subsystem on Windows 10
 description: Installation instructions for the Linux Subsystem on Windows 10.
 keywords: BashOnWindows, bash, wsl, windows, windows subsystem for linux, windowssubsystem, ubuntu, windows 10
 author: scooley
+ms.author: scooley
 ms.date: 7/11/2017
 ms.topic: article
 ms.prod: windows-subsystem-for-linux
@@ -11,15 +12,6 @@ ms.assetid: 7afaeacf-435a-4e58-bff0-a9f0d75b8a51
 ---
 
 # Windows 10 Installation Guide
-
-## Prerequisites
-Your PC must be running a 64-bit version of Windows 10 Anniversary Update or later (build 1607+).
-
-To find your PC's architecture and Windows build number, open  
-**Settings** > **System** > **About**
-
-Look for the **OS Build** and **System Type** fields.  
-    ![](media/system.png) 
 
 ## Install the Windows Subsystem for Linux
 Enable the "Windows Subsystem for Linux" optional feature and reboot.
@@ -33,7 +25,7 @@ Enable the "Windows Subsystem for Linux" optional feature and reboot.
 
 ## Fall Creators Update and later: Install from the Windows Store
 
-> This section is for Windows Insiders (build 16215 or later).  Follow these steps to [Check your build](install_guide.md#prerequisites).  For earlier versions of Windows 10, follow [these instructions using lxrun](install_guide.md#for-anniversary-update-and-creators-update-install-using-lxrun).
+> This section is for Windows Insiders (build 16215 or later).  Follow these steps to [Check your build](troubleshooting.md#check-your-build-number).  For earlier versions of Windows 10, follow [these instructions using lxrun](install-win10.md#for-anniversary-update-and-creators-update-install-using-lxrun).
 
 1. Open the Windows Store and choose your favorite Linux distribution.      
     Here are links directly to the store installers:
@@ -56,18 +48,19 @@ Enable the "Windows Subsystem for Linux" optional feature and reboot.
     
     > **Troubleshooting: Installation failed with error 0x8007007e**  
     > This error occurs when your system doesn't support Linux from the store.  Make sure that:
-    > * You're running Windows build 16215 or later. [Check your build](install_guide.md#prerequisites).
-    > * The Windows Subsystem for Linux optional component is enabled. [Instructions here](install_guide.md#Install-the-Windows-Subsystem-for-Linux).
+    > * You're running Windows build 16215 or later. [Check your build](troubleshooting.md#check-your-build-number).
+    > * The Windows Subsystem for Linux optional component is enabled and the computer has restarted.  [Make sure WSL is enabled](troubleshooting.md#confirm-wsl-is-enabled).
+
 
     
-5. Create your UNIX username and password.  This user account can be different from, and has no relationship to, your Windows username and password. [Read more](https://msdn.microsoft.com/en-us/commandline/wsl/user_support).
+5. Create your UNIX username and password.  This user account can be different from, and has no relationship to, your Windows username and password. [Read more](user-support.md).
 
 You're done!  Now you can use your Linux environment.
 
 ## For Anniversary Update and Creators Update: Install using lxrun
 lxrun installs Ubuntu user-mode by default on top of the Windows subsystem for Linux.  
 
-> Since moving to the store, we have stopped keeping this user-mode image up to date.  When you're done, run apt-get update.
+> Since moving to the store, we have stopped keeping this user-mode image up to date.  When you're done, run `apt-get update`.
 
 1. Turn on Developer Mode  
 
@@ -90,11 +83,6 @@ lxrun installs Ubuntu user-mode by default on top of the Windows subsystem for L
     The first time you install the Windows subsystem for Linux, you will be prompted to create a UNIX username and password.  
     ![](media/new-user.png)
     
-    This UNIX username and password can be different from, and has no relationship to, your Windows username and password. [Learn more about your UNIX account.](https://msdn.microsoft.com/en-us/commandline/wsl/user_support).
+    This UNIX username and password can be different from, and has no relationship to, your Windows username and password. [Learn more about your UNIX account.](user-support.md).
 
 After installation your Linux distribution will be located at: `%localappdata%\lxss\`.
-
-**Avoid creating and/or modifying files in %localappdata%\lxss\ using Windows tools and apps!** If you do, it is likely that your Linux files will be corrupted and data loss may occur. Avoid this issue by using a directory located under /mnt/.  
-Read this [blog post](https://blogs.msdn.microsoft.com/commandline/2016/11/17/do-not-change-linux-files-using-windows-apps-and-tools/) for more information.
-
-You're done!  Go use your new Linux environment!

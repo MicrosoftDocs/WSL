@@ -1,4 +1,3 @@
-
 ---
 title: Release Notes
 description: Release notes for the Windows Subsystem for Linux.  Updated weekly.

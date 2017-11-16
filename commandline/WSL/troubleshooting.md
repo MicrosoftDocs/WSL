@@ -2,6 +2,7 @@
 title: Troubleshooting the Windows Susbystem for Linux
 description: Provides detailed information about common errors and issues people run into while running Linux on the Windows Susbystem for Linux. 
 keywords: BashOnWindows, bash, wsl, windows, windowssubsystem, ubuntu
+author: scooley
 ms.author: scooley
 ms.date: 11/15/2017
 ms.topic: article
@@ -136,6 +137,14 @@ To collect a memory dump:
 7. Restore the memory dump type to the original setting.
 
 ### Check your build number
+
+To find your PC's architecture and Windows build number, open  
+**Settings** > **System** > **About**
+
+Look for the **OS Build** and **System Type** fields.  
+    ![](media/system.png) 
+
+
 To find your Windows Server build number, run the following in PowerShell:  
 ``` PowerShell
 systeminfo | Select-String "^OS Name","^OS Version"
