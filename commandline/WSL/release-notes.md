@@ -12,6 +12,21 @@ ms.assetid: 36ea641e-4d49-4881-84eb-a9ca85b1cdf4
 
 # Release Notes
 
+## Build 17040
+
+For general Windows information on build 17040 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/11/16/announcing-windows-10-insider-preview-build-17040-pc).<br/>
+
+
+### Fixed
+#### WSL
+- No fixes since 17035.
+
+#### Console
+- No fixes since 17035.
+
+### LTP Results:
+Testing in progress.
+
 ## Build 17035
 
 For general Windows information on build 17035 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/11/08/announcing-windows-10-insider-preview-build-17035-pc).<br/>
