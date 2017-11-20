@@ -85,4 +85,4 @@ lxrun installs Ubuntu user-mode by default on top of the Windows subsystem for L
     
     This UNIX username and password can be different from, and has no relationship to, your Windows username and password. [Learn more about your UNIX account.](user-support.md).
 
-After installation your Linux distribution will be located at: `%localappdata%\lxss\`.
+After installation your Linux distribution will be located at: `C:\Users\%USERNAME%\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc\LocalState\rootfs\`.
