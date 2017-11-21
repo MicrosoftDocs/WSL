@@ -30,8 +30,8 @@ You can also access your local machine’s filesystem from within the Linux Bash
 
 ![](media/ls.png)
 
-### What is BASH?
-[BASH](https://en.wikipedia.org/wiki/Bash_%28Unix_shell%29) is a popular text-based shell and command-language. It is the default shell included within Ubuntu and other Linux distros, and in MacOS. Users type commands into a shell to execute scripts and/or run commands and tools to accomplish many tasks.
+### What is Bash?
+[Bash](https://en.wikipedia.org/wiki/Bash_%28Unix_shell%29) is a popular text-based shell and command-language. It is the default shell included within Ubuntu and other Linux distros, and in MacOS. Users type commands into a shell to execute scripts and/or run commands and tools to accomplish many tasks.
 
 ### How does this work?
 Check out our [blog](https://blogs.msdn.microsoft.com/wsl/) where we go into detail about the underlying technology.
@@ -47,7 +47,7 @@ Many languages like Ruby and node are often ported to, and run great, on Windows
 These are just some of issues that caused many people to ask Microsoft to improve Windows’ command-line tools and what drove us to partner with Canonical to enable native Bash and Linux command-line tools to run on Windows.
 
 ### What does this mean for PowerShell?
-While working with OSS projects, there are numerous scenarios where it’s immensely useful to drop into BASH from a PowerShell prompt.  Bash support is complementary and strengthens the value of the command-line on Windows, allowing PowerShell and the PowerShell community to leverage other popular technologies.
+While working with OSS projects, there are numerous scenarios where it’s immensely useful to drop into Bash from a PowerShell prompt.  Bash support is complementary and strengthens the value of the command-line on Windows, allowing PowerShell and the PowerShell community to leverage other popular technologies.
 
 Read more on the PowerShell team blog -- [Bash for Windows: Why it’s awesome and what it means for PowerShell](https://blogs.msdn.microsoft.com/powershell/2016/04/01/bash-for-windows-why-its-awesome-and-what-it-means-for-powershell/)
 
@@ -113,20 +113,20 @@ To fix issues related to `udev`, follow the following steps:
 
 1. Write the following to `/usr/sbin/policy-rc.d` and save your changes.
 
-    ``` BASH
+    ```bash
     #!/bin/sh
     exit 101
     ```
   
 2. Add execute permissions to `/usr/sbin/policy-rc.d`
 
-    ``` BASH
+    ```bash
     chmod +x /usr/sbin/policy-rc.d
     ```
   
 2. Run the following commands
 
-    ``` BASH
+    ```bash
     dpkg-divert --local --rename --add /sbin/initctl
     ln -s /bin/true /sbin/initctl
     ```
@@ -134,7 +134,7 @@ To fix issues related to `udev`, follow the following steps:
 ### How do I uninstall WSL?
 
 Open a command prompt and run:
-  ``` CMD
+  ```batchfile
   lxrun /uninstall /full
   ```
 
@@ -159,7 +159,7 @@ The Windows Subsystem for Linux feature may be disabled during a Windows update.
 WSL install will try to automatically change the Ubuntu locale to match the locale of your Windows install.  If you do not want this behavior you can run this command to change the Ubuntu locale after install completes.  You will have to relaunch bash.exe for this change to take effect.
 
 The below example changes to locale to en-US:
-``` BASH
+```bash
 sudo update-locale LANG=en_US.UTF8
 ```
 
