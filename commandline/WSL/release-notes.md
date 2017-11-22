@@ -12,6 +12,38 @@ ms.assetid: 36ea641e-4d49-4881-84eb-a9ca85b1cdf4
 
 # Release Notes
 
+## Build 17046
+
+For general Windows information on build 17046 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/11/22/announcing-windows-10-insider-preview-build-17046-pc).<br/>
+
+
+### Fixed
+#### WSL
+- Allow background processes. [GH 709, 1007, 1511, 2252, 2391, et al.]
+- Better support of CLONE_VFORK and CLONE_VM. [GH 1878, 2615]
+- Skip TDI filter drivers for WSL networking operations. [GH 1554]
+- DrvFs creates NT symlinks when certain conditions are met. [GH 353, 1475, 2602]
+    - The link target must be relative, must not cross any mount points or symlinks, and must exist.
+    - The user must have SE_CREATE_SYMBOLIC_LINK_PRIVILEGE (this normally requires you to launch wsl.exe elevated), unless Developer Mode is turned on.
+    - In all other situations, DrvFs still creates WSL symlinks.
+- Allow running elevated and non-elevated WSL instances simultaneously.
+- Support /proc/sys/kernel/yama/ptrace_scope
+- Add wslpath to do WSL<->Windows path conversions. [GH 522, 1243, 1834, 2327, et al.]
+```
+    wslpath usage:
+      -a    force result to absolute path format
+      -u    translate from a Windows path to a WSL path (default)
+      -w    translate from a WSL path to a Windows path
+      -m    translate from a WSL path to a Windows path, with ‘/’ instead of ‘\\’
+
+      EX: wslpath ‘c:\users’
+```
+#### Console
+- No fixes.
+
+### LTP Results:
+Testing in progress.
+
 ## Build 17040
 
 For general Windows information on build 17040 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/11/16/announcing-windows-10-insider-preview-build-17040-pc).<br/>
