@@ -19,7 +19,7 @@ For general Windows information on build 17046 visit the [Windows Blog](https://
 
 ### Fixed
 #### WSL
-- Allow background processes. [GH 709, 1007, 1511, 2252, 2391, et al.]
+- Allow processes to run without an active terminal. [GH 709, 1007, 1511, 2252, 2391, et al.]
 - Better support of CLONE_VFORK and CLONE_VM. [GH 1878, 2615]
 - Skip TDI filter drivers for WSL networking operations. [GH 1554]
 - DrvFs creates NT symlinks when certain conditions are met. [GH 353, 1475, 2602]
