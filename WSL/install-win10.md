@@ -23,7 +23,8 @@ Enable the "Windows Subsystem for Linux" optional feature and reboot.
 
 2. Restart your computer when prompted.
 
-## Fall Creators Update and later: Install from the Windows Store
+## Install your Linux Distribution of Choice
+### Fall Creators Update and later: Install from the Windows Store
 
 > This section is for Windows Insiders (build 16215 or later).  Follow these steps to [Check your build](troubleshooting.md#check-your-build-number).  For earlier versions of Windows 10, follow [these instructions using lxrun](install-win10.md#for-anniversary-update-and-creators-update-install-using-lxrun).
 
@@ -57,7 +58,7 @@ Enable the "Windows Subsystem for Linux" optional feature and reboot.
 
 You're done!  Now you can use your Linux environment.
 
-## For Anniversary Update and Creators Update: Install using lxrun
+### For Anniversary Update and Creators Update: Install using lxrun
 lxrun installs Ubuntu user-mode by default on top of the Windows subsystem for Linux.  
 
 > Since moving to the store, we have stopped keeping this user-mode image up to date.  When you're done, run `apt-get update`.
