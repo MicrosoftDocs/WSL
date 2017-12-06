@@ -18,6 +18,7 @@ ms.assetid: 9281ffa2-4fa9-4078-bf6f-b51c967617e3
 At //Build2017, Microsoft announced that Windows Subsystem for Linux will be [available on Windows Server](https://blogs.technet.microsoft.com/hybridcloud/2017/05/10/windows-server-for-developers-news-from-microsoft-build-2017/).  These instructions walk through running on the Windows Subsystem for Linux on Windows Server 1709 and later.
 
 ## Enable the Windows Subsystem for Linux
+
 Enable the "Windows Subsystem for Linux" optional feature and reboot.
 
 1. Open PowerShell as Administrator and run:
