@@ -1,1 +1,3 @@
-# Welcome to wsl!
+---
+redirect_url: about
+---
