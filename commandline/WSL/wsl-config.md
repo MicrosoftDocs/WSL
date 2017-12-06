@@ -47,7 +47,7 @@ There are three ways to launch and run WSL:
 
 1. `wsl.exe` or `bash.exe`
 1. `wsl [command]` or `bash -c [command]`
-1. `[distro]` or `distro -c [command]` ie `ubuntu` -- this is the same as launching the installed app from the Windows menu.
+1. `[distro]` ie `ubuntu` -- this is the same as launching the installed app from the Windows menu.
 
 In the first two cases, WSL must pick a distribution to run - a default distribution.  If you don't explicitly set a default, it will be the first one installed. Please note that when appending a command and invoking via 'wsl', you don't append a '-c' for the command.
 
