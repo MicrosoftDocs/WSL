@@ -1,27 +1,34 @@
 {
-  "build_entry_point": "",
   "docsets_to_publish": [
     {
-      "docset_name": "MSFT_commandline",
-      "build_output_subfolder": "commandline",
+      "docset_name": "wsl",
+      "build_source_folder": "wsl",
+      "build_output_subfolder": "wsl",
       "locale": "en-us",
+      "monikers": [],
+      "moniker_ranges": [],
       "open_to_public_contributors": true,
       "type_mapping": {
-        "Conceptual": "Content"
+        "Conceptual": "Content",
+        "ManagedReference": "Content",
+        "RestApi": "Content"
       },
-      "version": 0
+      "build_entry_point": "docs",
+      "template_folder": "_themes"
     }
   ],
-  "notification_subscribers": [
-    "scooley@microsoft.com"
-  ],
-  "branches_to_filter": [
-    ""
-  ],
-  "git_repository_url_open_to_public_contributors": "https://github.com/MicrosoftDocs/WSL",
-  "git_repository_branch_open_to_public_contributors": "live",
+  "notification_subscribers": [],
+  "branches_to_filter": [],
   "skip_source_output_uploading": false,
   "contribution_branch_mappings": {},
+  "dependent_repositories": [
+    {
+      "path_to_root": "_themes",
+      "url": "https://github.com/Microsoft/templates.docs.msft",
+      "branch": "master",
+      "branch_mapping": {}
+    }
+  ],
   "branch_target_mapping": {},
   "need_generate_pdf_url_template": false
 }
