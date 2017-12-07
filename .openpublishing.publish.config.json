@@ -2,7 +2,7 @@
   "docsets_to_publish": [
     {
       "docset_name": "wsl",
-      "build_source_folder": "WSL",
+      "build_source_folder": "wsl",
       "build_output_subfolder": "wsl",
       "locale": "en-us",
       "monikers": [],
