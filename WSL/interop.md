@@ -60,7 +60,7 @@ The WSL commands passed into `bash -c` are forwarded to the WSL process without 
 C:\temp>bash -c "ls -la /proc/cpuinfo"
 -r--r--r-- 1 root root 0 Sep 28 11:28 /proc/cpuinfo
 
-C:\temp>bash -c "ls -la \"/mnt/c/Program Files\"”
+C:\temp>bash -c "ls -la \"/mnt/c/Program Files\""
 <- contents of C:\Program Files ->
 ```
 
@@ -100,7 +100,7 @@ Parameters are passed to the Windows binary unmodified.
 As an example, the following commands will open `C:\temp\foo.txt` in `notepad.exe`:
 
 ``` BASH
-$notepad.exe “C:\temp\foo.txt”
+$notepad.exe "C:\temp\foo.txt"
 $notepad.exe C:\\temp\\foo.txt
 ```
 
