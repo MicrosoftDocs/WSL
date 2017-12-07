@@ -2,7 +2,7 @@
     "redirections": [ 
       {
          "source_path": "wsl/install_guide.md",
-         "redirect_url": "/wsl/install-win10",
+         "redirect_url": "/windows/wsl/install-win10",
          "redirect_document_id": true
       }
     ] 
