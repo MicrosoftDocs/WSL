@@ -31,7 +31,7 @@ You can also access your local machine’s filesystem from within the Linux Bash
 ![](media/ls.png)
 
 ### What is Bash?
-[Bash](https://en.wikipedia.org/wiki/Bash_%28Unix_shell%29) is a popular text-based shell and command-language. It is the default shell included within Ubuntu and other Linux distros, and in MacOS. Users type commands into a shell to execute scripts and/or run commands and tools to accomplish many tasks.
+[Bash](https://en.wikipedia.org/wiki/Bash_%28Unix_shell%29) is a popular text-based shell and command-language. It is the default shell included within Ubuntu and other Linux distros, and in macOS. Users type commands into a shell to execute scripts and/or run commands and tools to accomplish many tasks.
 
 ### How does this work?
 Check out our [blog](https://blogs.msdn.microsoft.com/wsl/) where we go into detail about the underlying technology.
