@@ -12,10 +12,83 @@ ms.assetid: 36ea641e-4d49-4881-84eb-a9ca85b1cdf4
 
 # Release Notes
 
+## Build 17063
+For general Windows information on build 17063 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/12/19/announcing-windows-10-insider-preview-build-17063-pc/).
+
+### WSL
+* DrvFs supports additional Linux metadata. This allows setting the owner and mode of files using chmod/chown, and also the creation of special files such as fifos, unix sockets and device files.
+
+  This is disabled by default for now. To enable, mount DrvFs with the metadata option (to enable it on an existing mount, you must first unmount it):  
+  
+  ``` bash
+  mount -t drvfs C: /mnt/c -o metadata
+  ```
+  
+  Linux permissions are added as additional metadata to the file; they do not affect the Windows permissions.  Remember, editing a file using a Windows editor may remove the metadata. In this case, the file will revert to its default permissions. 
+
+* Added mount options to DrvFs to control files without metadata.
+  * uid: the user ID used for the owner of all files.
+  * gid: the group ID used for the owner of all files.
+  * umask: an octal mask of permissions to exclude for all files and directories.
+  * fmask: an octal mask of permissions to exclude for all regular files.
+  * dmask: an octal mask of permissions to exclude for all directories.
+
+  For example:
+  ```
+  mount -t drvfs C: /mnt/c -o uid=1000,gid=1000,umask=22,fmask=111
+  ```
+  
+  Combine with the metadata option to specify default permissions for files without metadata.
+
+* Introduced a new environment variable, `WSLENV`, to configure how environment variables flow between WSL and Win32. 
+  
+  For example:
+  
+  ``` bash
+  WSLENV=GOPATH/l:USERPROFILE/pu:DISPLAY 
+  ```
+  
+  `WSLENV` is a colon-delimited list of environment variables that can be included when launching WSL processes from Win32 or Win32 processes from WSL.  Each variable can be suffixed with a slash followed by flags to specify how it is translated.
+  * p: The value is a path that should be translated between WSL paths and Win32 paths.
+  * l: The value is a list of paths. In WSL, it is a colon-delimited list. In Win32, it is a semicolon-delimited list.
+  * u: The value should only be included when invoking WSL from Win32
+  * w: The value should only be included when invoking Win32 from WSL
+
+  You can set `WSLENV` in .bashrc or in the custom Windows environment for your user.
+
+* drvfs mounts correctly preserves timestamps from tar, cp -p (GH 1939)
+* drvfs symlinks report the correct size (GH 2641)
+* read/write works for very large IO sizes (GH 2653)
+* waitpid works with process group IDs (GH 2534)
+* significantly improved mmap performance for large reserve regions; improves ghc performance (GH 1671)
+* personality supports for READ_IMPLIES_EXEC; fixes maxima and clisp (GH 1185)
+* mprotect supports PROT_GROWSDOWN; fixes clisp (GH 1128)
+* page fault fixes in overcommit mode; fixes sbcl (GH 1128)
+* clone supports more flags combinations
+* Support select/epoll of epoll files (previously a no-op).
+* Notify ptrace of unimplemented syscalls.
+* Ignore interfaces that are not up when generating resolv.conf nameservers [GH 2694]
+* Enumerate network interfaces with no physical address. [GH 2685]
+* Additional bug fixes and improvements. 
+
+### Linux tools available to developers on Windows
+
+* Windows Command line Toolchain includes bsdtar (tar) and curl.  
+  Read [this blog](https://aka.ms/tarcurlwindows) to learn more about the addition of these two new tools and see how they’re shaping the developer experience on Windows.
+
+*	`AF_UNIX` is available in the Windows Insider SDK (17061+). 
+  Read [this blog](https://blogs.msdn.microsoft.com/commandline/2017/12/19/af_unix-comes-to-windows/) to learn more about `AF_UNIX` and how developers on Windows can use it. 
+
+### Console
+* No fixes.
+
+### LTP Results:
+Testing in progress.
+
+
 ## Build 17046
 
-For general Windows information on build 17046 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/11/22/announcing-windows-10-insider-preview-build-17046-pc).<br/>
-
+For general Windows information on build 17046 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/11/22/announcing-windows-10-insider-preview-build-17046-pc).
 
 ### Fixed
 #### WSL
@@ -43,6 +116,7 @@ For general Windows information on build 17046 visit the [Windows Blog](https://
 
 ### LTP Results:
 Testing in progress.
+
 
 ## Build 17040
 
