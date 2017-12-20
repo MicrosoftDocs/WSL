@@ -13,7 +13,7 @@ ms.assetid: 3cefe0db-7616-4848-a2b6-9296746a178b
 # WSL interoperability with Windows
 
 > **Updated for Fall Creators update.**  
-If you're running Creators Update or Anniversary Update, jump to the [Creators/Anniversary Update section](interop.md#Creators Update and Anniversary Update).
+If you're running Creators Update or Anniversary Update, jump to the [Creators/Anniversary Update section](interop.md#creators-update-and-anniversary-update).
 
 Starting in Windows 10 Anniversary Update, the Windows Subsystem for Linux (WSL) can invoke Windows binaries from the Linux console and Linux binaries from a Windows console.
 
