@@ -26,7 +26,7 @@ Enable the "Windows Subsystem for Linux" optional feature and reboot.
 ## Install your Linux Distribution of Choice
 ### Fall Creators Update and later: Install from the Windows Store
 
-> This section is for Windows Insiders (build 16215 or later).  Follow these steps to [Check your build](troubleshooting.md#check-your-build-number).  For earlier versions of Windows 10, follow [these instructions using lxrun](install-win10.md#for-anniversary-update-and-creators-update-install-using-lxrun).
+> This section is for Windows build 16215 or later.  Follow these steps to [check your build](troubleshooting.md#check-your-build-number).  For earlier versions of Windows 10, follow [these instructions using lxrun](install-win10.md#for-anniversary-update-and-creators-update-install-using-lxrun).
 
 1. Open the Windows Store and choose your favorite Linux distribution.      
     Here are links directly to the store installers:
@@ -59,7 +59,7 @@ Enable the "Windows Subsystem for Linux" optional feature and reboot.
 You're done!  Now you can use your Linux environment.
 
 ### For Anniversary Update and Creators Update: Install using lxrun
-lxrun installs Ubuntu user-mode by default on top of the Windows subsystem for Linux.  
+lxrun installs Ubuntu user-mode by default on top of the Windows Subsystem for Linux.  
 
 > Since moving to the store, we have stopped keeping this user-mode image up to date.  When you're done, run `apt-get update`.
 
@@ -81,7 +81,7 @@ lxrun installs Ubuntu user-mode by default on top of the Windows subsystem for L
 
 4. Create a UNIX user
     
-    The first time you install the Windows subsystem for Linux, you will be prompted to create a UNIX username and password.  
+    The first time you install the Windows Subsystem for Linux, you will be prompted to create a UNIX username and password.  
     ![](media/new-user.png)
     
     This UNIX username and password can be different from, and has no relationship to, your Windows username and password. [Learn more about your UNIX account.](user-support.md).
