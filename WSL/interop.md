@@ -3,121 +3,150 @@ title: Windows interoperability with Linux
 description: Describes Windows interoperability with Linux distributions running on the Windows Subsystem for Linux. 
 author: scooley
 ms.author: scooley
-ms.date: 7/31/2017
+ms.date: 12/20/2017
 ms.topic: article
 ms.prod: windows-subsystem-for-linux
 ms.service: windows-subsystem-for-linux
 ms.assetid: 3cefe0db-7616-4848-a2b6-9296746a178b
 ---
 
-# Windows Interoperability
+# WSL interoperability with Windows
 
-> Available in Windows 10 Anniversary Update [build 14951](https://msdn.microsoft.com/en-us/commandline/wsl/release_notes#build-14951) and later.
+> **Updated for Fall Creators update.**  
+If you're running Creators Update or Anniversary Update, jump to the [Creators/Anniversary Update section](interop.md#Creators Update and Anniversary Update).
 
-Starting in Windows 10 Anniversary Update, the Windows Subsystem for Linux can invoke native Windows binaries from the Linux console and Linux binaries from a Windows console.
+Starting in Windows 10 Anniversary Update, the Windows Subsystem for Linux (WSL) can invoke Windows binaries from the Linux console and Linux binaries from a Windows console.
 
-This interoperability functionality delivers a seamless experience between Windows and WSL.  Technical details can be found on the [WSL blog](https://blogs.msdn.microsoft.com/wsl/2016/10/19/windows-and-ubuntu-interoperability/).  
+This delivers a seamless experience between Windows and WSL.  Technical details are on the [WSL blog](https://blogs.msdn.microsoft.com/wsl/2016/10/19/windows-and-ubuntu-interoperability/).
 
-## Invoking WSL from the Windows Command Line
-Linux binaries can be invoked from the Windows Command Prompt or from PowerShell.  Binaries invoked in this way have the following properties:
+## Run Linux tools from a Windows command line
 
-1. Use the same working directory as the CMD or PowerShell prompt.
-2. Run as the WSL default user.
-3. Have the same Windows administrative rights as the calling process and terminal.
+Run Linux binaries from the Windows Command Prompt (CMD or PowerShell) using `wsl.exe <command>`.
 
-Example:
+Binaries invoked in this way have the following properties:
+
+1. Use the same current working directory as the CMD or PowerShell prompt.
+1. Run as the WSL default user.
+1. Have the same Windows administrative rights as the calling process and terminal.
+
+For example:
 
 ``` CMD
-C:\temp>bash -c "ls -la"
+C:\temp> wsl ls -la
 total 916
 drwxrwxrwx 2 root root      0 Sep 28 08:45 .
 drwxrwxrwx 2 root root      0 Sep 27 07:33 ..
 -rwxrwxrwx 1 root root     14 Sep 27 14:26 foo.bat
 ```
 
-Linux commands called in this way are handled like any other Windows application.  Things such as input, piping, and file redirection work as expected.  
-
-Examples:
+Linux commands called in this way are handled like any other Windows application.  Things such as input, piping, and file redirection work as expected.
 
 ``` CMD
-C:\temp>bash -c "sudo apt-get update"
+C:\temp> wsl sudo apt-get update
 [sudo] password for username:
 Hit:1 http://archive.ubuntu.com/ubuntu xenial InRelease
 Get:2 http://security.ubuntu.com/ubuntu xenial-security InRelease [94.5 kB]
 ```
 
 ``` CMD
-C:\temp>bash -c "ls -la" | findstr foo
+C:\temp> wsl ls -la | findstr "foo"
 -rwxrwxrwx 1 root root     14 Sep 27 14:26 foo.bat
 C:\temp>dir | bash -c "grep foo"
 09/27/2016  02:26 PM                14 foo.bat
-C:\temp>bash -c "ls -la" > out.txt
+
+C:\temp> wsl ls -la > out.txt
 ```
 
-The WSL commands passed into `bash -c` are forwarded to the WSL process without modification.  File paths must be specified in the WSL format and care must be taken to escape relevant characters. Example:
+The commands passed into `wsl.exe` are forwarded to the WSL process without modification.  File paths must be specified in the WSL format.
+
+Example:
 
 ``` CMD
-C:\temp>bash -c "ls -la /proc/cpuinfo"
+C:\temp> wsl ls -la /proc/cpuinfo
 -r--r--r-- 1 root root 0 Sep 28 11:28 /proc/cpuinfo
 
-C:\temp>bash -c "ls -la \"/mnt/c/Program Files\"”
+C:\temp> wsl ls -la "/mnt/c/Program Files"
 <- contents of C:\Program Files ->
 ```
 
-## Invoking Windows binaries from WSL
-The Windows Subsystem for Linux can invoke Windows binaries directly from the WSL command line.  Applications run this way have the following properties:
+## Run Windows tools from WSL
 
-1. Retain the working directory as the WSL command prompt except in the scenario explained below. 
-2. Have the same permission rights as the `bash.exe` process. 
-3. Run as the active Windows user.
-4. Appear in the Windows Task Manager as if directly executed from the CMD prompt.  
+WSL can invoke Windows binaries directly from the WSL command line using `[binary name].exe`.  For example, `notepad.exe`.  To make Windows executables easier to run, Windows path is included in the Linux `$PATH` in Fall Creators Update.
+
+Applications run this way have the following properties:
+
+1. Retain the working directory as the WSL command prompt (for the most part -- exceptions are explained below).
+1. Have the same permission rights as the WSL process.
+1. Run as the active Windows user.
+1. Appear in the Windows Task Manager as if directly executed from the CMD prompt.
 
 Example:
 
 ``` BASH
-$/mnt/c/Windows/System32/notepad.exe
-```
-
-In WSL, these executables are handled similar to native Linux executables.  This means adding directories to the Linux path and piping between commands works as expected.  Examples:
-
-``` BASH
-$ export PATH=$PATH:/mnt/c/Windows/System32
 $ notepad.exe
-$ ipconfig.exe | grep IPv4 | cut -d: -f2
-$ ls -la | findstr.exe foo.txt
-$ cmd.exe /c dir
 ```
 
-The Windows binary must include the file extension, match the file case, and be executable.  Non-executables including batch scripts and command like `dir` can be run with `/mnt/c/Windows/System32/cmd.exe /C` command. Examples:
+Windows executables run in WSL are handled similarly to native Linux executables -- piping, redirects, and even backgrounding work as expected.
+
+Examples:
 
 ``` BASH
-$ /mnt/c/Windows/System32/cmd.exe /C dir
-$ /mnt/c/Windows/System32/PING.EXE www.microsoft.com
+$ ipconfig.exe | grep IPv4 | cut -d: -f2
+172.21.240.1
+10.159.21.24
+
+$ ls -la | findstr.exe foo.txt
+
+$ cmd.exe /c dir
+Volume in drive C is Local Disk
+Volume Serial Number is 4444-3333
+...
 ```
 
-Parameters are passed to the Windows binary unmodified.  
+Windows binaries must include the file extension, match the file case, and be executable.  Non-executables including batch scripts.  CMD native commands like `dir` can be run with `cmd.exe /C` command.
+
+Examples:
+
+``` BASH
+$ cmd.exe /C dir
+Volume in drive C is Local Disk
+Volume Serial Number is 4444-3333
+...
+
+$ PING.EXE www.microsoft.com
+Pinging e1863.dspb.akamaiedge.net [2600:1409:a:5a2::747] with 32 bytes of data:
+Reply from 2600:1409:a:5a2::747: time=2ms
+...
+```
+
+Parameters are passed to the Windows binary unmodified.
 
 As an example, the following commands will open `C:\temp\foo.txt` in `notepad.exe`:
 
 ``` BASH
-$notepad.exe “C:\temp\foo.txt”
-$notepad.exe C:\\temp\\foo.txt
+$ notepad.exe “C:\temp\foo.txt”
+$ notepad.exe C:\\temp\\foo.txt
 ```
 
-Modifying files located on VolFs (files not under `/mnt/<x>`) with a Windows application is not supported.  By default, WSL attempts to keep the working directory of the Windows binary as the current WSL directory, but will fall back on the instance creation directory if the working directory is on VolFs.
+Modifying files located on VolFs (files not under `/mnt/<x>`) with a Windows application in WSL is not supported.
 
-As an example; `bash.exe` is initially launched from `C:\temp` and the current WSL directory is changed to the user’s home.  When `notepad.exe` is called from the user’s home directory, WSL automatically reverts to `C:\temp` as the notepad.exe working directory:
+By default, WSL tries to keep the working directory of the Windows binary as the current WSL directory, but will fall back on the instance creation directory if the working directory is on VolFs.
+
+As an example; `wsl.exe` is initially launched from `C:\temp` and the current WSL directory is changed to the user’s home.  When `notepad.exe` is called from the user’s home directory, WSL automatically reverts to `C:\temp` as the notepad.exe working directory:
 
 ``` BASH
-C:\temp>bash
+C:\temp> wsl
 /mnt/c/temp/$ cd ~
 ~$ notepad.exe foo.txt
 ~$ ls | grep foo.txt
 ~$ exit
+
 exit
 C:\temp>dir | findstr foo.txt
 09/27/2016  02:15 PM                14 foo.txt
 ```
+
+## Disable Interop
 
 Users may disable the ability to run Windows binaries for a single WLS session by running the following command as root:  
 ``` BASH
@@ -130,4 +159,7 @@ To reenable Windows binaries either exit all WSL sessions and re-run bash.exe or
 $ echo 1 > /proc/sys/fs/binfmt_misc/WSLInterop
 ```
 
-Note that disabling interop will not persist between WSL sessions.
+Disabling interop will not persist between WSL sessions -- interop will be enabled again when a new session is launched.
+
+## Creators Update and Anniversary Update
+
