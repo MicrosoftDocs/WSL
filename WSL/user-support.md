@@ -133,7 +133,7 @@ A Bash session with Windows admin privileges may access `cd /mnt/c/Users/Adminis
 
 In Linux, typing `sudo cd /mnt/c/Users/Administrator` will not grant access to the Administrator’s directory since permissions within Windows are managed by Windows.
 
-The Linux permission model is important when inside the Ubuntu environment where the user has permissions based on the current Linux user.
+The Linux permission model is important when inside the Linux environment where the user has permissions based on the current Linux user.
 
 **Example:**  
 A user in the sudo group may run `sudo apt update`.
