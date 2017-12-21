@@ -157,7 +157,7 @@ C:\temp>dir | findstr foo.txt
 
 Prior to 17063, only Windows environment variable that WSL could access was `PATH` (so you could launch Win32 executables from under WSL).
 
-Starting in 17063, WSL and Windows share `WSLPATH`, a special environment variable created to bridge Windows and Linux distros running on WSL.
+Starting in 17063, WSL and Windows share `WSLENV`, a special environment variable created to bridge Windows and Linux distros running on WSL.
 
 Properties of `WSLENV`:
 
