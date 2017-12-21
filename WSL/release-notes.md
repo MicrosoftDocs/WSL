@@ -16,9 +16,10 @@ ms.assetid: 36ea641e-4d49-4881-84eb-a9ca85b1cdf4
 For general Windows information on build 17063 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/12/19/announcing-windows-10-insider-preview-build-17063-pc/).
 
 ### WSL
-* DrvFs supports additional Linux metadata. This allows setting the owner and mode of files using chmod/chown, and also the creation of special files such as fifos, unix sockets and device files.
-
-  This is disabled by default for now. To enable, mount DrvFs with the metadata option (to enable it on an existing mount, you must first unmount it):  
+* DrvFs supports additional Linux metadata. This allows setting the owner and mode of files using chmod/chown, and also the creation of special files such as fifos, unix sockets and device files. This is disabled by default for now since it's still experimental. 
+**Note:**  We fixed a bug in the metadata format used by DrvFs. While metadata works on this build for experimentation, future builds will not correctly read metadata created by this build.  You might need to manually update owner for modified files and devices with a custom device ID will have to be recreated.
+  
+  To enable, mount DrvFs with the metadata option (to enable it on an existing mount, you must first unmount it):  
   
   ``` bash
   mount -t drvfs C: /mnt/c -o metadata
