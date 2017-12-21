@@ -15,7 +15,11 @@ ms.assetid: 3cefe0db-7616-4848-a2b6-9296746a178b
 > **Updated for Fall Creators update.**  
 If you're running Creators Update or Anniversary Update, jump to the [Creators/Anniversary Update section](interop.md#creators-update-and-anniversary-update).
 
-Starting in Windows 10 Anniversary Update, the Windows Subsystem for Linux (WSL) can invoke Windows binaries from the Linux console and Linux binaries from a Windows console.
+The Windows Subsystem for Linux (WSL) is continuously improving integration between Windows and Linux.  You can:
+
+1. Invoke Windows binaries from the Linux console.
+1. Invoke Linux binaries from a Windows console.
+1. **Windows Insiders Builds 17063+** Share environment variables between Linux and Windows.
 
 This delivers a seamless experience between Windows and WSL.  Technical details are on the [WSL blog](https://blogs.msdn.microsoft.com/wsl/2016/10/19/windows-and-ubuntu-interoperability/).
 
@@ -23,9 +27,9 @@ This delivers a seamless experience between Windows and WSL.  Technical details 
 
 Run Linux binaries from the Windows Command Prompt (CMD or PowerShell) using `wsl.exe <command>`.
 
-Binaries invoked in this way have the following properties:
+Binaries invoked in this way:
 
-1. Use the same current working directory as the CMD or PowerShell prompt.
+1. Use the same working directory as the current CMD or PowerShell prompt.
 1. Run as the WSL default user.
 1. Have the same Windows administrative rights as the calling process and terminal.
 
@@ -33,13 +37,10 @@ For example:
 
 ``` CMD
 C:\temp> wsl ls -la
-total 916
-drwxrwxrwx 2 root root      0 Sep 28 08:45 .
-drwxrwxrwx 2 root root      0 Sep 27 07:33 ..
--rwxrwxrwx 1 root root     14 Sep 27 14:26 foo.bat
+<- contents of C:\temp ->
 ```
 
-Linux commands called in this way are handled like any other Windows application.  Things such as input, piping, and file redirection work as expected.
+The Linux command following `wsl.exe` is handled like any other Windows application.  Things such as input, piping, and file redirection work as expected.
 
 ``` CMD
 C:\temp> wsl sudo apt-get update
@@ -142,9 +143,35 @@ C:\temp>dir | findstr foo.txt
 09/27/2016  02:15 PM                14 foo.txt
 ```
 
+## Share environment variables between Windows and WSL
+
+> Available in Windows Insider builds 17063 and later.
+
+Enviornment variables are an important tool for developers in both Windows and Linux.  Prior to 17063, however, the only Windows environment variable that WSL had access to was `PATH` (so you could launch Win32 executables from under WSL). While that was useful, developers often need to share other environment variables.
+
+in 17063, we introduced an environmental variable for WSL named `WSLENV`.  It's interesting because it's a list defining which enviornment variables to share.
+
+WSLENV is shared; it exists in both Windows and WSL environments. A user sets the value of WSLENV to a concatenation of several other already-defined environment vars, each suffixed with a slash followed by flags to specify how the value should be translated.  
+
+An example definition could be something like this: 
+WSLENV=HOME/w:GOPATH/l:TMPDIR/p
+
+There are four flags you can use to influence how they’re translated. Let’s walk through each:  \
+
+* /p - translates the path between WSL paths and Win32 paths. Notice in the example below how we set the var in WSL, add it to WSLENV with the ‘/p’ flag, and then read the variable from cmd.exe and the path translates accordingly.
+
+* /l - This flag indicates the value is a list of paths. In WSL, it is a colon-delimited list. In Win32, it is a semicolon-delimited list. See in the example below how PATHLIST is appropriately converted to a semi-colon separated list.
+ 
+* /u - This flag indicates the value should only be included when invoking WSL from Win32. In the example below, we set FORWSL from cmd and it will show up in WSL.
+ 
+Notice how it does not convert the path automatically—we need to specify the /p flag to do this. We can combine flags and do just that:
+
+* /w - This flag indicates the value should only be included when invoking Win32 from WSL.
+
 ## Disable Interop
 
-Users may disable the ability to run Windows binaries for a single WLS session by running the following command as root:  
+Users may disable the ability to run Windows binaries for a single WLS session by running the following command as root:
+
 ``` BASH
 $ echo 0 > /proc/sys/fs/binfmt_misc/WSLInterop
 ```
