@@ -40,7 +40,9 @@ C:\temp> wsl ls -la
 <- contents of C:\temp ->
 ```
 
-The Linux command following `wsl.exe` is handled like any other Windows application.  Things such as input, piping, and file redirection work as expected.
+The Linux command following `wsl.exe` is handled like any command run in WSL.  Things such as sudo, piping, and file redirection work.
+
+Example using sudo:
 
 ``` CMD
 C:\temp> wsl sudo apt-get update
@@ -49,10 +51,13 @@ Hit:1 http://archive.ubuntu.com/ubuntu xenial InRelease
 Get:2 http://security.ubuntu.com/ubuntu xenial-security InRelease [94.5 kB]
 ```
 
+Examples mixing WSL and Windows commands:
+
 ``` CMD
 C:\temp> wsl ls -la | findstr "foo"
 -rwxrwxrwx 1 root root     14 Sep 27 14:26 foo.bat
-C:\temp>dir | bash -c "grep foo"
+
+C:\temp> dir | wsl grep foo
 09/27/2016  02:26 PM                14 foo.bat
 
 C:\temp> wsl ls -la > out.txt
@@ -60,7 +65,7 @@ C:\temp> wsl ls -la > out.txt
 
 The commands passed into `wsl.exe` are forwarded to the WSL process without modification.  File paths must be specified in the WSL format.
 
-Example:
+Example with paths:
 
 ``` CMD
 C:\temp> wsl ls -la /proc/cpuinfo
@@ -89,13 +94,17 @@ $ notepad.exe
 
 Windows executables run in WSL are handled similarly to native Linux executables -- piping, redirects, and even backgrounding work as expected.
 
-Examples:
+Examples using pipes:
 
 ``` BASH
 $ ipconfig.exe | grep IPv4 | cut -d: -f2
 172.21.240.1
 10.159.21.24
+```
 
+Example using mixed Windows and WSL commands:
+
+``` BASH
 $ ls -la | findstr.exe foo.txt
 
 $ cmd.exe /c dir
@@ -113,7 +122,6 @@ $ cmd.exe /C dir
 $ PING.EXE www.microsoft.com
 Pinging e1863.dspb.akamaiedge.net [2600:1409:a:5a2::747] with 32 bytes of data:
 Reply from 2600:1409:a:5a2::747: time=2ms
-...
 ```
 
 Parameters are passed to the Windows binary unmodified.
@@ -147,26 +155,26 @@ C:\temp>dir | findstr foo.txt
 
 > Available in Windows Insider builds 17063 and later.
 
-Enviornment variables are an important tool for developers in both Windows and Linux.  Prior to 17063, however, the only Windows environment variable that WSL had access to was `PATH` (so you could launch Win32 executables from under WSL). While that was useful, developers often need to share other environment variables.
+Prior to 17063, only Windows environment variable that WSL could access was `PATH` (so you could launch Win32 executables from under WSL).
 
-in 17063, we introduced an environmental variable for WSL named `WSLENV`.  It's interesting because it's a list defining which enviornment variables to share.
+Starting in 17063, WSL and Windows share `WSLPATH`, a special environment variable created to bridge Windows and Linux distros running on WSL.
 
-WSLENV is shared; it exists in both Windows and WSL environments. A user sets the value of WSLENV to a concatenation of several other already-defined environment vars, each suffixed with a slash followed by flags to specify how the value should be translated.  
+Properties of `WSLENV`:
 
-An example definition could be something like this: 
-WSLENV=HOME/w:GOPATH/l:TMPDIR/p
+* It is shared; it exists in both Windows and WSL environments.
+* It is a list of enviornment variables to share between Windows and WSL.
+* It can format environment variables to work well in Windows and WSL.
 
-There are four flags you can use to influence how they’re translated. Let’s walk through each:  \
+There are four flags available in `WSLENV` to influence how that environemnt variable is translated.
 
-* /p - translates the path between WSL paths and Win32 paths. Notice in the example below how we set the var in WSL, add it to WSLENV with the ‘/p’ flag, and then read the variable from cmd.exe and the path translates accordingly.
+`WSLENV` flags:
 
-* /l - This flag indicates the value is a list of paths. In WSL, it is a colon-delimited list. In Win32, it is a semicolon-delimited list. See in the example below how PATHLIST is appropriately converted to a semi-colon separated list.
- 
-* /u - This flag indicates the value should only be included when invoking WSL from Win32. In the example below, we set FORWSL from cmd and it will show up in WSL.
- 
-Notice how it does not convert the path automatically—we need to specify the /p flag to do this. We can combine flags and do just that:
+* `/p` - translates the path between WSL/Linux style paths and Win32 paths.
+* `/l` - indicates the environment variable is a list of paths.
+* `/u` - indicates that this enviornment variable should only be included when running WSL from Win32.
+* `/w` - indicates that this enviornment variable should only be included when running Win32 from WSL.
 
-* /w - This flag indicates the value should only be included when invoking Win32 from WSL.
+Flags can be combined as needed.
 
 ## Disable Interop
 
