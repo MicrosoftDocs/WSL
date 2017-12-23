@@ -13,6 +13,8 @@ ms.assetid: 82908295-a6bd-483c-a995-613674c2677e
 
 # Command Reference
 
+> `lxrun` and `bash.exe` and associated tools are deprecated in the Fall Creators Update.
+
 The command `lxrun.exe` can be used to interact with the [Windows Subsystem for Linux (WSL)](https://msdn.microsoft.com/en-us/commandline/wsl/faq#what-windows-subsystem-for-linux-wsl-) directly.  These commands are installed into the `\Windows\System32` directory and may be run within a Windows command prompt or in PowerShell.
 
 * `lxrun.exe` is used to manage WSL.  This command can be used to install or uninstall the Ubuntu image.
