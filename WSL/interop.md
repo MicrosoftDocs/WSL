@@ -12,7 +12,7 @@ ms.assetid: 3cefe0db-7616-4848-a2b6-9296746a178b
 
 # WSL interoperability with Windows
 
-> **Updated for Fall Creators update.**  
+> **Updated for Fall Creators Update.**  
 If you're running Creators Update or Anniversary Update, jump to the [Creators/Anniversary Update section](interop.md#creators-update-and-anniversary-update).
 
 The Windows Subsystem for Linux (WSL) is continuously improving integration between Windows and Linux.  You can:
@@ -129,7 +129,7 @@ Parameters are passed to the Windows binary unmodified.
 As an example, the following commands will open `C:\temp\foo.txt` in `notepad.exe`:
 
 ``` BASH
-$ notepad.exe “C:\temp\foo.txt”
+$ notepad.exe "C:\temp\foo.txt"
 $ notepad.exe C:\\temp\\foo.txt
 ```
 
@@ -162,17 +162,17 @@ Starting in 17063, WSL and Windows share `WSLENV`, a special environment variabl
 Properties of `WSLENV`:
 
 * It is shared; it exists in both Windows and WSL environments.
-* It is a list of enviornment variables to share between Windows and WSL.
+* It is a list of environment variables to share between Windows and WSL.
 * It can format environment variables to work well in Windows and WSL.
 
-There are four flags available in `WSLENV` to influence how that environemnt variable is translated.
+There are four flags available in `WSLENV` to influence how that environment variable is translated.
 
 `WSLENV` flags:
 
 * `/p` - translates the path between WSL/Linux style paths and Win32 paths.
 * `/l` - indicates the environment variable is a list of paths.
-* `/u` - indicates that this enviornment variable should only be included when running WSL from Win32.
-* `/w` - indicates that this enviornment variable should only be included when running Win32 from WSL.
+* `/u` - indicates that this environment variable should only be included when running WSL from Win32.
+* `/w` - indicates that this environment variable should only be included when running Win32 from WSL.
 
 Flags can be combined as needed.
 
