@@ -18,7 +18,7 @@ For general Windows information on build 17074 visit the [Windows Blog](https://
 ### WSL
 * Fixed storage format of DrvFs metadata [GH 2777] </br>
 **Important:** DrvFs metadata created before this build will show up incorrectly or not at all. To fix affected files, use chmod and chown to re-apply the metadata.
-* Syscall restart logic needs to be rechecked for every signal delivered before returning to user-mode
+* Fixed issue with multiple signals and restartable syscalls.
 
 ### Console
 * No fixes.
