@@ -34,7 +34,7 @@ You can:
 * [Read frequently asked questions](faq.md)
 
 ## Team Blogs
-* [Overview post with a collection of videos and blogs](https://blogs.msdn.microsoft.com/commandline/learn-about-bash-on-windows-subsystem-for-linux/)
+
 * [Command-Line blog](https://blogs.msdn.microsoft.com/commandline/)
 * [Windows Subsystem for Linux Blog](https://blogs.msdn.microsoft.com/wsl/)
 
