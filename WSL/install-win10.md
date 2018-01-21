@@ -24,11 +24,11 @@ Enable the "Windows Subsystem for Linux" optional feature and reboot.
 2. Restart your computer when prompted.
 
 ## Install your Linux Distribution of Choice
-### Fall Creators Update and later: Install from the Windows Store
+### Fall Creators Update and later: Install from the Microsoft Store
 
 > This section is for Windows build 16215 or later.  Follow these steps to [check your build](troubleshooting.md#check-your-build-number).  For earlier versions of Windows 10, follow [these instructions using lxrun](install-win10.md#for-anniversary-update-and-creators-update-install-using-lxrun).
 
-1. Open the Windows Store and choose your favorite Linux distribution.      
+1. Open the Microsoft Store and choose your favorite Linux distribution.      
     Here are links directly to the store installers:
     * [Ubuntu](https://www.microsoft.com/store/p/ubuntu/9nblggh4msv6)
     * [OpenSUSE](https://www.microsoft.com/store/apps/9njvjts82tjx)
@@ -44,7 +44,7 @@ Enable the "Windows Subsystem for Linux" optional feature and reboot.
     > ![](media/AppStorage.png)
     
 3. Once the download has completed, select "Launch".  
-    This will open a console window.  Wait for installation to complete then you will be prompted to create your UNIX user account.
+    This will open a console window.  Wait for installation to complete then you will be prompted to create your LINUX user account.
     ![](media/UbuntuInstall.png)
     
     > **Troubleshooting: Installation failed with error 0x8007007e**  
@@ -54,7 +54,7 @@ Enable the "Windows Subsystem for Linux" optional feature and reboot.
 
 
     
-5. Create your UNIX username and password.  This user account can be different from, and has no relationship to, your Windows username and password. [Read more](user-support.md).
+5. Create your LINUX username and password.  This user account has no relationship to your Windows username and password and hence can be different. [Read more](user-support.md).
 
 You're done!  Now you can use your Linux environment.
 
