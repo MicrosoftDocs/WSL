@@ -12,6 +12,48 @@ ms.assetid: 36ea641e-4d49-4881-84eb-a9ca85b1cdf4
 
 # Release Notes
 
+## Build 17093
+For general Windows information on build 17093 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2018/02/07/announcing-windows-10-insider-preview-build-17093-pc/).
+
+#### Important:
+When starting WSL for the first time after upgrading to this build, it needs to perform some work upgrading the Linux file system directories. This may take up to several minutes, so WSL may appear to start slowly. This should only happen once for each distribution you have installed from the store.
+* Improved case sensitivity support in DrvFs.
+    * DrvFs now supports per-directory case sensitivity. This is a new flag that can be set on directories to indicate all operations in those directories should be treated as case sensitive, which allows even Windows applications to correctly open files that differ only by case.
+    * DrvFs has new mount options controlling case sensitivity on a per-directory basis
+        * case=force: all directories are treated as case sensitive (except for the drive root). New directories created with WSL are marked as case sensitive. This is the legacy behavior except for marking new directories case sensitive.
+        * case=dir: only directories with the per-directory case sensitivity flag are treated as case sensitive; other directories are case insensitive. New directories created with WSL are marked as case sensitive.
+        * case=off: only directories with the per-directory case sensitivity flag are treated as case sensitive; other directories are case insensitive. New directories created with WSL are marked as case insensitive.
+    * Note: directories created by WSL in previous releases do not have this flag set, so will not be treated as case sensitive if you use the “case=dir” option. A way to set this flag on existing directories is coming soon.
+    * Example of mounting with these options (for existing drives, you must first unmount before you can mount with different options): sudo mount -t drvfs C: /mnt/c -o case=dir
+    * For now, case=force is still the default option. This will be changed to case=dir in the future.
+* You can now use forward slashes in Windows paths when mounting DrvFs, e.g.: sudo mount -t drvfs //server/share /mnt/share
+* WSL now processes the /etc/fstab file during instance start [GH 2636].
+    * This is done prior to automatically mounting DrvFs drives; any drives that were already mounted by fstab will not be remounted automatically, allowing you to change the mount point for specific drives.
+    * This behavior can be turned off using wsl.conf.
+* The mount, mountinfo and mountstats files in /proc properly escape special characters like backslashes and spaces [GH 2799]
+* Special files created with DrvFs such as WSL symbolic links, or fifos and sockets when metadata is enabled, can now be copied and moved from Windows.
+
+#### WSL is more configurable with wsl.conf
+We added a method for you to automatically configure certain functionality in WSL that will be applied every time you launch the subsystem. This includes automount options and network configuration. Learn more about it in our blog post at: https://aka.ms/wslconf
+ 
+#### AF_UNIX allows socket connections between Linux processes on WSL and Windows native processes
+WSL and Windows applications can now communicate with each other over Unix sockets. Imagine you want to run a service in Windows and make it available to both Windows and WSL apps. Now, that’s possible with Unix sockets. Read more in our blog post at https://aka.ms/afunixinterop
+
+### WSL
+* Support mmap() with MAP_NORESERVE [GH 121, 2784]
+* Support CLONE_PTRACE and CLONE_UNTRACED [GH 121, 2781]
+* Handle non-SIGCHLD termination signal in clone [GH 121, 2781]
+* Stub /proc/sys/fs/inotify/max_user_instances and /proc/sys/fs/inotify/max_user_watches [GH 1705]
+* Error loading ELF binaries that contain load headers with non-zero offsets [GH 1884]
+* Zero out trailing page bytes when loading images.
+* Reduce cases where execve silently terminates process
+
+### Console
+* No fixes.
+
+### LTP Results:
+Testing in progress.
+
 ## Build 17083
 For general Windows information on build 17083 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2018/01/24/announcing-windows-10-insider-preview-build-17083-for-pc/).
 
