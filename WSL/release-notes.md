@@ -12,6 +12,34 @@ ms.assetid: 36ea641e-4d49-4881-84eb-a9ca85b1cdf4
 
 # Release Notes
 
+## Build 17083
+For general Windows information on build 17083 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2018/01/24/announcing-windows-10-insider-preview-build-17083-for-pc/).
+
+### WSL
+* Fixed bugcheck related to epoll [GH 2798, 2801, 2857]
+* Fixed hangs when turning off ASLR [GH 1185, 2870]
+* Ensure mmap operations appear atomic [GH 2732]
+
+### Console
+* No fixes.
+
+### LTP Results:
+Testing in progress.
+
+## Build 17074
+For general Windows information on build 17074 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2018/01/11/announcing-windows-10-insider-preview-build-17074-pc/).
+
+### WSL
+* Fixed storage format of DrvFs metadata [GH 2777] </br>
+**Important:** DrvFs metadata created before this build will show up incorrectly or not at all. To fix affected files, use chmod and chown to re-apply the metadata.
+* Fixed issue with multiple signals and restartable syscalls.
+
+### Console
+* No fixes.
+
+### LTP Results:
+Testing in progress.
+
 ## Build 17063
 For general Windows information on build 17063 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/12/19/announcing-windows-10-insider-preview-build-17063-pc/).
 
