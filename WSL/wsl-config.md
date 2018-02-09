@@ -92,7 +92,7 @@ Here is a sample `wsl.conf` file you could add into your distros:
 [automount]
 enabled = true
 root = /windir/
-options = “metadata,umask=22,fmask=11”
+options = "metadata,umask=22,fmask=11"
 mountFsTab = false
 
 # Enable DNS – even though these are turned on by default, we’ll specify here just to be explicit.
