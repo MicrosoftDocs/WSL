@@ -21,7 +21,7 @@ For general Windows information on build 17101 visit the [Windows Blog](https://
 * Auto mount will fallback to read-only when write is not supported. [GH 2603]
 * Allow pasting of Unicode surrogate pairs (like emoji characters). [GH 2765]
 * Pseudo-files in /proc and /sys should return read and write ready from select, poll, epoll, et al. [GH 2838]
-* Fix issue that could cause service to go into infinite loop when the registry has been tampered with or is corrupt. [GH 2939]
+* Fix issue that could cause service to go into infinite loop when the registry has been tampered with or is corrupt.
 * Fix netlink messages to work with newer (upstream 4.14) version of iproute2.
 
 ### Console
