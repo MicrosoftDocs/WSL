@@ -12,6 +12,23 @@ ms.assetid: 36ea641e-4d49-4881-84eb-a9ca85b1cdf4
 
 # Release Notes
 
+## Build 17107
+For general Windows information on build 17107 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2018/02/23/announcing-windows-10-insider-preview-build-17107-fast-ring/).
+
+### WSL
+* Support TCSETSF and TCSETSW on master pty endpoints [GH 2552].
+* Starting simultaneous interop processes can result in EINVAL [GH 2813].
+* Fix PTRACE_ATTACH to show proper tracing status in /proc/pid/status.
+* Fix race where short-lived processes cloned with both the CLEARTID and SETTID flags could exit without clearing the TID address.
+* Display a message when upgrading the Linux file system directories
+when moving from a pre-17093 build. For more details on the 17093 file system changes, see the release notes for [17093](https://github.com/MicrosoftDocs/WSL/blob/live/WSL/release-notes.md#build-17093).
+
+### Console
+* No fixes.
+
+### LTP Results:
+Testing in progress.
+
 ## Build 17101
 For general Windows information on build 17101 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2018/02/14/announcing-windows-10-insider-preview-build-17101-fast-build-17604-skip-ahead/).
 
