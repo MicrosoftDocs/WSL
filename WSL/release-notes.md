@@ -12,6 +12,22 @@ ms.assetid: 36ea641e-4d49-4881-84eb-a9ca85b1cdf4
 
 # Release Notes
 
+## Build 17110
+For general Windows information on build 17110 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2018/02/27/announcing-windows-10-insider-preview-build-17110-fast/).
+
+### WSL
+* Allow /init to be terminated from Windows [GH 2928].
+* DrvFs now uses per-directory case sensitivity by default (equivalent to the “case=dir” mount option).
+    * Using “case=force” (the old behavior) requires setting a registry key. Run the following command to enable “case=force” if you need to use it: reg add HKLM\SYSTEM\CurrentControlSet\Services\lxss /v DrvFsAllowForceCaseSensitivity /t REG_DWORD /d 1
+    * If you have existing directories created with WSL in older version of Windows which need to be case sensitive, use fsutil.exe to mark them as case sensitive: fsutil.exe file setcasesensitiveinfo <path> enable
+* NULL terminate strings returned from the uname syscall.
+
+### Console
+* No fixes.
+
+### LTP Results:
+Testing in progress.
+
 ## Build 17107
 For general Windows information on build 17107 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2018/02/23/announcing-windows-10-insider-preview-build-17107-fast-ring/).
 
