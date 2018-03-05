@@ -22,7 +22,7 @@ Each Linux distribution running on the Windows Subsystem for Linux has its own L
 
 ## Resetting your Linux password
 
-If you have access to your Linux user account and know your current password, change it using Linux password reset tools that distribution -- most likely `passwd`.
+If you have access to your Linux user account and know your current password, change it using Linux password reset tools of that distribution -- most likely `passwd`.
 
 If that's not an option, depending on the distribution, you may be able to reset your password by resetting the default user.
 
