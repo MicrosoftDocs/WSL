@@ -12,6 +12,19 @@ ms.assetid: 36ea641e-4d49-4881-84eb-a9ca85b1cdf4
 
 # Release Notes
 
+## Build 17618
+For general Windows information on build 17618 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2018/03/07/announcing-windows-10-insider-preview-build-17618-skip-ahead/).
+
+### WSL
+* Indroduce pseudoconsole functionality for NT interop [GH 988, 1366, 1433, 1542, 2370, 2406].
+* The legacy install mechanism (lxrun.exe) has been deprecated. The supported mechanism for installing distributions is through the Microsoft Store.
+
+### Console
+* No fixes.
+
+### LTP Results:
+Testing in progress.
+
 ## Build 17110
 For general Windows information on build 17110 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2018/02/27/announcing-windows-10-insider-preview-build-17110-fast/).
 
