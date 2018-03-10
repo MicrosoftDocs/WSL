@@ -1,3 +1,4 @@
+
 ---
 title: Install the Linux Subsystem on Windows 10
 description: Installation instructions for the Linux Subsystem on Windows 10.
@@ -33,7 +34,8 @@ Enable the "Windows Subsystem for Linux" optional feature and reboot.
     * [Ubuntu](https://www.microsoft.com/store/p/ubuntu/9nblggh4msv6)
     * [OpenSUSE](https://www.microsoft.com/store/apps/9njvjts82tjx)
     * [SLES](https://www.microsoft.com/store/apps/9p32mwbh6cns)
-
+    * [Debian](https://www.microsoft.com/en-us/store/p/debian-gnu-linux/9msvkqc78pk6)
+    
     ![](media/UbuntuStore.png)
 
 2. Select "Get"
