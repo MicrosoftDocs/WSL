@@ -33,6 +33,7 @@ Enable the "Windows Subsystem for Linux" optional feature and reboot.
     * [Ubuntu](https://www.microsoft.com/store/p/ubuntu/9nblggh4msv6)
     * [OpenSUSE](https://www.microsoft.com/store/apps/9njvjts82tjx)
     * [SLES](https://www.microsoft.com/store/apps/9p32mwbh6cns)
+    * [Debian GNU/Linux](https://www.microsoft.com/store/productId/9MSVKQC78PK6)
 
     ![](media/UbuntuStore.png)
 
