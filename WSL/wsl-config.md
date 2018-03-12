@@ -34,11 +34,7 @@ Running a distribution using it's distro-specific application launches that dist
 It is the same as clicking "Launch" in the Windows Store.  
 ![](media/store-launch.png)
 
-You can also run the distribution from the command line by running:
-
-```
-[distribution].exe
-```
+You can also run the distribution from the command line by running `[distribution].exe`.
 
 The disadvantage of running a distribution from the command line in this way is that it will automatically change your working directory from the current directory to the distribution's home directory.
 
