@@ -61,7 +61,8 @@ PS C:\Users\sarah>
 
 The best way to run WSL from the command line is using `wsl.exe`.
 
-**Example:**  
+**Example:**
+
 ```
 PS C:\Users\sarah> pwd
 
@@ -77,7 +78,8 @@ scooley@scooley-elmer:/mnt/c/Users/sarah$ pwd
 
 Not only does `wsl` keep the current working directory in place, it lets you run a single command along side Windows commands.
 
-**Example:**  
+**Example:**
+
 ```
 PS C:\Users\sarah> Get-Date
 
@@ -93,7 +95,8 @@ PS C:\Users\sarah> wsl date
 Sun Mar 11 19:55:47 DST 2018
 ```
 
-**Example:**  
+**Example:**
+
 ```
 PS C:\Users\sarah> Get-VM
 
