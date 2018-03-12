@@ -13,7 +13,108 @@ ms.assetid: 7ca59bd7-d9d3-4f6d-8b92-b8faa9bcf250
 
 # Manage and configure WSL
 
-> Applies to Windows 10 Fall Creators Update and later.  See our updated [installation guide](./install_guide.md) to try new management features and start running multiple Linux distros from the Windows Store.
+> Applies to Windows 10 Fall Creators Update and later.  See our updated [installation guide](./install_guide.md) to try new management features and start running multiple Linux distributions from the Windows Store.
+
+## Ways to run WSL
+
+There are many ways to run Linux with the Windows Subsystem for Linux.
+
+1. `[distro]` ie `ubuntu`
+1. `wsl.exe` or `bash.exe`
+1. `wsl [command]` or `bash -c [command]`
+
+Which method you should use depends on what you're doing.
+
+### Launch WSL by distribution
+
+Running a distribution using it's distro-specific application launches that distribution in it's own console window.
+
+![Launch WSL from Start menu](media/start-launch.png)
+
+It is the same as clicking "Launch" in the Windows Store.
+
+![Launch WSL from the Windows Store](media/store-launch.png)
+
+You can also run the distribution from the command line by running `[distribution].exe`.
+
+The disadvantage of running a distribution from the command line in this way is that it will automatically change your working directory from the current directory to the distribution's home directory.
+
+**Example:**
+
+```
+PS C:\Users\sarah> pwd
+
+Path
+----
+C:\Users\sarah
+
+PS C:\Users\sarah> ubuntu
+
+scooley@scooley-elmer:~$ pwd
+/home/scooley
+scooley@scooley-elmer:~$ exit
+logout
+
+PS C:\Users\sarah>
+```
+
+### wsl and wsl [command]
+
+The best way to run WSL from the command line is using `wsl.exe`.
+
+**Example:**
+
+```
+PS C:\Users\sarah> pwd
+
+Path
+----
+C:\Users\sarah
+
+PS C:\Users\sarah> wsl
+
+scooley@scooley-elmer:/mnt/c/Users/sarah$ pwd
+/mnt/c/Users/sarah
+```
+
+Not only does `wsl` keep the current working directory in place, it lets you run a single command along side Windows commands.
+
+**Example:**
+
+```
+PS C:\Users\sarah> Get-Date
+
+Sunday, March 11, 2018 7:54:05 PM
+
+PS C:\Users\sarah> wsl
+scooley@scooley-elmer:/mnt/c/Users/sarah$ date
+Sun Mar 11 19:56:57 DST 2018
+scooley@scooley-elmer:/mnt/c/Users/sarah$ exit
+logout
+
+PS C:\Users\sarah> wsl date
+Sun Mar 11 19:55:47 DST 2018
+```
+
+**Example:**
+
+```
+PS C:\Users\sarah> Get-VM
+
+Name            State CPUUsage(%) MemoryAssigned(M) Uptime   Status
+----            ----- ----------- ----------------- ------   ------
+Server17093     Off   0           0                 00:00:00 Opera...
+Ubuntu          Off   0           0                 00:00:00 Opera...
+Ubuntu (bionic) Off   0           0                 00:00:00 Opera...
+Windows         Off   0           0                 00:00:00 Opera...
+
+
+PS C:\Users\sarah> Get-VM | wsl grep "Ubuntu"
+Ubuntu          Off   0           0                 00:00:00 Opera...
+Ubuntu (bionic) Off   0           0                 00:00:00 Opera...
+PS C:\Users\sarah>
+```
+
 
 ## Managing multiple Linux Distributions
 
@@ -45,19 +146,14 @@ Lists all distributions, including ones that aren't currently usable.  They may 
 
 ### Set a default distribution
 
-There are three ways to launch and run WSL:
+The default WSL distribution is the one that runs when you run `wsl` on a command line.
 
-1. `wsl.exe` or `bash.exe`
-1. `wsl [command]` or `bash -c [command]`
-1. `[distro]` ie `ubuntu` -- this is the same as launching the installed app from the Windows menu.
+`wslconfig /setdefault <DistributionName>`
 
-In the first two cases, WSL must pick a distribution to run - a default distribution.  If you don't explicitly set a default, it will be the first one installed. Please note that when appending a command and invoking via 'wsl', you don't append a '-c' for the command.
-
-`wslconfig /setdefault <DistributionName>`  
 Sets the default distribution to `<DistributionName>`.
 
-For example:
-`wslconfig /setdefault Ubuntu` would set my default distribution to Ubuntu.  Now when I run `wsl -c npm init` it will run in Ubuntu.  If I run `wsl` it will open an Ubuntu session.
+**Example:**  
+`wslconfig /setdefault Ubuntu` would set my default distribution to Ubuntu.  Now when I run `wsl npm init` it will run in Ubuntu.  If I run `wsl` it will open an Ubuntu session.
 
 ### Unregister and reinstall a distribution
 
