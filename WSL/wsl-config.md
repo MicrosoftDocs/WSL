@@ -15,6 +15,24 @@ ms.assetid: 7ca59bd7-d9d3-4f6d-8b92-b8faa9bcf250
 
 > Applies to Windows 10 Fall Creators Update and later.  See our updated [installation guide](./install_guide.md) to try new management features and start running multiple Linux distros from the Windows Store.
 
+## Ways to run WSL
+
+There are many ways to run Linux with the Windows Subsystem for Linux.
+
+1. `[distro]` ie `ubuntu`
+1. `wsl.exe` or `bash.exe`
+1. `wsl [command]` or `bash -c [command]`
+
+Which method you should use depends on what you're doing.
+
+### Launch WSL by distribution
+
+### wsl
+
+### wsl [command]
+
+
+
 ## Managing multiple Linux Distributions
 
 WSL Config (`wslconfig.exe`) is a command-line tool for managing Linux distributions running on the Windows Subsystem for Linux (WSL).  It lets you list available distributions, set a default distribution, and uninstall distributions.
@@ -45,19 +63,14 @@ Lists all distributions, including ones that aren't currently usable.  They may 
 
 ### Set a default distribution
 
-There are three ways to launch and run WSL:
+The default WSL distribution is the one that runs when you run `wsl` on a command line.
 
-1. `wsl.exe` or `bash.exe`
-1. `wsl [command]` or `bash -c [command]`
-1. `[distro]` ie `ubuntu` -- this is the same as launching the installed app from the Windows menu.
+`wslconfig /setdefault <DistributionName>`
 
-In the first two cases, WSL must pick a distribution to run - a default distribution.  If you don't explicitly set a default, it will be the first one installed. Please note that when appending a command and invoking via 'wsl', you don't append a '-c' for the command.
-
-`wslconfig /setdefault <DistributionName>`  
 Sets the default distribution to `<DistributionName>`.
 
-For example:
-`wslconfig /setdefault Ubuntu` would set my default distribution to Ubuntu.  Now when I run `wsl -c npm init` it will run in Ubuntu.  If I run `wsl` it will open an Ubuntu session.
+**Example:**  
+`wslconfig /setdefault Ubuntu` would set my default distribution to Ubuntu.  Now when I run `wsl npm init` it will run in Ubuntu.  If I run `wsl` it will open an Ubuntu session.
 
 ### Unregister and reinstall a distribution
 
