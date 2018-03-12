@@ -29,10 +29,11 @@ Which method you should use depends on what you're doing.
 
 Running a distribution using it's distro-specific application launches that distribution in it's own console window.
 
-![](media/start-launch.png)
+![Launch WSL from Start menu](media/start-launch.png)
 
-It is the same as clicking "Launch" in the Windows Store.  
-![](media/store-launch.png)
+It is the same as clicking "Launch" in the Windows Store.
+
+![Launch WSL from the Windows Store](media/store-launch.png)
 
 You can also run the distribution from the command line by running `[distribution].exe`.
 
