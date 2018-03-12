@@ -13,7 +13,7 @@ ms.assetid: 7ca59bd7-d9d3-4f6d-8b92-b8faa9bcf250
 
 # Manage and configure WSL
 
-> Applies to Windows 10 Fall Creators Update and later.  See our updated [installation guide](./install_guide.md) to try new management features and start running multiple Linux distros from the Windows Store.
+> Applies to Windows 10 Fall Creators Update and later.  See our updated [installation guide](./install_guide.md) to try new management features and start running multiple Linux distributions from the Windows Store.
 
 ## Ways to run WSL
 
@@ -27,10 +27,89 @@ Which method you should use depends on what you're doing.
 
 ### Launch WSL by distribution
 
-### wsl
+Running a distribution using it's distro-specific application launches that distribution in it's own console window.
 
-### wsl [command]
+![](media/start-launch.png)
 
+It is the same as clicking "Launch" in the Windows Store.  
+![](media/store-launch.png)
+
+You can also run the distribution from the command line by running:  
+```[distribution].exe```
+
+The disadvantage of running a distribution from the command line in this way is that it will automatically change your working directory from the current directory to the distribution's home directory.
+
+**Example:**  
+```
+PS C:\Users\sarah> pwd
+
+Path
+----
+C:\Users\sarah
+
+PS C:\Users\sarah> ubuntu
+
+scooley@scooley-elmer:~$ pwd
+/home/scooley
+scooley@scooley-elmer:~$ exit
+logout
+
+PS C:\Users\sarah>
+```
+
+### wsl and wsl [command]
+
+The best way to run WSL from the command line is using `wsl.exe`.
+
+**Example:**  
+```
+PS C:\Users\sarah> pwd
+
+Path
+----
+C:\Users\sarah
+
+PS C:\Users\sarah> wsl
+
+scooley@scooley-elmer:/mnt/c/Users/sarah$ pwd
+/mnt/c/Users/sarah
+```
+
+Not only does `wsl` keep the current working directory in place, it lets you run a single command along side Windows commands.
+
+**Example:**  
+```
+PS C:\Users\sarah> Get-Date
+
+Sunday, March 11, 2018 7:54:05 PM
+
+PS C:\Users\sarah> wsl
+scooley@scooley-elmer:/mnt/c/Users/sarah$ date
+Sun Mar 11 19:56:57 DST 2018
+scooley@scooley-elmer:/mnt/c/Users/sarah$ exit
+logout
+
+PS C:\Users\sarah> wsl date
+Sun Mar 11 19:55:47 DST 2018
+```
+
+**Example:**  
+```
+PS C:\Users\sarah> Get-VM
+
+Name            State CPUUsage(%) MemoryAssigned(M) Uptime   Status
+----            ----- ----------- ----------------- ------   ------
+Server17093     Off   0           0                 00:00:00 Opera...
+Ubuntu          Off   0           0                 00:00:00 Opera...
+Ubuntu (bionic) Off   0           0                 00:00:00 Opera...
+Windows         Off   0           0                 00:00:00 Opera...
+
+
+PS C:\Users\sarah> Get-VM | wsl grep "Ubuntu"
+Ubuntu          Off   0           0                 00:00:00 Opera...
+Ubuntu (bionic) Off   0           0                 00:00:00 Opera...
+PS C:\Users\sarah>
+```
 
 
 ## Managing multiple Linux Distributions
