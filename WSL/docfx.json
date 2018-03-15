@@ -32,7 +32,10 @@
     "externalReference": [],
     "globalMetadata": {
       "breadcrumb_path": "/windows/wsl/breadcrumb/toc.json",
-      "extendBreadcrumb": true
+      "extendBreadcrumb": true,
+      "feedback_system": "GitHub",
+      "feedback_github_repo": "MicrosoftDocs/WSL",
+      "feedback_product_url": "https://github.com/Microsoft/WSL/issues"
     },
     "fileMetadata": {},
     "template": [],
