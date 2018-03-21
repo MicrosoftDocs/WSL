@@ -12,6 +12,26 @@ ms.assetid: 36ea641e-4d49-4881-84eb-a9ca85b1cdf4
 
 # Release Notes
 
+## Build 17627
+For general Windows information on build 17627 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2018/03/21/announcing-windows-10-insider-preview-build-17627-for-skip-ahead/).
+
+### WSL
+* Add support for the futex pi-aware operations. [GH 1006]
+    * Note that priorities are not currently a supported WSL feature so there are limitations, but standard usage should be unblocked.
+* Windows firewall support for WSL processes. [GH 1852]
+    * For example, to allow the WSL python process to listen on any port, use the elevated Windows cmd:
+```netsh.exe advfirewall firewall add rule name=wsl_python dir=in action=allow program="C:\users\<username>\appdata\local\packages\canonicalgrouplimited.ubuntuonwindows_79rhkp1fndgsc\localstate\rootfs\usr\bin\python2.7" enable=yes```
+    * For additional details on how to add firewall rules, see [link](https://support.microsoft.com/en-us/help/947709/how-to-use-the-netsh-advfirewall-firewall-context-instead-of-the-netsh)
+* Respect user's default shell when using wsl.exe. [GH 2372]
+* Report all network interfaces as ethernet. [GH 2996]
+* Better handling of corrupt /etc/passwd file. [GH 3001]
+
+### Console
+* No fixes.
+
+### LTP Results:
+Testing in progress.
+
 ## Build 17618
 For general Windows information on build 17618 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2018/03/07/announcing-windows-10-insider-preview-build-17618-skip-ahead/).
 
