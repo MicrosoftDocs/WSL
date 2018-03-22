@@ -96,26 +96,6 @@ PS C:\Users\sarah> wsl date
 Sun Mar 11 19:55:47 DST 2018
 ```
 
-**Example:**
-
-```
-PS C:\Users\sarah> Get-VM
-
-Name            State CPUUsage(%) MemoryAssigned(M) Uptime   Status
-----            ----- ----------- ----------------- ------   ------
-Server17093     Off   0           0                 00:00:00 Opera...
-Ubuntu          Off   0           0                 00:00:00 Opera...
-Ubuntu (bionic) Off   0           0                 00:00:00 Opera...
-Windows         Off   0           0                 00:00:00 Opera...
-
-
-PS C:\Users\sarah> Get-VM | wsl grep "Ubuntu"
-Ubuntu          Off   0           0                 00:00:00 Opera...
-Ubuntu (bionic) Off   0           0                 00:00:00 Opera...
-PS C:\Users\sarah>
-```
-
-
 ## Managing multiple Linux Distributions
 
 WSL Config (`wslconfig.exe`) is a command-line tool for managing Linux distributions running on the Windows Subsystem for Linux (WSL).  It lets you list available distributions, set a default distribution, and uninstall distributions.
