@@ -12,7 +12,19 @@ ms.assetid: 36ea641e-4d49-4881-84eb-a9ca85b1cdf4
 
 # Release Notes
 
-## Build 17627
+## Build 17133 (Fast)
+For general Windows information on build 17133 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2018/03/27/announcing-windows-10-insider-preview-build-17133-for-fast/).
+
+### WSL
+* Fix for hang in WSL (from NT MM). [GH 3039, 3034]
+
+## Build 17128 (Fast)
+For general Windows information on build 17133 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2018/03/23/announcing-windows-10-insider-preview-build-17128-for-fast/).
+
+### WSL
+* None
+
+## Build 17627 (Skip Ahead)
 For general Windows information on build 17627 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2018/03/21/announcing-windows-10-insider-preview-build-17627-for-skip-ahead/).
 
 ### WSL
@@ -32,7 +44,7 @@ For general Windows information on build 17627 visit the [Windows Blog](https://
 ### LTP Results:
 Testing in progress.
 
-## Build 17618
+## Build 17618 (Skip Ahead)
 For general Windows information on build 17618 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2018/03/07/announcing-windows-10-insider-preview-build-17618-skip-ahead/).
 
 ### WSL
@@ -170,16 +182,16 @@ Testing in progress.
 For general Windows information on build 17063 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/12/19/announcing-windows-10-insider-preview-build-17063-pc/).
 
 ### WSL
-* DrvFs supports additional Linux metadata. This allows setting the owner and mode of files using chmod/chown, and also the creation of special files such as fifos, unix sockets and device files. This is disabled by default for now since it's still experimental. 
+* DrvFs supports additional Linux metadata. This allows setting the owner and mode of files using chmod/chown, and also the creation of special files such as fifos, unix sockets and device files. This is disabled by default for now since it's still experimental.
 **Note:**  We fixed a bug in the metadata format used by DrvFs. While metadata works on this build for experimentation, future builds will not correctly read metadata created by this build.  You might need to manually update owner for modified files and devices with a custom device ID will have to be recreated.
-  
-  To enable, mount DrvFs with the metadata option (to enable it on an existing mount, you must first unmount it):  
-  
+
+  To enable, mount DrvFs with the metadata option (to enable it on an existing mount, you must first unmount it):
+
   ``` bash
   mount -t drvfs C: /mnt/c -o metadata
   ```
-  
-  Linux permissions are added as additional metadata to the file; they do not affect the Windows permissions.  Remember, editing a file using a Windows editor may remove the metadata. In this case, the file will revert to its default permissions. 
+
+  Linux permissions are added as additional metadata to the file; they do not affect the Windows permissions.  Remember, editing a file using a Windows editor may remove the metadata. In this case, the file will revert to its default permissions.
 
 * Added mount options to DrvFs to control files without metadata.
   * uid: the user ID used for the owner of all files.
@@ -192,17 +204,17 @@ For general Windows information on build 17063 visit the [Windows Blog](https://
   ```
   mount -t drvfs C: /mnt/c -o uid=1000,gid=1000,umask=22,fmask=111
   ```
-  
+
   Combine with the metadata option to specify default permissions for files without metadata.
 
-* Introduced a new environment variable, `WSLENV`, to configure how environment variables flow between WSL and Win32. 
-  
+* Introduced a new environment variable, `WSLENV`, to configure how environment variables flow between WSL and Win32.
+
   For example:
-  
+
   ``` bash
-  WSLENV=GOPATH/l:USERPROFILE/pu:DISPLAY 
+  WSLENV=GOPATH/l:USERPROFILE/pu:DISPLAY
   ```
-  
+
   `WSLENV` is a colon-delimited list of environment variables that can be included when launching WSL processes from Win32 or Win32 processes from WSL.  Each variable can be suffixed with a slash followed by flags to specify how it is translated.
   * p: The value is a path that should be translated between WSL paths and Win32 paths.
   * l: The value is a list of paths. In WSL, it is a colon-delimited list. In Win32, it is a semicolon-delimited list.
@@ -224,15 +236,15 @@ For general Windows information on build 17063 visit the [Windows Blog](https://
 * Notify ptrace of unimplemented syscalls.
 * Ignore interfaces that are not up when generating resolv.conf nameservers [GH 2694]
 * Enumerate network interfaces with no physical address. [GH 2685]
-* Additional bug fixes and improvements. 
+* Additional bug fixes and improvements.
 
 ### Linux tools available to developers on Windows
 
-* Windows Command line Toolchain includes bsdtar (tar) and curl.  
+* Windows Command line Toolchain includes bsdtar (tar) and curl.
   Read [this blog](https://aka.ms/tarcurlwindows) to learn more about the addition of these two new tools and see how they’re shaping the developer experience on Windows.
 
-*	`AF_UNIX` is available in the Windows Insider SDK (17061+). 
-  Read [this blog](https://blogs.msdn.microsoft.com/commandline/2017/12/19/af_unix-comes-to-windows/) to learn more about `AF_UNIX` and how developers on Windows can use it. 
+*	`AF_UNIX` is available in the Windows Insider SDK (17061+).
+  Read [this blog](https://blogs.msdn.microsoft.com/commandline/2017/12/19/af_unix-comes-to-windows/) to learn more about `AF_UNIX` and how developers on Windows can use it.
 
 ### Console
 * No fixes.
@@ -326,7 +338,7 @@ Testing in progress.
 ## Build 17017
 
 For general Windows information on build 17017 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/10/13/announcing-windows-10-insider-preview-build-17017-pc).<br/>
- 
+
 
 ### Fixed
 #### WSL
@@ -354,7 +366,7 @@ Testing in progress.
 ## Build 16288
 
 For general Windows information on build 16288 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/09/12/announcing-windows-10-insider-preview-build-16288-pc-build-15250-mobile/#7pLWQbj23JisfzV5.97/).<br/>
- 
+
 
 ### Fixed
 #### WSL
@@ -370,7 +382,7 @@ No change since 16273
 ## Build 16278
 
 For general Windows information on build 162738 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/08/29/announcing-windows-10-insider-preview-build-16278-pc/#HMz6Xq7Su68WKi0t.97/).<br/>
- 
+
 
 ### Fixed
 #### WSL
@@ -386,7 +398,7 @@ No change since 16273
 ## Build 16275
 
 For general Windows information on build 162735 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/08/25/announcing-windows-10-insider-preview-build-16275-pc-build-15245-mobile/#8QkxWqQbY37yZslV.97/).<br/>
- 
+
 
 ### Fixed
 #### WSL
@@ -401,7 +413,7 @@ No change since 16273
 ## Build 16273
 
 For general Windows information on build 16273 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/08/23/announcing-windows-10-insider-preview-build-16273-pc/).<br/>
- 
+
 
 ### Fixed
 #### WSL
@@ -435,7 +447,7 @@ Total Failures: 229<br/>
 ## Build 16257
 
 For general Windows information on build 16257 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/08/02/announcing-windows-10-insider-preview-build-16257-pc-build-15237-mobile/).<br/>
- 
+
 
 ### Fixed
 #### WSL
@@ -453,7 +465,7 @@ For general Windows information on build 16257 visit the [Windows Blog](https://
 #### Console
 - Fix for horizontal Lines/Underscores Everywhere [GH 2168]
 - Fix for process order changed making NPM harder to close [GH 2170]
-- Added our new color scheme: https://blogs.msdn.microsoft.com/commandline/2017/08/02/updating-the-windows-console-colors/ 
+- Added our new color scheme: https://blogs.msdn.microsoft.com/commandline/2017/08/02/updating-the-windows-console-colors/
 
 ### LTP Results:
 No change since 16251
@@ -465,7 +477,7 @@ Below are a list of new or enhanced syscalls that have some implementation in WS
 
 ### Known Issues
 #### [GitHub Issue 2392: Windows Folders not recognized by WSL ...](https://github.com/Microsoft/BashOnWindows/issues/2392)
-In build 16257, WSL has issues when enumerating Windows files/folders via `/mnt/c/...`. 
+In build 16257, WSL has issues when enumerating Windows files/folders via `/mnt/c/...`.
 This issue has been fixed and should be released in Insiders build during week commencing 8/14/2017.
 
 <br/>
@@ -473,7 +485,7 @@ This issue has been fixed and should be released in Insiders build during week c
 ## Build 16251
 
 For general Windows information on build 16251 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/07/26/announcing-windows-10-insider-preview-build-16251-pc-build-15235-mobile/).<br/>
- 
+
 
 ### Fixed
 #### WSL
@@ -498,7 +510,7 @@ Number of Skipped Tests: 96</br>
 ## Build 16241
 
 For general Windows information on build 16241 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/07/13/announcing-windows-10-insider-preview-build-16241-pc-build-15230-mobile/).<br/>
- 
+
 
 ### Fixed
 #### WSL
@@ -523,9 +535,9 @@ For general Windows information on build 16241 visit the [Windows Blog](https://
 ## Build 16237
 
 For general Windows information on build 16237 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/07/07/announcing-windows-10-insider-preview-build-16237-pc/).<br/>
- 
 
-### Fixed 
+
+### Fixed
 - Use default attributes for files without EAs in lxfs (root, root, 0000)
 - Added support for distributions that use extended attributes
 - Fix padding for entries returned by getdents and getdents64
@@ -543,9 +555,9 @@ For general Windows information on build 16237 visit the [Windows Blog](https://
 ## Build 16232
 
 For general Windows information on build 16232 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/06/28/announcing-windows-10-insider-preview-build-16232-pc-build-15228-mobile/).<br/>
- 
 
-### Fixed 
+
+### Fixed
 - No WSL related changes in this release.
 
 </br>
@@ -553,9 +565,9 @@ For general Windows information on build 16232 visit the [Windows Blog](https://
 ## Build 16226
 
 For general Windows information on build 16226 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/06/21/announcing-windows-10-insider-preview-build-16226-pc/).<br/>
- 
 
-### Fixed 
+
+### Fixed
 - xattr related syscalls support (getxattr, setxattr, listxattr, removexattr).
 - security.capablity xattr support.
 - Improved compatibility with certain file systems and filters, including non-MS SMB servers. [GH #1952]
@@ -567,9 +579,9 @@ For general Windows information on build 16226 visit the [Windows Blog](https://
 ## Build 16215
 
 For general Windows information on build 16215 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/06/08/announcing-windows-10-insider-preview-build-16215-pc-build-15222-mobile/).<br/>
- 
 
-### Fixed 
+
+### Fixed
 - WSL no longer requires developer mode.
 - Support directory junctions in drvfs.
 - Handle uninstalling of WSL distribution appx packages.
@@ -584,9 +596,9 @@ For general Windows information on build 16215 visit the [Windows Blog](https://
 ## Build 16199
 
 For general Windows information on build 16199 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/05/17/announcing-windows-10-insider-preview-build-16199-pc-build-15215-mobile/).<br/>
- 
 
-### Fixed 
+
+### Fixed
 - No WSL related changes in these releases.
 
 </br>
@@ -594,38 +606,38 @@ For general Windows information on build 16199 visit the [Windows Blog](https://
 ## Build 16193
 
 For general Windows information on build 16193 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/05/11/announcing-windows-10-insider-preview-build-16193-pc-build-15213-mobile/).<br/>
- 
 
-### Fixed 
+
+### Fixed
 - Race condition between sending SIGCONT and a threadgroup terminating [GH 1973]
 - change tty and pty devices to report FILE_DEVICE_NAMED_PIPE instead of FILE_DEVICE_CONSOLE [GH 1840]
 - SSH fix for IP_OPTIONS
 - Moved DrvFs mounting to init daemon [GH 1862, 1968, 1767, 1933]
-- Added support in DrvFs for following NT symlinks. 
+- Added support in DrvFs for following NT symlinks.
 
 </br>
 
 ## Build 16184
 
 For general Windows information on build 16184 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/04/28/announcing-windows-10-insider-preview-build-16184-pc-build-15208-mobile/).<br/>
- 
 
-### Fixed 
+
+### Fixed
 - Removed apt package maintenance task (lxrun.exe /update)
-- Fixed output not showing up in from Windows processes in node.js [GH 1840] 
-- Relax alignment requirements in lxcore [GH 1794] 
+- Fixed output not showing up in from Windows processes in node.js [GH 1840]
+- Relax alignment requirements in lxcore [GH 1794]
 - Fixed handling of the AT_EMPTY_PATH flag in a numer of system calls.
-- Fixed issue where deleting DrvFs files with open handles will cause the file to exhibit undefined behavior [GH 544,966,1357,1535,1615] 
-- /etc/hosts will now inherit entries from the Windows hosts file (%windir%\system32\drivers\etc\hosts) [GH 1495] 
+- Fixed issue where deleting DrvFs files with open handles will cause the file to exhibit undefined behavior [GH 544,966,1357,1535,1615]
+- /etc/hosts will now inherit entries from the Windows hosts file (%windir%\system32\drivers\etc\hosts) [GH 1495]
 
 </br>
 
 ## Build 16179
 
 For general Windows information on build 16179 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/04/19/announcing-windows-10-insider-preview-build-16179-pc-build-15205-mobile/).<br/>
- 
 
-### Fixed 
+
+### Fixed
 - No WSL changes this week.
 
 </br>
@@ -633,7 +645,7 @@ For general Windows information on build 16179 visit the [Windows Blog](https://
 ## Build 16176
 
 For general Windows information on build 16176 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/04/14/announcing-windows-10-insider-preview-build-16176-pc-build-15204-mobile/).<br/>
- 
+
 
 ### Fixed
 
@@ -660,14 +672,14 @@ No changes since 15042
 ## Build 16170
 
 For general Windows information on build 16170 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/04/07/announcing-windows-10-insider-preview-build-16170-pc/).<br/>
- 
+
 We released a new [blog post](https://blogs.msdn.microsoft.com/wsl/2017/04/11/testing-the-windows-subsystem-for-linux/) discussing our efforts to test WSL.
 
 ### Fixed
 
 - Support socket option IP_ADD_MEMBERSHIP & IPV6_ADD_MEMBERSHIP [GH 1678]
-- Add support for PTRACE_OLDSETOPTIONS. [GH 1692] 
-- Additional fixes and improvements 
+- Add support for PTRACE_OLDSETOPTIONS. [GH 1692]
+- Additional fixes and improvements
 
 ### LTP Results
 No changes since 15042
@@ -681,7 +693,7 @@ There are no more WSL fixes or features planned for inclusion in the Creators Up
 ## Build 15042
 
 For general Windows information on build 15042 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/02/24/announcing-windows-10-insider-preview-build-15042-pc-build-15043-mobile/).<br/>
- 
+
 
 ### Fixed
 
@@ -690,18 +702,18 @@ For general Windows information on build 15042 visit the [Windows Blog](https://
 - Fixed issue with zero-length reads of inet datagram sockets
 - Fix possible deadlock due to race condition in drvfs inode lookup [GH 1675]
 - Extended support for unix socket ancillary data; SCM_CREDENTIALS and SCM_RIGHTS [GH 514, 613, 1326]
-- Additional fixes and improvements 
+- Additional fixes and improvements
 
 ### LTP Results:
 Number of Passing Test: 737</br>
-Number of non-Passing (failing, skipped, etc…): 255 
+Number of non-Passing (failing, skipped, etc…): 255
 
 </br>
 
 ## Build 15031
 
 For general Windows information on build 15031 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/02/08/announcing-windows-10-insider-preview-build-15031-pc/).<br/>
- 
+
 
 ### Fixed
 
@@ -712,7 +724,7 @@ For general Windows information on build 15031 visit the [Windows Blog](https://
 - Fixed bug where ptys would hang after heavy tmux IO. [GH 1358]
 - Fixed timeout validation in many system calls (futex, semtimedop, ppoll, sigtimedwait, itimer, timer_create)
 - Added eventfd EFD_SEMAPHORE support [GH 452]
-- Additional fixes and improvements 
+- Additional fixes and improvements
 
 ### LTP Results:
 Number of Passing Test: 737</br>
@@ -724,7 +736,7 @@ Number of non-Passing (failing, skipped, etc…): 255 </br>
 ## Build 15025
 
 For general Windows information on build 15025 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/02/01/announcing-windows-10-insider-preview-build-15025-pc/).<br/>
- 
+
 
 ### Fixed
 
@@ -742,7 +754,7 @@ For general Windows information on build 15025 visit the [Windows Blog](https://
 - Changes to increase the preformace of drvfs
 - Minor fix for Ruby IO blocking
 - Fixed recvmsg() returning EINVAL for the MSG_DONTWAIT flag for inet sockets [GH 1296]
-- Additional fixes and improvements 
+- Additional fixes and improvements
 
 ### LTP Results:
 Number of Passing Test: 732</br>
@@ -754,7 +766,7 @@ Number of non-Passing (failing, skipped, etc…): 255 </br>
 ## Build 15019
 
 For general Windows information on build 15019 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/01/27/announcing-windows-10-insider-preview-build-15019-pc/).<br/>
- 
+
 
 ### Fixed
 
@@ -774,12 +786,12 @@ Number of non-Passing (failing, skipped, etc…): 249 </br>
 <br/>
 
 ## Build 15014
- 
+
 For general Windows information on build 15014 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/01/19/announcing-windows-10-insider-preview-build-15014-for-pc-and-mobile-hello-windows-insiders-today-we-are-excited-to-be-releasing-windows-10-insider-preview-build-15014-for-pc-and-mobile).<br/>
- 
- 
+
+
 ### Fixed
- 
+
 - Ctrl+C now works as intended
 - htop and ps auxw now show correct resource utilization (GH #516)
 - Basic translation of NT exceptions to signals. (GH #513)
@@ -787,9 +799,9 @@ For general Windows information on build 15014 visit the [Windows Blog](https://
 - Added /proc/sys/kernel/sem.
 - Implemented semop and semtimedop system calls
 - Fixed nslookup errors with IP_RECVTOS & IPV6_RECVTCLASS socket option (GH 69)
-- Support for socket options IP_RECVTTL and IPV6_RECVHOPLIMIT 
+- Support for socket options IP_RECVTTL and IPV6_RECVHOPLIMIT
 - Additional fixes and improvements
- 
+
 ### LTP Results:
 Number of Passing Test: 709 </br>
 Number of non-Passing (failing, skipped, etc…): 255 </br>
@@ -805,24 +817,24 @@ Total Unimplemented: 127 </br>
 <br/>
 
 ## Build 15007
- 
+
 For general Windows information on build 15007 visit the [Windows Blog]( https://blogs.windows.com/windowsexperience/2017/01/12/announcing-windows-10-insider-preview-build-15007-pc-mobile).<br/>
- 
- 
+
+
 ### Known Issue
- 
-- There is a known bug where the console does not recognize some Ctrl + <key> input.  This includes the ctrl-c command which will act as a normal ‘c’ keypress. 
- 
+
+- There is a known bug where the console does not recognize some Ctrl + <key> input.  This includes the ctrl-c command which will act as a normal ‘c’ keypress.
+
   - Workaround: Map an alternate key to Ctrl+C. For example, to map Ctrl+K to Ctrl+C do:
 `stty intr \^k`.  This mapping is per terminal and will have to be done *every* time bash is launched. Users can explore the option to include this in their `.bashrc`
- 
+
 ### Fixed
- 
+
 - Corrected the issue where running WSL would consume 100% of a CPU core
 - Socket option IP_PKTINFO, IPV6_RECVPKTINFO now supported. (GH #851, 987)
 - Truncate network interface physical address to 16 bytes in lxcore (GH #1452, 1414, 1343, 468, 308)
 - Additional fixes and improvements
- 
+
 ### LTP Results:
 Number of Passing Test: 709 </br>
 Number of non-Passing (failing, skipped, etc…): 255 </br>
@@ -833,20 +845,20 @@ Number of non-Passing (failing, skipped, etc…): 255 </br>
 ## Build 15002
 
 For general Windows information on build 15002 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/01/09/announcing-windows-10-insider-preview-build-15002-pc/).<br/>
- 
+
 
 ### Known Issue
 
 Two known issues:
-- There is a known bug where the console does not recognize some Ctrl + <key> input.  This includes the ctrl-c command which will act as a normal ‘c’ keypress. 
+- There is a known bug where the console does not recognize some Ctrl + <key> input.  This includes the ctrl-c command which will act as a normal ‘c’ keypress.
 
   - Workaround: Map an alternate key to Ctrl+C. For example, to map Ctrl+K to Ctrl+C do:
 `stty intr \^k`.  This mapping is per terminal and will have to be done *every* time bash is launched. Users can explore the option to include this in their `.bashrc`
 
-- While WSL is running a system thread will consume 100% of a CPU core.  The root cause has been addressed and fixed internally. 
+- While WSL is running a system thread will consume 100% of a CPU core.  The root cause has been addressed and fixed internally.
 
 ### Fixed
- 
+
 - All bash sessions must now be created at the same permission level.  Attempting to start a session at a different level will be blocked.  This means admin and non-admin consoles cannot run at the same time. (GH #626)
 <br/>
 - Implemented the following NETLINK_ROUTE messages (requires Windows admin)
@@ -901,7 +913,7 @@ Below are a list of new or enhanced syscalls that have some implementation in WS
 ## Build 14986
 
 For general Windows information on build 14986 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2016/12/07/announcing-windows-10-insider-preview-build-14986-pc/).<br/>
- 
+
 
 ### Fixed
 
@@ -936,7 +948,7 @@ Below are a list of new or enhanced syscalls that have some implementation in WS
 ## Build 14971
 
 For general Windows information on build 14971 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2016/11/17/announcing-windows-10-insider-preview-build-14971-for-pc/).<br/>
- 
+
 
 ### Fixed
 
@@ -953,7 +965,7 @@ Number of non-Passing (failing, skipped, etc…): 263 </br>
 ## Build 14965
 
 For general Windows information on build 14965 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2016/11/09/announcing-windows-10-insider-preview-build-14965-for-mobile-and-pc/).<br/>
- 
+
 
 ### Fixed
 
@@ -990,12 +1002,12 @@ Number of non-Passing (failing, skipped, etc…): 263 </br>
 ## Build 14959
 
 For general Windows information on build 14959 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2016/11/03/announcing-windows-10-insider-preview-build-14959-for-mobile-and-pc/#iI82GufJxMF3POU1.97).<br/>
- 
+
 
 ### Fixed
 
 - Improved Pico Process notification for Windows.  Additional information found on the [WSL Blog](https://blogs.msdn.microsoft.com/wsl/2016/11/01/wsl-antivirus-and-firewall-compatibility/).
-- Improved stability with Windows interoperability 
+- Improved stability with Windows interoperability
 - Fixed error 0x80070057 when launching bash.exe when Enterprise Data Protection (EDP) is enabled
 - Additional bugfixes and improvements
 
@@ -1009,7 +1021,7 @@ Number of non-Passing (failing, skipped, etc…): 263 </br>
 ## Build 14955
 
 For general Windows information on build 14955 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2016/10/25/announcing-windows-10-insider-preview-build-14955-for-mobile-and-pc/#guGXQzKVFrZIDUYR.97).<br/>
- 
+
 
 ### Fixed
 
@@ -1025,11 +1037,11 @@ Number of non-Passing (failing, skipped, etc…): 263 </br>
 ## Build 14951
 
 For general Windows information on build 14951 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2016/10/19/announcing-windows-10-insider-preview-build-14951-for-mobile-and-pc/).<br/>
- 
+
 
 ### New Feature: Windows / Ubuntu Interoperability
 Windows binaries can now be invoked directly from the WSL command line.  This gives users the ability to interact with their Windows environment and system in a way that has not been possible.  As a quick example, it is now possible for users to run the following commands:
-	
+
 	```
 	$ export PATH=$PATH:/mnt/c/Windows/System32
 	$ notepad.exe
@@ -1037,7 +1049,7 @@ Windows binaries can now be invoked directly from the WSL command line.  This gi
 	$ ls -la | findstr.exe foo.txt
 	$ cmd.exe /c dir
 	```
-	
+
 More information can be found at:
 
 - [WSL Team Blog for Interop](https://blogs.msdn.microsoft.com/wsl/2016/10/19/windows-and-ubuntu-interoperability/)<br/>
@@ -1062,7 +1074,7 @@ Number of non-Passing (failing, skipped, etc…): 263 </br>
 ## Build 14946
 
 For general Windows information on build 14946 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2016/10/13/announcing-windows-10-insider-preview-build-14946-for-pc-and-mobile/#xj8GdVooEqo4H7H7.97).<br/>
- 
+
 
 ### Fixed
 
@@ -1086,7 +1098,7 @@ Number of non-Passing (failing, skipped, etc…): 263 </br>
 ## Build 14942
 
 For general Windows information on build 14942 visit the [Windows Blog](https://aka.ms/onefourninefourtwoooooo).<br/>
- 
+
 
 ### Fixed
 
@@ -1112,7 +1124,7 @@ Below are a list of new or enhanced syscalls that have some implementation in WS
 ## Build 14936
 
 For general Windows information on build 14936 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2016/09/28/announcing-windows-10-insider-preview-build-14936-for-pc/).<br/>
- 
+
 
 Note: WSL will install Ubuntu version 16.04 (Xenial) instead of Ubuntu 14.04 (Trusty) in an upcoming release.  This change will apply to Insiders installing new instances (lxrun.exe /install or first run of bash.exe).  Existing instances with Trusty will not be upgraded automatically. Users can upgrade their Trusty image to Xenial using the do-release-upgrade command.
 
@@ -1148,7 +1160,7 @@ Below are a list of new or enhanced syscalls that have some implementation in WS
 ## Build 14931
 
 For general Windows information on build 14931 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2016/09/21/announcing-windows-10-insider-preview-build-14931-for-pc/).<br/>
- 
+
 
 ### Fixed
 
@@ -1159,20 +1171,20 @@ For general Windows information on build 14931 visit the [Windows Blog](https://
 ## Build 14926
 
 For general Windows information on build 14926 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2016/09/14/announcing-windows-10-insider-preview-build-14926-for-pc-and-mobile/).<br/>
- 
+
 
 ### Fixed
 
 - Ping now works in consoles which do not have administrator privileges
 - Ping6 now supported, also without administrator privileges
-- Inotify support for files modified through WSL. (GH #216)  
+- Inotify support for files modified through WSL. (GH #216)
   - Flags supported:
     - inotify_init1: LX_O_CLOEXEC, LX_O_NONBLOCK
     - inotify_add_watch events: LX_IN_ACCESS, LX_IN_MODIFY, LX_IN_ATTRIB, LX_IN_CLOSE_WRITE, LX_IN_CLOSE_NOWRITE, LX_IN_OPEN, LX_IN_MOVED_FROM, LX_IN_MOVED_TO, LX_IN_CREATE, LX_IN_DELETE, LX_IN_DELETE_SELF, LX_IN_MOVE_SELF
     - inotify_add_watch attributes: LX_IN_DONT_FOLLOW, LX_IN_EXCL_UNLINK, LX_IN_MASK_ADD, LX_IN_ONESHOT, LX_IN_ONLYDIR
     - read output: LX_IN_ISDIR, LX_IN_IGNORED
   - Known issue: Modifying files from Windows applications does not generate any events
-- Unix socket now supports SCM_CREDENTIALS 
+- Unix socket now supports SCM_CREDENTIALS
 
 ### LTP Results:
 Number of Passing Test: 651 </br>
@@ -1184,7 +1196,7 @@ Number of non-Passing (failing, skipped, etc…): 258 </br>
 ## Build 14915
 
 For general Windows information on build 14915 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2016/08/31/announcing-windows-10-insider-preview-build-14915-for-pc-and-mobile).<br/>
- 
+
 
 ### Fixed
 -  Socketpair for unix datagram sockets (GH #262)
@@ -1194,9 +1206,9 @@ For general Windows information on build 14915 visit the [Windows Blog](https://
 - Adding support for unix datagram socket send, recv and shutdown
 - Fix bugcheck due to invalid mmap parameter validation for non-fixed addresses. (GH #847)
 - Support for suspend / resume of terminal states
-- Support for TIOCPKT ioctl to unblock the Screen utility (GH #774) 
+- Support for TIOCPKT ioctl to unblock the Screen utility (GH #774)
 	- Known issue: Function keys not operational
-- Corrected a race in TimerFd that could cause a freed member 'ReaderReady' to be accessed by LxpTimerFdWorkerRoutine (GH #814)		 
+- Corrected a race in TimerFd that could cause a freed member 'ReaderReady' to be accessed by LxpTimerFdWorkerRoutine (GH #814)
 - Enable restartable system call support for futex, poll, and clock_nanosleep
 - Added bind mount support
 - unshare for mount namespace support
@@ -1208,7 +1220,7 @@ For general Windows information on build 14915 visit the [Windows Blog](https://
 ## Build 14905
 
 For general Windows information on build 14905 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2016/08/17/announcing-windows-10-insider-preview-build-14905-for-pc-mobile/).<br/>
- 
+
 
 ### Fixed
 - Restartable system calls are now supported (GH #349, GH #520)
@@ -1223,7 +1235,7 @@ For general Windows information on build 14905 visit the [Windows Blog](https://
 First Insider build for the post Windows 10 Anniversary Update release.
 
 For general Windows information on build 14901 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2016/08/11/announcing-windows-10-insider-preview-build-14901-for-pc/).<br/>
- 
+
 
 ### Fixed
 - Fixed trailing slash issue
@@ -1237,7 +1249,7 @@ For general Windows information on build 14901 visit the [Windows Blog](https://
 - Implement MSG_CMSG_CLOEXEC unix socket receive message flag
 - Linux process stdin/stdout pipe redirection (GH #2)
 	- Allows for piping of bash -c commands in CMD.  Example:  >dir | bash -c "grep foo"
-- Bash can now be installed on systems with multiple pagefiles (GH #538, #358) 
+- Bash can now be installed on systems with multiple pagefiles (GH #538, #358)
 - Default INET Socket buffer size should match that of default Ubuntu setup
 - Align xattr syscalls to listxattr
 - Only return interfaces with a valid IPv4 address from SIOCGIFCONF
@@ -1246,7 +1258,7 @@ For general Windows information on build 14901 visit the [Windows Blog](https://
 - Use machine context register values when restoring context in sigreturn
 	- This resolves the issue where java and javac were hanging for some users
 - Implement /proc/sys/kernel/hostname
- 
+
 ### Syscall Support
 Below are a list of new or enhanced syscalls that have some implementation in WSL. The syscalls on this list are supported in at least one scenario, but may not have all parameters supported at this time.
 
@@ -1257,7 +1269,7 @@ Below are a list of new or enhanced syscalls that have some implementation in WS
 
 ## Build 14388 to Windows 10 Anniversary Update
 For general Windows information on build 14388 visit the [Windows Blog](https://aka.ms/14388wip). <br/>
- 
+
 ### Fixed
 - Fixes to prepare for the Windows 10 Anniversary Update on 8/2
   - More information about WSL in the Anniversary Update can be found on our [blog](https://blogs.msdn.microsoft.com/wsl/)
@@ -1266,7 +1278,7 @@ For general Windows information on build 14388 visit the [Windows Blog](https://
 
 ## Build 14376
 For general Windows information on build 14376 visit the [Windows Blog] (https://blogs.windows.com/windowsexperience/2016/06/28/announcing-windows-10-insider-preview-build-14376-for-pc-and-mobile/). <br/>
- 
+
 ### Fixed
 - Removed some instances where apt-get hangs (GH #493)
 - Fixed an issue where empty mounts were not handled correctly
@@ -1281,7 +1293,7 @@ For general Windows information on build 14376 visit the [Windows Blog] (https:/
 
 ## Build 14371
 For general Windows information on build 14371 visit the [Windows Blog] (https://blogs.windows.com/windowsexperience/2016/06/22/announcing-windows-10-insider-preview-build-14371-for-pc/). <br/>
- 
+
 ### Fixed
 - Corrected timing race with SIGCHLD and wait() when using ptrace
 - Corrected some behavior when paths have a trailing /  (GH #432)
@@ -1292,7 +1304,7 @@ For general Windows information on build 14371 visit the [Windows Blog] (https:/
 
 ## Build 14366
 For general Windows information on build 14366 visit the [Windows Blog] (https://blogs.windows.com/windowsexperience/2016/06/14/announcing-windows-10-insider-preview-build-14366-mobile-build-14364/). <br/>
- 
+
 ###Fixed
 - Fix in file creation through symlinks
 -	Added listxattr for Python (GH 385)
@@ -1306,7 +1318,7 @@ For general Windows information on build 14366 visit the [Windows Blog] (https:/
 
 ## Build 14361
 For general Windows information on build 14361 visit the [Windows Blog](http://aka.ms/wip14361). <br/>
- 
+
 ### Fixed
 - DrvFs is now case sensitive when running in Bash on Ubuntu on Windows.
   - Users may case.txt and CASE.TXT on their /mnt/c drives
@@ -1351,7 +1363,7 @@ Below are a list of new or enhanced syscalls that have some implementation in WS
 
 ## Build 14352
 For general Windows information on build 14352 visit the [Windows Blog](http://aka.ms/wip14352).<br/>
- 
+
 
 ### Fixed
 - Fixed issue where large files were not downloaded / created correctly.  This should unblock npm and other scenarios (GH #3, GH #313)
@@ -1366,7 +1378,7 @@ For general Windows information on build 14352 visit the [Windows Blog](http://a
 - Updated format of resolv.conf to match native Ubuntu format
 - Some procfs cleanup
 - Enabled ping for Administrator consoles (GH #18)
- 
+
 ### Syscall Support
 Below are a list of new or enhanced syscalls that have some implementation in WSL. The syscalls on this list are supported in at least one scenario, but may not have all parameters supported at this time.
 
@@ -1378,7 +1390,7 @@ Below are a list of new or enhanced syscalls that have some implementation in WS
 
 ## Build 14342
 For general Windows information on build 14342 the [Windows Blog](http://aka.ms/wip14342). <br/>
- 
+
 Information on VolFs and DriveFs can be found on the [WSL Blog](https://blogs.msdn.microsoft.com/wsl). <br/>
 
 ### Fixed
@@ -1425,11 +1437,11 @@ Below are a list of new or enhanced syscalls that have some implementation in WS
 ## Build 14332
 
 For general Windows information on build 14332 visit the [Windows Blog](http://aka.ms/wip14332). <br/>
- 
+
 
 ### Fixed
 - Better resolv.conf generation including prioritizing DNS entries
-- Issue with moving files and directories between /mnt and non-/mnt drives 
+- Issue with moving files and directories between /mnt and non-/mnt drives
 - Tar files can now be created with symlinks
 - Added default /run/lock directory on instance creation
 - Update /dev/null to return proper stat info
@@ -1446,7 +1458,7 @@ Below is the new syscall that has some implementation in WSL. The syscall on thi
 ## Build 14328
 
 For general Windows information on build 14332 visit the [Windows Blog](http://aka.ms/wip14328). <br/>
- 
+
 
 ### New Features
 * Now support Linux users.  Installing Bash on Ubuntu on Windows will prompt for creation of a Linux user.  For more information, visit http://aka.ms/wslusers
