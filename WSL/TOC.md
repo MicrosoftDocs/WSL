@@ -4,6 +4,7 @@
 # [User accounts and permissions](./user-support.md)
 # [Distro management](./wsl-config.md)
 # [Interoperability](./interop.md)
+# [Build a Custom Distro](./build-custom-distro.md)
 # [Frequently Asked Questions](./faq.md)
 # [Troubleshooting](./troubleshooting.md)
 # [Release Notes](./release-notes.md)
