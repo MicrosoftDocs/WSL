@@ -16,7 +16,7 @@ ms.assetid: 36ea641e-4d49-4881-84eb-a9ca85b1cdf4
 For general Windows information on build 17133 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2018/03/27/announcing-windows-10-insider-preview-build-17133-for-fast/).
 
 ### WSL
-* Fix for hang in WSL (from NT MM). [GH 3039, 3034]
+* Fix for hang in WSL. [GH 3039, 3034]
 
 ## Build 17128 (Fast)
 For general Windows information on build 17133 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2018/03/23/announcing-windows-10-insider-preview-build-17128-for-fast/).
