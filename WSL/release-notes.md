@@ -18,7 +18,7 @@ For general Windows information on build 17639 visit the [Windows Blog](https://
 ### WSL
 * Change default gid and mode of serial devices to match native [GH 3042]
 * DrvFs now supports extended attributes.
-  Note: DrvFs has some limitations on the name of extended attributes. In particular, some characters (like '//', ':' and '*') are not allowed, and extended attribute names are not case sensitive on DrvFs
+  Note: DrvFs has some limitations on the name of extended attributes. In particular, some characters (like '/', ':' and '\*') are not allowed, and extended attribute names are not case sensitive on DrvFs
 
 ## Build 17133 (Fast)
 For general Windows information on build 17133 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2018/03/27/announcing-windows-10-insider-preview-build-17133-for-fast/).
