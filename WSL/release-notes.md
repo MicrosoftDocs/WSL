@@ -12,6 +12,14 @@ ms.assetid: 36ea641e-4d49-4881-84eb-a9ca85b1cdf4
 
 # Release Notes
 
+## Build 17655 (Skip Ahead)
+For general Windows information on build 17655 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2018/04/25/announcing-windows-10-insider-preview-build-17655-for-skip-ahead/).
+
+### WSL
+* Limited support for dmesg. Applications can now log to dmesg. WSL driver logs limited information to dmesg. In future, this can be extended to carry other information/diagnostics from the driver.
+    * Note: dmesg is currently supported through the `/dev/kmsg` device interface. `syslog` sycall interface is not yet supported. And, so, some of the `dmesg` command line options such as `-S`, `-C` don't work.
+* Fixed an issue where multithreaded operations could return ENOENT even though the file exists. [GH 2712]
+
 ## Build 17639 (Skip Ahead)
 For general Windows information on build 17639 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2018/04/04/announcing-windows-10-insider-preview-build-17639-for-skip-ahead/).
 
