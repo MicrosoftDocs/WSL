@@ -12,6 +12,19 @@ ms.assetid: 36ea641e-4d49-4881-84eb-a9ca85b1cdf4
 
 # Release Notes
 
+## Build 17666
+For general Windows information on build 17666 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2018/05/09/announcing-windows-10-insider-preview-build-17666/).
+
+### WSL
+#### WARNING: There is an issue preventing WSL from running on some AMD chipsets [GH 3134]. A fix is ready and making its way to the Insider Build branch.
+* Add explorer context menu to launch WSL [GH 437, 603, 1836]. To use hold shift and right-click when in an explorer window.
+* Fix unix socket non-blocking behavior [GH 2822, 3100]
+* Fix hanging NETLINK command as reported in GH 2026.
+* Add support for mount propagation flags [GH 2911].
+* Fix issue with truncate not causing inotify events [GH 2978].
+* Add –exec option for wsl.exe to invoke a single binary without a shell.
+* Add –distribution option for wsl.exe to select a specific distro.
+
 ## Build 17655 (Skip Ahead)
 For general Windows information on build 17655 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2018/04/25/announcing-windows-10-insider-preview-build-17655-for-skip-ahead/).
 
