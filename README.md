@@ -5,14 +5,14 @@ If you find doc issues / errors or have an improvement you'd like to suggest, pl
 
 > **Note:** This repo's issue tracker is only for reporting issues with the WSL docs.
 > Other related issue repo's:
-> * WSL: https://github.com/Microsoft/BashOnWindows/
+> * WSL: https://github.com/Microsoft/WSL/
 > * Windows Console: https://github.com/Microsoft/Console/
 
 ## External Links
 
-[Rendered documentation website](https://msdn.microsoft.com/commandline) 
+[Rendered documentation website](https://docs.microsoft.com/windows/wsl/) 
 
-[Release notes for WSL](https://msdn.microsoft.com/en-us/commandline/wsl/release_notes)
+[Release notes for WSL](https://docs.microsoft.com/en-us/windows/wsl/release-notes)
 
 ## Microsoft Open Source Code of Conduct
 

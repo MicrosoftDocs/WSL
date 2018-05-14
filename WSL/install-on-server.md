@@ -15,7 +15,7 @@ ms.assetid: 9281ffa2-4fa9-4078-bf6f-b51c967617e3
 
 > Applies to Windows Server 1709 and later
 
-At //Build2017, Microsoft announced that Windows Subsystem for Linux will be [available on Windows Server](https://blogs.technet.microsoft.com/hybridcloud/2017/05/10/windows-server-for-developers-news-from-microsoft-build-2017/).  These instructions walk through running on the Windows Subsystem for Linux on Windows Server 1709 and later.
+At //Build2017, Microsoft announced that Windows Subsystem for Linux will be [available on Windows Server](https://blogs.technet.microsoft.com/hybridcloud/2017/05/10/windows-server-for-developers-news-from-microsoft-build-2017/).  These instructions walk through running the Windows Subsystem for Linux on Windows Server 1709 and later.
 
 ## Enable the Windows Subsystem for Linux
 
@@ -23,7 +23,6 @@ Enable the "Windows Subsystem for Linux" optional feature and reboot.
 
 1. Open PowerShell as Administrator and run:
     ``` PowerShell
-    PowerShell
     Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
     ```
 
@@ -38,10 +37,9 @@ Enable the "Windows Subsystem for Linux" optional feature and reboot.
     * [OpenSUSE](https://aka.ms/wsl-opensuse-42)
     * [SLES](https://aka.ms/wsl-sles-12)
 
-    You can download the distributions to Windows Server with [`Invoke-WebRequest`](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.utility/invoke-webrequest) cmdlet.  Here's a sample instruction to download OpenSUSE.
+    You can download the distributions to Windows Server with [`Invoke-WebRequest`](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.utility/invoke-webrequest) cmdlet.  Here's a sample instruction to download Ubuntu.
     
     ``` PowerShell
-    PowerShell
     Invoke-WebRequest -Uri https://aka.ms/wsl-ubuntu-1604 -OutFile ~/Ubuntu.zip -UseBasicParsing
     ```
     

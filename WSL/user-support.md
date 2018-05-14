@@ -22,7 +22,7 @@ Each Linux distribution running on the Windows Subsystem for Linux has its own L
 
 ## Resetting your Linux password
 
-If you have access to your Linux user account and know your current password, change it using Linux password reset tools that distribution -- most likely `passwd`.
+If you have access to your Linux user account and know your current password, change it using Linux password reset tools of that distribution -- most likely `passwd`.
 
 If that's not an option, depending on the distribution, you may be able to reset your password by resetting the default user.
 
@@ -133,7 +133,7 @@ A Bash session with Windows admin privileges may access `cd /mnt/c/Users/Adminis
 
 In Linux, typing `sudo cd /mnt/c/Users/Administrator` will not grant access to the Administrator’s directory since permissions within Windows are managed by Windows.
 
-The Linux permission model is important when inside the Ubuntu environment where the user has permissions based on the current Linux user.
+The Linux permission model is important when inside the Linux environment where the user has permissions based on the current Linux user.
 
 **Example:**  
 A user in the sudo group may run `sudo apt update`.
