@@ -3,7 +3,7 @@ title: Windows interoperability with Linux
 description: Describes Windows interoperability with Linux distributions running on the Windows Subsystem for Linux. 
 author: scooley
 ms.author: scooley
-ms.date: 12/20/2017
+ms.date: 05/14/2018
 ms.topic: article
 ms.prod: windows-subsystem-for-linux
 ms.service: windows-subsystem-for-linux
@@ -19,7 +19,8 @@ The Windows Subsystem for Linux (WSL) is continuously improving integration betw
 
 1. Invoke Windows binaries from the Linux console.
 1. Invoke Linux binaries from a Windows console.
-1. **Windows Insiders Builds 17063+** Share environment variables between Linux and Windows.
+1. **Windows 10 Spring Update** Convert Linux-style paths to Windows paths.
+1. **Windows 10 Spring Update** Share environment variables between Linux and Windows.
 
 This delivers a seamless experience between Windows and WSL.  Technical details are on the [WSL blog](https://blogs.msdn.microsoft.com/wsl/2016/10/19/windows-and-ubuntu-interoperability/).
 
@@ -40,9 +41,9 @@ C:\temp> wsl ls -la
 <- contents of C:\temp ->
 ```
 
-The Linux command following `wsl.exe` is handled like any command run in WSL.  Things such as sudo, piping, and file redirection work.
+The Linux command following `wsl.exe` runs in the default WSL distro.  Tools like sudo, piping, and file redirection work.
 
-Example using sudo:
+Example using sudo to install a Linux package in WSL:
 
 ``` CMD
 C:\temp> wsl sudo apt-get update
@@ -63,9 +64,9 @@ C:\temp> dir | wsl grep foo
 C:\temp> wsl ls -la > out.txt
 ```
 
-The commands passed into `wsl.exe` are forwarded to the WSL process without modification.  File paths must be specified in the WSL format.
+The commands passed into `wsl.exe` are forwarded to the WSL process without modification.  File paths should follow Linux formatting (`/`, `~` specifies Linux `$HOME`, etc.).
 
-Example with paths:
+Here are some example with paths:
 
 ``` CMD
 C:\temp> wsl ls -la /proc/cpuinfo
