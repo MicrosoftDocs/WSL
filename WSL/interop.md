@@ -178,7 +178,7 @@ Flags can be combined as needed.
 
 ## Disable Interop
 
-Users may disable the ability to run Windows binaries for a single WLS session by running the following command as root:
+Users may disable the ability to run Windows binaries for a single WSL session by running the following command as root:
 
 ``` BASH
 $ echo 0 > /proc/sys/fs/binfmt_misc/WSLInterop
