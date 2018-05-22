@@ -48,37 +48,37 @@ Enable the "Windows Subsystem for Linux" optional feature and reboot.
     > **Troubleshooting: Installation failed with error 0x80070003**  
     > The Windows Subsystem for Linux only runs on your system drive (usually this is your C: drive).  Make sure that new apps are stored on your system drive.  
     > Open **Settings** -> **Storage** -> **More Storage Settings: Change where new content is saved**
-    > ![](media/AppStorage.png)
-    
+    > ![Picture of system settings to install apps on C: drive](media/AppStorage.png)
+
 3. Once the download has completed, select "Launch".  
     This will open a console window.  Wait for installation to complete then you will be prompted to create your LINUX user account.
-    ![](media/UbuntuInstall.png)
-    
+    ![Ubuntu unpacking in the Windows console](media/UbuntuInstall.png)
+
     > **Troubleshooting: Installation failed with error 0x8007007e**  
     > This error occurs when your system doesn't support Linux from the store.  Make sure that:
     > * You're running Windows build 16215 or later. [Check your build](troubleshooting.md#check-your-build-number).
     > * The Windows Subsystem for Linux optional component is enabled and the computer has restarted.  [Make sure WSL is enabled](troubleshooting.md#confirm-wsl-is-enabled).
 
-
-    
-5. Create your LINUX username and password.  This user account has no relationship to your Windows username and password and hence can be different. [Read more](user-support.md).
+4. Create your LINUX username and password.  This user account has no relationship to your Windows username and password and hence can be different. [Read more](user-support.md).
 
 You're done!  Now you can use your Linux environment.
 
 ### For Anniversary Update and Creators Update: Install using lxrun
+
 lxrun installs Ubuntu user-mode by default on top of the Windows Subsystem for Linux.  
 
 > Since moving to the store, we have stopped keeping this user-mode image up to date.  When you're done, run `apt-get update`.
 
-1. Turn on Developer Mode  
+1. Turn on Developer Mode
 
     Open **Settings** -> **Update and Security** -> **For developers**
 
     Select the Developer Mode radio button  
-    ![](media/updateAndSecurity.png)
+    ![Enable developer mode](media/updateAndSecurity.png)
 
-2. Open a command prompt.  Run `bash`  
-    ![](media/bashShellInstall.png)
+2. Open a command prompt.  Run `bash`
+
+    ![Prompt to install Ubuntu](media/bashShellInstall.png)
 
     After you have accepted the License, the Ubuntu user-mode image will be downloaded and extracted. A "Bash on Ubuntu on Windows" shortcut will be added to your start menu.
 
@@ -87,10 +87,11 @@ lxrun installs Ubuntu user-mode by default on top of the Windows Subsystem for L
     * Clicking the start menu shortcut
 
 4. Create a UNIX user
-    
-    The first time you install the Windows Subsystem for Linux, you will be prompted to create a UNIX username and password.  
-    ![](media/new-user.png)
-    
+
+    The first time you install the Windows Subsystem for Linux, you will be prompted to create a UNIX username and password.
+
+    ![Prompt to add a Linux user](media/new-user.png)
+
     This UNIX username and password can be different from, and has no relationship to, your Windows username and password. [Learn more about your UNIX account.](user-support.md).
 
 After installation your Linux distribution will be located at: `%localappdata%\lxss\`.
