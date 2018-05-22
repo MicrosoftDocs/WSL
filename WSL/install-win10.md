@@ -4,7 +4,7 @@ description: Installation instructions for the Linux Subsystem on Windows 10.
 keywords: BashOnWindows, bash, wsl, windows, windows subsystem for linux, windowssubsystem, ubuntu, windows 10
 author: scooley
 ms.author: scooley
-ms.date: 7/11/2017
+ms.date: 8/22/2018
 ms.topic: article
 ms.prod: windows-subsystem-for-linux
 ms.service: windows-subsystem-for-linux
@@ -14,6 +14,7 @@ ms.assetid: 7afaeacf-435a-4e58-bff0-a9f0d75b8a51
 # Windows 10 Installation Guide
 
 ## Install the Windows Subsystem for Linux
+
 Enable the "Windows Subsystem for Linux" optional feature and reboot.
 
 1. Open PowerShell as Administrator and run:
@@ -24,21 +25,25 @@ Enable the "Windows Subsystem for Linux" optional feature and reboot.
 2. Restart your computer when prompted.
 
 ## Install your Linux Distribution of Choice
+
 ### Fall Creators Update and later: Install from the Microsoft Store
 
 > This section is for Windows build 16215 or later.  Follow these steps to [check your build](troubleshooting.md#check-your-build-number).  For earlier versions of Windows 10, follow [these instructions using lxrun](install-win10.md#for-anniversary-update-and-creators-update-install-using-lxrun).
 
-1. Open the Microsoft Store and choose your favorite Linux distribution.      
-    Here are links directly to the store installers:
+1. Open the Microsoft Store and choose your favorite Linux distribution.
+
+    ![View of Linux distros in the Windows store](media/store.png)
+
+    Here are links directly to the store installers for each distribution:
     * [Ubuntu](https://www.microsoft.com/store/p/ubuntu/9nblggh4msv6)
     * [OpenSUSE](https://www.microsoft.com/store/apps/9njvjts82tjx)
     * [SLES](https://www.microsoft.com/store/apps/9p32mwbh6cns)
     * [Kali Linux](https://www.microsoft.com/store/apps/9PKR34TNCV07)
     * [Debian GNU/Linux](https://www.microsoft.com/store/apps/9MSVKQC78PK6)
 
-    ![](media/UbuntuStore.png)
+2. From the distro's page, select "Get"
 
-2. Select "Get"
+    ![View of Linux distros in the Windows store](media/UbuntuStore.png)
 
     > **Troubleshooting: Installation failed with error 0x80070003**  
     > The Windows Subsystem for Linux only runs on your system drive (usually this is your C: drive).  Make sure that new apps are stored on your system drive.  
