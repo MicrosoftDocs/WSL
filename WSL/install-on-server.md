@@ -4,7 +4,7 @@ description: Installation instructions for the Linux Subsystem on Windows Server
 keywords: BashOnWindows, bash, wsl, windows, windows subsystem for linux, windowssubsystem, ubuntu, windows server
 author: scooley
 ms.author: scooley
-ms.date: 11/15/2017
+ms.date: 05/22/2018
 ms.topic: article
 ms.prod: windows-subsystem-for-linux
 ms.service: windows-subsystem-for-linux
@@ -13,7 +13,7 @@ ms.assetid: 9281ffa2-4fa9-4078-bf6f-b51c967617e3
 
 # Windows Server Installation Guide
 
-> Applies to Windows Server 1709 and later
+> Applies to Windows Server 2019 and later
 
 At //Build2017, Microsoft announced that Windows Subsystem for Linux will be [available on Windows Server](https://blogs.technet.microsoft.com/hybridcloud/2017/05/10/windows-server-for-developers-news-from-microsoft-build-2017/).  These instructions walk through running the Windows Subsystem for Linux on Windows Server 1709 and later.
 
@@ -43,7 +43,8 @@ Enable the "Windows Subsystem for Linux" optional feature and reboot.
     Invoke-WebRequest -Uri https://aka.ms/wsl-ubuntu-1604 -OutFile ~/Ubuntu.zip -UseBasicParsing
     ```
     
-    > **Tip:**  If the download is taking a long time, turn off the progress bar by setting `$ProgressPreference = 'SilentlyContinue'`
+    > [!TIP]
+    > If the download is taking a long time, turn off the progress bar by setting `$ProgressPreference = 'SilentlyContinue'`
 
 
 3. Unzip the file
