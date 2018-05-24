@@ -4,7 +4,7 @@ description: Installation instructions for the Linux Subsystem on Windows 10.
 keywords: BashOnWindows, bash, wsl, windows, windows subsystem for linux, windowssubsystem, ubuntu, windows 10
 author: scooley
 ms.author: scooley
-ms.date: 8/22/2018
+ms.date: 5/22/2018
 ms.topic: article
 ms.prod: windows-subsystem-for-linux
 ms.service: windows-subsystem-for-linux
