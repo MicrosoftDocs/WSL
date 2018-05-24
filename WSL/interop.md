@@ -12,8 +12,9 @@ ms.assetid: 3cefe0db-7616-4848-a2b6-9296746a178b
 
 # WSL interoperability with Windows
 
-> **Updated for Fall Creators Update.**  
-If you're running Creators Update or Anniversary Update, jump to the [Creators/Anniversary Update section](interop.md#creators-update-and-anniversary-update).
+> [!NOTE]
+> **Updated for Fall Creators Update.**
+> If you're running Creators Update or Anniversary Update, jump to the [Creators/Anniversary Update section](interop.md#creators-update-and-anniversary-update).
 
 The Windows Subsystem for Linux (WSL) is continuously improving integration between Windows and Linux.  You can:
 
@@ -50,6 +51,8 @@ C:\temp> wsl sudo apt-get update
 [sudo] password for username:
 Hit:1 http://archive.ubuntu.com/ubuntu xenial InRelease
 Get:2 http://security.ubuntu.com/ubuntu xenial-security InRelease [94.5 kB]
+...
+C:\temp>
 ```
 
 Examples mixing WSL and Windows commands:
@@ -64,7 +67,7 @@ C:\temp> dir | wsl grep foo
 C:\temp> wsl ls -la > out.txt
 ```
 
-The commands passed into `wsl.exe` are forwarded to the WSL process without modification.  File paths should follow Linux formatting (`/`, `~` specifies Linux `$HOME`, etc.).
+The commands passed into `wsl.exe` are forwarded to the WSL process without modification.  File paths should follow Linux formatting (`/`, `~` specifies Linux root and `$HOME`, etc.).
 
 Here are some example with paths:
 
@@ -91,6 +94,7 @@ Example:
 
 ``` BASH
 $ notepad.exe
+<- launches notepad ->
 ```
 
 Windows executables run in WSL are handled similarly to native Linux executables -- piping, redirects, and even backgrounding work as expected.
@@ -125,7 +129,7 @@ Pinging e1863.dspb.akamaiedge.net [2600:1409:a:5a2::747] with 32 bytes of data:
 Reply from 2600:1409:a:5a2::747: time=2ms
 ```
 
-Parameters are passed to the Windows binary unmodified.
+Parameters are passed to the Windows program/binary unmodified.
 
 As an example, the following commands will open `C:\temp\foo.txt` in `notepad.exe`:
 
@@ -136,7 +140,7 @@ $ notepad.exe C:\\temp\\foo.txt
 
 Modifying files located on VolFs (files not under `/mnt/<x>`) with a Windows application in WSL is not supported.
 
-By default, WSL tries to keep the working directory of the Windows binary as the current WSL directory, but will fall back on the instance creation directory if the working directory is on VolFs.
+By default, WSL keeps the working directory of the Windows binary as the current WSL directory, but will fall back on the instance creation directory if the working directory is on VolFs.
 
 As an example; `wsl.exe` is initially launched from `C:\temp` and the current WSL directory is changed to the user’s home.  When `notepad.exe` is called from the user’s home directory, WSL automatically reverts to `C:\temp` as the notepad.exe working directory:
 
@@ -151,6 +155,22 @@ exit
 C:\temp>dir | findstr foo.txt
 09/27/2016  02:15 PM                14 foo.txt
 ```
+
+### Disable Interop
+
+Users may disable the ability to run Windows binaries for a single WLS session by running the following command as root:
+
+``` BASH
+$ echo 0 > /proc/sys/fs/binfmt_misc/WSLInterop
+```
+
+To reenable Windows binaries either exit all WSL sessions and re-run bash.exe or run the following command as root:
+
+``` BASH
+$ echo 1 > /proc/sys/fs/binfmt_misc/WSLInterop
+```
+
+Disabling interop will not persist between WSL sessions -- interop will be enabled again when a new session is launched.
 
 ## Share environment variables between Windows and WSL
 
@@ -177,21 +197,7 @@ There are four flags available in `WSLENV` to influence how that environment var
 
 Flags can be combined as needed.
 
-## Disable Interop
 
-Users may disable the ability to run Windows binaries for a single WLS session by running the following command as root:
-
-``` BASH
-$ echo 0 > /proc/sys/fs/binfmt_misc/WSLInterop
-```
-
-To reenable Windows binaries either exit all WSL sessions and re-run bash.exe or run the following command as root:
-
-``` BASH
-$ echo 1 > /proc/sys/fs/binfmt_misc/WSLInterop
-```
-
-Disabling interop will not persist between WSL sessions -- interop will be enabled again when a new session is launched.
 
 ## Creators Update and Anniversary Update
 
