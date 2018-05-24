@@ -110,10 +110,9 @@ $ ipconfig.exe | grep IPv4 | cut -d: -f2
 Example using mixed Windows and WSL commands:
 
 ``` BASH
-$ ls -la | findstr.exe foo.txt
+ls -la | findstr.exe foo.txt
 
-$ cmd.exe /c dir
-<- contents of C:\ ->
+cmd.exe /c dir
 ```
 
 Windows binaries must include the file extension, match the file case, and be executable.  Non-executables including batch scripts.  CMD native commands like `dir` can be run with `cmd.exe /C` command.
@@ -161,13 +160,13 @@ C:\temp>dir | findstr foo.txt
 Users may disable the ability to run Windows binaries for a single WLS session by running the following command as root:
 
 ``` BASH
-$ echo 0 > /proc/sys/fs/binfmt_misc/WSLInterop
+echo 0 > /proc/sys/fs/binfmt_misc/WSLInterop
 ```
 
 To reenable Windows binaries either exit all WSL sessions and re-run bash.exe or run the following command as root:
 
 ``` BASH
-$ echo 1 > /proc/sys/fs/binfmt_misc/WSLInterop
+echo 1 > /proc/sys/fs/binfmt_misc/WSLInterop
 ```
 
 Disabling interop will not persist between WSL sessions -- interop will be enabled again when a new session is launched.
