@@ -12,6 +12,13 @@ ms.assetid: 36ea641e-4d49-4881-84eb-a9ca85b1cdf4
 
 # Release Notes
 
+## Build 17677
+For general Windows information on build 17677 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2018/05/24/announcing-windows-10-insider-preview-build-17677/).
+
+### WSL
+* Fixed an additional issue where multithreaded operations could return ENOENT even though the file exists. [GH 2712]
+* Fixed WSL launch failure when UMCI is enabled. [GH 3020]
+
 ## Build 17666
 For general Windows information on build 17666 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2018/05/09/announcing-windows-10-insider-preview-build-17666/).
 
