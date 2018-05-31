@@ -63,7 +63,7 @@ Windows Subsystem for Linux is available on the desktop version of Windows for t
 Beginning in the Fall Creators update WSL will be available on both the desktop and server SKUs of Windows.
 
 ### What processors do we support?
-We only support x64 CPUs.
+We support x64 and ARM CPUs.
 
 ### How do I access my C drive?
 Mount points for hard drives on the local machine are automatically created and provide easy access to the Windows filesystem. 
