@@ -12,6 +12,15 @@ ms.assetid: 36ea641e-4d49-4881-84eb-a9ca85b1cdf4
 
 # Release Notes
 
+## Build 17686
+For general Windows information on build 17686 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2018/06/06/announcing-windows-10-insider-preview-build-17686).
+
+### WSL
+* Fix off-by-one error in ELF parser interpreter length validation [GH 3154]
+* WSL absolute timers with a time in the past do not fire [GH 3091]
+* Ensure newly created reparse points are listed as such in the parent directory.
+* Atomically create case sensitive directories in DrvFs.
+
 ## Build 17677
 For general Windows information on build 17677 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2018/05/24/announcing-windows-10-insider-preview-build-17677/).
 
