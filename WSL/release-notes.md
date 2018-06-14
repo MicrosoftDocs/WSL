@@ -12,6 +12,15 @@ ms.assetid: 36ea641e-4d49-4881-84eb-a9ca85b1cdf4
 
 # Release Notes
 
+## Build 17692
+For general Windows information on build 17692 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2018/06/14/announcing-windows-10-insider-preview-build-17692).
+
+### WSL
+* Fix issue with the WSL shell context menu entries that do not correctly handle paths with spaces.
+* Expose per-directory case sensitivity as an extended attribute
+* ARM64: Emulate cache maintenance operations. Resolve [dotnet issue](https://github.com/dotnet/core/issues/1561).
+* DrvFs: only unescape characters in the private range that correspond to an escaped
+
 ## Build 17686
 For general Windows information on build 17686 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2018/06/06/announcing-windows-10-insider-preview-build-17686).
 
