@@ -35,8 +35,8 @@ You can:
 
 ## Team Blogs
 *  [Overview post with a collection of videos and blogs](https://blogs.msdn.microsoft.com/commandline/learn-about-windows-console-and-windows-subsystem-for-linux-wsl/)
-* [Command-Line blog](https://blogs.msdn.microsoft.com/commandline/)
-* [Windows Subsystem for Linux Blog](https://blogs.msdn.microsoft.com/wsl/)
+* [Command-Line blog](https://blogs.msdn.microsoft.com/commandline/) (Active)
+* [Windows Subsystem for Linux Blog](https://blogs.msdn.microsoft.com/wsl/) (Historical)
 
 ## Posts & Articles
 * [Run Bash on Ubuntu on Windows](https://blogs.windows.com/buildingapps/2016/03/30/run-bash-on-ubuntu-on-windows/)
