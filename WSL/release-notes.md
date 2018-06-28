@@ -12,6 +12,18 @@ ms.assetid: 36ea641e-4d49-4881-84eb-a9ca85b1cdf4
 
 # Release Notes
 
+## Build 17704
+For general Windows information on build 17704 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2018/06/27/announcing-windows-10-insider-preview-build-17704/).
+
+### WSL
+* Add wsl -u or --user option [GH 1203]
+* Fix WSL launch issues when fast startup is enabled [GH 2576]
+* Unix sockets need to retain disconnected peer credentials [GH 3183]
+* Non-blocking Unix sockets failing indefinitely with EAGAIN [GH 3191]
+* case=off is the new default drvfs mount type [GH 2937, 3212, 3328]
+    * See [blog](https://blogs.msdn.microsoft.com/commandline/2018/06/14/improved-per-directory-case-sensitivity-support-in-wsl/) for more information.
+* Add wslconfig /terminate to stop running distributions.
+
 ## Build 17692
 For general Windows information on build 17692 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2018/06/14/announcing-windows-10-insider-preview-build-17692).
 
