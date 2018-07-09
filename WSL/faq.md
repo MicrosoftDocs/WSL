@@ -175,6 +175,9 @@ Some users have reported issues with specific firewall applications blocking int
 
 In some cases turning off the firewall allows for access.  In some cases simply having the firewall installed looks to block access.
 
+### How do I access a port from WSL in Windows?
+WSL shares the IP address of Windows, as it is running on Windows. As such you can access any ports on localhost e.g. if you had web content on port 1234 you could http://localhost:1234 into your Windows browser.
+
 ### Where can I provide feedback?
 
 You can share feedback and ask questions through multiple channels:
