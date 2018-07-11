@@ -12,6 +12,25 @@ ms.assetid: 36ea641e-4d49-4881-84eb-a9ca85b1cdf4
 
 # Release Notes
 
+## Build 17713
+For general Windows information on build 17713 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2018/07/11/announcing-windows-10-insider-preview-build-17713/).
+
+### WSL
+* Improved zombie support [GH 1353]
+* Add wsl.conf entries for controlling Windows interop behavior [GH 1493]
+```
+    [interop]
+    enabled=false # enable launch of Windows binaries; default is true
+    appendWindowsPath=false # append Windows path to $PATH variable; default is true
+```
+* Fix for getsockname not always returning UNIX socket family type [GH 1774]
+* Add support for TIOCSTI [GH 1863]
+* Non-blocking sockets in the process of connecting should return EAGAIN for write attempts [GH 2846]
+* Support interop on mounted VHDs [GH 3246, 3291]
+* Fix permission checking issue on root folder [GH 3304]
+* Limited support for TTY keyboard ioctls KDGKBTYPE, KDGKBMODE and KDSKBMODE.
+* Windows UI apps should execute even when launched in the background.
+
 ## Build 17704
 For general Windows information on build 17704 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2018/06/27/announcing-windows-10-insider-preview-build-17704/).
 
