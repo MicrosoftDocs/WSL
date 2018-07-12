@@ -225,3 +225,14 @@ Section label: `[network]`
 |:----|:----|:----|:----|
 | generateHosts | boolean | `true` | `true` sets WSL to generate `/etc/hosts`. The `hosts` file contains a static map of hostnames corresponding IP address. |
 | generateResolvConf | boolean | `true` | `true` set WSL to generate `/etc/resolv.conf`. The `resolv.conf` contains a DNS list that are capable of resolving a given hostname to its IP address. | 
+
+#### interop
+
+Section label: `[interop]`
+
+These options are available in Insider Build 17713 and later.
+
+| key | value | default | notes|
+|:----|:----|:----|:----|
+| enabled | boolean | `true` | Setting this key will determine whether WSL will support launching Windows processes. |
+| appendWindowsPath | boolean | `true` | Setting this key will determine whether WSL will add Windows path elements to the $PATH environment variable. | 
