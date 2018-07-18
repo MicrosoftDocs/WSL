@@ -131,12 +131,14 @@ To fix issues related to `udev`, follow the following steps:
     ln -s /bin/true /sbin/initctl
     ```
 
-### How do I uninstall WSL?
+### How do I uninstall a WSL Distribution?
 
-Open a command prompt and run:
+On builds prior to 1709 (16299) open a command prompt and run:
   ```batchfile
   lxrun /uninstall /full
   ```
+  
+WSL distributions installed from the store can be uninstalled like any other Windows app, by right-clicking on the app tile and selecting Uninstall.
 
 ### Why does ping require admin privileges?
 Fixed in Build 14926 and later.
