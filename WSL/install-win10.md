@@ -27,8 +27,8 @@ Before installing any Linux distros for WSL, you must ensure that the "Windows S
 ## Install your Linux Distribution of Choice
 To download and install your preferred distro(s), you have three choices:
 1. Download and tnstall from the Windows Store (see below)
-1. Download and install from the Command-Line/Script ([read the manual installation instructions](install-manual))
-1. Download and manually unpack and install (for Windows Server - [instructions here](install-on-server))
+1. Download and install from the Command-Line/Script ([read the manual installation instructions](install-manual.md))
+1. Download and manually unpack and install (for Windows Server - [instructions here](install-on-server.md))
 
 The 
 ### Windows 10 Fall Creators Update and later: Install from the Microsoft Store
