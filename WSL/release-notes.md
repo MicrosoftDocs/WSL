@@ -12,6 +12,24 @@ ms.assetid: 36ea641e-4d49-4881-84eb-a9ca85b1cdf4
 
 # Release Notes
 
+## Build 18204 (Skip Ahead)
+For general Windows information on build 18204 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2018/07/25/announcing-windows-10-insider-preview-build-17723-and-build-18204/).
+
+### WSL
+* Pipe filesystem inadvertenly clearing edge-triggered epoll event [GH 3276]
+* Win32 executable launched via NTFS symlink doesn't respect symlink name [GH 2909]
+
+## Build 17723 (Fast)
+For general Windows information on build 17723 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2018/07/25/announcing-windows-10-insider-preview-build-17723-and-build-18204/).
+
+### WSL
+* Avoid one second delay failing loopback connections to non-existent ports [GH 3286]
+* Add /proc/sys/fs/file-max stub file [GH 2893]
+* More accurate IPV6 scope information.
+* PR_SET_PTRACER support [GH 3053]
+* Pipe filesystem inadvertenly clearing edge-triggered epoll event [GH 3276]
+* Win32 executable launched via NTFS symlink doesn't respect symlink name [GH 2909]
+
 ## Build 17713
 For general Windows information on build 17713 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2018/07/11/announcing-windows-10-insider-preview-build-17713/).
 
