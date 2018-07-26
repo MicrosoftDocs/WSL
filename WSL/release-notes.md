@@ -39,6 +39,7 @@ For general Windows information on build 17713 visit the [Windows Blog](https://
 ```
     [interop]
     enabled=false # enable launch of Windows binaries; default is true
+    
     appendWindowsPath=false # append Windows path to $PATH variable; default is true
 ```
 * Fix for getsockname not always returning UNIX socket family type [GH 1774]
