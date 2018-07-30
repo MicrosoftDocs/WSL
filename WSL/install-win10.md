@@ -30,7 +30,6 @@ To download and install your preferred distro(s), you have three choices:
 1. Download and install from the Command-Line/Script ([read the manual installation instructions](install-manual.md))
 1. Download and manually unpack and install (for Windows Server - [instructions here](install-on-server.md))
 
-The 
 ### Windows 10 Fall Creators Update and later: Install from the Microsoft Store
 
 > This section is for Windows build 16215 or later.  Follow these steps to [check your build](troubleshooting.md#check-your-build-number).  For earlier versions of Windows 10, follow [these instructions using lxrun](install-win10.md#for-anniversary-update-and-creators-update-install-using-lxrun).
