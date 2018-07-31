@@ -39,7 +39,7 @@ Now that you've downloaded a distro, extract its contents and manually install t
 
     ``` PowerShell
     Rename-Item ~/Ubuntu.appx ~/Ubuntu.zip
-    Expand-Archive ~/Ubuntu.appx ~/Ubuntu
+    Expand-Archive ~/Ubuntu.zip ~/Ubuntu
     ```
 
     > Make sure your target directory (`~/Ubuntu` in this example) is on your system drive. Usually this is your `C:` drive. For example: `C:\Distros\Ubuntu`
