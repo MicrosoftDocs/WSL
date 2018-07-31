@@ -38,6 +38,7 @@ Now that you've downloaded a distro, extract its contents and manually install t
 1. Extract the `<distro>.appx` package's contents, e.g. using PowerShell:
 
     ``` PowerShell
+    Rename-Item ~/Ubuntu.appx ~/Ubuntu.zip
     Expand-Archive ~/Ubuntu.appx ~/Ubuntu
     ```
 
