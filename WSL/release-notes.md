@@ -12,6 +12,15 @@ ms.assetid: 36ea641e-4d49-4881-84eb-a9ca85b1cdf4
 
 # Release Notes
 
+## Build 17728 (Fast)
+For general Windows information on build 17728 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2018/07/31/announcing-windows-10-insider-preview-build-17728/).
+
+### WSL
+* Switch WSL to use KeQueryInterruptTimePrecise instead of KeQueryPerformanceCounter to avoid overflow [GH 3252]
+* Ptrace attach may cause bad return value from system calls [GH 1731]
+* Fix a number of AF_UNIX related issues [GH 3371]
+* Fix issue that could cause WSL interop to fail if the current working directory is less than 5 characters long [GH 3379]
+
 ## Build 18204 (Skip Ahead)
 For general Windows information on build 18204 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2018/07/25/announcing-windows-10-insider-preview-build-17723-and-build-18204/).
 
