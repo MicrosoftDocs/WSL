@@ -13,19 +13,19 @@ ms.assetid: 3cefe0db-7616-4848-a2b6-9296746a178b
 
 # Windows Subsystem for Linux Documentation
 
-The Windows Subsystem for Linux lets developers run GNU environment -- including most command-line tools, utilities, and applications -- directly on Windows, unmodified, without the overhead of a virtual machine.  
+The Windows Subsystem for Linux lets developers run GNU/Linux environment -- including most command-line tools, utilities, and applications -- directly on Windows, unmodified, without the overhead of a virtual machine.  
 
 You can:
 
-1. Choose your favorite Linux distributions [from the Windows Store](https://aka.ms/wslstore).
-1. Run common command-line free software such as `grep`, `sed`, `awk`, etc. 
-1. Run Bash shell scripts and GNU\Linux command-line applications including:  
+1. Choose your favorite GNU/Linux distributions [from the Windows Store](https://aka.ms/wslstore).
+1. Run common command-line free software such as `grep`, `sed`, `awk`, or other ELF-64 binaries. 
+1. Run Bash shell scripts and GNU/Linux command-line applications including:  
     * Tools: vim, emacs, tmux
     * Languages: Javascript/node.js, Ruby, Python, C/C++, C# & F#, Rust, Go, etc.
     * Services: sshd, MySQL, Apache, lighttpd
-1. Install additional GNU\Linux free software using the distribution's built in package manager (`apt-get`, for example).
-1. Invoke Windows applications from the Bash console.
-1. Invoke GNU\Linux applications on Windows.
+1. Install additional software using own GNU/Linux distribution package manager.
+1. Invoke Windows applications using a Unix-like command-line shell.
+1. Invoke GNU/Linux applications on Windows.
 
 ## Getting started
 
