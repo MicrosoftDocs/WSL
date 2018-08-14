@@ -12,6 +12,15 @@ ms.assetid: 36ea641e-4d49-4881-84eb-a9ca85b1cdf4
 
 # Release Notes
 
+## Build 17738 (Fast)
+For general Windows information on build 17738 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2018/08/14/announcing-windows-10-insider-preview-build-17738/).
+
+### WSL
+* Setpriority syscall permission check too strict for changing same thread priority [GH 1838]
+* Ensure that unbiased interrupt time is used for boot time to avoid returning negative values for clock_gettime(CLOCK_BOOTTIME) [GH 3434]
+* Handle symlinks in the WSL binfmt interpreter [GH 3424]
+* Better handling of threadgroup leader file descriptor cleanup.
+
 ## Build 17728 (Fast)
 For general Windows information on build 17728 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2018/07/31/announcing-windows-10-insider-preview-build-17728/).
 
