@@ -49,7 +49,7 @@ sudo apt update && sudo apt upgrade
 
 > Windows does not automatically update or upgrade your Linux distro(s): This is a task that the Linux users prefer to control themselves.
 
-You're done! Enjoy using your new Linux distro on WSL! To learn more about WSL, review the other [WSL docs](https://aka.ms/learnwsl), or the [WSL learning resources page](https://aka.ms/learnwsl).
+You're done! Enjoy using your new Linux distro on WSL! To learn more about WSL, review the other [WSL docs](https://aka.ms/wsldocs), or the [WSL learning resources page](https://aka.ms/learnwsl).
 
 ![Enjoy using Linux on WSL](media/linux-on-wsl.png)
 
