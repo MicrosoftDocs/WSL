@@ -12,15 +12,15 @@ ms.assetid: 9281ffa2-4fa9-4078-bf6f-b51c967617e3
 ---
 # Manually download WSL distro packages
 
-There are several scenarios in which you may not be able (or want) to, install WSL Linux distros via the Windows Store. Specifically, you may be running a Windows Server or Long-Term Servicing (LTSB/LTSC) desktop OS SKU that doesn't support Windows Store, or your corporate network policies and/or admins to not permit Windows Store usage in your environment.
+There are several scenarios in which you may not be able (or want) to, install WSL Linux distros via the Microsoft Store. Specifically, you may be running a Windows Server or Long-Term Servicing (LTSB/LTSC) desktop OS SKU that doesn't support Microsoft Store, or your corporate network policies and/or admins to not permit Microsoft Store usage in your environment.
 
 In these cases, while WSL itself is available, how do you download and install Linux distros in WSL if you can't access the store?
 
-> Note: **Command-Line shell environments including Cmd, PowerShell, and Linux/WSL distros are not permitted to run on Windows 10 S Mode**. This restriction exists in order to ensure the integrity and safety goals that S Mode delivers: Read [this post](https://blogs.msdn.microsoft.com/commandline/2017/05/18/will-linux-distros-run-on-windows-10-s/) for more information.
+> Note: **Command-line shell environments including Cmd, PowerShell, and Linux/WSL distros are not permitted to run on Windows 10 S Mode**. This restriction exists in order to ensure the integrity and safety goals that S Mode delivers: Read [this post](https://blogs.msdn.microsoft.com/commandline/2017/05/18/will-linux-distros-run-on-windows-10-s/) for more information.
 
 # Downloading distros
 
-If the Windows Store app is not available, you can download and manually install Linux distros by clicking these links:
+If the Microsoft Store app is not available, you can download and manually install Linux distros by clicking these links:
 * [Ubuntu 18.04](https://aka.ms/wsl-ubuntu-1804)
 * [Ubuntu 18.04 ARM](https://aka.ms/wsl-ubuntu-1804-arm)
 * [Ubuntu 16.04](https://aka.ms/wsl-ubuntu-1604)
@@ -31,8 +31,8 @@ If the Windows Store app is not available, you can download and manually install
 
 This will cause the `<distro>.appx` packages to download to a folder of your choosing. Follow the [installation instructions](#installing_your_distro) to install your downloaded distro(s).
 
-## Downloading distros via the Command-Line
-If you prefer, you can also download your preferred distro(s) via the Command-Line:
+## Downloading distros via the command line
+If you prefer, you can also download your preferred distro(s) via the command line:
 
  ### Download using PowerShell
  To download distros using PowerShell, use the [Invoke-WebRequest](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.utility/invoke-webrequest) cmdlet. Here's a sample instruction to download Ubuntu 16.04.
@@ -45,7 +45,7 @@ Invoke-WebRequest -Uri https://aka.ms/wsl-ubuntu-1604 -OutFile Ubuntu.appx -UseB
 > If the download is taking a long time, turn off the progress bar by setting `$ProgressPreference = 'SilentlyContinue'`
 
 ### Download using curl
-Windows 10 Spring 2018 Update (or later) includes the popular [curl command-line utility](https://curl.haxx.se/) with which you can invoke web requests (i.e. HTTP GET, POST, PUT, etc. commands) from the command-line. You can use `curl.exe` to download the above distro's:
+Windows 10 Spring 2018 Update (or later) includes the popular [curl command-line utility](https://curl.haxx.se/) with which you can invoke web requests (i.e. HTTP GET, POST, PUT, etc. commands) from the command line. You can use `curl.exe` to download the above distros:
 
 ``` cmd
 curl.exe -L -o ubuntu-1604.appx https://aka.ms/wsl-ubuntu-1604
