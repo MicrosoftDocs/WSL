@@ -1,7 +1,7 @@
 ---
 title: Manually download Windows Subsystem for Linux (WSL) Distros
 description: Instructions for how to manually download WSL distros
-keywords: BashOnWindows, bash, wsl, windows, windows subsystem for linux, WSL, windowssubsystem, distro, ubuntu, openSUSE, SLES
+keywords: BashOnWindows, bash, wsl, windows, windows subsystem for linux, WSL, windowssubsystem, distro, ubuntu, openSUSE, SLES, debian, kali
 author: taraj
 ms.author: taraj
 ms.date: 07/24/2018
@@ -25,6 +25,7 @@ If the Windows Store app is not available, you can download and manually install
 * [Ubuntu 18.04 ARM](https://aka.ms/wsl-ubuntu-1804-arm)
 * [Ubuntu 16.04](https://aka.ms/wsl-ubuntu-1604)
 * [Debian GNU/Linux](https://aka.ms/wsl-debian-gnulinux)
+* [Kali Linux](https://aka.ms/wsl-kali-linux)
 * [OpenSUSE](https://aka.ms/wsl-opensuse-42)
 * [SLES](https://aka.ms/wsl-sles-12)
 
