@@ -4,6 +4,7 @@
 # [Initialize Distro](./initialize-distro.md)
 # [User accounts and permissions](./user-support.md)
 # [Distro management](./wsl-config.md)
+# [Windows Subsystem for Linux for Enterprise](./enterprise.md)
 # [Interoperability](./interop.md)
 # [Build a Custom Distro](./build-custom-distro.md)
 # [Frequently Asked Questions](./faq.md)
