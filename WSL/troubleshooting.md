@@ -156,3 +156,38 @@ You can confirm that the Windows Subsystem for Linux is enabled by running the f
 PowerShell
 Get-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
 ```
+
+### OpenSSH-Server connection issues
+Trying to connect your SSH server is failed with the following error: "Connection closed by 127.0.0.1 port 22".
+1. Make sure your OpenSSH Server is running:
+``` BASH
+sudo service ssh status
+```
+and you've followed this tutorial:
+https://help.ubuntu.com/lts/serverguide/openssh-server.html.en
+2. Stop the sshd service and start sshd in debug mode:
+``` BASH
+sudo service ssh stop
+sudo /usr/sbin/sshd -d
+```
+3. Check the startup logs and make sure HostKeys are available and you don't see log messages such as:
+debug1: sshd version OpenSSH_7.2, OpenSSL 1.0.2g  1 Mar 2016
+debug1: key_load_private: incorrect passphrase supplied to decrypt private key
+debug1: key_load_public: No such file or directory
+Could not load host key: /etc/ssh/ssh_host_rsa_key
+debug1: key_load_private: No such file or directory
+debug1: key_load_public: No such file or directory
+Could not load host key: /etc/ssh/ssh_host_dsa_key
+debug1: key_load_private: No such file or directory
+debug1: key_load_public: No such file or directory
+Could not load host key: /etc/ssh/ssh_host_ecdsa_key
+debug1: key_load_private: No such file or directory
+debug1: key_load_public: No such file or directory
+Could not load host key: /etc/ssh/ssh_host_ed25519_key
+
+If you do see such messages and the keys are missing under `/etc/ssh/`, you will have to regenerate the keys or just purge&install openssh-server:
+```BASH
+sudo apt-get purge openssh-server
+sudo apt-get install openssh-server
+```
+

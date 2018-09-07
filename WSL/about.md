@@ -1,7 +1,7 @@
 ---
 title: Learn about the Windows Subsystem for Linux
 description: Learn more about how the Windows Subsystem for Linux works.
-keywords: BashOnWindows, bash, wsl, windows, windowssubsystem
+keywords: BashOnWindows, bash, wsl, windows, windowssubsystem, gnu, linux
 author: scooley
 ms.author: scooley
 ms.date: 7/11/2016
@@ -13,19 +13,19 @@ ms.assetid: 3cefe0db-7616-4848-a2b6-9296746a178b
 
 # Windows Subsystem for Linux Documentation
 
-The Windows Subsystem for Linux lets developers run Linux environments -- including most command-line tools, utilities, and applications -- directly on Windows, unmodified, without the overhead of a virtual machine.  
+The Windows Subsystem for Linux lets developers run GNU/Linux environment -- including most command-line tools, utilities, and applications -- directly on Windows, unmodified, without the overhead of a virtual machine.  
 
 You can:
 
-1. Choose your favorite Linux distributions [from the Windows Store](https://aka.ms/wslstore).
-1. Run common command-line utilities such as `grep`, `sed`, `awk`, etc. 
-1. Run Bash shell scripts and Linux command-line applications including:  
+1. Choose your favorite GNU/Linux distributions [from the Windows Store](https://aka.ms/wslstore).
+1. Run common command-line free software such as `grep`, `sed`, `awk`, or other ELF-64 binaries. 
+1. Run Bash shell scripts and GNU/Linux command-line applications including:  
     * Tools: vim, emacs, tmux
     * Languages: Javascript/node.js, Ruby, Python, C/C++, C# & F#, Rust, Go, etc.
     * Services: sshd, MySQL, Apache, lighttpd
-1. Install additional Linux tools using the distribution's built in package manager (`apt-get`, for example).
-1. Invoke Windows applications from the Linux console.
-1. Invoke Linux applications on Windows.
+1. Install additional software using own GNU/Linux distribution package manager.
+1. Invoke Windows applications using a Unix-like command-line shell.
+1. Invoke GNU/Linux applications on Windows.
 
 ## Getting started
 
@@ -35,8 +35,8 @@ You can:
 
 ## Team Blogs
 *  [Overview post with a collection of videos and blogs](https://blogs.msdn.microsoft.com/commandline/learn-about-windows-console-and-windows-subsystem-for-linux-wsl/)
-* [Command-Line blog](https://blogs.msdn.microsoft.com/commandline/)
-* [Windows Subsystem for Linux Blog](https://blogs.msdn.microsoft.com/wsl/)
+* [Command-Line blog](https://blogs.msdn.microsoft.com/commandline/) (Active)
+* [Windows Subsystem for Linux Blog](https://blogs.msdn.microsoft.com/wsl/) (Historical)
 
 ## Posts & Articles
 * [Run Bash on Ubuntu on Windows](https://blogs.windows.com/buildingapps/2016/03/30/run-bash-on-ubuntu-on-windows/)
