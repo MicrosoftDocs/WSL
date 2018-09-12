@@ -54,13 +54,13 @@ For general Windows information on build 17713 visit the [Windows Blog](https://
 ### WSL
 * Improved zombie support [GH 1353]
 * Add wsl.conf entries for controlling Windows interop behavior [GH 1493]
-```
+  ```
     [interop]
-    
+
     enabled=false # enable launch of Windows binaries; default is true
-    
+
     appendWindowsPath=false # append Windows path to $PATH variable; default is true
-```
+  ```
 * Fix for getsockname not always returning UNIX socket family type [GH 1774]
 * Add support for TIOCSTI [GH 1863]
 * Non-blocking sockets in the process of connecting should return EAGAIN for write attempts [GH 2846]
@@ -254,7 +254,7 @@ When starting WSL for the first time after upgrading to this build, it needs to 
 
 #### WSL is more configurable with wsl.conf
 We added a method for you to automatically configure certain functionality in WSL that will be applied every time you launch the subsystem. This includes automount options and network configuration. Learn more about it in our blog post at: https://aka.ms/wslconf
- 
+
 #### AF_UNIX allows socket connections between Linux processes on WSL and Windows native processes
 WSL and Windows applications can now communicate with each other over Unix sockets. Imagine you want to run a service in Windows and make it available to both Windows and WSL apps. Now, that’s possible with Unix sockets. Read more in our blog post at https://aka.ms/afunixinterop
 
@@ -366,7 +366,7 @@ For general Windows information on build 17063 visit the [Windows Blog](https://
 * Windows Command line Toolchain includes bsdtar (tar) and curl.
   Read [this blog](https://aka.ms/tarcurlwindows) to learn more about the addition of these two new tools and see how they’re shaping the developer experience on Windows.
 
-*	`AF_UNIX` is available in the Windows Insider SDK (17061+).
+*   `AF_UNIX` is available in the Windows Insider SDK (17061+).
   Read [this blog](https://blogs.msdn.microsoft.com/commandline/2017/12/19/af_unix-comes-to-windows/) to learn more about `AF_UNIX` and how developers on Windows can use it.
 
 ### Console
@@ -392,7 +392,7 @@ For general Windows information on build 17046 visit the [Windows Blog](https://
 - Allow running elevated and non-elevated WSL instances simultaneously.
 - Support /proc/sys/kernel/yama/ptrace_scope
 - Add wslpath to do WSL<->Windows path conversions. [GH 522, 1243, 1834, 2327, et al.]
-```
+  ```
     wslpath usage:
       -a    force result to absolute path format
       -u    translate from a Windows path to a WSL path (default)
@@ -400,8 +400,8 @@ For general Windows information on build 17046 visit the [Windows Blog](https://
       -m    translate from a WSL path to a Windows path, with ‘/’ instead of ‘\\’
 
       EX: wslpath ‘c:\users’
-```
-#### Console
+  ```
+  #### Console
 - No fixes.
 
 ### LTP Results:
@@ -780,11 +780,11 @@ For general Windows information on build 16176 visit the [Windows Blog](https://
 - Added IP(V6)_MTU socket option for apps node, traceroute, dig, nslookup, host
 - Added IP socket option IPV6_UNICAST_HOPS
 - [Filesystem Improvements](https://blogs.msdn.microsoft.com/wsl/2017/04/18/file-system-improvements-to-the-windows-subsystem-for-linux/)
-	* Allow mounting of UNC paths
-	* Enable CDFS support in drvfs
-	* Correctly handle permissions for network file systems in drvfs
-	* Add support for remote drives to drvfs
-	* Enable FAT support in drvfs
+    * Allow mounting of UNC paths
+    * Enable CDFS support in drvfs
+    * Correctly handle permissions for network file systems in drvfs
+    * Add support for remote drives to drvfs
+    * Enable FAT support in drvfs
 - Additional fixes and Improvements
 
 ### LTP Results
@@ -852,7 +852,7 @@ For general Windows information on build 15031 visit the [Windows Blog](https://
 ### LTP Results:
 Number of Passing Test: 737</br>
 Number of non-Passing (failing, skipped, etc…): 255 </br>
-[LTP Test Run Logs] (https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/15031)<br/>
+[LTP Test Run Logs](https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/15031)<br/>
 
 <br/>
 
@@ -882,7 +882,7 @@ For general Windows information on build 15025 visit the [Windows Blog](https://
 ### LTP Results:
 Number of Passing Test: 732</br>
 Number of non-Passing (failing, skipped, etc…): 255 </br>
-[LTP Test Run Logs] (https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/15025)<br/>
+[LTP Test Run Logs](https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/15025)<br/>
 
 <br/>
 
@@ -904,7 +904,7 @@ For general Windows information on build 15019 visit the [Windows Blog](https://
 ### LTP Results:
 Number of Passing Test: 714 </br>
 Number of non-Passing (failing, skipped, etc…): 249 </br>
-[LTP Test Run Logs] (https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/15019)<br/>
+[LTP Test Run Logs](https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/15019)<br/>
 
 <br/>
 
@@ -961,7 +961,7 @@ For general Windows information on build 15007 visit the [Windows Blog]( https:/
 ### LTP Results:
 Number of Passing Test: 709 </br>
 Number of non-Passing (failing, skipped, etc…): 255 </br>
-[LTP Test Run Logs] (https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/15007)<br/>
+[LTP Test Run Logs](https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/15007)<br/>
 
 <br/>
 
@@ -1020,7 +1020,7 @@ Two known issues:
 ### LTP Results:
 Number of Passing Test: 690 </br>
 Number of non-Passing (failing, skipped, etc…): 274 </br>
-[LTP Test Run Logs] (https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/15002)<br/>
+[LTP Test Run Logs](https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/15002)<br/>
 
 <br/>
 
@@ -1055,7 +1055,7 @@ For general Windows information on build 14986 visit the [Windows Blog](https://
 ### LTP Results:
 Number of Passing Test: 669 </br>
 Number of non-Passing (failing, skipped, etc…): 258 </br>
-[LTP Test Run Logs] (https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/14986)<br/>
+[LTP Test Run Logs](https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/14986)<br/>
 
 <br/>
 
@@ -1081,7 +1081,7 @@ For general Windows information on build 14971 visit the [Windows Blog](https://
 Unchanged from 14965 </br>
 Number of Passing Test: 664 </br>
 Number of non-Passing (failing, skipped, etc…): 263 </br>
-[LTP Test Run Logs] (https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/14965)<br/>
+[LTP Test Run Logs](https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/14965)<br/>
 
 <br/>
 
@@ -1094,7 +1094,8 @@ For general Windows information on build 14965 visit the [Windows Blog](https://
 
 - Support for Netlink sockets NETLINK_ROUTE protocol's RTM_GETLINK and RTM_GETADDR (GH #468)
   - Enables ifconfig and ip commands for network enumeration
-  - More information can be found in our [WSL Networking blog post] (https://blogs.msdn.microsoft.com/wsl/2016/11/08/225/).
+  - More information can be found in our [WSL Networking blog post](https://blogs.msdn.microsoft.com/wsl/2016/11/08/225/).
+
 - /sbin is now in the user's path by default
 - NT user path now appended to the WSL path by default (i.e. you can now type notepad.exe without adding System32 to the Linux path)
 - Added support for /proc/sys/kernel/cap_last_cap
@@ -1118,7 +1119,7 @@ For general Windows information on build 14965 visit the [Windows Blog](https://
 ### LTP Results:
 Number of Passing Test: 664 </br>
 Number of non-Passing (failing, skipped, etc…): 263 </br>
-[LTP Test Run Logs] (https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/14965)<br/>
+[LTP Test Run Logs](https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/14965)<br/>
 
 <br/>
 
@@ -1137,7 +1138,7 @@ For general Windows information on build 14959 visit the [Windows Blog](https://
 ### LTP Results:
 Number of Passing Test: 665 </br>
 Number of non-Passing (failing, skipped, etc…): 263 </br>
-[LTP Test Run Logs] (https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/14959)<br/>
+[LTP Test Run Logs](https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/14959)<br/>
 
 <br/>
 
@@ -1153,7 +1154,7 @@ For general Windows information on build 14955 visit the [Windows Blog](https://
 ### LTP Results:
 Number of Passing Test: 665 </br>
 Number of non-Passing (failing, skipped, etc…): 263 </br>
-[LTP Test Run Logs] (https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/14955)<br/>
+[LTP Test Run Logs](https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/14955)<br/>
 
 <br/>
 
@@ -1165,13 +1166,13 @@ For general Windows information on build 14951 visit the [Windows Blog](https://
 ### New Feature: Windows / Ubuntu Interoperability
 Windows binaries can now be invoked directly from the WSL command line.  This gives users the ability to interact with their Windows environment and system in a way that has not been possible.  As a quick example, it is now possible for users to run the following commands:
 
-	```
-	$ export PATH=$PATH:/mnt/c/Windows/System32
-	$ notepad.exe
-	$ ipconfig.exe | grep IPv4 | cut -d: -f2
-	$ ls -la | findstr.exe foo.txt
-	$ cmd.exe /c dir
-	```
+    ```
+    $ export PATH=$PATH:/mnt/c/Windows/System32
+    $ notepad.exe
+    $ ipconfig.exe | grep IPv4 | cut -d: -f2
+    $ ls -la | findstr.exe foo.txt
+    $ cmd.exe /c dir
+    ```
 
 More information can be found at:
 
@@ -1190,7 +1191,7 @@ More information can be found at:
 ### LTP Results:
 Number of Passing Test: 665 </br>
 Number of non-Passing (failing, skipped, etc…): 263 </br>
-[LTP Test Run Logs] (https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/14951)<br/>
+[LTP Test Run Logs](https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/14951)<br/>
 
 <br/>
 
@@ -1201,11 +1202,12 @@ For general Windows information on build 14946 visit the [Windows Blog](https://
 
 ### Fixed
 
-- Fixed an issue that prevented creating WSL user accounts for users with NT usernames that contain spaces or quotes. 
+- Fixed an issue that prevented creating WSL user accounts for users with NT usernames that contain spaces or quotes. 
 - Change VolFs and DrvFs to return 0 for directory's link count in stat
 - Support IPV6_MULTICAST_HOPS socket option.
 - Limit to a single console I/O loop per tty. Example: the following command is possible:
-    -  bash -c "echo data" | bash -c "ssh user@example.com 'cat > foo.txt'"
+  - bash -c "echo data" | bash -c "ssh user@example.com 'cat > foo.txt'"
+
 - replace spaces with tabs in /proc/cpuinfo (GH #1115)
 - DrvFs now appears in mountinfo with a name that matches mounted Windows volume
 - /home and /root now appear in mountinfo with correct names
@@ -1214,7 +1216,7 @@ For general Windows information on build 14946 visit the [Windows Blog](https://
 ### LTP Results:
 Number of Passing Test: 665 </br>
 Number of non-Passing (failing, skipped, etc…): 263 </br>
-[LTP Test Run Logs] (https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/14946)<br/>
+[LTP Test Run Logs](https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/14946)<br/>
 
 <br/>
 
@@ -1236,7 +1238,7 @@ For general Windows information on build 14942 visit the [Windows Blog](https://
 ### LTP Results:
 Number of Passing Test: 665 </br>
 Number of non-Passing (failing, skipped, etc…): 263 </br>
-[LTP Test Run Logs] (https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/14942)<br/>
+[LTP Test Run Logs](https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/14942)<br/>
 
 ### Syscall Support
 Below are a list of new or enhanced syscalls that have some implementation in WSL. The syscalls on this list are supported in at least one scenario, but may not have all parameters supported at this time.
@@ -1249,7 +1251,7 @@ Below are a list of new or enhanced syscalls that have some implementation in WS
 For general Windows information on build 14936 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2016/09/28/announcing-windows-10-insider-preview-build-14936-for-pc/).<br/>
 
 
-Note: WSL will install Ubuntu version 16.04 (Xenial) instead of Ubuntu 14.04 (Trusty) in an upcoming release.  This change will apply to Insiders installing new instances (lxrun.exe /install or first run of bash.exe).  Existing instances with Trusty will not be upgraded automatically. Users can upgrade their Trusty image to Xenial using the do-release-upgrade command.
+Note: WSL will install Ubuntu version 16.04 (Xenial) instead of Ubuntu 14.04 (Trusty) in an upcoming release.  This change will apply to Insiders installing new instances (lxrun.exe /install or first run of bash.exe).  Existing instances with Trusty will not be upgraded automatically. Users can upgrade their Trusty image to Xenial using the do-release-upgrade command.
 
 ### Known Issue
 WSL is experiencing an issue with some socket implementations.  The bugcheck manifests itself as a crash with the error “ATTEMPTED EXECUTE OF NOEXECUTE MEMORY”.  The most common manifestation of this issue is a crash when using ssh.  The root cause is fixed on internal builds and will be pushed to Insiders at the earliest opportunity.
@@ -1272,7 +1274,7 @@ WSL is experiencing an issue with some socket implementations.  The bugcheck man
 ### LTP Results:
 Number of Passing Test: 664 </br>
 Number of non-Passing (failing, skipped, etc…): 264 </br>
-[LTP Test Run Logs] (https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/14936)<br/>
+[LTP Test Run Logs](https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/14936)<br/>
 
 ### Syscall Support
 Below are a list of new or enhanced syscalls that have some implementation in WSL. The syscalls on this list are supported in at least one scenario, but may not have all parameters supported at this time.
@@ -1312,7 +1314,7 @@ For general Windows information on build 14926 visit the [Windows Blog](https://
 ### LTP Results:
 Number of Passing Test: 651 </br>
 Number of non-Passing (failing, skipped, etc…): 258 </br>
-[LTP Test Run Logs] (https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/14926)<br/>
+[LTP Test Run Logs](https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/14926)<br/>
 
 <br/>
 
@@ -1330,12 +1332,12 @@ For general Windows information on build 14915 visit the [Windows Blog](https://
 - Fix bugcheck due to invalid mmap parameter validation for non-fixed addresses. (GH #847)
 - Support for suspend / resume of terminal states
 - Support for TIOCPKT ioctl to unblock the Screen utility (GH #774)
-	- Known issue: Function keys not operational
+    - Known issue: Function keys not operational
 - Corrected a race in TimerFd that could cause a freed member 'ReaderReady' to be accessed by LxpTimerFdWorkerRoutine (GH #814)
 - Enable restartable system call support for futex, poll, and clock_nanosleep
 - Added bind mount support
 - unshare for mount namespace support
-	- Known issue: When creating a new mount namespace with `unshare(CLONE_NEWNS)` the current working directory will continue to point to the old namespace
+    - Known issue: When creating a new mount namespace with `unshare(CLONE_NEWNS)` the current working directory will continue to point to the old namespace
 - Additional improvements and bug fixes
 
 <br/>
@@ -1371,7 +1373,7 @@ For general Windows information on build 14901 visit the [Windows Blog](https://
 - INET socket recv buffer size set using the setsockopt should be honored
 - Implement MSG_CMSG_CLOEXEC unix socket receive message flag
 - Linux process stdin/stdout pipe redirection (GH #2)
-	- Allows for piping of bash -c commands in CMD.  Example:  >dir | bash -c "grep foo"
+    - Allows for piping of bash -c commands in CMD.  Example:  >dir | bash -c "grep foo"
 - Bash can now be installed on systems with multiple pagefiles (GH #538, #358)
 - Default INET Socket buffer size should match that of default Ubuntu setup
 - Align xattr syscalls to listxattr
@@ -1379,7 +1381,7 @@ For general Windows information on build 14901 visit the [Windows Blog](https://
 - Fix signal default action when injected by ptrace
 - implement /proc/sys/vm/min_free_kbytes
 - Use machine context register values when restoring context in sigreturn
-	- This resolves the issue where java and javac were hanging for some users
+    - This resolves the issue where java and javac were hanging for some users
 - Implement /proc/sys/kernel/hostname
 
 ### Syscall Support
@@ -1400,7 +1402,7 @@ For general Windows information on build 14388 visit the [Windows Blog](https://
 <br/>
 
 ## Build 14376
-For general Windows information on build 14376 visit the [Windows Blog] (https://blogs.windows.com/windowsexperience/2016/06/28/announcing-windows-10-insider-preview-build-14376-for-pc-and-mobile/). <br/>
+For general Windows information on build 14376 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2016/06/28/announcing-windows-10-insider-preview-build-14376-for-pc-and-mobile/). <br/>
 
 ### Fixed
 - Removed some instances where apt-get hangs (GH #493)
@@ -1415,7 +1417,7 @@ For general Windows information on build 14376 visit the [Windows Blog] (https:/
 <br/>
 
 ## Build 14371
-For general Windows information on build 14371 visit the [Windows Blog] (https://blogs.windows.com/windowsexperience/2016/06/22/announcing-windows-10-insider-preview-build-14371-for-pc/). <br/>
+For general Windows information on build 14371 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2016/06/22/announcing-windows-10-insider-preview-build-14371-for-pc/). <br/>
 
 ### Fixed
 - Corrected timing race with SIGCHLD and wait() when using ptrace
@@ -1426,15 +1428,15 @@ For general Windows information on build 14371 visit the [Windows Blog] (https:/
 <br/>
 
 ## Build 14366
-For general Windows information on build 14366 visit the [Windows Blog] (https://blogs.windows.com/windowsexperience/2016/06/14/announcing-windows-10-insider-preview-build-14366-mobile-build-14364/). <br/>
+For general Windows information on build 14366 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2016/06/14/announcing-windows-10-insider-preview-build-14366-mobile-build-14364/). <br/>
 
-###Fixed
+### Fixed
 - Fix in file creation through symlinks
--	Added listxattr for Python (GH 385)
--	Additional bugfixes and improvements
+-   Added listxattr for Python (GH 385)
+-   Additional bugfixes and improvements
 
-###Syscall Support
--	Below are a list of new or enhanced syscalls that have some implementation in WSL. The syscalls on this list are supported in at least one scenario, but may not have all parameters supported at this time.
+### Syscall Support
+-   Below are a list of new or enhanced syscalls that have some implementation in WSL. The syscalls on this list are supported in at least one scenario, but may not have all parameters supported at this time.
 
 `listxattr`<br/>
 <br/>

@@ -49,14 +49,14 @@ There are two components of Bash on Ubuntu on Windows that can require updating.
 
 1. The Windows Subsystem for Linux
   
-  Upgrading this portion of Bash on Ubuntu on Windows will enable any new fixes outlines in the [release notes](https://msdn.microsoft.com/en-us/commandline/wsl/release_notes). Ensure that you are subscribed to the Windows Insider Program and that your build is up to date. For finer grain control including resetting your Ubuntu instance check out the [command reference page](https://msdn.microsoft.com/en-us/commandline/wsl/reference).
+   Upgrading this portion of Bash on Ubuntu on Windows will enable any new fixes outlines in the [release notes](https://msdn.microsoft.com/en-us/commandline/wsl/release_notes). Ensure that you are subscribed to the Windows Insider Program and that your build is up to date. For finer grain control including resetting your Ubuntu instance check out the [command reference page](https://msdn.microsoft.com/en-us/commandline/wsl/reference).
 
 2. The Ubuntu user binaries 
 
-  Upgrading this portion of Bash on Ubuntu on Windows will install any updates to the Ubuntu user binaries including applications that you have installed via apt-get. To update run the following commands in Bash:
+   Upgrading this portion of Bash on Ubuntu on Windows will install any updates to the Ubuntu user binaries including applications that you have installed via apt-get. To update run the following commands in Bash:
   
-  1. `apt-get update`
-  2. `apt-get upgrade`
+   1. `apt-get update`
+   2. `apt-get upgrade`
   
 ### Apt-get upgrade errors
 Some packages use features that we haven't implemented yet. `udev`, for example, isn't supported yet and causes several `apt-get upgrade` errors.
@@ -65,21 +65,21 @@ To fix issues related to `udev`, follow the following steps:
 
 1. Write the following to `/usr/sbin/policy-rc.d` and save your changes.
   
-  ``` BASH
-  #!/bin/sh
-  exit 101
-  ```
+   ``` BASH
+   #!/bin/sh
+   exit 101
+   ```
   
 2. Add execute permissions to `/usr/sbin/policy-rc.d`
-  ``` BASH
-  chmod +x /usr/sbin/policy-rc.d
-  ```
+   ``` BASH
+   chmod +x /usr/sbin/policy-rc.d
+   ```
   
-2. Run the following commands
-  ``` BASH
-  dpkg-divert --local --rename --add /sbin/initctl
-  ln -s /bin/true /sbin/initctl
-  ```
+3. Run the following commands
+   ``` BASH
+   dpkg-divert --local --rename --add /sbin/initctl
+   ln -s /bin/true /sbin/initctl
+   ```
   
 ### "Error: 0x80040306" on installation
 This has to do with the fact that we do not support legacy console.
@@ -160,30 +160,30 @@ Get-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linu
 ### OpenSSH-Server connection issues
 Trying to connect your SSH server is failed with the following error: "Connection closed by 127.0.0.1 port 22".
 1. Make sure your OpenSSH Server is running:
-``` BASH
-sudo service ssh status
-```
-and you've followed this tutorial:
-https://help.ubuntu.com/lts/serverguide/openssh-server.html.en
+   ``` BASH
+   sudo service ssh status
+   ```
+   and you've followed this tutorial:
+   https://help.ubuntu.com/lts/serverguide/openssh-server.html.en
 2. Stop the sshd service and start sshd in debug mode:
-``` BASH
-sudo service ssh stop
-sudo /usr/sbin/sshd -d
-```
+   ``` BASH
+   sudo service ssh stop
+   sudo /usr/sbin/sshd -d
+   ```
 3. Check the startup logs and make sure HostKeys are available and you don't see log messages such as:
-debug1: sshd version OpenSSH_7.2, OpenSSL 1.0.2g  1 Mar 2016
-debug1: key_load_private: incorrect passphrase supplied to decrypt private key
-debug1: key_load_public: No such file or directory
-Could not load host key: /etc/ssh/ssh_host_rsa_key
-debug1: key_load_private: No such file or directory
-debug1: key_load_public: No such file or directory
-Could not load host key: /etc/ssh/ssh_host_dsa_key
-debug1: key_load_private: No such file or directory
-debug1: key_load_public: No such file or directory
-Could not load host key: /etc/ssh/ssh_host_ecdsa_key
-debug1: key_load_private: No such file or directory
-debug1: key_load_public: No such file or directory
-Could not load host key: /etc/ssh/ssh_host_ed25519_key
+   debug1: sshd version OpenSSH_7.2, OpenSSL 1.0.2g  1 Mar 2016
+   debug1: key_load_private: incorrect passphrase supplied to decrypt private key
+   debug1: key_load_public: No such file or directory
+   Could not load host key: /etc/ssh/ssh_host_rsa_key
+   debug1: key_load_private: No such file or directory
+   debug1: key_load_public: No such file or directory
+   Could not load host key: /etc/ssh/ssh_host_dsa_key
+   debug1: key_load_private: No such file or directory
+   debug1: key_load_public: No such file or directory
+   Could not load host key: /etc/ssh/ssh_host_ecdsa_key
+   debug1: key_load_private: No such file or directory
+   debug1: key_load_public: No such file or directory
+   Could not load host key: /etc/ssh/ssh_host_ed25519_key
 
 If you do see such messages and the keys are missing under `/etc/ssh/`, you will have to regenerate the keys or just purge&install openssh-server:
 ```BASH

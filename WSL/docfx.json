@@ -39,6 +39,7 @@
     },
     "fileMetadata": {},
     "template": [],
-    "dest": "wsl"
+    "dest": "wsl",
+    "markdownEngineName": "markdig"
   }
 }
