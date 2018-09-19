@@ -57,8 +57,7 @@ You're done! Enjoy using your new Linux distro on WSL! To learn more about WSL, 
 
 Below are related errors and suggested fixes. Refer to the [WSL troubleshooting page](troubleshooting.md) for other common errors and their solutions.
 
-> Installation failed with error 0x8007007e**  
+> **Installation failed with error 0x8007007e**
 > This error occurs when your system doesn't support Linux from the store.  Make sure that:
 > * You're running Windows build 16215 or later. [Check your build](troubleshooting.md#check-your-build-number).
 > * The Windows Subsystem for Linux optional component is enabled and the computer has restarted.  [Make sure WSL is enabled](troubleshooting.md#confirm-wsl-is-enabled).
-
