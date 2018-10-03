@@ -12,6 +12,19 @@ ms.assetid: 36ea641e-4d49-4881-84eb-a9ca85b1cdf4
 
 # Release Notes
 
+## Build 18252 (Skip Ahead)
+For general Windows information on build 18252 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2018/10/03/announcing-windows-10-insider-preview-build-18252/).
+
+### WSL
+* Move init and bsdtar binaries out of lxssmanager dll and into a separate tools folder
+* Fix race around closing file descriptor when using CLONE_FILES
+* Handle optional fields in /proc/pid/mountinfo when translating DrvFs paths
+* Allow DrvFs mknod to succeed without metadata support for S_IFREG
+* Readonly files created on DrvFs should have the readonly attribute set [GH 3411]
+* Add /sbin/mount.drvfs helper to handle DrvFs mounting
+* Use POSIX rename in DrvFs.
+* Allow path translation on volumes without a volume GUID.
+
 ## Build 17738 (Fast)
 For general Windows information on build 17738 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2018/08/14/announcing-windows-10-insider-preview-build-17738/).
 
