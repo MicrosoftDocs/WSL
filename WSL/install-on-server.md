@@ -44,7 +44,7 @@ Now that you've downloaded a distro, extract its contents and manually install t
 
     > Make sure your target directory (`~/Ubuntu` in this example) is on your system drive. Usually this is your `C:` drive. For example: `C:\Distros\Ubuntu`
 
-1. Run the distro launcher
+2. Run the distro launcher
     To complete installation, run the distro launcher application in the target folder, named `<distro>.exe`. For example: `ubuntu.exe`, etc.
 
     ![Expanded Ubuntu distro on Windows Server](media/server-appx-expand.png)
@@ -53,5 +53,12 @@ Now that you've downloaded a distro, extract its contents and manually install t
     > * **Installation failed with error 0x8007007e**: This error occurs when your system doesn't support WSL. Make sure that:
     >   * You're running Windows build 16215 or later. [Check your build](troubleshooting.md#check-your-build-number).
     >   * The Windows Subsystem for Linux optional component is enabled and the computer has restarted.  [Make sure WSL is enabled](troubleshooting.md#confirm-wsl-is-enabled).
+    
+3. Add your distro path to the Windows environment PATH (`C:\Distros\Ubuntu` in this example), e.g. using Powershell:
+        
+    ``` PowerShell
+    [System.Environment]::SetEnvironmentVariable("PATH", $Env:Path + ";C:\Distros\Ubuntu", "Machine")
+    ```
+    You can now launch your distro from any path by typing `<distro>.exe`. For example: `ubuntu.exe`
 
 Now that your Linux distro is installed, you must [initialize your new distro instance](initialize-distro.md) before using your distro.
