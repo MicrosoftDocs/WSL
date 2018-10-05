@@ -13,7 +13,7 @@ ms.assetid: 36ea641e-4d49-4881-84eb-a9ca85b1cdf4
 # Release Notes
 
 ## Build 17763 (1809)
-For general Windows information on build 17763 visit the [Wikipedia]( https://en.wikipedia.org/wiki/Windows_10_version_history#Version_1809_(October_2018_Update)).
+For general Windows information on build 17763 visit [Wikipedia]( https://en.wikipedia.org/wiki/Windows_10_version_history#Version_1809_(October_2018_Update)).
 
 ### WSL
 * Setpriority syscall permission check too strict for changing same thread priority [GH 1838]
