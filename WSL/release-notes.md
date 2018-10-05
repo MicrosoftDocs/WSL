@@ -12,6 +12,71 @@ ms.assetid: 36ea641e-4d49-4881-84eb-a9ca85b1cdf4
 
 # Release Notes
 
+## Build 17763 (1809)
+For general Windows information on build 17763 visit the [Wikipedia]( https://en.wikipedia.org/wiki/Windows_10_version_history#Version_1809_(October_2018_Update)).
+
+### WSL
+* Setpriority syscall permission check too strict for changing same thread priority [GH 1838]
+* Ensure that unbiased interrupt time is used for boot time to avoid returning negative values for clock_gettime(CLOCK_BOOTTIME) [GH 3434]
+* Handle symlinks in the WSL binfmt interpreter [GH 3424]
+* Better handling of threadgroup leader file descriptor cleanup.
+* Switch WSL to use KeQueryInterruptTimePrecise instead of KeQueryPerformanceCounter to avoid overflow [GH 3252]
+* Ptrace attach may cause bad return value from system calls [GH 1731]
+* Fix several AF_UNIX related issues [GH 3371]
+* Fix issue that could cause WSL interop to fail if the current working directory is less than 5 characters long [GH 3379]
+* Avoid one second delay failing loopback connections to non-existent ports [GH 3286]
+* Add /proc/sys/fs/file-max stub file [GH 2893]
+* More accurate IPV6 scope information.
+* PR_SET_PTRACER support [GH 3053]
+* Pipe filesystem inadvertently clearing edge-triggered epoll event [GH 3276]
+* Win32 executable launched via NTFS symlink doesn't respect symlink name [GH 2909]
+* Improved zombie support [GH 1353]
+* Add wsl.conf entries for controlling Windows interop behavior [GH 1493]
+  ```
+    [interop]
+
+    enabled=false # enable launch of Windows binaries; default is true
+
+    appendWindowsPath=false # append Windows path to $PATH variable; default is true
+  ```
+* Fix for getsockname not always returning UNIX socket family type [GH 1774]
+* Add support for TIOCSTI [GH 1863]
+* Non-blocking sockets in the process of connecting should return EAGAIN for write attempts [GH 2846]
+* Support interop on mounted VHDs [GH 3246, 3291]
+* Fix permission checking issue on root folder [GH 3304]
+* Limited support for TTY keyboard ioctls KDGKBTYPE, KDGKBMODE and KDSKBMODE.
+* Windows UI apps should execute even when launched in the background.
+* Add wsl -u or --user option [GH 1203]
+* Fix WSL launch issues when fast startup is enabled [GH 2576]
+* Unix sockets need to retain disconnected peer credentials [GH 3183]
+* Non-blocking Unix sockets failing indefinitely with EAGAIN [GH 3191]
+* case=off is the new default drvfs mount type [GH 2937, 3212, 3328]
+    * See [blog](https://blogs.msdn.microsoft.com/commandline/2018/06/14/improved-per-directory-case-sensitivity-support-in-wsl/) for more information.
+* Add wslconfig /terminate to stop running distributions.
+* Fix issue with the WSL shell context menu entries that do not correctly handle paths with spaces.
+* Expose per-directory case sensitivity as an extended attribute
+* ARM64: Emulate cache maintenance operations. Resolve [dotnet issue](https://github.com/dotnet/core/issues/1561).
+* DrvFs: only unescape characters in the private range that correspond to an escaped character.
+* Fix off-by-one error in ELF parser interpreter length validation [GH 3154]
+* WSL absolute timers with a time in the past do not fire [GH 3091]
+* Ensure newly created reparse points are listed as such in the parent directory.
+* Atomically create case sensitive directories in DrvFs.
+* Fixed an additional issue where multithreaded operations could return ENOENT even though the file exists. [GH 2712]
+* Fixed WSL launch failure when UMCI is enabled. [GH 3020]
+* Add explorer context menu to launch WSL [GH 437, 603, 1836]. To use, hold shift and right-click when in an explorer window.
+* Fix Unix socket non-blocking behavior [GH 2822, 3100]
+* Fix hanging NETLINK command as reported in GH 2026.
+* Add support for mount propagation flags [GH 2911].
+* Fix issue with truncate not causing inotify events [GH 2978].
+* Add --exec option for wsl.exe to invoke a single binary without a shell.
+* Add --distribution option for wsl.exe to select a specific distro.
+* Limited support for dmesg. Applications can now log to dmesg. WSL driver logs limited information to dmesg. In future, this can be extended to carry other information/diagnostics from the driver.
+    * Note: dmesg is currently supported through the `/dev/kmsg` device interface. `syslog` syscall interface is not yet supported. And, so, some of the `dmesg` command line options such as `-S`, `-C` don't work.
+* Fixed an issue where multithreaded operations could return ENOENT even though the file exists. [GH 2712]
+* Change default gid and mode of serial devices to match native [GH 3042]
+* DrvFs now supports extended attributes.
+    * Note: DrvFs has some limitations on the name of extended attributes. Some characters (like '/', ':' and '\*') are not allowed, and extended attribute names are not case sensitive on DrvFs
+
 ## Build 18252 (Skip Ahead)
 For general Windows information on build 18252 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2018/10/03/announcing-windows-10-insider-preview-build-18252/).
 
