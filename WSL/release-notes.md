@@ -72,7 +72,6 @@ For general Windows information on build 17763 visit the [Windows blog](https://
 * Add --distribution option for wsl.exe to select a specific distro.
 * Limited support for dmesg. Applications can now log to dmesg. WSL driver logs limited information to dmesg. In future, this can be extended to carry other information/diagnostics from the driver.
     * Note: dmesg is currently supported through the `/dev/kmsg` device interface. `syslog` syscall interface is not yet supported. And, so, some of the `dmesg` command line options such as `-S`, `-C` don't work.
-* Fixed an issue where multithreaded operations could return ENOENT even though the file exists. [GH 2712]
 * Change default gid and mode of serial devices to match native [GH 3042]
 * DrvFs now supports extended attributes.
     * Note: DrvFs has some limitations on the name of extended attributes. Some characters (like '/', ':' and '\*') are not allowed, and extended attribute names are not case sensitive on DrvFs
