@@ -48,7 +48,7 @@ Invoke-WebRequest -Uri https://aka.ms/wsl-ubuntu-1604 -OutFile Ubuntu.appx -UseB
 Windows 10 Spring 2018 Update (or later) includes the popular [curl command-line utility](https://curl.haxx.se/) with which you can invoke web requests (i.e. HTTP GET, POST, PUT, etc. commands) from the command line. You can use `curl.exe` to download the above distros:
 
 ``` cmd
-curl.exe -L -o ubuntu-1604.appx https://aka.ms/wsl-ubuntu-1604
+curl.exe -L -o ubuntu-1804.appx https://aka.ms/wsl-ubuntu-1804
 ```
 
 In the above example, `curl.exe` is executed (not just `curl`) to ensure that, in PowerShell, the real curl executable is invoked, not the PowerShell curl alias for [Invoke-WebRequest](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/invoke-webrequest?view=powershell-6)
