@@ -124,7 +124,7 @@ When running Linux on WSL, Linux will have the same Windows permissions as the p
 * Normal (non-elevated): Linux runs with the permissions of the logged-in user
 * Elevated/admin: Linux runs with elevated/admin Windows permissions
 
-> Because that elevated processes can change/damage system-wide settings and data, and can access/modify protected files and folders, **AVOID** launching elevated processes unless you absolutely have to - whether they're Windows or Linux applications/tools/shells!
+> Because elevated processes can access/modify (and therefore damage) system-wide settings and system-wide/protected data, **AVOID** launching elevated processes unless you absolutely have to - whether they're Windows or Linux applications/tools/shells!
 
 The above Windows permissions are independent of the permissions within a Linux instance: Linux "Root privileges" only impact the user’s rights within the Linux environment & filesystem; they have no impact on the Windows privileges granted. Thus, running a Linux process as root (e.g. via `sudo`) only grants that process admin rights within the Linux environment.
 
