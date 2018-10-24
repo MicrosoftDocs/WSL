@@ -12,6 +12,19 @@ ms.assetid: 36ea641e-4d49-4881-84eb-a9ca85b1cdf4
 
 # Release Notes
 
+## Build 18267
+For general Windows information on build 18267 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2018/10/24/announcing-windows-10-insider-preview-build-18267/).
+
+### WSL
+* Fix issue where zombie process may not be reaped and remain indefinitely.
+* WslRegisterDistribution hangs if error message exceeds max length [GH 3592]
+* Allow fsync to succeed for read-only files on DrvFs [GH 3556]
+* Ensure that /bin and /sbin directories exist before creating symlinks inside [GH 3584]
+* Added an instance termination timeout mechanism for WSL instances. The timeout is currently set to 15 seconds, meaning the instance will terminate 15 seconds after the last WSL process exits. To terminate a distribution immediately, use:
+```
+wslconfig.exe /terminate <DistributionName>
+```
+
 ## Build 17763 (1809)
 For general Windows information on build 17763 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2018/10/02/how-to-get-the-windows-10-october-2018-update/).
 
