@@ -20,7 +20,7 @@ This project enables:
 * Developers to create custom Linux distributions that can be sideloaded onto their dev machine
 
 ## Background
-We distribute Linux distros for WSL as UWP applications through the Microsoft Store. You can install those applications that will then run on WSL - the subsystem that sits in the Windows kernel. This delivery mechanism has many benefits as discussed in an earlier blog post.
+We distribute Linux distros for WSL as UWP applications through the Microsoft Store. You can install those applications that will then run on WSL - the subsystem that sits in the Windows kernel. This delivery mechanism has many benefits as discussed in an [earlier blog post](https://blogs.msdn.microsoft.com/commandline/2017/07/10/ubuntu-now-available-from-the-windows-store/).
 
 ## Sideloading a Custom Linux Distro Package
 You can create a custom Linux distro package as an application to sideload on your personal machine. Please note that your custom package would not be distributed through the Microsoft Store unless you submit as a distribution maintainer.
