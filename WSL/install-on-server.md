@@ -57,7 +57,8 @@ Now that you've downloaded a distro, extract its contents and manually install t
 3. Add your distro path to the Windows environment PATH (`C:\Distros\Ubuntu` in this example), e.g. using Powershell:
         
     ``` PowerShell
-    [System.Environment]::SetEnvironmentVariable("PATH", $Env:Path + ";C:\Distros\Ubuntu", "Machine")
+    $userenv = [System.Environment]::GetEnvironmentVariable("Path", "User")
+    [System.Environment]::SetEnvironmentVariable("PATH", $userenv + "C:\Distros\Ubuntu", "User")
     ```
     You can now launch your distro from any path by typing `<distro>.exe`. For example: `ubuntu.exe`
 
