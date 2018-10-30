@@ -81,6 +81,8 @@ WSL mounts your machine's fixed drives under the `/mnt/<drive>` folder in your L
 
 Using your mounted drives, you can edit code in, for example, `C:\dev\myproj\` using [Visual Studio](https://visualstudio.microsoft.com/vs/) / or [VS Code](https://code.visualstudio.com/), and build/test that code in Linux by accessing the same files via `\mnt\c\dev\myproj`.
 
+To change your default mounted drive location, i.e from `/mnt/<drive>` to `/<drive`, please refer to [Manage and configure WSL](./wsl-config.md).
+
 > **IMPORTANT NOTE**: One of the key limitations of using WSL is that directly accessing/changing files in your Linux distros' filesystem using Windows apps or tools is not supported. See: [Do not change Linux files using Windows apps and tools](https://blogs.msdn.microsoft.com/commandline/2016/11/17/do-not-change-linux-files-using-windows-apps-and-tools/)
 
 ## Are files in the Linux drive different from the mounted Windows drive?
