@@ -12,6 +12,15 @@ ms.assetid: 36ea641e-4d49-4881-84eb-a9ca85b1cdf4
 
 # Release Notes
 
+## Build 18277
+For general Windows information on build 18277 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2018/11/07/announcing-windows-10-insider-preview-build-18277/).
+
+### WSL
+* Fix "no such interface supported" error introduced in build 18272 [GH 3645]
+* Ignore the MNT_FORCE flag for umount syscall [GH 3605]
+* Switch WSL interop to use the official CreatePseudoConsole API
+* Maintain no timeout value when FUTEX_WAIT restarts
+
 ## Build 18272
 For general Windows information on build 18272 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2018/10/31/announcing-windows-10-insider-preview-build-18272/).
 
