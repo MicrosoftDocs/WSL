@@ -4,21 +4,21 @@ description: Installation instructions for the Windows Subsystem for Linux on Wi
 keywords: BashOnWindows, bash, wsl, windows, windows subsystem for linux, windowssubsystem, ubuntu, debian, suse, windows 10, install
 author: taraj
 ms.author: taraj
-ms.date: 7/23/2018
+ms.date: 07/23/2018
 ms.topic: article
-ms.prod: windows-subsystem-for-linux
 ms.service: windows-subsystem-for-linux
 ms.assetid: 7afaeacf-435a-4e58-bff0-a9f0d75b8a51
+ms.custom: seodec18
 ---
 
-# Windows 10 Installation Guide
+# Windows Subsystem for Linux Installation Guide for Windows 10
 
 ## Install the Windows Subsystem for Linux
 
 Before installing any Linux distros for WSL, you must ensure that the "Windows Subsystem for Linux" optional feature is enabled:
 
 1. Open PowerShell as Administrator and run:
-    ``` PowerShell
+    ```powershell
     Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
     ```
 
@@ -32,7 +32,7 @@ To download and install your preferred distro(s), you have three choices:
 
 ### Windows 10 Fall Creators Update and later: Install from the Microsoft Store
 
-> This section is for Windows build 16215 or later.  Follow these steps to [check your build](troubleshooting.md#check-your-build-number).  For earlier versions of Windows 10, follow [these instructions using lxrun](install-win10.md#for-anniversary-update-and-creators-update-install-using-lxrun).
+> This section is for Windows build 16215 or later.  Follow these steps to [check your build](troubleshooting.md#check-your-build-number). 
 
 1. Open the Microsoft Store and choose your favorite Linux distribution.
 

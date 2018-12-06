@@ -6,12 +6,12 @@ author: scooley
 ms.author: scooley
 ms.date: 11/15/2017
 ms.topic: article
-ms.prod: windows-subsystem-for-linux
 ms.service: windows-subsystem-for-linux
 ms.assetid: 6753f1b2-200e-49cc-93a5-4323e1117246
+ms.custom: seodec18
 ---
 
-# Troubleshooting
+# Troubleshooting Windows Subsystem for Linux
 
 ### Bash loses network connectivity once connected to a VPN
 
@@ -142,7 +142,7 @@ To find your PC's architecture and Windows build number, open
 **Settings** > **System** > **About**
 
 Look for the **OS Build** and **System Type** fields.  
-    ![](media/system.png) 
+    ![Screenshot of Build and System Type fields](media/system.png) 
 
 
 To find your Windows Server build number, run the following in PowerShell:  

@@ -4,14 +4,14 @@ description: Reference listing and configuring multiple Linux distributions runn
 keywords: BashOnWindows, bash, wsl, windows, windows subsystem for linux, windowssubsystem, ubuntu, wsl.conf, wslconfig
 author: scooley
 ms.author: scooley
-ms.date: 2/7/2018
+ms.date: 02/7/2018
 ms.topic: article
-ms.prod: windows-subsystem-for-linux
 ms.service: windows-subsystem-for-linux
 ms.assetid: 7ca59bd7-d9d3-4f6d-8b92-b8faa9bcf250
+ms.custom: seodec18
 ---
 
-# Manage and configure WSL
+# Manage and configure Windows Subsystem for Linux
 
 > Applies to Windows 10 Fall Creators Update and later.  See our updated [installation guide](./install_guide.md) to try new management features and start running multiple Linux distributions from the Windows Store.
 
@@ -41,7 +41,7 @@ The disadvantage of running a distribution from the command line in this way is 
 
 **Example:**
 
-```
+```console
 PS C:\Users\sarah> pwd
 
 Path
@@ -64,7 +64,7 @@ The best way to run WSL from the command line is using `wsl.exe`.
 
 **Example:**
 
-```
+```console
 PS C:\Users\sarah> pwd
 
 Path
@@ -81,7 +81,7 @@ Not only does `wsl` keep the current working directory in place, it lets you run
 
 **Example:**
 
-```
+```console
 PS C:\Users\sarah> Get-Date
 
 Sunday, March 11, 2018 7:54:05 PM
@@ -98,7 +98,7 @@ Sun Mar 11 19:55:47 DST 2018
 
 **Example:**
 
-```
+```console
 PS C:\Users\sarah> Get-VM
 
 Name            State CPUUsage(%) MemoryAssigned(M) Uptime   Status
@@ -124,7 +124,7 @@ While WSL Config is helpful for settings that span or coordinate distributions, 
 
 To see all available options for wslconfig, run:  `wslconfig /?`
 
-```  txt
+```console
 wslconfig.exe
 Performs administrative operations on Windows Subsystem for Linux
 
@@ -183,7 +183,7 @@ Right now, this includes automount options and network configuration.
 
 Here is a sample `wsl.conf` file you could add into your distros:
 
-```
+```console
 # Enable extra metadata options by default
 [automount]
 enabled = true

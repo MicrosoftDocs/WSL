@@ -1,17 +1,18 @@
 ---
-title: Install or remove the Linux Subsystem on Windows 10 Anniversary Update or Creators Update
+title: Install or remove on Windows 10 Anniversary Update or Creators Update
 description: Installation and un-installation instructions for the legacy, beta distro on Windows 10 Anniversary Update or Creators Update
 keywords: BashOnWindows, bash, wsl, windows, windows subsystem for linux, windowssubsystem, ubuntu, debian, suse, windows 10, legacy, beta, install, remove, uninstall, un-install, delete, deprecated
 author: taraj
 ms.author: taraj
-ms.date: 7/24/2018
+ms.date: 07/24/2018
 ms.topic: article
-ms.prod: windows-subsystem-for-linux
 ms.service: windows-subsystem-for-linux
 ms.assetid: 7afaeacf-435a-4e58-bff0-a9f0d75b8a51
+ms.custom: seodec18
 ---
 
-# Windows 10 Anniversary Update and Creators Update WSL Install & Uninstall Guide
+# Guide to install or uninstall Windows Subsystem for Linux on Windows 10 Anniversary Update and Creators Update 
+
 If you're running Windows 10 Creators Update or later, please [follow the Windows 10 installation instructions](install-win10.md).
 
 <strong><em><span style="color: #f28014">The following instructions are for users running Windows 10 Anniversary Update or Windows 10 Creators Update</span></em></strong>
@@ -45,12 +46,12 @@ If you cannot upgrade to Fall Creators Update or later, follow the steps below t
     * Clicking the start menu "Bash on Ubuntu on Windows" shortcut
 
     
-# Uninstalling/Removing the legacy distro
+## Uninstalling/Removing the legacy distro
 If you upgrade to Windows 10 Fall Creators Update from an earlier Windows 10 release upon which you installed WSL, your existing distro will remain intact. However, we STRONGLY encourage you to install a new Store-delivered distro ASAP, and migrate any necessary files, data, etc. from your legacy distro to your new distro.
 
 To remove the legacy distro from your machine, run the following from a Command Line or PowerShell instance:
 
-``` cmd
+```console
 lxrun /uninstall /full
 ```
 
@@ -60,11 +61,11 @@ If you wish, you can manually delete your legacy instance. This may be required 
 To forcefully delete your legacy WSL distro, delete the `%localappdata%\lxss\` folder (and all it's sub-contents) using Windows' File Explorer, or the command-line:
 
 Using PowerShell
-``` powershell
+```powershell
 rm -Recurse $env:localappdata/lxss/
 ```
 
 Using Cmd:
-``` cmd
+```console
 DEL /S %localappdata%\lxss\
 ```

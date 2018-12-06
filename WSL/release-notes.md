@@ -1,16 +1,16 @@
 ---
-title: Release Notes
+title: Release Notes for Windows Subsystem for Linux
 description: Release notes for the Windows Subsystem for Linux.  Updated weekly.
 keywords: BashOnWindows, bash, wsl, windows, windows subsystem for linux, windowssubsystem, ubuntu
 author: benhillis
-ms.date: 7/31/2017
+ms.date: 07/31/2017
 ms.topic: article
-ms.prod: windows-subsystem-for-linux
 ms.service: windows-subsystem-for-linux
 ms.assetid: 36ea641e-4d49-4881-84eb-a9ca85b1cdf4
+ms.custom: seodec18
 ---
 
-# Release Notes
+# Release Notes for Windows Subsystem for Linux
 
 ## Build 18277
 For general Windows information on build 18277 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2018/11/07/announcing-windows-10-insider-preview-build-18277/).
@@ -415,7 +415,7 @@ For general Windows information on build 17063 visit the [Windows Blog](https://
 
   To enable, mount DrvFs with the metadata option (to enable it on an existing mount, you must first unmount it):
 
-  ``` bash
+  ```bash
   mount -t drvfs C: /mnt/c -o metadata
   ```
 
@@ -589,7 +589,7 @@ For general Windows information on build 17017 visit the [Windows Blog](https://
 ### LTP Results:
 Testing in progress.
 
-# Fall Creators Update
+## Fall Creators Update
 
 ## Build 16288
 
@@ -1547,7 +1547,7 @@ For general Windows information on build 14366 visit the [Windows Blog](https://
 <br/>
 
 ## Build 14361
-For general Windows information on build 14361 visit the [Windows Blog](http://aka.ms/wip14361). <br/>
+For general Windows information on build 14361 visit the [Windows Blog](https://aka.ms/wip14361). <br/>
 
 ### Fixed
 - DrvFs is now case sensitive when running in Bash on Ubuntu on Windows.
@@ -1592,7 +1592,7 @@ Below are a list of new or enhanced syscalls that have some implementation in WS
 <br/>
 
 ## Build 14352
-For general Windows information on build 14352 visit the [Windows Blog](http://aka.ms/wip14352).<br/>
+For general Windows information on build 14352 visit the [Windows Blog](https://aka.ms/wip14352).<br/>
 
 
 ### Fixed
@@ -1619,7 +1619,7 @@ Below are a list of new or enhanced syscalls that have some implementation in WS
 <br/>
 
 ## Build 14342
-For general Windows information on build 14342 the [Windows Blog](http://aka.ms/wip14342). <br/>
+For general Windows information on build 14342 the [Windows Blog](https://aka.ms/wip14342). <br/>
 
 Information on VolFs and DriveFs can be found on the [WSL Blog](https://blogs.msdn.microsoft.com/wsl). <br/>
 
@@ -1666,7 +1666,7 @@ Below are a list of new or enhanced syscalls that have some implementation in WS
 
 ## Build 14332
 
-For general Windows information on build 14332 visit the [Windows Blog](http://aka.ms/wip14332). <br/>
+For general Windows information on build 14332 visit the [Windows Blog](https://aka.ms/wip14332). <br/>
 
 
 ### Fixed
@@ -1687,18 +1687,18 @@ Below is the new syscall that has some implementation in WSL. The syscall on thi
 
 ## Build 14328
 
-For general Windows information on build 14332 visit the [Windows Blog](http://aka.ms/wip14328). <br/>
+For general Windows information on build 14332 visit the [Windows Blog](https://aka.ms/wip14328). <br/>
 
 
 ### New Features
-* Now support Linux users.  Installing Bash on Ubuntu on Windows will prompt for creation of a Linux user.  For more information, visit http://aka.ms/wslusers
+* Now support Linux users.  Installing Bash on Ubuntu on Windows will prompt for creation of a Linux user.  For more information, visit https://aka.ms/wslusers
 * Hostname is now set to the Windows computer name, no more @localhost
-* For more information on build 14328, visit: http://aka.ms/wip14328
+* For more information on build 14328, visit: https://aka.ms/wip14328
 
 ### Fixed
 * Symlink improvements for non /mnt/<drive> files
     * npm install now works
-    * jdk / jre now installable using instructions found [here](http://xubuntugeek.blogspot.com/2012/09/how-to-install-oracle-jdk-7-manually-in.html).
+    * jdk / jre now installable using instructions found [here](https://xubuntugeek.blogspot.com/2012/09/how-to-install-oracle-jdk-7-manually-in.html).
     * known issue: symlinks do not work for Windows mounts.  Functionality will be available in a later build
 * top and htop now display
 * Additional error messages for some install failures
