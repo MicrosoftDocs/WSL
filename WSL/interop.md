@@ -5,12 +5,12 @@ author: scooley
 ms.author: scooley
 ms.date: 12/20/2017
 ms.topic: article
-ms.prod: windows-subsystem-for-linux
 ms.service: windows-subsystem-for-linux
 ms.assetid: 3cefe0db-7616-4848-a2b6-9296746a178b
+ms.custom: seodec18
 ---
 
-# WSL interoperability with Windows
+# Windows Subsystem for Linux interoperability with Windows
 
 > **Updated for Fall Creators Update.**  
 If you're running Creators Update or Anniversary Update, jump to the [Creators/Anniversary Update section](interop.md#creators-update-and-anniversary-update).
@@ -35,7 +35,7 @@ Binaries invoked in this way:
 
 For example:
 
-``` CMD
+```console
 C:\temp> wsl ls -la
 <- contents of C:\temp ->
 ```
@@ -44,16 +44,16 @@ The Linux command following `wsl.exe` is handled like any command run in WSL.  T
 
 Example using sudo:
 
-``` CMD
+```console
 C:\temp> wsl sudo apt-get update
 [sudo] password for username:
-Hit:1 http://archive.ubuntu.com/ubuntu xenial InRelease
-Get:2 http://security.ubuntu.com/ubuntu xenial-security InRelease [94.5 kB]
+Hit:1 https://archive.ubuntu.com/ubuntu xenial InRelease
+Get:2 https://security.ubuntu.com/ubuntu xenial-security InRelease [94.5 kB]
 ```
 
 Examples mixing WSL and Windows commands:
 
-``` CMD
+```console
 C:\temp> wsl ls -la | findstr "foo"
 -rwxrwxrwx 1 root root     14 Sep 27 14:26 foo.bat
 
@@ -67,7 +67,7 @@ The commands passed into `wsl.exe` are forwarded to the WSL process without modi
 
 Example with paths:
 
-``` CMD
+```console
 C:\temp> wsl ls -la /proc/cpuinfo
 -r--r--r-- 1 root root 0 Sep 28 11:28 /proc/cpuinfo
 
@@ -214,7 +214,7 @@ Linux binaries can be invoked from the Windows Command Prompt or from PowerShell
 
 Example:
 
-``` CMD
+```console
 C:\temp> bash -c "ls -la"
 ```
 
@@ -222,14 +222,14 @@ Linux commands called in this way are handled like any other Windows application
 
 Examples:
 
-``` CMD
+```console
 C:\temp>bash -c "sudo apt-get update"
 [sudo] password for username:
-Hit:1 http://archive.ubuntu.com/ubuntu xenial InRelease
-Get:2 http://security.ubuntu.com/ubuntu xenial-security InRelease [94.5 kB]
+Hit:1 https://archive.ubuntu.com/ubuntu xenial InRelease
+Get:2 https://security.ubuntu.com/ubuntu xenial-security InRelease [94.5 kB]
 ```
 
-``` CMD
+```console
 C:\temp> bash -c "ls -la" | findstr foo
 C:\temp> dir | bash -c "grep foo"
 C:\temp> bash -c "ls -la" > out.txt
@@ -237,7 +237,7 @@ C:\temp> bash -c "ls -la" > out.txt
 
 The WSL commands passed into `bash -c` are forwarded to the WSL process without modification.  File paths must be specified in the WSL format and care must be taken to escape relevant characters. Example:
 
-``` CMD
+```console
 C:\temp> bash -c "ls -la /proc/cpuinfo"
 -r--r--r-- 1 root root 0 Sep 28 11:28 /proc/cpuinfo
 

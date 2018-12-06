@@ -6,9 +6,9 @@ author: scooley
 ms.author: scooley
 ms.date: 05/22/2018
 ms.topic: article
-ms.prod: windows-subsystem-for-linux
 ms.service: windows-subsystem-for-linux
 ms.assetid: 9281ffa2-4fa9-4078-bf6f-b51c967617e3
+ms.custom: seodec18
 ---
 
 # Windows Server Installation Guide
@@ -22,7 +22,7 @@ At //Build2017, Microsoft announced that Windows Subsystem for Linux will be [av
 Before you can run Linux distros on Windows, you must enable the "Windows Subsystem for Linux" optional feature and reboot.
 
 1. Open PowerShell as Administrator and run:
-    ``` PowerShell
+    ```powershell
     Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
     ```
 
@@ -37,7 +37,7 @@ Now that you've downloaded a distro, extract its contents and manually install t
 
 1. Extract the `<distro>.appx` package's contents, e.g. using PowerShell:
 
-    ``` PowerShell
+    ```powershell
     Rename-Item ~/Ubuntu.appx ~/Ubuntu.zip
     Expand-Archive ~/Ubuntu.zip ~/Ubuntu
     ```
@@ -56,7 +56,7 @@ Now that you've downloaded a distro, extract its contents and manually install t
     
 3. Add your distro path to the Windows environment PATH (`C:\Distros\Ubuntu` in this example), e.g. using Powershell:
         
-    ``` PowerShell
+    ```powershell
     $userenv = [System.Environment]::GetEnvironmentVariable("Path", "User")
     [System.Environment]::SetEnvironmentVariable("PATH", $userenv + "C:\Distros\Ubuntu", "User")
     ```

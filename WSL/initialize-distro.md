@@ -4,11 +4,11 @@ description: After installing a Linux distro for WSL, complete initialization by
 keywords: BashOnWindows, bash, wsl, windows, windows subsystem for linux, windowssubsystem, ubuntu, debian, suse, windows 10
 author: taraj
 ms.author: taraj
-ms.date: 7/24/2018
+ms.date: 07/24/2018
 ms.topic: article
-ms.prod: windows-subsystem-for-linux
 ms.service: windows-subsystem-for-linux
 ms.assetid: 7afaeacf-435a-4e58-bff0-a9f0d75b8a51
+ms.custom: seodec18
 ---
 
 # Initializing a newly installed distro
@@ -43,7 +43,7 @@ When you open a new distro instance, you won't be prompted for your password, bu
 
 Most distros ship with an empty/minimal package catalog. We strongly recommend regularly updating your package catalog, and upgrading your installed packages using your distro's preferred package manager. On Debian/Ubuntu, you use apt:
 
-``` bash
+```bash
 sudo apt update && sudo apt upgrade
 ```
 
