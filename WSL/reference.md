@@ -6,8 +6,6 @@ author: scooley
 ms.author: scooley
 ms.date: 7/31/2017
 ms.topic: article
-ms.prod: windows-subsystem-for-linux
-ms.service: windows-subsystem-for-linux
 ms.assetid: 82908295-a6bd-483c-a995-613674c2677e
 ---
 

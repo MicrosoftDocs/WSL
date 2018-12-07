@@ -6,8 +6,6 @@ author: taraj
 ms.author: taraj
 ms.date: 7/23/2018
 ms.topic: article
-ms.prod: windows-subsystem-for-linux
-ms.service: windows-subsystem-for-linux
 ms.assetid: 7afaeacf-435a-4e58-bff0-a9f0d75b8a51
 ---
 
