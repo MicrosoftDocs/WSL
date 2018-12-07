@@ -9,7 +9,7 @@ ms.topic: article
 ms.assetid: 129101ed-b88a-43c2-b6a2-cd2c4ff6fee1
 ---
 
-# Frequently Asked Questions
+# Frequently Asked Questions about Windows Subsystem for Linux
 
 ## What is Windows Subsystem for Linux (WSL)?
 The Windows Subsystem for Linux (WSL) is a new Windows 10 feature that enables you to run native Linux command-line tools directly on Windows, alongside your traditional Windows desktop and modern store apps.
@@ -22,11 +22,11 @@ This is primarily a tool for developers -- especially web developers and those w
 ## What can I do with WSL?
 WSL provides an application called Bash.exe that, when started, opens a Windows console running the Bash shell. Using Bash, you can run command-line Linux tools and apps. For example, type `lsb_release -a` and hit enter; you’ll see details of the Linux distro currently running:
 
-![](media/distro.png)
+![Screenshot of distro details](media/distro.png)
 
 You can also access your local machine’s filesystem from within the Linux Bash shell – you’ll find your local drives mounted under the `/mnt` folder. For example, your `C:` drive is mounted under `/mnt/c`:  
 
-![](media/ls.png)
+![Screenshot of mounted C drive](media/ls.png)
 
 ## What is Bash?
 [Bash](https://en.wikipedia.org/wiki/Bash_%28Unix_shell%29) is a popular text-based shell and command-language. It is the default shell included within Ubuntu and other Linux distros, and in macOS. Users type commands into a shell to execute scripts and/or run commands and tools to accomplish many tasks.
@@ -161,7 +161,7 @@ Some users have reported issues with specific firewall applications blocking int
 In some cases turning off the firewall allows for access. In some cases simply having the firewall installed looks to block access.
 
 ## How do I access a port from WSL in Windows?
-WSL shares the IP address of Windows, as it is running on Windows. As such you can access any ports on localhost e.g. if you had web content on port 1234 you could http://localhost:1234 into your Windows browser.
+WSL shares the IP address of Windows, as it is running on Windows. As such you can access any ports on localhost e.g. if you had web content on port 1234 you could https://localhost:1234 into your Windows browser.
 
 ## Where can I provide feedback?
 

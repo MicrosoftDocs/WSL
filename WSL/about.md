@@ -4,9 +4,10 @@ description: Learn more about how the Windows Subsystem for Linux works.
 keywords: BashOnWindows, bash, wsl, windows, windowssubsystem, gnu, linux
 author: scooley
 ms.author: scooley
-ms.date: 7/11/2016
+ms.date: 07/11/2016
 ms.topic: article
 ms.assetid: 3cefe0db-7616-4848-a2b6-9296746a178b
+ms.custom: seodec18
 ---
 
 # Windows Subsystem for Linux Documentation
@@ -38,8 +39,8 @@ You can:
 
 ## Posts & Articles
 * [Run Bash on Ubuntu on Windows](https://blogs.windows.com/buildingapps/2016/03/30/run-bash-on-ubuntu-on-windows/)
-* [Developers Can Run Bash And Usermode Ubuntu Linux Binaries On Windows 10](http://www.hanselman.com/blog/DevelopersCanRunBashShellAndUsermodeUbuntuLinuxBinariesOnWindows10.aspx)
-* [Ubuntu on Windows – The Ubuntu Userspace for Windows Developers](http://insights.ubuntu.com/2016/03/30/ubuntu-on-windows-the-ubuntu-userspace-for-windows-developers/) 
+* [Developers Can Run Bash And Usermode Ubuntu Linux Binaries On Windows 10](https://www.hanselman.com/blog/DevelopersCanRunBashShellAndUsermodeUbuntuLinuxBinariesOnWindows10.aspx)
+* [Ubuntu on Windows – The Ubuntu Userspace for Windows Developers](https://insights.ubuntu.com/2016/03/30/ubuntu-on-windows-the-ubuntu-userspace-for-windows-developers/) 
 
 ## Provide Feedback
 * [GitHub issue tracker](https://github.com/Microsoft/BashOnWindows/issues)
