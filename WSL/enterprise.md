@@ -6,10 +6,6 @@ author: mscraigloewen
 ms.author: mscraigloewen
 ms.date: 09/04/2018
 ms.topic: article
-<<<<<<< HEAD
-ms.service: windows-subsystem-for-linux
-=======
->>>>>>> 6af1fb5c633d944d4fc631d5a81107c6c1ff05f8
 ms.assetid: 7afaeacf-435a-4e58-bff0-a9f0d75b8a51
 ms.custom: seodec18
 ---

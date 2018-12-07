@@ -6,10 +6,6 @@ author: taraj
 ms.author: taraj
 ms.date: 03/27/2018
 ms.topic: article
-<<<<<<< HEAD
-ms.service: windows-subsystem-for-linux
-=======
->>>>>>> 6af1fb5c633d944d4fc631d5a81107c6c1ff05f8
 ms.assetid: a5095219-0c82-4ce5-9a6d-5c2fc00835a3
 ms.custom: seodec18
 ---

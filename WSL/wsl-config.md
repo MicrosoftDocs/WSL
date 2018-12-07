@@ -6,10 +6,6 @@ author: scooley
 ms.author: scooley
 ms.date: 02/7/2018
 ms.topic: article
-<<<<<<< HEAD
-ms.service: windows-subsystem-for-linux
-=======
->>>>>>> 6af1fb5c633d944d4fc631d5a81107c6c1ff05f8
 ms.assetid: 7ca59bd7-d9d3-4f6d-8b92-b8faa9bcf250
 ms.custom: seodec18
 ---
