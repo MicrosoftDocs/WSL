@@ -39,11 +39,17 @@ To download and install your preferred distro(s), you have three choices:
 
     The following links will open the Windows store page for each distribution:
 
-    * [Ubuntu](https://www.microsoft.com/store/p/ubuntu/9nblggh4msv6)
-    * [OpenSUSE](https://www.microsoft.com/store/apps/9njvjts82tjx)
-    * [SLES](https://www.microsoft.com/store/apps/9p32mwbh6cns)
+    * [Ubuntu 16.04 LTS](https://www.microsoft.com/store/apps/9pjn388hp8c9)
+    * [Ubuntu 18.04 LTS](https://www.microsoft.com/store/apps/9N9TNGVNDL3Q)
+    * [OpenSUSE Leap 15](https://www.microsoft.com/store/apps/9n1tb6fpvj8c)
+    * [OpenSUSE Leap 42](https://www.microsoft.com/store/apps/9njvjts82tjx)
+    * [SUSE Linux Enterprise Server 12](https://www.microsoft.com/store/apps/9p32mwbh6cns)
+    * [SUSE Linux Enterprise Server 15](https://www.microsoft.com/store/apps/9pmw35d7fnlx)
     * [Kali Linux](https://www.microsoft.com/store/apps/9PKR34TNCV07)
     * [Debian GNU/Linux](https://www.microsoft.com/store/apps/9MSVKQC78PK6)
+    * [WLinux](https://www.microsoft.com/store/apps/9NV1GV1PXZ6P)
+    * [WLinux Enterprise](https://www.microsoft.com/store/apps/9N8LP0X93VCP)
+    * [Alpine WSL](https://www.microsoft.com/store/apps/9p804crf0395)
 
 1. From the distro's page, select "Get"
 
