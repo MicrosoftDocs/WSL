@@ -11,6 +11,70 @@ ms.custom: seodec18
 
 # Release Notes for Windows Subsystem for Linux
 
+## Build 18305
+For general Windows information on build 18305 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2018/12/19/announcing-windows-10-insider-preview-build-18305/).
+
+### WSL
+* pthreads lose access to files when the primary thread exits [GH 3589]
+* TIOCSCTTY should ignore the “force” parameter unless it is required [GH 3652]
+* wsl.exe command line improvements and addition of import / export functionality.
+```
+Usage: wsl.exe [Argument] [Options...] [CommandLine]
+
+Arguments to run Linux binaries:
+
+    If no command line is provided, wsl.exe launches the default shell.
+
+    --exec, -e <CommandLine>
+        Execute the specified command without using the default Linux shell.
+
+    --
+        Pass the remaining command line as is.
+
+Options:
+    --distribution, -d <DistributionName>
+        Run the specified distribution.
+
+    --user, -u <UserName>
+        Run as the specified user.
+
+Arguments to manage Windows Subsystem for Linux:
+
+    --export <DistributionName> <FileName>
+        Exports the distribution to a tar file.
+        The filename can be - for standard output.
+
+    --import <DistributionName> <InstallLocation> <FileName>
+        Imports the specified tar file as a new distribution.
+        The filename can be - for standard input.
+
+    --list, -l [Options]
+        Lists distributions.
+
+        Options:
+            --all
+                List all distributions, including distributions that are currently
+                being installed or uninstalled.
+
+            --running
+                List only distributions that are currently running.
+
+    -setdefault, -s <DistributionName>
+        Sets the distribution as the default.
+
+    --terminate, -t <DistributionName>
+        Terminates the distribution.
+
+    --unregister <DistributionName>
+        Unregisters the distribution.
+
+    --upgrade <DistributionName>
+        Upgrades the distribution to the WslFs file system format.
+
+    --help
+        Display usage information.
+```
+
 ## Build 18277
 For general Windows information on build 18277 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2018/11/07/announcing-windows-10-insider-preview-build-18277/).
 
