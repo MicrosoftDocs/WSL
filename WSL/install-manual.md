@@ -28,7 +28,7 @@ If the Microsoft Store app is not available, you can download and manually insta
 * [Kali Linux](https://aka.ms/wsl-kali-linux)
 * [OpenSUSE Leap 42](https://aka.ms/wsl-opensuse-42)
 * [SUSE Linux Enterprise Server 12](https://aka.ms/wsl-sles-12)
-* [Fedora Remix for WSL](https://github.com/WhitewaterFoundry/WSLFedoraRemix/releases/download/1.0.20/DistroLauncher-Appx_1.0.20.0_x64.appxbundle)
+* [Fedora Remix for WSL](https://github.com/WhitewaterFoundry/WSLFedoraRemix/releases/)
 
 This will cause the `<distro>.appx` packages to download to a folder of your choosing. Follow the [installation instructions](#installing-your-distro) to install your downloaded distro(s).
 
