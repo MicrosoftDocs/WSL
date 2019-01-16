@@ -11,6 +11,12 @@ ms.custom: seodec18
 
 # Release Notes for Windows Subsystem for Linux
 
+## Build 18317
+For general Windows information on build 18317 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2019/01/16/announcing-windows-10-insider-preview-build-18317/).
+
+### WSL
+**WARNING:** There is a WSL bug in this build that may crash your system when used. It is recommended to avoid this build if using WSL.
+
 ## Build 18305
 For general Windows information on build 18305 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2018/12/19/announcing-windows-10-insider-preview-build-18305/).
 
