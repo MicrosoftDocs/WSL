@@ -18,7 +18,7 @@ ms.custom: seodec18
 
 There are many ways to run Linux with the Windows Subsystem for Linux.
 
-1. `[distro]` ie `ubuntu`
+1. `[distro]` or `ubuntu`
 1. `wsl.exe` or `bash.exe`
 1. `wsl [command]` or `bash -c [command]`
 
