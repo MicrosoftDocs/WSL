@@ -90,7 +90,8 @@ Usage:
 
 Step by step instructions using Ubuntu:
 
-1. Open CMD
+1. Close any un-elevated WSL instances.
+1. Open CMD as administrator.
 1. Set the default Linux user to `root`:
 
     ```console
