@@ -11,6 +11,15 @@ ms.custom: seodec18
 
 # Release Notes for Windows Subsystem for Linux
 
+## Build 18344
+For general Windows information on build 18344 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2019/02/08/announcing-windows-10-insider-preview-build-18334/).
+
+### WSL
+* Redesign the way that Windows time zone is mapped to a  Linux time zone [GH 3747]
+* Fix memory leaks and add new string translation functions [GH 3746]
+* SIGCONT on a threadgroup with no threads is a no-op [GH 3741] 
+* Correctly display socket and epoll file descriptors in /proc/self/fd
+
 ## Build 18305
 For general Windows information on build 18305 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2018/12/19/announcing-windows-10-insider-preview-build-18305/).
 
