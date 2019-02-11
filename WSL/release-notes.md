@@ -11,8 +11,8 @@ ms.custom: seodec18
 
 # Release Notes for Windows Subsystem for Linux
 
-## Build 18344
-For general Windows information on build 18344 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2019/02/08/announcing-windows-10-insider-preview-build-18334/).
+## Build 18334
+For general Windows information on build 18334 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2019/02/08/announcing-windows-10-insider-preview-build-18334/).
 
 ### WSL
 * Redesign the way that Windows time zone is mapped to a  Linux time zone [GH 3747]
