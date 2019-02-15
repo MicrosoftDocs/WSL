@@ -119,7 +119,7 @@ PS C:\Users\sarah>
 
 ### Windows 10 Version 1903 and later
 
-You can use `wsl.exe` to manage your multiple distributions in the Windows Subsystem for Linux (WSL), including listing available distributions, setting a default distribution, and uninstalling distributions.
+You can use `wsl.exe` to manage your distributions in the Windows Subsystem for Linux (WSL), including listing available distributions, setting a default distribution, and uninstalling distributions.
 
 Each Linux distribution independently manages its own configurations. To see distribution-specific commands, run `[distro.exe] /?`.  For example `ubuntu /?`.
 
@@ -130,6 +130,9 @@ Lists available Linux distributions available to WSL.  If a distribution is list
 
 `wsl --list --all`   
 Lists all distributions, including ones that aren't currently usable.  They may be in the process of installing, uninstalling, or are in a broken state.  
+
+`wsl --list --running`   
+Lists all distributions that are currently running.
 
 #### Set a default distribution
 
@@ -157,6 +160,18 @@ For example:
 `wsl -unregister Ubuntu` would remove Ubuntu from the distributions available in WSL.  When I run `wsl --list` it will not be listed.
 
 To reinstall, find the distribution in the Windows Store and select "Launch".
+
+#### Run as a specific user
+
+`wsl -u <Username>`, `wsl --user <Username>`
+
+Run WSL as the specified user. Please note that user must exist inside of the WSL distribution.
+
+#### Run a specific distribution
+
+`wsl --d <DistributionName>`, `wsl --distribution <DistributionName>`
+
+Run a specified distribution of WSL, can be used to send commands to a specific distribution without having to change your default.
 
 ### Versions Earlier than Windows 10 Version 1903
 
