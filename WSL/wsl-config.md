@@ -117,6 +117,49 @@ PS C:\Users\sarah>
 
 ## Managing multiple Linux Distributions
 
+### Windows 10 Version 1903 and later
+
+You can use `wsl.exe` to manage your multiple distributions in the Windows Subsystem for Linux (WSL), including listing available distributions, setting a default distribution, and uninstalling distributions.
+
+Each Linux distribution independently manages its own configurations. To see distribution-specific commands, run `[distro.exe] /?`.  For example `ubuntu /?`.
+
+#### List distributions
+
+`wsl -l` , `wsl --list`  
+Lists available Linux distributions available to WSL.  If a distribution is listed, it's installed and ready to use.
+
+`wsl --list --all`   
+Lists all distributions, including ones that aren't currently usable.  They may be in the process of installing, uninstalling, or are in a broken state.  
+
+#### Set a default distribution
+
+The default WSL distribution is the one that runs when you run `wsl` on a command line.
+
+`wsl -s <DistributionName>`, `wsl --setdefault <DistributionName>`
+
+Sets the default distribution to `<DistributionName>`.
+
+**Example:**  
+`wsl -s Ubuntu` would set my default distribution to Ubuntu.  Now when I run `wsl npm init` it will run in Ubuntu.  If I run `wsl` it will open an Ubuntu session.
+
+#### Unregister and reinstall a distribution
+
+While Linux distributions can be installed through the Windows store, they can't be uninstalled through the store.  WSL Config allows distributions to be unregistered/uninstalled.
+
+Unregistering also allows distributions to be reinstalled.
+
+> **Caution:** Once unregistered, all data, settings, and software associated with that distribution will be permanently lost.  Reinstalling from the store will install a clean copy of the distribution.
+
+`wsl --unregister <DistributionName>`  
+Unregisters the distribution from WSL so it can be reinstalled or cleaned up.
+
+For example:
+`wsl -unregister Ubuntu` would remove Ubuntu from the distributions available in WSL.  When I run `wsl --list` it will not be listed.
+
+To reinstall, find the distribution in the Windows Store and select "Launch".
+
+### Versions Earlier than Windows 10 Version 1903
+
 WSL Config (`wslconfig.exe`) is a command-line tool for managing Linux distributions running on the Windows Subsystem for Linux (WSL).  It lets you list available distributions, set a default distribution, and uninstall distributions.
 
 While WSL Config is helpful for settings that span or coordinate distributions, each Linux distribution independently manages its own configurations.  To see distribution-specific commands, run `[distro.exe] /?`.  For example `ubuntu /?`.
@@ -135,7 +178,7 @@ Usage:
     /u, /unregister <DistributionName> - Unregisters a distribution.
 ```
 
-### List distributions
+#### List distributions
 
 `wslconfig /list`  
 Lists available Linux distributions available to WSL.  If a distribution is listed, it's installed and ready to use.
@@ -143,7 +186,7 @@ Lists available Linux distributions available to WSL.  If a distribution is list
 `wslconfig /list /all`  
 Lists all distributions, including ones that aren't currently usable.  They may be in the process of installing, uninstalling, or are in a broken state.  
 
-### Set a default distribution
+#### Set a default distribution
 
 The default WSL distribution is the one that runs when you run `wsl` on a command line.
 
@@ -154,7 +197,7 @@ Sets the default distribution to `<DistributionName>`.
 **Example:**  
 `wslconfig /setdefault Ubuntu` would set my default distribution to Ubuntu.  Now when I run `wsl npm init` it will run in Ubuntu.  If I run `wsl` it will open an Ubuntu session.
 
-### Unregister and reinstall a distribution
+#### Unregister and reinstall a distribution
 
 While Linux distributions can be installed through the Windows store, they can't be uninstalled through the store.  WSL Config allows distributions to be unregistered/uninstalled.
 
