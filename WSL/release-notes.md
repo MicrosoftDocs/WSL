@@ -15,7 +15,7 @@ ms.custom: seodec18
 For general Windows information on build 18342 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2019/02/20/announcing-windows-10-insider-preview-build-18342/).
 
 ### WSL
-* We've added the ability for users to access Linux files in a WSL distro from Windows. These files can be accessed through the command line, and also Windows apps, like file explorer, VSCode, etc. can interact with these files. Access your files by navigating to \\wsl$\<distro_name>, or see a list of running distributions by navigating to \\wsl$
+* We've added the ability for users to access Linux files in a WSL distro from Windows. These files can be accessed through the command line, and also Windows apps, like file explorer, VSCode, etc. can interact with these files. Access your files by navigating to \\\\wsl$\\<distro_name>, or see a list of running distributions by navigating to \\\\wsl$
 * Add additional CPU info tags and fix Cpus_allowed[_list] values [GH 2234]
 * Support exec from non-leader thread [GH 3800]
 * Treat configuration update failures as non-fatal [GH 3785]
