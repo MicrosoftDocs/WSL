@@ -95,6 +95,8 @@ Step by step instructions using Ubuntu:
 
     ```console
     C:\> ubuntu config --default-user root
+    # If you are using Ubuntu 18.04 in WSL, change the command to ubuntu1804
+    # ubuntu1804 config --default-user root
     ```    
 
 1. Launch your Linux distribution (`ubuntu`).  You will automatically login as `root`:
@@ -109,6 +111,8 @@ Step by step instructions using Ubuntu:
 
     ```console
     C:\> ubuntu config --default-user username
+    # If you are using Ubuntu 18.04 in WSL, change the command to ubuntu1804
+    ubuntu config --default-user username
     ```
 
 ## Permissions
