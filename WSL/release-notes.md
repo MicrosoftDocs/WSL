@@ -11,6 +11,19 @@ ms.custom: seodec18
 
 # Release Notes for Windows Subsystem for Linux
 
+## Build 18890
+For general Windows information on build 18890 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2019/05/01/announcing-windows-10-insider-preview-build-18890/).
+
+### WSL
+* Non-blocking socket leak [GH 2913]
+* EOF input to terminal can block subsequent reads [GH 3421]
+* Update resolv.conf header to refer to wsl.conf [discussed in GH 3928]
+* Deadlock in epoll delete code [GH 3922]
+* Handle spaces in arguments to --import and –export [GH 3932]
+* Extending mmap’d files does not work properly [GH 3939]
+* Fix issue with ARM64 \\wsl$ access not working properly
+* Add better default icon for wsl.exe
+
 ## Build 18342
 For general Windows information on build 18342 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2019/02/20/announcing-windows-10-insider-preview-build-18342/).
 
