@@ -146,7 +146,6 @@ systeminfo | Select-String "^OS Name","^OS Version"
 ### Confirm WSL is enabled
 You can confirm that the Windows Subsystem for Linux is enabled by running the following in PowerShell:  
 ``` PowerShell
-PowerShell
 Get-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
 ```
 
