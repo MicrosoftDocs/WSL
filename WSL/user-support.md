@@ -4,14 +4,13 @@ description: Reference for user accounts and permission management with the Wind
 keywords: BashOnWindows, bash, wsl, windows, windows subsystem for linux, windowssubsystem, ubuntu, user accounts
 author: scooley
 ms.author: scooley
-ms.date: 9/11/2017
+ms.date: 09/11/2017
 ms.topic: article
-ms.prod: windows-subsystem-for-linux
-ms.service: windows-subsystem-for-linux
 ms.assetid: f70e685f-24c6-4908-9546-bf4f0291d8fd
+ms.custom: seodec18
 ---
 
-# User Accounts and Permissions
+# User Accounts and Permissions for Windows Subsystem for Linux
 
 Creating your Linux user is the first step in setting up a new Linux distribution on WSL.  The first user account you create is automatically configured with a few special attributes:
 
@@ -33,26 +32,26 @@ If you're running Windows 10 Creators update or earlier, you can change the defa
 
 1. Change the default user to `root`:
 
-    ``` CMD
+    ```console
     C:\> lxrun /setdefaultuser root
     ```
 
 1. Run `bash.exe` to now login as `root`:
 
-    ``` CMD
+    ```console
     C:\> bash.exe
     ```
 
 1. Reset your password using the distribution's password command, and close the Linux Console:
 
-    ``` BASH
+    ```BASH
     $ passwd username
     $ exit
     ```
 
 1. From Windows CMD, reset your default user back to your normal Linux user account:
 
-    ``` CMD
+    ```console
     C:\> lxrun.exe /setdefaultuser username
     ```
 
@@ -61,7 +60,7 @@ To see what commands are available for a particular distribution, run `[distro.e
     
 For example, with Ubuntu installed:
 
-``` 
+```console
 C:\> ubuntu.exe /?
 
 Launches or configures a linux distribution.
@@ -94,7 +93,7 @@ Step by step instructions using Ubuntu:
 1. Open CMD
 1. Set the default Linux user to `root`:
 
-    ``` CMD
+    ```console
     C:\> ubuntu config --default-user root
     ```    
 
@@ -102,13 +101,13 @@ Step by step instructions using Ubuntu:
 
 1. Reset your password using the `passwd` command:
 
-    ``` BASH
+    ```BASH
     $ passwd username
     ```
 
 1. From Windows CMD, reset your default user back to your normal Linux user account.
 
-    ``` CMD
+    ```console
     C:\> ubuntu config --default-user username
     ```
 

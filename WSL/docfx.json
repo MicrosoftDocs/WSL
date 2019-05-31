@@ -35,10 +35,12 @@
       "extendBreadcrumb": true,
       "feedback_system": "GitHub",
       "feedback_github_repo": "MicrosoftDocs/WSL",
+      "ms.prod" : "windows-subsystem-for-linux",
       "feedback_product_url": "https://github.com/Microsoft/WSL/issues"
     },
     "fileMetadata": {},
     "template": [],
-    "dest": "wsl"
+    "dest": "wsl",
+    "markdownEngineName": "markdig"
   }
 }

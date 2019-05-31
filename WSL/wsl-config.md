@@ -4,14 +4,13 @@ description: Reference listing and configuring multiple Linux distributions runn
 keywords: BashOnWindows, bash, wsl, windows, windows subsystem for linux, windowssubsystem, ubuntu, wsl.conf, wslconfig
 author: scooley
 ms.author: scooley
-ms.date: 2/7/2018
+ms.date: 02/7/2018
 ms.topic: article
-ms.prod: windows-subsystem-for-linux
-ms.service: windows-subsystem-for-linux
 ms.assetid: 7ca59bd7-d9d3-4f6d-8b92-b8faa9bcf250
+ms.custom: seodec18
 ---
 
-# Manage and configure WSL
+# Manage and configure Windows Subsystem for Linux
 
 > Applies to Windows 10 Fall Creators Update and later.  See our updated [installation guide](./install_guide.md) to try new management features and start running multiple Linux distributions from the Windows Store.
 
@@ -41,7 +40,7 @@ The disadvantage of running a distribution from the command line in this way is 
 
 **Example:**
 
-```
+```console
 PS C:\Users\sarah> pwd
 
 Path
@@ -64,7 +63,7 @@ The best way to run WSL from the command line is using `wsl.exe`.
 
 **Example:**
 
-```
+```console
 PS C:\Users\sarah> pwd
 
 Path
@@ -81,7 +80,7 @@ Not only does `wsl` keep the current working directory in place, it lets you run
 
 **Example:**
 
-```
+```console
 PS C:\Users\sarah> Get-Date
 
 Sunday, March 11, 2018 7:54:05 PM
@@ -98,7 +97,7 @@ Sun Mar 11 19:55:47 DST 2018
 
 **Example:**
 
-```
+```console
 PS C:\Users\sarah> Get-VM
 
 Name            State CPUUsage(%) MemoryAssigned(M) Uptime   Status
@@ -118,13 +117,71 @@ PS C:\Users\sarah>
 
 ## Managing multiple Linux Distributions
 
+### Windows 10 Version 1903 and later
+
+You can use `wsl.exe` to manage your distributions in the Windows Subsystem for Linux (WSL), including listing available distributions, setting a default distribution, and uninstalling distributions.
+
+Each Linux distribution independently manages its own configurations. To see distribution-specific commands, run `[distro.exe] /?`.  For example `ubuntu /?`.
+
+#### List distributions
+
+`wsl -l` , `wsl --list`  
+Lists available Linux distributions available to WSL.  If a distribution is listed, it's installed and ready to use.
+
+`wsl --list --all`   
+Lists all distributions, including ones that aren't currently usable.  They may be in the process of installing, uninstalling, or are in a broken state.  
+
+`wsl --list --running`   
+Lists all distributions that are currently running.
+
+#### Set a default distribution
+
+The default WSL distribution is the one that runs when you run `wsl` on a command line.
+
+`wsl -s <DistributionName>`, `wsl --setdefault <DistributionName>`
+
+Sets the default distribution to `<DistributionName>`.
+
+**Example:**  
+`wsl -s Ubuntu` would set my default distribution to Ubuntu.  Now when I run `wsl npm init` it will run in Ubuntu.  If I run `wsl` it will open an Ubuntu session.
+
+#### Unregister and reinstall a distribution
+
+While Linux distributions can be installed through the Windows store, they can't be uninstalled through the store.  WSL Config allows distributions to be unregistered/uninstalled.
+
+Unregistering also allows distributions to be reinstalled.
+
+> **Caution:** Once unregistered, all data, settings, and software associated with that distribution will be permanently lost.  Reinstalling from the store will install a clean copy of the distribution.
+
+`wsl --unregister <DistributionName>`  
+Unregisters the distribution from WSL so it can be reinstalled or cleaned up.
+
+For example:
+`wsl -unregister Ubuntu` would remove Ubuntu from the distributions available in WSL.  When I run `wsl --list` it will not be listed.
+
+To reinstall, find the distribution in the Windows Store and select "Launch".
+
+#### Run as a specific user
+
+`wsl -u <Username>`, `wsl --user <Username>`
+
+Run WSL as the specified user. Please note that user must exist inside of the WSL distribution.
+
+#### Run a specific distribution
+
+`wsl --d <DistributionName>`, `wsl --distribution <DistributionName>`
+
+Run a specified distribution of WSL, can be used to send commands to a specific distribution without having to change your default.
+
+### Versions Earlier than Windows 10 Version 1903
+
 WSL Config (`wslconfig.exe`) is a command-line tool for managing Linux distributions running on the Windows Subsystem for Linux (WSL).  It lets you list available distributions, set a default distribution, and uninstall distributions.
 
 While WSL Config is helpful for settings that span or coordinate distributions, each Linux distribution independently manages its own configurations.  To see distribution-specific commands, run `[distro.exe] /?`.  For example `ubuntu /?`.
 
 To see all available options for wslconfig, run:  `wslconfig /?`
 
-```  txt
+```console
 wslconfig.exe
 Performs administrative operations on Windows Subsystem for Linux
 
@@ -136,7 +193,7 @@ Usage:
     /u, /unregister <DistributionName> - Unregisters a distribution.
 ```
 
-### List distributions
+#### List distributions
 
 `wslconfig /list`  
 Lists available Linux distributions available to WSL.  If a distribution is listed, it's installed and ready to use.
@@ -144,7 +201,7 @@ Lists available Linux distributions available to WSL.  If a distribution is list
 `wslconfig /list /all`  
 Lists all distributions, including ones that aren't currently usable.  They may be in the process of installing, uninstalling, or are in a broken state.  
 
-### Set a default distribution
+#### Set a default distribution
 
 The default WSL distribution is the one that runs when you run `wsl` on a command line.
 
@@ -155,7 +212,7 @@ Sets the default distribution to `<DistributionName>`.
 **Example:**  
 `wslconfig /setdefault Ubuntu` would set my default distribution to Ubuntu.  Now when I run `wsl npm init` it will run in Ubuntu.  If I run `wsl` it will open an Ubuntu session.
 
-### Unregister and reinstall a distribution
+#### Unregister and reinstall a distribution
 
 While Linux distributions can be installed through the Windows store, they can't be uninstalled through the store.  WSL Config allows distributions to be unregistered/uninstalled.
 
@@ -183,7 +240,7 @@ Right now, this includes automount options and network configuration.
 
 Here is a sample `wsl.conf` file you could add into your distros:
 
-```
+```console
 # Enable extra metadata options by default
 [automount]
 enabled = true
@@ -207,12 +264,14 @@ WSL supports two sections: `automount` and `network`.
 
 Section: `[automount]`
 
-| key | value | default | notes|
-|:----|:----|:----|:----|
-| enabled | boolean | true | `true` causes fixed drives (i.e `C:/` or `D:/`) to be automatically mounted with DrvFs under `/mnt`.  `false` means drives won’t be mounted automatically, but you could still mount them manually or via `fstab`. |
-| mountFsTab | boolean | true | `true` sets `/etc/fstab` to be processed on WSL start. /etc/fstab is a file where you can declare other filesystems, like an SMB share. Thus, you can mount these filesystems automatically in WSL on start up. |
-| root | String | `/mnt/` | Sets the directory where fixed drives will be automatically mounted. For example, if you have a directory in WSL at `/windir/` and you specify that as the root, you would expect to see your fixed drives mounted at `/windir/c` |
-| options | comma-separated list of values | empty string |This value is appended to the default DrvFs mount options string. **Only DrvFs-specific options can be specified.** Options that the mount binary would normally parse into a flag are not supported. If you want to explicitly specify those options, you must include every drive for which you want to do so in /etc/fstab.
+
+| key        | value                          | default      | notes                                                                                                                                                                                                                                                                                                                          |
+|:-----------|:-------------------------------|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| enabled    | boolean                        | true         | `true` causes fixed drives (i.e `C:/` or `D:/`) to be automatically mounted with DrvFs under `/mnt`.  `false` means drives won’t be mounted automatically, but you could still mount them manually or via `fstab`.                                                                                                             |
+| mountFsTab | boolean                        | true         | `true` sets `/etc/fstab` to be processed on WSL start. /etc/fstab is a file where you can declare other filesystems, like an SMB share. Thus, you can mount these filesystems automatically in WSL on start up.                                                                                                                |
+| root       | String                         | `/mnt/`      | Sets the directory where fixed drives will be automatically mounted. For example, if you have a directory in WSL at `/windir/` and you specify that as the root, you would expect to see your fixed drives mounted at `/windir/c`                                                                                              |
+| options    | comma-separated list of values | empty string | This value is appended to the default DrvFs mount options string. **Only DrvFs-specific options can be specified.** Options that the mount binary would normally parse into a flag are not supported. If you want to explicitly specify those options, you must include every drive for which you want to do so in /etc/fstab. |
+
 By default, WSL sets the uid and gid to the value of the default user (in Ubuntu distro, the default user is created with uid=1000,gid=1000). If the user specifies a gid or uid option explicitly via this key, the associated value will be overwritten. Otherwise, the default value will always be appended.
 
 **Note:** These options are applied as the mount options for all automatically mounted drives. To change the options for a specific drive only, use /etc/fstab instead.
@@ -225,3 +284,14 @@ Section label: `[network]`
 |:----|:----|:----|:----|
 | generateHosts | boolean | `true` | `true` sets WSL to generate `/etc/hosts`. The `hosts` file contains a static map of hostnames corresponding IP address. |
 | generateResolvConf | boolean | `true` | `true` set WSL to generate `/etc/resolv.conf`. The `resolv.conf` contains a DNS list that are capable of resolving a given hostname to its IP address. | 
+
+#### interop
+
+Section label: `[interop]`
+
+These options are available in Insider Build 17713 and later.
+
+| key | value | default | notes|
+|:----|:----|:----|:----|
+| enabled | boolean | `true` | Setting this key will determine whether WSL will support launching Windows processes. |
+| appendWindowsPath | boolean | `true` | Setting this key will determine whether WSL will add Windows path elements to the $PATH environment variable. | 

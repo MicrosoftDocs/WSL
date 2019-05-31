@@ -6,12 +6,11 @@ author: scooley
 ms.author: scooley
 ms.date: 11/15/2017
 ms.topic: article
-ms.prod: windows-subsystem-for-linux
-ms.service: windows-subsystem-for-linux
 ms.assetid: 6753f1b2-200e-49cc-93a5-4323e1117246
+ms.custom: seodec18
 ---
 
-# Troubleshooting
+# Troubleshooting Windows Subsystem for Linux
 
 ### Bash loses network connectivity once connected to a VPN
 
@@ -33,15 +32,9 @@ Once you have disconnected the VPN, you will have to revert the changes to `/etc
 2. `sudo mv resolv.conf resolv.conf.new`
 3. `sudo ln -s ../run/resolvconf/resolv.conf resolv.conf`
 
-### Starting bash gives an error code
-1. Download these two .txt files and rename them .cmd
-  https://github.com/Microsoft/BashOnWindows/files/288621/start_lxcore_trace.txt <br/>
-  https://github.com/Microsoft/BashOnWindows/files/288622/stop_lxcore_trace.txt
-2. Run start_lxcore_trace.cmd from an admin command prompt
-3. Launch bash.exe (repro the scenario).
-4. Run stop_lxcore_trace.cmd from an admin command prompt
-6. You should now see three .etl files in the directory you ran the script from.
-7. Post the files with your GitHub post to our [issue page](https://github.com/Microsoft/BashOnWindows/issues). 
+### Starting WSL or installing a distribution returns an error code
+
+Follow [these instructions](https://github.com/Microsoft/WSL/blob/master/CONTRIBUTING.md#8-detailed-logs) to collect detailed logs and file an issue on our GitHub.
 
 ### Updating Bash on Ubuntu on Windows
 
@@ -49,14 +42,14 @@ There are two components of Bash on Ubuntu on Windows that can require updating.
 
 1. The Windows Subsystem for Linux
   
-  Upgrading this portion of Bash on Ubuntu on Windows will enable any new fixes outlines in the [release notes](https://msdn.microsoft.com/en-us/commandline/wsl/release_notes). Ensure that you are subscribed to the Windows Insider Program and that your build is up to date. For finer grain control including resetting your Ubuntu instance check out the [command reference page](https://msdn.microsoft.com/en-us/commandline/wsl/reference).
+   Upgrading this portion of Bash on Ubuntu on Windows will enable any new fixes outlines in the [release notes](https://msdn.microsoft.com/en-us/commandline/wsl/release_notes). Ensure that you are subscribed to the Windows Insider Program and that your build is up to date. For finer grain control including resetting your Ubuntu instance check out the [command reference page](https://msdn.microsoft.com/en-us/commandline/wsl/reference).
 
 2. The Ubuntu user binaries 
 
-  Upgrading this portion of Bash on Ubuntu on Windows will install any updates to the Ubuntu user binaries including applications that you have installed via apt-get. To update run the following commands in Bash:
+   Upgrading this portion of Bash on Ubuntu on Windows will install any updates to the Ubuntu user binaries including applications that you have installed via apt-get. To update run the following commands in Bash:
   
-  1. `apt-get update`
-  2. `apt-get upgrade`
+   1. `apt-get update`
+   2. `apt-get upgrade`
   
 ### Apt-get upgrade errors
 Some packages use features that we haven't implemented yet. `udev`, for example, isn't supported yet and causes several `apt-get upgrade` errors.
@@ -65,21 +58,21 @@ To fix issues related to `udev`, follow the following steps:
 
 1. Write the following to `/usr/sbin/policy-rc.d` and save your changes.
   
-  ``` BASH
-  #!/bin/sh
-  exit 101
-  ```
+   ``` BASH
+   #!/bin/sh
+   exit 101
+   ```
   
 2. Add execute permissions to `/usr/sbin/policy-rc.d`
-  ``` BASH
-  chmod +x /usr/sbin/policy-rc.d
-  ```
+   ``` BASH
+   chmod +x /usr/sbin/policy-rc.d
+   ```
   
-2. Run the following commands
-  ``` BASH
-  dpkg-divert --local --rename --add /sbin/initctl
-  ln -s /bin/true /sbin/initctl
-  ```
+3. Run the following commands
+   ``` BASH
+   dpkg-divert --local --rename --add /sbin/initctl
+   ln -s /bin/true /sbin/initctl
+   ```
   
 ### "Error: 0x80040306" on installation
 This has to do with the fact that we do not support legacy console.
@@ -142,7 +135,7 @@ To find your PC's architecture and Windows build number, open
 **Settings** > **System** > **About**
 
 Look for the **OS Build** and **System Type** fields.  
-    ![](media/system.png) 
+    ![Screenshot of Build and System Type fields](media/system.png) 
 
 
 To find your Windows Server build number, run the following in PowerShell:  
@@ -156,3 +149,38 @@ You can confirm that the Windows Subsystem for Linux is enabled by running the f
 PowerShell
 Get-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
 ```
+
+### OpenSSH-Server connection issues
+Trying to connect your SSH server is failed with the following error: "Connection closed by 127.0.0.1 port 22".
+1. Make sure your OpenSSH Server is running:
+   ``` BASH
+   sudo service ssh status
+   ```
+   and you've followed this tutorial:
+   https://help.ubuntu.com/lts/serverguide/openssh-server.html.en
+2. Stop the sshd service and start sshd in debug mode:
+   ``` BASH
+   sudo service ssh stop
+   sudo /usr/sbin/sshd -d
+   ```
+3. Check the startup logs and make sure HostKeys are available and you don't see log messages such as:
+   debug1: sshd version OpenSSH_7.2, OpenSSL 1.0.2g  1 Mar 2016
+   debug1: key_load_private: incorrect passphrase supplied to decrypt private key
+   debug1: key_load_public: No such file or directory
+   Could not load host key: /etc/ssh/ssh_host_rsa_key
+   debug1: key_load_private: No such file or directory
+   debug1: key_load_public: No such file or directory
+   Could not load host key: /etc/ssh/ssh_host_dsa_key
+   debug1: key_load_private: No such file or directory
+   debug1: key_load_public: No such file or directory
+   Could not load host key: /etc/ssh/ssh_host_ecdsa_key
+   debug1: key_load_private: No such file or directory
+   debug1: key_load_public: No such file or directory
+   Could not load host key: /etc/ssh/ssh_host_ed25519_key
+
+If you do see such messages and the keys are missing under `/etc/ssh/`, you will have to regenerate the keys or just purge&install openssh-server:
+```BASH
+sudo apt-get purge openssh-server
+sudo apt-get install openssh-server
+```
+

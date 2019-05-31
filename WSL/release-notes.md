@@ -1,16 +1,306 @@
 ---
-title: Release Notes
+title: Release Notes for Windows Subsystem for Linux
 description: Release notes for the Windows Subsystem for Linux.  Updated weekly.
 keywords: BashOnWindows, bash, wsl, windows, windows subsystem for linux, windowssubsystem, ubuntu
 author: benhillis
-ms.date: 7/31/2017
+ms.date: 07/31/2017
 ms.topic: article
-ms.prod: windows-subsystem-for-linux
-ms.service: windows-subsystem-for-linux
 ms.assetid: 36ea641e-4d49-4881-84eb-a9ca85b1cdf4
+ms.custom: seodec18
 ---
 
-# Release Notes
+# Release Notes for Windows Subsystem for Linux
+
+## Build 18890
+For general Windows information on build 18890 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2019/05/01/announcing-windows-10-insider-preview-build-18890/).
+
+### WSL
+* Non-blocking socket leak [GH 2913]
+* EOF input to terminal can block subsequent reads [GH 3421]
+* Update resolv.conf header to refer to wsl.conf [discussed in GH 3928]
+* Deadlock in epoll delete code [GH 3922]
+* Handle spaces in arguments to --import and –export [GH 3932]
+* Extending mmap’d files does not work properly [GH 3939]
+* Fix issue with ARM64 \\wsl$ access not working properly
+* Add better default icon for wsl.exe
+
+## Build 18342
+For general Windows information on build 18342 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2019/02/20/announcing-windows-10-insider-preview-build-18342/).
+
+### WSL
+* We've added the ability for users to access Linux files in a WSL distro from Windows. These files can be accessed through the command line, and also Windows apps, like file explorer, VSCode, etc. can interact with these files. Access your files by navigating to \\\\wsl$\\<distro_name>, or see a list of running distributions by navigating to \\\\wsl$
+* Add additional CPU info tags and fix Cpus_allowed[_list] values [GH 2234]
+* Support exec from non-leader thread [GH 3800]
+* Treat configuration update failures as non-fatal [GH 3785]
+* Update binfmt to properly handle offsets [GH 3768]
+* Enable mapping network drives for Plan 9 [GH 3854]
+* Support Windows -> Linux and Linux -> Windows path translation for bind mounts
+* Create read-only sections for mappings on files opened read-only
+
+## Build 18334
+For general Windows information on build 18334 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2019/02/08/announcing-windows-10-insider-preview-build-18334/).
+
+### WSL
+* Redesign the way that Windows time zone is mapped to a  Linux time zone [GH 3747]
+* Fix memory leaks and add new string translation functions [GH 3746]
+* SIGCONT on a threadgroup with no threads is a no-op [GH 3741] 
+* Correctly display socket and epoll file descriptors in /proc/self/fd
+
+## Build 18305
+For general Windows information on build 18305 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2018/12/19/announcing-windows-10-insider-preview-build-18305/).
+
+### WSL
+* pthreads lose access to files when the primary thread exits [GH 3589]
+* TIOCSCTTY should ignore the “force” parameter unless it is required [GH 3652]
+* wsl.exe command line improvements and addition of import / export functionality.
+```
+Usage: wsl.exe [Argument] [Options...] [CommandLine]
+
+Arguments to run Linux binaries:
+
+    If no command line is provided, wsl.exe launches the default shell.
+
+    --exec, -e <CommandLine>
+        Execute the specified command without using the default Linux shell.
+
+    --
+        Pass the remaining command line as is.
+
+Options:
+    --distribution, -d <DistributionName>
+        Run the specified distribution.
+
+    --user, -u <UserName>
+        Run as the specified user.
+
+Arguments to manage Windows Subsystem for Linux:
+
+    --export <DistributionName> <FileName>
+        Exports the distribution to a tar file.
+        The filename can be - for standard output.
+
+    --import <DistributionName> <InstallLocation> <FileName>
+        Imports the specified tar file as a new distribution.
+        The filename can be - for standard input.
+
+    --list, -l [Options]
+        Lists distributions.
+
+        Options:
+            --all
+                List all distributions, including distributions that are currently
+                being installed or uninstalled.
+
+            --running
+                List only distributions that are currently running.
+
+    -setdefault, -s <DistributionName>
+        Sets the distribution as the default.
+
+    --terminate, -t <DistributionName>
+        Terminates the distribution.
+
+    --unregister <DistributionName>
+        Unregisters the distribution.
+
+    --upgrade <DistributionName>
+        Upgrades the distribution to the WslFs file system format.
+
+    --help
+        Display usage information.
+```
+
+## Build 18277
+For general Windows information on build 18277 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2018/11/07/announcing-windows-10-insider-preview-build-18277/).
+
+### WSL
+* Fix "no such interface supported" error introduced in build 18272 [GH 3645]
+* Ignore the MNT_FORCE flag for umount syscall [GH 3605]
+* Switch WSL interop to use the official CreatePseudoConsole API
+* Maintain no timeout value when FUTEX_WAIT restarts
+
+## Build 18272
+For general Windows information on build 18272 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2018/10/31/announcing-windows-10-insider-preview-build-18272/).
+
+### WSL
+* **WARNING:** There is an issue in this build that makes WSL inoperable. When trying to launch your distribution you will see a “No such interface supported” error. The issue has been fixed and will be in next week's Insider Fast build. If you've installed this build you can roll back to the previous Windows build using “Go back to the previous version of Windows 10” in Settings->Update & Security->Recovery.
+
+## Build 18267
+For general Windows information on build 18267 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2018/10/24/announcing-windows-10-insider-preview-build-18267/).
+
+### WSL
+* Fix issue where zombie process may not be reaped and remain indefinitely.
+* WslRegisterDistribution hangs if error message exceeds max length [GH 3592]
+* Allow fsync to succeed for read-only files on DrvFs [GH 3556]
+* Ensure that /bin and /sbin directories exist before creating symlinks inside [GH 3584]
+* Added an instance termination timeout mechanism for WSL instances. The timeout is currently set to 15 seconds, meaning the instance will terminate 15 seconds after the last WSL process exits. To terminate a distribution immediately, use:
+```
+wslconfig.exe /terminate <DistributionName>
+```
+
+## Build 17763 (1809)
+For general Windows information on build 17763 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2018/10/02/how-to-get-the-windows-10-october-2018-update/).
+
+### WSL
+* Setpriority syscall permission check too strict for changing same thread priority [GH 1838]
+* Ensure that unbiased interrupt time is used for boot time to avoid returning negative values for clock_gettime(CLOCK_BOOTTIME) [GH 3434]
+* Handle symlinks in the WSL binfmt interpreter [GH 3424]
+* Better handling of threadgroup leader file descriptor cleanup.
+* Switch WSL to use KeQueryInterruptTimePrecise instead of KeQueryPerformanceCounter to avoid overflow [GH 3252]
+* Ptrace attach may cause bad return value from system calls [GH 1731]
+* Fix several AF_UNIX related issues [GH 3371]
+* Fix issue that could cause WSL interop to fail if the current working directory is less than 5 characters long [GH 3379]
+* Avoid one second delay failing loopback connections to non-existent ports [GH 3286]
+* Add /proc/sys/fs/file-max stub file [GH 2893]
+* More accurate IPV6 scope information.
+* PR_SET_PTRACER support [GH 3053]
+* Pipe filesystem inadvertently clearing edge-triggered epoll event [GH 3276]
+* Win32 executable launched via NTFS symlink doesn't respect symlink name [GH 2909]
+* Improved zombie support [GH 1353]
+* Add wsl.conf entries for controlling Windows interop behavior [GH 1493]
+  ```
+    [interop]
+
+    enabled=false # enable launch of Windows binaries; default is true
+
+    appendWindowsPath=false # append Windows path to $PATH variable; default is true
+  ```
+* Fix for getsockname not always returning UNIX socket family type [GH 1774]
+* Add support for TIOCSTI [GH 1863]
+* Non-blocking sockets in the process of connecting should return EAGAIN for write attempts [GH 2846]
+* Support interop on mounted VHDs [GH 3246, 3291]
+* Fix permission checking issue on root folder [GH 3304]
+* Limited support for TTY keyboard ioctls KDGKBTYPE, KDGKBMODE and KDSKBMODE.
+* Windows UI apps should execute even when launched in the background.
+* Add wsl -u or --user option [GH 1203]
+* Fix WSL launch issues when fast startup is enabled [GH 2576]
+* Unix sockets need to retain disconnected peer credentials [GH 3183]
+* Non-blocking Unix sockets failing indefinitely with EAGAIN [GH 3191]
+* case=off is the new default drvfs mount type [GH 2937, 3212, 3328]
+    * See [blog](https://blogs.msdn.microsoft.com/commandline/2018/06/14/improved-per-directory-case-sensitivity-support-in-wsl/) for more information.
+* Add wslconfig /terminate to stop running distributions.
+* Fix issue with the WSL shell context menu entries that do not correctly handle paths with spaces.
+* Expose per-directory case sensitivity as an extended attribute
+* ARM64: Emulate cache maintenance operations. Resolve [dotnet issue](https://github.com/dotnet/core/issues/1561).
+* DrvFs: only unescape characters in the private range that correspond to an escaped character.
+* Fix off-by-one error in ELF parser interpreter length validation [GH 3154]
+* WSL absolute timers with a time in the past do not fire [GH 3091]
+* Ensure newly created reparse points are listed as such in the parent directory.
+* Atomically create case sensitive directories in DrvFs.
+* Fixed an additional issue where multithreaded operations could return ENOENT even though the file exists. [GH 2712]
+* Fixed WSL launch failure when UMCI is enabled. [GH 3020]
+* Add explorer context menu to launch WSL [GH 437, 603, 1836]. To use, hold shift and right-click when in an explorer window.
+* Fix Unix socket non-blocking behavior [GH 2822, 3100]
+* Fix hanging NETLINK command as reported in GH 2026.
+* Add support for mount propagation flags [GH 2911].
+* Fix issue with truncate not causing inotify events [GH 2978].
+* Add --exec option for wsl.exe to invoke a single binary without a shell.
+* Add --distribution option for wsl.exe to select a specific distro.
+* Limited support for dmesg. Applications can now log to dmesg. WSL driver logs limited information to dmesg. In future, this can be extended to carry other information/diagnostics from the driver.
+    * Note: dmesg is currently supported through the `/dev/kmsg` device interface. `syslog` syscall interface is not yet supported. And, so, some of the `dmesg` command line options such as `-S`, `-C` don't work.
+* Change default gid and mode of serial devices to match native [GH 3042]
+* DrvFs now supports extended attributes.
+    * Note: DrvFs has some limitations on the name of extended attributes. Some characters (like '/', ':' and '\*') are not allowed, and extended attribute names are not case sensitive on DrvFs
+
+## Build 18252 (Skip Ahead)
+For general Windows information on build 18252 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2018/10/03/announcing-windows-10-insider-preview-build-18252/).
+
+### WSL
+* Move init and bsdtar binaries out of lxssmanager dll and into a separate tools folder
+* Fix race around closing file descriptor when using CLONE_FILES
+* Handle optional fields in /proc/pid/mountinfo when translating DrvFs paths
+* Allow DrvFs mknod to succeed without metadata support for S_IFREG
+* Readonly files created on DrvFs should have the readonly attribute set [GH 3411]
+* Add /sbin/mount.drvfs helper to handle DrvFs mounting
+* Use POSIX rename in DrvFs.
+* Allow path translation on volumes without a volume GUID.
+
+## Build 17738 (Fast)
+For general Windows information on build 17738 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2018/08/14/announcing-windows-10-insider-preview-build-17738/).
+
+### WSL
+* Setpriority syscall permission check too strict for changing same thread priority [GH 1838]
+* Ensure that unbiased interrupt time is used for boot time to avoid returning negative values for clock_gettime(CLOCK_BOOTTIME) [GH 3434]
+* Handle symlinks in the WSL binfmt interpreter [GH 3424]
+* Better handling of threadgroup leader file descriptor cleanup.
+
+## Build 17728 (Fast)
+For general Windows information on build 17728 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2018/07/31/announcing-windows-10-insider-preview-build-17728/).
+
+### WSL
+* Switch WSL to use KeQueryInterruptTimePrecise instead of KeQueryPerformanceCounter to avoid overflow [GH 3252]
+* Ptrace attach may cause bad return value from system calls [GH 1731]
+* Fix a number of AF_UNIX related issues [GH 3371]
+* Fix issue that could cause WSL interop to fail if the current working directory is less than 5 characters long [GH 3379]
+
+## Build 18204 (Skip Ahead)
+For general Windows information on build 18204 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2018/07/25/announcing-windows-10-insider-preview-build-17723-and-build-18204/).
+
+### WSL
+* Pipe filesystem inadvertenly clearing edge-triggered epoll event [GH 3276]
+* Win32 executable launched via NTFS symlink doesn't respect symlink name [GH 2909]
+
+## Build 17723 (Fast)
+For general Windows information on build 17723 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2018/07/25/announcing-windows-10-insider-preview-build-17723-and-build-18204/).
+
+### WSL
+* Avoid one second delay failing loopback connections to non-existent ports [GH 3286]
+* Add /proc/sys/fs/file-max stub file [GH 2893]
+* More accurate IPV6 scope information.
+* PR_SET_PTRACER support [GH 3053]
+* Pipe filesystem inadvertenly clearing edge-triggered epoll event [GH 3276]
+* Win32 executable launched via NTFS symlink doesn't respect symlink name [GH 2909]
+
+## Build 17713
+For general Windows information on build 17713 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2018/07/11/announcing-windows-10-insider-preview-build-17713/).
+
+### WSL
+* Improved zombie support [GH 1353]
+* Add wsl.conf entries for controlling Windows interop behavior [GH 1493]
+  ```
+    [interop]
+
+    enabled=false # enable launch of Windows binaries; default is true
+
+    appendWindowsPath=false # append Windows path to $PATH variable; default is true
+  ```
+* Fix for getsockname not always returning UNIX socket family type [GH 1774]
+* Add support for TIOCSTI [GH 1863]
+* Non-blocking sockets in the process of connecting should return EAGAIN for write attempts [GH 2846]
+* Support interop on mounted VHDs [GH 3246, 3291]
+* Fix permission checking issue on root folder [GH 3304]
+* Limited support for TTY keyboard ioctls KDGKBTYPE, KDGKBMODE and KDSKBMODE.
+* Windows UI apps should execute even when launched in the background.
+
+## Build 17704
+For general Windows information on build 17704 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2018/06/27/announcing-windows-10-insider-preview-build-17704/).
+
+### WSL
+* Add wsl -u or --user option [GH 1203]
+* Fix WSL launch issues when fast startup is enabled [GH 2576]
+* Unix sockets need to retain disconnected peer credentials [GH 3183]
+* Non-blocking Unix sockets failing indefinitely with EAGAIN [GH 3191]
+* case=off is the new default drvfs mount type [GH 2937, 3212, 3328]
+    * See [blog](https://blogs.msdn.microsoft.com/commandline/2018/06/14/improved-per-directory-case-sensitivity-support-in-wsl/) for more information.
+* Add wslconfig /terminate to stop running distributions.
+
+## Build 17692
+For general Windows information on build 17692 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2018/06/14/announcing-windows-10-insider-preview-build-17692).
+
+### WSL
+* Fix issue with the WSL shell context menu entries that do not correctly handle paths with spaces.
+* Expose per-directory case sensitivity as an extended attribute
+* ARM64: Emulate cache maintenance operations. Resolve [dotnet issue](https://github.com/dotnet/core/issues/1561).
+* DrvFs: only unescape characters in the private range that correspond to an escaped character.
+
+## Build 17686
+For general Windows information on build 17686 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2018/06/06/announcing-windows-10-insider-preview-build-17686).
+
+### WSL
+* Fix off-by-one error in ELF parser interpreter length validation [GH 3154]
+* WSL absolute timers with a time in the past do not fire [GH 3091]
+* Ensure newly created reparse points are listed as such in the parent directory.
+* Atomically create case sensitive directories in DrvFs.
 
 ## Build 17677
 For general Windows information on build 17677 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2018/05/24/announcing-windows-10-insider-preview-build-17677/).
@@ -167,7 +457,7 @@ When starting WSL for the first time after upgrading to this build, it needs to 
 
 #### WSL is more configurable with wsl.conf
 We added a method for you to automatically configure certain functionality in WSL that will be applied every time you launch the subsystem. This includes automount options and network configuration. Learn more about it in our blog post at: https://aka.ms/wslconf
- 
+
 #### AF_UNIX allows socket connections between Linux processes on WSL and Windows native processes
 WSL and Windows applications can now communicate with each other over Unix sockets. Imagine you want to run a service in Windows and make it available to both Windows and WSL apps. Now, that’s possible with Unix sockets. Read more in our blog post at https://aka.ms/afunixinterop
 
@@ -223,7 +513,7 @@ For general Windows information on build 17063 visit the [Windows Blog](https://
 
   To enable, mount DrvFs with the metadata option (to enable it on an existing mount, you must first unmount it):
 
-  ``` bash
+  ```bash
   mount -t drvfs C: /mnt/c -o metadata
   ```
 
@@ -279,7 +569,7 @@ For general Windows information on build 17063 visit the [Windows Blog](https://
 * Windows Command line Toolchain includes bsdtar (tar) and curl.
   Read [this blog](https://aka.ms/tarcurlwindows) to learn more about the addition of these two new tools and see how they’re shaping the developer experience on Windows.
 
-*	`AF_UNIX` is available in the Windows Insider SDK (17061+).
+*   `AF_UNIX` is available in the Windows Insider SDK (17061+).
   Read [this blog](https://blogs.msdn.microsoft.com/commandline/2017/12/19/af_unix-comes-to-windows/) to learn more about `AF_UNIX` and how developers on Windows can use it.
 
 ### Console
@@ -305,7 +595,7 @@ For general Windows information on build 17046 visit the [Windows Blog](https://
 - Allow running elevated and non-elevated WSL instances simultaneously.
 - Support /proc/sys/kernel/yama/ptrace_scope
 - Add wslpath to do WSL<->Windows path conversions. [GH 522, 1243, 1834, 2327, et al.]
-```
+  ```
     wslpath usage:
       -a    force result to absolute path format
       -u    translate from a Windows path to a WSL path (default)
@@ -313,8 +603,8 @@ For general Windows information on build 17046 visit the [Windows Blog](https://
       -m    translate from a WSL path to a Windows path, with ‘/’ instead of ‘\\’
 
       EX: wslpath ‘c:\users’
-```
-#### Console
+  ```
+  #### Console
 - No fixes.
 
 ### LTP Results:
@@ -397,7 +687,7 @@ For general Windows information on build 17017 visit the [Windows Blog](https://
 ### LTP Results:
 Testing in progress.
 
-# Fall Creators Update
+## Fall Creators Update
 
 ## Build 16288
 
@@ -693,11 +983,11 @@ For general Windows information on build 16176 visit the [Windows Blog](https://
 - Added IP(V6)_MTU socket option for apps node, traceroute, dig, nslookup, host
 - Added IP socket option IPV6_UNICAST_HOPS
 - [Filesystem Improvements](https://blogs.msdn.microsoft.com/wsl/2017/04/18/file-system-improvements-to-the-windows-subsystem-for-linux/)
-	* Allow mounting of UNC paths
-	* Enable CDFS support in drvfs
-	* Correctly handle permissions for network file systems in drvfs
-	* Add support for remote drives to drvfs
-	* Enable FAT support in drvfs
+    * Allow mounting of UNC paths
+    * Enable CDFS support in drvfs
+    * Correctly handle permissions for network file systems in drvfs
+    * Add support for remote drives to drvfs
+    * Enable FAT support in drvfs
 - Additional fixes and Improvements
 
 ### LTP Results
@@ -765,7 +1055,7 @@ For general Windows information on build 15031 visit the [Windows Blog](https://
 ### LTP Results:
 Number of Passing Test: 737</br>
 Number of non-Passing (failing, skipped, etc…): 255 </br>
-[LTP Test Run Logs] (https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/15031)<br/>
+[LTP Test Run Logs](https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/15031)<br/>
 
 <br/>
 
@@ -795,7 +1085,7 @@ For general Windows information on build 15025 visit the [Windows Blog](https://
 ### LTP Results:
 Number of Passing Test: 732</br>
 Number of non-Passing (failing, skipped, etc…): 255 </br>
-[LTP Test Run Logs] (https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/15025)<br/>
+[LTP Test Run Logs](https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/15025)<br/>
 
 <br/>
 
@@ -817,7 +1107,7 @@ For general Windows information on build 15019 visit the [Windows Blog](https://
 ### LTP Results:
 Number of Passing Test: 714 </br>
 Number of non-Passing (failing, skipped, etc…): 249 </br>
-[LTP Test Run Logs] (https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/15019)<br/>
+[LTP Test Run Logs](https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/15019)<br/>
 
 <br/>
 
@@ -874,7 +1164,7 @@ For general Windows information on build 15007 visit the [Windows Blog]( https:/
 ### LTP Results:
 Number of Passing Test: 709 </br>
 Number of non-Passing (failing, skipped, etc…): 255 </br>
-[LTP Test Run Logs] (https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/15007)<br/>
+[LTP Test Run Logs](https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/15007)<br/>
 
 <br/>
 
@@ -933,7 +1223,7 @@ Two known issues:
 ### LTP Results:
 Number of Passing Test: 690 </br>
 Number of non-Passing (failing, skipped, etc…): 274 </br>
-[LTP Test Run Logs] (https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/15002)<br/>
+[LTP Test Run Logs](https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/15002)<br/>
 
 <br/>
 
@@ -968,7 +1258,7 @@ For general Windows information on build 14986 visit the [Windows Blog](https://
 ### LTP Results:
 Number of Passing Test: 669 </br>
 Number of non-Passing (failing, skipped, etc…): 258 </br>
-[LTP Test Run Logs] (https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/14986)<br/>
+[LTP Test Run Logs](https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/14986)<br/>
 
 <br/>
 
@@ -994,7 +1284,7 @@ For general Windows information on build 14971 visit the [Windows Blog](https://
 Unchanged from 14965 </br>
 Number of Passing Test: 664 </br>
 Number of non-Passing (failing, skipped, etc…): 263 </br>
-[LTP Test Run Logs] (https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/14965)<br/>
+[LTP Test Run Logs](https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/14965)<br/>
 
 <br/>
 
@@ -1007,7 +1297,8 @@ For general Windows information on build 14965 visit the [Windows Blog](https://
 
 - Support for Netlink sockets NETLINK_ROUTE protocol's RTM_GETLINK and RTM_GETADDR (GH #468)
   - Enables ifconfig and ip commands for network enumeration
-  - More information can be found in our [WSL Networking blog post] (https://blogs.msdn.microsoft.com/wsl/2016/11/08/225/).
+  - More information can be found in our [WSL Networking blog post](https://blogs.msdn.microsoft.com/wsl/2016/11/08/225/).
+
 - /sbin is now in the user's path by default
 - NT user path now appended to the WSL path by default (i.e. you can now type notepad.exe without adding System32 to the Linux path)
 - Added support for /proc/sys/kernel/cap_last_cap
@@ -1031,7 +1322,7 @@ For general Windows information on build 14965 visit the [Windows Blog](https://
 ### LTP Results:
 Number of Passing Test: 664 </br>
 Number of non-Passing (failing, skipped, etc…): 263 </br>
-[LTP Test Run Logs] (https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/14965)<br/>
+[LTP Test Run Logs](https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/14965)<br/>
 
 <br/>
 
@@ -1050,7 +1341,7 @@ For general Windows information on build 14959 visit the [Windows Blog](https://
 ### LTP Results:
 Number of Passing Test: 665 </br>
 Number of non-Passing (failing, skipped, etc…): 263 </br>
-[LTP Test Run Logs] (https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/14959)<br/>
+[LTP Test Run Logs](https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/14959)<br/>
 
 <br/>
 
@@ -1066,7 +1357,7 @@ For general Windows information on build 14955 visit the [Windows Blog](https://
 ### LTP Results:
 Number of Passing Test: 665 </br>
 Number of non-Passing (failing, skipped, etc…): 263 </br>
-[LTP Test Run Logs] (https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/14955)<br/>
+[LTP Test Run Logs](https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/14955)<br/>
 
 <br/>
 
@@ -1078,13 +1369,13 @@ For general Windows information on build 14951 visit the [Windows Blog](https://
 ### New Feature: Windows / Ubuntu Interoperability
 Windows binaries can now be invoked directly from the WSL command line.  This gives users the ability to interact with their Windows environment and system in a way that has not been possible.  As a quick example, it is now possible for users to run the following commands:
 
-	```
-	$ export PATH=$PATH:/mnt/c/Windows/System32
-	$ notepad.exe
-	$ ipconfig.exe | grep IPv4 | cut -d: -f2
-	$ ls -la | findstr.exe foo.txt
-	$ cmd.exe /c dir
-	```
+    ```
+    $ export PATH=$PATH:/mnt/c/Windows/System32
+    $ notepad.exe
+    $ ipconfig.exe | grep IPv4 | cut -d: -f2
+    $ ls -la | findstr.exe foo.txt
+    $ cmd.exe /c dir
+    ```
 
 More information can be found at:
 
@@ -1103,7 +1394,7 @@ More information can be found at:
 ### LTP Results:
 Number of Passing Test: 665 </br>
 Number of non-Passing (failing, skipped, etc…): 263 </br>
-[LTP Test Run Logs] (https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/14951)<br/>
+[LTP Test Run Logs](https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/14951)<br/>
 
 <br/>
 
@@ -1114,11 +1405,12 @@ For general Windows information on build 14946 visit the [Windows Blog](https://
 
 ### Fixed
 
-- Fixed an issue that prevented creating WSL user accounts for users with NT usernames that contain spaces or quotes. 
+- Fixed an issue that prevented creating WSL user accounts for users with NT usernames that contain spaces or quotes. 
 - Change VolFs and DrvFs to return 0 for directory's link count in stat
 - Support IPV6_MULTICAST_HOPS socket option.
 - Limit to a single console I/O loop per tty. Example: the following command is possible:
-    -  bash -c "echo data" | bash -c "ssh user@example.com 'cat > foo.txt'"
+  - bash -c "echo data" | bash -c "ssh user@example.com 'cat > foo.txt'"
+
 - replace spaces with tabs in /proc/cpuinfo (GH #1115)
 - DrvFs now appears in mountinfo with a name that matches mounted Windows volume
 - /home and /root now appear in mountinfo with correct names
@@ -1127,7 +1419,7 @@ For general Windows information on build 14946 visit the [Windows Blog](https://
 ### LTP Results:
 Number of Passing Test: 665 </br>
 Number of non-Passing (failing, skipped, etc…): 263 </br>
-[LTP Test Run Logs] (https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/14946)<br/>
+[LTP Test Run Logs](https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/14946)<br/>
 
 <br/>
 
@@ -1149,7 +1441,7 @@ For general Windows information on build 14942 visit the [Windows Blog](https://
 ### LTP Results:
 Number of Passing Test: 665 </br>
 Number of non-Passing (failing, skipped, etc…): 263 </br>
-[LTP Test Run Logs] (https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/14942)<br/>
+[LTP Test Run Logs](https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/14942)<br/>
 
 ### Syscall Support
 Below are a list of new or enhanced syscalls that have some implementation in WSL. The syscalls on this list are supported in at least one scenario, but may not have all parameters supported at this time.
@@ -1162,7 +1454,7 @@ Below are a list of new or enhanced syscalls that have some implementation in WS
 For general Windows information on build 14936 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2016/09/28/announcing-windows-10-insider-preview-build-14936-for-pc/).<br/>
 
 
-Note: WSL will install Ubuntu version 16.04 (Xenial) instead of Ubuntu 14.04 (Trusty) in an upcoming release.  This change will apply to Insiders installing new instances (lxrun.exe /install or first run of bash.exe).  Existing instances with Trusty will not be upgraded automatically. Users can upgrade their Trusty image to Xenial using the do-release-upgrade command.
+Note: WSL will install Ubuntu version 16.04 (Xenial) instead of Ubuntu 14.04 (Trusty) in an upcoming release.  This change will apply to Insiders installing new instances (lxrun.exe /install or first run of bash.exe).  Existing instances with Trusty will not be upgraded automatically. Users can upgrade their Trusty image to Xenial using the do-release-upgrade command.
 
 ### Known Issue
 WSL is experiencing an issue with some socket implementations.  The bugcheck manifests itself as a crash with the error “ATTEMPTED EXECUTE OF NOEXECUTE MEMORY”.  The most common manifestation of this issue is a crash when using ssh.  The root cause is fixed on internal builds and will be pushed to Insiders at the earliest opportunity.
@@ -1185,7 +1477,7 @@ WSL is experiencing an issue with some socket implementations.  The bugcheck man
 ### LTP Results:
 Number of Passing Test: 664 </br>
 Number of non-Passing (failing, skipped, etc…): 264 </br>
-[LTP Test Run Logs] (https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/14936)<br/>
+[LTP Test Run Logs](https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/14936)<br/>
 
 ### Syscall Support
 Below are a list of new or enhanced syscalls that have some implementation in WSL. The syscalls on this list are supported in at least one scenario, but may not have all parameters supported at this time.
@@ -1225,7 +1517,7 @@ For general Windows information on build 14926 visit the [Windows Blog](https://
 ### LTP Results:
 Number of Passing Test: 651 </br>
 Number of non-Passing (failing, skipped, etc…): 258 </br>
-[LTP Test Run Logs] (https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/14926)<br/>
+[LTP Test Run Logs](https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/14926)<br/>
 
 <br/>
 
@@ -1243,12 +1535,12 @@ For general Windows information on build 14915 visit the [Windows Blog](https://
 - Fix bugcheck due to invalid mmap parameter validation for non-fixed addresses. (GH #847)
 - Support for suspend / resume of terminal states
 - Support for TIOCPKT ioctl to unblock the Screen utility (GH #774)
-	- Known issue: Function keys not operational
+    - Known issue: Function keys not operational
 - Corrected a race in TimerFd that could cause a freed member 'ReaderReady' to be accessed by LxpTimerFdWorkerRoutine (GH #814)
 - Enable restartable system call support for futex, poll, and clock_nanosleep
 - Added bind mount support
 - unshare for mount namespace support
-	- Known issue: When creating a new mount namespace with `unshare(CLONE_NEWNS)` the current working directory will continue to point to the old namespace
+    - Known issue: When creating a new mount namespace with `unshare(CLONE_NEWNS)` the current working directory will continue to point to the old namespace
 - Additional improvements and bug fixes
 
 <br/>
@@ -1284,7 +1576,7 @@ For general Windows information on build 14901 visit the [Windows Blog](https://
 - INET socket recv buffer size set using the setsockopt should be honored
 - Implement MSG_CMSG_CLOEXEC unix socket receive message flag
 - Linux process stdin/stdout pipe redirection (GH #2)
-	- Allows for piping of bash -c commands in CMD.  Example:  >dir | bash -c "grep foo"
+    - Allows for piping of bash -c commands in CMD.  Example:  >dir | bash -c "grep foo"
 - Bash can now be installed on systems with multiple pagefiles (GH #538, #358)
 - Default INET Socket buffer size should match that of default Ubuntu setup
 - Align xattr syscalls to listxattr
@@ -1292,7 +1584,7 @@ For general Windows information on build 14901 visit the [Windows Blog](https://
 - Fix signal default action when injected by ptrace
 - implement /proc/sys/vm/min_free_kbytes
 - Use machine context register values when restoring context in sigreturn
-	- This resolves the issue where java and javac were hanging for some users
+    - This resolves the issue where java and javac were hanging for some users
 - Implement /proc/sys/kernel/hostname
 
 ### Syscall Support
@@ -1313,7 +1605,7 @@ For general Windows information on build 14388 visit the [Windows Blog](https://
 <br/>
 
 ## Build 14376
-For general Windows information on build 14376 visit the [Windows Blog] (https://blogs.windows.com/windowsexperience/2016/06/28/announcing-windows-10-insider-preview-build-14376-for-pc-and-mobile/). <br/>
+For general Windows information on build 14376 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2016/06/28/announcing-windows-10-insider-preview-build-14376-for-pc-and-mobile/). <br/>
 
 ### Fixed
 - Removed some instances where apt-get hangs (GH #493)
@@ -1328,7 +1620,7 @@ For general Windows information on build 14376 visit the [Windows Blog] (https:/
 <br/>
 
 ## Build 14371
-For general Windows information on build 14371 visit the [Windows Blog] (https://blogs.windows.com/windowsexperience/2016/06/22/announcing-windows-10-insider-preview-build-14371-for-pc/). <br/>
+For general Windows information on build 14371 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2016/06/22/announcing-windows-10-insider-preview-build-14371-for-pc/). <br/>
 
 ### Fixed
 - Corrected timing race with SIGCHLD and wait() when using ptrace
@@ -1339,21 +1631,21 @@ For general Windows information on build 14371 visit the [Windows Blog] (https:/
 <br/>
 
 ## Build 14366
-For general Windows information on build 14366 visit the [Windows Blog] (https://blogs.windows.com/windowsexperience/2016/06/14/announcing-windows-10-insider-preview-build-14366-mobile-build-14364/). <br/>
+For general Windows information on build 14366 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2016/06/14/announcing-windows-10-insider-preview-build-14366-mobile-build-14364/). <br/>
 
-###Fixed
+### Fixed
 - Fix in file creation through symlinks
--	Added listxattr for Python (GH 385)
--	Additional bugfixes and improvements
+-   Added listxattr for Python (GH 385)
+-   Additional bugfixes and improvements
 
-###Syscall Support
--	Below are a list of new or enhanced syscalls that have some implementation in WSL. The syscalls on this list are supported in at least one scenario, but may not have all parameters supported at this time.
+### Syscall Support
+-   Below are a list of new or enhanced syscalls that have some implementation in WSL. The syscalls on this list are supported in at least one scenario, but may not have all parameters supported at this time.
 
 `listxattr`<br/>
 <br/>
 
 ## Build 14361
-For general Windows information on build 14361 visit the [Windows Blog](http://aka.ms/wip14361). <br/>
+For general Windows information on build 14361 visit the [Windows Blog](https://aka.ms/wip14361). <br/>
 
 ### Fixed
 - DrvFs is now case sensitive when running in Bash on Ubuntu on Windows.
@@ -1398,7 +1690,7 @@ Below are a list of new or enhanced syscalls that have some implementation in WS
 <br/>
 
 ## Build 14352
-For general Windows information on build 14352 visit the [Windows Blog](http://aka.ms/wip14352).<br/>
+For general Windows information on build 14352 visit the [Windows Blog](https://aka.ms/wip14352).<br/>
 
 
 ### Fixed
@@ -1425,7 +1717,7 @@ Below are a list of new or enhanced syscalls that have some implementation in WS
 <br/>
 
 ## Build 14342
-For general Windows information on build 14342 the [Windows Blog](http://aka.ms/wip14342). <br/>
+For general Windows information on build 14342 the [Windows Blog](https://aka.ms/wip14342). <br/>
 
 Information on VolFs and DriveFs can be found on the [WSL Blog](https://blogs.msdn.microsoft.com/wsl). <br/>
 
@@ -1472,7 +1764,7 @@ Below are a list of new or enhanced syscalls that have some implementation in WS
 
 ## Build 14332
 
-For general Windows information on build 14332 visit the [Windows Blog](http://aka.ms/wip14332). <br/>
+For general Windows information on build 14332 visit the [Windows Blog](https://aka.ms/wip14332). <br/>
 
 
 ### Fixed
@@ -1493,18 +1785,18 @@ Below is the new syscall that has some implementation in WSL. The syscall on thi
 
 ## Build 14328
 
-For general Windows information on build 14332 visit the [Windows Blog](http://aka.ms/wip14328). <br/>
+For general Windows information on build 14332 visit the [Windows Blog](https://aka.ms/wip14328). <br/>
 
 
 ### New Features
-* Now support Linux users.  Installing Bash on Ubuntu on Windows will prompt for creation of a Linux user.  For more information, visit http://aka.ms/wslusers
+* Now support Linux users.  Installing Bash on Ubuntu on Windows will prompt for creation of a Linux user.  For more information, visit https://aka.ms/wslusers
 * Hostname is now set to the Windows computer name, no more @localhost
-* For more information on build 14328, visit: http://aka.ms/wip14328
+* For more information on build 14328, visit: https://aka.ms/wip14328
 
 ### Fixed
 * Symlink improvements for non /mnt/<drive> files
     * npm install now works
-    * jdk / jre now installable using instructions found [here](http://xubuntugeek.blogspot.com/2012/09/how-to-install-oracle-jdk-7-manually-in.html).
+    * jdk / jre now installable using instructions found [here](https://xubuntugeek.blogspot.com/2012/09/how-to-install-oracle-jdk-7-manually-in.html).
     * known issue: symlinks do not work for Windows mounts.  Functionality will be available in a later build
 * top and htop now display
 * Additional error messages for some install failures
