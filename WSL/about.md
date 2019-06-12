@@ -27,9 +27,9 @@ You can:
 1. Invoke Windows applications using a Unix-like command-line shell.
 1. Invoke GNU/Linux applications on Windows.
 
-## Getting started
+## Getting Started
 
-* [Install Linux on Windows](install_guide.md)
+* [Install Linux on Windows 10](install-win10.md)
 * [Visit the command reference](reference.md)
 * [Read frequently asked questions](faq.md)
 
