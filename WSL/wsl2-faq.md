@@ -10,6 +10,10 @@ ms.assetid: 7afaeacf-435a-4e58-bff0-a9f0d75b8a51
 ms.custom: seodec18
 ---
 
+# WSL 2 FAQ
+
+Below is a list of frequently asked questions (FAQ) about the Windows Subsystem for Linux 2.
+
 ## Does WSL 2 use Hyper-V? Will it be available on Windows 10 Home?
 
 WSL 2 will be available on all SKUs where WSL is currently available, including Windows 10 Home.

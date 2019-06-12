@@ -10,6 +10,8 @@ ms.assetid: 7afaeacf-435a-4e58-bff0-a9f0d75b8a51
 ms.custom: seodec18
 ---
 
+# Installation Instructions for WSL 2
+
 To install and start using WSL 2 complete the following steps:
 
 - Enable the 'Virtual Machine Platform' optional component

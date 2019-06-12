@@ -10,6 +10,8 @@ ms.assetid: 7afaeacf-435a-4e58-bff0-a9f0d75b8a51
 ms.custom: seodec18
 ---
 
+# User Experience Changes Between WSL 1 and WSL 2
+
 This page goes over the user experience differences between WSL 1 and the WSL 2 preview. The key changes to be aware of are:
 
 - Place files that your Linux apps will access in your Linux root file system for faster file performance speed
