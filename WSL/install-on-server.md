@@ -55,7 +55,7 @@ Now that you've downloaded a distro, extract its contents and manually install t
         
     ```powershell
     $userenv = [System.Environment]::GetEnvironmentVariable("Path", "User")
-    [System.Environment]::SetEnvironmentVariable("PATH", $userenv + "C:\Users\Administrator\Ubuntu", "User")
+    [System.Environment]::SetEnvironmentVariable("PATH", $userenv + ";C:\Users\Administrator\Ubuntu", "User")
     ```
     You can now launch your distro from any path by typing `<distro>.exe`. For example: `ubuntu.exe`
 
