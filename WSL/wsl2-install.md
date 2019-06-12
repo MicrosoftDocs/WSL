@@ -16,7 +16,7 @@ To install and start using WSL 2 complete the following steps:
 - Set a distro to be backed by WSL 2 using the command line
 - Verify what versions of WSL your distros are using
 
-# Enable the 'Virtual Machine Platform' optional component
+## Enable the 'Virtual Machine Platform' optional component
 
 Open PowerShell as an Administrator and run:
 
@@ -24,7 +24,7 @@ Open PowerShell as an Administrator and run:
 
 After these changes are enabled you will need to restart your computer.
 
-# Set a distro to be backed by WSL 2 using the command line
+## Set a distro to be backed by WSL 2 using the command line
 
 In PowerShell run:
 
@@ -38,7 +38,7 @@ Additionally, if you want to make WSL 2 your default architecture you can do so 
 
 This will make any new distro that you install be initialized as a WSL 2 distro.
 
-# Finish with verifying what versions of WSL your distro are using
+## Finish with verifying what versions of WSL your distro are using
 
 To verify what versions of WSL each distro is using use the following command:
 
