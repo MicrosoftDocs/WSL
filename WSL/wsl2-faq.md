@@ -44,7 +44,7 @@ Yes! You need to make sure that the virtual machine has nested virtualization en
 
 `Set-VMProcessor -VMName <VMName> -ExposeVirtualizationExtensions $true`
 
-Make sure to replace '<VMName>' with the name of your virtual machine.
+Make sure to replace '&lt;VMName&gt;' with the name of your virtual machine.
 
  [1]: https://www.virtualbox.org/wiki/Changelog-6.0
  [2]: https://docs.microsoft.com/en-us/virtualization/api/
