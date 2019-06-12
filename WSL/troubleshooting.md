@@ -32,15 +32,9 @@ Once you have disconnected the VPN, you will have to revert the changes to `/etc
 2. `sudo mv resolv.conf resolv.conf.new`
 3. `sudo ln -s ../run/resolvconf/resolv.conf resolv.conf`
 
-### Starting bash gives an error code
-1. Download these two .txt files and rename them .cmd
-  https://github.com/Microsoft/BashOnWindows/files/288621/start_lxcore_trace.txt <br/>
-  https://github.com/Microsoft/BashOnWindows/files/288622/stop_lxcore_trace.txt
-2. Run start_lxcore_trace.cmd from an admin command prompt
-3. Launch bash.exe (repro the scenario).
-4. Run stop_lxcore_trace.cmd from an admin command prompt
-6. You should now see three .etl files in the directory you ran the script from.
-7. Post the files with your GitHub post to our [issue page](https://github.com/Microsoft/BashOnWindows/issues). 
+### Starting WSL or installing a distribution returns an error code
+
+Follow [these instructions](https://github.com/Microsoft/WSL/blob/master/CONTRIBUTING.md#8-detailed-logs) to collect detailed logs and file an issue on our GitHub.
 
 ### Updating Bash on Ubuntu on Windows
 
@@ -152,7 +146,6 @@ systeminfo | Select-String "^OS Name","^OS Version"
 ### Confirm WSL is enabled
 You can confirm that the Windows Subsystem for Linux is enabled by running the following in PowerShell:  
 ``` PowerShell
-PowerShell
 Get-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
 ```
 

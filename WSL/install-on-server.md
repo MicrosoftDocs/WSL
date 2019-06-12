@@ -41,8 +41,6 @@ Now that you've downloaded a distro, extract its contents and manually install t
     Expand-Archive ~/Ubuntu.zip ~/Ubuntu
     ```
 
-    > Make sure your target directory (`~/Ubuntu` in this example) is on your system drive. Usually this is your `C:` drive. For example: `C:\Distros\Ubuntu`
-
 2. Run the distro launcher
     To complete installation, run the distro launcher application in the target folder, named `<distro>.exe`. For example: `ubuntu.exe`, etc.
 
@@ -53,11 +51,11 @@ Now that you've downloaded a distro, extract its contents and manually install t
     >   * You're running Windows build 16215 or later. [Check your build](troubleshooting.md#check-your-build-number).
     >   * The Windows Subsystem for Linux optional component is enabled and the computer has restarted.  [Make sure WSL is enabled](troubleshooting.md#confirm-wsl-is-enabled).
     
-3. Add your distro path to the Windows environment PATH (`C:\Distros\Ubuntu` in this example), e.g. using Powershell:
+3. Add your distro path to the Windows environment PATH (`C:\Users\Administrator\Ubuntu` in this example), e.g. using Powershell:
         
     ```powershell
     $userenv = [System.Environment]::GetEnvironmentVariable("Path", "User")
-    [System.Environment]::SetEnvironmentVariable("PATH", $userenv.TrimEnd(';') + ";C:\Distros\Ubuntu", "User")
+    [System.Environment]::SetEnvironmentVariable("PATH", $userenv + ";C:\Users\Administrator\Ubuntu", "User")
     ```
     You can now launch your distro from any path by typing `<distro>.exe`. For example: `ubuntu.exe`
 

@@ -11,11 +11,40 @@ ms.custom: seodec18
 
 # Release Notes for Windows Subsystem for Linux
 
-## Build 18317
-For general Windows information on build 18317 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2019/01/16/announcing-windows-10-insider-preview-build-18317/).
+## Build 18890
+For general Windows information on build 18890 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2019/05/01/announcing-windows-10-insider-preview-build-18890/).
 
 ### WSL
-**WARNING:** There is a WSL bug in this build that may crash your system when used. It is recommended to avoid this build if using WSL.
+* Non-blocking socket leak [GH 2913]
+* EOF input to terminal can block subsequent reads [GH 3421]
+* Update resolv.conf header to refer to wsl.conf [discussed in GH 3928]
+* Deadlock in epoll delete code [GH 3922]
+* Handle spaces in arguments to --import and –export [GH 3932]
+* Extending mmap’d files does not work properly [GH 3939]
+* Fix issue with ARM64 \\wsl$ access not working properly
+* Add better default icon for wsl.exe
+
+## Build 18342
+For general Windows information on build 18342 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2019/02/20/announcing-windows-10-insider-preview-build-18342/).
+
+### WSL
+* We've added the ability for users to access Linux files in a WSL distro from Windows. These files can be accessed through the command line, and also Windows apps, like file explorer, VSCode, etc. can interact with these files. Access your files by navigating to \\\\wsl$\\<distro_name>, or see a list of running distributions by navigating to \\\\wsl$
+* Add additional CPU info tags and fix Cpus_allowed[_list] values [GH 2234]
+* Support exec from non-leader thread [GH 3800]
+* Treat configuration update failures as non-fatal [GH 3785]
+* Update binfmt to properly handle offsets [GH 3768]
+* Enable mapping network drives for Plan 9 [GH 3854]
+* Support Windows -> Linux and Linux -> Windows path translation for bind mounts
+* Create read-only sections for mappings on files opened read-only
+
+## Build 18334
+For general Windows information on build 18334 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2019/02/08/announcing-windows-10-insider-preview-build-18334/).
+
+### WSL
+* Redesign the way that Windows time zone is mapped to a  Linux time zone [GH 3747]
+* Fix memory leaks and add new string translation functions [GH 3746]
+* SIGCONT on a threadgroup with no threads is a no-op [GH 3741] 
+* Correctly display socket and epoll file descriptors in /proc/self/fd
 
 ## Build 18305
 For general Windows information on build 18305 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2018/12/19/announcing-windows-10-insider-preview-build-18305/).
