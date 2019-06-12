@@ -34,7 +34,7 @@ If you cannot upgrade to Fall Creators Update or later, follow the steps below t
 
 1. Open a command prompt.  Type `bash` and hit enter
 
-    The first time you run Bash on Ubuntu on Windows, you'll be prompted to accept Canonical's license. Once accpted, WSL will download and install the Ubuntu instance onto your machine, and a "Bash on Ubuntu on Windows" shortcut will be added to your start menu.
+    The first time you run Bash on Ubuntu on Windows, you'll be prompted to accept Canonical's license. Once accepted, WSL will download and install the Ubuntu instance onto your machine, and a "Bash on Ubuntu on Windows" shortcut will be added to your start menu.
 
     ![Prompt to install Ubuntu](media/bashShellInstall.png)
 
