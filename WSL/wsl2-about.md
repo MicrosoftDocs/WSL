@@ -2,8 +2,8 @@
 title: About WSL 2
 description: About WSL 2 the new architecture for the Windows Subsystem for Linux
 keywords: BashOnWindows, bash, wsl, wsl2, windows, windows subsystem for linux, windowssubsystem, ubuntu, debian, suse, windows 10, install
-author: crloewen
-ms.author: crloewen
+author: mscraigloewen
+ms.author: mscraigloewen
 ms.date: 05/30/2019
 ms.topic: article
 ms.assetid: 7afaeacf-435a-4e58-bff0-a9f0d75b8a51
