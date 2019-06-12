@@ -193,7 +193,7 @@ Disabling interop will not persist between WSL sessions -- interop will be enabl
 
 ## Creators Update and Anniversary Update
 
-While the interop experience pre-Fall Creators Update is similar to more recent interop experiences, there are a handfull of major differences.
+While the interop experience pre-Fall Creators Update is similar to more recent interop experiences, there are a handful of major differences.
 
 To summarize:
 
