@@ -24,7 +24,7 @@ And below is the full list of other changes that you may notice:
 - Cross OS file access speed will be slower in initial preview builds
 
 ## Place your Linux files in your Linux root file system
-Make sure to put the files that you will be accessing frequently with Linux applications inside of your Linux root file system to enjoy the file performance benefits. These files have to be inside of the Linux root file system to have faster file system access. We have also made it possible for Windows apps to access the Linux root file system (like File Explorer! Try running: `explorer.exe /` in your bash shell and see what happens) which will make this transition significantly easier. 
+Make sure to put the files that you will be accessing frequently with Linux applications inside of your Linux root file system to enjoy the file performance benefits. These files have to be inside of the Linux root file system to have faster file system access. We have also made it possible for Windows apps to access the Linux root file system (like File Explorer! Try running: `explorer.exe .` in your bash shell and see what happens) which will make this transition significantly easier. 
 
 ## Accessing network applications
 In the initial builds of the WSL 2 preview, you will need to access any Linux server from Windows using the IP address of your Linux distro, and any Windows server from Linux using the IP address of your host machine. This is something that is temporary, and very high on our priority list to fix.
