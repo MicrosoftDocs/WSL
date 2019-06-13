@@ -11,6 +11,17 @@ ms.custom: seodec18
 
 # Release Notes for Windows Subsystem for Linux
 
+
+## Build 18917
+For general Windows information on build 18917 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2019/06/12/announcing-windows-10-insider-preview-build-18917/).
+
+### WSL
+* WSL 2 is now available! Please see [blog](https://devblogs.microsoft.com/commandline/wsl-2-is-now-available-in-windows-insiders/) for more details.
+* Fix a regression where launching Windows processes via symlinks did not work correctly [GH 3999]
+* Add wsl.exe --list --verbose, wsl.exe --list --quiet, and wsl.exe --import --version options to wsl.exe
+* Add wsl.exe --shutdown option
+* Plan 9: Allow opening a directory for write to succeed
+
 ## Build 18890
 For general Windows information on build 18890 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2019/05/01/announcing-windows-10-insider-preview-build-18890/).
 
