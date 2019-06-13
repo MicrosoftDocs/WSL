@@ -54,12 +54,18 @@ The picture below shows an example of this by connecting to a python server runn
 WSL 2 stores all your Linux files inside of a VHD that uses the ext4 file system. This VHD automatically resizes to meet your storage needs. This VHD also has an initial max size of 256GB. If your distro grows in size to be greater than 256GB you will see errors stating that you've run out of disk space. You can fix these by expanding the VHD size. Instructions on how to do so are below:
 
 1. Terminate all WSL instances using the `wsl --shutdown` command
-2. Resize your WSL 2 VHD by completing the following commands
+2. Find your distro installation package name 'PackageFamilyName'
+   - In a powershell prompt (where 'distro' is your distribution name) type:
+      - `Get-AppxPackage -Name "*<distro>*" | Select PackageFamilyName`
+3. Locate the VHD file fullpath used by your WSL 2 installation, this will be your 'pathToVHD':
+     - `%LOCALAPPDATA%\Packages\<PackageFamilyName>\LocalState\<disk>.vhdx`
+4. Resize your WSL 2 VHD by completing the following commands
    - Open a command prompt Window with admin privileges and run the following commands:
+      - `diskpart`
       - `Select vdisk file="<pathToVHD>"`
       - `expand vdisk maximum="<sizeInMegaBytes>"`
-3. Launch your WSL distro
-4. Make WSL aware that it can expand its file system's size
+5. Launch your WSL distro
+6. Make WSL aware that it can expand its file system's size
    - Run these commands in your WSL distro:
       - `sudo mount -t devtmpfs none /dev`
       - `mount | grep ext4`
