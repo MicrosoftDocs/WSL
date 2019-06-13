@@ -157,7 +157,7 @@ Unregistering also allows distributions to be reinstalled.
 Unregisters the distribution from WSL so it can be reinstalled or cleaned up.
 
 For example:
-`wsl -unregister Ubuntu` would remove Ubuntu from the distributions available in WSL.  When I run `wsl --list` it will not be listed.
+`wsl --unregister Ubuntu` would remove Ubuntu from the distributions available in WSL.  When I run `wsl --list` it will not be listed.
 
 To reinstall, find the distribution in the Windows Store and select "Launch".
 
