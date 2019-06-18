@@ -73,6 +73,8 @@ WSL 2 stores all your Linux files inside of a VHD that uses the ext4 file system
       - `sudo resize2fs /dev/sdXX`
          - Make sure to use the value you copied earlier, and you may need to use: `apt install resize2fs`.
 
+Please note: In general do not modify, move, or access the WSL related files located inside of your AppData folder using Windows tools or editors. Doing so could cause your Linux distro to become corrupted.
+
 ## WSL 2 will use some memory on startup
 WSL 2 uses a lightweight utility VM on a real Linux kernel to provide great file system performance and full system call compatibility while still being just as light, fast, integrated and responsive as WSL 1. This utility VM has a small memory footprint and will allocate Virtual Address backed memory on startup. It is configured to start with a small proportion of your total memory.
 
