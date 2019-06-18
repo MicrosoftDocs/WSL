@@ -54,18 +54,26 @@ The picture below shows an example of this by connecting to a python server runn
 WSL 2 stores all your Linux files inside of a VHD that uses the ext4 file system. This VHD automatically resizes to meet your storage needs. This VHD also has an initial max size of 256GB. If your distro grows in size to be greater than 256GB you will see errors stating that you've run out of disk space. You can fix these by expanding the VHD size. Instructions on how to do so are below:
 
 1. Terminate all WSL instances using the `wsl --shutdown` command
-2. Resize your WSL 2 VHD by completing the following commands
+2. Find your distro installation package name 'PackageFamilyName'
+   - In a powershell prompt (where 'distro' is your distribution name) type:
+      - `Get-AppxPackage -Name "*<distro>*" | Select PackageFamilyName`
+3. Locate the VHD file fullpath used by your WSL 2 installation, this will be your 'pathToVHD':
+     - `%LOCALAPPDATA%\Packages\<PackageFamilyName>\LocalState\<disk>.vhdx`
+4. Resize your WSL 2 VHD by completing the following commands
    - Open a command prompt Window with admin privileges and run the following commands:
+      - `diskpart`
       - `Select vdisk file="<pathToVHD>"`
       - `expand vdisk maximum="<sizeInMegaBytes>"`
-3. Launch your WSL distro
-4. Make WSL aware that it can expand its file system's size
+5. Launch your WSL distro
+6. Make WSL aware that it can expand its file system's size
    - Run these commands in your WSL distro:
       - `sudo mount -t devtmpfs none /dev`
       - `mount | grep ext4`
          - Copy the name of this entry, which will look like: /dev/sdXX (with the X representing any other character)
       - `sudo resize2fs /dev/sdXX`
          - Make sure to use the value you copied earlier, and you may need to use: `apt install resize2fs`.
+
+Please note: In general do not modify, move, or access the WSL related files located inside of your AppData folder using Windows tools or editors. Doing so could cause your Linux distro to become corrupted.
 
 ## WSL 2 will use some memory on startup
 WSL 2 uses a lightweight utility VM on a real Linux kernel to provide great file system performance and full system call compatibility while still being just as light, fast, integrated and responsive as WSL 1. This utility VM has a small memory footprint and will allocate Virtual Address backed memory on startup. It is configured to start with a small proportion of your total memory.
