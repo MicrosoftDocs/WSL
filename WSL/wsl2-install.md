@@ -49,3 +49,11 @@ To verify what versions of WSL each distro is using use the following command:
 `wsl --list --verbose` or `wsl -l -v`
 
 The distro that you've chosen above should now display a '2' under the 'version' column. Now that you're finished feel free to start using your WSL 2 distro! 
+
+## Troubleshooting: 
+
+Below are related errors and suggested fixes when installing WSL 2. Please refer to the [WSL troubleshooting page](troubleshooting.md) for other general WSL errors and their solutions.
+
+* **Installation failed with error 0x80070003**
+    * Please make sure that virtualization is enabled inside of your computer's BIOS. The instructions on how to do this will vary from computer to computer, and will most likely be under CPU related options.
+   
