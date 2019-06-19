@@ -163,6 +163,14 @@ In some cases turning off the firewall allows for access. In some cases simply h
 ## How do I access a port from WSL in Windows?
 WSL shares the IP address of Windows, as it is running on Windows. As such you can access any ports on localhost e.g. if you had web content on port 1234 you could https://localhost:1234 into your Windows browser.
 
+## How can I back up my WSL distros?
+
+The best way to backup your distros is available in Windows Version 1809 and later. You can export your entire distribution to a tarball using the `wsl --export` command. You can then import this distro back into WSL using the `wsl --import` command, allowing you to backup and save states of your WSL distributions. 
+
+Please note that traditional backup services that backup files in your Appdata folders (like Windows Backup) will not corrupt your Linux files. 
+
+
+
 ## Where can I provide feedback?
 
 You can share feedback and ask questions through multiple channels:
