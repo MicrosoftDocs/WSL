@@ -48,8 +48,8 @@ To download and install your preferred distro(s), you have three choices:
     * [Kali Linux](https://www.microsoft.com/store/apps/9PKR34TNCV07)
     * [Debian GNU/Linux](https://www.microsoft.com/store/apps/9MSVKQC78PK6)
     * [Fedora Remix for WSL](https://www.microsoft.com/store/apps/9n6gdm4k2hnc)
-    * [WLinux](https://www.microsoft.com/store/apps/9NV1GV1PXZ6P)
-    * [WLinux Enterprise](https://www.microsoft.com/store/apps/9N8LP0X93VCP)
+    * [Pengwin](https://www.microsoft.com/store/apps/9NV1GV1PXZ6P)
+    * [Pengwin Enterprise](https://www.microsoft.com/store/apps/9N8LP0X93VCP)
     * [Alpine WSL](https://www.microsoft.com/store/apps/9p804crf0395)
 
 1. From the distro's page, select "Get"
