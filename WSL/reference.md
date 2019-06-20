@@ -1,5 +1,5 @@
 ---
-title: Windows Subsystem for Linux Command Reference
+title: Windows Subsystem for Linux Command Reference (for Windows 10 1709 and under)
 description: List of commands that manage the Windows Subsystem for Linux
 keywords: BashOnWindows, bash, wsl, windows, windows subsystem for linux, windowssubsystem, ubuntu
 author: scooley
@@ -12,7 +12,7 @@ ms.custom: seodec18
 
 # Command Reference for Windows Subsystem for Linux
 
-> `lxrun.exe` is deprecated as of Windows 10 1803 and later.
+> `lxrun.exe` is deprecated as of Windows 10 1803 and later. Please use `wsl.exe`. This will be further documented in Windows Subsystem for Linux Command Reference (for Windows 10 1803 and up) when it becomes available. 
 
 The command `lxrun.exe` can be used to interact with the [Windows Subsystem for Linux (WSL)](https://msdn.microsoft.com/en-us/commandline/wsl/faq#what-windows-subsystem-for-linux-wsl-) directly.  These commands are installed into the `\Windows\System32` directory and may be run within a Windows command prompt or in PowerShell.
 
