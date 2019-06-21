@@ -19,7 +19,7 @@ This page goes over the user experience differences between WSL 1 and the WSL 2 
 
 And below is the full list of other changes that you may notice:
 
-- WSL 2 uses a VHD to store your files and if you reach its max size you may need to expand it
+- WSL 2 uses a [Virtual Hardware Disk](https://en.wikipedia.org/wiki/VHD_(file_format)) (VHD) to store your files and if you reach its max size you may need to expand it
 - When starting, WSL 2 will now use a small proportion of memory
 - Cross OS file access speed will be slower in initial preview builds
 
