@@ -12,20 +12,114 @@ ms.custom: seodec18
 
 # Command Reference for Windows Subsystem for Linux
 
-> `lxrun.exe` is deprecated as of Windows 10 1803 and later.
+The best way to interact with the Windows Subsystem for Linux is to use the `wsl.exe` command. 
+
+## `wsl.exe` 
+
+Below is a list containing all options when using `wsl.exe` as of Windows Version 1903.
+
+* Arguments for running Linux binaries:
+
+    * If no command line is provided, wsl.exe launches the default shell.
+
+    * --exec, -e <CommandLine>
+        * Execute the specified command without using the default Linux shell.
+
+    * --
+        * Pass the remaining command line as is.
+
+* Options:
+    * --distribution, -d <Distro>
+        * Run the specified distribution.
+
+    * --user, -u <UserName>
+        * Run as the specified user.
+
+* Arguments for managing Windows Subsystem for Linux:
+
+    * --export <Distro> <FileName>
+        * Exports the distribution to a tar file.
+        The filename can be - for standard output.
+
+    * --import <Distro> <InstallLocation> <FileName> [Options]
+        * Imports the specified tar file as a new distribution.
+        The filename can be - for standard input.
+
+        * Options:
+            * --version <Version>
+                Specifies the version to use for the new distribution.
+
+    * --list, -l [Options]
+        * Lists distributions.
+
+        * Options:
+            * --all
+                * List all distributions, including distributions that are currently
+                being installed or uninstalled.
+
+            * --running
+                * List only distributions that are currently running.
+
+    * --set-default, -s <Distro>
+        * Sets the distribution as the default.
+
+    * --set-default-version <Version>
+        * Changes the default install version for new distributions.
+
+    * --set-version <Distro> <Version>
+        * Changes the version of the specified distribution.
+
+    * --terminate, -t <Distro>
+        * Terminates the specified distribution.
+
+    * --unregister <Distro>
+        * Unregisters the distribution.
+
+    * --help
+        * Display usage information.
+
+## Additional Commands
+
+There are also historic commands to interact with the Windows Subsystem for Linux. Their functionality is encompassed within `wsl.exe`, but they are still available for use. 
+
+### `wslconfig.exe`
+
+This command lets you configure your WSL distribution. Below is a list of its options.
+
+* /l, /list [Option]
+    * Lists registered distributions.
+        * /all - Optionally list all distributions, including distributions that
+                are currently being installed or uninstalled.
+
+        * /running - List only distributions that are currently running.
+
+* /s, /setdefault <DistributionName>
+    * Sets the distribution as the default.
+
+* /t, /terminate <DistributionName>
+    * Terminates the distribution.
+
+* /u, /unregister <DistributionName>
+    * Unregisters the distribution.
+
+### `bash.exe`
+
+This command is used to start a bash shell. Below are the options you can use with this command.
+
+* No Option given
+    * Launches the Bash shell in the current directory. If the Bash shell is not installed automatically runs `lxrun /install`
+
+* bash ~
+    * Launches the bash shell into the user's home directory.  Similar to running `cd ~`.
+
+* bash -c "&lt;command&gt;"
+    * Runs the command, prints the output and exits back to the Windows command prompt. <br/> <br/> Example:  `bash -c "ls"`
+
+## Deprecated Commands
+
+The `lxrun.exe` was the first command used to install and manage the Windows Subsystem for Linux. It is deprecated as of Windows 10 1803 and later.
 
 The command `lxrun.exe` can be used to interact with the [Windows Subsystem for Linux (WSL)](https://msdn.microsoft.com/en-us/commandline/wsl/faq#what-windows-subsystem-for-linux-wsl-) directly.  These commands are installed into the `\Windows\System32` directory and may be run within a Windows command prompt or in PowerShell.
-
-* `lxrun.exe` is used to manage WSL.  This command can be used to install or uninstall the Ubuntu image.
-
-
-| Command                     | Description                     |
-|:----------------------------|:---------------------------|
-| `bash`                      | Launches the Bash shell in the current directory.  If the Bash shell is not installed automatically runs `lxrun /install` |
-| `bash ~`                    | Launches the bash shell into the user's Ubuntu home directory.  Similar to running cd ~            |
-| `bash -c "<command>"`       | Runs the command, prints the output and exits back to the Windows command prompt. <br/> <br/> Example:  **bash -c "ls"** |
-
-<p>
 
 | Command                     | Description                     |
 |:----------------------------|:---------------------------|
