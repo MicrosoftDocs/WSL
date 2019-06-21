@@ -50,7 +50,7 @@ The picture below shows an example of this by connecting to a python server runn
 
 ![Accessing Linux network applications from Windows](media/wsl2-network-l2w.png)
 
-## Understanding WSL 2 uses a Virtual Hard Disk (VHD), and what to do if you reach its max size
+## Understanding WSL 2 uses a VHD, and what to do if you reach its max size
 WSL 2 stores all your Linux files inside of a VHD that uses the ext4 file system. This VHD automatically resizes to meet your storage needs. This VHD also has an initial max size of 256GB. If your distro grows in size to be greater than 256GB you will see errors stating that you've run out of disk space. You can fix these by expanding the VHD size. Instructions on how to do so are below:
 
 1. Terminate all WSL instances using the `wsl --shutdown` command
