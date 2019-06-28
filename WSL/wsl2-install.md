@@ -54,7 +54,7 @@ The distro that you've chosen above should now display a '2' under the 'version'
 
 Below are related errors and suggested fixes when installing WSL 2. Please refer to the [WSL troubleshooting page](troubleshooting.md) for other general WSL errors and their solutions.
 
-* **Installation failed with error 0x80070003**
+* **Installation failed with error 0x80070003 or error 0x80370102**
     * Please make sure that virtualization is enabled inside of your computer's BIOS. The instructions on how to do this will vary from computer to computer, and will most likely be under CPU related options.
    
 * **Error when trying to upgrade: `Invalid command line option: wsl --set-version Ubuntu 2`**
