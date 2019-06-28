@@ -30,7 +30,7 @@ If the Microsoft Store app is not available, you can download and manually insta
 * [SUSE Linux Enterprise Server 12](https://aka.ms/wsl-sles-12)
 * [Fedora Remix for WSL](https://github.com/WhitewaterFoundry/WSLFedoraRemix/releases/)
 
-This will cause the `<distro>.appx` packages to download to a folder of your choosing. Follow the [installation instructions](#installing-your-distro) to install your downloaded distro(s).
+This will cause the `<distro>.appx` packages to download to a folder of your choosing. Follow the [installation instructions](#Installing-your-distro) to install your downloaded distro(s).
 
 ## Downloading distros via the command line
 If you prefer, you can also download your preferred distro(s) via the command line:
@@ -57,4 +57,11 @@ In the above example, `curl.exe` is executed (not just `curl`) to ensure that, i
 > Note: Using `curl` might be preferable if you have to invoke/script download steps using Cmd shell and/or `.bat` / `.cmd` scripts.
 
 ## Installing your distro
-For instructions on how to install your downloaded distro(s), please refer to the [Windows Desktop](install-win10.md) or [Windows Server](install-on-server.md) installation instructions.
+If you're using Windows 10 you can install your distro with PowerShell. Simply navigate to folder containing the distro downloaded from above, and in that directory run the following command where `app_name` is the name of your distro .appx file.  
+```Powershell
+Add-AppxPackage .\app_name.appx
+```
+
+If you are using Windows server you can find the install instructions on the [Windows Server](install-on-server.md) documentation page.
+
+Once your distro is installed please refer to the [Intilization Steps](initialize-distro.md) page to initialize your new distro.
