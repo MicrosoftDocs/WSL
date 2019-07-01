@@ -51,8 +51,10 @@ If you upgrade to Windows 10 Fall Creators Update from an earlier Windows 10 rel
 To remove the legacy distro from your machine, run the following from a Command Line or PowerShell instance:
 
 ```console
-lxrun /uninstall /full
+wsl --unregister Legacy
 ```
+
+If you are not using Windows Version 1903 or higher, you may need to run `wslconfig /u Legacy` or `lxrun /uninstall /full` instead. 
 
 ### Manually deleting the legacy distro
 If you wish, you can manually delete your legacy instance. This may be required if you encounter issues uninstalling the legacy distro using `lxrun.exe`, or are running Windows 10 Spring 2018 Update (or later) which do not ship with `lxrun.exe`.
