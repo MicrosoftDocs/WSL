@@ -18,7 +18,7 @@ WSL 2 is a new version of the architecture that powers the Windows Subsystem for
 
 The Linux kernel in WSL 2 is built in house from the latest stable branch, based on the source available at kernel.org. This kernel has been specially tuned for WSL 2. It has been optimized for size and performance to give an amazing Linux experience on Windows and will be serviced through Windows updates, which means you will get the latest security fixes and kernel improvements without needing to manage it yourself.
 
-Additionally this kernel will be open source. You can find the full source code for the Linux kernel [here](https://thirdpartysource.microsoft.com/download/Windows%20Subsystem%20for%20Linux%20v2/May%202019/WSLv2-Linux-Kernel-master.zip). If you’d like to read more about this kernel you can check out [this blog post](https://devblogs.microsoft.com/commandline/shipping-a-linux-kernel-with-windows/) written by the team that built it.
+Additionally this kernel will be open source. You can find the full source code for the Linux kernel [here](https://github.com/microsoft/WSL2-Linux-Kernel). If you’d like to read more about this kernel you can check out [this blog post](https://devblogs.microsoft.com/commandline/shipping-a-linux-kernel-with-windows/) written by the team that built it.
 
 ## Brief overview of the WSL 2 architecture
 
