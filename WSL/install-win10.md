@@ -25,7 +25,7 @@ Before installing any Linux distros for WSL, you must ensure that the "Windows S
 
 ## Install your Linux Distribution of Choice
 To download and install your preferred distro(s), you have three choices:
-1. Download and install from the Windows Store (see below)
+1. Download and install from the Microsoft Store (see below)
 1. Download and install from the Command-Line/Script ([read the manual installation instructions](install-manual.md))
 1. Download and manually unpack and install (for Windows Server - [instructions here](install-on-server.md))
 
@@ -35,9 +35,9 @@ To download and install your preferred distro(s), you have three choices:
 
 1. Open the Microsoft Store and choose your favorite Linux distribution.
 
-    ![View of Linux distros in the Windows store](media/store.png)
+    ![View of Linux distros in the Microsoft Store](media/store.png)
 
-    The following links will open the Windows store page for each distribution:
+    The following links will open the Microsoft store page for each distribution:
 
     * [Ubuntu 16.04 LTS](https://www.microsoft.com/store/apps/9pjn388hp8c9)
     * [Ubuntu 18.04 LTS](https://www.microsoft.com/store/apps/9N9TNGVNDL3Q)
@@ -54,7 +54,7 @@ To download and install your preferred distro(s), you have three choices:
 
 1. From the distro's page, select "Get"
 
-    ![View of Linux distros in the Windows store](media/UbuntuStore.png)
+    ![View of Linux distros in the Microsoft store](media/UbuntuStore.png)
 
 ## Complete initialization of your distro
 Now that your Linux distro is installed, you must [initialize your new distro instance](initialize-distro.md) once, before it can be used.

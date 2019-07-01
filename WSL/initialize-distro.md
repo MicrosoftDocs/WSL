@@ -14,7 +14,7 @@ ms.custom: seodec18
 Once your distro has been downloaded and installed, you'll need to complete initialization of the new distro:
 
 ## Launch a distro
-To complete the initialization of your newly installed distro, launch a new instance. You can do this by clicking the "launch" button in the Windows Store app, or launching the distro from the Start menu:
+To complete the initialization of your newly installed distro, launch a new instance. You can do this by clicking the "launch" button in the Microsoft Store app, or launching the distro from the Start menu:
 
 > Tip: You might want to pin your most frequently used distros to your Start menu, and/or to your taskbar!
 

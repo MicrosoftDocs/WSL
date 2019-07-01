@@ -17,7 +17,7 @@ The Windows Subsystem for Linux lets developers run GNU/Linux environment -- inc
 
 You can:
 
-1. Choose your favorite GNU/Linux distributions [from the Windows Store](https://aka.ms/wslstore).
+1. Choose your favorite GNU/Linux distributions [from the Microsoft Store](https://aka.ms/wslstore).
 1. Run common command-line free software such as `grep`, `sed`, `awk`, or other ELF-64 binaries. 
 1. Run Bash shell scripts and GNU/Linux command-line applications including:  
     * Tools: vim, emacs, tmux

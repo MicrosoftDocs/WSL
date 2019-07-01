@@ -12,7 +12,7 @@ ms.custom: seodec18
 
 # Manage and configure Windows Subsystem for Linux
 
-> Applies to Windows 10 Fall Creators Update and later.  See our updated [installation guide](./install_guide.md) to try new management features and start running multiple Linux distributions from the Windows Store.
+> Applies to Windows 10 Fall Creators Update and later.  See our updated [installation guide](./install_guide.md) to try new management features and start running multiple Linux distributions from the Microsoft store.
 
 ## Ways to run WSL
 
@@ -30,9 +30,9 @@ Running a distribution using it's distro-specific application launches that dist
 
 ![Launch WSL from Start menu](media/start-launch.png)
 
-It is the same as clicking "Launch" in the Windows Store.
+It is the same as clicking "Launch" in the Microsoft store.
 
-![Launch WSL from the Windows Store](media/store-launch.png)
+![Launch WSL from the Microsoft store](media/store-launch.png)
 
 You can also run the distribution from the command line by running `[distribution].exe`.
 
@@ -147,7 +147,7 @@ Sets the default distribution to `<DistributionName>`.
 
 #### Unregister and reinstall a distribution
 
-While Linux distributions can be installed through the Windows store, they can't be uninstalled through the store.  WSL Config allows distributions to be unregistered/uninstalled.
+While Linux distributions can be installed through the Microsoft store, they can't be uninstalled through the store.  WSL Config allows distributions to be unregistered/uninstalled.
 
 Unregistering also allows distributions to be reinstalled.
 
@@ -159,7 +159,7 @@ Unregisters the distribution from WSL so it can be reinstalled or cleaned up.
 For example:
 `wsl --unregister Ubuntu` would remove Ubuntu from the distributions available in WSL.  When I run `wsl --list` it will not be listed.
 
-To reinstall, find the distribution in the Windows Store and select "Launch".
+To reinstall, find the distribution in the Microsoft store and select "Launch".
 
 #### Run as a specific user
 
@@ -214,7 +214,7 @@ Sets the default distribution to `<DistributionName>`.
 
 #### Unregister and reinstall a distribution
 
-While Linux distributions can be installed through the Windows store, they can't be uninstalled through the store.  WSL Config allows distributions to be unregistered/uninstalled.
+While Linux distributions can be installed through the Microsoft store, they can't be uninstalled through the store.  WSL Config allows distributions to be unregistered/uninstalled.
 
 Unregistering also allows distributions to be reinstalled.
 
@@ -226,7 +226,7 @@ Unregisters the distribution from WSL so it can be reinstalled or cleaned up.
 For example:
 `wslconfig /unregister Ubuntu` would remove Ubuntu from the distributions available in WSL.  When I run `wslconfig /list` it will not be listed.
 
-To reinstall, find the distribution in the Windows Store and select "Launch".
+To reinstall, find the distribution in the Microsoft store and select "Launch".
 
 ## Set WSL launch settings
 
