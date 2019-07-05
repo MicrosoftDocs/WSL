@@ -18,7 +18,7 @@ Below is a list of frequently asked questions (FAQ) about the Windows Subsystem 
 
 WSL 2 will be available on all SKUs where WSL is currently available, including Windows 10 Home.
 
-The newest version of WSL uses Hyper-V architecture to enable its virtualization. This architecture will be available in an optional component that is a subset of the Hyper-V feature. This optional component will be available on all SKUs. You can expect to see more details about this experience soon as we get closer to the WSL 2 release.
+The newest version of WSL uses Hyper-V architecture to enable its virtualization. This architecture will be available in the 'Virtual Machine Platform' optional component. This optional component will be available on all SKUs. You can expect to see more details about this experience soon as we get closer to the WSL 2 release.
 
 ## What will happen to WSL 1? Will it be abandoned?
 
