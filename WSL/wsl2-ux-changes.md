@@ -50,6 +50,10 @@ The picture below shows an example of this by connecting to a python server runn
 
 ![Accessing Linux network applications from Windows](media/wsl2-network-l2w.png)
 
+### Other networking considerations
+
+When using remote IP addresses to connect to your applications, they will be treated as connections from the Local Area Network (LAN). This means that you will need to make sure your application can accept LAN connections, i.e: You might need to bind your application to `0.0.0.0` instead of `127.0.0.1`. For example in python using flask this can be done with the command: `app.run(host='0.0.0.0')`. Please keep security in mind when making these changes, as this will allow connections from your LAN. 
+
 ## Understanding WSL 2 uses a VHD, and what to do if you reach its max size
 WSL 2 stores all your Linux files inside of a VHD that uses the ext4 file system. This VHD automatically resizes to meet your storage needs. This VHD also has an initial max size of 256GB. If your distro grows in size to be greater than 256GB you will see errors stating that you've run out of disk space. You can fix these by expanding the VHD size. Instructions on how to do so are below:
 
