@@ -36,7 +36,7 @@ If you have a server in a WSL distro, you'll need to find the IP address of the 
    - You can find this more easily by filtering the output of the command using grep like so: `ip addr | grep eth0`.
 - Connect to your Linux server using the IP you found above.
 
-The picture below shows an example of this by connecting to a nodeJS server using the Edge browser.
+The picture below shows an example of this by connecting to a Node.js server using the Edge browser.
 
 ![Accessing Linux network applications from Windows](media/wsl2-network-w2l.jpg)
 
@@ -46,7 +46,7 @@ To access a Windows network application you'll need to use the IP address of you
 - Obtain the IP address of your host machine by running the command `cat /etc/resolv.conf` and copying the IP address following the term `nameserver`. 
 - Connect to any Windows server using the copied IP address.
 
-The picture below shows an example of this by connecting to a python server running in Windows via curl. 
+The picture below shows an example of this by connecting to a Node.js server running in Windows via curl. 
 
 ![Accessing Linux network applications from Windows](media/wsl2-network-l2w.png)
 
