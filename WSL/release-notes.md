@@ -12,6 +12,40 @@ ms.custom: seodec18
 # Release Notes for Windows Subsystem for Linux
 
 
+## Build 18947
+For general Windows information on build 18947 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2019/07/26/announcing-windows-10-insider-preview-build-18947/).
+
+### WSL
+* [WSL2] Allow listening tcp sockets in WSL2 to be accessible from the host by using localhost:port
+* [WSL2] Fixes for install / conversion failures and additional diagnostics to track down future issues [GH 4105] 
+* [WSL2] Improve diagnosability of WSL2 network issues
+* [WSL2] Update kernel version to 4.19.55
+* [WSL2] Update kernel with config options required for docker [GH 4165]
+* [WSL2] Increase the number of CPUs assigned to the lightweight utility VM to be the same as the host (was previously capped at 8 by CONFIG_NR_CPUS in the kernel config) [GH 4137]
+* [WSL2] Create a swap file for the WSL2 lightweight VM
+* [WSL2] Allow user mounts to be visible via \\\\wsl$\\distro (for example sshfs) [GH 4172]
+* [WSL2] Improve 9p filesystem performance
+* [WSL2] Ensure vhd ACL does not grow unbounded [GH 4126]
+* [WSL2] Update kernel config to support squashfs and xt_conntrack [GH 4107, 4123]
+* [WSL2] Fix for interop.enabled /etc/wsl.conf option [GH 4140]
+* [WSL2] Return ENOTSUP if the file system does not support EAs
+* [WSL2] Fix CopyFile hang with \\\\wsl$
+* Switch default umask to 0022 and add filesystem.umask setting to /etc/wsl.conf
+* Fix wslpath to properly resolve symlinks, this was regressed in 19h1 [GH 4078]
+* Introduce %UserProfile%\.wslconfig file for tweaking WSL2 settings
+```
+[wsl2]
+kernel=<path>              # An absolute Windows path to a custom Linux kernel.
+memory=<size>              # How much memory to assign to the WSL2 VM.
+processors=<number>        # How many processors to assign to the WSL2 VM.
+swap=<size>                # How much swap space to add to the WSL2 VM. 0 for no swap file.
+swapFile=<path>            # An absolute Windows path to the swap vhd.
+localhostForwarding=<bool> # Boolean specifying if ports bound to wildcard or localhost in the WSL2 VM should be connectable from the host via localhost:port (default true).
+
+# <path> entries must be absolute Windows paths with escaped backslashes, for example C:\\Users\\Ben\\kernel
+# <size> entries must be size followed by unit, for example 8GB or 512MB
+```
+
 ## Build 18917
 For general Windows information on build 18917 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2019/06/12/announcing-windows-10-insider-preview-build-18917/).
 
