@@ -12,7 +12,7 @@ ms.custom: seodec18
 
 # Manually download Windows Subsystem for Linux distro packages
 
-There are several scenarios in which you may not be able (or want) to, install WSL Linux distros via the Microsoft Store. Specifically, you may be running a Windows Server or Long-Term Servicing (LTSB/LTSC) desktop OS SKU that doesn't support Microsoft Store, or your corporate network policies and/or admins to not permit Microsoft Store usage in your environment.
+There are several scenarios in which you may not be able (or want) to, install WSL Linux distros via the Microsoft Store. Specifically, you may be running a Windows Server or Long-Term Servicing (LTSC) desktop OS SKU that doesn't support Microsoft Store, or your corporate network policies and/or admins to not permit Microsoft Store usage in your environment.
 
 In these cases, while WSL itself is available, how do you download and install Linux distros in WSL if you can't access the store?
 
