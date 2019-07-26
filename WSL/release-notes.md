@@ -12,8 +12,8 @@ ms.custom: seodec18
 # Release Notes for Windows Subsystem for Linux
 
 
-## Build 18947
-For general Windows information on build 18947 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2019/07/26/announcing-windows-10-insider-preview-build-18947/).
+## Build 18945
+For general Windows information on build 18945 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2019/07/26/announcing-windows-10-insider-preview-build-18945/).
 
 ### WSL
 * [WSL2] Allow listening tcp sockets in WSL2 to be accessible from the host by using localhost:port
