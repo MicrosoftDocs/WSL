@@ -32,7 +32,7 @@ For general Windows information on build 18945 visit the [Windows blog](https://
 * [WSL2] Fix CopyFile hang with \\\\wsl$
 * Switch default umask to 0022 and add filesystem.umask setting to /etc/wsl.conf
 * Fix wslpath to properly resolve symlinks, this was regressed in 19h1 [GH 4078]
-* Introduce %UserProfile%\.wslconfig file for tweaking WSL2 settings
+* Introduce %UserProfile%\\.wslconfig file for tweaking WSL2 settings
 ```
 [wsl2]
 kernel=<path>              # An absolute Windows path to a custom Linux kernel.
