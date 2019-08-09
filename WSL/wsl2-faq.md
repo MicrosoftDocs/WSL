@@ -40,7 +40,7 @@ Yes, in general networking applications will be faster and work better since we 
 
 ## Can I run WSL 2 in a virtual machine?
 
-Yes! You need to make sure that the virtual machine has nested virtualization enabled. This can be enabled in Hyper-V by running the following command in a PowerShell window with Administrator privileges:
+Yes! You need to make sure that the virtual machine has nested virtualization enabled. This can be enabled in your parent Hyper-V host by running the following command in a PowerShell window with Administrator privileges:
 
 `Set-VMProcessor -VMName <VMName> -ExposeVirtualizationExtensions $true`
 
