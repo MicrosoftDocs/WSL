@@ -99,11 +99,33 @@ Using: `wsl [Argument] [Options...] [CommandLine]`
 
 * **--set-default-version \<Version>**
   
-  Changes the default install version for new distributions.
+  Changes the default install version (WSL 1 or 2) for new distributions.
 
 * **--set-version \<Distro> \<Version>**
   
-  Changes the version of the specified distribution.
+  Changes the version of the specified distribution. Use this command to convert a distro to use the WSL 2 architecture or use the WSL 1 architecture.
+
+  **\<Distro>** — the specific Linux distro (e.g. “Ubuntu”)
+
+  **\<Version>** — 1 or 2 (for WSL 1 or 2)
+  
+* **wsl --shutdown**
+  
+  Immediately terminates all running distributions and the WSL 2 lightweight utility virtual machine.
+
+  The VM that powers WSL 2 distros is something that we aim to manage entirely for you, and so we spin it up when you need it and shut it down when you don’t. There could be cases where you would want to shut it down manually, and this command lets you do that by terminating all distributions and shutting down the WSL 2 VM.
+
+* **--list --quiet**
+  
+  Only list the distribution names.
+
+  This command is useful for scripting since it will only output the names of distributions you have installed without showing other information like the default distro, versions, etc.
+
+* **--list --verbose**
+  
+  Shows detailed information about all the distributions.
+
+  This command lists the name of each distro, what state the distro is in, and what version it is running. It also shows which distributions is default with an asterisk.
 
 
 ## Additional Commands
