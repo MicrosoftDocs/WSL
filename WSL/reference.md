@@ -18,6 +18,8 @@ The best way to interact with the Windows Subsystem for Linux is to use the `wsl
 
 Below is a list containing all options when using `wsl.exe` as of Windows Version 1903.
 
+Using: `wsl [Argument] [Options...] [CommandLine]`
+
 ### Arguments for running Linux binaries
 
 * **Without arguments**
@@ -107,6 +109,8 @@ There are also historic commands to interact with the Windows Subsystem for Linu
 
 This command lets you configure your WSL distribution. Below is a list of its options.
 
+Using: `wslconfig [Argument] [Options...]`
+
 #### Arguments
 * **/l, /list [Options]**
   
@@ -140,6 +144,8 @@ This command lets you configure your WSL distribution. Below is a list of its op
 ### `bash.exe`
 
 This command is used to start a bash shell. Below are the options you can use with this command.
+
+Using: `bash [Options...]`
 
 * **No Option given**
   
