@@ -152,19 +152,19 @@ Using: `wslconfig [Argument] [Options...]`
       
       List only distributions that are currently running.
 
-* **/s, /setdefault \<DistributionName>**
+* **/s, /setdefault \<Distro>**
   
   Sets the distribution as the default.
 
-* **/t, /terminate \<DistributionName>**
+* **/t, /terminate \<Distro>**
   
   Terminates the distribution.
 
-* **/u, /unregister \<DistributionName>**
+* **/u, /unregister \<Distro>**
   
   Unregisters the distribution.
    
-* **/upgrade \<DistributionName>**
+* **/upgrade \<Distro>**
   
   Upgrades the distribution to the WslFs file system format. See the description of `wsl --upgrade <Distro>` for details.
 
