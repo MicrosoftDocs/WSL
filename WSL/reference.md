@@ -100,6 +100,8 @@ Using: `wsl [Argument] [Options...] [CommandLine]`
 * **--set-default-version \<Version>**
   
   Changes the default install version (WSL 1 or 2) for new distributions.
+  
+  **\<Version>** — 1 or 2 (for WSL 1 or 2)
 
 * **--set-version \<Distro> \<Version>**
   
