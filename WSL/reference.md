@@ -22,31 +22,31 @@ Below is a list containing all options when using `wsl.exe` as of Windows Versio
 
     * If no command line is provided, wsl.exe launches the default shell.
 
-    * --exec, -e <CommandLine>
+    * --exec, -e \<CommandLine>
         * Execute the specified command without using the default Linux shell.
 
     * --
         * Pass the remaining command line as is.
 
 * Options:
-    * --distribution, -d <Distro>
+    * --distribution, -d \<Distro>
         * Run the specified distribution.
 
-    * --user, -u <UserName>
+    * --user, -u \<UserName>
         * Run as the specified user.
 
 * Arguments for managing Windows Subsystem for Linux:
 
-    * --export <Distro> <FileName>
+    * --export \<Distro> \<FileName>
         * Exports the distribution to a tar file.
         The filename can be - for standard output.
 
-    * --import <Distro> <InstallLocation> <FileName> [Options]
+    * --import \<Distro> \<InstallLocation> \<FileName> [Options]
         * Imports the specified tar file as a new distribution.
         The filename can be - for standard input.
 
         * Options:
-            * --version <Version>
+            * --version \<Version>
                 Specifies the version to use for the new distribution.
 
     * --list, -l [Options]
@@ -60,22 +60,22 @@ Below is a list containing all options when using `wsl.exe` as of Windows Versio
             * --running
                 * List only distributions that are currently running.
 
-    * --set-default, -s <Distro>
+    * --set-default, -s \<Distro>
         * Sets the distribution as the default.
 
-    * --set-default-version <Version>
+    * --set-default-version \<Version>
         * Changes the default install version for new distributions.
 
-    * --set-version <Distro> <Version>
+    * --set-version \<Distro> \<Version>
         * Changes the version of the specified distribution.
 
-    * --terminate, -t <Distro>
+    * --terminate, -t \<Distro>
         * Terminates the specified distribution.
 
-    * --unregister <Distro>
+    * --unregister \<Distro>
         * Unregisters the distribution.
    
-    * --upgrade <Distro>
+    * --upgrade \<Distro>
         * Upgrades the distribution to the WslFs file system format.
           
           The upgrade command will make sure your distro is using a new file system WslFs when WSL is accessing your files in your drive. In general, this will improve WSL accessing files, is something that's in the back end (so your workflow won't be impacted by it), and if you've installed your distributions recently then they'll automatically be using WslFs. [Additional Information](https://github.com/MicrosoftDocs/WSL/issues/280#issuecomment-468425983).
@@ -98,16 +98,16 @@ This command lets you configure your WSL distribution. Below is a list of its op
 
         * /running - List only distributions that are currently running.
 
-* /s, /setdefault <DistributionName>
+* /s, /setdefault \<DistributionName>
     * Sets the distribution as the default.
 
-* /t, /terminate <DistributionName>
+* /t, /terminate \<DistributionName>
     * Terminates the distribution.
 
-* /u, /unregister <DistributionName>
+* /u, /unregister \<DistributionName>
     * Unregisters the distribution.
    
-* /upgrade <DistributionName>
+* /upgrade \<DistributionName>
     * Upgrades the distribution to the WslFs file system format. See the description of `wsl --upgrade <Distro>` for details.
 
 ### `bash.exe`
@@ -120,8 +120,10 @@ This command is used to start a bash shell. Below are the options you can use wi
 * bash ~
     * Launches the bash shell into the user's home directory.  Similar to running `cd ~`.
 
-* bash -c "&lt;command&gt;"
-    * Runs the command, prints the output and exits back to the Windows command prompt. <br/> <br/> Example:  `bash -c "ls"`
+* bash -c "\<command>"
+    * Runs the command, prints the output and exits back to the Windows command prompt.
+    
+      Example:  `bash -c "ls"`.
 
 ## Deprecated Commands
 
