@@ -25,6 +25,15 @@ Using: `wsl [Argument] [Options...] [CommandLine]`
 * **Without arguments**
 
   If no command line is provided, wsl.exe launches the default shell.
+  
+  Options:
+  * **--distribution, -d \<Distro>**
+  
+    Run the specified distribution.
+
+  * **--user, -u \<UserName>**
+  
+    Run as the specified user.
 
 * **--exec, -e \<CommandLine>**
   
@@ -34,15 +43,7 @@ Using: `wsl [Argument] [Options...] [CommandLine]`
   
   Pass the remaining command line as is.
 
-### Options
 
-* **--distribution, -d \<Distro>**
-  
-  Run the specified distribution.
-
-* **--user, -u \<UserName>**
-  
-  Run as the specified user.
 
 ### Arguments for managing Windows Subsystem for Linux
 
