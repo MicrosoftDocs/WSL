@@ -74,6 +74,11 @@ Below is a list containing all options when using `wsl.exe` as of Windows Versio
 
     * --unregister <Distro>
         * Unregisters the distribution.
+   
+    * --upgrade <Distro>
+        * Upgrades the distribution to the WslFs file system format.
+          
+          The upgrade command will make sure your distro is using a new file system WslFs when WSL is accessing your files in your drive. In general, this will improve WSL accessing files, is something that's in the back end (so your workflow won't be impacted by it), and if you've installed your distributions recently then they'll automatically be using WslFs. [Additional Information](https://github.com/MicrosoftDocs/WSL/issues/280#issuecomment-468425983).
 
     * --help
         * Display usage information.
