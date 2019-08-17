@@ -106,6 +106,9 @@ This command lets you configure your WSL distribution. Below is a list of its op
 
 * /u, /unregister <DistributionName>
     * Unregisters the distribution.
+   
+* /upgrade <DistributionName>
+    * Upgrades the distribution to the WslFs file system format. See the description of `wsl --upgrade <Distro>` for details.
 
 ### `bash.exe`
 
