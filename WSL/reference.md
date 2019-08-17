@@ -18,70 +18,86 @@ The best way to interact with the Windows Subsystem for Linux is to use the `wsl
 
 Below is a list containing all options when using `wsl.exe` as of Windows Version 1903.
 
-* Arguments for running Linux binaries:
+### Arguments for running Linux binaries
 
-    * If no command line is provided, wsl.exe launches the default shell.
+* **Without arguments**
 
-    * --exec, -e \<CommandLine>
-        * Execute the specified command without using the default Linux shell.
+  If no command line is provided, wsl.exe launches the default shell.
 
-    * --
-        * Pass the remaining command line as is.
+* **--exec, -e \<CommandLine>**
+  
+  Execute the specified command without using the default Linux shell.
 
-* Options:
-    * --distribution, -d \<Distro>
-        * Run the specified distribution.
+* **--**
+  
+  Pass the remaining command line as is.
 
-    * --user, -u \<UserName>
-        * Run as the specified user.
+### Options
 
-* Arguments for managing Windows Subsystem for Linux:
+* **--distribution, -d \<Distro>**
+  
+  Run the specified distribution.
 
-    * --export \<Distro> \<FileName>
-        * Exports the distribution to a tar file.
-        The filename can be - for standard output.
+* **--user, -u \<UserName>**
+  
+  Run as the specified user.
 
-    * --import \<Distro> \<InstallLocation> \<FileName> [Options]
-        * Imports the specified tar file as a new distribution.
-        The filename can be - for standard input.
+### Arguments for managing Windows Subsystem for Linux
 
-        * Options:
-            * --version \<Version>
-                Specifies the version to use for the new distribution.
+* **--export \<Distro> \<FileName>**
+  
+  Exports the distribution to a tar file. The filename can be - for standard output.
 
-    * --list, -l [Options]
-        * Lists distributions.
+* **--import \<Distro> \<InstallLocation> \<FileName> [Options]**
+  
+  Imports the specified tar file as a new distribution. The filename can be - for standard input.
 
-        * Options:
-            * --all
-                * List all distributions, including distributions that are currently
-                being installed or uninstalled.
+  Options:
+  * **--version \<Version>**
+      
+    Specifies the version to use for the new distribution.
 
-            * --running
-                * List only distributions that are currently running.
+* **--list, -l [Options]**
+  
+  Lists distributions.
 
-    * --set-default, -s \<Distro>
-        * Sets the distribution as the default.
+  Options:
+  * **--all**
+      
+    List all distributions, including distributions that are currently being installed or uninstalled.
 
-    * --set-default-version \<Version>
-        * Changes the default install version for new distributions.
+  * **--running**
+      
+    List only distributions that are currently running.
 
-    * --set-version \<Distro> \<Version>
-        * Changes the version of the specified distribution.
+* **--set-default, -s \<Distro>**
+  
+  Sets the distribution as the default.
 
-    * --terminate, -t \<Distro>
-        * Terminates the specified distribution.
+* **--set-default-version \<Version>**
+  
+  Changes the default install version for new distributions.
 
-    * --unregister \<Distro>
-        * Unregisters the distribution.
+* **--set-version \<Distro> \<Version>**
+  
+  Changes the version of the specified distribution.
+
+* **--terminate, -t \<Distro>**
+  
+  Terminates the specified distribution.
+
+* **--unregister \<Distro>**
+  
+  Unregisters the distribution.
    
-    * --upgrade \<Distro>
-        * Upgrades the distribution to the WslFs file system format.
+* **--upgrade \<Distro>**
+  
+  Upgrades the distribution to the WslFs file system format.
           
-          The upgrade command will make sure your distro is using a new file system WslFs when WSL is accessing your files in your drive. In general, this will improve WSL accessing files, is something that's in the back end (so your workflow won't be impacted by it), and if you've installed your distributions recently then they'll automatically be using WslFs. [Additional Information](https://github.com/MicrosoftDocs/WSL/issues/280#issuecomment-468425983).
+  The upgrade command will make sure your distro is using a new file system WslFs when WSL is accessing your files in your drive. In general, this will improve WSL accessing files, is something that's in the back end (so your workflow won't be impacted by it), and if you've installed your distributions recently then they'll automatically be using WslFs. [Additional Information](https://github.com/MicrosoftDocs/WSL/issues/280#issuecomment-468425983).
 
-    * --help
-        * Display usage information.
+* **--help**
+  Display usage information.
 
 ## Additional Commands
 
@@ -91,39 +107,53 @@ There are also historic commands to interact with the Windows Subsystem for Linu
 
 This command lets you configure your WSL distribution. Below is a list of its options.
 
-* /l, /list [Option]
-    * Lists registered distributions.
-        * /all - Optionally list all distributions, including distributions that
-                are currently being installed or uninstalled.
+#### Arguments
+* **/l, /list [Options]**
+  
+  Lists registered distributions.
+  
+  Options:
+    * **/all**
+    
+      Optionally list all distributions, including distributions that are currently being installed or uninstalled.
 
-        * /running - List only distributions that are currently running.
+    * **/running**
+      
+      List only distributions that are currently running.
 
-* /s, /setdefault \<DistributionName>
-    * Sets the distribution as the default.
+* **/s, /setdefault \<DistributionName>**
+  
+  Sets the distribution as the default.
 
-* /t, /terminate \<DistributionName>
-    * Terminates the distribution.
+* **/t, /terminate \<DistributionName>**
+  
+  Terminates the distribution.
 
-* /u, /unregister \<DistributionName>
-    * Unregisters the distribution.
+* **/u, /unregister \<DistributionName>**
+  
+  Unregisters the distribution.
    
-* /upgrade \<DistributionName>
-    * Upgrades the distribution to the WslFs file system format. See the description of `wsl --upgrade <Distro>` for details.
+* **/upgrade \<DistributionName>**
+  
+  Upgrades the distribution to the WslFs file system format. See the description of `wsl --upgrade <Distro>` for details.
 
 ### `bash.exe`
 
 This command is used to start a bash shell. Below are the options you can use with this command.
 
-* No Option given
-    * Launches the Bash shell in the current directory. If the Bash shell is not installed automatically runs `lxrun /install`
+* **No Option given**
+  
+  Launches the Bash shell in the current directory. If the Bash shell is not installed automatically runs `lxrun /install`
 
-* bash ~
-    * Launches the bash shell into the user's home directory.  Similar to running `cd ~`.
+* **~**
+  
+  `bash ~` launches the bash shell into the user's home directory.  Similar to running `cd ~`.
 
-* bash -c "\<command>"
-    * Runs the command, prints the output and exits back to the Windows command prompt.
+* **-c "\<command>"**
+  
+  Runs the command, prints the output and exits back to the Windows command prompt.
     
-      Example:  `bash -c "ls"`.
+  Example:  `bash -c "ls"`.
 
 ## Deprecated Commands
 
