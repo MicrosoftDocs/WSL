@@ -10,17 +10,18 @@ ms.assetid: 82908295-a6bd-483c-a995-613674c2677e
 ms.custom: seodec18
 ---
 
+
 # Command Reference for Windows Subsystem for Linux
 
 The best way to interact with the Windows Subsystem for Linux is to use the `wsl.exe` command. 
 
-## `wsl.exe` 
 
-Below is a list containing all options when using `wsl.exe` as of Windows Version 1903.
+## `wsl.exe`
 
 Using: `wsl [Argument] [Options...] [CommandLine]`
 
-### Arguments for running Linux binaries
+
+### Arguments for running Linux binaries ([Windows Version 1903+](https://devblogs.microsoft.com/commandline/whats-new-for-wsl-in-windows-10-version-1903/))
 
 * **Without arguments**
 
@@ -44,8 +45,7 @@ Using: `wsl [Argument] [Options...] [CommandLine]`
   Pass the remaining command line as is.
 
 
-
-### Arguments for managing Windows Subsystem for Linux
+### Arguments for managing Windows Subsystem for Linux ([Windows Version 1903+](https://devblogs.microsoft.com/commandline/whats-new-for-wsl-in-windows-10-version-1903/))
 
 * **--export \<Distro> \<FileName>**
   
@@ -77,14 +77,6 @@ Using: `wsl [Argument] [Options...] [CommandLine]`
   
   Sets the distribution as the default.
 
-* **--set-default-version \<Version>**
-  
-  Changes the default install version for new distributions.
-
-* **--set-version \<Distro> \<Version>**
-  
-  Changes the version of the specified distribution.
-
 * **--terminate, -t \<Distro>**
   
   Terminates the specified distribution.
@@ -101,6 +93,18 @@ Using: `wsl [Argument] [Options...] [CommandLine]`
 
 * **--help**
   Display usage information.
+
+
+### Arguments for managing Windows Subsystem for Linux ([Windows build 18917+](https://devblogs.microsoft.com/commandline/wsl-2-is-now-available-in-windows-insiders/))
+
+* **--set-default-version \<Version>**
+  
+  Changes the default install version for new distributions.
+
+* **--set-version \<Distro> \<Version>**
+  
+  Changes the version of the specified distribution.
+
 
 ## Additional Commands
 
