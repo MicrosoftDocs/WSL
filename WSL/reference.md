@@ -10,73 +10,79 @@ ms.assetid: 82908295-a6bd-483c-a995-613674c2677e
 ms.custom: seodec18
 ---
 
+
 # Command Reference for Windows Subsystem for Linux
 
 The best way to interact with the Windows Subsystem for Linux is to use the `wsl.exe` command. 
 
-## `wsl.exe` 
+
+## `wsl.exe`
 
 Below is a list containing all options when using `wsl.exe` as of Windows Version 1903.
 
-* Arguments for running Linux binaries:
+Using: `wsl [Argument] [Options...] [CommandLine]`
 
-    * If no command line is provided, wsl.exe launches the default shell.
+### Arguments for running Linux binaries
 
-    * --exec, -e <CommandLine>
-        * Execute the specified command without using the default Linux shell.
+* **Without arguments**
 
-    * --
-        * Pass the remaining command line as is.
+  If no command line is provided, wsl.exe launches the default shell.
 
-* Options:
-    * --distribution, -d <Distro>
-        * Run the specified distribution.
+* **--exec, -e \<CommandLine>**
+  
+  Execute the specified command without using the default Linux shell.
 
-    * --user, -u <UserName>
-        * Run as the specified user.
+* **--**
+  
+  Pass the remaining command line as is.
 
-* Arguments for managing Windows Subsystem for Linux:
+The above commands also accept the following options:
 
-    * --export <Distro> <FileName>
-        * Exports the distribution to a tar file.
-        The filename can be - for standard output.
+* **--distribution, -d \<Distro>**
 
-    * --import <Distro> <InstallLocation> <FileName> [Options]
-        * Imports the specified tar file as a new distribution.
-        The filename can be - for standard input.
+  Run the specified distribution.
 
-        * Options:
-            * --version <Version>
-                Specifies the version to use for the new distribution.
+* **--user, -u \<UserName>**
 
-    * --list, -l [Options]
-        * Lists distributions.
+  Run as the specified user.
 
-        * Options:
-            * --all
-                * List all distributions, including distributions that are currently
-                being installed or uninstalled.
+### Arguments for managing Windows Subsystem for Linux
 
-            * --running
-                * List only distributions that are currently running.
+* **--export \<Distro> \<FileName>**
+  
+  Exports the distribution to a tar file. The filename can be - for standard output.
 
-    * --set-default, -s <Distro>
-        * Sets the distribution as the default.
+* **--import \<Distro> \<InstallLocation> \<FileName>**
+  
+  Imports the specified tar file as a new distribution. The filename can be - for standard input.
 
-    * --set-default-version <Version>
-        * Changes the default install version for new distributions.
+* **--list, -l [Options]**
+  
+  Lists distributions.
 
-    * --set-version <Distro> <Version>
-        * Changes the version of the specified distribution.
+  Options:
+  * **--all**
+      
+    List all distributions, including distributions that are currently being installed or uninstalled.
 
-    * --terminate, -t <Distro>
-        * Terminates the specified distribution.
+  * **--running**
+      
+    List only distributions that are currently running.
 
-    * --unregister <Distro>
-        * Unregisters the distribution.
+* **--set-default, -s \<Distro>**
+  
+  Sets the distribution as the default.
 
-    * --help
-        * Display usage information.
+* **--terminate, -t \<Distro>**
+  
+  Terminates the specified distribution.
+
+* **--unregister \<Distro>**
+  
+  Unregisters the distribution.
+   
+* **--help**
+  Display usage information.
 
 ## Additional Commands
 
@@ -86,34 +92,57 @@ There are also historic commands to interact with the Windows Subsystem for Linu
 
 This command lets you configure your WSL distribution. Below is a list of its options.
 
-* /l, /list [Option]
-    * Lists registered distributions.
-        * /all - Optionally list all distributions, including distributions that
-                are currently being installed or uninstalled.
+Using: `wslconfig [Argument] [Options...]`
 
-        * /running - List only distributions that are currently running.
+#### Arguments
+* **/l, /list [Options]**
+  
+  Lists registered distributions.
+  
+  Options:
+    * **/all**
+    
+      Optionally list all distributions, including distributions that are currently being installed or uninstalled.
 
-* /s, /setdefault <DistributionName>
-    * Sets the distribution as the default.
+    * **/running**
+      
+      List only distributions that are currently running.
 
-* /t, /terminate <DistributionName>
-    * Terminates the distribution.
+* **/s, /setdefault \<Distro>**
+  
+  Sets the distribution as the default.
 
-* /u, /unregister <DistributionName>
-    * Unregisters the distribution.
+* **/t, /terminate \<Distro>**
+  
+  Terminates the distribution.
+
+* **/u, /unregister \<Distro>**
+  
+  Unregisters the distribution.
+   
+* **/upgrade \<Distro>**
+  
+  Upgrades the distribution to the WslFs file system format.
 
 ### `bash.exe`
 
 This command is used to start a bash shell. Below are the options you can use with this command.
 
-* No Option given
-    * Launches the Bash shell in the current directory. If the Bash shell is not installed automatically runs `lxrun /install`
+Using: `bash [Options...]`
 
-* bash ~
-    * Launches the bash shell into the user's home directory.  Similar to running `cd ~`.
+* **No Option given**
+  
+  Launches the Bash shell in the current directory. If the Bash shell is not installed automatically runs `lxrun /install`
 
-* bash -c "&lt;command&gt;"
-    * Runs the command, prints the output and exits back to the Windows command prompt. <br/> <br/> Example:  `bash -c "ls"`
+* **~**
+  
+  `bash ~` launches the bash shell into the user's home directory.  Similar to running `cd ~`.
+
+* **-c "\<command>"**
+  
+  Runs the command, prints the output and exits back to the Windows command prompt.
+    
+  Example:  `bash -c "ls"`.
 
 ## Deprecated Commands
 
