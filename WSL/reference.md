@@ -18,23 +18,15 @@ The best way to interact with the Windows Subsystem for Linux is to use the `wsl
 
 ## `wsl.exe`
 
+Below is a list containing all options when using `wsl.exe` as of Windows Version 1903.
+
 Using: `wsl [Argument] [Options...] [CommandLine]`
 
-
-### Arguments for running Linux binaries ([Windows Version 1903+](https://devblogs.microsoft.com/commandline/whats-new-for-wsl-in-windows-10-version-1903/))
+### Arguments for running Linux binaries
 
 * **Without arguments**
 
   If no command line is provided, wsl.exe launches the default shell.
-  
-  Options:
-  * **--distribution, -d \<Distro>**
-  
-    Run the specified distribution.
-
-  * **--user, -u \<UserName>**
-  
-    Run as the specified user.
 
 * **--exec, -e \<CommandLine>**
   
@@ -44,21 +36,25 @@ Using: `wsl [Argument] [Options...] [CommandLine]`
   
   Pass the remaining command line as is.
 
+The above commands also accept the following options:
 
-### Arguments for managing Windows Subsystem for Linux ([Windows Version 1903+](https://devblogs.microsoft.com/commandline/whats-new-for-wsl-in-windows-10-version-1903/))
+* **--distribution, -d \<Distro>**
+
+  Run the specified distribution.
+
+* **--user, -u \<UserName>**
+
+  Run as the specified user.
+
+### Arguments for managing Windows Subsystem for Linux
 
 * **--export \<Distro> \<FileName>**
   
   Exports the distribution to a tar file. The filename can be - for standard output.
 
-* **--import \<Distro> \<InstallLocation> \<FileName> [Options]**
+* **--import \<Distro> \<InstallLocation> \<FileName>**
   
   Imports the specified tar file as a new distribution. The filename can be - for standard input.
-
-  Options:
-  * **--version \<Version>**
-      
-    Specifies the version to use for the new distribution.
 
 * **--list, -l [Options]**
   
@@ -85,50 +81,8 @@ Using: `wsl [Argument] [Options...] [CommandLine]`
   
   Unregisters the distribution.
    
-* **--upgrade \<Distro>**
-  
-  Upgrades the distribution to the WslFs file system format.
-          
-  The upgrade command will make sure your distro is using a new file system WslFs when WSL is accessing your files in your drive. In general, this will improve WSL accessing files, is something that's in the back end (so your workflow won't be impacted by it), and if you've installed your distributions recently then they'll automatically be using WslFs. [Additional Information](https://github.com/MicrosoftDocs/WSL/issues/280#issuecomment-468425983).
-
 * **--help**
   Display usage information.
-
-
-### Arguments for managing Windows Subsystem for Linux ([Windows build 18917+](https://devblogs.microsoft.com/commandline/wsl-2-is-now-available-in-windows-insiders/))
-
-* **--set-default-version \<Version>**
-  
-  Changes the default install version (WSL 1 or 2) for new distributions.
-  
-  **\<Version>** — 1 or 2 (for WSL 1 or 2)
-
-* **--set-version \<Distro> \<Version>**
-  
-  Changes the version of the specified distribution. Use this command to convert a distro to use the WSL 2 architecture or use the WSL 1 architecture.
-
-  **\<Distro>** — the specific Linux distro (e.g. “Ubuntu”)
-
-  **\<Version>** — 1 or 2 (for WSL 1 or 2)
-  
-* **wsl --shutdown**
-  
-  Immediately terminates all running distributions and the WSL 2 lightweight utility virtual machine.
-
-  The VM that powers WSL 2 distros is something that we aim to manage entirely for you, and so we spin it up when you need it and shut it down when you don’t. There could be cases where you would want to shut it down manually, and this command lets you do that by terminating all distributions and shutting down the WSL 2 VM.
-
-* **--list --quiet**
-  
-  Only list the distribution names.
-
-  This command is useful for scripting since it will only output the names of distributions you have installed without showing other information like the default distro, versions, etc.
-
-* **--list --verbose**
-  
-  Shows detailed information about all the distributions.
-
-  This command lists the name of each distro, what state the distro is in, and what version it is running. It also shows which distributions is default with an asterisk.
-
 
 ## Additional Commands
 
@@ -168,7 +122,7 @@ Using: `wslconfig [Argument] [Options...]`
    
 * **/upgrade \<Distro>**
   
-  Upgrades the distribution to the WslFs file system format. See the description of `wsl --upgrade <Distro>` for details.
+  Upgrades the distribution to the WslFs file system format.
 
 ### `bash.exe`
 
