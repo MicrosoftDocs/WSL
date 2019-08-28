@@ -8,6 +8,7 @@ ms.date: 02/7/2018
 ms.topic: article
 ms.assetid: 7ca59bd7-d9d3-4f6d-8b92-b8faa9bcf250
 ms.custom: seodec18
+ms.localizationpriority: high
 ---
 
 # Manage and configure Windows Subsystem for Linux

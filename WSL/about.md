@@ -8,7 +8,7 @@ ms.date: 07/11/2016
 ms.topic: article
 ms.assetid: 3cefe0db-7616-4848-a2b6-9296746a178b
 ms.custom: seodec18
-ms.localizationpriority: High
+ms.localizationpriority: high
 ---
 
 # Windows Subsystem for Linux Documentation

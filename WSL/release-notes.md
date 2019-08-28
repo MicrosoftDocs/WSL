@@ -7,6 +7,7 @@ ms.date: 07/31/2017
 ms.topic: article
 ms.assetid: 36ea641e-4d49-4881-84eb-a9ca85b1cdf4
 ms.custom: seodec18
+ms.localizationpriority: high
 ---
 
 # Release Notes for Windows Subsystem for Linux
