@@ -12,6 +12,25 @@ ms.localizationpriority: high
 
 # Release Notes for Windows Subsystem for Linux
 
+## Build 18970
+For general Windows information on build 18970 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2019/08/29/announcing-windows-10-insider-preview-build-18970/).
+
+* [WSL2] Sync time with host time when system resumes from sleep state [GH 4245]
+* [WSL2] Create NT symlinks on the Windows volumes when possible.
+* [WSL2] Create distros in UTS, IPC, PID, and Mount namespaces.
+* [WSL2] Fix localhost port relay when server binds to localhost directly [GH 4353]
+* [WSL2] Fix interop when output is redirected [GH 4337]
+* [WSL2] Support translating absolute NT symlinks.
+* [WSL2] Update kernel to 4.19.59
+* [WSL2] Properly set subnet mask for eth0.
+* [WSL2] Change logic to break out of console worker loop when exit event is signaled.
+* [WSL2] Eject distribution vhd when the distro is not running.
+* [WSL2] Fix config parsing library to correctly handle empty values.
+* [WSL2] Support Docker Desktop by creating cross distro mounts. A distro can opt-in to this behavior by adding the following line to the /etc/wsl.conf file:
+```
+[automount]
+crossDistro = true
+```
 
 ## Build 18945
 For general Windows information on build 18945 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2019/07/26/announcing-windows-10-insider-preview-build-18945/).
