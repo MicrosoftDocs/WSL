@@ -16,3 +16,4 @@
 
 # [Troubleshooting](./troubleshooting.md)
 # [Release Notes](./release-notes.md)
+# [Command Line Reference](./reference.md)
