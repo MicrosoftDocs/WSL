@@ -170,7 +170,7 @@ Run WSL as the specified user. Please note that user must exist inside of the WS
 
 #### Run a specific distribution
 
-`wsl --d <DistributionName>`, `wsl --distribution <DistributionName>`
+`wsl -d <DistributionName>`, `wsl --distribution <DistributionName>`
 
 Run a specified distribution of WSL, can be used to send commands to a specific distribution without having to change your default.
 
