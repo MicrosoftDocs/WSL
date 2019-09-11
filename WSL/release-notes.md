@@ -12,11 +12,26 @@ ms.localizationpriority: high
 
 # Release Notes for Windows Subsystem for Linux
 
+## Build 18980
+For general Windows information on build 18980 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2019/09/11/announcing-windows-10-insider-preview-build-18980/).
+
+* Fix reading symlinks that deny FILE_READ_DATA. This includes all the symlinks Windows creates for backwards compatibility such as "C:\Document and Settings" and a bunch of symlinks in the user profile directory
+* Make unexpected filesystem state non-fatal [GH 4334, 4305]
+* [WSL2] Add support for arm64 if your CPU / firmware supports virtualization
+* [WSL2] Allow unprivileged users to view kernel log
+* [WSL2] Fix output relay when stdout / stderr sockets have been closed [GH 4375]
+* [WSL2] Support battery and AC adapter passthrough
+* [WSL2] Update Linux kernel to 4.19.67
+* Add the ability to set default username in /etc/wsl.conf:
+```
+[user]
+default=root
+```
+
 ## Build 18975
 For general Windows information on build 18975 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2019/09/06/announcing-windows-10-insider-preview-build-18975/).
 
 * [WSL2] Fixed a number of localhost reliability issues [GH 4340]
-
 
 ## Build 18970
 For general Windows information on build 18970 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2019/08/29/announcing-windows-10-insider-preview-build-18970/).
