@@ -2,8 +2,8 @@
 title: WSL 2 Frequently Asked Questions
 description: Frequently Asked Questions about the Windows Subsystem for Linux 2
 keywords: BashOnWindows, bash, wsl, wsl2, windows, windows subsystem for linux, windowssubsystem, ubuntu, debian, suse, windows 10, install
-author: mscraigloewen
-ms.author: mscraigloewen
+author: craigloewen-msft
+ms.author: craigloewen-msft
 ms.date: 05/30/2019
 ms.topic: article
 ms.assetid: 7afaeacf-435a-4e58-bff0-a9f0d75b8a51
