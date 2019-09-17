@@ -143,7 +143,7 @@ WSL does not support running in a legacy console. To turn off legacy console:
 1. Click OK
 
 ## Why do I get "Error: 0x80040154" when I run bash.exe after upgrading Windows?
-The "Windows Subsystem for Linux" feature may be disabled during a Windows update. If this happens the Windows feature must be re-enabled. Instructions for enabling the "Windows Subsystem for Linux" feature can be found in the [Installation Guide](https://msdn.microsoft.com/en-us/commandline/wsl/install_guide#enable-the-windows-subsystem-for-linux-feature-guihttps://msdn.microsoft.com/en-us/commandline/wsl/install_guide#enable-the-windows-subsystem-for-linux-feature-gui).
+The "Windows Subsystem for Linux" feature may be disabled during a Windows update. If this happens the Windows feature must be re-enabled. Instructions for enabling the "Windows Subsystem for Linux" feature can be found in the [Installation Guide](https://docs.microsoft.com/en-us/windows/wsl/install-win10#install-the-windows-subsystem-for-linux).
 
 ## How do I change the display language of WSL?
 WSL install will try to automatically change the Ubuntu locale to match the locale of your Windows install. If you do not want this behavior you can run this command to change the Ubuntu locale after install completes. You will have to relaunch bash.exe for this change to take effect.
