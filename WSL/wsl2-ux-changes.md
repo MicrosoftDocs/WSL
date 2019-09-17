@@ -27,18 +27,7 @@ And below is the full list of other changes that you may notice:
 Make sure to put the files that you will be accessing frequently with Linux applications inside of your Linux root file system to enjoy the file performance benefits. These files have to be inside of the Linux root file system to have faster file system access. We have also made it possible for Windows apps to access the Linux root file system (like File Explorer! Try running: `explorer.exe .` in the home directory of your Linux distro and see what happens) which will make this transition significantly easier. 
 
 ## Accessing network applications
-In the initial builds of the WSL 2 preview, you will need to access any Linux server from Windows using the IP address of your Linux distro, and any Windows server from Linux using the IP address of your host machine. This is something that is temporary, and very high on our priority list to fix.
-
-### Accessing Linux applications from Windows
-If you have a server in a WSL distro, you'll need to find the IP address of the virtual machine powering your distro and connect to it with that IP address. You can do that by following these steps:
-
-- Obtain the IP address of your distro by running the command `ip addr` inside of your WSL distro and finding it under the `inet` value of the `eth0` interface.
-   - You can find this more easily by filtering the output of the command using grep like so: `ip addr | grep eth0`.
-- Connect to your Linux server using the IP you found above.
-
-The picture below shows an example of this by connecting to a Node.js server using the Edge browser.
-
-![Accessing Linux network applications from Windows](media/wsl2-network-w2l.jpg)
+In the initial builds of the WSL 2 preview, you will need to access any Windows server from Linux using the IP address of your host machine.
 
 ### Accessing Windows applications from Linux
 To access a Windows network application you'll need to use the IP address of your host machine. You can do so with these steps:
@@ -49,6 +38,19 @@ To access a Windows network application you'll need to use the IP address of you
 The picture below shows an example of this by connecting to a Node.js server running in Windows via curl. 
 
 ![Accessing Linux network applications from Windows](media/wsl2-network-l2w.png)
+
+### Accessing Linux applications from Windows (only in builds lower than 18945)
+If you have a server in a WSL distro, you'll need to find the IP address of the virtual machine powering your distro and connect to it with that IP address. You can do that by following these steps:
+
+- Obtain the IP address of your distro by running the command `ip addr` inside of your WSL distro and finding it under the `inet` value of the `eth0` interface.
+   - You can find this more easily by filtering the output of the command using grep like so: `ip addr | grep eth0`.
+- Connect to your Linux server using the IP you found above.
+
+The picture below shows an example of this by connecting to a Node.js server using the Edge browser.
+
+![Accessing Linux network applications from Windows](media/wsl2-network-w2l.jpg)
+
+If your build is 18945 or higher, you can use localhost just like normal. 
 
 ### Other networking considerations
 
