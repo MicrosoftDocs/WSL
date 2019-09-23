@@ -2,8 +2,6 @@
 title: Install Windows Subsystem for Linux (WSL) on Windows 10
 description: Installation instructions for the Windows Subsystem for Linux on Windows 10.
 keywords: BashOnWindows, bash, wsl, windows, windows subsystem for linux, windowssubsystem, ubuntu, debian, suse, windows 10, install
-author: taraj
-ms.author: taraj
 ms.date: 07/23/2018
 ms.topic: article
 ms.assetid: 7afaeacf-435a-4e58-bff0-a9f0d75b8a51

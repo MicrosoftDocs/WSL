@@ -2,8 +2,6 @@
 title: Install the Linux Subsystem on Windows Server
 description: Installation instructions for the Linux Subsystem on Windows Server.
 keywords: BashOnWindows, bash, wsl, windows, windows subsystem for linux, windowssubsystem, ubuntu, windows server
-author: scooley
-ms.author: scooley
 ms.date: 05/22/2018
 ms.topic: article
 ms.assetid: 9281ffa2-4fa9-4078-bf6f-b51c967617e3

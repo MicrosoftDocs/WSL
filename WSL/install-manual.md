@@ -2,8 +2,6 @@
 title: Manually download Windows Subsystem for Linux (WSL) Distros
 description: Instructions for how to manually download Windows Subsystem for Linux distributions.
 keywords: BashOnWindows, bash, wsl, windows, windows subsystem for linux, WSL, windows subsystem, distro, ubuntu, openSUSE, SLES, debian, kali
-author: taraj
-ms.author: taraj
 ms.date: 07/24/2018
 ms.topic: article
 ms.assetid: 9281ffa2-4fa9-4078-bf6f-b51c967617e3

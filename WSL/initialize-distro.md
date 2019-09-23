@@ -2,8 +2,6 @@
 title: Initialize a new WSL Linux distro
 description: After installing a Linux distro for WSL, complete initialization by following these simple steps
 keywords: BashOnWindows, bash, wsl, windows, windows subsystem for linux, windowssubsystem, ubuntu, debian, suse, windows 10
-author: taraj
-ms.author: taraj
 ms.date: 07/24/2018
 ms.topic: article
 ms.assetid: 7afaeacf-435a-4e58-bff0-a9f0d75b8a51

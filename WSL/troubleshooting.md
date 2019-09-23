@@ -2,8 +2,6 @@
 title: Troubleshooting the Windows Subsystem for Linux
 description: Provides detailed information about common errors and issues people run into while running Linux on the Windows Subsystem for Linux. 
 keywords: BashOnWindows, bash, wsl, windows, windowssubsystem, ubuntu
-author: scooley
-ms.author: scooley
 ms.date: 11/15/2017
 ms.topic: article
 ms.assetid: 6753f1b2-200e-49cc-93a5-4323e1117246

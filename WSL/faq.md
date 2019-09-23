@@ -2,8 +2,6 @@
 title: Frequently Asked Questions (FAQ)
 description: Frequently Asked Questions about the Windows Subsystem for Linux.
 keywords: BashOnWindows, bash, wsl, windows, windowssubsystem, faq
-author: taraj
-ms.author: taraj
 ms.date: 9/4/2018
 ms.topic: article
 ms.assetid: 129101ed-b88a-43c2-b6a2-cd2c4ff6fee1
