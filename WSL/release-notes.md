@@ -12,6 +12,14 @@ ms.localizationpriority: high
 
 # Release Notes for Windows Subsystem for Linux
 
+## Build 18990
+For general Windows information on build 18990 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2019/09/24/announcing-windows-10-insider-preview-build-18990/).
+
+* Improve the performance for directory listings in \\wsl$
+* [WSL2] Inject additional boot entropy [GH 4416]
+* [WSL2] Fix for Windows interop when using su / sudo [GH 4465]
+
+
 ## Build 18980
 For general Windows information on build 18980 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2019/09/11/announcing-windows-10-insider-preview-build-18980/).
 
