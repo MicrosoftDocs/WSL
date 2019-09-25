@@ -2,8 +2,6 @@
 title: Manually download Windows Subsystem for Linux (WSL) Distros
 description: Instructions for how to manually download Windows Subsystem for Linux distributions.
 keywords: BashOnWindows, bash, wsl, windows, windows subsystem for linux, WSL, windows subsystem, distro, ubuntu, openSUSE, SLES, debian, kali
-author: taraj
-ms.author: taraj
 ms.date: 07/24/2018
 ms.topic: article
 ms.assetid: 9281ffa2-4fa9-4078-bf6f-b51c967617e3
@@ -30,7 +28,7 @@ If the Microsoft Store app is not available, you can download and manually insta
 * [SUSE Linux Enterprise Server 12](https://aka.ms/wsl-sles-12)
 * [Fedora Remix for WSL](https://github.com/WhitewaterFoundry/WSLFedoraRemix/releases/)
 
-This will cause the `<distro>.appx` packages to download to a folder of your choosing. Follow the [installation instructions](#Installing-your-distro) to install your downloaded distro(s).
+This will cause the `<distro>.appx` packages to download to a folder of your choosing. Follow the [installation instructions](#installing-your-distro) to install your downloaded distro(s).
 
 ## Downloading distros via the command line
 If you prefer, you can also download your preferred distro(s) via the command line:

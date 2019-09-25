@@ -2,8 +2,6 @@
 title: Windows Subsystem for Linux Command Reference
 description: List of commands that manage the Windows Subsystem for Linux
 keywords: BashOnWindows, bash, wsl, windows, windows subsystem for linux, windowssubsystem, ubuntu
-author: scooley
-ms.author: scooley
 ms.date: 07/31/2017
 ms.topic: article
 ms.assetid: 82908295-a6bd-483c-a995-613674c2677e

@@ -2,8 +2,6 @@
 title: Manage Linux Distributions
 description: Reference listing and configuring multiple Linux distributions running on the Windows Subsystem for Linux.
 keywords: BashOnWindows, bash, wsl, windows, windows subsystem for linux, windowssubsystem, ubuntu, wsl.conf, wslconfig
-author: scooley
-ms.author: scooley
 ms.date: 02/7/2018
 ms.topic: article
 ms.assetid: 7ca59bd7-d9d3-4f6d-8b92-b8faa9bcf250

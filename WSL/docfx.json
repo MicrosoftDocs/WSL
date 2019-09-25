@@ -35,7 +35,10 @@
       "extendBreadcrumb": true,
       "feedback_system": "GitHub",
       "feedback_github_repo": "MicrosoftDocs/WSL",
-      "ms.prod" : "windows-subsystem-for-linux",
+      "ms.prod": "dev-environment",
+      "ms.technology": "windows-subsystem-for-linux",
+      "author": "craigloewen-msft",
+      "ms.author": "crloewen",
       "feedback_product_url": "https://github.com/Microsoft/WSL/issues"
     },
     "fileMetadata": {},
