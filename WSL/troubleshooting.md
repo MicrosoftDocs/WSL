@@ -184,3 +184,10 @@ sudo apt-get purge openssh-server
 sudo apt-get install openssh-server
 ```
 
+### "The referenced assembly could not be found." when enabling the WSL optional feature
+
+This error is related to being in a bad install state. Please complete the following steps to try and fix this issue:
+
+* If you are running the enable WSL feature command from PowerShell, try using the GUI instead by opening the start menu, searching for 'Turn Windows features on or off' and then in the list select 'Windows Subsystem for Linux' which will install the optional component.
+* Update your version of Windows by going to Settings, Updates, and clicking 'Check for Updates'
+* If both of those fail and you need to access WSL please consider upgrading in place by reinstalling Windows 10 using installation media and selecting 'Keep Everything' to ensure your apps and files are preserved. You can find instructions on how to do so at the [Reinstall Windows 10 page](https://support.microsoft.com/en-us/help/4000735/windows-10-reinstall).
