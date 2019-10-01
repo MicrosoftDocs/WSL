@@ -48,7 +48,7 @@ This will make any new distro that you install be initialized as a WSL 2 distro.
 
 ## Finish with verifying what versions of WSL your distro are using
 
-To verify what versions of WSL each distro is using use the following command:
+To verify what versions of WSL each distro is using use the following command (only available in Windows Build 18917 or higher):
 
 `wsl --list --verbose` or `wsl -l -v`
 
