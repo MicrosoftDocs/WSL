@@ -12,6 +12,23 @@ ms.localizationpriority: high
 
 # Release Notes for Windows Subsystem for Linux
 
+## Build 18995
+For general Windows information on build 18995 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2019/10/03/announcing-windows-10-insider-preview-build-18995/).
+
+* [WSL2] Fix an issue where DrvFs mounts stopped working after an operation was interrupted (e.g. ctrl-c) [GH 4377]
+* [WSL2] Fix handling of very large hvsocket messages [GH 4105]
+* [WSL2] Fix issue with interop when stdin is a file [GH 4475]
+* [WSL2] Fix service crash when unexpected network state is encountered [GH 4474]
+* [WSL2] Query the distro name from the interop server if the current process does not have the environment variable
+* [WSL2] Fix issue with interop whe stdin is a file
+* [WSL2] Update Linux kernel version to 4.19.72
+* [WSL2] Add ability to specify additional kernel command line parameters via .wslconfig
+```
+[wsl2]
+kernelCommandLine = <string> # Additional kernel command line arguments
+
+```
+
 ## Build 18990
 For general Windows information on build 18990 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2019/09/24/announcing-windows-10-insider-preview-build-18990/).
 
@@ -33,7 +50,7 @@ For general Windows information on build 18980 visit the [Windows blog](https://
 * Add the ability to set default username in /etc/wsl.conf:
 ```
 [user]
-default=root
+default=<string>
 ```
 
 ## Build 18975
