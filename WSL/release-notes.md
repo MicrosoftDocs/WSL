@@ -32,7 +32,7 @@ kernelCommandLine = <string> # Additional kernel command line arguments
 ## Build 18990
 For general Windows information on build 18990 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2019/09/24/announcing-windows-10-insider-preview-build-18990/).
 
-* Improve the performance for directory listings in \\wsl$
+* Improve the performance for directory listings in \\\\wsl$
 * [WSL2] Inject additional boot entropy [GH 4416]
 * [WSL2] Fix for Windows interop when using su / sudo [GH 4465]
 
@@ -132,7 +132,7 @@ For general Windows information on build 18890 visit the [Windows blog](https://
 * Deadlock in epoll delete code [GH 3922]
 * Handle spaces in arguments to --import and –export [GH 3932]
 * Extending mmap’d files does not work properly [GH 3939]
-* Fix issue with ARM64 \\wsl$ access not working properly
+* Fix issue with ARM64 \\\\wsl$ access not working properly
 * Add better default icon for wsl.exe
 
 ## Build 18342
