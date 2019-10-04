@@ -43,4 +43,4 @@ You can:
 
 ## Provide Feedback
 * [GitHub issue tracker](https://github.com/Microsoft/BashOnWindows/issues)
-* [Command-line UserVoice portal](https://wpdev.uservoice.com/forums/266908-command-prompt-console-bash-on-ubuntu-on-windo/category/161892-bash)
+
