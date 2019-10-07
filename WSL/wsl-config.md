@@ -275,6 +275,20 @@ By default, WSL sets the uid and gid to the value of the default user (in Ubuntu
 
 **Note:** These options are applied as the mount options for all automatically mounted drives. To change the options for a specific drive only, use /etc/fstab instead.
 
+##### Mount options
+
+Setting different mount options for Windows drives (DrvFs) can control how file permissions are calculated for Windows files. The follow options are available:
+
+| Key | Description | Default |
+|:----|:----|:----|
+|uid| The User ID used for the owner of all files | The default User ID of your WSL distro (On first installation this defaults to 1000)
+|gid| The Group ID used for the owner of all files | The default group ID of your WSL distro (On first installation this defaults to 1000)
+|umask | An octal mask of permissions to exclude for all files and directories | 000
+|fmask | An octal mask of permissions to exclude for all files | 000
+|dmask | An octal mask of permissions to exclude for all directories | 000
+
+**Note:** The permission masks are put through a logical OR operation before being applied to files or directories. 
+
 #### network
 
 Section label: `[network]`
