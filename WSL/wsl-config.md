@@ -277,7 +277,7 @@ By default, WSL sets the uid and gid to the value of the default user (in Ubuntu
 
 ##### Mount options
 
-Setting different mount options for Windows drives (DrvFs) can control how file permissions are calculated for Windows files. The follow options are available:
+Setting different mount options for Windows drives (DrvFs) can control how file permissions are calculated for Windows files. The following options are available:
 
 | Key | Description | Default |
 |:----|:----|:----|
