@@ -12,6 +12,13 @@ ms.localizationpriority: high
 
 # Release Notes for Windows Subsystem for Linux
 
+## Build 19002
+For general Windows information on build 19002 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2019/10/17/announcing-windows-10-insider-preview-build-19002/).
+
+* [WSL] Fix issue with handling of some Unicode characters: https://github.com/microsoft/terminal/issues/2770
+* [WSL] Fix rare cases where distros could be unregistered if launched immediately after a build-to-build upgrade.
+* [WSL] Fix minor issue with wsl.exe --shutdown where instance idle timers were not cancelled.
+
 ## Build 18995
 For general Windows information on build 18995 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2019/10/03/announcing-windows-10-insider-preview-build-18995/).
 
@@ -35,7 +42,6 @@ For general Windows information on build 18990 visit the [Windows blog](https://
 * Improve the performance for directory listings in \\\\wsl$
 * [WSL2] Inject additional boot entropy [GH 4416]
 * [WSL2] Fix for Windows interop when using su / sudo [GH 4465]
-
 
 ## Build 18980
 For general Windows information on build 18980 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2019/09/11/announcing-windows-10-insider-preview-build-18980/).
