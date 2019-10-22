@@ -62,4 +62,4 @@ Add-AppxPackage .\app_name.appx
 
 If you are using Windows server you can find the install instructions on the [Windows Server](install-on-server.md) documentation page.
 
-Once your distro is installed please refer to the [Intilization Steps](initialize-distro.md) page to initialize your new distro.
+Once your distro is installed please refer to the [Initialization Steps](initialize-distro.md) page to initialize your new distro.
