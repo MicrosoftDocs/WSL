@@ -12,6 +12,14 @@ ms.localizationpriority: high
 
 # Release Notes for Windows Subsystem for Linux
 
+## Build 19013
+For general Windows information on build 19013 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2019/10/29/announcing-windows-10-insider-preview-build-19013/).
+
+* [WSL2] Improve memory performance of WSL utility VM. Memory that is no longer in use will be freed back to the host.
+* [WSL2] Update kernel version to 4.19.79. (add CONFIG_HIGH_RES_TIMERS, CONFIG_TASK_XACCT, CONFIG_TASK_IO_ACCOUNTING, CONFIG_SCHED_HRTICK, and CONFIG_BRIDGE_VLAN_FILTERING).
+* [WSL2] Fix input relay to handle cases where stdin is a pipe handle that is not closed [GH 4424]
+* Make the check for \\\\wsl$ case-insensitive.
+
 ## Build 19002
 For general Windows information on build 19002 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2019/10/17/announcing-windows-10-insider-preview-build-19002/).
 
