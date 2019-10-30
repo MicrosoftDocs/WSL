@@ -19,6 +19,11 @@ For general Windows information on build 19013 visit the [Windows blog](https://
 * [WSL2] Update kernel version to 4.19.79. (add CONFIG_HIGH_RES_TIMERS, CONFIG_TASK_XACCT, CONFIG_TASK_IO_ACCOUNTING, CONFIG_SCHED_HRTICK, and CONFIG_BRIDGE_VLAN_FILTERING).
 * [WSL2] Fix input relay to handle cases where stdin is a pipe handle that is not closed [GH 4424]
 * Make the check for \\\\wsl$ case-insensitive.
+```
+[wsl2]
+pageReporting = <bool>    # Enable or disable the free memory page reporting feature (default true).
+idleThreshold = <integer> # Set the idle threshold for memory compaction, 0 disables the feature (default 1).
+```
 
 ## Build 19002
 For general Windows information on build 19002 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2019/10/17/announcing-windows-10-insider-preview-build-19002/).
@@ -41,7 +46,6 @@ For general Windows information on build 18995 visit the [Windows blog](https://
 ```
 [wsl2]
 kernelCommandLine = <string> # Additional kernel command line arguments
-
 ```
 
 ## Build 18990
