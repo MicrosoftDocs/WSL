@@ -12,6 +12,14 @@ ms.localizationpriority: high
 
 # Release Notes for Windows Subsystem for Linux
 
+## Build 19018
+For general Windows information on build 19018 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2019/11/05/announcing-windows-10-insider-preview-build-19018/).
+
+* [WSL2] Use cache=mmap as the default for 9p mounts to fix dotnet apps
+* [WSL2] Fixes for localhost relay [GH 4340]
+* [WSL2] Introduce a cross-distro shared tmpfs mount for sharing state between distros
+* Fix restoring persistent network drive for \\\\wsl$
+
 ## Build 19013
 For general Windows information on build 19013 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2019/10/29/announcing-windows-10-insider-preview-build-19013/).
 
