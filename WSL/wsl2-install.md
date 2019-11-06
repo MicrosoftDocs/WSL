@@ -2,7 +2,7 @@
 title: Install WSL 2
 description: Installation instructions for WSL 2
 keywords: BashOnWindows, bash, wsl, wsl2, windows, windows subsystem for linux, windowssubsystem, ubuntu, debian, suse, windows 10, install
-ms.date: 05/30/2019
+ms.date: 11/6/2019
 ms.topic: article
 ms.assetid: 7afaeacf-435a-4e58-bff0-a9f0d75b8a51
 ms.custom: seodec18
@@ -27,6 +27,9 @@ Open PowerShell as an Administrator and run:
 
 ```powershell
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
+```
+
+```powershell
 Enable-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatform
 ```
 
