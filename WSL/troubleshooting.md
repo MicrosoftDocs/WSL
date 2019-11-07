@@ -18,7 +18,7 @@ If after connecting to a VPN on Windows, bash loses network connectivity, try th
 1. Take a note of the DNS server of the VPN from doing `ipconfig.exe /all`
 2. Make a copy of the existing resolv.conf
    `sudo cp /etc/resolv.conf /etc/resolv.conf.new`
-3. Unlink the current resolv.con
+3. Unlink the current resolv.conf
    `sudo unlink /etc/resolv.conf`
 4. `sudo mv /etc/resolv.conf.new /etc/resolv.conf`
 5. Open `/etc/resolv.conf` and <br/>
