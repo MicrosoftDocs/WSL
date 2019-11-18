@@ -40,6 +40,8 @@ Please restart your machine to finish installing both components.
 
 ## Set a distro to be backed by WSL 2 using the command line
 
+If you do not have a Linux distro installed, please refer to the [Install on Windows 10](./install-win10.md#install-your-linux-distribution-of-choice) docs page for instructions on installing one. 
+
 In PowerShell run:
 
 `wsl --set-version <Distro> 2`
