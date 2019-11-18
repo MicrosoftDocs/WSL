@@ -24,7 +24,7 @@ WSL 2 uses the latest and greatest in virtualization technology to run its Linux
 
 ## Increased file IO performance
 
-File intensive operations like git clone, npm install, apt update, apt upgrade, and more will all be noticeably faster. The actual speed increase will depend on which app you’re running and how it is interacting with the file system. Initial versions of WSL 2 run up to 20x faster compared to WSL 1 when unpacking a zipped tarball, and around 2-5x faster when using git clone, npm install and cmake on various projects.
+File intensive operations like `git clone`, `npm install`, `apt update`, `apt upgrade`, and more will all be noticeably faster. The actual speed increase will depend on which app you’re running and how it is interacting with the file system. Initial versions of WSL 2 run up to 20x faster compared to WSL 1 when unpacking a zipped tarball, and around 2-5x faster when using `git clone`, `npm install` and `cmake` on various projects.
 
 ## Full System Call Compatibility
 
