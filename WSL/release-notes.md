@@ -12,6 +12,14 @@ ms.localizationpriority: high
 
 # Release Notes for Windows Subsystem for Linux
 
+## Build 19028
+For general Windows information on build 19028 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2019/11/19/announcing-windows-10-insider-preview-build-19028/).
+
+* [WSL2] Update Linux kernel to 4.19.81
+* [WSL2] Change the default permission of /dev/net/tun to 0666 [GH 4629]
+* [WSL2] Tweak default amount of memory assigned to Linux VM to be 80% of host memory
+* [WSL2] fix interop server to handle requests with a timeout so bad callers cannot hang the server
+
 ## Build 19018
 For general Windows information on build 19018 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2019/11/05/announcing-windows-10-insider-preview-build-19018/).
 
