@@ -23,16 +23,11 @@ To install and start using WSL 2 complete the following steps:
 
 ## Enable the 'Virtual Machine Platform' optional component and make sure WSL is enabled
 
-To enable the 'Virtual Machine Platform' component open PowerShell as an administrator and run the command below. If you are installing WSL for the first time then select 'No' when prompted for a restart, as you will need to restart your machine anyway after installing the 'Windows Subsystem for Linux' optional component.
+You will need to make sure that you have both the Windows Subsystem for Linux and the Virtual Machine Platform optional components installed. You can do that by running the following command in PowerShell: 
 
 ```powershell
-Enable-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatform
-```
-
-You will also need to make sure that the Windows Subsystem for Linux optional component is enabled. You can do this by running the following command from a PowerShell window with administrator privileges: 
-
-```powershell
-Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
+dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
 ```
 
 Please restart your machine to finish installing both components.
@@ -42,15 +37,19 @@ Please restart your machine to finish installing both components.
 
 If you do not have a Linux distro installed, please refer to the [Install on Windows 10](./install-win10.md#install-your-linux-distribution-of-choice) docs page for instructions on installing one. 
 
-In PowerShell run:
+To set a distro please run: 
 
-`wsl --set-version <Distro> 2`
+```
+wsl --set-version <Distro> 2
+```
 
 and make sure to replace `<Distro>` with the actual name of your distro. (You can find these with the command: `wsl -l`). You can change back to WSL 1 at anytime by running the same command as above but replacing the '2' with a '1'.
 
 Additionally, if you want to make WSL 2 your default architecture you can do so with this command:
 
-`wsl --set-default-version 2`
+```
+wsl --set-default-version 2`
+```
 
 This will make any new distro that you install be initialized as a WSL 2 distro.
 
@@ -74,3 +73,6 @@ Below are related errors and suggested fixes when installing WSL 2. Please refer
 
 * **The requested operation could not be completed due to a virtual disk system limitation. Virtual hard disk files must be uncompressed and unencrypted and must not be sparse.**
     * Please check [WSL Github thread #4103](https://github.com/microsoft/WSL/issues/4103) where this issue is being tracked for updated information.
+
+* **The term 'wsl' is not recognized as the name of a cmdlet, function, script file, or operable program.** 
+    * Ensure that the [Windows Subsystem for Linux Optional Component is installed](./wsl2-install.md#enable-the-virtual-machine-platform-optional-component-and-make-sure-wsl-is-enabled).<br> Additionally, if you are using an Arm64 device and running this command from PowerShell, you will receive this error. Instead run `wsl.exe` from [PowerShell Core](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-6), or Command Prompt. 
