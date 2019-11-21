@@ -48,7 +48,7 @@ and make sure to replace `<Distro>` with the actual name of your distro. (You ca
 Additionally, if you want to make WSL 2 your default architecture you can do so with this command:
 
 ```
-wsl --set-default-version 2`
+wsl --set-default-version 2
 ```
 
 This will make any new distro that you install be initialized as a WSL 2 distro.
