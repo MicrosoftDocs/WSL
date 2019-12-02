@@ -52,7 +52,17 @@ If your build is 18945 or higher, you can use localhost just like normal.
 
 ### Other networking considerations
 
+#### Connecting via remote IP addresses
+
 When using remote IP addresses to connect to your applications, they will be treated as connections from the Local Area Network (LAN). This means that you will need to make sure your application can accept LAN connections, i.e: You might need to bind your application to `0.0.0.0` instead of `127.0.0.1`. For example in python using flask this can be done with the command: `app.run(host='0.0.0.0')`. Please keep security in mind when making these changes, as this will allow connections from your LAN. 
+
+#### Accessing a WSL2 distro from your local area network (LAN)
+
+When using a WSL1 distro, if your computer was set up to be accessed by in your LAN, then applications run in WSL could be accessed on your LAN as well. This isn't the default case in WSL2, as WSL2 has a virtualized ethernet adapter with its own IP address. Currently, to enable this workflow you will need to go through the same steps as you would for a regular virtual machine. We are looking into ways to improve this experience!
+
+#### IPv6 access
+
+WSL2 distros currently cannot reach IPv6 only addresses. We are working on adding this feature.
 
 ## Understanding WSL 2 uses a VHD, and what to do if you reach its max size
 WSL 2 stores all your Linux files inside of a VHD that uses the ext4 file system. This VHD automatically resizes to meet your storage needs. This VHD also has an initial max size of 256GB. If your distro grows in size to be greater than 256GB you will see errors stating that you've run out of disk space. You can fix these by expanding the VHD size. Instructions on how to do so are below:
