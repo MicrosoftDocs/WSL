@@ -1,19 +1,24 @@
-{ 
-    "redirections": [ 
-      {
-        "source_path": "wsl/install_guide.md",
-        "redirect_url": "/windows/wsl/install-win10",
-        "redirect_document_id": true
-      },
-      {
-        "source_path": "wsl/user_support.md",
-        "redirect_url": "/windows/wsl/user-support",
-        "redirect_document_id": true
-      },
-      {
-        "source_path": "wsl/release_notes.md",
-        "redirect_url": "/windows/wsl/release-notes",
-        "redirect_document_id": true
-      }
-    ] 
+{
+  "redirections": [
+    {
+      "source_path": "wsl/install_guide.md",
+      "redirect_url": "/windows/wsl/install-win10",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "wsl/user_support.md",
+      "redirect_url": "/windows/wsl/user-support",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "wsl/release_notes.md",
+      "redirect_url": "/windows/wsl/release-notes",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "WSL/index.md",
+      "redirect_url": "about",
+      "redirect_document_id": false
+    }
+  ]
 }
