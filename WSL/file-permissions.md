@@ -2,11 +2,13 @@
 title: File Permissions
 description: Understanding how WSL determines file permissions in Windows
 keywords: BashOnWindows, bash, wsl, wsl2, windows, windows subsystem for linux, windowssubsystem, ubuntu, debian, suse, windows 10, file,permissions
-ms.date: 10/7/2019
+ms.date: 01/14/2020
 ms.topic: article
 ms.assetid: 7afaeacf-435a-4e58-bff0-a9f0d75b8a51
 ms.custom: seodec18
 ---
+
+# File Permissions for WSL
 
 This page details how Linux file permissions are interpreted across the Windows Subsystem for Linux, especially when accessing resources inside of Windows on the NT file system. This documentation assumes a basic understanding of the [Linux file system permissions structure](https://wiki.archlinux.org/index.php/File_permissions_and_attributes) <!--TODO: Double check that it's okay to add these links--> and the [umask command](https://en.wikipedia.org/wiki/Umask).
 
