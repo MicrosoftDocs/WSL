@@ -172,9 +172,11 @@ Please note that traditional backup services that backup files in your Appdata f
 
 ## Where can I provide feedback?
 
-You can share feedback and ask questions through multiple channels:
-Feedback and questions should be directed to:
-* Our [GitHub issue tracker](https://github.com/Microsoft/BashOnWindows/issues)
-* Our [command-line UserVoice portal](https://wpdev.uservoice.com/forums/266908-command-prompt/filters/top)
+You can share feedback and ask questions through multiple channels.
+
+If you have technical issues, or want to request new features please go to our Github issue tracker:
+* [GitHub issue tracker](https://github.com/Microsoft/BashOnWindows/issues)
+
+If you'd like to stay up to date with the latest WSL news you can do so with:
 * Our [command-line team blog](https://blogs.msdn.microsoft.com/commandline/)
-* Via Twitter. Please follow [@richturn_ms](https://twitter.com/richturn_MS) on Twitter to learn of news, updates, etc.
+* Twitter. Please follow [@craigaloewen](https://twitter.com/craigaloewen) on Twitter to learn of news, updates, etc.
