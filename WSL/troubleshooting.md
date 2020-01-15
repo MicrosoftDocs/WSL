@@ -9,21 +9,15 @@ ms.localizationpriority: high
 
 # Troubleshooting Windows Subsystem for Linux
 
-For support related to the Windows Subsystem for Linux:
+To get support for any of your WSL related issues, please visit our [WSL Github repo's issues page](https://github.com/microosft/wsl/issues) and follow these steps: 
 
-- **Windows Subsystem for Linux user documentation**
+- Search for existing issues using the 'Search box'
+   - There's a good chance that another user might be experiencing the same issue that you are! If you do find an issue that's similar to yours it can give you updates on the latest fixes, and you can always add to the discussion by commenting there.
+- If you can't find your existing issue, open a new bug report by selecting the 'Bug report' issue type 
+   - When your problem involves something existing not working, please select 'Bug report' and follow the template to describe your issue in detail. Adding in details like steps for the WSL team to reproduce your issue will help them resolve it!
+   - When your issue revolves around adding functionality, please select the 'Feature Request' issue type and follow the template there to describe what new functionality you would like to see in WSL.
 
--- If you are experiencing a problem, please search the **Issues** section of the WSL MicrosoftDocs github repo: https://github.com/MicrosoftDocs/WSL/issues
--- If you cannot find an existing issue that addresses your problem, please select **New issue** and describe your issue in as much detail as possible. Consider including the version number of Windows that you are currently running. This can be found by entering `Run` in the start window, then entering `winver` and selecting **OK**.
-
-- **Windows Subsystem for Linux feature request**
-
--- If you would like to request a new feature, please visit the **Issues** section of the WSL Microsoft github repo: https://github.com/microsoft/WSL
--- Please search the existing **Issues** to see whether there is a similar request that has already been addressed. If not, please select the **New issue** and explain your request in detail.
-
-- **Windows Terminal, Console and Command-Line issues**
-
--- For issues related, to Windows Terminal or Console host, please visit the **Issues** section of the Windows Terminal repo: https://github.com/microsoft/terminal 
+Lastly, if your issue is related to the Windows Terminal, Windows Console, or the command-line UI, please file it at the Windows terminal repo: https://github.com/microsoft/terminal.
 
 ## Common issues
 
