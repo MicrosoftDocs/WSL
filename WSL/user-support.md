@@ -29,25 +29,15 @@ You will be asked to enter your current password, then asked to enter your new p
 
 ### Forgot your password
 
-If you forgot the password for your Linux distribution, try this: 
+If you forgot the password for your Linux distribution:
 
-For Ubuntu:
-1. Open PowerShell and use it to change the default user name of your Ubuntu distribution to root with: `ubuntu config --default-user root`
+1. Open PowerShell and enter the root of your default WSL distribution using the command: `wsl -u root`
 
-2. Open your distribution (Ubuntu) and you should see that the prompt now lists `root@computername` rather than the user name you entered. Enter the command: `passwd <username>` (replacing the username you created for your account and forgot the password for).
+-- If you need to update the forgotten password on a distribution that is not your default, use the command: `wsl -d Debian -u root`, replacing `Debian` with the name of your targeted distribution.
 
-3. You will be prompted to enter a new UNIX password and then confirm that password. Once you're told that the password has updated successfully, close the Linux distribution (Ubuntu).
+2. Once your WSL distribution has been opened at the root level inside PowerShell, you can use this command to update your password: `passwd`
 
-4. Open PowerShell and use it to change the default user name of your Ubuntu distribution back to your username with: `ubuntu config --default-user <your username>`
-
-5. Now re-open your Ubuntu distribution and you should see your username displayed as the prompt, rather than `root`. Now you can confirm that your password was correctly updated.
-
-For other Linux distributions, follow the same instructions, but in Powershell, change the command to align with the correct distribution name:
-
-- openSUSE Leap 42: `openSUSE-42 config --default-user root`
-- SUSE Linux: `SLES-12 config --default-user root`
-- Debian: `debian config --default-user root`
-- Kali Linux: `kali config --default-user root`
+3. You will be prompted to enter a new UNIX password and then confirm that password. Once you're told that the password has updated successfully, close WSL inside of PowerShell using the command: `exit`
 
 > [!NOTE]
 > If you are running an early version of Windows operating system, like 1703 (Creators Update) or 1709 (Fall Creators Update), see the [archived version of this user account update doc](../user-support-archived.md).
