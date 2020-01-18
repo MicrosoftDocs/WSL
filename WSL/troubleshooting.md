@@ -9,15 +9,30 @@ ms.localizationpriority: high
 
 # Troubleshooting Windows Subsystem for Linux
 
-To get support for any of your WSL related issues, please visit our [WSL Github repo's issues page](https://github.com/microosft/wsl/issues) and follow these steps: 
+For support with issues related to WSL, please see our GitHub repo:
 
-- Search for existing issues using the 'Search box'
-   - There's a good chance that another user might be experiencing the same issue that you are! If you do find an issue that's similar to yours it can give you updates on the latest fixes, and you can always add to the discussion by commenting there.
-- If you can't find your existing issue, open a new bug report by selecting the 'Bug report' issue type 
-   - When your problem involves something existing not working, please select 'Bug report' and follow the template to describe your issue in detail. Adding in details like steps for the WSL team to reproduce your issue will help them resolve it!
-   - When your issue revolves around adding functionality, please select the 'Feature Request' issue type and follow the template there to describe what new functionality you would like to see in WSL.
+## Search for any existing issues related to your problem
 
-Lastly, if your issue is related to the Windows Terminal, Windows Console, or the command-line UI, please file it at the Windows terminal repo: https://github.com/microsoft/terminal.
+For technical issues, use the product repo: https://github.com/Microsoft/wsl/issues
+
+For issues related to the contents of this documentation, use the docs repo: https://github.com/MicrosoftDocs/wsl/issues
+
+## Submit a bug report
+
+For bugs related to WSL functions or features, file an issue in the product repo: https://github.com/Microsoft/wsl/issues
+
+## Submit a feature request
+
+To request a new feature related to WSL functionality or compatibility, file an issue in the product repo:
+	https://github.com/Microsoft/wsl/issues
+
+## Contribute to the docs
+
+To contribute to the WSL documentation, submit a pull request in the docs repo: https://github.com/MicrosoftDocs/wsl/issues
+
+## Terminal or Command Line
+
+Lastly, if your issue is related to the Windows Terminal, Windows Console, or the command-line UI, use the Windows terminal repo: https://github.com/microsoft/terminal
 
 ## Common issues
 
