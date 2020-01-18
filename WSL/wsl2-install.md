@@ -10,6 +10,8 @@ ms.custom: seodec18
 
 # Installation Instructions for WSL 2
 
+> [!VIDEO https://youtu.be/ilKQHAFeQR0]
+
 To install and start using WSL 2 complete the following steps:
 
 > WSL 2 is only available in Windows 10 builds 18917 or higher
