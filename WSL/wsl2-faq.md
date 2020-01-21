@@ -30,7 +30,7 @@ We are investigating ways to help resolve this issue. For example, we expose a s
 
 ## Can I access the GPU in WSL 2? Are there plans to increase hardware support?
 
-In initial releases of WSL 2 hardware access support will be limited, e.g: you will be unable to access the GPU, serial or USBs . However, adding better device support is high on our backlog, as this opens many more use cases for developers that wish to interact with these devices. In the meantime, you can always use WSL 1 which has serial port and USB access. Please stay tuned to this blog and WSL team members on Twitter to stay informed about the latest features coming to insider builds and reach out to give us feedback on what devices you’d like to interact with!
+In initial releases of WSL 2 hardware access support will be limited, e.g: you will be unable to access the GPU, serial or USB devices. However, adding better device support is high on our backlog, as this opens many more use cases for developers that wish to interact with these devices. In the meantime, you can always use WSL 1 which has serial port access. Please stay tuned to this blog and WSL team members on Twitter to stay informed about the latest features coming to insider builds and reach out to give us feedback on what devices you’d like to interact with!
 
 ## Will WSL 2 be able to use networking applications?
 
