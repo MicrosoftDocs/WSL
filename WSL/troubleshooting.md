@@ -2,14 +2,39 @@
 title: Troubleshooting the Windows Subsystem for Linux
 description: Provides detailed information about common errors and issues people run into while running Linux on the Windows Subsystem for Linux. 
 keywords: BashOnWindows, bash, wsl, windows, windowssubsystem, ubuntu
-ms.date: 11/15/2017
+ms.date: 01/20/2020
 ms.topic: article
-ms.assetid: 6753f1b2-200e-49cc-93a5-4323e1117246
-ms.custom: seodec18
 ms.localizationpriority: high
 ---
 
 # Troubleshooting Windows Subsystem for Linux
+
+For support with issues related to WSL, please see our GitHub repo:
+
+## Search for any existing issues related to your problem
+
+For technical issues, use the product repo: https://github.com/Microsoft/wsl/issues
+
+For issues related to the contents of this documentation, use the docs repo: https://github.com/MicrosoftDocs/wsl/issues
+
+## Submit a bug report
+
+For bugs related to WSL functions or features, file an issue in the product repo: https://github.com/Microsoft/wsl/issues
+
+## Submit a feature request
+
+To request a new feature related to WSL functionality or compatibility, file an issue in the product repo:
+	https://github.com/Microsoft/wsl/issues
+
+## Contribute to the docs
+
+To contribute to the WSL documentation, submit a pull request in the docs repo: https://github.com/MicrosoftDocs/wsl/issues
+
+## Terminal or Command Line
+
+Lastly, if your issue is related to the Windows Terminal, Windows Console, or the command-line UI, use the Windows terminal repo: https://github.com/microsoft/terminal
+
+## Common issues
 
 ### Bash loses network connectivity once connected to a VPN
 
@@ -27,6 +52,7 @@ If after connecting to a VPN on Windows, bash loses network connectivity, try th
    c. Close the file. <br/>
 
 Once you have disconnected the VPN, you will have to revert the changes to `/etc/resolv.conf`. To do this, do:
+
 1. `cd /etc`
 2. `sudo mv resolv.conf resolv.conf.new`
 3. `sudo ln -s ../run/resolvconf/resolv.conf resolv.conf`
@@ -37,13 +63,13 @@ Follow [these instructions](https://github.com/Microsoft/WSL/blob/master/CONTRIB
 
 ### Updating Bash on Ubuntu on Windows
 
-There are two components of Bash on Ubuntu on Windows that can require updating. 
+There are two components of Bash on Ubuntu on Windows that can require updating.
 
 1. The Windows Subsystem for Linux
   
-   Upgrading this portion of Bash on Ubuntu on Windows will enable any new fixes outlines in the [release notes](https://msdn.microsoft.com/en-us/commandline/wsl/release_notes). Ensure that you are subscribed to the Windows Insider Program and that your build is up to date. For finer grain control including resetting your Ubuntu instance check out the [command reference page](https://msdn.microsoft.com/en-us/commandline/wsl/reference).
+   Upgrading this portion of Bash on Ubuntu on Windows will enable any new fixes outlines in the [release notes](./release-notes.md). Ensure that you are subscribed to the Windows Insider Program and that your build is up to date. For finer grain control including resetting your Ubuntu instance check out the [command reference page](./reference.md).
 
-2. The Ubuntu user binaries 
+2. The Ubuntu user binaries
 
    Upgrading this portion of Bash on Ubuntu on Windows will install any updates to the Ubuntu user binaries including applications that you have installed via apt-get. To update run the following commands in Bash:
   
@@ -51,6 +77,7 @@ There are two components of Bash on Ubuntu on Windows that can require updating.
    2. `apt-get upgrade`
   
 ### Apt-get upgrade errors
+
 Some packages use features that we haven't implemented yet. `udev`, for example, isn't supported yet and causes several `apt-get upgrade` errors.
 
 To fix issues related to `udev`, follow the following steps:
@@ -62,18 +89,21 @@ To fix issues related to `udev`, follow the following steps:
    exit 101
    ```
   
-2. Add execute permissions to `/usr/sbin/policy-rc.d`
+2. Add execute permissions to `/usr/sbin/policy-rc.d`:
+
    ``` BASH
    chmod +x /usr/sbin/policy-rc.d
    ```
   
-3. Run the following commands
+3. Run the following commands:
+
    ``` BASH
    dpkg-divert --local --rename --add /sbin/initctl
    ln -s /bin/true /sbin/initctl
    ```
   
 ### "Error: 0x80040306" on installation
+
 This has to do with the fact that we do not support legacy console.
 To turn off legacy console:
 
@@ -82,50 +112,63 @@ To turn off legacy console:
 1. Click OK
 
 ### "Error: 0x80040154" after Windows update
-The Windows Subsystem for Linux feature may be disabled during a Windows update. If this happens the Windows feature must be re-enabled. Instructions for enabling the Windows Subsystem for Linux can be found in the [Installation Guide](https://msdn.microsoft.com/en-us/commandline/wsl/install_guide#enable-the-windows-subsystem-for-linux-feature-gui).
+
+The Windows Subsystem for Linux feature may be disabled during a Windows update. If this happens the Windows feature must be re-enabled. Instructions for enabling the Windows Subsystem for Linux can be found in the [Installation Guide](./install-win10.md).
 
 ### Changing the display language
+
 WSL install will try to automatically change the Ubuntu locale to match the locale of your Windows install.  If you do not want this behavior you can run this command to change the Ubuntu locale after install completes.  You will have to relaunch bash.exe for this change to take effect.
 
 The below example changes to locale to en-US:
+
 ``` BASH
 sudo update-locale LANG=en_US.UTF8
 ```
 
 ### Installation issues after Windows system restore
-1.	Delete the `%windir%\System32\Tasks\Microsoft\Windows\Windows Subsystem for Linux` folder. <br/>
+
+1. Delete the `%windir%\System32\Tasks\Microsoft\Windows\Windows Subsystem for Linux` folder. <br/>
   **Note: Do not do this if your optional feature is fully installed and working.**
-2.	Enable the WSL optional feature (if not already)
-3.	Reboot
-4.	lxrun /uninstall /full
-5.	Install bash
+2. Enable the WSL optional feature (if not already)
+3. Reboot
+4. lxrun /uninstall /full
+5. Install bash
 
 ### No internet access in WSL
+
 Some users have reported issues with specific firewall applications blocking internet access in WSL.  The firewalls reported are:
 
 1. Kaspersky
-1. AVG
-1. Avast
+2. AVG
+3. Avast
 
 In some cases turning off the firewall allows for access.  In some cases simply having the firewall installed looks to block access.
 
 ### Permission Denied error when using ping
-#### [Anniversary Update](https://msdn.microsoft.com/en-us/commandline/wsl/release_notes#build-14388-to-windows-10-anniversary-update) 
 
-Administrator privileges in Windows are required to run ping in WSL.  To run ping, run Bash on Ubuntu on Windows as an administrator, or run bash.exe from a CMD/PowerShell prompt with administrator privileges.
+For [Windows Anniversary Update, version 1607](./release-notes.md#build-14388-to-windows-10-anniversary-update),
+**administrator privileges** in Windows are required to run ping in WSL.  To run ping, run Bash on Ubuntu on Windows as an administrator, or run bash.exe from a CMD/PowerShell prompt with administrator privileges.
 
-#### [Build 14926+](https://msdn.microsoft.com/en-us/commandline/wsl/release_notes#build-14926)
-  Administrator privileges no longer required.
+For later versions of Windows, [Build 14926+](./release-notes.md#build-14926), administrator privileges are no longer required.
 
 ### Bash is hung
-If while working with bash, you find that bash is hung (or deadlocked) and not responding to inputs, help us diagnose the issue by collecting and reporting a memory dump. Note that these steps will crash your system. Do not do this if you are not comfortable with that or save your work prior to doing this.  <br/>
-To collect a memory dump:
+
+If while working with bash, you find that bash is hung (or deadlocked) and not responding to inputs, help us diagnose the issue by collecting and reporting a memory dump. Note that these steps will crash your system. Do not do this if you are not comfortable with that or save your work prior to doing this.
+
+To collect a memory dump
+
 1. Change the memory dump type to "complete memory dump". While changing the dump type, take a note of your current type.
+
 2. Use the [steps](https://techcommunity.microsoft.com/t5/Core-Infrastructure-and-Security/How-to-Force-a-Diagnostic-Memory-Dump-When-a-Computer-Hangs/ba-p/257809) to configure crash using keyboard control.
+
 3. Repro the hang or deadlock.
+
 4. Crash the system using the key sequence from (2).
+
 5. The system will crash and collect the memory dump.
+
 6. Once the system reboots, report the memory.dmp to secure@microsoft.com. The default location of the dump file is %SystemRoot%\memory.dmp or C:\Windows\memory.dmp if C: is the system drive. In the email, note that the dump is for the WSL or Bash on Windows team.
+
 7. Restore the memory dump type to the original setting.
 
 ### Check your build number
@@ -134,35 +177,45 @@ To find your PC's architecture and Windows build number, open
 **Settings** > **System** > **About**
 
 Look for the **OS Build** and **System Type** fields.  
-    ![Screenshot of Build and System Type fields](media/system.png) 
-
+    ![Screenshot of Build and System Type fields](media/system.png)
 
 To find your Windows Server build number, run the following in PowerShell:  
+
 ``` PowerShell
 systeminfo | Select-String "^OS Name","^OS Version"
 ```
 
 ### Confirm WSL is enabled
+
 You can confirm that the Windows Subsystem for Linux is enabled by running the following in PowerShell:  
+
 ``` PowerShell
 Get-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
 ```
 
 ### OpenSSH-Server connection issues
+
 Trying to connect your SSH server is failed with the following error: "Connection closed by 127.0.0.1 port 22".
+
 1. Make sure your OpenSSH Server is running:
+
    ``` BASH
    sudo service ssh status
    ```
+
    and you've followed this tutorial:
    https://help.ubuntu.com/lts/serverguide/openssh-server.html.en
+
 2. Stop the sshd service and start sshd in debug mode:
+
    ``` BASH
    sudo service ssh stop
    sudo /usr/sbin/sshd -d
    ```
+
 3. Check the startup logs and make sure HostKeys are available and you don't see log messages such as:
-   ```
+
+   ```BASH
    debug1: sshd version OpenSSH_7.2, OpenSSL 1.0.2g  1 Mar 2016
    debug1: key_load_private: incorrect passphrase supplied to decrypt private key
    debug1: key_load_public: No such file or directory
@@ -179,6 +232,7 @@ Trying to connect your SSH server is failed with the following error: "Connectio
    ```
 
 If you do see such messages and the keys are missing under `/etc/ssh/`, you will have to regenerate the keys or just purge&install openssh-server:
+
 ```BASH
 sudo apt-get purge openssh-server
 sudo apt-get install openssh-server
@@ -188,6 +242,8 @@ sudo apt-get install openssh-server
 
 This error is related to being in a bad install state. Please complete the following steps to try and fix this issue:
 
-* If you are running the enable WSL feature command from PowerShell, try using the GUI instead by opening the start menu, searching for 'Turn Windows features on or off' and then in the list select 'Windows Subsystem for Linux' which will install the optional component.
-* Update your version of Windows by going to Settings, Updates, and clicking 'Check for Updates'
-* If both of those fail and you need to access WSL please consider upgrading in place by reinstalling Windows 10 using installation media and selecting 'Keep Everything' to ensure your apps and files are preserved. You can find instructions on how to do so at the [Reinstall Windows 10 page](https://support.microsoft.com/en-us/help/4000735/windows-10-reinstall).
+- If you are running the enable WSL feature command from PowerShell, try using the GUI instead by opening the start menu, searching for 'Turn Windows features on or off' and then in the list select 'Windows Subsystem for Linux' which will install the optional component.
+
+- Update your version of Windows by going to Settings, Updates, and clicking 'Check for Updates'
+
+- If both of those fail and you need to access WSL please consider upgrading in place by reinstalling Windows 10 using installation media and selecting 'Keep Everything' to ensure your apps and files are preserved. You can find instructions on how to do so at the [Reinstall Windows 10 page](https://support.microsoft.com/help/4000735/windows-10-reinstall).
