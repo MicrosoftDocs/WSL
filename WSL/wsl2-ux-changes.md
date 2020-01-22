@@ -37,7 +37,12 @@ The picture below shows an example of this by connecting to a Node.js server run
 
 ![Accessing Linux network applications from Windows](media/wsl2-network-l2w.png)
 
-### Accessing Linux applications from Windows (only in builds lower than 18945)
+### Accessing Linux applications from Windows
+
+Depending on which version of Windows you're using, you might need to retrieve the IP address of the virtual machine. If your build is 18945 or higher, you can use `localhost` just like normal. 
+
+#### Accessing Linux on Builds lower than [18945](https://blogs.windows.com/windowsexperience/2019/07/26/announcing-windows-10-insider-preview-build-18945/)
+
 If you have a server in a WSL distro, you'll need to find the IP address of the virtual machine powering your distro and connect to it with that IP address. You can do that by following these steps:
 
 - Obtain the IP address of your distro by running the command `ip addr` inside of your WSL distro and finding it under the `inet` value of the `eth0` interface.
@@ -47,8 +52,6 @@ If you have a server in a WSL distro, you'll need to find the IP address of the 
 The picture below shows an example of this by connecting to a Node.js server using the Edge browser.
 
 ![Accessing Linux network applications from Windows](media/wsl2-network-w2l.jpg)
-
-If your build is 18945 or higher, you can use localhost just like normal. 
 
 ### Other networking considerations
 
