@@ -1,137 +1,43 @@
 ---
-title: Linux User Account and Permissions
+title: Create and update user accounts for WSL distributions
 description: Reference for user accounts and permission management with the Windows Subsystem for Linux.
 keywords: BashOnWindows, bash, wsl, windows, windows subsystem for linux, windowssubsystem, ubuntu, user accounts
-ms.date: 09/11/2017
+ms.date: 01/20/2020
 ms.topic: article
 ms.assetid: f70e685f-24c6-4908-9546-bf4f0291d8fd
 ms.custom: seodec18
 ms.localizationpriority: high
 ---
 
-# User Accounts and Permissions for Windows Subsystem for Linux
+# Create and update user accounts for WSL distributions
 
-Creating your Linux user is the first step in setting up a new Linux distribution on WSL.  The first user account you create is automatically configured with a few special attributes:
+Once you have enabled WSL and installed a Linux distribution from the Microsoft Store, the first step you will be asked to complete when opening your newly installed Linux distribution is to create an account, including a **User Name** and **Password**.
 
-1. It is your default user -- it signs-in automatically on launch.
-1. It is Linux administrator (a member of the sudo group) by default.
+- This **User Name** and **Password** is specific to your Linux distribution and has no bearing on your Windows user name.
 
-Each Linux distribution running on the Windows Subsystem for Linux has its own Linux user accounts and passwords.  You will have to configure a Linux user account any time you add a distribution, reinstall, or reset.  Linux user accounts are not only independent per distribution, they are also independent from your Windows user account.
+- Once you create this **User Name** and **Password**, the account will be your default user for the distribution and automatically sign-in on launch.
 
-## Resetting your Linux password
+- This account will be considered the Linux administrator, with the ability to run `sudu` (Super User Do) administrative commands.
 
-If you have access to your Linux user account and know your current password, change it using Linux password reset tools of that distribution -- most likely `passwd`.
+- Each Linux distribution running on the Windows Subsystem for Linux has its own Linux user accounts and passwords.  You will have to configure a Linux user account every time you add a distribution, reinstall, or reset.
 
-If that's not an option, depending on the distribution, you may be able to reset your password by resetting the default user.
+## Reset your Linux password
 
-WSL offers a default user tag to identify which user account automatically logs in when you start a WSL.  Since many distributions include commands to set the default user to root and also a root user with no password set, changing the default user to root is a handy tool for things like password reset.
+To change your password, open your Linux distribution (Ubuntu for example) and enter the command: `passwd`
 
-### For Creators Update and earlier
-If you're running Windows 10 Creators update or earlier, you can change the default Bash user by running the following commands:
+You will be asked to enter your current password, then asked to enter your new password, and then to confirm your new password.
 
-1. Change the default user to `root`:
+### Forgot your password
 
-    ```console
-    C:\> lxrun /setdefaultuser root
-    ```
+If you forgot the password for your Linux distribution:
 
-1. Run `bash.exe` to now login as `root`:
+1. Open PowerShell and enter the root of your default WSL distribution using the command: `wsl -u root`
 
-    ```console
-    C:\> bash.exe
-    ```
+-- If you need to update the forgotten password on a distribution that is not your default, use the command: `wsl -d Debian -u root`, replacing `Debian` with the name of your targeted distribution.
 
-1. Reset your password using the distribution's password command, and close the Linux Console:
+2. Once your WSL distribution has been opened at the root level inside PowerShell, you can use this command to update your password: `passwd`
 
-    ```BASH
-    $ passwd username
-    $ exit
-    ```
+3. You will be prompted to enter a new UNIX password and then confirm that password. Once you're told that the password has updated successfully, close WSL inside of PowerShell using the command: `exit`
 
-1. From Windows CMD, reset your default user back to your normal Linux user account:
-
-    ```console
-    C:\> lxrun.exe /setdefaultuser username
-    ```
-
-### For Fall Creators Update and later
-To see what commands are available for a particular distribution, run `[distro.exe] /?`.
-    
-For example, with Ubuntu installed:
-
-```console
-C:\> ubuntu.exe /?
-
-Launches or configures a linux distribution.
-
-Usage:
-    <no args>
-      - Launches the distro's default behavior. By default, this launches your default shell.
-
-    run <command line>
-      - Run the given command line in that distro, using the default configuration.
-      - Everything after `run ` is passed to the linux LaunchProcess cal
-
-    config [setting [value]]
-      - Configure certain settings for this distro.
-      - Settings are any of the following (by default)
-        - `--default-user <username>`: Set the default user for this distro to <username>
-
-    clean
-      - Uninstalls the distro. The appx remains on your machine. This can be
-        useful for "factory resetting" your instance. This removes the linux
-        filesystem from the disk, but not the app from your PC, so you don't
-        need to redownload the entire tar.gz again.
-
-    help
-      - Print this usage message.
-```
-
-Step by step instructions using Ubuntu:
-
-1. Open CMD
-1. Set the default Linux user to `root`:
-
-    ```console
-    C:\> ubuntu config --default-user root
-    ```    
-
-1. Launch your Linux distribution (`ubuntu`).  You will automatically login as `root`:
-
-1. Reset your password using the `passwd` command:
-
-    ```BASH
-    $ passwd username
-    ```
-
-1. From Windows CMD, reset your default user back to your normal Linux user account.
-
-    ```console
-    C:\> ubuntu config --default-user username
-    ```
-
-## Permissions
-
-There are two important concepts to keep in mind when it comes to permissions in WSL:
-
-1. The Windows permission model governs a process' rights to Windows resources
-2. The Linux permission model controls a process' rights to Linux resources
-
-When running Linux on WSL, Linux will have the same Windows permissions as the process that launches it. Linux can be launched in one of two permission levels:
-
-* Normal (non-elevated): Linux runs with the permissions of the logged-in user
-* Elevated/admin: Linux runs with elevated/admin Windows permissions
-
-> Because elevated processes can access/modify (and therefore damage) system-wide settings and system-wide/protected data, **AVOID** launching elevated processes unless you absolutely have to - whether they're Windows or Linux applications/tools/shells!
-
-The above Windows permissions are independent of the permissions within a Linux instance: Linux "Root privileges" only impact the user’s rights within the Linux environment & filesystem; they have no impact on the Windows privileges granted. Thus, running a Linux process as root (e.g. via `sudo`) only grants that process admin rights within the Linux environment.
-
-**Example:**    
-A Bash session with Windows admin privileges may access `cd /mnt/c/Users/Administrator` while a Bash session without admin privileges would see a "Permission Denied" error.
-
-In Linux, typing `sudo cd /mnt/c/Users/Administrator` will not grant access to the Administrator’s directory since permissions within Windows are managed by Windows.
-
-The Linux permission model is important when inside the Linux environment where the user has permissions based on the current Linux user.
-
-**Example:**  
-A user in the sudo group may run `sudo apt update`.
+> [!NOTE]
+> If you are running an early version of Windows operating system, like 1703 (Creators Update) or 1709 (Fall Creators Update), see the [archived version of this user account update doc](./user-support-archived.md).
