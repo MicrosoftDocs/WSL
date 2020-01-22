@@ -10,6 +10,8 @@ ms.custom: seodec18
 
 # Installation Instructions for WSL 2
 
+You can watch the video below, or read on in this article to learn how to install WSL2. 
+
 > [!VIDEO https://channel9.msdn.com/Blogs/One-Dev-Minute/Learn-how-to-install-WSL-2/player]
 
 To install and start using WSL 2 complete the following steps:

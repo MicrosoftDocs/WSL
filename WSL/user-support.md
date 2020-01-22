@@ -17,7 +17,7 @@ Once you have enabled WSL and installed a Linux distribution from the Microsoft 
 
 - Once you create this **User Name** and **Password**, the account will be your default user for the distribution and automatically sign-in on launch.
 
-- This account will be considered the Linux administrator, with the ability to run `sudu` (Super User Do) administrative commands.
+- This account will be considered the Linux administrator, with the ability to run `sudo` (Super User Do) administrative commands.
 
 - Each Linux distribution running on the Windows Subsystem for Linux has its own Linux user accounts and passwords.  You will have to configure a Linux user account every time you add a distribution, reinstall, or reset.
 
