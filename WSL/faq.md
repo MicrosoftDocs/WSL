@@ -70,6 +70,20 @@ Mount points for hard drives on the local machine are automatically created and 
  
 Example usage would be `cd /mnt/c` to access c:\
 
+## How do I set up Git Credential Manager?
+
+Git Credential Manager enables you to authenticate a remote Git server, even if you have a complex authentication pattern like Azure Active Directory or two-factor authentication. Git Credential Manager integrates into the authentication flow for services like GitHub and, once you're authenticated to your hosting provider, requests a new authentication token. It then stores the token securely in the Windows Credential Manager. After the first time, you can use git to talk to your hosting provider without needing to re-authenticate. It will just access the token in the Windows Credential Manager.
+
+To set up Git Credential Manager for use with a WSL distribution, open your distribution and enter this command:
+
+```Bash
+git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/libexec/git-core/git-credential-manager.exe"
+```
+
+Now any git operation you perform within your WSL distribution will use the credential manager. If you already have credentials cached for a host, it will access them from the credential manager. If not, you'll receive a dialog response requesting your credentials, even if you're in a Linux console.
+
+This support relies on the [interoperability between Windows Subsystem for Linux and Windows itself](https://docs.microsoft.com/windows/wsl/interop).
+
 ## How do I use a Windows file with a Linux app?
 
 One of the benefits of WSL is being able to access your files via both Windows and Linux apps or tools. 
