@@ -12,6 +12,13 @@ ms.localizationpriority: high
 
 # Release Notes for Windows Subsystem for Linux
 
+## Build 19041
+For general Windows information on build 19041 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2019/12/10/announcing-windows-10-insider-preview-build-19041/).
+
+* [WSL2] Clear the signal mask before launching the processes
+* [WSL2] Update Linux kernel to 4.19.84
+* Handle creation of /etc/resolv.conf symlink when the symlink is non-relative
+
 ## Build 19028
 For general Windows information on build 19028 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2019/11/19/announcing-windows-10-insider-preview-build-19028/).
 
