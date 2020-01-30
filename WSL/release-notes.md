@@ -12,6 +12,17 @@ ms.localizationpriority: high
 
 # Release Notes for Windows Subsystem for Linux
 
+## Build 19555
+For general Windows information on build 19555 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2020/01/30/announcing-windows-10-insider-preview-build-19555/).
+
+* [WSL2] Use a memory cgroup to limit the amount of memory used by install and conversion operations [GH 4669]
+* Make wsl.exe present when the Windows Subsystem for Linux optional component is not enabled to improve feature discoverability.
+* Change wsl.exe to print help text if the WSL optional component is not installed
+* Fix race condition when creating instances
+* Create wslclient.dll that contains all command line functionality
+* Prevent crash during LxssManagerUser service stop
+* Fix wslapi.dll fast fail when distroName parameter is NULL
+
 ## Build 19041
 For general Windows information on build 19041 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2019/12/10/announcing-windows-10-insider-preview-build-19041/).
 
