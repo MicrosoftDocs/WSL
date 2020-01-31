@@ -2,7 +2,7 @@
 # [Install on Windows 10](./install-win10.md)
 # [Install on Windows Server](./install-on-server.md)
 # [Initialize Distro](./initialize-distro.md)
-# [User accounts and permissions](./user-support.md)
+# [User accounts](./user-support.md)
 # [Distro management](./wsl-config.md)
 # [File System Permissions](./file-permissions.md)
 # [Windows Subsystem for Linux for Enterprise](./enterprise.md)
