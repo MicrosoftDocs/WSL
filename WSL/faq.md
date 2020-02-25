@@ -82,7 +82,7 @@ Mount points for hard drives on the local machine are automatically created and 
 
 Example usage would be `cd /mnt/c` to access c:\
 
-## How do I set up Git Credential Manager?
+## How do I set up Git Credential Manager? (How do I use my Windows Git permissions in WSL?) 
 
 Git Credential Manager enables you to authenticate a remote Git server, even if you have a complex authentication pattern like Azure Active Directory or two-factor authentication. Git Credential Manager integrates into the authentication flow for services like GitHub and, once you're authenticated to your hosting provider, requests a new authentication token. It then stores the token securely in the Windows Credential Manager. After the first time, you can use git to talk to your hosting provider without needing to re-authenticate. It will just access the token in the Windows Credential Manager.
 
