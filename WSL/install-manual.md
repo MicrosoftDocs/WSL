@@ -19,8 +19,10 @@ In these cases, while WSL itself is available, how do you download and install L
 ## Downloading distros
 
 If the Microsoft Store app is not available, you can download and manually install Linux distros by clicking these links:
-* [Ubuntu 18.04](https://aka.ms/wsl-ubuntu-1804)
-* [Ubuntu 18.04 ARM](https://aka.ms/wsl-ubuntu-1804-arm)
+<!-- * [Ubuntu 18.04](https://aka.ms/wsl-ubuntu-1804)
+* [Ubuntu 18.04 ARM](https://aka.ms/wsl-ubuntu-1804-arm) -->
+* Ubuntu 18.04
+* Ubuntu 18.04 ARM
 * [Ubuntu 16.04](https://aka.ms/wsl-ubuntu-1604)
 * [Debian GNU/Linux](https://aka.ms/wsl-debian-gnulinux)
 * [Kali Linux](https://aka.ms/wsl-kali-linux-new)
