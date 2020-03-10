@@ -84,20 +84,20 @@ To fix issues related to `udev`, follow the following steps:
 
 1. Write the following to `/usr/sbin/policy-rc.d` and save your changes.
   
-   ``` BASH
+   ```bash
    #!/bin/sh
    exit 101
    ```
   
 2. Add execute permissions to `/usr/sbin/policy-rc.d`:
 
-   ``` BASH
+   ```bash
    chmod +x /usr/sbin/policy-rc.d
    ```
   
 3. Run the following commands:
 
-   ``` BASH
+   ```bash
    dpkg-divert --local --rename --add /sbin/initctl
    ln -s /bin/true /sbin/initctl
    ```
@@ -121,7 +121,7 @@ WSL install will try to automatically change the Ubuntu locale to match the loca
 
 The below example changes to locale to en-US:
 
-``` BASH
+```bash
 sudo update-locale LANG=en_US.UTF8
 ```
 
@@ -199,7 +199,7 @@ Trying to connect your SSH server is failed with the following error: "Connectio
 
 1. Make sure your OpenSSH Server is running:
 
-   ``` BASH
+   ```bash
    sudo service ssh status
    ```
 
@@ -208,7 +208,7 @@ Trying to connect your SSH server is failed with the following error: "Connectio
 
 2. Stop the sshd service and start sshd in debug mode:
 
-   ``` BASH
+   ```bash
    sudo service ssh stop
    sudo /usr/sbin/sshd -d
    ```
