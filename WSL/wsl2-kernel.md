@@ -5,6 +5,7 @@ keywords: BashOnWindows, bash, wsl, windows, windows subsystem for linux, window
 ms.date: 03/12/2020
 ms.topic: article
 ms.assetid: 7afaeacf-435a-4e58-bff0-a9f0d75b8a51
+ms.localizationpriority: high
 ms.custom: seodec18
 ---
 
