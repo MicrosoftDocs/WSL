@@ -6,6 +6,7 @@ ms.date: 07/24/2018
 ms.topic: article
 ms.assetid: 9281ffa2-4fa9-4078-bf6f-b51c967617e3
 ms.custom: seodec18
+ms.localizationpriority: high
 ---
 
 # Manually download Windows Subsystem for Linux distro packages

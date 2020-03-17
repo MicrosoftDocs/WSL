@@ -6,6 +6,7 @@ ms.date: 05/30/2019
 ms.topic: article
 ms.assetid: 7afaeacf-435a-4e58-bff0-a9f0d75b8a51
 ms.custom: seodec18
+ms.localizationpriority: high
 ---
 
 # Installation Instructions for WSL 2
