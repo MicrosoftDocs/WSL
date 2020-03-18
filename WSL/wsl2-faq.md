@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.localizationpriority: high
 ---
 
-# WSL 2 FAQ
+# WSL 2 FAQs
 
 Below is a list of frequently asked questions (FAQ) about the Windows Subsystem for Linux 2.
 
@@ -27,11 +27,11 @@ We currently have no plans to deprecate WSL 1. You can run WSL 1 and WSL 2 distr
 
 Some 3rd party applications cannot work when Hyper-V is in use, which means they will not be able to run when WSL 2 is enabled. Unfortunately, this does include VMware, and versions of VirtualBox before VirtualBox 6 (VirtualBox 6.0.0 released in December 2018 [now supports Hyper-V as a fallback execution core on a Windows host][1]!)
 
-We are investigating ways to help resolve this issue. For example, we expose a set of APIs called [Hypervisor Platform][2] that third-party virtualization providers can use to make their software compatible with Hyper-V’s. This lets applications use the Hyper-V architecture for their emulation such as [the Google Android Emulator][3], and VirtualBox 6 and above which are both now compatible with Hyper-V.
+We are investigating ways to help resolve this issue. For example, we expose a set of APIs called [Hypervisor Platform][2] that third-party virtualization providers can use to make their software compatible with Hyper-V's. This lets applications use the Hyper-V architecture for their emulation such as [the Google Android Emulator][3], and VirtualBox 6 and above which are both now compatible with Hyper-V.
 
 ## Can I access the GPU in WSL 2? Are there plans to increase hardware support?
 
-In initial releases of WSL 2 hardware access support will be limited, e.g: you will be unable to access the GPU, serial or USB devices. However, adding better device support is high on our backlog, as this opens many more use cases for developers that wish to interact with these devices. In the meantime, you can always use WSL 1 which has serial port access. Please stay tuned to this blog and WSL team members on Twitter to stay informed about the latest features coming to insider builds and reach out to give us feedback on what devices you’d like to interact with!
+In initial releases of WSL 2 hardware access support will be limited, e.g: you will be unable to access the GPU, serial or USB devices. However, adding better device support is high on our backlog, as this opens many more use cases for developers that wish to interact with these devices. In the meantime, you can always use WSL 1 which has serial port access. Please stay tuned to this blog and WSL team members on Twitter to stay informed about the latest features coming to insider builds and reach out to give us feedback on what devices you'd like to interact with!
 
 ## Will WSL 2 be able to use networking applications?
 
