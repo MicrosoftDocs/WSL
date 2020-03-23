@@ -21,7 +21,7 @@ To install and start using WSL 2 complete the following steps:
 
 - Ensure that you have WSL installed (you can find instructions to do so [here](./install-win10.md)) and that you are running Windows 10 **build 18917** or higher
    - To make sure you are using build 18917 or higher please join [the Windows Insider Program](https://insider.windows.com/en-us/) and select the 'Fast' ring or the 'Slow' ring. 
-   - You can check your Windows version by opening Command Prompt and running the `ver` command.
+   - You can check your Windows version by opening Command Prompt and running the `winver` command.
 - Enable the 'Virtual Machine Platform' optional component
 - Set a distro to be backed by WSL 2 using the command line
 - Verify what versions of WSL your distros are using
