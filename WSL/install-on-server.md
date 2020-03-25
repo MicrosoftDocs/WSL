@@ -36,8 +36,8 @@ Now that you've downloaded a distro, extract its contents and manually install t
 1. Extract the `<distro>.appx` package's contents, e.g. using PowerShell:
 
     ```powershell
-    Rename-Item ./Ubuntu.appx ./Ubuntu.zip
-    Expand-Archive ./Ubuntu.zip ./Ubuntu
+    Rename-Item .\Ubuntu.appx .\Ubuntu.zip
+    Expand-Archive .\Ubuntu.zip .\Ubuntu
     ```
 
 2. Run the distro launcher
