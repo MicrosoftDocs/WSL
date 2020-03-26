@@ -25,7 +25,7 @@ We currently have no plans to deprecate WSL 1. You can run WSL 1 and WSL 2 distr
 
 ## Will I be able to run WSL 2 and other 3rd party virtualization tools such as VMware, or VirtualBox?
 
-Some 3rd party applications cannot work when Hyper-V is in use, which means they will not be able to run when WSL 2 is enabled. Unfortunately, this does include VMware, and versions of VirtualBox before VirtualBox 6 (VirtualBox 6.0.0 released in December 2018 [now supports Hyper-V as a fallback execution core on a Windows host][1]!)
+Some 3rd party applications cannot work when Hyper-V is in use, which means they will not be able to run when WSL 2 is enabled, such as VMware and VirtualBox. However, recently both VirtualBox and VMware have released versions that support Hyper-V and WSL2! You can learn more about [VirtualBox's changes here][1] and [VMware's changes here][4].
 
 We are investigating ways to help resolve this issue. For example, we expose a set of APIs called [Hypervisor Platform][2] that third-party virtualization providers can use to make their software compatible with Hyper-V’s. This lets applications use the Hyper-V architecture for their emulation such as [the Google Android Emulator][3], and VirtualBox 6 and above which are both now compatible with Hyper-V.
 
@@ -52,3 +52,4 @@ WSL 2 supports the same wsl.conf file that WSL 1 uses. This means that any confi
  [1]: https://www.virtualbox.org/wiki/Changelog-6.0
  [2]: https://docs.microsoft.com/en-us/virtualization/api/
  [3]: https://devblogs.microsoft.com/visualstudio/hyper-v-android-emulator-support/
+ [4]: https://blogs.vmware.com/workstation/2020/01/vmware-workstation-tech-preview-20h1.html
