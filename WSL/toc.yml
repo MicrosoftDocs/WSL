@@ -1,42 +1,42 @@
 - name: Overview
-  href: /overview.md
+  href: overview.md
   items:
     - name: About
-      href: /about.md
+      href: about.md
     - name: WSL1 and WSL2
-      href: /wsl1-wsl2.md
+      href: wsl1-wsl2.md
 - name: Getting Started
   href:
   items:
     - name: Install on Windows 10
-      href: /install-win10.md
+      href: install-win10.md
     - name: Install on Windows Server
-      href: /install-on-server.md
+      href: install-on-server.md
     - name: Initialize Distro
-      href: /initialize-distro.md
+      href: initialize-distro.md
     - name: User Accounts
-      href: /user-support.md
+      href: user-support.md
 - name: WSL2
-  href: /wsl2-index.md
+  href: wsl2-index.md
   items:
     - name: User Experience Differences between WSL1 and WSL2
-      href: /wsl2-ux-changes.md
+      href: wsl2-ux-changes.md
 - name: Configurations and Management
-  href: /wsl-config.md
+  href: wsl-config.md
   items:
     - name: File Permissions
-      href: /file-permissions.md
+      href: file-permissions.md
     - name: Build a Custom Distro
-      href: /build-custom-distro.md
+      href: build-custom-distro.md
 - name: Interoperability
-  href: /interop.md
+  href: interop.md
 - name: WSL for enterprise
-  href: /enterprise.md
+  href: enterprise.md
 - name: Frequently Asked Questions
-  href: /faq.md
+  href: faq.md
 - name: Troubleshooting
-  href: /troubleshooting.md
+  href: troubleshooting.md
 - name: Release Notes
-  href: /release-notes.md
+  href: release-notes.md
 - name: Command Line Reference
-  href: /reference.md
+  href: reference.md
