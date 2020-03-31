@@ -1,8 +1,8 @@
 - name: Overview
-  href: overview.md
+  href: /WSL/overview.md
   items:
     - name: About
-      href: about.md
+      href: /WSL/about.md
     - name: WSL1 and WSL2
       href: wsl1-wsl2.md
 - name: Getting Started
