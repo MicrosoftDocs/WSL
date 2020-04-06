@@ -22,6 +22,9 @@ Please click on [this link](https://wslstorestorage.blob.core.windows.net/wslblo
 
 ## Install the Linux kernel update package
 
+> [!NOTE] 
+> If the installer cant find WSL 1 right click the Linux kernel update installer, then press uninstall then rerun the installer
+
 To install the Linux kernel update package:
 
 	1. Run the update package downloaded in the previous step.
