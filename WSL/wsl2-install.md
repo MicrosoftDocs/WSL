@@ -26,7 +26,7 @@ To install and start using WSL 2 complete the following steps:
 - Set a distro to be backed by WSL 2 using the command line
 - Verify what versions of WSL your distros are using
 
-## Enable the 'Virtual Machine Platform' optional component and make sure WSL is enabled
+## Enable the 'Virtual Machine Platform' optional component
 
 You will need to make sure that you have both the Windows Subsystem for Linux and the Virtual Machine Platform optional components installed. You can do that by running the following command in PowerShell: 
 
@@ -38,7 +38,7 @@ dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /nores
 Please restart your machine to finish installing both components.
 
 
-## Set a distro to be backed by WSL 2 using the command line
+## Set a distro to be backed by WSL 2
 
 If you do not have a Linux distro installed, please refer to the [Install on Windows 10](./install-win10.md#install-your-linux-distribution-of-choice) docs page for instructions on installing one. 
 
@@ -58,7 +58,7 @@ wsl --set-default-version 2
 
 This will make any new distro that you install be initialized as a WSL 2 distro.
 
-## Finish with verifying what versions of WSL your distro are using
+## Verify what version of WSL your distro is using
 
 To verify what versions of WSL each distro is using use the following command (only available in Windows Build 18917 or higher):
 

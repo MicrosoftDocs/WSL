@@ -22,30 +22,6 @@ Before installing any Linux distros for WSL, you must ensure that the "Windows S
 
 2. Restart your computer when prompted.
 
-**If you're looking for 100% system call compatibility and faster IO performance, install WSL2!**
-> WSL 2 is only available in Windows 10 builds 18917 or higher
-
-## Install the Windows Subsystem for Linux 2
-To install and start using WSL 2 complete the following steps:
-
-1. Ensure that you have WSL installed and that you are running Windows 10 **build 18917** or higher
-   - To make sure you are using build 18917 or higher please join [the Windows Insider Program](https://insider.windows.com/en-us/) and select the 'Fast' ring or the 'Slow' ring. 
-   - You can check your Windows version by opening Command Prompt and running the `ver` command.
-2. Enable the 'Virtual Machine Platform' optional component
-3. Install a Linux distribution of your choice
-4. Set a distro to be backed by WSL1 or WSL2 using the command line
-5. Verify what versions of WSL your distros are using
-
-## Enable the 'Virtual Machine Platform' optional component and make sure WSL is enabled
-
-You will need to make sure that you have both the Windows Subsystem for Linux and the Virtual Machine Platform optional components installed. You can do that by running the following command in PowerShell: 
-
-```powershell
-dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
-dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
-```
-
-Please restart your machine to finish installing both components.
 
 ## Install your Linux Distribution of Choice
 To download and install your preferred distro(s), you have three choices:
@@ -81,33 +57,7 @@ To download and install your preferred distro(s), you have three choices:
     ![View of Linux distros in the Microsoft store](media/UbuntuStore.png)
 
 ## Complete initialization of your distro
-Now that your Linux distro is installed, you must [initialize your new distro instance](initialize-distro.md) once, before it can be used.
-
-## Set a distro to be backed by WSL1 or WSL2 using the command line
-
-To set a distro to be backed by either version of WSL please run: 
-
-```
-wsl --set-version <Distro> <versionNumber>
-```
-
-Make sure to replace `<Distro>` with the actual name of your distro and `<versionNumber>` with the number '1' or '2'. (You can find these with the command: `wsl -l`). You can change back to WSL 1 at anytime by running the same command as above but replacing the '2' with a '1'.
-
-Additionally, if you want to make WSL 2 your default architecture you can do so with this command:
-
-```
-wsl --set-default-version 2
-```
-
-This will make any new distro that you install be initialized as a WSL 2 distro.
-
-## Finish with verifying what versions of WSL your distro are using
-
-To verify what versions of WSL each distro is using use the following command (only available in Windows Build 18917 or higher):
-
-`wsl --list --verbose` or `wsl -l -v`
-
-The distro that you've chosen above should now display either a '1' or '2' under the 'version' column. Now that you're finished feel free to start using any WSL distro! 
+Follow the onscreen instructions to initialize your distro. For more information go [here](initialize-distro.md).
 
 ## Troubleshooting: 
 
@@ -122,15 +72,3 @@ Below are related errors and suggested fixes. Refer to the [WSL troubleshooting 
  * **WslRegisterDistribution failed with error 0x8007019e**   
   * The Windows Subsystem for Linux optional component is not enabled: 
    * Open **Control Panel** -> **Programs and Features** -> **Turn Windows Feature on or off** -> Check **Windows Subsystem for Linux** or using the PowerShell cmdlet mentioned at the begining of this article.
-
-* **Installation failed with error 0x80070003 or error 0x80370102**
-    * Please make sure that virtualization is enabled inside of your computer's BIOS. The instructions on how to do this will vary from computer to computer, and will most likely be under CPU related options.
-   
-* **Error when trying to upgrade: `Invalid command line option: wsl --set-version Ubuntu 2`**
-    * Please make sure that you have the Windows Subsystem for Linux enabled, and that you're using Windows Build version 18917 or higher. To enable WSL run this command in a Powershell prompt with admin privileges: `Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux`. You can find the full WSL install instructions [here](./install-win10.md).
-
-* **The requested operation could not be completed due to a virtual disk system limitation. Virtual hard disk files must be uncompressed and unencrypted and must not be sparse.**
-    * Please check [WSL Github thread #4103](https://github.com/microsoft/WSL/issues/4103) where this issue is being tracked for updated information.
-
-* **The term 'wsl' is not recognized as the name of a cmdlet, function, script file, or operable program.** 
-    * Ensure that the [Windows Subsystem for Linux Optional Component is installed](./wsl2-install.md#enable-the-virtual-machine-platform-optional-component-and-make-sure-wsl-is-enabled).<br> Additionally, if you are using an Arm64 device and running this command from PowerShell, you will receive this error. Instead run `wsl.exe` from [PowerShell Core](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-6), or Command Prompt. 
