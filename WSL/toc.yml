@@ -14,10 +14,6 @@
       href: wsl2-install.md      
     - name: Install on Windows Server
       href: install-on-server.md
-    - name: Initialize Distro
-      href: initialize-distro.md
-    - name: User Accounts
-      href: user-support.md
 - name: More about WSl2
   href: 
   items:
