@@ -27,7 +27,7 @@ Feature | WSL1 | WSL2
 
 
 
-#### With full system call compatibility and lightning fast speeds, WSL2 can be used for all of your typical Windows and Linux operations. However, its best to use WSL1 for the following cases.
+With full system call compatibility and lightning fast speeds, WSL2 can be used for all of your typical Windows and Linux operations. However, its best to use WSL1 for the following cases.
 ### Consider using WSL1 for
 
 * A project which has to be stored in the Windows file system
