@@ -19,15 +19,19 @@
     - name: User Accounts
       href: user-support.md
 - name: More about WSl2
-  href: wsl2-index.md
+  href: 
   items:
+    - name: WSL2 overview.md
+      href: wsl2-index.md
     - name: User Experience Differences between WSL1 and WSL2
       href: wsl2-ux-changes.md
     - name: WSL2 FAQ
       href: wsl2-faq.md
 - name: Understanding Linux Distros
-  href: wsl-config.md
+  href: 
   items:
+    - name: Configurations and Management
+      href: wsl-config.md
     - name: File Permissions
       href: file-permissions.md
     - name: Initialize Your Linux Distro
