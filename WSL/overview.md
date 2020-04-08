@@ -17,7 +17,8 @@ ms.localizationpriority: high
 * [Read frequently asked questions](faq.md)
 
 ## Get Started
-* [Install Linux on Windows 10](install-win10.md)
+* [Install WSL1](install-win10.md)
+* [Install WSL2](wsl2-install.md)
 * [Install Linux on Windows Server](install-on-server.md)
 
 ## Team Blogs
