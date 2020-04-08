@@ -8,26 +8,34 @@
 - name: Getting Started
   href:
   items:
-    - name: Install on Windows 10
+    - name: Install WSL1
       href: install-win10.md
+    - name: Install WSL2
+      href: wsl2-install.md      
     - name: Install on Windows Server
       href: install-on-server.md
     - name: Initialize Distro
       href: initialize-distro.md
     - name: User Accounts
       href: user-support.md
-- name: WSL2
+- name: More about WSl2
   href: wsl2-index.md
   items:
     - name: User Experience Differences between WSL1 and WSL2
       href: wsl2-ux-changes.md
-- name: Configurations and Management
+    - name: WSL2 FAQ
+      href: wsl2-faq.md
+- name: Understanding Linux Distros
   href: wsl-config.md
   items:
     - name: File Permissions
       href: file-permissions.md
+    - name: Initialize Your Linux Distro
+      href: initialize-distro.md
     - name: Build a Custom Distro
       href: build-custom-distro.md
+    - name: User Accounts
+      href: user-support.md
 - name: Interoperability
   href: interop.md
 - name: WSL for enterprise
