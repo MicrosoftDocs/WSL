@@ -11,11 +11,9 @@ ms.localizationpriority: high
 
 # Windows Server Installation Guide
 
-> Applies to Windows Server 2019 and later
+Windows Subsystem for Linux is available for installation on Windows Server 2019 (version 1709) and later. This guide will walk through the steps of enabling and installing it.
 
-At //Build2017, Microsoft announced that Windows Subsystem for Linux will be [available on Windows Server](https://blogs.technet.microsoft.com/hybridcloud/2017/05/10/windows-server-for-developers-news-from-microsoft-build-2017/).  These instructions walk through running the Windows Subsystem for Linux on Windows Server 1709 and later.
-
-## Enable the Windows Subsystem for Linux (WSL)
+## Enable the Windows Subsystem for Linux
 
 Before you can run Linux distros on Windows, you must enable the "Windows Subsystem for Linux" optional feature and reboot.
 
