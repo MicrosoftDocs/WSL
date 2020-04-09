@@ -17,7 +17,7 @@
 - name: More about WSl2
   href: 
   items:
-    - name: Overview
+    - name: What's New?
       href: wsl2-index.md
     - name: User Experience Differences between WSL1 and WSL2
       href: wsl2-ux-changes.md
