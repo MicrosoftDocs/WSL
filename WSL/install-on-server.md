@@ -43,31 +43,29 @@ Please restart your machine to finish installing both components.
 Follow [these instructions](install-manual.md) to download your favorite Linux distribution.
 
 ## Extract and install a Linux distro
-Now that you've downloaded a distro, extract its contents and manually install the distro:
 
-1. Extract the `<distro>.appx` package's contents, e.g. using PowerShell:
+Now that you've downloaded a Linux distribution, in order to extract its contents and manually install, follow these steps:
+
+1. Extract the `<distro>.appx` package's contents, using PowerShell:
 
     ```powershell
     Rename-Item ./Ubuntu.appx ./Ubuntu.zip
     Expand-Archive ./Ubuntu.zip ./Ubuntu
     ```
 
-2. Run the distro launcher
-    To complete installation, run the distro launcher application in the target folder, named `<distro>.exe`. For example: `ubuntu.exe`, etc.
+2. Run the distribution launcher application in the target folder. The launcher is typically named `<distro>.exe` (for example, `ubuntu.exe`).
 
     ![Expanded Ubuntu distro on Windows Server](media/server-appx-expand.png)
 
-    > **Troubleshooting**
-    > * **Installation failed with error 0x8007007e**: This error occurs when your system doesn't support WSL. Make sure that:
-    >   * You're running Windows build 16215 or later. [Check your build](troubleshooting.md#check-your-build-number).
-    >   * The Windows Subsystem for Linux optional component is enabled and the computer has restarted.  [Make sure WSL is enabled](troubleshooting.md#confirm-wsl-is-enabled).
+> [!CAUTION]
+> **Installation failed with error 0x8007007e**: If you receive this error, then your system doesn't support WSL. Ensure that you're running Windows build 16215 or later. [Check your build](troubleshooting.md#check-your-build-number). Also check to [confirm that WSL is enabled](troubleshooting.md#confirm-wsl-is-enabled) and your computer was restarted after the feature was enabled.  
     
-3. Add your distro path to the Windows environment PATH (`C:\Users\Administrator\Ubuntu` in this example), e.g. using Powershell:
+3. Add your distro path to the Windows environment PATH (`C:\Users\Administrator\Ubuntu` in this example), using PowerShell:
         
     ```powershell
     $userenv = [System.Environment]::GetEnvironmentVariable("Path", "User")
     [System.Environment]::SetEnvironmentVariable("PATH", $userenv + ";C:\Users\Administrator\Ubuntu", "User")
     ```
-    You can now launch your distro from any path by typing `<distro>.exe`. For example: `ubuntu.exe`
+    You can now launch your distribution from any path by typing `<distro>.exe`. For example: `ubuntu.exe`.
 
-Now that your Linux distro is installed, you must [initialize your new distro instance](initialize-distro.md) before using your distro.
+Now that it is installed, you must [initialize your new distribution instance](initialize-distro.md) before using it.
