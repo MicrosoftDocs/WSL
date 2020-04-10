@@ -27,11 +27,11 @@ We currently have no plans to deprecate WSL 1. You can run WSL 1 and WSL 2 distr
 
 Some 3rd party applications cannot work when Hyper-V is in use, which means they will not be able to run when WSL 2 is enabled, such as VMware and VirtualBox. However, recently both VirtualBox and VMware have released versions that support Hyper-V and WSL2! You can learn more about [VirtualBox's changes here][1] and [VMware's changes here][4].
 
-We are investigating ways to help resolve this issue. For example, we expose a set of APIs called [Hypervisor Platform][2] that third-party virtualization providers can use to make their software compatible with Hyper-V’s. This lets applications use the Hyper-V architecture for their emulation such as [the Google Android Emulator][3], and VirtualBox 6 and above which are both now compatible with Hyper-V.
+We are investigating ways to help resolve this issue. For example, we expose a set of APIs called [Hypervisor Platform][2] that third-party virtualization providers can use to make their software compatible with Hyper-V's. This lets applications use the Hyper-V architecture for their emulation such as [the Google Android Emulator][3], and VirtualBox 6 and above which are both now compatible with Hyper-V.
 
 ## Can I access the GPU in WSL 2? Are there plans to increase hardware support?
 
-In initial releases of WSL 2 hardware access support will be limited, e.g: you will be unable to access the GPU, serial or USB devices. However, adding better device support is high on our backlog, as this opens many more use cases for developers that wish to interact with these devices. In the meantime, you can always use WSL 1 which has serial port access. Please stay tuned to this blog and WSL team members on Twitter to stay informed about the latest features coming to insider builds and reach out to give us feedback on what devices you’d like to interact with!
+In initial releases of WSL 2 hardware access support will be limited, e.g: you will be unable to access the GPU, serial or USB devices. However, adding better device support is high on our backlog, as this opens many more use cases for developers that wish to interact with these devices. In the meantime, you can always use WSL 1 which has serial port access. Please stay tuned to this blog and WSL team members on Twitter to stay informed about the latest features coming to insider builds and reach out to give us feedback on what devices you'd like to interact with!
 
 ## Will WSL 2 be able to use networking applications?
 
@@ -50,6 +50,6 @@ Make sure to replace '&lt;VMName&gt;' with the name of your virtual machine.
 WSL 2 supports the same wsl.conf file that WSL 1 uses. This means that any configuration options that you had set in a WSL 1 distro, such as automounting Windows drives, enabling or disabling interop, changing the directory where Windows drives will be mounted, etc. will all work inside of WSL 2. You can learn more about the configuration options in WSL in the [Distro Management](./wsl-config.md) page. 
 
  [1]: https://www.virtualbox.org/wiki/Changelog-6.0
- [2]: https://docs.microsoft.com/en-us/virtualization/api/
+ [2]: https://docs.microsoft.com/virtualization/api/
  [3]: https://devblogs.microsoft.com/visualstudio/hyper-v-android-emulator-support/
  [4]: https://blogs.vmware.com/workstation/2020/01/vmware-workstation-tech-preview-20h1.html

@@ -20,7 +20,7 @@ To install and start using WSL 2 complete the following steps:
 > WSL 2 is only available in Windows 10 builds 18917 or higher
 
 - Ensure that you have WSL installed (you can find instructions to do so [here](./install-win10.md)) and that you are running Windows 10 **build 18917** or higher
-   - To make sure you are using build 18917 or higher please join [the Windows Insider Program](https://insider.windows.com/en-us/) and select the 'Fast' ring or the 'Slow' ring. 
+   - To make sure you are using build 18917 or higher please join [the Windows Insider Program](https://insider.windows.com/) and select the 'Fast' ring or the 'Slow' ring. 
    - You can check your Windows version by opening Command Prompt and running the `ver` command.
 - Enable the 'Virtual Machine Platform' optional component
 - Set a distro to be backed by WSL 2 using the command line
@@ -80,4 +80,4 @@ Below are related errors and suggested fixes when installing WSL 2. Please refer
     * Please check [WSL Github thread #4103](https://github.com/microsoft/WSL/issues/4103) where this issue is being tracked for updated information.
 
 * **The term 'wsl' is not recognized as the name of a cmdlet, function, script file, or operable program.** 
-    * Ensure that the [Windows Subsystem for Linux Optional Component is installed](./wsl2-install.md#enable-the-virtual-machine-platform-optional-component-and-make-sure-wsl-is-enabled).<br> Additionally, if you are using an Arm64 device and running this command from PowerShell, you will receive this error. Instead run `wsl.exe` from [PowerShell Core](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-6), or Command Prompt. 
+    * Ensure that the [Windows Subsystem for Linux Optional Component is installed](./wsl2-install.md#enable-the-virtual-machine-platform-optional-component-and-make-sure-wsl-is-enabled).<br> Additionally, if you are using an Arm64 device and running this command from PowerShell, you will receive this error. Instead run `wsl.exe` from [PowerShell Core](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-6), or Command Prompt. 
