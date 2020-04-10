@@ -15,7 +15,5 @@ WSL 2 is a new version of the architecture in WSL that changes how Linux distros
 
 This WSL 2 section goes over the following topics:
 
-* [About WSL 2](./wsl2-about.md)
-* [Install WSL 2](./wsl2-install.md)
 * [User Experience Changes from WSL 1 to WSL 2](./wsl2-ux-changes.md)
 * [Frequently Asked Questions](./wsl2-faq.md)

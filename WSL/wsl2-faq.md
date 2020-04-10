@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.localizationpriority: high
 ---
 
-# WSL 2 FAQ
+# WSL 2 FAQs
 
 Below is a list of frequently asked questions (FAQ) about the Windows Subsystem for Linux 2.
 

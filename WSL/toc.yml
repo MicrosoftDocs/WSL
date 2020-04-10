@@ -1,0 +1,50 @@
+- name: Overview
+  href: overview.md
+  items:
+    - name: About
+      href: about.md
+    - name: WSL1 and WSL2
+      href: wsl1-wsl2.md
+- name: Getting Started
+  href:
+  items:
+    - name: Install WSL1
+      href: install-win10.md
+    - name: Install WSL2
+      href: wsl2-install.md      
+    - name: Install on Windows Server
+      href: install-on-server.md
+- name: More about WSl2
+  href: 
+  items:
+    - name: What's New?
+      href: wsl2-index.md
+    - name: User Experience Differences between WSL1 and WSL2
+      href: wsl2-ux-changes.md
+    - name: WSL2 FAQ
+      href: wsl2-faq.md
+- name: Understanding Linux Distros
+  href: 
+  items:
+    - name: Configurations and Management
+      href: wsl-config.md
+    - name: File Permissions
+      href: file-permissions.md
+    - name: Initialize Your Linux Distro
+      href: initialize-distro.md
+    - name: Build a Custom Distro
+      href: build-custom-distro.md
+    - name: User Accounts
+      href: user-support.md
+- name: Interoperability
+  href: interop.md
+- name: WSL for enterprise
+  href: enterprise.md
+- name: Frequently Asked Questions
+  href: faq.md
+- name: Troubleshooting
+  href: troubleshooting.md
+- name: Release Notes
+  href: release-notes.md
+- name: Command Line Reference
+  href: reference.md
