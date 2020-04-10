@@ -47,7 +47,7 @@ Make sure to replace '&lt;VMName&gt;' with the name of your virtual machine.
 
 ## Can I use wsl.conf in WSL 2?
 
-WSL 2 supports the same wsl.conf file that WSL 1 uses. This means that any configuration options that you had set in a WSL 1 distro, such as automounting Windows drives, enabling or disabling interop, changing the directory where Windows drives will be mounted, etc. will all work inside of WSL 2. You can learn more about the configuration options in WSL in the [Distro Management](./wsl-config.md) page. 
+WSL 2 supports the same wsl.conf file that WSL 1 uses. This means that any configuration options that you had set in a WSL 1 distro, such as automounting Windows drives, enabling or disabling interop, changing the directory where Windows drives will be mounted, etc. will all work inside of WSL 2. You can learn more about the configuration options in WSL in the [Distro Management](./wsl-config.md) page.
 
  [1]: https://www.virtualbox.org/wiki/Changelog-6.0
  [2]: https://docs.microsoft.com/virtualization/api/
