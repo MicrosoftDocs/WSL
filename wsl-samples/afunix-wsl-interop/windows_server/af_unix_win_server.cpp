@@ -1,13 +1,11 @@
 #undef UNICODE
 
-#pragma warning(push, 0)
 #include <winsock2.h>
 #include <windows.h>
 #include <ws2tcpip.h>
 #include <afunix.h>
 #include <stdlib.h>
 #include <stdio.h>
-#pragma warning(pop)
 
 #define SERVER_SOCKET "server.sock"
 
