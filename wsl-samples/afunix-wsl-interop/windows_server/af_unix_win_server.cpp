@@ -1,7 +1,7 @@
 #undef UNICODE
 
-#include <windows.h>
 #include <winsock2.h>
+#include <windows.h>
 #include <ws2tcpip.h>
 #include <afunix.h>
 #include <stdlib.h>
@@ -36,7 +36,7 @@ int __cdecl main(void)
 
     memset(&ServerSocket, 0, sizeof(ServerSocket));
     ServerSocket.sun_family = AF_UNIX;
-    strncpy(ServerSocket.sun_path, SERVER_SOCKET, strlen(SERVER_SOCKET));
+    strncpy_s(ServerSocket.sun_path, sizeof ServerSocket.sun_path, SERVER_SOCKET, (sizeof SERVER_SOCKET) - 1);
 
     // Bind the socket to the path.
     Result = bind(ListenSocket, (struct sockaddr *)&ServerSocket, sizeof(ServerSocket));
@@ -61,7 +61,7 @@ int __cdecl main(void)
     }
 
     printf("Accepted a connection.\n" );
-    printf("Relayed %d bytes: '%s'\n", strlen(SendBuffer), SendBuffer);
+    printf("Relayed %zu bytes: '%s'\n", strlen(SendBuffer), SendBuffer);
     // Send some data.
     SendResult = send(ClientSocket, SendBuffer, (int)strlen(SendBuffer), 0 );
     if (SendResult == SOCKET_ERROR) {
