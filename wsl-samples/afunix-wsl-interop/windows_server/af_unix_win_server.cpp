@@ -1,11 +1,13 @@
 #undef UNICODE
 
+#pragma warning(push, 0)
 #include <winsock2.h>
 #include <windows.h>
 #include <ws2tcpip.h>
 #include <afunix.h>
 #include <stdlib.h>
 #include <stdio.h>
+#pragma warning(pop)
 
 #define SERVER_SOCKET "server.sock"
 
@@ -30,7 +32,7 @@ int __cdecl main(void)
     // Create a AF_UNIX stream server socket.
     ListenSocket = socket(AF_UNIX, SOCK_STREAM, 0);
     if (ListenSocket == INVALID_SOCKET) {
-        printf("socket failed with error: %ld\n", WSAGetLastError());
+        printf("socket failed with error: %d\n", WSAGetLastError());
         goto Exit;
     }
 
