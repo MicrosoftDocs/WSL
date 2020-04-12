@@ -6,3 +6,4 @@
 
 #define SERVER_SOCKET "server.sock"
 #define CLIENT_SOCKET "client.sock"
+#define BIND_SOCKET "bind.sock"
