@@ -57,15 +57,15 @@ int __cdecl main(void)
         printf("accept failed with error: %d\n", WSAGetLastError());
         goto Exit;
     }
-
     printf("Accepted a connection.\n" );
-    printf("Relayed %zu bytes: '%s'\n", strlen(SendBuffer), SendBuffer);
+    
     // Send some data.
     SendResult = send(ClientSocket, SendBuffer, (int)strlen(SendBuffer), 0 );
     if (SendResult == SOCKET_ERROR) {
         printf("send failed with error: %d\n", WSAGetLastError());
         goto Exit;
     }
+    printf("Relayed %zu bytes: '%s'\n", strlen(SendBuffer), SendBuffer);
 
     // shutdown the connection.
     printf("Shutting down\n");
