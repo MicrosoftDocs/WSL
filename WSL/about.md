@@ -25,5 +25,5 @@ You can:
 * Invoke Windows applications using a Unix-like command-line shell.
 * Invoke GNU/Linux applications on Windows.
 
-## Windows Subsystem for Linux 2
+## WSL 2
 WSL 2 is a new version of the Windows Subsystem for Linux architecture that uses a real Linux kernel to run ELF64 binaries on Windows. The primary goals of WSL 2 are to increase file system performance and add full system call compatibility. This new architecture changes how the Linux binaries interact with Windows and your computer's hardware, but still provides the same user experience as in WSL 1 (the default version). Each individual Linux distribution can run in either the  WSL 1 or WSL 2 architecture, can be run side by side, and can be changed at any time.
