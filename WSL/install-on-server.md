@@ -27,7 +27,7 @@ Before you can run Linux distros on Windows, you must enable the "Windows Subsys
 **If you're looking for 100% system call compatibility and faster IO performance, install WSL2!**
 > WSL 2 is only available in Windows 10 builds 18917 or higher
 
-## For WSL2, enable the 'Virtual Machine Platform' optional component
+## Enable the Virtual Machine Platform and WSL optional features
 
 You will need to make sure that you have both the Windows Subsystem for Linux and the Virtual Machine Platform optional components installed. You can do that by running the following command in PowerShell: 
 
