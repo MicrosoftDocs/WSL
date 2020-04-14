@@ -12,7 +12,7 @@ ms.localizationpriority: high;
 
 ## Windows Subsystem for Linux 
 
-The Windows Subsystem for Linux lets developers run a GNU/Linux environment -- including most command-line tools, utilities, and applications -- directly on Windows, unmodified, without the overhead of a virtual machine.
+The Windows Subsystem for Linux lets developers run a GNU/Linux environment -- including command-line tools, utilities, and applications -- directly on Windows.
 
 You can:
 * Choose your favorite GNU/Linux distributions [from the Microsoft Store](https://aka.ms/wslstore).
