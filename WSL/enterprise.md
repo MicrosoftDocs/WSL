@@ -31,7 +31,7 @@ The instructions to register an account can be found here:
 https://docs.microsoft.com/microsoft-store/sign-up-microsoft-store-for-business
 
 ### Sign into the Store for Business and go to the homepage
-Sign in here: www.microsoft.com/business-store
+Sign in here: https://www.microsoft.com/business-store
 
 ![MS Store for business home page](media/offlineinstallscreens/1-screen.png)
 

@@ -14,9 +14,9 @@ ms.localizationpriority: high
 To install and start using WSL 2 complete the following steps:
 
 - Ensure that you have WSL installed (you can find instructions to do so [here](./install-win10.md)) and that you are running Windows 10 **build 18917** or higher. You can check your Windows version by opening Command Prompt and running the `ver` command.
-- [Enable the optional Virtual Machine Platform feature](#enable-the-optional-virtual-machine-platfor-feature)
+- [Enable the optional Virtual Machine Platform feature](#enable-the-optional-virtual-machine-platform-feature)
 - [Set the distribution to version 2](#set-the-distribution-to-version-2)
-- [Verify your WSL distribution version](#verify-your-WSL-distribution-version)
+- [Verify your WSL distribution version](#verify-your-wsl-distribution-version)
 
 ## Enable the optional Virtual Machine Platform feature
 
@@ -77,11 +77,11 @@ Virtual hard disk files must be uncompressed and unencrypted and must not be spa
 
 ### The term 'wsl' is not recognized as the name of a cmdlet, function, script file, or operable program
 
-Ensure that the [Windows Subsystem for Linux Optional Component is installed](./wsl2-install.md#enable-the-virtual-machine-platform-optional-component-and-make-sure-wsl-is-enabled).
+Ensure that the [Windows Subsystem for Linux Optional Component is installed](./wsl2-install.md#enable-the-optional-virtual-machine-platform-feature).
 
 Additionally, if you are using an Arm64 device and running this command from PowerShell, you will receive this error. Instead run `wsl.exe` from [PowerShell Core](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-6), or Command Prompt.
 
-Ensure that the [Windows Subsystem for Linux Optional Component is installed](./wsl2-install.md#enable-the-virtual-machine-platform-optional-component-and-make-sure-wsl-is-enabled).
+Ensure that the [Windows Subsystem for Linux Optional Component is installed](./wsl2-install.md#enable-the-optional-virtual-machine-platform-feature).
 
 Additionally, if you are using an Arm64 device and running this command from PowerShell, you will receive this error. Instead run `wsl.exe` from [PowerShell Core](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-6), or Command Prompt.
                                                                                                                                                                         
