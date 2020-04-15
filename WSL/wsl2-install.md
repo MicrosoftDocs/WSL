@@ -14,11 +14,11 @@ ms.localizationpriority: high
 To install and start using WSL 2 complete the following steps:
 
 - Ensure that you have WSL installed (you can find instructions to do so [here](./install-win10.md)) and that you are running Windows 10 **build 18917** or higher. You can check your Windows version by opening Command Prompt and running the `ver` command.
-- [Enable the optional Virtual Machine Platform feature](#enable-the-optional-virtual-machine-platform-feature)
+- [Enable the optional Virtual Machine Platform feature](#enable-the-virtual-machine-platform-optional-component)
 - [Set the distribution to version 2](#set-the-distribution-to-version-2)
 - [Verify your WSL distribution version](#verify-your-wsl-distribution-version)
 
-## Enable the optional Virtual Machine Platform feature
+## Enable the Virtual Machine Platform optional component
 
 You will need to make sure that you have both the Windows Subsystem for Linux and the Virtual Machine Platform optional components installed. You can do that by running the following command in PowerShell:
 
