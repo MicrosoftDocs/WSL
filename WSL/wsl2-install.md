@@ -77,7 +77,7 @@ Virtual hard disk files must be uncompressed and unencrypted and must not be spa
 
 ### The term 'wsl' is not recognized as the name of a cmdlet, function, script file, or operable program
 
-Ensure that the [Windows Subsystem for Linux Optional Component is installed](./wsl2-install.md#enable-the-optional-virtual-machine-platform-feature).
+Ensure that the [Windows Subsystem for Linux Optional Component is installed](./wsl2-install.md#enable-the-virtual-machine-platform-optional-component).
 
 Additionally, if you are using an Arm64 device and running this command from PowerShell, you will receive this error. Instead run `wsl.exe` from [PowerShell Core](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-6), or Command Prompt.
 
