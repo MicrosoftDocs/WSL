@@ -74,4 +74,4 @@ Now that your Linux distro is installed, you must [initialize your new distro in
 =======
 Now that it is installed, you must [initialize your new distribution instance](initialize-distro.md) before using it.
 >>>>>>> f47a5af1934fe2e7824bceb8543098135aacf7d6
-                                                                                                
+                                                                                                                                                                                                                                                                
