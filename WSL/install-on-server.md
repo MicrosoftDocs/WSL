@@ -19,19 +19,19 @@ At //Build2017, Microsoft announced that Windows Subsystem for Linux will be [av
 
 Before you can run Linux distros on Windows, you must enable the "Windows Subsystem for Linux" optional feature and reboot.
 
-1. Open PowerShell as Administrator and run:
+Open PowerShell as Administrator and run:
     ```powershell
     Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
     ```
 
-2. Restart your computer when prompted. **This reboot is required** in order to ensure that WSL can initiate a trusted execution environment.
+Restart your computer when prompted. **This reboot is required** in order to ensure that WSL can initiate a trusted execution environment.
 
 **If you're looking for 100% system call compatibility and faster IO performance, install WSL2!**
 > WSL 2 is only available in Windows 10 builds 18917 or higher
 
 ## For WSL2, enable the 'Virtual Machine Platform' optional component
 
-You will need to make sure that you have both the Windows Subsystem for Linux and the Virtual Machine Platform optional components installed. You can do that by running the following command in PowerShell: 
+Ensure the 'Virtual Machine Platform' optional component is installed. You can do that by running the following command in PowerShell: 
 
 ```powershell
 dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
@@ -73,3 +73,4 @@ Now that you've downloaded a distro, extract its contents and manually install t
     You can now launch your distro from any path by typing `<distro>.exe`. For example: `ubuntu.exe`
 
 Now that your Linux distro is installed, you must [initialize your new distro instance](initialize-distro.md) before using your distro.
+        
