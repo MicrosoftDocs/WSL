@@ -20,7 +20,7 @@ To install and start using WSL 2 complete the following steps:
 
 ## Enable the optional Virtual Machine Platform feature
 
-You will need to make sure that you have both the Windows Subsystem for Linux and the Virtual Machine Platform optional components installed. You can do that by running the following command in PowerShell: 
+You will need to make sure that you have both the Windows Subsystem for Linux and the Virtual Machine Platform optional components installed. You can do that by running the following command in PowerShell:
 
 ```powershell
 dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
@@ -31,9 +31,9 @@ Please restart your machine to finish installing both components.
 
 ## Set the distribution to version 2
 
-If you do not have a Linux distribution installed, please refer to the [Install on Windows 10](./install-win10.md#install-a-linux-distribution) docs page for instructions on installing one. 
+If you do not have a Linux distribution installed, please refer to the [Install on Windows 10](./install-win10.md#install-a-linux-distribution) docs page for instructions on installing one.
 
-To set a distribution to WSL 2, use the command: 
+To set a distribution to WSL 2, use the command:
 
 ```powershell
 wsl --set-version <Distro> 2
@@ -84,4 +84,3 @@ Additionally, if you are using an Arm64 device and running this command from Pow
 Ensure that the [Windows Subsystem for Linux Optional Component is installed](./wsl2-install.md#enable-the-optional-virtual-machine-platform-feature).
 
 Additionally, if you are using an Arm64 device and running this command from PowerShell, you will receive this error. Instead run `wsl.exe` from [PowerShell Core](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-6), or Command Prompt.
-                                                                                                                                                                        
