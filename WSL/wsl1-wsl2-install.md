@@ -26,14 +26,14 @@ Before installing any Linux distros for WSL, you must ensure that the "Windows S
 To install and start using WSL 2 complete the following steps:
 
 1. Ensure that you have WSL installed and that you are running Windows 10 **build 18917** or higher
-   - To make sure you are using build 18917 or higher please join [the Windows Insider Program](https://insider.windows.com/en-us/) and select the 'Fast' ring or the 'Slow' ring. 
+   - To make sure you are using build 18917 or higher please join [the Windows Insider Program](https://insider.windows.com) and select the 'Fast' ring or the 'Slow' ring. 
    - You can check your Windows version by opening Command Prompt and running the `ver` command.
 2. Enable the 'Virtual Machine Platform' optional component
 3. Install a Linux distribution of your choice
 4. Set a distro to be backed by WSL1 or WSL2 using the command line
 5. Verify what versions of WSL your distros are using
 
-## Enable the 'Virtual Machine Platform' optional component and make sure WSL is enabled
+## Enable the Virtual Machine Platform optional component and make sure WSL is enabled
 
 You will need to make sure that you have both the Windows Subsystem for Linux and the Virtual Machine Platform optional components installed. You can do that by running the following command in PowerShell: 
 
@@ -131,3 +131,4 @@ Below are related errors and suggested fixes. Refer to the [WSL troubleshooting 
 
 * **The term 'wsl' is not recognized as the name of a cmdlet, function, script file, or operable program.** 
     * Ensure that the [Windows Subsystem for Linux Optional Component is installed](./wsl2-install.md#enable-the-virtual-machine-platform-optional-component-and-make-sure-wsl-is-enabled).<br> Additionally, if you are using an Arm64 device and running this command from PowerShell, you will receive this error. Instead run `wsl.exe` from [PowerShell Core](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-6), or Command Prompt. 
+                                                                                                                

@@ -117,3 +117,4 @@ The Windows Subsystem for Linux only runs on your system drive (usually this is 
 The Windows Subsystem for Linux optional component is not enabled: 
 
 - Open **Control Panel** -> **Programs and Features** -> **Turn Windows Feature on or off** -> Check **Windows Subsystem for Linux** or using the PowerShell cmdlet mentioned at the begining of this article.
+                                                                                                

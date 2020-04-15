@@ -27,7 +27,7 @@ Restart your computer when prompted. **This reboot is required** in order to ens
 **If you're looking for 100% system call compatibility and faster IO performance, install WSL2!**
 > WSL 2 is only available in Windows 10 builds 18917 or higher
 
-## Enable the Virtual Machine Platform and WSL optional features
+## Enable the Virtual Machine Platform feature
 
 Ensure the 'Virtual Machine Platform' optional component is installed. You can do that by running the following command in PowerShell: 
 
@@ -35,8 +35,6 @@ Ensure the 'Virtual Machine Platform' optional component is installed. You can d
 dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
 dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
 ```
-
-Please restart your machine to finish installing both components.
 
 ## Download a Linux distro
 
@@ -68,10 +66,5 @@ Now that you've downloaded a Linux distribution, in order to extract its content
     ```
     You can now launch your distribution from any path by typing `<distro>.exe`. For example: `ubuntu.exe`.
 
-<<<<<<< HEAD
-Now that your Linux distro is installed, you must [initialize your new distro instance](initialize-distro.md) before using your distro.
-        
-=======
 Now that it is installed, you must [initialize your new distribution instance](initialize-distro.md) before using it.
->>>>>>> f47a5af1934fe2e7824bceb8543098135aacf7d6
-                                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
