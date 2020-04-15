@@ -13,6 +13,7 @@ ms.topic: article
 Before installing any Linux distros for WSL, you must ensure that the "Windows Subsystem for Linux" optional feature is enabled:
 
 1. Open PowerShell as Administrator and run:
+
     ```powershell
     Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
     ```
@@ -23,10 +24,11 @@ Before installing any Linux distros for WSL, you must ensure that the "Windows S
 > WSL 2 is only available in Windows 10 builds 18917 or higher
 
 ## Install the Windows Subsystem for Linux 2
+
 To install and start using WSL 2 complete the following steps:
 
 1. Ensure that you have WSL installed and that you are running Windows 10 **build 18917** or higher
-   - To make sure you are using build 18917 or higher please join [the Windows Insider Program](https://insider.windows.com) and select the 'Fast' ring or the 'Slow' ring. 
+   - To make sure you are using build 18917 or higher please join [the Windows Insider Program](https://insider.windows.com) and select the 'Fast' ring or the 'Slow' ring.
    - You can check your Windows version by opening Command Prompt and running the `ver` command.
 2. Enable the 'Virtual Machine Platform' optional component
 3. Install a Linux distribution of your choice
@@ -35,7 +37,7 @@ To install and start using WSL 2 complete the following steps:
 
 ## Enable the Virtual Machine Platform optional component and make sure WSL is enabled
 
-You will need to make sure that you have both the Windows Subsystem for Linux and the Virtual Machine Platform optional components installed. You can do that by running the following command in PowerShell: 
+You will need to make sure that you have both the Windows Subsystem for Linux and the Virtual Machine Platform optional components installed. You can do that by running the following command in PowerShell:
 
 ```powershell
 dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
@@ -45,14 +47,16 @@ dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /nores
 Please restart your machine to finish installing both components.
 
 ## Install your Linux Distribution of Choice
+
 To download and install your preferred distro(s), you have three choices:
-* Download and install from the Microsoft Store (see below)
-* Download and install from the Command-Line/Script ([read the manual installation instructions](install-manual.md))
-* Download and manually unpack and install (for Windows Server - [instructions here](install-on-server.md))
+
+- Download and install from the Microsoft Store (see below)
+- Download and install from the Command-Line/Script ([read the manual installation instructions](install-manual.md))
+- Download and manually unpack and install (for Windows Server - [instructions here](install-on-server.md))
 
 ### Windows 10 Fall Creators Update and later: Install from the Microsoft Store
 
-> This section is for Windows build 16215 or later.  Follow these steps to [check your build](troubleshooting.md#check-your-build-number). 
+> This section is for Windows build 16215 or later.  Follow these steps to [check your build](troubleshooting.md#check-your-build-number).
 
 1. Open the Microsoft Store and choose your favorite Linux distribution.
 
@@ -60,31 +64,32 @@ To download and install your preferred distro(s), you have three choices:
 
     The following links will open the Microsoft store page for each distribution:
 
-    * [Ubuntu 16.04 LTS](https://www.microsoft.com/store/apps/9pjn388hp8c9)
-    * [Ubuntu 18.04 LTS](https://www.microsoft.com/store/apps/9N9TNGVNDL3Q)
-    * [OpenSUSE Leap 15](https://www.microsoft.com/store/apps/9n1tb6fpvj8c)
-    * [OpenSUSE Leap 42](https://www.microsoft.com/store/apps/9njvjts82tjx)
-    * [SUSE Linux Enterprise Server 12](https://www.microsoft.com/store/apps/9p32mwbh6cns)
-    * [SUSE Linux Enterprise Server 15](https://www.microsoft.com/store/apps/9pmw35d7fnlx)
-    * [Kali Linux](https://www.microsoft.com/store/apps/9PKR34TNCV07)
-    * [Debian GNU/Linux](https://www.microsoft.com/store/apps/9MSVKQC78PK6)
-    * [Fedora Remix for WSL](https://www.microsoft.com/store/apps/9n6gdm4k2hnc)
-    * [Pengwin](https://www.microsoft.com/store/apps/9NV1GV1PXZ6P)
-    * [Pengwin Enterprise](https://www.microsoft.com/store/apps/9N8LP0X93VCP)
-    * [Alpine WSL](https://www.microsoft.com/store/apps/9p804crf0395)
+    - [Ubuntu 16.04 LTS](https://www.microsoft.com/store/apps/9pjn388hp8c9)
+    - [Ubuntu 18.04 LTS](https://www.microsoft.com/store/apps/9N9TNGVNDL3Q)
+    - [OpenSUSE Leap 15](https://www.microsoft.com/store/apps/9n1tb6fpvj8c)
+    - [OpenSUSE Leap 42](https://www.microsoft.com/store/apps/9njvjts82tjx)
+    - [SUSE Linux Enterprise Server 12](https://www.microsoft.com/store/apps/9p32mwbh6cns)
+    - [SUSE Linux Enterprise Server 15](https://www.microsoft.com/store/apps/9pmw35d7fnlx)
+    - [Kali Linux](https://www.microsoft.com/store/apps/9PKR34TNCV07)
+    - [Debian GNU/Linux](https://www.microsoft.com/store/apps/9MSVKQC78PK6)
+    - [Fedora Remix for WSL](https://www.microsoft.com/store/apps/9n6gdm4k2hnc)
+    - [Pengwin](https://www.microsoft.com/store/apps/9NV1GV1PXZ6P)
+    - [Pengwin Enterprise](https://www.microsoft.com/store/apps/9N8LP0X93VCP)
+    - [Alpine WSL](https://www.microsoft.com/store/apps/9p804crf0395)
 
 1. From the distro's page, select "Get"
 
     ![View of Linux distros in the Microsoft store](media/UbuntuStore.png)
 
 ## Complete initialization of your distro
+
 Now that your Linux distro is installed, you must [initialize your new distro instance](initialize-distro.md) once, before it can be used.
 
 ## Set a distro to be backed by WSL1 or WSL2 using the command line
 
-To set a distro to be backed by either version of WSL please run: 
+To set a distro to be backed by either version of WSL please run:
 
-```
+```bash
 wsl --set-version <Distro> <versionNumber>
 ```
 
@@ -92,7 +97,7 @@ Make sure to replace `<Distro>` with the actual name of your distro and `<versio
 
 Additionally, if you want to make WSL 2 your default architecture you can do so with this command:
 
-```
+```bash
 wsl --set-default-version 2
 ```
 
@@ -104,31 +109,29 @@ To verify what versions of WSL each distro is using use the following command (o
 
 `wsl --list --verbose` or `wsl -l -v`
 
-The distro that you've chosen above should now display either a '1' or '2' under the 'version' column. Now that you're finished feel free to start using any WSL distro! 
+The distro that you've chosen above should now display either a '1' or '2' under the 'version' column. Now that you're finished feel free to start using any WSL distro!
 
-## Troubleshooting: 
+## Troubleshooting
 
 Below are related errors and suggested fixes. Refer to the [WSL troubleshooting page](troubleshooting.md) for other common errors and their solutions.
 
-* **Installation failed with error 0x80070003**
-    * The Windows Subsystem for Linux only runs on your system drive (usually this is your `C:` drive). Make sure that distros are stored on your system drive:  
-    * Open **Settings** -> **Storage** -> **More Storage Settings: Change where new content is saved**
+- **Installation failed with error 0x80070003**
+  - The Windows Subsystem for Linux only runs on your system drive (usually this is your `C:` drive). Make sure that distros are stored on your system drive:  
+  - Open **Settings** -> **Storage** -> **More Storage Settings: Change where new content is saved**
     ![Picture of system settings to install apps on C: drive](media/AppStorage.png)
 
-    
- * **WslRegisterDistribution failed with error 0x8007019e**   
-  * The Windows Subsystem for Linux optional component is not enabled: 
-   * Open **Control Panel** -> **Programs and Features** -> **Turn Windows Feature on or off** -> Check **Windows Subsystem for Linux** or using the PowerShell cmdlet mentioned at the begining of this article.
+- **WslRegisterDistribution failed with error 0x8007019e**
+  - The Windows Subsystem for Linux optional component is not enabled:
+  - Open **Control Panel** -> **Programs and Features** -> **Turn Windows Feature on or off** -> Check **Windows Subsystem for Linux** or using the PowerShell cmdlet mentioned at the begining of this article.
 
-* **Installation failed with error 0x80070003 or error 0x80370102**
-    * Please make sure that virtualization is enabled inside of your computer's BIOS. The instructions on how to do this will vary from computer to computer, and will most likely be under CPU related options.
-   
-* **Error when trying to upgrade: `Invalid command line option: wsl --set-version Ubuntu 2`**
-    * Please make sure that you have the Windows Subsystem for Linux enabled, and that you're using Windows Build version 18917 or higher. To enable WSL run this command in a Powershell prompt with admin privileges: `Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux`. You can find the full WSL install instructions [here](./install-win10.md).
+- **Installation failed with error 0x80070003 or error 0x80370102**
+  - Please make sure that virtualization is enabled inside of your computer's BIOS. The instructions on how to do this will vary from computer to computer, and will most likely be under CPU related options.
 
-* **The requested operation could not be completed due to a virtual disk system limitation. Virtual hard disk files must be uncompressed and unencrypted and must not be sparse.**
-    * Please check [WSL Github thread #4103](https://github.com/microsoft/WSL/issues/4103) where this issue is being tracked for updated information.
+- **Error when trying to upgrade: `Invalid command line option: wsl --set-version Ubuntu 2`**
+  - Please make sure that you have the Windows Subsystem for Linux enabled, and that you're using Windows Build version 18917 or higher. To enable WSL run this command in a Powershell prompt with admin privileges: `Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux`. You can find the full WSL install instructions [here](./install-win10.md).
 
-* **The term 'wsl' is not recognized as the name of a cmdlet, function, script file, or operable program.** 
-    * Ensure that the [Windows Subsystem for Linux Optional Component is installed](./wsl2-install.md#enable-the-optional-virtual-machine-platform-feature).<br> Additionally, if you are using an Arm64 device and running this command from PowerShell, you will receive this error. Instead run `wsl.exe` from [PowerShell Core](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-6), or Command Prompt. 
-                                                                                                                
+- **The requested operation could not be completed due to a virtual disk system limitation. Virtual hard disk files must be uncompressed and unencrypted and must not be sparse.**
+  - Please check [WSL Github thread #4103](https://github.com/microsoft/WSL/issues/4103) where this issue is being tracked for updated information.
+
+- **The term 'wsl' is not recognized as the name of a cmdlet, function, script file, or operable program.**
+  - Ensure that the [Windows Subsystem for Linux Optional Component is installed](./wsl2-install.md#enable-the-virtual-machine-platform-optional-component). Additionally, if you are using an Arm64 device and running this command from PowerShell, you will receive this error. Instead run `wsl.exe` from [PowerShell Core](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-6), or Command Prompt.
