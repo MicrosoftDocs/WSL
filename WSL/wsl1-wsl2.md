@@ -6,7 +6,7 @@ ms.date: 03/23/2020
 ms.topic: article
 ---
 
-# WSL1 vs. WSL2
+# Comparing WSL 2 and WSL 1
 
 
 WSL 2 uses the latest and greatest in virtualization technology to run its Linux kernel inside of a lightweight utility virtual machine (VM). However, WSL 2 will NOT be a traditional VM experience. 

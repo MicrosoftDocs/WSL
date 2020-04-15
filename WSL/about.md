@@ -12,7 +12,7 @@ ms.localizationpriority: high;
 
 ## Windows Subsystem for Linux 
 
-The Windows Subsystem for Linux lets developers run a GNU/Linux environment -- including most command-line tools, utilities, and applications -- directly on Windows, unmodified, without the overhead of a virtual machine.
+The Windows Subsystem for Linux lets developers run a GNU/Linux environment -- including command-line tools, utilities, and applications -- directly on Windows.
 
 You can:
 * Choose your favorite GNU/Linux distributions [from the Microsoft Store](https://aka.ms/wslstore).
@@ -25,6 +25,11 @@ You can:
 * Invoke Windows applications using a Unix-like command-line shell.
 * Invoke GNU/Linux applications on Windows.
 
+<<<<<<< HEAD
 ## Windows Subsystem for Linux 2
 WSL 2 is a new version of the architecture that powers the Windows Subsystem for Linux to run ELF64 Linux binaries on Windows. Its primary goals are to increase file system performance, as well as adding full system call compatibility. This new architecture changes how these Linux binaries interact with Windows and your computer's hardware, but still provides the same user experience as in WSL 1 (the current widely available version). Individual Linux distros can be run either as a WSL 1 distro, or as a WSL 2 distro, can be upgraded or downgraded at any time, and you can run WSL 1 and WSL 2 distros side by side. WSL 2 uses an entirely new architecture that uses a real Linux kernel.
                                                                                                                         
+=======
+## WSL 2
+WSL 2 is a new version of the Windows Subsystem for Linux architecture that uses a real Linux kernel to run ELF64 binaries on Windows. The primary goals of WSL 2 are to increase file system performance and add full system call compatibility. This new architecture changes how the Linux binaries interact with Windows and your computer's hardware, but still provides the same user experience as in WSL 1 (the default version). Each individual Linux distribution can run in either the  WSL 1 or WSL 2 architecture, can be run side by side, and can be changed at any time.
+>>>>>>> f47a5af1934fe2e7824bceb8543098135aacf7d6
