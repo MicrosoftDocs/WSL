@@ -31,6 +31,24 @@ You will be asked to enter your current password, then asked to enter your new p
 
 If you forgot the password for your Linux distribution:
 
+<!-- This is a test of tab selectors. -->
+
+# [PowerShell](#tab/powershell)
+
+Open PowerShell and enter the root of your default WSL distribution using the command: `wsl -u root`
+
+# [Linux distro](#tab/linux)
+
+Open Ubuntu (or any WSL distro) and enter the command: `cd ~`
+
+# [Win Command Prompt](#tab/windows)
+
+Open the Windows Command Prompt and enter the command: `cd \`
+
+---
+
+<!-- Remove this tab selector section after testing.  -->
+
 1. Open PowerShell and enter the root of your default WSL distribution using the command: `wsl -u root`
 
 > If you need to update the forgotten password on a distribution that is not your default, use the command: `wsl -d Debian -u root`, replacing `Debian` with the name of your targeted distribution.
