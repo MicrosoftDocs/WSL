@@ -86,12 +86,12 @@ Sunday, March 11, 2018 7:54:05 PM
 
 PS C:\Users\sarah> wsl
 scooley@scooley-elmer:/mnt/c/Users/sarah$ date
-Sun Mar 11 19:56:57 DST 2018
+Sun Mar 11 19:55:47 DST 2018
 scooley@scooley-elmer:/mnt/c/Users/sarah$ exit
 logout
 
 PS C:\Users\sarah> wsl date
-Sun Mar 11 19:55:47 DST 2018
+Sun Mar 11 19:56:57 DST 2018
 ```
 
 **Example:**
