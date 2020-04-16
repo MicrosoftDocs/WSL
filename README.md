@@ -12,7 +12,7 @@ If you find doc issues / errors or have an improvement you'd like to suggest, pl
 
 [Rendered documentation website](https://docs.microsoft.com/windows/wsl/) 
 
-[Release notes for WSL](https://docs.microsoft.com/en-us/windows/wsl/release-notes)
+[Release notes for WSL](https://docs.microsoft.com/windows/wsl/release-notes)
 
 ## Microsoft Open Source Code of Conduct
 

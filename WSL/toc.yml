@@ -3,25 +3,23 @@
   items:
     - name: About
       href: about.md
-    - name: WSL1 and WSL2
+    - name: Comparing WSL 2 and WSL 1
       href: wsl1-wsl2.md
 - name: Getting Started
   href:
   items:
-    - name: Install WSL1
-      href: install-win10.md
-    - name: Install WSL2
-      href: wsl2-install.md      
+    - name: Install the Windows Subsytem for Linux
+      href: wsl1-wsl2-install.md
     - name: Install on Windows Server
       href: install-on-server.md
-- name: More about WSl2
+- name: More about WSl 2
   href: 
   items:
     - name: What's New?
       href: wsl2-index.md
-    - name: User Experience Differences between WSL1 and WSL2
+    - name: User Experience Differences between WSL 1 and WSL 2
       href: wsl2-ux-changes.md
-    - name: WSL2 FAQ
+    - name: WSL 2 FAQ
       href: wsl2-faq.md
 - name: Understanding Linux Distros
   href: 
@@ -30,8 +28,6 @@
       href: wsl-config.md
     - name: File Permissions
       href: file-permissions.md
-    - name: Initialize Your Linux Distro
-      href: initialize-distro.md
     - name: Build a Custom Distro
       href: build-custom-distro.md
     - name: User Accounts

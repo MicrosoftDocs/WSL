@@ -183,7 +183,7 @@ For general Windows information on build 18890 visit the [Windows blog](https://
 * Update resolv.conf header to refer to wsl.conf [discussed in GH 3928]
 * Deadlock in epoll delete code [GH 3922]
 * Handle spaces in arguments to --import and –export [GH 3932]
-* Extending mmap’d files does not work properly [GH 3939]
+* Extending mmap'd files does not work properly [GH 3939]
 * Fix issue with ARM64 \\\\wsl$ access not working properly
 * Add better default icon for wsl.exe
 
@@ -214,7 +214,7 @@ For general Windows information on build 18305 visit the [Windows blog](https://
 
 ### WSL
 * pthreads lose access to files when the primary thread exits [GH 3589]
-* TIOCSCTTY should ignore the “force” parameter unless it is required [GH 3652]
+* TIOCSCTTY should ignore the "force" parameter unless it is required [GH 3652]
 * wsl.exe command line improvements and addition of import / export functionality.
 ```
 Usage: wsl.exe [Argument] [Options...] [CommandLine]
@@ -286,7 +286,7 @@ For general Windows information on build 18277 visit the [Windows blog](https://
 For general Windows information on build 18272 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2018/10/31/announcing-windows-10-insider-preview-build-18272/).
 
 ### WSL
-* **WARNING:** There is an issue in this build that makes WSL inoperable. When trying to launch your distribution you will see a “No such interface supported” error. The issue has been fixed and will be in next week's Insider Fast build. If you've installed this build you can roll back to the previous Windows build using “Go back to the previous version of Windows 10” in Settings->Update & Security->Recovery.
+* **WARNING:** There is an issue in this build that makes WSL inoperable. When trying to launch your distribution you will see a "No such interface supported" error. The issue has been fixed and will be in next week's Insider Fast build. If you've installed this build you can roll back to the previous Windows build using "Go back to the previous version of Windows 10" in Settings->Update & Security->Recovery.
 
 ## Build 18267
 For general Windows information on build 18267 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2018/10/24/announcing-windows-10-insider-preview-build-18267/).
@@ -522,7 +522,7 @@ For general Windows information on build 17627 visit the [Windows Blog](https://
 * Windows firewall support for WSL processes. [GH 1852]
     * For example, to allow the WSL python process to listen on any port, use the elevated Windows cmd:
 ```netsh.exe advfirewall firewall add rule name=wsl_python dir=in action=allow program="C:\users\<username>\appdata\local\packages\canonicalgrouplimited.ubuntuonwindows_79rhkp1fndgsc\localstate\rootfs\usr\bin\python2.7" enable=yes```
-    * For additional details on how to add firewall rules, see [link](https://support.microsoft.com/en-us/help/947709/how-to-use-the-netsh-advfirewall-firewall-context-instead-of-the-netsh)
+    * For additional details on how to add firewall rules, see [link](https://support.microsoft.com/help/947709/how-to-use-the-netsh-advfirewall-firewall-context-instead-of-the-netsh)
 * Respect user's default shell when using wsl.exe. [GH 2372]
 * Report all network interfaces as ethernet. [GH 2996]
 * Better handling of corrupt /etc/passwd file. [GH 3001]
@@ -551,8 +551,8 @@ For general Windows information on build 17110 visit the [Windows Blog](https://
 
 ### WSL
 * Allow /init to be terminated from Windows [GH 2928].
-* DrvFs now uses per-directory case sensitivity by default (equivalent to the “case=dir” mount option).
-    * Using “case=force” (the old behavior) requires setting a registry key. Run the following command to enable “case=force” if you need to use it: reg add HKLM\SYSTEM\CurrentControlSet\Services\lxss /v DrvFsAllowForceCaseSensitivity /t REG_DWORD /d 1
+* DrvFs now uses per-directory case sensitivity by default (equivalent to the "case=dir" mount option).
+    * Using "case=force" (the old behavior) requires setting a registry key. Run the following command to enable "case=force" if you need to use it: reg add HKLM\SYSTEM\CurrentControlSet\Services\lxss /v DrvFsAllowForceCaseSensitivity /t REG_DWORD /d 1
     * If you have existing directories created with WSL in older version of Windows which need to be case sensitive, use fsutil.exe to mark them as case sensitive: fsutil.exe file setcasesensitiveinfo <path> enable
 * NULL terminate strings returned from the uname syscall.
 
@@ -608,7 +608,7 @@ When starting WSL for the first time after upgrading to this build, it needs to 
         * case=force: all directories are treated as case sensitive (except for the drive root). New directories created with WSL are marked as case sensitive. This is the legacy behavior except for marking new directories case sensitive.
         * case=dir: only directories with the per-directory case sensitivity flag are treated as case sensitive; other directories are case insensitive. New directories created with WSL are marked as case sensitive.
         * case=off: only directories with the per-directory case sensitivity flag are treated as case sensitive; other directories are case insensitive. New directories created with WSL are marked as case insensitive.
-    * Note: directories created by WSL in previous releases do not have this flag set, so will not be treated as case sensitive if you use the “case=dir” option. A way to set this flag on existing directories is coming soon.
+    * Note: directories created by WSL in previous releases do not have this flag set, so will not be treated as case sensitive if you use the "case=dir" option. A way to set this flag on existing directories is coming soon.
     * Example of mounting with these options (for existing drives, you must first unmount before you can mount with different options): sudo mount -t drvfs C: /mnt/c -o case=dir
     * For now, case=force is still the default option. This will be changed to case=dir in the future.
 * You can now use forward slashes in Windows paths when mounting DrvFs, e.g.: sudo mount -t drvfs //server/share /mnt/share
@@ -622,7 +622,7 @@ When starting WSL for the first time after upgrading to this build, it needs to 
 We added a method for you to automatically configure certain functionality in WSL that will be applied every time you launch the subsystem. This includes automount options and network configuration. Learn more about it in our blog post at: https://aka.ms/wslconf
 
 #### AF_UNIX allows socket connections between Linux processes on WSL and Windows native processes
-WSL and Windows applications can now communicate with each other over Unix sockets. Imagine you want to run a service in Windows and make it available to both Windows and WSL apps. Now, that’s possible with Unix sockets. Read more in our blog post at https://aka.ms/afunixinterop
+WSL and Windows applications can now communicate with each other over Unix sockets. Imagine you want to run a service in Windows and make it available to both Windows and WSL apps. Now, that's possible with Unix sockets. Read more in our blog post at https://aka.ms/afunixinterop
 
 ### WSL
 * Support mmap() with MAP_NORESERVE [GH 121, 2784]
@@ -730,7 +730,7 @@ For general Windows information on build 17063 visit the [Windows Blog](https://
 ### Linux tools available to developers on Windows
 
 * Windows Command line Toolchain includes bsdtar (tar) and curl.
-  Read [this blog](https://aka.ms/tarcurlwindows) to learn more about the addition of these two new tools and see how they’re shaping the developer experience on Windows.
+  Read [this blog](https://aka.ms/tarcurlwindows) to learn more about the addition of these two new tools and see how they're shaping the developer experience on Windows.
 
 *   `AF_UNIX` is available in the Windows Insider SDK (17061+).
   Read [this blog](https://blogs.msdn.microsoft.com/commandline/2017/12/19/af_unix-comes-to-windows/) to learn more about `AF_UNIX` and how developers on Windows can use it.
@@ -763,9 +763,9 @@ For general Windows information on build 17046 visit the [Windows Blog](https://
       -a    force result to absolute path format
       -u    translate from a Windows path to a WSL path (default)
       -w    translate from a WSL path to a Windows path
-      -m    translate from a WSL path to a Windows path, with ‘/’ instead of ‘\\’
+      -m    translate from a WSL path to a Windows path, with '/' instead of '\\'
 
-      EX: wslpath ‘c:\users’
+      EX: wslpath 'c:\users'
   ```
   #### Console
 - No fixes.
@@ -1312,7 +1312,7 @@ For general Windows information on build 15007 visit the [Windows Blog]( https:/
 
 ### Known Issue
 
-- There is a known bug where the console does not recognize some Ctrl + <key> input.  This includes the ctrl-c command which will act as a normal ‘c’ keypress.
+- There is a known bug where the console does not recognize some Ctrl + <key> input.  This includes the ctrl-c command which will act as a normal 'c' keypress.
 
   - Workaround: Map an alternate key to Ctrl+C. For example, to map Ctrl+K to Ctrl+C do:
 `stty intr \^k`.  This mapping is per terminal and will have to be done *every* time bash is launched. Users can explore the option to include this in their `.bashrc`
@@ -1339,7 +1339,7 @@ For general Windows information on build 15002 visit the [Windows Blog](https://
 ### Known Issue
 
 Two known issues:
-- There is a known bug where the console does not recognize some Ctrl + <key> input.  This includes the ctrl-c command which will act as a normal ‘c’ keypress.
+- There is a known bug where the console does not recognize some Ctrl + <key> input.  This includes the ctrl-c command which will act as a normal 'c' keypress.
 
   - Workaround: Map an alternate key to Ctrl+C. For example, to map Ctrl+K to Ctrl+C do:
 `stty intr \^k`.  This mapping is per terminal and will have to be done *every* time bash is launched. Users can explore the option to include this in their `.bashrc`
@@ -1370,7 +1370,7 @@ Two known issues:
 - Fixed error where shortcut name was incorrectly localized (GH #696)
 - Fixed elf parsing logic that is incorrectly validating the program headers must be less than (or equal to) PATH_MAX. (GH #1048)
 - Implemented statfs callback for procfs, sysfs, cgroupfs, and binfmtfs (GH #1378)
-- Fixed AptPackageIndexUpdate windows that won’t close (GH #1184, also discussed in GH #1193)
+- Fixed AptPackageIndexUpdate windows that won't close (GH #1184, also discussed in GH #1193)
 - Added ASLR personality  ADDR_NO_RANDOMIZE support. (GH #1148, 1128)
 - Improved PTRACE_GETSIGINFO, SIGSEGV, for proper gdb stack traces during AV (GH #875)
 - Elf parsing no longer fails for patchelf binaries. (GH #471)
@@ -1415,7 +1415,7 @@ For general Windows information on build 14986 visit the [Windows Blog](https://
 - Fixed issue where ping returned a time of 0.000ms (GH #1296)
 - Return correct error code when too many files are opened.
 - Fixed issue in WSL where Netlink request for network interface data would fail with EINVAL if the interface's hardware address is 32-bytes (such as the Teredo interface)
-   - Note that the Linux "ip" utility contains a bug where it will crash if WSL reports a 32-byte hardware address. This is a bug in "ip", not WSL. The “ip” utility hard-codes the length of the string buffer used to print the hardware address, and that buffer is too small to print a 32-byte hardware address.
+   - Note that the Linux "ip" utility contains a bug where it will crash if WSL reports a 32-byte hardware address. This is a bug in "ip", not WSL. The "ip" utility hard-codes the length of the string buffer used to print the hardware address, and that buffer is too small to print a 32-byte hardware address.
 - Additional fixes and improvements
 
 ### LTP Results:
@@ -1543,7 +1543,7 @@ Windows binaries can now be invoked directly from the WSL command line.  This gi
 More information can be found at:
 
 - [WSL Team Blog for Interop](https://blogs.msdn.microsoft.com/wsl/2016/10/19/windows-and-ubuntu-interoperability/)<br/>
-- [MSDN Interop Documentation](https://msdn.microsoft.com/en-us/commandline/wsl/interop)<br/>
+- [MSDN Interop Documentation](https://msdn.microsoft.com/commandline/wsl/interop)<br/>
 
 ### Fixed
 
@@ -1593,7 +1593,7 @@ For general Windows information on build 14942 visit the [Windows Blog](https://
 
 ### Fixed
 
-- A number of bugchecks addressed, including the “ATTEMPTED EXECUTE OF NOEXECUTE MEMORY” networking crash which was blocking SSH
+- A number of bugchecks addressed, including the "ATTEMPTED EXECUTE OF NOEXECUTE MEMORY" networking crash which was blocking SSH
 - inotifiy support for notifications generated from Windows applications on DrvFs is now in
 - Implement TCP_KEEPIDLE and TCP_KEEPINTVL for mongod. (GH #695)
 - Implement the pivot_root system call
@@ -1620,7 +1620,7 @@ For general Windows information on build 14936 visit the [Windows Blog](https://
 Note: WSL will install Ubuntu version 16.04 (Xenial) instead of Ubuntu 14.04 (Trusty) in an upcoming release.  This change will apply to Insiders installing new instances (lxrun.exe /install or first run of bash.exe).  Existing instances with Trusty will not be upgraded automatically. Users can upgrade their Trusty image to Xenial using the do-release-upgrade command.
 
 ### Known Issue
-WSL is experiencing an issue with some socket implementations.  The bugcheck manifests itself as a crash with the error “ATTEMPTED EXECUTE OF NOEXECUTE MEMORY”.  The most common manifestation of this issue is a crash when using ssh.  The root cause is fixed on internal builds and will be pushed to Insiders at the earliest opportunity.
+WSL is experiencing an issue with some socket implementations.  The bugcheck manifests itself as a crash with the error "ATTEMPTED EXECUTE OF NOEXECUTE MEMORY".  The most common manifestation of this issue is a crash when using ssh.  The root cause is fixed on internal builds and will be pushed to Insiders at the earliest opportunity.
 
 ### Fixed
 
@@ -1815,7 +1815,7 @@ For general Windows information on build 14361 visit the [Windows Blog](https://
   - Users may case.txt and CASE.TXT on their /mnt/c drives
   - Case sensitivity is only supported within Bash on Ubuntu on Windows. When outside of Bash NTFS will report the files correctly, but unexpected behavior may occur interacting with the files from Windows.
   - The root of each volume (i.e. /mnt/c) is not case sensitive
-  - More information on handling these files in Windows can be found [here](https://support.microsoft.com/en-us/kb/100625).
+  - More information on handling these files in Windows can be found [here](https://support.microsoft.com/kb/100625).
 - Greatly enhanced pty / tty support.  Applications like TMUX now supported (GH #40)
 - Fixed install issue where user accounts not always created
 - Optimized command line arg structure allowing for extremely long argument list. (GH #153)
@@ -1830,7 +1830,7 @@ For general Windows information on build 14361 visit the [Windows Blog](https://
 - strace now exits correctly
 - Allow pipes to be reopened through /proc/self/fd (GH #222)
 - Hide directories under %LOCALAPPDATA%\lxss from DrvFs (GH #270)
-- Better handling of bash.exe ~.  Commands like “bash ~ -c ls” now supported (GH #467)
+- Better handling of bash.exe ~.  Commands like "bash ~ -c ls" now supported (GH #467)
 - Sockets now notify epoll read available during shutdown (GH #271)
 - lxrun /uninstall does a better job of deleting the files and folders
 - Corrected ps -f (GH #246)
@@ -1863,8 +1863,8 @@ For general Windows information on build 14352 visit the [Windows Blog](https://
 - Fixed issue with WSL allowing filenames longer than 255 characters
 - Improved support for non-English characters
 - Add current Windows timezone data and set as default
-- Unique device id’s for each mount point (jre fix – GH #49)
-- Correct issue with paths containing “.” and “..”
+- Unique device id's for each mount point (jre fix – GH #49)
+- Correct issue with paths containing "." and ".."
 - Added Fifo support (GH #71)
 - Updated format of resolv.conf to match native Ubuntu format
 - Some procfs cleanup
@@ -1908,7 +1908,7 @@ Information on VolFs and DriveFs can be found on the [WSL Blog](https://blogs.ms
 - Additional bugfixes and improvements
 
 ### Known Issues
-- Not resolving ‘..’ correctly on DriveFs in some cases
+- Not resolving '..' correctly on DriveFs in some cases
 
 ### Syscall Support
 Below are a list of new or enhanced syscalls that have some implementation in WSL. The syscalls on this list are supported in at least one scenario, but may not have all parameters supported at this time.
