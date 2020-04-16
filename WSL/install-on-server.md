@@ -24,17 +24,16 @@ Open PowerShell as Administrator and run:
 
 ```
 
-Restart your computer when prompted. **This reboot is required** in order to ensure that WSL can initiate a trusted execution environment.
-
-**If you're looking for 100% system call compatibility and faster IO performance, install WSL2!**
+**If you're looking for 100% system call compatibility and faster IO performance, read below to install WSL 2!**
 > WSL 2 is only available in Windows 10 builds 18917 or higher
 
-## Enable the Virtual Machine Platform feature
+**If continuing with WSL 1, restart your machine when prompted and continue with installation [here](./install-on-server.md##download-a-linux-distro)**
+
+## Enable the Virtual Machine Platform optional component
 
 Ensure the 'Virtual Machine Platform' optional component is installed. You can do that by running the following command in PowerShell:
 
 ```powershell
-dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
 dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
 ```
 
@@ -67,5 +66,6 @@ Now that you've downloaded a Linux distribution, in order to extract its content
     [System.Environment]::SetEnvironmentVariable("PATH", $userenv + ";C:\Users\Administrator\Ubuntu", "User")
     ```
     You can now launch your distribution from any path by typing `<distro>.exe`. For example: `ubuntu.exe`.
+
 
 Now that it is installed, you must [initialize your new distribution instance](initialize-distro.md) before using it.

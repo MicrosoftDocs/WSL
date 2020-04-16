@@ -12,35 +12,34 @@ ms.topic: article
 
 Before installing any Linux distros for WSL, you must ensure that the "Windows Subsystem for Linux" optional feature is enabled:
 
-1. Open PowerShell as Administrator and run:
+Open PowerShell as Administrator and run:
 
-    ```powershell
+```powershell
     Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
-    ```
+```
 
-2. Restart your computer when prompted.
-
-**If you're looking for 100% system call compatibility and faster IO performance, install WSL2!**
+**If you're looking for 100% system call compatibility and faster IO performance, read below to install WSL 2!**
 > WSL 2 is only available in Windows 10 builds 18917 or higher
+
+**If continuing with WSL 1, restart your machine when prompted and continue with installation [here](./wsl1-wsl2-install.md##install-your-linux-distribution-of-choice)**
 
 ## Install the Windows Subsystem for Linux 2
 
 To install and start using WSL 2 complete the following steps:
 
-1. Ensure that you have WSL installed and that you are running Windows 10 **build 18917** or higher
-   - To make sure you are using build 18917 or higher please join [the Windows Insider Program](https://insider.windows.com) and select the 'Fast' ring or the 'Slow' ring.
+1. Ensure that you are running Windows 10 **build 18917** or higher
+   - To make sure you are using build 18917 or higher please join [the Windows Insider Program](https://insider.windows.com/) and select the 'Fast' ring or the 'Slow' ring.
    - You can check your Windows version by opening Command Prompt and running the `ver` command.
 2. Enable the 'Virtual Machine Platform' optional component
 3. Install a Linux distribution of your choice
 4. Set a distro to be backed by WSL1 or WSL2 using the command line
 5. Verify what versions of WSL your distros are using
 
-## Enable the Virtual Machine Platform optional component and make sure WSL is enabled
+## Enable the 'Virtual Machine Platform' optional component
 
-You will need to make sure that you have both the Windows Subsystem for Linux and the Virtual Machine Platform optional components installed. You can do that by running the following command in PowerShell:
+For WSL 2, you will also need to make sure that you have the Virtual Machine Platform optional component installed. You can do that by running the following command in PowerShell:
 
 ```powershell
-dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
 dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
 ```
 
@@ -83,7 +82,32 @@ To download and install your preferred distro(s), you have three choices:
 
 ## Complete initialization of your distro
 
-Now that your Linux distro is installed, you must [initialize your new distro instance](initialize-distro.md) once, before it can be used.
+After launching your Linux distribution, follow the onscreen instructions to initialize your distro.
+
+> [!NOTE]
+> For Windows Server, launch your distribution using the executable, `<distro>.exe`, in the installation folder.
+
+The first time a newly installed distribution runs, a console window will open and you'll be asked to wait for a minute or two for the installation to complete. During this final stage of installation, the distro's files are de-compressed and stored on your PC, ready for use. This may take around a minute or more depending on the performance of your PC's storage devices. This initial installation phase is only required when a distro is clean-installed - all future launches should take less than a second.
+
+### Set up a new Linux user account
+
+Once installation is complete, you will be prompted to create a new user account (and its password).
+
+![Ubuntu unpacking in the Windows console](media/UbuntuInstall.png)
+
+This user account is for the normal non-admin user that you'll be logged-in as by default when launching a distribution. You can choose any username and password you wish - they have no bearing on your Windows username.
+
+When you open a new distro instance, you won't be prompted for your password, but **if you elevate a process using `sudo`, you will need to enter your password**, so make sure you choose a password you can easily remember! See the [User Support](user-support.md) page for more info.
+
+### Update & upgrade packages
+
+Most distributions ship with an empty or minimal package catalog. We strongly recommend regularly updating your package catalog and upgrading your installed packages using your distro's preferred package manager. For Debian/Ubuntu, use apt:
+
+```bash
+sudo apt update && sudo apt upgrade
+```
+
+Windows does not automatically update or upgrade your Linux distro(s). This is a task that the most Linux users prefer to control themselves.
 
 ## Set a distro to be backed by WSL1 or WSL2 using the command line
 

@@ -8,10 +8,8 @@
 - name: Getting Started
   href:
   items:
-    - name: Install WSL 1
-      href: install-win10.md
-    - name: Install WSL 2
-      href: wsl2-install.md      
+    - name: Install the Windows Subsytem for Linux
+      href: wsl1-wsl2-install.md
     - name: Install on Windows Server
       href: install-on-server.md
 - name: More about WSl 2
@@ -30,8 +28,6 @@
       href: wsl-config.md
     - name: File Permissions
       href: file-permissions.md
-    - name: Initialize Your Linux Distro
-      href: initialize-distro.md
     - name: Build a Custom Distro
       href: build-custom-distro.md
     - name: User Accounts
