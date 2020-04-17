@@ -9,10 +9,10 @@
   href:
   items:
     - name: Install the Windows Subsytem for Linux
-      href: wsl1-wsl2-install.md
+      href: install-win10.md
     - name: Install on Windows Server
       href: install-on-server.md
-- name: More about WSl 2
+- name: More about WSL 2
   href: 
   items:
     - name: What's New?
