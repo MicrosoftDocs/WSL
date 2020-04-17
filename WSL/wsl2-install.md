@@ -31,7 +31,7 @@ Please restart your machine to finish installing both components.
 
 ## Set the distribution to version 2
 
-If you do not have a Linux distribution installed, please refer to the [Install on Windows 10](./install-win10.md#install-a-linux-distribution) docs page for instructions on installing one.
+If you do not have a Linux distribution installed, please refer to the [Install on Windows 10](./install-win10.md#install-your-linux-distribution-of-choice) docs page for instructions on installing one.
 
 To set a distribution to WSL 2, use the command:
 
