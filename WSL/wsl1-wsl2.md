@@ -10,7 +10,7 @@ ms.topic: article
 
 WSL 2 uses the latest and greatest in virtualization technology to run its Linux kernel inside of a lightweight utility virtual machine (VM). However, WSL 2 will NOT be a traditional VM experience.
 
-Already using WSL 1 and want to upgrade to WSL 2? Follow the installation instructions [here](./install-win10.md##install-the-windows-subsystem-for-linux-2)!
+Already using WSL 1 and want to upgrade to WSL 2? Follow the installation instructions [here](./install-win10.md#install-the-windows-subsystem-for-linux-2)!
 > WSL 2 is only available in Windows 10 builds 18917 or higher
 
 ## Benefits and best practices

@@ -13,7 +13,7 @@ ms.localizationpriority: high
 
 WSL 2 is a new version of the architecture in WSL that changes how Linux distros interact with Windows. WSL 2 has the primary goals of increasing file system performance and adding full system call compatibility. Each Linux distro can run as a WSL 1, or a WSL 2 distro and can be switched between at any time. WSL 2 is a major overhaul of the underlying architecture and uses virtualization technology and a Linux kernel to enable its new features.
 
-Already using WSL 1 and want to upgrade to WSL 2? Follow the installation instructions [here](./install-win10.md##install-the-windows-subsystem-for-linux-2)!
+Already using WSL 1 and want to upgrade to WSL 2? Follow the installation instructions [here](./install-win10.md#install-the-windows-subsystem-for-linux-2)!
 > WSL 2 is only available in Windows 10 builds 18917 or higher
 
 In this section:

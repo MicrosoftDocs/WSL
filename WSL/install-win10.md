@@ -21,7 +21,7 @@ Open PowerShell as Administrator and run:
 **If you're looking for 100% system call compatibility and faster IO performance, read below to install WSL 2!**
 > WSL 2 is only available in Windows 10 builds 18917 or higher
 
-**If continuing with WSL 1, restart your machine when prompted and continue with installation [here](./install-win10.md##install-your-linux-distribution-of-choice)**
+**If continuing with WSL 1, restart your machine when prompted and continue with installation [here](./install-win10.md#install-your-linux-distribution-of-choice)**
 
 ## Install the Windows Subsystem for Linux 2
 
@@ -158,4 +158,4 @@ Below are related errors and suggested fixes. Refer to the [WSL troubleshooting 
   - Please check [WSL Github thread #4103](https://github.com/microsoft/WSL/issues/4103) where this issue is being tracked for updated information.
 
 - **The term 'wsl' is not recognized as the name of a cmdlet, function, script file, or operable program.**
-  - Ensure that the [Windows Subsystem for Linux Optional Component is installed](./install-win10.md##enable-the-virtual-machine-platform-optional-component). Additionally, if you are using an Arm64 device and running this command from PowerShell, you will receive this error. Instead run `wsl.exe` from [PowerShell Core](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-6), or Command Prompt.
+  - Ensure that the [Windows Subsystem for Linux Optional Component is installed](./install-win10.md#enable-the-virtual-machine-platform-optional-component). Additionally, if you are using an Arm64 device and running this command from PowerShell, you will receive this error. Instead run `wsl.exe` from [PowerShell Core](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-6), or Command Prompt.
