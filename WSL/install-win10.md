@@ -24,7 +24,7 @@ Open PowerShell as Administrator and run:
 **If you're looking for 100% system call compatibility and faster IO performance, read below to install WSL 2!**
 > WSL 2 is only available in Windows 10 builds 18917 or higher
 
-**If continuing with WSL 1, restart your machine when prompted and continue with installation [here](./wsl1-wsl2-install.md#install-your-linux-distribution-of-choice)**
+**If continuing with WSL 1, restart your machine when prompted and continue with installation [here](wsl1-wsl2-install.md#install-your-linux-distribution-of-choice)**
 
 ## Install the Windows Subsystem for Linux 2
 
