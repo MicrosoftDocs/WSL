@@ -4,9 +4,6 @@ description: Installation instructions for the Windows Subsystem for Linux on Wi
 keywords: BashOnWindows, bash, wsl, windows, windows subsystem for linux, windowssubsystem, ubuntu, debian, suse, windows 10, install
 ms.date: 03/30/2020
 ms.topic: article
-ms.assetid: 7afaeacf-435a-4e58-bff0-a9f0d75b8a51
-ms.custom: seodec18
-ms.localizationpriority: high
 ---
 
 # Windows Subsystem for Linux Installation Guide for Windows 10
@@ -24,7 +21,7 @@ Open PowerShell as Administrator and run:
 **If you're looking for 100% system call compatibility and faster IO performance, read below to install WSL 2!**
 > WSL 2 is only available in Windows 10 builds 18917 or higher
 
-**If continuing with WSL 1, restart your machine when prompted and continue with installation [here](wsl1-wsl2-install.md#install-your-linux-distribution-of-choice)**
+**If continuing with WSL 1, restart your machine when prompted and continue with installation [here](./install-win10.md#install-your-linux-distribution-of-choice)**
 
 ## Install the Windows Subsystem for Linux 2
 
@@ -48,7 +45,7 @@ dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /nores
 
 Please restart your machine to finish installing both components.
 
-## Install your Linux Distribution of Choice
+## Install your Linux distribution of choice
 
 To download and install your preferred distro(s), you have three choices:
 
@@ -130,7 +127,7 @@ wsl --set-default-version 2
 
 This will make any new distro that you install be initialized as a WSL 2 distro.
 
-## Finish with verifying what versions of WSL your distro are using
+## Verfiy your distro's WSL version
 
 To verify what versions of WSL each distro is using use the following command (only available in Windows Build 18917 or higher):
 
@@ -161,4 +158,4 @@ Below are related errors and suggested fixes. Refer to the [WSL troubleshooting 
   - Please check [WSL Github thread #4103](https://github.com/microsoft/WSL/issues/4103) where this issue is being tracked for updated information.
 
 - **The term 'wsl' is not recognized as the name of a cmdlet, function, script file, or operable program.**
-  - Ensure that the [Windows Subsystem for Linux Optional Component is installed](./wsl2-install.md#enable-the-virtual-machine-platform-optional-component). Additionally, if you are using an Arm64 device and running this command from PowerShell, you will receive this error. Instead run `wsl.exe` from [PowerShell Core](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-6), or Command Prompt.
+  - Ensure that the [Windows Subsystem for Linux Optional Component is installed](./install-win10.md#enable-the-virtual-machine-platform-optional-component). Additionally, if you are using an Arm64 device and running this command from PowerShell, you will receive this error. Instead run `wsl.exe` from [PowerShell Core](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-6), or Command Prompt.
