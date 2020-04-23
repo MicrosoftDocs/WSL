@@ -28,7 +28,7 @@ To install and start using WSL 2 complete the following steps:
 
 ## Enable the 'Virtual Machine Platform' optional component and make sure WSL is enabled
 
-You will need to make sure that you have both the Windows Subsystem for Linux and the Virtual Machine Platform optional components installed. You can do that by running the following command in PowerShell: 
+You will need to make sure that you have both the Windows Subsystem for Linux and the Virtual Machine Platform optional components installed. You can do that by running the following command in an administrator PowerShell window: 
 
 ```powershell
 dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
