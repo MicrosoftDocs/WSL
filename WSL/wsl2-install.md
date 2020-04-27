@@ -42,6 +42,8 @@ Please restart your machine to finish installing both components.
 
 If you do not have a Linux distro installed, please refer to the [Install on Windows 10](./install-win10.md#install-your-linux-distribution-of-choice) docs page for instructions on installing one. 
 
+Update your Kernel to WSL 2 : https://docs.microsoft.com/en-ca/windows/wsl/wsl2-kernel
+
 To set a distro please run: 
 
 ```
