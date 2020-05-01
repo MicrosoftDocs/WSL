@@ -10,9 +10,12 @@ ms.topic: article
 
 WSL 2 uses the latest and greatest in virtualization technology to run its Linux kernel inside of a lightweight utility virtual machine (VM). However, WSL 2 will NOT be a traditional VM experience.
 
+Already using WSL 1 and want to upgrade to WSL 2? Follow the installation instructions [here](./install-win10.md#install-the-windows-subsystem-for-linux-2)!
+> WSL 2 is only available in Windows 10 builds 18917 or higher
+
 ## Benefits and best practices
 
-Feature | WSL1 | WSL2
+Feature | WSL 1 | WSL 2
 --- | --- | ---
  Integration between Windows and Linux| ✅|✅
  Fast boot times| ✅ | ✅
@@ -25,14 +28,14 @@ Feature | WSL1 | WSL2
 
 In general, we recommend that you use WSL 2 since it offers faster performance and 100% system call compatibility. However, there are some scenarios where you might prefer using WSL 1.
 
-### Consider using WSL1 for
+### Consider using WSL 1 for
 
 * A project which has to be stored in the Windows file system
-  * If the files cannot be stored in the Linux file system, use WSL1 and store them in the Windows file system
+  * If the files cannot be stored in the Linux file system, use WSL 1 and store them in the Windows file system
 * A project which requires cross compilation using both Windows and Linux tools on the same files
-  * Cross-os file performance is faster in WSL1 than WSL2
+  * Cross-os file performance is faster in WSL 1 than WSL 2
 
-## New in WSL2
+## New in WSL 2
 
 ### Architecture overview
 

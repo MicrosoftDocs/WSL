@@ -22,7 +22,7 @@
     },
     {
       "source_path": "wsl/initialize-distro.md",
-      "redirect_url": "wsl/install-win10",
+      "redirect_url": "install-win10",
       "redirect_document_id": true
     }
   ]
