@@ -15,47 +15,38 @@ Before installing any Linux distros for WSL, you must ensure that the "Windows S
 Open PowerShell as Administrator and run:
 
 ```powershell
-    Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
+dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
 ```
 
-**If you're looking for 100% system call compatibility and faster IO performance, read below to install WSL 2!**
-> WSL 2 is only available in Windows 10 builds 18917 or higher
-
-**If continuing with WSL 1, restart your machine when prompted and continue with installation [here](./install-win10.md#install-your-linux-distribution-of-choice)**
+**If you would like to only install WSL 1, please restart your machine and then continue with installation [here](./install-win10.md#install-your-linux-distribution-of-choice)**
 
 ## Install the Windows Subsystem for Linux 2
 
-To install and start using WSL 2 complete the following steps:
+To use WSL 2 please ensure you meet the following criteria:
 
-1. Ensure that you are running Windows 10 **build 18917** or higher
-   - To make sure you are using build 18917 or higher please join [the Windows Insider Program](https://insider.windows.com/) and select the 'Fast' ring or the 'Slow' ring.
+- Ensure that you are running Windows 10 **build 18917** or higher
    - You can check your Windows version by opening Command Prompt and running the `ver` command.
-2. Enable the 'Virtual Machine Platform' optional component
-3. Install a Linux distribution of your choice
-4. Set a distro to be backed by WSL1 or WSL2 using the command line
-5. Verify what versions of WSL your distros are using
+   - Please update to the latest Windows version if your build is lower than 18917.
 
-## Enable the 'Virtual Machine Platform' optional component
+### Enable the 'Virtual Machine Platform' optional component
 
-For WSL 2, you will also need to make sure that you have the Virtual Machine Platform optional component installed. You can do that by running the following command in PowerShell:
+For WSL 2, you will also need to make sure that you have the Virtual Machine Platform optional component installed. You can do that by running the following command in a PowerShell window with administrator access:
 
 ```powershell
 dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
 ```
 
-Please restart your machine to finish installing both components.
+Please **restart** your machine to finish installing these components.
+
+### Set WSL 2 as your default version
+
+Run the following command in Powershell to set WSL 2 as your default:
+
+```powershell
+wsl --set-default-version 2
+```
 
 ## Install your Linux distribution of choice
-
-To download and install your preferred distro(s), you have three choices:
-
-- Download and install from the Microsoft Store (see below)
-- Download and install from the Command-Line/Script ([read the manual installation instructions](install-manual.md))
-- Download and manually unpack and install (for Windows Server - [instructions here](install-on-server.md))
-
-### Windows 10 Fall Creators Update and later: Install from the Microsoft Store
-
-> This section is for Windows build 16215 or later.  Follow these steps to [check your build](troubleshooting.md#check-your-build-number).
 
 1. Open the Microsoft Store and choose your favorite Linux distribution.
 
@@ -84,9 +75,6 @@ To download and install your preferred distro(s), you have three choices:
 
 After launching your Linux distribution, follow the onscreen instructions to initialize your distro.
 
-> [!NOTE]
-> For Windows Server, launch your distribution using the executable, `<distro>.exe`, in the installation folder.
-
 The first time a newly installed distribution runs, a console window will open and you'll be asked to wait for a minute or two for the installation to complete. During this final stage of installation, the distro's files are de-compressed and stored on your PC, ready for use. This may take around a minute or more depending on the performance of your PC's storage devices. This initial installation phase is only required when a distro is clean-installed - all future launches should take less than a second.
 
 ### Set up a new Linux user account
@@ -109,7 +97,13 @@ sudo apt update && sudo apt upgrade
 
 Windows does not automatically update or upgrade your Linux distro(s). This is a task that the most Linux users prefer to control themselves.
 
-## Set a distro to be backed by WSL1 or WSL2 using the command line
+## Further Resources
+
+You're now set up and ready to start using the Windows Subsystem for Linux! 
+
+If you'd like to learn more about managing WSL please read on below.
+
+### Set a distro to be backed by WSL1 or WSL2 using the command line
 
 To set a distro to be backed by either version of WSL please run:
 
