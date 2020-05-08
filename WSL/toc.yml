@@ -24,10 +24,12 @@
       href: wsl-config.md
     - name: File permissions
       href: file-permissions.md
+    - name: Set up WSL for your company
+      href: enterprise.md
     - name: Build a custom distro
       href: build-custom-distro.md
-- name: WSL for enterprise
-  href: enterprise.md
+    - name: Command Line Reference
+      href: reference.md
 - name: Frequently Asked Questions
   href: faq.md
 - name: WSL 2 FAQ
@@ -36,5 +38,3 @@
   href: troubleshooting.md
 - name: Release Notes
   href: release-notes.md
-- name: Command Line Reference
-  href: reference.md

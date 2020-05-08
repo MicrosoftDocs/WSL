@@ -106,7 +106,7 @@ wsl --set-default-version 2
 
 This will set the version of any new distribution installed to WSL 2.
 
-## Troubleshooting
+## Troubleshooting installation
 
 Below are related errors and suggested fixes. Refer to the [WSL troubleshooting page](troubleshooting.md) for other common errors and their solutions.
 
