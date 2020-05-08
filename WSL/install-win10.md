@@ -19,7 +19,7 @@ Open PowerShell as Administrator and run:
 dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
 ```
 
-To only install WSL 1, you should now restart your machine and move on to [Install your Linux distribution of choice](./install-win10.md#install-your-linux-distribution-of-choice), otherwise wait to restart and move on to update to WSL 2. Read more about [Comparing WSL 2 and WSL 1](./compare-version.md).
+To only install WSL 1, you should now restart your machine and move on to [Install your Linux distribution of choice](./install-win10.md#install-your-linux-distribution-of-choice), otherwise wait to restart and move on to update to WSL 2. Read more about [Comparing WSL 2 and WSL 1](./compare-versions.md).
 
 ## Update to WSL 2
 

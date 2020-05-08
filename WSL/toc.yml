@@ -1,7 +1,6 @@
 - name: WSL Documentation
   href: index.md
 - name: Overview
-  expanded: false
   items:
     - name: What is WSL?
       href: about.md
@@ -15,7 +14,6 @@
     - name: Install on Windows Server
       href: install-on-server.md
 - name: Understanding Linux Distros
-  href: 
   items:
     - name: Configurations and Management
       href: wsl-config.md

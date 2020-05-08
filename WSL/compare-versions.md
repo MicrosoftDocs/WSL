@@ -9,7 +9,7 @@ ms.localizationpriority: high
 
 # Comparing WSL 2 and WSL 1
 
-The primary goals of updating the Windows Subsystem for Linux to a new version are to **increase file system performance** and support **full system call compatibility**. WSL 2 uses the latest and greatest in virtualization technology to run a Linux kernel inside of a lightweight utility virtual machine (VM). However, WSL 2 is not a traditional VM experience - learn more about the [WSL 2 architecture](#wsl2-architecture) below.
+The primary goals of updating the Windows Subsystem for Linux to a new version are to **increase file system performance** and support **full system call compatibility**. WSL 2 uses the latest and greatest in virtualization technology to run a Linux kernel inside of a lightweight utility virtual machine (VM). However, WSL 2 is not a traditional VM experience - learn more about the [WSL 2 architecture](#wsl-2-architecture) below.
 
 ## Comparing features
 
