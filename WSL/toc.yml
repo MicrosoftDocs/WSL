@@ -18,14 +18,14 @@
       href: user-support.md
 - name: How-to
   items:
+    - name: Interoperability commands
+      href: interop.md
     - name: Launch commands & configurations
       href: wsl-config.md
-    - name: Set file permissions
+    - name: File permissions
       href: file-permissions.md
     - name: Build a custom distro
       href: build-custom-distro.md
-- name: Interoperability
-  href: interop.md
 - name: WSL for enterprise
   href: enterprise.md
 - name: Frequently Asked Questions
