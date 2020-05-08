@@ -34,16 +34,28 @@ Individual Linux distributions can be run with either the WSL 1 or WSL 2 archite
 
 ## Next steps
 
-    - [Install WSL 1 and update to WSL 2](./install-win10.md)
+* [Install WSL 1 and update to WSL 2](./install-win10.md)
 
-    - [Comparing WSL 2 and WSL 1](./compare-versions.md)
-    
-    - [ ]()
-    
-    - []()
-    
-    - []()
-    
-    - []()
-    
-    - []()
+* [Compare WSL 2 and WSL 1](./compare-versions.md)
+
+* [Create a user account and password for your new Linux distribution](./user-support.md)
+
+* [Read Frequently Asked Questions](./faq.md)
+
+* [Read Frequently Asked Questions about WSL 2](./wsl2-faq.md)
+
+* [Troubleshooting](./troubleshooting.md)
+
+* [Run interoperability commands between Windows and Linux](./interop.md)
+
+* [Run launch commands and configurations](./wsl-config.md)
+
+* [Set up file permissions](./file-permissions.md)
+
+* [Set up WSL for Enterprise](./enterprise.md)
+
+* [Reference WSL commands](./reference.md)
+
+* [Build a custom distributions](./build-custom-distro.md)
+
+* [Read the WSL Release Notes](./release-notes.md)
