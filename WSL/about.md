@@ -17,7 +17,7 @@ You can:
 * Choose your favorite GNU/Linux distributions [from the Microsoft Store](https://aka.ms/wslstore).
 * Run common command-line tools such as `grep`, `sed`, `awk`, or other ELF-64 binaries.
 * Run Bash shell scripts and GNU/Linux command-line applications including:  
-    *Tools: vim, emacs, tmux
+    * Tools: vim, emacs, tmux
     *Languages: [NodeJS](https://docs.microsoft.com/windows/nodejs/setup-on-wsl2), Javascript, [Python](https://docs.microsoft.com/windows/python/web-frameworks), Ruby, C/C++, C# & F#, Rust, Go, etc.
     *Services: SSHD, MySQL, Apache, lighttpd, [MongoDB](https://docs.microsoft.com/windows/nodejs/databases), [PostgreSQL](https://docs.microsoft.com/windows/python/databases).
 * Install additional software using own GNU/Linux distribution package manager.
