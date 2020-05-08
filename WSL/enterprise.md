@@ -16,7 +16,7 @@ If you're a company that's just looking to get set up to start deploying WSL, fo
 * [Sign up for the Microsoft Store for Business and get started](https://docs.microsoft.com/microsoft-store/sign-up-microsoft-store-for-business-overview)
 * [Manage your products and services (including who can access which apps in your private store)](https://docs.microsoft.com/microsoft-store/manage-apps-microsoft-store-for-business-overview). Here you can add WSL distros to your store and control who can install them
 * [Use a distribution method of your choice to deploy the software to your company](https://docs.microsoft.com/microsoft-store/distribute-apps-to-your-employees-microsoft-store-for-business)
-* Communicate to the employees of your company that they can use this documentation link to install WSL: [Install the Windows Subsystem for Linux](./install-wsl10.md)
+* Communicate to the employees of your company that they can use this documentation link to install WSL: [Install the Windows Subsystem for Linux](./install-win10.md)
 
 ## How to distribute a Linux distribution on Windows offline
 

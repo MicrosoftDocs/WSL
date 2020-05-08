@@ -15,7 +15,7 @@ The Windows Subsystem for Linux (WSL) is continuously improving integration betw
 * Share environment variables between Linux and Windows. (Build 17063+)
 
 > [!NOTE]
-> If you're running Creators Update (Oct 2017, Build 16299) or Anniversary Update (Aug 2016, Build 14393), jump to the [Creators/Anniversary Update section](#creators-update-and-anniversary-update).
+> If you're running Creators Update (Oct 2017, Build 16299) or Anniversary Update (Aug 2016, Build 14393), jump to the [Earlier versions of Windows 10](#earlier-versions-of-windows-10).
 
 ## Run Linux tools from a Windows command line
 
