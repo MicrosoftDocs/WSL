@@ -1,26 +1,19 @@
+- name: WSL Documentation
+  href: index.md
 - name: Overview
-  href: overview.md
+  expanded: false
   items:
-    - name: About
+    - name: What is WSL?
       href: about.md
     - name: Comparing WSL 2 and WSL 1
-      href: wsl1-wsl2.md
-- name: Getting Started
-  href:
-  items:
-    - name: Install the Windows Subsytem for Linux
+      href: compare-versions.md
+    - name: Whats new in WSL 2 
+      href: wsl2-index.md
+- name: Install & get started
+    - name: Install WSL & update to WSL 2
       href: install-win10.md
     - name: Install on Windows Server
       href: install-on-server.md
-- name: More about WSL 2
-  href: 
-  items:
-    - name: What's New?
-      href: wsl2-index.md
-    - name: User Experience Differences between WSL 1 and WSL 2
-      href: wsl2-ux-changes.md
-    - name: WSL 2 FAQ
-      href: wsl2-faq.md
 - name: Understanding Linux Distros
   href: 
   items:
@@ -38,6 +31,8 @@
   href: enterprise.md
 - name: Frequently Asked Questions
   href: faq.md
+- name: WSL 2 FAQ
+  href: wsl2-faq.md
 - name: Troubleshooting
   href: troubleshooting.md
 - name: Release Notes
