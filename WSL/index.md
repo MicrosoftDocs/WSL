@@ -10,8 +10,8 @@ ms.localizationpriority: high
 
 ## Learn more here
 
-* [About the Windows Subsystem for Linux](about.md)
-* [What's new with WSL2](wsl2-index.md)
+* [What is the Windows Subsystem for Linux?](about.md)
+* [What's new with WSL2?](wsl2-index.md)
 * [Compare WSL 2 and WSL 1](compare-versions.md)
 * [Read frequently asked questions](faq.md)
 

@@ -9,7 +9,9 @@ ms.localizationpriority: high
 
 # Comparing WSL 2 and WSL 1
 
-The primary goals of updating the Windows Subsystem for Linux to a new version are to **increase file system performance** and support **full system call compatibility**. WSL 2 uses the latest and greatest in virtualization technology to run a Linux kernel inside of a lightweight utility virtual machine (VM). However, WSL 2 is not a traditional VM experience - learn more about the [WSL 2 architecture](#wsl-2-architecture) below.
+The primary goals of updating the Windows Subsystem for Linux to a new version are to **increase file system performance** and support **full system call compatibility**. 
+
+WSL 2 uses the latest and greatest in virtualization technology to run a Linux kernel inside of a lightweight utility virtual machine (VM). However, WSL 2 is not a traditional VM experience. [Learn more about the WSL 2 architecture](#wsl-2-architecture).
 
 ## Comparing features
 
@@ -31,8 +33,9 @@ Already using WSL 1 and want to upgrade to WSL 2? Follow the instructions to [up
 In order to optimize for the fastest performance speed, be sure to store your project files in the Linux file system (not the Windows file system).
 
 For example, when storing your WSL project files:
-    - Use the Linux file system root directory: `\\wsl$\Ubuntu-18.04\home\<user name>\Project`
-    - Not the Windows file system root directory: `C:\Users\<user name>\Project`
+
+* Use the Linux file system root directory: `\\wsl$\Ubuntu-18.04\home\<user name>\Project`
+* Not the Windows file system root directory: `C:\Users\<user name>\Project`
 
 Project files that you are working with using a WSL distribution (like Ubuntu) must be in the Linux root file system to take advantage of faster file system access.
 
@@ -72,8 +75,9 @@ The actual speed increase will depend on which app you're running and how it is 
 
 Linux binaries use system calls to perform functions such as accessing files, requesting memory, creating processes, and more. Whereas WSL 1 used a translation layer that was built by the WSL team, WSL 2 includes its own Linux kernel with full system call compatibility. Benefits include:
 
-    - A whole new set of apps that you can run inside of WSL, such as **[Docker](https://code.visualstudio.com/blogs/2020/03/02/docker-in-wsl2)** and more. 
-    - Any updates to the Linux kernel are immediately ready for use. (You don't have to wait for the WSL team to implement updates and add the changes).
+* A whole new set of apps that you can run inside of WSL, such as **[Docker](https://code.visualstudio.com/blogs/2020/03/02/docker-in-wsl2)** and more.
+
+* Any updates to the Linux kernel are immediately ready for use. (You don't have to wait for the WSL team to implement updates and add the changes).
 
 ### WSL 2 uses a smaller amount of memory on startup
 
@@ -89,10 +93,10 @@ However, if you are running an older version of Windows (Build 18945 or less), y
 
 To find the IP address of the virtual machine powering your Linux distribution:
 
-    - From your WSL distribution (ie Ubuntu), run the command: `ip addr` 
-    - Find and copy the address under the `inet` value of the `eth0` interface.
-    - If you have the grep tool installed, find this more easily by filtering the output with the command: `ip addr | grep eth0`
-    - Connect to your Linux server using this IP address.
+* From your WSL distribution (ie Ubuntu), run the command: `ip addr`
+* Find and copy the address under the `inet` value of the `eth0` interface.
+* If you have the grep tool installed, find this more easily by filtering the output with the command: `ip addr | grep eth0`
+* Connect to your Linux server using this IP address.
 
 The picture below shows an example of this by connecting to a Node.js server using the Edge browser.
 
@@ -127,7 +131,7 @@ This isn't the default case in WSL 2. WSL 2 has a virtualized ethernet adapter w
 
 WSL 2 distributions currently cannot reach IPv6-only addresses. We are working on adding this feature.
 
-## WSL 2 Virtual Hardware Disk limitations
+## Expanding the size of your WSL 2 Virtual Hardware Disk
 
 WSL 2 uses a Virtual Hardware Disk (VHD) to store your Linux files. If you reach its max size you may need to expand it.
 

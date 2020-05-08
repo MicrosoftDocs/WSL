@@ -59,11 +59,11 @@ Now that you've downloaded a Linux distribution, in order to extract its content
 
 3.Add your distro path to the Windows environment PATH (`C:\Users\Administrator\Ubuntu` in this example), using PowerShell:
 
-   ```powershell
-    $userenv = [System.Environment]::GetEnvironmentVariable("Path", "User")
-    [System.Environment]::SetEnvironmentVariable("PATH", $userenv + ";C:\Users\Administrator\Ubuntu", "User")
-    ```
-    You can now launch your distribution from any path by typing `<distro>.exe`. For example: `ubuntu.exe`.
+```powershell
+$userenv = [System.Environment]::GetEnvironmentVariable("Path", "User")
+[System.Environment]::SetEnvironmentVariable("PATH", $userenv + ";C:\Users\Administrator\Ubuntu", "User")
+```
 
+You can now launch your distribution from any path by typing `<distro>.exe`. For example: `ubuntu.exe`.
 
 Now that it is installed, you must [initialize your new distribution instance](initialize-distro.md) before using it.
