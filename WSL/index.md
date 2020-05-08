@@ -3,6 +3,7 @@ title: An overview on the the Windows Subsystem for Linux
 description: Explore the Windows Subsystem for Linux documentation.
 keywords: BashOnWindows, bash, wsl, windows, windowssubsystem, gnu, linux
 ms.topic: article
+ms.localizationpriority: high
 ---
 
 # Windows Subsystem for Linux Documentation

@@ -5,12 +5,12 @@ keywords: BashOnWindows, bash, wsl, wsl2, windows, windows subsystem for linux, 
 ms.date: 01/14/2020
 ms.topic: article
 ms.assetid: 7afaeacf-435a-4e58-bff0-a9f0d75b8a51
-ms.custom: seodec18
+ms.localizationpriority: high
 ---
 
 # File Permissions for WSL
 
-This page details how Linux file permissions are interpreted across the Windows Subsystem for Linux, especially when accessing resources inside of Windows on the NT file system. This documentation assumes a basic understanding of the [Linux file system permissions structure](https://wiki.archlinux.org/index.php/File_permissions_and_attributes) <!--TODO: Double check that it's okay to add these links--> and the [umask command](https://en.wikipedia.org/wiki/Umask).
+This page details how Linux file permissions are interpreted across the Windows Subsystem for Linux, especially when accessing resources inside of Windows on the NT file system. This documentation assumes a basic understanding of the [Linux file system permissions structure](https://wiki.archlinux.org/index.php/File_permissions_and_attributes) and the [umask command](https://en.wikipedia.org/wiki/Umask).
 
 When accessing Windows files from WSL the file permissions are either calculated from Windows permissions, or are read from metadata that has been added to the file by WSL. This metadata is not enabled by default. 
 
@@ -27,8 +27,7 @@ WSL can add four NTFS extended attributes:
 | $LXMOD | File mode (File systems permission octals and type, e.g: 0777) |
 | $LXDEV | Device, if it is a device file |
 
-Additionally, any file that is not a regular file or directory (e.g: symlinks, FIFOs, block devices, unix sockets, and character devices) also have an NTFS [reparse point](https://docs.microsoft.com/windows/win32/fileio/reparse-points). This makes it much faster to determine the kind of file in a given directory without having to query its extended attributes. 
-<!-- TODO: For the blog include ONeDrive detail -->
+Additionally, any file that is not a regular file or directory (e.g: symlinks, FIFOs, block devices, unix sockets, and character devices) also have an NTFS [reparse point](https://docs.microsoft.com/windows/win32/fileio/reparse-points). This makes it much faster to determine the kind of file in a given directory without having to query its extended attributes.
 
 ## File Access Scenarios
 
@@ -36,13 +35,13 @@ Below is a description of how permissions are determined when accessing files in
 
 ### Accessing Files in the Windows drive file system (DrvFS) from Linux
 
-These scenarios occur when you are accessing your Windows files from WSL, most likely via `/mnt/c`. 
+These scenarios occur when you are accessing your Windows files from WSL, most likely via `/mnt/c`.
 
 #### Reading file permissions from an existing Windows file
 
 The result depends on if the file already has existing metadata.
 
-##### **The file does not have metadata (default)**
+##### The file does not have metadata (default)
 
 If the file has no metadata associated with it then we translate the effective permissions of the Windows user to read/write/execute bits and set them to the this as the same value for user, group, and other. For example, if your Windows user account has read and execute access but not write access to the file then this will be shown as `r-x` for user, group and other. If the file has the 'Read Only' attribute set in Windows then we do not grant write access in Linux.
 
@@ -54,7 +53,7 @@ If the file has metadata present, we simply use those metadata values instead of
 
 The result depends on if the file already has existing metadata.
 
-##### **The file does not have metadata (default)**
+##### The file does not have metadata (default)
 
 Chmod will only have one effect, if you remove all the write attributes of a file then the 'read only' attribute on the Windows file will be set, since this is the same behaviour as CIFS (Common Internet File System) which is the SMB (Server Message Block) client in Linux.
 

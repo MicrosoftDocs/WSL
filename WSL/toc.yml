@@ -9,6 +9,7 @@
     - name: Whats new in WSL 2 
       href: wsl2-index.md
 - name: Install & get started
+  items:
     - name: Install WSL & update to WSL 2
       href: install-win10.md
     - name: Install on Windows Server

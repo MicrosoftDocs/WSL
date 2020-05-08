@@ -5,15 +5,13 @@ keywords: BashOnWindows, bash, wsl, windows, windows subsystem for linux, window
 ms.date: 07/31/2017
 ms.topic: article
 ms.assetid: 82908295-a6bd-483c-a995-613674c2677e
-ms.custom: seodec18
 ms.localizationpriority: high
 ---
 
 
 # Command Reference for Windows Subsystem for Linux
 
-The best way to interact with the Windows Subsystem for Linux is to use the `wsl.exe` command. 
-
+The best way to interact with the Windows Subsystem for Linux is to use the `wsl.exe` command.
 
 ## `wsl.exe`
 

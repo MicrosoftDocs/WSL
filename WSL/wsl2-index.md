@@ -4,7 +4,6 @@ description: Windows Subsystem for Linux 2
 keywords: BashOnWindows, bash, wsl, wsl2, windows, windows subsystem for linux, windowssubsystem, ubuntu, debian, suse, windows 10, install
 ms.date: 05/19/2020
 ms.topic: article
-ms.custom: seodec18
 ms.localizationpriority: high
 ---
 
