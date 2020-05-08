@@ -2,28 +2,24 @@
 title: Manage Linux Distributions
 description: Reference listing and configuring multiple Linux distributions running on the Windows Subsystem for Linux.
 keywords: BashOnWindows, bash, wsl, windows, windows subsystem for linux, windowssubsystem, ubuntu, wsl.conf, wslconfig
-ms.date: 02/7/2018
+ms.date: 05/19/2020
 ms.topic: article
-ms.assetid: 7ca59bd7-d9d3-4f6d-8b92-b8faa9bcf250
-ms.custom: seodec18
-ms.localizationpriority: high
 ---
 
-# Manage and configure Windows Subsystem for Linux
-
-> Applies to Windows 10 Fall Creators Update and later.  See our updated [installation guide](./install_guide.md) to try new management features and start running multiple Linux distributions from the Microsoft store.
+# WSL commands and launch configurations
 
 ## Ways to run WSL
 
-There are many ways to run Linux with the Windows Subsystem for Linux.
+There are several ways to run a Linux distribution with WSL once it's [installed](install-win10.md).
 
-1. `[distro]`, for example `ubuntu`
-1. `wsl.exe` or `bash.exe`
-1. `wsl [command]` or `bash -c [command]`
+1. Open your Linux distribution by visiting the Windows Start menu and typing the name of your installed distributions. For example: "Ubuntu".
+2. From Windows Command Prompt or PowerShell, enter the name of your installed distribution. For example: `ubuntu`
+3. From Windows Command Prompt or PowerShell, to open your default Linux distribution inside your current command line, enter: `wsl.exe`.
+4. From Windows Command Prompt or PowerShell, to open your default Linux distribution inside your current command line, enter:`wsl [command]`.
 
-Which method you should use depends on what you're doing.
+Which method you should use depends on what you're doing. If you've opened a WSL command line within a Windows Prompt or PowerShell window and want to exit, enter the command: `exit`.
 
-### Launch WSL by distribution
+## Launch WSL by distribution
 
 Running a distribution using it's distro-specific application launches that distribution in it's own console window.
 
@@ -37,7 +33,7 @@ You can also run the distribution from the command line by running `[distributio
 
 The disadvantage of running a distribution from the command line in this way is that it will automatically change your working directory from the current directory to the distribution's home directory.
 
-**Example:**
+**Example: (using PowerShell)**
 
 ```console
 PS C:\Users\sarah> pwd
@@ -60,7 +56,7 @@ PS C:\Users\sarah>
 
 The best way to run WSL from the command line is using `wsl.exe`.
 
-**Example:**
+**Example: (using PowerShell)**
 
 ```console
 PS C:\Users\sarah> pwd
@@ -77,7 +73,7 @@ scooley@scooley-elmer:/mnt/c/Users/sarah$ pwd
 
 Not only does `wsl` keep the current working directory in place, it lets you run a single command along side Windows commands.
 
-**Example:**
+**Example: (using PowerShell)**
 
 ```console
 PS C:\Users\sarah> Get-Date
@@ -94,7 +90,7 @@ PS C:\Users\sarah> wsl date
 Sun Mar 11 19:55:47 DST 2018
 ```
 
-**Example:**
+**Example: (using PowerShell)**
 
 ```console
 PS C:\Users\sarah> Get-VM
@@ -113,27 +109,24 @@ Ubuntu (bionic) Off   0           0                 00:00:00 Opera...
 PS C:\Users\sarah>
 ```
 
-
 ## Managing multiple Linux Distributions
 
-### Windows 10 Version 1903 and later
-
-You can use `wsl.exe` to manage your distributions in the Windows Subsystem for Linux (WSL), including listing available distributions, setting a default distribution, and uninstalling distributions.
+In Windows 10 Version 1903 [and later](ms-settings:windowsupdate), you can use `wsl.exe` to manage your distributions in the Windows Subsystem for Linux (WSL), including listing available distributions, setting a default distribution, and uninstalling distributions.
 
 Each Linux distribution independently manages its own configurations. To see distribution-specific commands, run `[distro.exe] /?`.  For example `ubuntu /?`.
 
-#### List distributions
+## List distributions
 
 `wsl -l` , `wsl --list`  
 Lists available Linux distributions available to WSL.  If a distribution is listed, it's installed and ready to use.
 
-`wsl --list --all`   
+`wsl --list --all`
 Lists all distributions, including ones that aren't currently usable.  They may be in the process of installing, uninstalling, or are in a broken state.  
 
-`wsl --list --running`   
+`wsl --list --running`
 Lists all distributions that are currently running.
 
-#### Set a default distribution
+## Set a default distribution
 
 The default WSL distribution is the one that runs when you run `wsl` on a command line.
 
@@ -141,10 +134,10 @@ The default WSL distribution is the one that runs when you run `wsl` on a comman
 
 Sets the default distribution to `<DistributionName>`.
 
-**Example:**  
+**Example: (using PowerShell)**  
 `wsl -s Ubuntu` would set my default distribution to Ubuntu.  Now when I run `wsl npm init` it will run in Ubuntu.  If I run `wsl` it will open an Ubuntu session.
 
-#### Unregister and reinstall a distribution
+## Unregister and reinstall a distribution
 
 While Linux distributions can be installed through the Microsoft store, they can't be uninstalled through the store.  WSL Config allows distributions to be unregistered/uninstalled.
 
@@ -160,21 +153,21 @@ For example:
 
 To reinstall, find the distribution in the Microsoft store and select "Launch".
 
-#### Run as a specific user
+## Run as a specific user
 
 `wsl -u <Username>`, `wsl --user <Username>`
 
 Run WSL as the specified user. Please note that user must exist inside of the WSL distribution.
 
-#### Run a specific distribution
+## Run a specific distribution
 
 `wsl -d <DistributionName>`, `wsl --distribution <DistributionName>`
 
 Run a specified distribution of WSL, can be used to send commands to a specific distribution without having to change your default.
 
-### Versions Earlier than Windows 10 Version 1903
+## Managing multiple Linux Distributions in earlier Windows versions
 
-WSL Config (`wslconfig.exe`) is a command-line tool for managing Linux distributions running on the Windows Subsystem for Linux (WSL).  It lets you list available distributions, set a default distribution, and uninstall distributions.
+In Windows 10 prior to version 1903, the WSL Config (`wslconfig.exe`) command-line tool should be used to manage Linux distributions running on the Windows Subsystem for Linux (WSL).  It lets you list available distributions, set a default distribution, and uninstall distributions.
 
 While WSL Config is helpful for settings that span or coordinate distributions, each Linux distribution independently manages its own configurations.  To see distribution-specific commands, run `[distro.exe] /?`.  For example `ubuntu /?`.
 
@@ -192,7 +185,7 @@ Usage:
     /u, /unregister <DistributionName> - Unregisters a distribution.
 ```
 
-#### List distributions
+To list distributions, use:
 
 `wslconfig /list`  
 Lists available Linux distributions available to WSL.  If a distribution is listed, it's installed and ready to use.
@@ -200,24 +193,15 @@ Lists available Linux distributions available to WSL.  If a distribution is list
 `wslconfig /list /all`  
 Lists all distributions, including ones that aren't currently usable.  They may be in the process of installing, uninstalling, or are in a broken state.  
 
-#### Set a default distribution
-
-The default WSL distribution is the one that runs when you run `wsl` on a command line.
+To set a default distribution that runs when you run `wsl` on a command line:
 
 `wslconfig /setdefault <DistributionName>`
-
 Sets the default distribution to `<DistributionName>`.
 
-**Example:**  
+**Example: (using PowerShell)**  
 `wslconfig /setdefault Ubuntu` would set my default distribution to Ubuntu.  Now when I run `wsl npm init` it will run in Ubuntu.  If I run `wsl` it will open an Ubuntu session.
 
-#### Unregister and reinstall a distribution
-
-While Linux distributions can be installed through the Microsoft store, they can't be uninstalled through the store.  WSL Config allows distributions to be unregistered/uninstalled.
-
-Unregistering also allows distributions to be reinstalled.
-
-> **Caution:** Once unregistered, all data, settings, and software associated with that distribution will be permanently lost.  Reinstalling from the store will install a clean copy of the distribution.
+To unregister and reinstall a distribution:
 
 `wslconfig /unregister <DistributionName>`  
 Unregisters the distribution from WSL so it can be reinstalled or cleaned up.
@@ -227,17 +211,17 @@ For example:
 
 To reinstall, find the distribution in the Microsoft store and select "Launch".
 
-## Set WSL launch settings
+## Configure launch settings with wslconf
 
-> **Available in Windows Insider Build 17093 and later**
+> **Available in Windows Build 17093 and later**
 
-Automatically configure certain functionality in WSL that will be applied every time you launch the subsystem using `wsl.conf`. 
+Automatically configure certain functionality in WSL that will be applied every time you launch the subsystem using `wsl.conf`.
 
 Right now, this includes automount options and network configuration.
 
 `wsl.conf` is located in each Linux distribution in `/etc/wsl.conf`. If the file is not there, you can create it yourself. WSL will detect the existence of the file and will read its contents. If the file is missing or malformed (that is, improper markup formatting), WSL will continue to launch as normal.
 
-Here is a sample `wsl.conf` file you could add into your distros:
+Here is a sample `wsl.conf` file you could add into your distributions:
 
 ```console
 # Enable extra metadata options by default
@@ -253,16 +237,15 @@ generateHosts = true
 generateResolvConf = true
 ```
 
-### Configuration Options
+## Configuration Options
 
 In keeping with .ini conventions, keys are declared under a section. 
 
 WSL supports two sections: `automount` and `network`.
 
-#### automount
+### automount
 
 Section: `[automount]`
-
 
 | key        | value                          | default      | notes                                                                                                                                                                                                                                                                                                                          |
 |:-----------|:-------------------------------|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -275,7 +258,7 @@ By default, WSL sets the uid and gid to the value of the default user (in Ubuntu
 
 **Note:** These options are applied as the mount options for all automatically mounted drives. To change the options for a specific drive only, use /etc/fstab instead.
 
-##### Mount options
+### Mount options
 
 Setting different mount options for Windows drives (DrvFs) can control how file permissions are calculated for Windows files. The following options are available:
 
@@ -289,7 +272,7 @@ Setting different mount options for Windows drives (DrvFs) can control how file 
 
 **Note:** The permission masks are put through a logical OR operation before being applied to files or directories. 
 
-#### network
+### network
 
 Section label: `[network]`
 
@@ -298,7 +281,7 @@ Section label: `[network]`
 | generateHosts | boolean | `true` | `true` sets WSL to generate `/etc/hosts`. The `hosts` file contains a static map of hostnames corresponding IP address. |
 | generateResolvConf | boolean | `true` | `true` set WSL to generate `/etc/resolv.conf`. The `resolv.conf` contains a DNS list that are capable of resolving a given hostname to its IP address. | 
 
-#### interop
+### interop
 
 Section label: `[interop]`
 
@@ -307,4 +290,4 @@ These options are available in Insider Build 17713 and later.
 | key | value | default | notes|
 |:----|:----|:----|:----|
 | enabled | boolean | `true` | Setting this key will determine whether WSL will support launching Windows processes. |
-| appendWindowsPath | boolean | `true` | Setting this key will determine whether WSL will add Windows path elements to the $PATH environment variable. | 
+| appendWindowsPath | boolean | `true` | Setting this key will determine whether WSL will add Windows path elements to the $PATH environment variable. |

@@ -1,16 +1,17 @@
 ---
 title: Install Windows Subsystem for Linux (WSL) on Windows 10
 description: Installation instructions for the Windows Subsystem for Linux on Windows 10.
-keywords: BashOnWindows, bash, wsl, windows, windows subsystem for linux, windowssubsystem, ubuntu, debian, suse, windows 10, install
-ms.date: 03/30/2020
+keywords: BashOnWindows, bash, wsl, windows, windows subsystem for linux, windowssubsystem, ubuntu, debian, suse, windows 10, install, enable, WSL2, version 2
+ms.date: 05/15/2020
 ms.topic: article
+ms.localizationpriority: high
 ---
 
 # Windows Subsystem for Linux Installation Guide for Windows 10
 
 ## Install the Windows Subsystem for Linux
 
-Before installing any Linux distros for WSL, you must ensure that the "Windows Subsystem for Linux" optional feature is enabled:
+Before installing any Linux distributions on Windows, you must enable the "Windows Subsystem for Linux" optional feature.
 
 Open PowerShell as Administrator and run:
 
@@ -18,29 +19,31 @@ Open PowerShell as Administrator and run:
 dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
 ```
 
-**If you would like to only install WSL 1, please restart your machine and then continue with installation [here](./install-win10.md#install-your-linux-distribution-of-choice)**
+To only install WSL 1, you should now restart your machine and move on to [Install your Linux distribution of choice](./install-win10.md#install-your-linux-distribution-of-choice), otherwise wait to restart and move on to update to WSL 2. Read more about [Comparing WSL 2 and WSL 1](./compare-versions.md).
 
-## Install the Windows Subsystem for Linux 2
+## Update to WSL 2
 
-To use WSL 2 please ensure you meet the following criteria:
+To update to WSL 2, you must meet the follow criteria:
 
-- Ensure that you are running Windows 10 **build 18917** or higher
-   - You can check your Windows version by opening Command Prompt and running the `ver` command.
-   - Please update to the latest Windows version if your build is lower than 18917.
+- Running Windows 10 **build 18917** or higher.
+
+- Check your Windows version by selecting the **Windows logo key + R**, type **winver**, select **OK**. (Or enter the `ver` command in Windows Command Prompt). Please [update to the latest Windows version](ms-settings:windowsupdate) if your build is lower than 18917. [Get Windows Update Assistant](https://www.microsoft.com/software-download/windows10).
 
 ### Enable the 'Virtual Machine Platform' optional component
 
-For WSL 2, you will also need to make sure that you have the Virtual Machine Platform optional component installed. You can do that by running the following command in a PowerShell window with administrator access:
+Before installing WSL 2, you must enable the "Virtual Machine Platform" optional feature.
+
+Open PowerShell as Administrator and run:
 
 ```powershell
 dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
 ```
 
-Please **restart** your machine to finish installing these components.
+**Restart** your machine to complete the WSL install and update to WSL 2.
 
 ### Set WSL 2 as your default version
 
-Run the following command in Powershell to set WSL 2 as your default:
+Run the following command in Powershell to set WSL 2 as the default version when installing a new Linux distribution:
 
 ```powershell
 wsl --set-default-version 2
@@ -48,9 +51,9 @@ wsl --set-default-version 2
 
 ## Install your Linux distribution of choice
 
-1. Open the Microsoft Store and choose your favorite Linux distribution.
+1. Open the [Microsoft Store](https://aka.ms/wslstore) and select your favorite Linux distribution.
 
-    ![View of Linux distros in the Microsoft Store](media/store.png)
+    ![View of Linux distributions in the Microsoft Store](media/store.png)
 
     The following links will open the Microsoft store page for each distribution:
 
@@ -67,51 +70,33 @@ wsl --set-default-version 2
     - [Pengwin Enterprise](https://www.microsoft.com/store/apps/9N8LP0X93VCP)
     - [Alpine WSL](https://www.microsoft.com/store/apps/9p804crf0395)
 
-1. From the distro's page, select "Get"
+1. From the distribution's page, select "Get".
 
-    ![View of Linux distros in the Microsoft store](media/UbuntuStore.png)
+    ![Linux distributions in the Microsoft store](media/UbuntuStore.png)
 
-## Complete initialization of your distro
+## Set up a new distribution
 
-After launching your Linux distribution, follow the onscreen instructions to initialize your distro.
+The first time you launch a newly installed Linux distribution, a console window will open and you'll be asked to wait for a minute or two for files to de-compress and be stored on your PC. All future launches should take less than a second.
 
-The first time a newly installed distribution runs, a console window will open and you'll be asked to wait for a minute or two for the installation to complete. During this final stage of installation, the distro's files are de-compressed and stored on your PC, ready for use. This may take around a minute or more depending on the performance of your PC's storage devices. This initial installation phase is only required when a distro is clean-installed - all future launches should take less than a second.
-
-### Set up a new Linux user account
-
-Once installation is complete, you will be prompted to create a new user account (and its password).
+You will then need to [create a user account and password for your new Linux distribution](./user-support.md).
 
 ![Ubuntu unpacking in the Windows console](media/UbuntuInstall.png)
 
-This user account is for the normal non-admin user that you'll be logged-in as by default when launching a distribution. You can choose any username and password you wish - they have no bearing on your Windows username.
+## Set your distribution version to WSL 1 or WSL 2
 
-When you open a new distro instance, you won't be prompted for your password, but **if you elevate a process using `sudo`, you will need to enter your password**, so make sure you choose a password you can easily remember! See the [User Support](user-support.md) page for more info.
-
-### Update & upgrade packages
-
-Most distributions ship with an empty or minimal package catalog. We strongly recommend regularly updating your package catalog and upgrading your installed packages using your distro's preferred package manager. For Debian/Ubuntu, use apt:
+You can check the WSL version assigned to each of the Linux distributions you have installed by opening the PowerShell command line and entering the command (only available in Windows Build 18917 or higher): `wsl -l -v`
 
 ```bash
-sudo apt update && sudo apt upgrade
+wsl --list --verbose
 ```
 
-Windows does not automatically update or upgrade your Linux distro(s). This is a task that the most Linux users prefer to control themselves.
-
-## Further Resources
-
-You're now set up and ready to start using the Windows Subsystem for Linux! 
-
-If you'd like to learn more about managing WSL please read on below.
-
-### Set a distro to be backed by WSL1 or WSL2 using the command line
-
-To set a distro to be backed by either version of WSL please run:
+To set a distribution to be backed by either version of WSL please run:
 
 ```bash
-wsl --set-version <Distro> <versionNumber>
+wsl --set-version <distribution name> <versionNumber>
 ```
 
-Make sure to replace `<Distro>` with the actual name of your distro and `<versionNumber>` with the number '1' or '2'. (You can find these with the command: `wsl -l`). You can change back to WSL 1 at anytime by running the same command as above but replacing the '2' with a '1'.
+Make sure to replace `<distribution name>` with the actual name of your distribution and `<versionNumber>` with the number '1' or '2'. You can change back to WSL 1 at anytime by running the same command as above but replacing the '2' with a '1'.
 
 Additionally, if you want to make WSL 2 your default architecture you can do so with this command:
 
@@ -119,22 +104,14 @@ Additionally, if you want to make WSL 2 your default architecture you can do so 
 wsl --set-default-version 2
 ```
 
-This will make any new distro that you install be initialized as a WSL 2 distro.
+This will set the version of any new distribution installed to WSL 2.
 
-## Verfiy your distro's WSL version
-
-To verify what versions of WSL each distro is using use the following command (only available in Windows Build 18917 or higher):
-
-`wsl --list --verbose` or `wsl -l -v`
-
-The distro that you've chosen above should now display either a '1' or '2' under the 'version' column. Now that you're finished feel free to start using any WSL distro!
-
-## Troubleshooting
+## Troubleshooting installation
 
 Below are related errors and suggested fixes. Refer to the [WSL troubleshooting page](troubleshooting.md) for other common errors and their solutions.
 
 - **Installation failed with error 0x80070003**
-  - The Windows Subsystem for Linux only runs on your system drive (usually this is your `C:` drive). Make sure that distros are stored on your system drive:  
+  - The Windows Subsystem for Linux only runs on your system drive (usually this is your `C:` drive). Make sure that distributions are stored on your system drive:  
   - Open **Settings** -> **Storage** -> **More Storage Settings: Change where new content is saved**
     ![Picture of system settings to install apps on C: drive](media/AppStorage.png)
 
