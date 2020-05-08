@@ -11,14 +11,16 @@ ms.localizationpriority: high
 ## Learn more here
 
 * [About the Windows Subsystem for Linux](about.md)
-* [What's new with WSL2](compare-versions.md)
+* [What's new with WSL2](wsl2-index.md)
+* [Compare WSL 2 and WSL 1](compare-versions.md)
 * [Read frequently asked questions](faq.md)
 
 ## Get started
 
 * [Install WSL1](install-win10.md)
-* [Install WSL2](wsl2-install.md)
+* [Update to WSL2](install-win10.md#update-to-wsl-2)
 * [Install Linux on Windows Server](install-on-server.md)
+* [Create a user account and password for your new Linux distribution](user-support.md)
 
 ## Team blogs
 

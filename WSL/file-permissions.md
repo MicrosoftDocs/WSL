@@ -12,11 +12,11 @@ ms.localizationpriority: high
 
 This page details how Linux file permissions are interpreted across the Windows Subsystem for Linux, especially when accessing resources inside of Windows on the NT file system. This documentation assumes a basic understanding of the [Linux file system permissions structure](https://wiki.archlinux.org/index.php/File_permissions_and_attributes) and the [umask command](https://en.wikipedia.org/wiki/Umask).
 
-When accessing Windows files from WSL the file permissions are either calculated from Windows permissions, or are read from metadata that has been added to the file by WSL. This metadata is not enabled by default. 
+When accessing Windows files from WSL the file permissions are either calculated from Windows permissions, or are read from metadata that has been added to the file by WSL. This metadata is not enabled by default.
 
 ## WSL metadata on Windows files
 
-When metadata is enabled as a mount option in WSL, extended attributes on Windows NT files can be added and interpreted to supply Linux file system permissions. 
+When metadata is enabled as a mount option in WSL, extended attributes on Windows NT files can be added and interpreted to supply Linux file system permissions.
 
 WSL can add four NTFS extended attributes:
 
@@ -41,7 +41,7 @@ These scenarios occur when you are accessing your Windows files from WSL, most l
 
 The result depends on if the file already has existing metadata.
 
-##### The file does not have metadata (default)
+##### DrvFS file does not have metadata (default)
 
 If the file has no metadata associated with it then we translate the effective permissions of the Windows user to read/write/execute bits and set them to the this as the same value for user, group, and other. For example, if your Windows user account has read and execute access but not write access to the file then this will be shown as `r-x` for user, group and other. If the file has the 'Read Only' attribute set in Windows then we do not grant write access in Linux.
 
@@ -53,11 +53,11 @@ If the file has metadata present, we simply use those metadata values instead of
 
 The result depends on if the file already has existing metadata.
 
-##### The file does not have metadata (default)
+##### chmod file does not have metadata (default)
 
 Chmod will only have one effect, if you remove all the write attributes of a file then the 'read only' attribute on the Windows file will be set, since this is the same behaviour as CIFS (Common Internet File System) which is the SMB (Server Message Block) client in Linux.
 
-##### The file has metadata
+##### chmod file has metadata
 
 Chmod will change or add metadata depending on the file's already existing metadata. 
 
@@ -69,7 +69,7 @@ The result depends on if metadata is enabled.
 
 ##### Metadata is not enabled (default)
 
-The Windows permissions of the newly created file will be the same as if you created the file in Windows without a specific security descriptor, it will inherit the parent's permissions. 
+The Windows permissions of the newly created file will be the same as if you created the file in Windows without a specific security descriptor, it will inherit the parent's permissions.
 
 ##### Metadata is enabled
 
@@ -79,20 +79,21 @@ The file's permission bits are set to follow the Linux umask, and the file will 
 
 The result depends on if the file already has existing metadata.
 
-##### **The file does not have metadata (default)**
-In the default scenario, when automounting Windows drives, we specify that the user ID (UID) for any file is set to the user ID of your WSL user and the group ID (GID) is set to the principal group ID of your WSL user. 
+##### User file does not have metadata (default)
 
-##### The file has metadata
+In the default scenario, when automounting Windows drives, we specify that the user ID (UID) for any file is set to the user ID of your WSL user and the group ID (GID) is set to the principal group ID of your WSL user.
 
-The UID and GID specified in the metadata is applied as the user owner and group owner of the file. 
+##### User file has metadata
+
+The UID and GID specified in the metadata is applied as the user owner and group owner of the file.
 
 ### Accessing Linux files from Windows using `\\wsl$`
 
-Accessing Linux files via `\\wsl$` will use the default user of your WSL distro. Therefore any Windows app accessing Linux files will have the same permissions as the default user.
+Accessing Linux files via `\\wsl$` will use the default user of your WSL distribution. Therefore any Windows app accessing Linux files will have the same permissions as the default user.
 
 #### Creating a new file
 
-The default umask is applied when creating a new file inside of a WSL distro from Windows. The default umask is `022`, or in other words it allows all permissions except write permissions to groups and others. 
+The default umask is applied when creating a new file inside of a WSL distribution from Windows. The default umask is `022`, or in other words it allows all permissions except write permissions to groups and others. 
 
 ### Accessing files in the Linux root file system from Linux
 
@@ -100,8 +101,6 @@ Any files created, modified, or accessed in the Linux root file system follow st
 
 ## Configuring file permissions
 
-You can configure your file permissions inside of your Windows drives using the mount options in wsl.conf. The mount options allow you to set `umask`, `dmask` and `fmask` permissions masks. The `umask` is applied to all files, the `dmask` is applied just to directories and the `fmask` is applied just to files. These permission masks are then put through a logical OR operation when being applied to files, e.g: If you have a `umask` value of `023` and an `fmask` value of `022` then the resulting permissions mask for files will be `023`. 
+You can configure your file permissions inside of your Windows drives using the mount options in wsl.conf. The mount options allow you to set `umask`, `dmask` and `fmask` permissions masks. The `umask` is applied to all files, the `dmask` is applied just to directories and the `fmask` is applied just to files. These permission masks are then put through a logical OR operation when being applied to files, e.g: If you have a `umask` value of `023` and an `fmask` value of `022` then the resulting permissions mask for files will be `023`.
 
-Please see the ['Manage Linux Distributions'](./wsl-config.md) document page for instructions on how to do this.
-<!-- TODO: Add # to the link-->
-
+Please see the [Configure launch settings with wslconf](./wsl-config.md#configure-launch-settings-with-wslconf) article for instructions on how to do this.

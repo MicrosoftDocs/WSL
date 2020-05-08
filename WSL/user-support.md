@@ -1,10 +1,9 @@
 ---
-title: Create and update user accounts for WSL distributions
+title: Create and update user accounts for Linux distributions
 description: Reference for user accounts and permission management with the Windows Subsystem for Linux.
 keywords: BashOnWindows, bash, wsl, windows, windows subsystem for linux, windowssubsystem, ubuntu, user accounts
-ms.date: 01/20/2020
+ms.date: 05/19/2020
 ms.topic: article
-ms.assetid: f70e685f-24c6-4908-9546-bf4f0291d8fd
 ms.localizationpriority: high
 ---
 

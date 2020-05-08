@@ -1,25 +1,21 @@
 ---
 title: Windows interoperability with Linux
 description: Describes Windows interoperability with Linux distributions running on the Windows Subsystem for Linux. 
-ms.date: 12/20/2017
+ms.date: 05/19/2020
 ms.topic: article
-ms.assetid: 3cefe0db-7616-4848-a2b6-9296746a178b
-ms.custom: seodec18
 ms.localizationpriority: high
 ---
 
-# Windows Subsystem for Linux interoperability with Windows
-
-> **Updated for Fall Creators Update.**  
-If you're running Creators Update or Anniversary Update, jump to the [Creators/Anniversary Update section](interop.md#creators-update-and-anniversary-update).
+# Windows interoperability with Linux
 
 The Windows Subsystem for Linux (WSL) is continuously improving integration between Windows and Linux.  You can:
 
 1. Invoke Windows binaries from the Linux console.
 1. Invoke Linux binaries from a Windows console.
-1. **Windows Insiders Builds 17063+** Share environment variables between Linux and Windows.
+1. Share environment variables between Linux and Windows. (Build 17063+)
 
-This delivers a seamless experience between Windows and WSL.  Technical details are on the [WSL blog](https://blogs.msdn.microsoft.com/wsl/2016/10/19/windows-and-ubuntu-interoperability/).
+> [!NOTE]
+> If you're running Creators Update (Oct 2017, Build 16299) or Anniversary Update (Aug 2016, Build 14393), jump to the [Creators/Anniversary Update section](#creators-update-and-anniversary-update).
 
 ## Run Linux tools from a Windows command line
 
@@ -301,3 +297,7 @@ exit
 C:\temp> dir | findstr foo.txt
 09/27/2016  02:15 PM                14 foo.txt
 ```
+
+## Additional resources
+
+* [WSL blog post on interoperability](https://blogs.msdn.microsoft.com/wsl/2016/10/19/windows-and-ubuntu-interoperability/)

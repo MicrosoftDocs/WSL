@@ -8,22 +8,22 @@
       href: compare-versions.md
     - name: Whats new in WSL 2 
       href: wsl2-index.md
-- name: Install & get started
+- name: Quickstart
   items:
     - name: Install WSL & update to WSL 2
       href: install-win10.md
     - name: Install on Windows Server
       href: install-on-server.md
-- name: Understanding Linux Distros
-  items:
-    - name: Configurations and Management
-      href: wsl-config.md
-    - name: File Permissions
-      href: file-permissions.md
-    - name: Build a Custom Distro
-      href: build-custom-distro.md
-    - name: User Accounts
+    - name: Create a user account & password
       href: user-support.md
+- name: How-to
+  items:
+    - name: Launch commands & configurations
+      href: wsl-config.md
+    - name: Set file permissions
+      href: file-permissions.md
+    - name: Build a custom distro
+      href: build-custom-distro.md
 - name: Interoperability
   href: interop.md
 - name: WSL for enterprise
