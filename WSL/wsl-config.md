@@ -15,7 +15,7 @@ There are several ways to run a Linux distribution with WSL once it's [installed
 1. Open your Linux distribution by visiting the Windows Start menu and typing the name of your installed distributions. For example: "Ubuntu".
 2. From Windows Command Prompt or PowerShell, enter the name of your installed distribution. For example: `ubuntu`
 3. From Windows Command Prompt or PowerShell, to open your default Linux distribution inside your current command line, enter: `wsl.exe`.
-4. From Windows Command Prompt or PowerShell, to open your default Linux distribution inside your current command line, enter:`wsl [command]` or `bash -c [command]`
+4. From Windows Command Prompt or PowerShell, to open your default Linux distribution inside your current command line, enter:`wsl [command]`.
 
 Which method you should use depends on what you're doing. If you've opened a WSL command line within a Windows Prompt or PowerShell window and want to exit, enter the command: `exit`.
 
