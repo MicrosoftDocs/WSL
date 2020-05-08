@@ -14,3 +14,27 @@
       href: install-win10.md
     - name: Install on Windows Server
       href: install-on-server.md
+- name: Understanding Linux Distros
+  items:
+    - name: Configurations and Management
+      href: wsl-config.md
+    - name: File Permissions
+      href: file-permissions.md
+    - name: Build a Custom Distro
+      href: build-custom-distro.md
+    - name: User Accounts
+      href: user-support.md
+- name: Interoperability
+  href: interop.md
+- name: WSL for enterprise
+  href: enterprise.md
+- name: Frequently Asked Questions
+  href: faq.md
+- name: WSL 2 FAQ
+  href: wsl2-faq.md
+- name: Troubleshooting
+  href: troubleshooting.md
+- name: Release Notes
+  href: release-notes.md
+- name: Command Line Reference
+  href: reference.md
