@@ -9,9 +9,13 @@ ms.localizationpriority: high
 
 # Comparing WSL 2 and WSL 1
 
-The primary goals of updating the Windows Subsystem for Linux to a new version are to **increase file system performance** and support **full system call compatibility**. 
+The primary goals of updating the Windows Subsystem for Linux to a new version are to **increase file system performance** and support **full system call compatibility**.
 
-WSL 2 uses the latest and greatest in virtualization technology to run a Linux kernel inside of a lightweight utility virtual machine (VM). However, WSL 2 is not a traditional VM experience. [Learn more about the WSL 2 architecture](#wsl-2-architecture).
+## What's new with WSL 2?
+
+WSL 2 is a major overhaul of the underlying architecture in WSL that changes how Linux distributions interact with Windows. This new version uses the latest and greatest in virtualization technology to run a Linux kernel inside of a lightweight utility virtual machine (VM). The result is an increase in file system performance and full system call compatibility, enabling features like Docker Desktop support. Each Linux distribution can run as WSL 1 or a WSL 2 and can be switched between at any time. [Learn more about the WSL 2 architecture](#wsl-2-architecture).
+
+> WSL 2 is only available in Windows 10 builds 18917 or higher.
 
 ## Comparing features
 

@@ -24,6 +24,11 @@
       "source_path": "wsl/wsl2-ux-changes.md",
       "redirect_url": "compare-versions",
       "redirect_document_id": true
+    },
+    {
+      "source-path": "wsl/wsl-index.md",
+      "redirect_url": "compare-versions",
+      "redirect_document_id": false
     }
   ]
 }
