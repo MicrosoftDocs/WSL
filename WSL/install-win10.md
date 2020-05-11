@@ -37,9 +37,11 @@ To download and install your preferred distro(s), you have three choices:
     ![View of Linux distros in the Microsoft Store](media/store.png)
 
     The following links will open the Microsoft store page for each distribution:
-
+    
+    * [Ubuntu](https://www.microsoft.com/store/apps/9NBLGGH4MSV6)
     * [Ubuntu 16.04 LTS](https://www.microsoft.com/store/apps/9pjn388hp8c9)
     * [Ubuntu 18.04 LTS](https://www.microsoft.com/store/apps/9N9TNGVNDL3Q)
+    * [Ubuntu 20.04 LTS](https://www.microsoft.com/store/apps/9N6SVWS3RX71)
     * [OpenSUSE Leap 15](https://www.microsoft.com/store/apps/9n1tb6fpvj8c)
     * [OpenSUSE Leap 42](https://www.microsoft.com/store/apps/9njvjts82tjx)
     * [SUSE Linux Enterprise Server 12](https://www.microsoft.com/store/apps/9p32mwbh6cns)
