@@ -5,7 +5,7 @@
     - name: What is WSL?
       href: about.md
     - name: Whats new in WSL 2 
-      href: wsl2-index.md
+      href: compare-versions.md#whats-new-with-wsl-2
     - name: Comparing WSL 2 and WSL 1
       href: compare-versions.md
 - name: Quickstart
