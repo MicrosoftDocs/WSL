@@ -315,12 +315,12 @@ These settings affect the VM that powers any WSL 2 distribution.
 | key | value | default | notes|
 |:----|:----|:----|:----|
 | kernel | string | The Microsoft built kernel provided inbox | An absolute Windows path to a custom Linux kernel. |
-| memory | size | 70% of your total memory on Windows | How much memory to assign to the WSL 2 VM. |
+| memory | size | 80% of your total memory on Windows | How much memory to assign to the WSL 2 VM. |
 | processors | number | The same number of processors on Windows | How many processors to assign ot the WSL 2 VM. |
 | localhostForwarding | boolean | `true` | Boolean specifying if ports bound to wildcard or localhost in the WSL 2 VM should be connectable from the host via localhost:port. |
 | kernelCommandLine | string | Blank | Additional kernel command line arguments. |
-| swap | size | ??? 30GB? | How much swap space to add to the WSL 2 VM, 0 for no swap file. |
-| swapFile | size | Same directory as your distro??? | An absolute Windows path to the swap virtual hard disk. |
+| swap | size | 25% of memory size on Windows rounded up to the nearest GB | How much swap space to add to the WSL 2 VM, 0 for no swap file. |
+| swapFile | size | %USERPROFILE%\AppData\Local\Temp\swap.vhdx | An absolute Windows path to the swap virtual hard disk. |
 
 Entries with the `path` value must be Windows paths with escaped backslashes, e.g: `C:\\Temp\\myCustomKernel`
 
