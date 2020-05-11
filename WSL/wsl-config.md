@@ -211,7 +211,7 @@ For example:
 
 To reinstall, find the distribution in the Microsoft store and select "Launch".
 
-## Configure launch settings with wslconf
+## Configure per distro launch settings with wslconf
 
 > **Available in Windows Build 17093 and later**
 
@@ -237,13 +237,13 @@ generateHosts = true
 generateResolvConf = true
 ```
 
-## Configuration Options
+### Configuration Options
 
 In keeping with .ini conventions, keys are declared under a section. 
 
 WSL supports two sections: `automount` and `network`.
 
-### automount
+#### automount
 
 Section: `[automount]`
 
@@ -258,7 +258,7 @@ By default, WSL sets the uid and gid to the value of the default user (in Ubuntu
 
 **Note:** These options are applied as the mount options for all automatically mounted drives. To change the options for a specific drive only, use /etc/fstab instead.
 
-### Mount options
+#### Mount options
 
 Setting different mount options for Windows drives (DrvFs) can control how file permissions are calculated for Windows files. The following options are available:
 
@@ -272,7 +272,7 @@ Setting different mount options for Windows drives (DrvFs) can control how file 
 
 **Note:** The permission masks are put through a logical OR operation before being applied to files or directories. 
 
-### network
+#### network
 
 Section label: `[network]`
 
@@ -281,7 +281,7 @@ Section label: `[network]`
 | generateHosts | boolean | `true` | `true` sets WSL to generate `/etc/hosts`. The `hosts` file contains a static map of hostnames corresponding IP address. |
 | generateResolvConf | boolean | `true` | `true` set WSL to generate `/etc/resolv.conf`. The `resolv.conf` contains a DNS list that are capable of resolving a given hostname to its IP address. | 
 
-### interop
+#### interop
 
 Section label: `[interop]`
 
@@ -291,3 +291,37 @@ These options are available in Insider Build 17713 and later.
 |:----|:----|:----|:----|
 | enabled | boolean | `true` | Setting this key will determine whether WSL will support launching Windows processes. |
 | appendWindowsPath | boolean | `true` | Setting this key will determine whether WSL will add Windows path elements to the $PATH environment variable. |
+
+#### user
+
+Section label: `[user]`
+
+These options are available in Build 18980 and later.
+
+| key | value | default | notes|
+|:----|:----|:----|:----|
+| default | string | The initial username created on first run | Setting this key specifies which user to run as when first starting a WSL session. |
+
+## Configure global options with .wslconfig
+
+> **Available in Windows Build 19041 and later**
+
+You can configure global WSL options by placing a `.wslconfig` file into the root directory of your users folder: `C:\Users\<yourUserName>\.wslconfig`. This file can contain the following options:
+
+### WSL 2 Settings
+
+These settings affect the VM that powers any WSL 2 distribution. 
+
+| key | value | default | notes|
+|:----|:----|:----|:----|
+| kernel | string | The Microsoft built kernel provided inbox | An absolute Windows path to a custom Linux kernel. |
+| memory | size | 70% of your total memory on Windows | How much memory to assign to the WSL 2 VM. |
+| processors | number | The same number of processors on Windows | How many processors to assign ot the WSL 2 VM. |
+| localhostForwarding | boolean | `true` | Boolean specifying if ports bound to wildcard or localhost in the WSL 2 VM should be connectable from the host via localhost:port. |
+| kernelCommandLine | string | Blank | Additional kernel command line arguments. |
+| swap | size | ??? 30GB? | How much swap space to add to the WSL 2 VM, 0 for no swap file. |
+| swapFile | size | Same directory as your distro??? | An absolute Windows path to the swap virtual hard disk. |
+
+Entries with the `path` value must be Windows paths with escaped backslashes, e.g: `C:\\Temp\\myCustomKernel`
+
+Entries with the `size` value must be a size followed by a unit, for example `8GB` or `512MB`.
