@@ -24,9 +24,9 @@ Please click on [this link](https://wslstorestorage.blob.core.windows.net/wslblo
 
 To install the Linux kernel update package:
 
-	1. Run the update package downloaded in the previous step.
-	2. You will be prompted for elevated permissions, select ‘yes’ to approve this installation.
-	3. Once the installation is complete, you are ready to begin using WSL2!
+1. Run the update package downloaded in the previous step.
+2. You will be prompted for elevated permissions, select 'yes' to approve this installation.
+3. Once the installation is complete, you are ready to begin using WSL2!
 
 ## Future plans for updating the WSL2 Linux kernel
 
