@@ -1,7 +1,7 @@
 ---
 title: Windows interoperability with Linux
 description: Describes Windows interoperability with Linux distributions running on the Windows Subsystem for Linux. 
-ms.date: 05/19/2020
+ms.date: 05/12/2020
 ms.topic: article
 ms.localizationpriority: high
 ---

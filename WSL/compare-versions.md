@@ -2,7 +2,7 @@
 title: An overview on the the Windows Subsystem for Linux
 description: Learn about the Windows Subsystem for Linux, the different versions and ways you can use them.
 keywords: BashOnWindows, bash, wsl, windows, windowssubsystem, gnu, linux, ubuntu, debian, suse, windows 10, UX changes, WSL 2, linux kernel, network applications, localhost, IPv6, Virtual Hardware Disk, VHD, VHD limitations, VHD error
-ms.date: 05/19/2020
+ms.date: 05/12/2020
 ms.topic: article
 ms.localizationpriority: high
 ---

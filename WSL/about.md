@@ -2,7 +2,7 @@
 title: An overview on the the Windows Subsystem for Linux
 description: Learn about the Windows Subsystem for Linux, the different versions and ways you can use them.
 keywords: BashOnWindows, bash, wsl, windows, windowssubsystem, gnu, linux
-ms.date: 05/19/2020
+ms.date: 05/12/2020
 ms.topic: article
 ms.assetid: 3cefe0db-7616-4848-a2b6-9296746a178b
 ms.localizationpriority: high
