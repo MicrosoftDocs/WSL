@@ -26,7 +26,9 @@ Feature | WSL 1 | WSL 2
  Runs with VM Ware and VirtualBox| ✅ |❌
  Performance across OS file systems| ✅ | ❌
 
-Already using WSL 1 and want to upgrade to WSL 2? Follow the instructions to [update to WSL 2](./install-win10.md#update-to-wsl-2)! WSL 2 is only available in Windows 10 builds 18917 or higher, so you may need to [update to the latest Windows version](ms-settings:windowsupdate).
+Already using WSL 1 and want to upgrade to WSL 2? Follow the instructions to [update to WSL 2](./install-win10.md#update-to-wsl-2)!
+
+WSL 2 is only available in Windows 10, Version 2004, Build 19041 or higher. You will need to [update your Windows version](ms-settings:windowsupdate) and [join the Windows Insider program](https://insider.windows.com/insidersigninboth/) on the "Release Preview" ring until the public release in late May.
 
 ## Use the Linux file system for faster performance
 
