@@ -2,12 +2,12 @@
 title: WSL 2
 description: Windows Subsystem for Linux 2
 keywords: BashOnWindows, bash, wsl, wsl2, windows, windows subsystem for linux, windowssubsystem, ubuntu, debian, suse, windows 10, install
-ms.date: 05/19/2020
+ms.date: 05/12/2020
 ms.topic: article
 ms.localizationpriority: high
 ---
 
-# What's New with WSL 2?
+# What's New in WSL 2?
 
 WSL 2 is a new version of the architecture in WSL that changes how Linux distributions interact with Windows. WSL 2 has the primary goals of increasing file system performance and adding full system call compatibility. Each Linux distribution can run as WSL 1 or a WSL 2 and can be switched between at any time. WSL 2 is a major overhaul of the underlying architecture and uses virtualization technology and a Linux kernel to enable its new features.
 
