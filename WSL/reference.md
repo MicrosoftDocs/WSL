@@ -22,7 +22,7 @@ wsl --set-default-version 2
 
 ## Set your distribution version to WSL 1 or WSL 2
 
-You can check the WSL version assigned to each of the Linux distributions you have installed by opening the PowerShell command line and entering the command (only available in Windows Build 18917 or higher): `wsl -l -v`
+You can check the WSL version assigned to each of the Linux distributions you have installed by opening the PowerShell command line and entering the command (only available in [Windows Build 19041 or higher](ms-settings:windowsupdate)): `wsl -l -v`
 
 ```bash
 wsl --list --verbose

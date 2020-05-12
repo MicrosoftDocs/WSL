@@ -27,6 +27,9 @@ To update to WSL 2, you must meet the follow criteria:
 
 - Running Windows 10, [updated to version 2004](ms-settings:windowsupdate), **Build 19041** or higher.
 
+> [!IMPORTANT]
+> Currently to update to Windows 10, version 2004 (Build 19041), you will need to [join the Windows Insider program](https://insider.windows.com/insidersigninboth/) and select the "Release Preview" ring. The public release should arrive by late May.
+
 - Check your Windows version by selecting the **Windows logo key + R**, type **winver**, select **OK**. (Or enter the `ver` command in Windows Command Prompt). Please [update to the latest Windows version](ms-settings:windowsupdate) if your build is lower than 19041. [Get Windows Update Assistant](https://www.microsoft.com/software-download/windows10).
 
 ### Enable the 'Virtual Machine Platform' optional component
@@ -57,20 +60,20 @@ wsl --set-default-version 2
 
     The following links will open the Microsoft store page for each distribution:
 
-    * [Ubuntu](https://www.microsoft.com/store/apps/9NBLGGH4MSV6)
-    * [Ubuntu 16.04 LTS](https://www.microsoft.com/store/apps/9pjn388hp8c9)
-    * [Ubuntu 18.04 LTS](https://www.microsoft.com/store/apps/9N9TNGVNDL3Q)
-    * [Ubuntu 20.04 LTS](https://www.microsoft.com/store/apps/9N6SVWS3RX71)
-    * [OpenSUSE Leap 15](https://www.microsoft.com/store/apps/9n1tb6fpvj8c)
-    * [OpenSUSE Leap 42](https://www.microsoft.com/store/apps/9njvjts82tjx)
-    * [SUSE Linux Enterprise Server 12](https://www.microsoft.com/store/apps/9p32mwbh6cns)
-    * [SUSE Linux Enterprise Server 15](https://www.microsoft.com/store/apps/9pmw35d7fnlx)
-    * [Kali Linux](https://www.microsoft.com/store/apps/9PKR34TNCV07)
-    * [Debian GNU/Linux](https://www.microsoft.com/store/apps/9MSVKQC78PK6)
-    * [Fedora Remix for WSL](https://www.microsoft.com/store/apps/9n6gdm4k2hnc)
-    * [Pengwin](https://www.microsoft.com/store/apps/9NV1GV1PXZ6P)
-    * [Pengwin Enterprise](https://www.microsoft.com/store/apps/9N8LP0X93VCP)
-    * [Alpine WSL](https://www.microsoft.com/store/apps/9p804crf0395)
+    - [Ubuntu](https://www.microsoft.com/store/apps/9NBLGGH4MSV6)
+    - [Ubuntu 16.04 LTS](https://www.microsoft.com/store/apps/9pjn388hp8c9)
+    - [Ubuntu 18.04 LTS](https://www.microsoft.com/store/apps/9N9TNGVNDL3Q)
+    - [Ubuntu 20.04 LTS](https://www.microsoft.com/store/apps/9N6SVWS3RX71)
+    - [OpenSUSE Leap 15](https://www.microsoft.com/store/apps/9n1tb6fpvj8c)
+    - [OpenSUSE Leap 42](https://www.microsoft.com/store/apps/9njvjts82tjx)
+    - [SUSE Linux Enterprise Server 12](https://www.microsoft.com/store/apps/9p32mwbh6cns)
+    - [SUSE Linux Enterprise Server 15](https://www.microsoft.com/store/apps/9pmw35d7fnlx)
+    - [Kali Linux](https://www.microsoft.com/store/apps/9PKR34TNCV07)
+    - [Debian GNU/Linux](https://www.microsoft.com/store/apps/9MSVKQC78PK6)
+    - [Fedora Remix for WSL](https://www.microsoft.com/store/apps/9n6gdm4k2hnc)
+    - [Pengwin](https://www.microsoft.com/store/apps/9NV1GV1PXZ6P)
+    - [Pengwin Enterprise](https://www.microsoft.com/store/apps/9N8LP0X93VCP)
+    - [Alpine WSL](https://www.microsoft.com/store/apps/9p804crf0395)
 
 2. From the distribution's page, select "Get".
 
@@ -86,7 +89,7 @@ You will then need to [create a user account and password for your new Linux dis
 
 ## Set your distribution version to WSL 1 or WSL 2
 
-You can check the WSL version assigned to each of the Linux distributions you have installed by opening the PowerShell command line and entering the command (only available in Windows Build 18917 or higher): `wsl -l -v`
+You can check the WSL version assigned to each of the Linux distributions you have installed by opening the PowerShell command line and entering the command (only available in [Windows Build 19041 or higher](ms-settings:windowsupdate)): `wsl -l -v`
 
 ```bash
 wsl --list --verbose
@@ -125,7 +128,7 @@ Below are related errors and suggested fixes. Refer to the [WSL troubleshooting 
   - Please make sure that virtualization is enabled inside of your computer's BIOS. The instructions on how to do this will vary from computer to computer, and will most likely be under CPU related options.
 
 - **Error when trying to upgrade: `Invalid command line option: wsl --set-version Ubuntu 2`**
-  - Please make sure that you have the Windows Subsystem for Linux enabled, and that you're using Windows Build version 18917 or higher. To enable WSL run this command in a Powershell prompt with admin privileges: `Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux`. You can find the full WSL install instructions [here](./install-win10.md).
+  - Please make sure that you have the Windows Subsystem for Linux enabled, and that you're using Windows Build version 19041 or higher. To enable WSL run this command in a Powershell prompt with admin privileges: `Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux`. You can find the full WSL install instructions [here](./install-win10.md).
 
 - **The requested operation could not be completed due to a virtual disk system limitation. Virtual hard disk files must be uncompressed and unencrypted and must not be sparse.**
   - Please check [WSL Github thread #4103](https://github.com/microsoft/WSL/issues/4103) where this issue is being tracked for updated information.
