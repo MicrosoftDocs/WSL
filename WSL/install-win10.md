@@ -25,9 +25,9 @@ To only install WSL 1, you should now restart your machine and move on to [Insta
 
 To update to WSL 2, you must meet the follow criteria:
 
-- Running Windows 10 **build 18917** or higher.
+- Running Windows 10, [updated to version 2004](ms-settings:windowsupdate), **Build 19041** or higher.
 
-- Check your Windows version by selecting the **Windows logo key + R**, type **winver**, select **OK**. (Or enter the `ver` command in Windows Command Prompt). Please [update to the latest Windows version](ms-settings:windowsupdate) if your build is lower than 18917. [Get Windows Update Assistant](https://www.microsoft.com/software-download/windows10).
+- Check your Windows version by selecting the **Windows logo key + R**, type **winver**, select **OK**. (Or enter the `ver` command in Windows Command Prompt). Please [update to the latest Windows version](ms-settings:windowsupdate) if your build is lower than 19041. [Get Windows Update Assistant](https://www.microsoft.com/software-download/windows10).
 
 ### Enable the 'Virtual Machine Platform' optional component
 
