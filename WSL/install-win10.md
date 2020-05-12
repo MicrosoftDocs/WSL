@@ -2,7 +2,7 @@
 title: Install Windows Subsystem for Linux (WSL) on Windows 10
 description: Installation instructions for the Windows Subsystem for Linux on Windows 10.
 keywords: BashOnWindows, bash, wsl, windows, windows subsystem for linux, windowssubsystem, ubuntu, debian, suse, windows 10, install, enable, WSL2, version 2
-ms.date: 05/15/2020
+ms.date: 05/12/2020
 ms.topic: article
 ms.localizationpriority: high
 ---
@@ -57,20 +57,22 @@ wsl --set-default-version 2
 
     The following links will open the Microsoft store page for each distribution:
 
-    - [Ubuntu 16.04 LTS](https://www.microsoft.com/store/apps/9pjn388hp8c9)
-    - [Ubuntu 18.04 LTS](https://www.microsoft.com/store/apps/9N9TNGVNDL3Q)
-    - [OpenSUSE Leap 15](https://www.microsoft.com/store/apps/9n1tb6fpvj8c)
-    - [OpenSUSE Leap 42](https://www.microsoft.com/store/apps/9njvjts82tjx)
-    - [SUSE Linux Enterprise Server 12](https://www.microsoft.com/store/apps/9p32mwbh6cns)
-    - [SUSE Linux Enterprise Server 15](https://www.microsoft.com/store/apps/9pmw35d7fnlx)
-    - [Kali Linux](https://www.microsoft.com/store/apps/9PKR34TNCV07)
-    - [Debian GNU/Linux](https://www.microsoft.com/store/apps/9MSVKQC78PK6)
-    - [Fedora Remix for WSL](https://www.microsoft.com/store/apps/9n6gdm4k2hnc)
-    - [Pengwin](https://www.microsoft.com/store/apps/9NV1GV1PXZ6P)
-    - [Pengwin Enterprise](https://www.microsoft.com/store/apps/9N8LP0X93VCP)
-    - [Alpine WSL](https://www.microsoft.com/store/apps/9p804crf0395)
+    * [Ubuntu](https://www.microsoft.com/store/apps/9NBLGGH4MSV6)
+    * [Ubuntu 16.04 LTS](https://www.microsoft.com/store/apps/9pjn388hp8c9)
+    * [Ubuntu 18.04 LTS](https://www.microsoft.com/store/apps/9N9TNGVNDL3Q)
+    * [Ubuntu 20.04 LTS](https://www.microsoft.com/store/apps/9N6SVWS3RX71)
+    * [OpenSUSE Leap 15](https://www.microsoft.com/store/apps/9n1tb6fpvj8c)
+    * [OpenSUSE Leap 42](https://www.microsoft.com/store/apps/9njvjts82tjx)
+    * [SUSE Linux Enterprise Server 12](https://www.microsoft.com/store/apps/9p32mwbh6cns)
+    * [SUSE Linux Enterprise Server 15](https://www.microsoft.com/store/apps/9pmw35d7fnlx)
+    * [Kali Linux](https://www.microsoft.com/store/apps/9PKR34TNCV07)
+    * [Debian GNU/Linux](https://www.microsoft.com/store/apps/9MSVKQC78PK6)
+    * [Fedora Remix for WSL](https://www.microsoft.com/store/apps/9n6gdm4k2hnc)
+    * [Pengwin](https://www.microsoft.com/store/apps/9NV1GV1PXZ6P)
+    * [Pengwin Enterprise](https://www.microsoft.com/store/apps/9N8LP0X93VCP)
+    * [Alpine WSL](https://www.microsoft.com/store/apps/9p804crf0395)
 
-1. From the distribution's page, select "Get".
+2. From the distribution's page, select "Get".
 
     ![Linux distributions in the Microsoft store](media/UbuntuStore.png)
 
