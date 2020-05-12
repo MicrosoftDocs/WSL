@@ -159,6 +159,18 @@ To reinstall, find the distribution in the Microsoft store and select "Launch".
 
 Run WSL as the specified user. Please note that user must exist inside of the WSL distribution.
 
+## Change the default user for a distribution
+
+`<DistributionName> config --default-user <Username>`
+
+Change the default user that for your distribution log-in. The user has to already exist inside the distribution in order to become the default user. 
+
+For example:
+`ubuntu config --default-user johndoe` would change the default user for the Ubuntu distribution to the "johndoe" user.
+
+> [!NOTE]
+> If you are having trouble figuring out the name of your distribution, see [List distributions](https://docs.microsoft.com/windows/wsl/wsl-config#list-distributions) for the command to list the official name of the installed distributions. 
+
 ## Run a specific distribution
 
 `wsl -d <DistributionName>`, `wsl --distribution <DistributionName>`
