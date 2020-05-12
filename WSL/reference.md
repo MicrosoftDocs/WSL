@@ -4,16 +4,45 @@ description: List of commands that manage the Windows Subsystem for Linux
 keywords: BashOnWindows, bash, wsl, windows, windows subsystem for linux, windowssubsystem, ubuntu
 ms.date: 07/31/2017
 ms.topic: article
-ms.assetid: 82908295-a6bd-483c-a995-613674c2677e
-ms.custom: seodec18
 ms.localizationpriority: high
 ---
 
 
 # Command Reference for Windows Subsystem for Linux
 
-The best way to interact with the Windows Subsystem for Linux is to use the `wsl.exe` command. 
+The best way to interact with the Windows Subsystem for Linux is to use the `wsl.exe` command.
 
+## Set WSL 2 as your default version
+
+Run the following command in Powershell to set WSL 2 as the default version when installing a new Linux distribution:
+
+```powershell
+wsl --set-default-version 2
+```
+
+## Set your distribution version to WSL 1 or WSL 2
+
+You can check the WSL version assigned to each of the Linux distributions you have installed by opening the PowerShell command line and entering the command (only available in [Windows Build 19041 or higher](ms-settings:windowsupdate)): `wsl -l -v`
+
+```bash
+wsl --list --verbose
+```
+
+To set a distribution to be backed by either version of WSL please run:
+
+```bash
+wsl --set-version <distribution name> <versionNumber>
+```
+
+Make sure to replace `<distribution name>` with the actual name of your distribution and `<versionNumber>` with the number '1' or '2'. You can change back to WSL 1 at anytime by running the same command as above but replacing the '2' with a '1'.
+
+Additionally, if you want to make WSL 2 your default architecture you can do so with this command:
+
+```bash
+wsl --set-default-version 2
+```
+
+This will set the version of any new distribution installed to WSL 2.
 
 ## `wsl.exe`
 
@@ -21,7 +50,7 @@ Below is a list containing all options when using `wsl.exe` as of Windows Versio
 
 Using: `wsl [Argument] [Options...] [CommandLine]`
 
-### Arguments for running Linux binaries
+### Arguments for running Linux commands
 
 * **Without arguments**
 
@@ -61,11 +90,11 @@ The above commands also accept the following options:
 
   Options:
   * **--all**
-      
+
     List all distributions, including distributions that are currently being installed or uninstalled.
 
   * **--running**
-      
+
     List only distributions that are currently running.
 
 * **--set-default, -s \<Distro>**
@@ -78,14 +107,14 @@ The above commands also accept the following options:
 
 * **--unregister \<Distro>**
   
-  Unregisters the distribution.
-   
+  Un-register the distribution.
+
 * **--help**
   Display usage information.
 
 ## Additional Commands
 
-There are also historic commands to interact with the Windows Subsystem for Linux. Their functionality is encompassed within `wsl.exe`, but they are still available for use. 
+There are also historic commands to interact with the Windows Subsystem for Linux. Their functionality is encompassed within `wsl.exe`, but they are still available for use.
 
 ### `wslconfig.exe`
 
@@ -94,33 +123,29 @@ This command lets you configure your WSL distribution. Below is a list of its op
 Using: `wslconfig [Argument] [Options...]`
 
 #### Arguments
+
 * **/l, /list [Options]**
   
   Lists registered distributions.
   
-  Options:
-    * **/all**
-    
+Options:
+
+* **/all**
       Optionally list all distributions, including distributions that are currently being installed or uninstalled.
 
-    * **/running**
-      
+* **/running**
       List only distributions that are currently running.
 
-* **/s, /setdefault \<Distro>**
-  
+* **/s, /setdefault \<Distro>** 
   Sets the distribution as the default.
 
-* **/t, /terminate \<Distro>**
-  
+* **/t, /terminate \<Distro>** 
   Terminates the distribution.
 
 * **/u, /unregister \<Distro>**
-  
-  Unregisters the distribution.
-   
+  Un-registers the distribution.
+
 * **/upgrade \<Distro>**
-  
   Upgrades the distribution to the WslFs file system format.
 
 ### `bash.exe`
@@ -140,14 +165,14 @@ Using: `bash [Options...]`
 * **-c "\<command>"**
   
   Runs the command, prints the output and exits back to the Windows command prompt.
-    
+
   Example:  `bash -c "ls"`.
 
 ## Deprecated Commands
 
 The `lxrun.exe` was the first command used to install and manage the Windows Subsystem for Linux. It is deprecated as of Windows 10 1803 and later.
 
-The command `lxrun.exe` can be used to interact with the [Windows Subsystem for Linux (WSL)](https://msdn.microsoft.com/en-us/commandline/wsl/faq#what-windows-subsystem-for-linux-wsl-) directly.  These commands are installed into the `\Windows\System32` directory and may be run within a Windows command prompt or in PowerShell.
+The command `lxrun.exe` can be used to interact with the [Windows Subsystem for Linux (WSL)](https://msdn.microsoft.com/commandline/wsl/faq#what-windows-subsystem-for-linux-wsl-) directly.  These commands are installed into the `\Windows\System32` directory and may be run within a Windows command prompt or in PowerShell.
 
 | Command                     | Description                     |
 |:----------------------------|:---------------------------|
