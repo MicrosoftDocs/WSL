@@ -23,7 +23,8 @@ Open PowerShell as Administrator and run:
 ```
 
 **If you're looking for 100% system call compatibility and faster IO performance, read below to install WSL 2!**
-> WSL 2 is only available in Windows 10 builds 18917 or higher
+
+WSL 2 is only available in Windows 10, Version 2004, Build 19041 or higher. You will need to [update your Windows version](ms-settings:windowsupdate) and [join the Windows Insider program](https://insider.windows.com/insidersigninboth/) on the "Release Preview" ring until the public release in late May.
 
 **If continuing with WSL 1, restart your machine when prompted and continue with installation [here](./install-on-server.md#download-a-linux-distribution)**
 
