@@ -318,11 +318,24 @@ These options are available in Build 18980 and later.
 
 > **Available in Windows Build 19041 and later**
 
-You can configure global WSL options by placing a `.wslconfig` file into the root directory of your users folder: `C:\Users\<yourUserName>\.wslconfig`. This file can contain the following options:
+You can configure global WSL options by placing a `.wslconfig` file into the root directory of your users folder: `C:\Users\<yourUserName>\.wslconfig`. 
+
+Here is a sample .wslconfig file:
+
+```console
+[wsl2]
+kernel=C:\\temp\\myCustomKernel
+memory=4GB # Limits VM memory in WSL 2 to 4 GB
+processors=2 # Makes the WSL 2 VM use two virtual processors
+```
+
+This file can contain the following options:
 
 ### WSL 2 Settings
 
-These settings affect the VM that powers any WSL 2 distribution. 
+Section label: `[wsl2]`
+
+These settings affect the VM that powers any WSL 2 distribution.
 
 | key | value | default | notes|
 |:----|:----|:----|:----|
