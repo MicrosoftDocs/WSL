@@ -9,7 +9,10 @@ ms.localizationpriority: high
 
 # Updating the WSL 2 Linux kernel
 
-To manually update the Linux kernel inside of WSL 2 please follow these steps. 
+To manually update the Linux kernel inside of WSL 2 please follow these steps.
+
+> [!NOTE] 
+> If the installer cant find WSL 1 right click the Linux kernel update installer, then press uninstall then rerun the installer
 
 ## Download the Linux kernel update package
 
