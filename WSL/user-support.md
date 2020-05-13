@@ -1,17 +1,15 @@
 ---
-title: Create and update user accounts for WSL distributions
+title: Create and update user accounts for Linux distributions
 description: Reference for user accounts and permission management with the Windows Subsystem for Linux.
 keywords: BashOnWindows, bash, wsl, windows, windows subsystem for linux, windowssubsystem, ubuntu, user accounts
-ms.date: 01/20/2020
+ms.date: 05/12/2020
 ms.topic: article
-ms.assetid: f70e685f-24c6-4908-9546-bf4f0291d8fd
-ms.custom: seodec18
 ms.localizationpriority: high
 ---
 
-# Create and update user accounts for WSL distributions
+# Create a user account and password for your new Linux distribution
 
-Once you have enabled WSL and installed a Linux distribution from the Microsoft Store, the first step you will be asked to complete when opening your newly installed Linux distribution is to create an account, including a **User Name** and **Password**.
+Once you have [enabled WSL and installed a Linux distribution from the Microsoft Store](./install-win10.md), the first step you will be asked to complete when opening your newly installed Linux distribution is to create an account, including a **User Name** and **Password**.
 
 - This **User Name** and **Password** is specific to your Linux distribution and has no bearing on your Windows user name.
 
@@ -21,19 +19,31 @@ Once you have enabled WSL and installed a Linux distribution from the Microsoft 
 
 - Each Linux distribution running on the Windows Subsystem for Linux has its own Linux user accounts and passwords.  You will have to configure a Linux user account every time you add a distribution, reinstall, or reset.
 
+![Ubuntu unpacking in the Windows console](media/UbuntuInstall.png)
+
+## Update and upgrade packages
+
+Most distributions ship with an empty or minimal package catalog. We strongly recommend regularly updating your package catalog and upgrading your installed packages using your distribution's preferred package manager. For Debian/Ubuntu, use apt:
+
+```bash
+sudo apt update && sudo apt upgrade
+```
+
+Windows does not automatically update or upgrade your Linux distribution(s). This is a task that the most Linux users prefer to control themselves.
+
 ## Reset your Linux password
 
 To change your password, open your Linux distribution (Ubuntu for example) and enter the command: `passwd`
 
 You will be asked to enter your current password, then asked to enter your new password, and then to confirm your new password.
 
-### Forgot your password
+## Forgot your password
 
 If you forgot the password for your Linux distribution:
 
 1. Open PowerShell and enter the root of your default WSL distribution using the command: `wsl -u root`
 
-> If you need to update the forgotten password on a distribution that is not your default, use the command: `wsl -d Debian -u root`, replacing `Debian` with the name of your targeted distribution.
+    > If you need to update the forgotten password on a distribution that is not your default, use the command: `wsl -d Debian -u root`, replacing `Debian` with the name of your targeted distribution.
 
 2. Once your WSL distribution has been opened at the root level inside PowerShell, you can use this command to update your password: `passwd`
 
