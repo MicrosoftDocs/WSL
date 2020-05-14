@@ -26,7 +26,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "wsl/wsl2-install",
+      "source_path": "wsl/wsl2-install.md",
       "redirect_url": "install-win10",
       "redirect_document_id": false
     }
