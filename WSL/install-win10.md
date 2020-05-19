@@ -88,13 +88,13 @@ You will then need to [create a user account and password for your new Linux dis
 
 You can check the WSL version assigned to each of the Linux distributions you have installed by opening the PowerShell command line and entering the command (only available in [Windows Build 19041 or higher](ms-settings:windowsupdate)): `wsl -l -v`
 
-```bash
+```powershell
 wsl --list --verbose
 ```
 
 To set a distribution to be backed by either version of WSL please run:
 
-```bash
+```powershell
 wsl --set-version <distribution name> <versionNumber>
 ```
 
@@ -102,7 +102,7 @@ Make sure to replace `<distribution name>` with the actual name of your distribu
 
 Additionally, if you want to make WSL 2 your default architecture you can do so with this command:
 
-```bash
+```powershell
 wsl --set-default-version 2
 ```
 
