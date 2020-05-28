@@ -116,7 +116,7 @@ Below are related errors and suggested fixes. Refer to the [WSL troubleshooting 
 
 - **WslRegisterDistribution failed with error 0x8007019e**
   - The Windows Subsystem for Linux optional component is not enabled:
-  - Open **Control Panel** -> **Programs and Features** -> **Turn Windows Feature on or off** -> Check **Windows Subsystem for Linux** or using the PowerShell cmdlet mentioned at the begining of this article.
+  - Open **Control Panel** -> **Programs and Features** -> **Turn Windows Feature on or off** -> Check **Windows Subsystem for Linux** or using the PowerShell cmdlet mentioned at the beginning of this article.
 
 - **Installation failed with error 0x80070003 or error 0x80370102**
   - Please make sure that virtualization is enabled inside of your computer's BIOS. The instructions on how to do this will vary from computer to computer, and will most likely be under CPU related options.
