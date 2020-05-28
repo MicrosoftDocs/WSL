@@ -27,9 +27,6 @@ To update to WSL 2, you must meet the follow criteria:
 
 - Running Windows 10, [updated to version 2004](ms-settings:windowsupdate), **Build 19041** or higher.
 
-> [!IMPORTANT]
-> Currently to update to Windows 10, version 2004 (Build 19041), you will need to [join the Windows Insider program](https://insider.windows.com/insidersigninboth/) and select the "Release Preview" ring. The public release should arrive by late May.
-
 - Check your Windows version by selecting the **Windows logo key + R**, type **winver**, select **OK**. (Or enter the `ver` command in Windows Command Prompt). Please [update to the latest Windows version](ms-settings:windowsupdate) if your build is lower than 19041. [Get Windows Update Assistant](https://www.microsoft.com/software-download/windows10).
 
 ### Enable the 'Virtual Machine Platform' optional component
