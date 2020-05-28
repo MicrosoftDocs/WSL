@@ -18,6 +18,10 @@
       href: user-support.md
 - name: How-to
   items:
+    - name: Use WSL with VS Code Remote
+      href: wsl-vscode.md
+    - name: Use WSL with Git
+      href: wsl-git.md
     - name: Interoperability commands
       href: interop.md
     - name: Launch commands & configurations
