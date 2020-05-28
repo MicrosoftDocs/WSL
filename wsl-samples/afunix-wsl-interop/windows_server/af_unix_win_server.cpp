@@ -11,14 +11,13 @@
 
 int __cdecl main(void)
 {
-
     SOCKET ClientSocket = INVALID_SOCKET;
     SOCKET ListenSocket = INVALID_SOCKET;
-    int Result;
+    int Result = 0;
     char SendBuffer[] = "af_unix from Windows to WSL!";
-    int SendResult;
-    SOCKADDR_UN ServerSocket;
-    WSADATA WsaData;
+    int SendResult = 0;
+    SOCKADDR_UN ServerSocket = { 0 };
+    WSADATA WsaData = { 0 };
 
     // Initialize Winsock
     Result = WSAStartup(MAKEWORD(2,2), &WsaData);
@@ -34,7 +33,6 @@ int __cdecl main(void)
         goto Exit;
     }
 
-    memset(&ServerSocket, 0, sizeof(ServerSocket));
     ServerSocket.sun_family = AF_UNIX;
     strncpy_s(ServerSocket.sun_path, sizeof ServerSocket.sun_path, SERVER_SOCKET, (sizeof SERVER_SOCKET) - 1);
 
@@ -59,15 +57,15 @@ int __cdecl main(void)
         printf("accept failed with error: %d\n", WSAGetLastError());
         goto Exit;
     }
-
     printf("Accepted a connection.\n" );
-    printf("Relayed %zu bytes: '%s'\n", strlen(SendBuffer), SendBuffer);
+    
     // Send some data.
     SendResult = send(ClientSocket, SendBuffer, (int)strlen(SendBuffer), 0 );
     if (SendResult == SOCKET_ERROR) {
         printf("send failed with error: %d\n", WSAGetLastError());
         goto Exit;
     }
+    printf("Relayed %zu bytes: '%s'\n", strlen(SendBuffer), SendBuffer);
 
     // shutdown the connection.
     printf("Shutting down\n");
