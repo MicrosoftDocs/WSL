@@ -28,7 +28,7 @@ Feature | WSL 1 | WSL 2
 
 Already using WSL 1 and want to upgrade to WSL 2? Follow the instructions to [update to WSL 2](./install-win10.md#update-to-wsl-2)!
 
-WSL 2 is only available in Windows 10, Version 2004, Build 19041 or higher. You will need to [update your Windows version](ms-settings:windowsupdate) and [join the Windows Insider program](https://insider.windows.com/insidersigninboth/) on the "Release Preview" ring until the public release in late May.
+WSL 2 is only available in Windows 10, Version 2004, Build 19041 or higher. Check your Windows version by selecting the **Windows logo key + R**, type **winver**, select **OK**. (Or enter the `ver` command in Windows Command Prompt). You may need to [update to the latest Windows version](ms-settings:windowsupdate). For builds lower than 19041, WSL is not supported at all.
 
 ## Use the Linux file system for faster performance
 
