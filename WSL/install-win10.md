@@ -49,6 +49,9 @@ Run the following command in Powershell to set WSL 2 as the default version when
 wsl --set-default-version 2
 ```
 
+> [!NOTE]
+> The update from WSL 1 to WSL 2 may take several minutes to complete depending on the size of your targeted distribution.
+
 ## Install your Linux distribution of choice
 
 1. Open the [Microsoft Store](https://aka.ms/wslstore) and select your favorite Linux distribution.

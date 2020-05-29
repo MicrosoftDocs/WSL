@@ -1,12 +1,10 @@
 ---
 title: Manually download Windows Subsystem for Linux (WSL) Distros
 description: Instructions for how to manually download Windows Subsystem for Linux distributions.
-keywords: BashOnWindows, bash, wsl, windows, windows subsystem for linux, WSL, windows subsystem, distro, ubuntu, openSUSE, SLES, debian, kali
-ms.date: 07/24/2018
+keywords: wsl, windows subsystem for linux, manual install, manually install, microsoft store, windows 10s, curl, Add-AppxPackage, Long-Term Servicing, LTSC
+ms.date: 05/28/2020
 ms.topic: article
-ms.assetid: 9281ffa2-4fa9-4078-bf6f-b51c967617e3
-ms.custom: seodec18
-ms.localizationpriority: high
+ms.localizationpriority: medium
 ---
 
 # Manually download Windows Subsystem for Linux distro packages
@@ -35,7 +33,7 @@ This will cause the `<distro>.appx` packages to download to a folder of your cho
 If you prefer, you can also download your preferred distro(s) via the command line:
 
  ### Download using PowerShell
- To download distros using PowerShell, use the [Invoke-WebRequest](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.utility/invoke-webrequest) cmdlet. Here's a sample instruction to download Ubuntu 16.04.
+ To download distros using PowerShell, use the [Invoke-WebRequest](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-webrequest?view=powershell-5.1) cmdlet. Here's a sample instruction to download Ubuntu 16.04.
 
 ```powershell
 Invoke-WebRequest -Uri https://aka.ms/wsl-ubuntu-1604 -OutFile Ubuntu.appx -UseBasicParsing
@@ -63,4 +61,4 @@ Add-AppxPackage .\app_name.appx
 
 If you are using Windows server you can find the install instructions on the [Windows Server](install-on-server.md) documentation page.
 
-Once your distro is installed please refer to the [Initialization Steps](initialize-distro.md) page to initialize your new distro.
+Once your distribution is installed, follow the normal instructions to [update to WSL 2](./install-win10.md#update-to-wsl-2) or [create a new user account and password](./user-support.md).
