@@ -31,7 +31,7 @@ Already using WSL 1 and want to upgrade to WSL 2? Follow the instructions to [up
 WSL 2 is only available in Windows 10, Version 2004, Build 19041 or higher. You will need to [update your Windows version](ms-settings:windowsupdate) and [join the Windows Insider program](https://insider.windows.com/insidersigninboth/) on the "Release Preview" ring until the public release in late May.
 
 > [!NOTE]
-> Only preview versions of VM Ware and VirtualBox 6.x can run along with WSL 2.
+> WSL 2 will work with [preview versions of VM Ware](https://blogs.vmware.com/workstation/2020/01/vmware-workstation-tech-preview-20h1.html) and [VirtualBox 6.x](https://www.virtualbox.org/wiki/Changelog-6.0).
 
 ## Use the Linux file system for faster performance
 
