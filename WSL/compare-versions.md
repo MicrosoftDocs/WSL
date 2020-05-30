@@ -23,7 +23,7 @@ Feature | WSL 1 | WSL 2
  Managed VM| ❌ | ✅
  Full Linux Kernel| ❌ |✅
  Full system call compatibility| ❌ | ✅
- Runs with VM Ware and VirtualBox| ✅ |✅
+ Runs with current versions of VM Ware and VirtualBox| ✅ | ❌
  Performance across OS file systems| ✅ | ❌
 
 Already using WSL 1 and want to upgrade to WSL 2? Follow the instructions to [update to WSL 2](./install-win10.md#update-to-wsl-2)!
