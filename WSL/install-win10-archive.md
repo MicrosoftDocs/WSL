@@ -31,7 +31,7 @@ There are three ways to download and install your preferred Linux distribution(s
 
 - Download and install from the Microsoft Store (see below)
 - [Download and manually install from command line](install-manual.md)
-- [Install on Windows Server]](install-on-server.md)
+- [Install on Windows Server](install-on-server.md)
 
 ### Install from the Microsoft Store
 
