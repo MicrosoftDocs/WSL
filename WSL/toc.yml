@@ -16,12 +16,14 @@
       href: install-on-server.md
     - name: Create a user account & password
       href: user-support.md
-- name: How-to
-  items:
+- name: Getting Started Guides
+  items: 
     - name: Use WSL with VS Code Remote
       href: wsl-vscode.md
     - name: Use WSL with Git
       href: wsl-git.md
+- name: How-to
+  items:
     - name: Interoperability commands
       href: interop.md
     - name: Launch commands & configurations
