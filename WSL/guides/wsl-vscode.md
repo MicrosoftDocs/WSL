@@ -34,7 +34,11 @@ Some WSL Linux distributions are lacking libraries that are required by the VS C
 
 ## Debian
 
+To update Debian or Ubuntu, add wget (to retrieve content from web servers), and add ca-certificates (to allow SSL-based applications to check for the authenticity of SSL connections), in your WSL command line, enter:
 
+```bash	
+sudo apt-get update && sudo apt-get install wget ca-certificates	
+```
 
 ## Open a WSL project in VS Code
 
