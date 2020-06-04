@@ -11,14 +11,14 @@ ms.localizationpriority: medium
 
 Visual Studio Code, along with the Remote - WSL extension, enables you to use WSL as your full-time development environment directly from VS Code. You can:
 
-* develop in a Linux-based environment
-* use Linux-specific toolchains and utilities
-* run and debug your Linux-based applications from the comfort of Windows while maintaining access to productivity tools like Outlook and Office
-* use the VS Code built-in terminal to run your Linux distribution of choice
-* take advantage of VS Code features like [Intellisense code completion](https://code.visualstudio.com/docs/editor/intellisense), [linting](https://code.visualstudio.com/docs/python/linting), [debug support](https://code.visualstudio.com/docs/nodejs/nodejs-debugging), [code snippets](https://code.visualstudio.com/docs/editor/userdefinedsnippets), and [unit testing](https://code.visualstudio.com/docs/python/testing)
-* easily manage your version control with VS Code's built-in [Git support](https://code.visualstudio.com/docs/editor/versioncontrol#_git-support)
-* run commands and VS Code extensions directly on your WSL projects
-* edit files in your Linux or mounted Windows filesystem (for example /mnt/c) without worrying about pathing issues, binary compatibility, or other cross-OS challenges
+    * develop in a Linux-based environment
+    * use Linux-specific toolchains and utilities
+    * run and debug your Linux-based applications from the comfort of Windows while maintaining access to productivity tools like Outlook and Office
+    * use the VS Code built-in terminal to run your Linux distribution of choice
+    * take advantage of VS Code features like [Intellisense code completion](https://code.visualstudio.com/docs/editor/intellisense), [linting](https://code.visualstudio.com/docs/python/linting), [debug support](https://code.visualstudio.com/docs/nodejs/nodejs-debugging), [code snippets](https://code.visualstudio.com/docs/editor/userdefinedsnippets), and [unit testing](https://code.visualstudio.com/docs/python/testing)
+    * easily manage your version control with VS Code's built-in [Git support](https://code.visualstudio.com/docs/editor/versioncontrol#_git-support)
+    * run commands and VS Code extensions directly on your WSL projects
+    * edit files in your Linux or mounted Windows filesystem (for example /mnt/c) without worrying about pathing issues, binary compatibility, or other cross-OS challenges
 
 ## Install VS Code and the Remote WSL extension
 
