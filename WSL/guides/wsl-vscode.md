@@ -32,36 +32,36 @@ Visual Studio Code, along with the Remote - WSL extension, enables you to use WS
 
 Some WSL Linux distributions are lacking libraries that are required by the VS Code server to start up. You can add additional libraries into your Linux distribution by using its package manager.
 
-To update Debian or Ubuntu, add wget (to retrieve content from web servers), and add ca-certificates (to allow SSL-based applications to check for the authenticity of SSL connections), in your WSL command line, enter:
+## Debian
 
-```bash
-sudo apt-get update && sudo apt-get install wget ca-certificates
-```
 
-To update Alpine, first open the Alpine distrol shell as the root user: `wsl -d Alpine -u root`. Then update the Alpine package and add `libstdc++`, the standard runtime library, by entering the command:
-
-```bash
-apk update && apk add libstdc++
-```
-
-If you are using an older version of Windows 10 (April 2018 Update, Build 1803 or older), `/bin/bash` is required:
-
-```bash
-apk update && apk add bash
-```
 
 ## Open a WSL project in VS Code
 
-To open a project from your WSL distribution, open the distribution command line and enter: `code .`
+### From the command-line
 
-![Open WSL project with VS Code remote server](/media/wsl-open-vs-code.gif)
+To open a project from your WSL distribution, open the distribution's command line and enter: `code .`
+
+![Open WSL project with VS Code remote server](../media/wsl-open-vs-code.gif)
+
+### From VS Code
+
+You can also access more VS Code Remote options by using the shortcut: `CTRL+SHIFT+P` in VS Code to bring up the command palette. If you then type `VSCODE-REMOTE` you will see all of the VS Code Remote options available, allowing you to reopen the folder in a remote session, specify which distribution you want to open in, and more. 
+
+![VS Code's command palette](../media/vscode-remote-command-palette.png)
+
+### Additional info
 
 The Remote-WSL extension splits VS Code into a “client-server” architecture, with the client (the user interface) running on your Windows machine and the server (your code, Git, plugins, etc) running remotely.
 
 > [!IMPORTANT]
 > In order to install the Remote-WSL extension, you will need the [1.35 May release](https://code.visualstudio.com/updates/v1_35) version or later of VS Code. We do not recommend using WSL in VS Code without the Remote-WSL extension as you will lose support for auto-complete, debugging, linting, etc. Fun fact: This WSL extension is installed in $HOME/.vscode-server/extensions.
 
-![VS Code with Remote - WSL extensions vs local extensions](/media/vscode-remote-wsl-extensions.png)
+#### Extensions inside of VS Code Remote
+
+When running VS Code Remote, when you click on the 'Extensions' tab in VS Code you will notice that extensions are split between your local machine and your WSL distribution. Local extensions are ones that can be run across WSL distros and your Windows environments, such as themes, etc. There are also distribution specific extensions which can be installed in any environment of your choice, such as debuggers, linters, etc. 
+
+![VS Code with Remote - WSL extensions vs local extensions](../media/vscode-remote-wsl-extensions.png)
 
 For further information, see the VS Code docs:
 
@@ -82,8 +82,6 @@ The new Windows Terminal enables multiple tabs (quickly switch between Command P
 1. Get [Windows Terminal in the Microsoft Store](https://www.microsoft.com/store/apps/9n0dx20hk701): By installing via the store, updates are handled automatically.
 
 2. Once installed, open Windows Terminal and select **Settings** to customize your terminal using the `profile.json` file.
-
-    ![Windows Terminal Settings](../images/windows-terminal-settings.png)
 
 ## Additional Resources
 

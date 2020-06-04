@@ -2,7 +2,7 @@
 title: Set up Git to work with Windows Subsystem for Linux
 description: Learn how to set up Git for version control on the Windows Subsystem for Linux.
 keywords: wsl, windows, windowssubsystem, gnu, linux, bash, git, github, version control
-ms.date: 05/28/2020
+ms.date: 06/04/2020
 ms.topic: article
 ms.localizationpriority: medium
 ---
@@ -13,21 +13,21 @@ Git is the most commonly used version control system. With Git, you can track ch
 
 ## Git can be installed on Windows AND on WSL
 
-An important consideration: when you enable WSL and install a Linux distribution, you are installing a new file system, separated from the Windows NTSF C:\ drive on your machine. In Linux, drives are not given letters. They are given mount points. The root / is the mount point of your root partition, or folder, in the case of WSL. Not everything under / is the same drive. For example, on my laptop, I've installed two version of Ubuntu (20.04 and 18.01), as well as Debian. If I open those distributions, select the root directory with the command `cd ~`, and then enter the command `explorer.exe .`, Windows File Explorer will open and show me the directory path for that distribution.
+An important consideration: when you enable WSL and install a Linux distribution, you are installing a new file system, separated from the Windows NTFS C:\ drive on your machine. In Linux, drives are not given letters. They are given mount points. The root of your file system `/` is the mount point of your root partition, or folder, in the case of WSL. Not everything under `/` is the same drive. For example, on my laptop, I've installed two version of Ubuntu (20.04 and 18.01), as well as Debian. If I open those distributions, select the root directory with the command `cd ~`, and then enter the command `explorer.exe .`, Windows File Explorer will open and show me the directory path for that distribution.
 
-| Linux distro | Root file system |
+| Linux distro | Windows Path to access home folder |
 | ----------- | ----------- |
-| Ubuntu 20.04 | \\wsl$\Ubuntu-20.04\home\username |
-| Ubuntu 18.01 | \\wsl$\Ubuntu-18.04\home\username |
-| Debian | \\wsl$\Debian\home\username |
-| Windows PowerShell | C:\Users\username |
+| Ubuntu 20.04 | `\\wsl$\Ubuntu-20.04\home\username` |
+| Ubuntu 18.01 | `\\wsl$\Ubuntu-18.04\home\username` |
+| Debian | `\\wsl$\Debian\home\username` |
+| Windows `PowerShell | C:\Users\username` |
 
 > [!TIP]
 > If you are seeking to access the Windows file directory from your WSL distribution command line, instead of `C:\Users\username`, the directory would be accessed using `/mnt/c/Users/username`, because the Linux distribution views your Windows file system as a mounted drive.
 
 You will need to install Git on each file system that you intend to use it with.
 
-![Showing Git versions by distro](media/git-versions.git)
+![Showing Git versions by distro](../media/git-versions.gif)
 
 ## Installing Git
 
