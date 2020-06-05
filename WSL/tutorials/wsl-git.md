@@ -1,5 +1,5 @@
 ---
-title: Set up Git to work with Windows Subsystem for Linux
+title: Get started using Git on Windows Subsystem for Linux
 description: Learn how to set up Git for version control on the Windows Subsystem for Linux.
 keywords: wsl, windows, windowssubsystem, gnu, linux, bash, git, github, version control
 ms.date: 06/04/2020
@@ -7,7 +7,7 @@ ms.topic: article
 ms.localizationpriority: medium
 ---
 
-# Set up Git to work with Windows Subsystem for Linux
+# Get started using Git on Windows Subsystem for Linux
 
 Git is the most commonly used version control system. With Git, you can track changes you make to files, so you have a record of what has been done, and have the ability to revert to earlier versions of the files if needed. Git also makes collaboration easier, allowing changes by multiple people to all be merged into one source.
 
@@ -20,7 +20,7 @@ An important consideration: when you enable WSL and install a Linux distribution
 | Ubuntu 20.04 | `\\wsl$\Ubuntu-20.04\home\username` |
 | Ubuntu 18.01 | `\\wsl$\Ubuntu-18.04\home\username` |
 | Debian | `\\wsl$\Debian\home\username` |
-| Windows `PowerShell | C:\Users\username` |
+| Windows PowerShell | `C:\Users\username` |
 
 > [!TIP]
 > If you are seeking to access the Windows file directory from your WSL distribution command line, instead of `C:\Users\username`, the directory would be accessed using `/mnt/c/Users/username`, because the Linux distribution views your Windows file system as a mounted drive.
@@ -53,10 +53,6 @@ To set up Git Credential Manager for use with a WSL distribution, open your dist
 ```Bash
 git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/libexec/git-core/git-credential-manager.exe"
 ```
-
-<!-- Is there a difference between how we're sharing to do it here and how the VS Code docs recommend doing this?
-https://code.visualstudio.com/docs/remote/troubleshooting#_sharing-git-credentials-between-windows-and-wsl 
-Should we update this to align with the VS Code doc? -->
 
 Now any git operation you perform within your WSL distribution will use the credential manager. If you already have credentials cached for a host, it will access them from the credential manager. If not, you'll receive a dialog response requesting your credentials, even if you're in a Linux console.
 
