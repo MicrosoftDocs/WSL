@@ -16,6 +16,12 @@
       href: install-on-server.md
     - name: Create a user account & password
       href: user-support.md
+- name: Tutorials
+  items: 
+    - name: Get started with VS Code
+      href: tutorials/wsl-vscode.md
+    - name: Get started with Git
+      href: tutorials/wsl-git.md
 - name: How-to
   items:
     - name: Interoperability commands
