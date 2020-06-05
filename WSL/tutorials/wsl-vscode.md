@@ -53,13 +53,13 @@ sudo apt-get install wget ca-certificates
 
 To open a project from your WSL distribution, open the distribution's command line and enter: `code .`
 
-![Open WSL project with VS Code remote server](../media/wsl-open-vs-code.gif)
+![Open WSL project with VS Code remote server](../../media/wsl-open-vs-code.gif)
 
 ### From VS Code
 
 You can also access more VS Code Remote options by using the shortcut: `CTRL+SHIFT+P` in VS Code to bring up the command palette. If you then type `VSCODE-REMOTE` you will see all of the VS Code Remote options available, allowing you to reopen the folder in a remote session, specify which distribution you want to open in, and more.
 
-![VS Code's command palette](../media/vscode-remote-command-palette.png)
+![VS Code's command palette](../../media/vscode-remote-command-palette.png)
 
 ## Extensions inside of VS Code Remote
 
@@ -71,7 +71,7 @@ Installing a local extension, like a [theme](https://marketplace.visualstudio.co
 
 Some extensions, like the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) or anything that handles things like linting or debugging, must be installed separately on each remote WSL distributions. VS Code will display a warning icon ⚠, along with a green "Install in WSL" button, if you have an extension locally installed that is not installed on your WSL Remote.
 
-![VS Code with Remote - WSL extensions vs local extensions](../media/vscode-remote-wsl-extensions.png)
+![VS Code with Remote - WSL extensions vs local extensions](../../media/vscode-remote-wsl-extensions.png)
 
 For further information, see the VS Code docs:
 
