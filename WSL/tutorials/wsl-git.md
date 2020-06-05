@@ -27,7 +27,7 @@ An important consideration: when you enable WSL and install a Linux distribution
 
 You will need to install Git on each file system that you intend to use it with.
 
-![Showing Git versions by distro](../../media/git-versions.gif)
+![Showing Git versions by distro](../media/git-versions.gif)
 
 ## Installing Git
 
