@@ -142,6 +142,7 @@ Properties of `WSLENV` variable:
 * It is shared; it exists in both Windows and WSL environments.
 * It is a list of environment variables to share between Windows and WSL.
 * It can format environment variables to work well in Windows and WSL.
+* It can assist in the flow between WSL and Win32.
 
 > [!NOTE]
 > Prior to 17063, only Windows environment variable that WSL could access was `PATH` (so you could launch Win32 executables from under WSL). Starting in 17063, `WSLENV` begins being supported.
@@ -158,6 +159,8 @@ There are four flags available in `WSLENV` to influence how the environment vari
 * `/w` - indicates that this environment variable should only be included when running Win32 from WSL.
 
 Flags can be combined as needed.
+
+[Read more about WSLENV](https://devblogs.microsoft.com/commandline/share-environment-vars-between-wsl-and-windows/), including FAQs and examples of setting the value of WSLENV to a concatenation of other pre-defined environment vars, each suffixed with a slash followed by flags to specify how the value should be translated and passing variables with a script. This article also includes an example for setting up a dev environment with the [Go programming language](https://golang.org/), configured to share a GOPATH between WSL and Win32.
 
 ## Disable interoperability
 
