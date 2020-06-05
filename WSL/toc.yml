@@ -19,9 +19,9 @@
 - name: Tutorials
   items: 
     - name: Get started with VS Code
-      href: ./wsl/tutorials/wsl-vscode.md
+      href: tutorials/wsl-vscode.md
     - name: Get started with Git
-      href: ./wsl/tutorials/wsl-git.md
+      href: tutorials/wsl-git.md
 - name: How-to
   items:
     - name: Interoperability commands
