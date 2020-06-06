@@ -43,7 +43,7 @@ dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /nores
 
 ### Set WSL 2 as your default version
 
-Run the following command in Powershell to set WSL 2 as the default version when installing a new Linux distribution:
+Run the following command in PowerShell to set WSL 2 as the default version when installing a new Linux distribution:
 
 ```powershell
 wsl --set-default-version 2
@@ -126,10 +126,10 @@ Below are related errors and suggested fixes. Refer to the [WSL troubleshooting 
   - Please make sure that virtualization is enabled inside of your computer's BIOS. The instructions on how to do this will vary from computer to computer, and will most likely be under CPU related options.
 
 - **Error when trying to upgrade: `Invalid command line option: wsl --set-version Ubuntu 2`**
-  - Please make sure that you have the Windows Subsystem for Linux enabled, and that you're using Windows Build version 19041 or higher. To enable WSL run this command in a Powershell prompt with admin privileges: `Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux`. You can find the full WSL install instructions [here](./install-win10.md).
+  - Please make sure that you have the Windows Subsystem for Linux enabled, and that you're using Windows Build version 19041 or higher. To enable WSL run this command in a PowerShell prompt with admin privileges: `Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux`. You can find the full WSL install instructions [here](./install-win10.md).
 
 - **The requested operation could not be completed due to a virtual disk system limitation. Virtual hard disk files must be uncompressed and unencrypted and must not be sparse.**
-  - Please check [WSL Github thread #4103](https://github.com/microsoft/WSL/issues/4103) where this issue is being tracked for updated information.
+  - Please check [WSL GitHub thread #4103](https://github.com/microsoft/WSL/issues/4103) where this issue is being tracked for updated information.
 
 - **The term 'wsl' is not recognized as the name of a cmdlet, function, script file, or operable program.**
-  - Ensure that the [Windows Subsystem for Linux Optional Component is installed](./install-win10.md#enable-the-virtual-machine-platform-optional-component). Additionally, if you are using an Arm64 device and running this command from PowerShell, you will receive this error. Instead run `wsl.exe` from [PowerShell Core](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-6), or Command Prompt.
+  - Ensure that the [Windows Subsystem for Linux Optional Component is installed](./install-win10.md#enable-the-virtual-machine-platform-optional-component). Additionally, if you are using an ARM64 device and running this command from PowerShell, you will receive this error. Instead run `wsl.exe` from [PowerShell Core](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-6), or Command Prompt.
