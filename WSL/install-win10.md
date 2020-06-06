@@ -50,7 +50,7 @@ wsl --set-default-version 2
 ```
 
 > [!NOTE]
-> The update from WSL 1 to WSL 2 may take several minutes to complete depending on the size of your targeted distribution.
+> The update from WSL 1 to WSL 2 may take several minutes to complete depending on the size of your targeted distribution. If you are running an older (legacy) installation of WSL 1 from Windows 10 Anniversary Update or Creators Update, you may encounter an update error. Follow these instructions to [uninstall and remove any legacy distributions](https://docs.microsoft.com/windows/wsl/install-legacy#uninstallingremoving-the-legacy-distro).
 
 ## Install your Linux distribution of choice
 
