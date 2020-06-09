@@ -10,6 +10,13 @@ ms.localizationpriority: high
 
 # Release Notes for Windows Subsystem for Linux
 
+## Linux kernel release: 4.19.104-microsoft-standard
+*Released Date*: 06/10/2020 
+
+[Official Github release link](https://github.com/microsoft/WSL2-Linux-Kernel/releases/tag/4.19.104-microsoft-standard).
+
+* Update WSL config for 4.19.104
+
 ## Build 19640
 For general Windows information on build 19640 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2020/06/03/announcing-windows-10-insider-preview-build-19640/).
 
