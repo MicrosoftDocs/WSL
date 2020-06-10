@@ -42,5 +42,9 @@
   href: wsl2-faq.md
 - name: Troubleshooting
   href: troubleshooting.md
-- name: Release Notes
-  href: release-notes.md
+- name : Release Notes
+  items:
+    - name: General Release Notes
+      href: release-notes.md
+    - name: Linux kernel Release Notes
+      href: kernel-release-notes.md
