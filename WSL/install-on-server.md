@@ -22,20 +22,6 @@ Open PowerShell as Administrator and run:
 
 ```
 
-**If you're looking for 100% system call compatibility and faster IO performance, read below to install WSL 2!**
-
-WSL 2 is only available in Windows 10, Version 2004, Build 19041 or higher. You may need to [update your Windows version](ms-settings:windowsupdate).
-
-**If continuing with WSL 1, restart your machine when prompted and continue with installation [here](./install-on-server.md#download-a-linux-distribution)**
-
-## Enable the Virtual Machine Platform optional component
-
-Ensure the 'Virtual Machine Platform' optional component is installed. You can do that by running the following command in PowerShell:
-
-```powershell
-dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
-```
-
 ## Download a Linux distribution
 
 Follow [these instructions](install-manual.md) to download your favorite Linux distribution.
