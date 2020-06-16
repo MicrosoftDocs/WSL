@@ -1,7 +1,7 @@
 ---
 title: GPU accelerated Machine Learning training in the Windows Subsystem for Linux
 description: Learn more about WSL 2 support for NVIDIA CUDA, DirectML, Tensorflow, and PyTorch.
-keywords: wsl, windows, windowssubsystem, gpu compute, gpu acceleratin, NVIDIA, CUDA, DirectML, Tensorflow, PyTorch, NVIDIA CUDA preview, GPU driver, NVIDIA Container Toolkit, Docker
+keywords: wsl, windows, windows subsystem, gpu compute, gpu acceleration, NVIDIA, CUDA, DirectML, Tensorflow, PyTorch, NVIDIA CUDA preview, GPU driver, NVIDIA Container Toolkit, Docker
 ms.date: 06/17/2020
 ms.topic: article
 ms.localizationpriority: medium
@@ -9,7 +9,7 @@ ms.localizationpriority: medium
 
 # GPU accelerated Machine Learning training in the Windows Subsystem for Linux
 
-Support for GPU compute, the #1 most requested WSL feature, is now available for preview via the Windows Insider program. [Learn more.](https://docs.microsoft.com/windows/win32/direct3d12/gpu-accelerated-training)
+Support for GPU compute, the #1 most requested WSL feature, is now available for preview via the Windows Insider program. [Read the blog post](https://devblogs.microsoft.com/commandline/).
 
 ## What is GPU Compute?
 
