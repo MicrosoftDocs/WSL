@@ -7,26 +7,17 @@ ms.topic: article
 ms.localizationpriority: medium
 ---
 
-# GPU accelerated Machine Learning training in the Windows Subsystem for Linux
+# GPU accelerated machine learning training in the Windows Subsystem for Linux
 
-Support for GPU compute, the #1 most requested WSL feature, is now available for preview via the Windows Insider program. [Read the blog post](https://devblogs.microsoft.com/commandline/).
+Support for GPU compute, the #1 most requested WSL feature, is now available for preview via the Windows Insider program. [Read the blog post](https://blogs.windows.com/windowsdeveloper/?p=55781).
 
-## What is GPU Compute?
+## What is GPU compute?
 
-GPU acceleration is also sometimes referred to as "GPU Compute." GPU computing is the use of a GPU (graphics processing unit) as a co-processor to accelerate CPUs (central processing units). GPUs typically handle only computation for graphics. GPU computing instead uses those powerful video cards or graphics chips to establish a parallel processing with the CPU to analyze data as if it were an image. The process migrates data into graphical form and uses the GPU to offload some of the compute-intensive and time consuming portions of the code, while the rest of the code continues to run on the CPU. This typically creates significant processing speed improvements. Training machine learning models is a great example in which GPU compute can significantly accelerate the time to complete a computational task.
+Leveraging GPU acceleration for compute-intensive tasks is generally referred  to as "GPU compute". GPU computing leverages the GPU (graphics processing unit) to accelerate math heavy workloads and uses its parallel processing to complete the required calculations faster, in many cases, than utilizing only a CPU. This parallelization enables significant processing speed improvements for these math heavy workloads then when running on a CPU. Training machine learning models is a great example in which GPU compute can significantly accelerate the time to complete this computationally expensive task.
 
 ## Install and set up
 
-Learn more about WSL 2 support and how to start training machine learning models in the [GPU Accelerated Training guide](https://docs.microsoft.com/windows/win32/direct3d12/gpu-accelerated-training) inside the Direct Machine Learning docs. This guide covers:
+Learn more about WSL 2 support and how to start training machine learning models in the [GPU Accelerated Training guide](https://docs.microsoft.com/windows/win32/direct3d12/gpu-accelerated-training) inside the DirectML docs. This guide covers:
 
-* Enabling the NVIDIA CUDA preview
-* Installing the correct GPU driver, which might include:
-  * AMD Radeon™ RX series and Radeon™ VII graphics
-  * AMD Radeon™ Pro series graphics
-  * AMD Ryzen™ and Ryzen™ PRO Processors with Radeon™ Vega graphics
-  * AMD Ryzen™ and Ryzen™ PRO Mobile Processors with Radeon™ Vega graphics
-  * Intel DirectML preview driver
-  * NVIDIA CUDA-enabled driver
-* Guidance for beginners or students to set up TensorFlow with a DirectML backend
-* Guidance for professionals to start using your existing Linux workflows through NVIDIA Docker or by installing PyTorch or TensorFlow
-* Support for NVIDIA Container Toolkit
+* Guidance for beginners or students to set up TensorFlow with DirectML
+* Guidance for professionals to start running their exisiting CUDA ML workflows
