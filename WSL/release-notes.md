@@ -10,6 +10,17 @@ ms.localizationpriority: high
 
 # Release Notes for Windows Subsystem for Linux
 
+## Build 20150
+For general Windows information on build 20150 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2020/06/17/announcing-windows-10-insider-preview-build-20150/).
+
+* WSL2 GPU compute see [Windows blog](https://blogs.windows.com/windowsexperience/2020/06/17/announcing-windows-10-insider-preview-build-20150/) for more information.
+* Introduce wsl.exe --install command line option to easily set up WSL.
+* Introduce wsl.exe --update command line option to manage updates to the WSL2 kernel. 
+* Set WSL2 as the default.
+* Increase WSL2 vm graceful shutdown timeout.
+* Fix virtio-9p race condition when mapping device memory.
+* Don't run an elevated 9p server if UAC is disabled.
+
 ## Build 19640
 For general Windows information on build 19640 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2020/06/03/announcing-windows-10-insider-preview-build-19640/).
 
