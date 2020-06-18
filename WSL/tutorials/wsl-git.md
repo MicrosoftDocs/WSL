@@ -31,13 +31,32 @@ You will need to install Git on each file system that you intend to use it with.
 
 ## Installing Git
 
-Git comes already installed with most of the Windows Subsystem for Linux distributions, however, you may want to update to the latest version and you will need to set up your git config file.
+Git comes already installed with most of the Windows Subsystem for Linux distributions, however, you may want to update to the latest version. You also will need to set up your git config file.
 
-To install Git, see the [Git Download for Linux](https://git-scm.com/download/linux) site. Each Linux distribution has their own package manager and install command. For example, to install Git on the Alpine distribution, use: `apk add git`. You also may want to [install Git for Windows](https://git-scm.com/download/win) if you haven't already.
+To install Git, see the [Git Download for Linux](https://git-scm.com/download/linux) site. Each Linux distribution has their own package manager and install command.
+
+For the latest stable GIt version in Ubuntu/Debian, enter the command:
+
+```bash
+sudo apt-get install git
+```
+
+> [!NOTE]
+> You also may want to [install Git for Windows](https://git-scm.com/download/win) if you haven't already.
 
 ## Git config file setup
 
-To set up your Git config file, open a command line for the distribution you're working in and enter: `git config --global user.name "Your Name"` and then, `git config --global user.email "youremail@domain.com"`. Replacing the content in quotations with the name and email address that you used to create your Git account.
+To set up your Git config file, open a command line for the distribution you're working in and set your name with this command (replacing "Your Name" with your Git username):
+
+```bash
+ `git config --global user.name "Your Name"`
+```
+
+Set your email with this command (replacing "youremail@domain.com" with the email you use on your Git account):
+
+```bash
+`git config --global user.email "youremail@domain.com"`
+```
 
 > [!TIP]
 > If you don't yet have a Git account, you can [sign-up for one on GitHub](https://github.com/join). If you've never worked with Git before, [GitHub Guides](https://guides.github.com/) can help you get started. If you need to edit your git config, you can do so with a built-in text editor like nano: `nano ~/.gitconfig`.
@@ -56,9 +75,12 @@ git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/libexec
 
 Now any git operation you perform within your WSL distribution will use the credential manager. If you already have credentials cached for a host, it will access them from the credential manager. If not, you'll receive a dialog response requesting your credentials, even if you're in a Linux console.
 
+> [!NOTE]
+> If you are using a GPG key for code signing security, you may need to [associate your GPG key with your GitHub email](https://help.github.com/en/github/authenticating-to-github/associating-an-email-with-your-gpg-key).
+
 ## Adding a Git Ignore file
 
-We recommend adding a [.gitignore file](https://help.github.com/en/articles/ignoring-files) to your projects. GitHub offers [a collection of useful .gitignore templates](https://github.com/github/gitignore) with recommended .gitignore file setups organized according to your use-case.
+We recommend adding a [.gitignore file](https://help.github.com/en/articles/ignoring-files) to your projects. GitHub offers [a collection of useful .gitignore templates](https://github.com/github/gitignore) with recommended .gitignore file setups organized according to your use-case. For example, here is [GitHub's default gitignore template for a Node.js project](https://github.com/github/gitignore/blob/master/Node.gitignore).
 
 If you choose to [create a new repo using the GitHub website](https://help.github.com/articles/create-a-repo), there are check boxes available to initialize your repo with a README file, .gitignore file set up for your specific project type, and options to add a license if you need one.
 
