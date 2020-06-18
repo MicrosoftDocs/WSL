@@ -75,6 +75,9 @@ git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/libexec
 
 Now any git operation you perform within your WSL distribution will use the credential manager. If you already have credentials cached for a host, it will access them from the credential manager. If not, you'll receive a dialog response requesting your credentials, even if you're in a Linux console.
 
+> [!NOTE]
+> If you are using a GPG key for code signing security, you may need to [associate your GPG key with your GitHub email](https://help.github.com/en/github/authenticating-to-github/associating-an-email-with-your-gpg-key).
+
 ## Adding a Git Ignore file
 
 We recommend adding a [.gitignore file](https://help.github.com/en/articles/ignoring-files) to your projects. GitHub offers [a collection of useful .gitignore templates](https://github.com/github/gitignore) with recommended .gitignore file setups organized according to your use-case. For example, here is [GitHub's default gitignore template for a Node.js project](https://github.com/github/gitignore/blob/master/Node.gitignore).
