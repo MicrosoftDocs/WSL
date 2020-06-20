@@ -2,7 +2,6 @@
 title: Release Notes for Windows Subsystem for Linux kernel
 description: Release notes for the Windows Subsystem for Linux.  Updated monthly.
 keywords: release notes, wsl, windows, windows subsystem for linux, windowssubsystem, ubuntu, kernel
-author: crloewen
 ms.date: 06/09/2020
 ms.topic: article
 ms.localizationpriority: high
