@@ -103,4 +103,4 @@ Any files created, modified, or accessed in the Linux root file system follow st
 
 You can configure your file permissions inside of your Windows drives using the mount options in wsl.conf. The mount options allow you to set `umask`, `dmask` and `fmask` permissions masks. The `umask` is applied to all files, the `dmask` is applied just to directories and the `fmask` is applied just to files. These permission masks are then put through a logical OR operation when being applied to files, e.g: If you have a `umask` value of `023` and an `fmask` value of `022` then the resulting permissions mask for files will be `023`.
 
-Please see the [Configure launch settings with wslconf](./wsl-config.md#configure-launch-settings-with-wslconf) article for instructions on how to do this.
+Please see the [Configure per distro launch settings with wslconf](./wsl-config.md#configure-per-distro-launch-settings-with-wslconf) article for instructions on how to do this.
