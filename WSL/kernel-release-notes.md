@@ -2,7 +2,6 @@
 title: Release Notes for Windows Subsystem for Linux kernel
 description: Release notes for the Windows Subsystem for Linux.  Updated monthly.
 keywords: release notes, wsl, windows, windows subsystem for linux, windowssubsystem, ubuntu, kernel
-author: crloewen
 ms.date: 06/09/2020
 ms.topic: article
 ms.localizationpriority: high
@@ -15,7 +14,7 @@ We've added support for WSL 2 distributions, [which use a full Linux kernel](htt
 ## 4.19.121-microsoft-standard
 *Release Date*: Prerelease
 
-[Official Github release link](https://github.com/microsoft/WSL2-Linux-Kernel/releases/tag/4.19.104-microsoft-standard).
+[Official Github release link](https://github.com/microsoft/WSL2-Linux-Kernel/releases/tag/4.19.121-microsoft-standard).
 
 * Drivers: hv: vmbus: hook up dxgkrnl
 * Added support for GPU Compute
