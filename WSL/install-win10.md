@@ -18,6 +18,10 @@ Open PowerShell as Administrator and run:
 ```powershell
 dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
 ```
+or 
+```powershell
+Enable-WindowsOptionalFeature -FeatureName Microsoft-Windows-Subsystem-Linux -Online -All -NoRestart
+```
 
 To only install WSL 1, you should now restart your machine and move on to [Install your Linux distribution of choice](./install-win10.md#install-your-linux-distribution-of-choice), otherwise wait to restart and move on to update to WSL 2. Read more about [Comparing WSL 2 and WSL 1](./compare-versions.md).
 
@@ -37,6 +41,10 @@ Open PowerShell as Administrator and run:
 
 ```powershell
 dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+```
+or
+```powershell
+Enable-WindowsOptionalFeature -FeatureName VirtualMachinePlatform -Online -All -NoRestart 
 ```
 
 **Restart** your machine to complete the WSL install and update to WSL 2.
