@@ -24,7 +24,7 @@ The most [popular choices](https://insights.stackoverflow.com/survey/2019#techno
 
 - [MySQL](https://www.mysql.com/why-mysql/) (SQL)
 - [PostgreSQL](https://www.postgresql.org/about/) (SQL)
-- [Microsoft SQL Server](https://docs.microsoft.com/en-us/sql/?view=sql-server-ver15) (SQL)
+- [Microsoft SQL Server](https://docs.microsoft.com/sql/?view=sql-server-ver15) (SQL)
 - [SQLite](https://www.sqlite.org/about.html) (SQL)
 - [MongoDB](https://www.mongodb.com/what-is-mongodb) (NoSQL)
 - [Redis](https://redis.io/topics/introduction) (NoSQL)
