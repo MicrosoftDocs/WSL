@@ -68,6 +68,8 @@ To delete a database, enter: ` DROP DATABASE database_name;`
 
 For more about working with MySQL databases, see the [MySQL docs](https://dev.mysql.com/doc/mysql-getting-started/en/).
 
+To work with with MySQL databases in VS Code, try the [MySQL extension](https://marketplace.visualstudio.com/items?itemName=cweijan.vscode-mysql-client2).
+
 ## Install PostgreSQL
 
 To install PostgreSQL on WSL (Ubuntu 18.04):
@@ -155,6 +157,8 @@ Learn more in the MongoDB docs:
 
 To install SQL Server on WSL (Ubuntu 18.04), follow this quickstart: [Install SQL Server and create a database on Ubuntu](https://docs.microsoft.com/sql/linux/quickstart-install-connect-ubuntu?view=sql-server-ver15).
 
+To work with Microsoft SQL Server databases in VS Code, try the [MSSQL extension](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql).
+
 ## Install SQLite
 
 To install SQLite on WSL (Ubuntu 18.04):
@@ -174,6 +178,8 @@ To exit the SQLite prompt, enter: `.exit`
 
 For more information about working with a SQLite database, see the [SQLite docs](https://www.sqlite.org/quickstart.html).
 
+To work with SQLite databases in VS Code, try the [SQLite extension](https://marketplace.visualstudio.com/items?itemName=mtxr.sqltools).
+
 ## Install Redis
 
 To install Redis on WSL (Ubuntu 18.04):
@@ -190,6 +196,8 @@ Check to see if redis is working (redis-cli is the command line interface utilit
 To stop running your Redis server: `sudo service redis-server stop`
 
 For more information about working with a Redis database, see the [Redis docs](https://redis.io/topics/quickstart).
+
+To work with Redis databases in VS Code, try the [Redis extension](https://marketplace.visualstudio.com/items?itemName=cweijan.vscode-redis-client).
 
 ## See services running and set up profile aliases
 
