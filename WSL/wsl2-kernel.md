@@ -54,4 +54,4 @@ Each time kernel is missing in %SystemRoot%\system32\lxss\tools\, you may run in
 Here are some possible ways to resolve it:
 
 1. Please install the Linux kernel manually by following the instructions at: https://aka.ms/wsl2kernel
-3. Uninstall the MSI from 'Add or Remove Programs', and install it again
+2. Uninstall the MSI from 'Add or Remove Programs', and install it again

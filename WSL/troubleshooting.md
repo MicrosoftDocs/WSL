@@ -69,6 +69,7 @@ Set-VMProcessor -VMName <VMName> -ExposeVirtualizationExtensions $true
 ```
 
 3. Please follow guidelines from your PC's manufacturer on how to enable virtualization. In general, this can involve using the system BIOS to ensure that these features are enabled on your CPU. 
+4. Restart your machine after enabling the `Virtual Machine Platform` optional component. 
 
 ### Bash loses network connectivity once connected to a VPN
 
