@@ -22,6 +22,8 @@
       href: tutorials/wsl-vscode.md
     - name: Get started with Git
       href: tutorials/wsl-git.md
+    - name: Get started with databases
+      href: tutorials/wsl-databases.md
     - name: Set up GPU acceleration (NVIDIA CUDA/DirectML)
       href: tutorials/gpu-compute.md
 - name: How-to
