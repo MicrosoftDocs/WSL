@@ -36,6 +36,40 @@ Lastly, if your issue is related to the Windows Terminal, Windows Console, or th
 
 ## Common issues
 
+### Cannot access WSL files from Windows
+A 9p protocol file server provides the service on the Linux side to allow Windows to access the Linux file system. If you cannot access WSL using `\\wsl$` on Windows, it could be because 9P did not start correctly.
+
+To check this, you can check the start up logs using: `dmesg |grep 9p`, and this will show you any errors. A successfull output looks like the following: 
+
+```
+[    0.363323] 9p: Installing v9fs 9p2000 file system support
+[    0.363336] FS-Cache: Netfs '9p' registered for caching
+[    0.398989] 9pnet: Installing 9P2000 support
+```
+
+Please see [this Github thread](https://github.com/microsoft/wsl/issues/5307) for further discussion on this issue.
+
+### Can't start WSL 2 distro and only see 'WSL 2' in output
+If your display language is not English, then it is possible you are seeing a truncated version of an error text.
+
+```powershell
+C:\Users\me>wsl
+WSL 2
+```
+
+To resolve this issue, please visit `https://aka.ms/wsl2kernel` and install the kernel manually by following the directions on that doc page. 
+
+### Please enable the Virtual Machine Platform Windows feature and ensure virtualization is enabled in the BIOS.
+
+1. Check the [Hyper-V system requirements](https://docs.microsoft.com/en-us/windows-server/virtualization/hyper-v/system-requirements-for-hyper-v-on-windows#:~:text=on%20Windows%20Server.-,General%20requirements,the%20processor%20must%20have%20SLAT.)
+2. If your machine is a VM, please enable [nested virtualization](https://docs.microsoft.com/en-us/windows/wsl/wsl2-faq#can-i-run-wsl-2-in-a-virtual-machine) manually. Launch powershell with admin, and run: 
+
+```powershell
+Set-VMProcessor -VMName <VMName> -ExposeVirtualizationExtensions $true
+```
+
+3. Please follow guidelines from your PC's manufacturer on how to enable virtualization. In general, this can involve using the system BIOS to ensure that these features are enabled on your CPU. 
+
 ### Bash loses network connectivity once connected to a VPN
 
 If after connecting to a VPN on Windows, bash loses network connectivity, try this workaround from within bash. This workaround will allow you to manually override the DNS resolution through `/etc/resolv.conf`.
