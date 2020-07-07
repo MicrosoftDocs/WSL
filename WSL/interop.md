@@ -146,6 +146,7 @@ Properties of `WSLENV` variable:
 
 > [!NOTE]
 > Prior to 17063, only Windows environment variable that WSL could access was `PATH` (so you could launch Win32 executables from under WSL). Starting in 17063, `WSLENV` begins being supported.
+> WSLENV is case sensitive.
 
 ## WSLENV flags
 
