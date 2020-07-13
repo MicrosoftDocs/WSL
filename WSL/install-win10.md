@@ -113,6 +113,47 @@ wsl --set-default-version 2
 
 This will set the version of any new distribution installed to WSL 2.
 
+## Install and upgrade all distros 
+
+Run the following command in PowerShell for upgrade all your distros and install wsl update package.
+```powershell
+#WSL2 Install and Update
+#enable feature
+Get-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatform | Enable-WindowsOptionalFeature -Online
+add-type -AssemblyName System.IO.FileSystem
+$clientweb = New-Object System.Net.WebClient
+$wslMsi = "https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi"
+#verify path for download file to install
+if (!(Test-Path "$env:TEMP\wslDownload\")) {
+    Write-Host "create path wslDownload"
+    $temp = "$env:TEMP\wslDownload\"
+    $directory = [System.IO.Directory]::CreateDirectory($temp)
+}
+else {
+    $directory = "$env:TEMP\wslDownload\"
+}
+$msi = $( -join ($directory, "wsl_update_x64.msi"))
+#download file for install
+$clientweb.DownloadFile($wslMsi, $msi)
+#install msi on windows
+start-process msiexec.exe -ArgumentList "/I $msi /quiet /passive /log c:\logwsl.log"
+#find package on Windows
+$linuxPkg = Get-CimInstance -ClassName Win32_Product | Where-Object { $_.Caption -like '*for Linux*' }
+#need imput new ids for include suse,kali and others
+$appX = Get-AppxPackage | Where-Object { $_.publisherid -in '79rhkp1fndgsc', '76v4gfsz19hv4' }
+if ($linuxPkg -and $appX) {
+    #loop for update all distros
+    foreach ($app in $appx) {
+        switch ($app.Name) {
+            'TheDebianProject.DebianGNULinux' { wsl --set-version Debian 2  ;break }
+            'CanonicalGroupLimited.Ubuntu18.04onWindows' { wsl --set-version Ubuntu-18.04  2  ;break}
+            'CanonicalGroupLimited.Ubuntu20.04onWindows' { wsl --set-version Ubuntu-20.04  2  ;break}
+            default {wsl --set-default-version 2}
+        }    
+    }    
+}
+```
+
 ## Troubleshooting installation
 
 Below are related errors and suggested fixes. Refer to the [WSL troubleshooting page](troubleshooting.md) for other common errors and their solutions.
