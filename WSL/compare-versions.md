@@ -1,8 +1,8 @@
 ---
-title: An overview on the the Windows Subsystem for Linux
-description: Learn about the Windows Subsystem for Linux, the different versions and ways you can use them.
+title: Comparing WSL 2 and WSL 1
+description: Compare version 1 and version 2 of the Windows Subsystem for Linux. Hint- version 2 runs an actual Linux kernel and has faster performance speed, but WSL 1 works better if your working across BOTH Windows and Linux file systems.
 keywords: BashOnWindows, bash, wsl, windows, windowssubsystem, gnu, linux, ubuntu, debian, suse, windows 10, UX changes, WSL 2, linux kernel, network applications, localhost, IPv6, Virtual Hardware Disk, VHD, VHD limitations, VHD error
-ms.date: 05/12/2020
+ms.date: 07/21/2020
 ms.topic: article
 ms.localizationpriority: high
 ---
