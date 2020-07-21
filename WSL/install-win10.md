@@ -43,7 +43,7 @@ dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /nores
 
 ### Set WSL 2 as your default version
 
-Run the following command in PowerShell to set WSL 2 as the default version when installing a new Linux distribution:
+Open PowerShell as Administrator and run this command to set WSL 2 as the default version when installing a new Linux distribution:
 
 ```powershell
 wsl --set-default-version 2
