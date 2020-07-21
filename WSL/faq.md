@@ -30,6 +30,10 @@ You can also access your local machine’s filesystem from within the Linux Bash
 
 ![Screenshot of mounted C drive](media/ls.png)
 
+## Could you describe a typical development workflow that incorporates WSL?
+
+WSL targets a developer audience with the intent to be used as part of an inner development loop. Let's say that Sam is creating a CI/CD pipeline (Continuous Integration & Continuous Delivery) and wants to test it first on a local machine (laptop) before deploying it to the cloud. Sam can enable WSL (& WSL 2 to improve speed and performance), and then use a genuine Linux Ubuntu instance locally (on the laptop) with whatever Bash commands and tools they prefer. Once the development pipeline is verified locally, Sam can then push that CI/CD pipeline up to the cloud (ie Azure) by making it into a Docker container and pushing the container to a cloud instance where it runs on a production-ready Ubuntu VM.
+
 ## What is Bash?
 
 [Bash](https://en.wikipedia.org/wiki/Bash_%28Unix_shell%29) is a popular text-based shell and command-language. It is the default shell included within Ubuntu and other Linux distros, and in macOS. Users type commands into a shell to execute scripts and/or run commands and tools to accomplish many tasks.
