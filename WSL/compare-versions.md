@@ -72,7 +72,7 @@ The [WSL 2 Linux kernel is open source](https://github.com/microsoft/WSL2-Linux-
 
 ### Increased file IO performance
 
-File intensive operations like git clone, npm install, apt update, apt upgrade, and more are all be noticeably faster with WSL 2.
+File intensive operations like git clone, npm install, apt update, apt upgrade, and more are all noticeably faster with WSL 2.
 
 The actual speed increase will depend on which app you're running and how it is interacting with the file system. Initial versions of WSL 2 run up to 20x faster compared to WSL 1 when unpacking a zipped tarball, and around 2-5x faster when using git clone, npm install and cmake on various projects.
 
