@@ -19,7 +19,7 @@ You can:
 * Run Bash shell scripts and GNU/Linux command-line applications including:  
     * Tools: vim, emacs, tmux
     * Languages: [NodeJS](https://docs.m[icros](../tutorials/wsl-database.md)oft.com/windows/nodejs/setup-on-wsl2), Javascript, [Python](https://docs.microsoft.com/windows/python/web-frameworks), Ruby, C/C++, C# & F#, Rust, Go, etc.
-    * Services: SSHD, [MySQL](../tutorials/wsl-database.md), Apache, lighttpd, [MongoDB](/tutorials/wsl-database.md), [PostgreSQL](/tutorials/wsl-database.md).
+    * Services: SSHD, [MySQL](/tutorials/wsl-database.md), Apache, lighttpd, [MongoDB](/tutorials/wsl-database.md), [PostgreSQL](/tutorials/wsl-database.md).
 * Install additional software using own GNU/Linux distribution package manager.
 * Invoke Windows applications using a Unix-like command-line shell.
 * Invoke GNU/Linux applications on Windows.
