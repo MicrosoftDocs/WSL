@@ -1,13 +1,13 @@
 ---
-title: An overview on the the Windows Subsystem for Linux
+title: Comparing WSL version 1 and 2
 description: Learn about the Windows Subsystem for Linux, the different versions and ways you can use them.
 keywords: BashOnWindows, bash, wsl, windows, windowssubsystem, gnu, linux, ubuntu, debian, suse, windows 10, UX changes, WSL 2, linux kernel, network applications, localhost, IPv6, Virtual Hardware Disk, VHD, VHD limitations, VHD error
-ms.date: 05/12/2020
+ms.date: 07/22/2020
 ms.topic: article
 ms.localizationpriority: high
 ---
 
-# Comparing WSL 2 and WSL 1
+# Comparing WSL 1 and WSL 2
 
 The primary goals of updating the Windows Subsystem for Linux to a new version are to **increase file system performance** and support **full system call compatibility**. 
 
