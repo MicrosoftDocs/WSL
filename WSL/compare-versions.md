@@ -1,13 +1,13 @@
 ---
-title: An overview on the the Windows Subsystem for Linux
+title: Comparing WSL version 1 and 2
 description: Learn about the Windows Subsystem for Linux, the different versions and ways you can use them.
 keywords: BashOnWindows, bash, wsl, windows, windowssubsystem, gnu, linux, ubuntu, debian, suse, windows 10, UX changes, WSL 2, linux kernel, network applications, localhost, IPv6, Virtual Hardware Disk, VHD, VHD limitations, VHD error
-ms.date: 05/12/2020
+ms.date: 07/22/2020
 ms.topic: article
 ms.localizationpriority: high
 ---
 
-# Comparing WSL 2 and WSL 1
+# Comparing WSL 1 and WSL 2
 
 The primary goals of updating the Windows Subsystem for Linux to a new version are to **increase file system performance** and support **full system call compatibility**. 
 
@@ -72,7 +72,7 @@ The [WSL 2 Linux kernel is open source](https://github.com/microsoft/WSL2-Linux-
 
 ### Increased file IO performance
 
-File intensive operations like git clone, npm install, apt update, apt upgrade, and more are all be noticeably faster with WSL 2.
+File intensive operations like git clone, npm install, apt update, apt upgrade, and more are all noticeably faster with WSL 2.
 
 The actual speed increase will depend on which app you're running and how it is interacting with the file system. Initial versions of WSL 2 run up to 20x faster compared to WSL 1 when unpacking a zipped tarball, and around 2-5x faster when using git clone, npm install and cmake on various projects.
 
