@@ -24,6 +24,11 @@ You can:
 * Invoke Windows applications using a Unix-like command-line shell.
 * Invoke GNU/Linux applications on Windows.
 
+> [!div class="nextstepaction"]
+> [Install WSL](install-win10.md)
+
+<br>
+
 > [!VIDEO https://www.youtube.com/embed/48k317kOxqg]
 
 ## What is WSL 2?
