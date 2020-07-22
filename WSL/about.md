@@ -34,6 +34,8 @@ This new architecture changes how these Linux binaries interact with Windows and
 
 Individual Linux distributions can be run with either the WSL 1 or WSL 2 architecture. Each distribution can be upgraded or downgraded at any time and you can run WSL 1 and WSL 2 distributions side by side. WSL 2 uses an entirely new architecture that benefits from running a real Linux kernel.
 
+<br>
+
 > [!VIDEO https://www.youtube.com/embed/MrZolfGm8Zk]
 
 ## Next steps
