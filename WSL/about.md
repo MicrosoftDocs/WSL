@@ -5,7 +5,7 @@ keywords: BashOnWindows, bash, wsl, windows, windowssubsystem, gnu, linux
 ms.date: 07/21/2020
 ms.topic: article
 ms.assetid: 3cefe0db-7616-4848-a2b6-9296746a178b
-ROBOTS: NOINDEX
+ms.localizationpriority: high
 ---
 
 # What is the Windows Subsystem for Linux?
@@ -33,6 +33,8 @@ WSL 2 is a new version of the Windows Subsystem for Linux architecture that powe
 This new architecture changes how these Linux binaries interact with Windows and your computer's hardware, but still provides the same user experience as in WSL 1 (the current widely available version).
 
 Individual Linux distributions can be run with either the WSL 1 or WSL 2 architecture. Each distribution can be upgraded or downgraded at any time and you can run WSL 1 and WSL 2 distributions side by side. WSL 2 uses an entirely new architecture that benefits from running a real Linux kernel.
+
+> [!VIDEO https://www.youtube.com/embed/MrZolfGm8Zk]
 
 ## Next steps
 
