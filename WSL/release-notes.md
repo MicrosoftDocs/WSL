@@ -10,6 +10,16 @@ ms.localizationpriority: high
 
 # Release Notes for Windows Subsystem for Linux
 
+## Build 20175
+For general Windows information on build 20175 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2020/07/22/announcing-windows-10-insider-preview-build-20175/).
+
+* Adjust default memory assignment of WSL2 VM to be 50% of host memory or 8GB, whichever is less [GH 4166].
+* Change \\\\wsl$ prefix to \\\\wsl to support URI parsing. The old \\\\wsl$ path is still supported.
+* Enable nested virtualization for WSL2 by default on amd64. You can disable this via %userprofile%\\.wslconfig ([wsl2] nestedVirtualization=false).
+* Make wsl.exe --update demand start Microsoft Update.
+* Support renaming over a read-only file in DrvFs.
+* Ensure error messages are always printed in the correct codepage.
+
 ## Build 20150
 For general Windows information on build 20150 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2020/06/17/announcing-windows-10-insider-preview-build-20150/).
 
