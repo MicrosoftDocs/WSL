@@ -1556,13 +1556,13 @@ For general Windows information on build 14951 visit the [Windows Blog](https://
 ### New Feature: Windows / Ubuntu Interoperability
 Windows binaries can now be invoked directly from the WSL command line.  This gives users the ability to interact with their Windows environment and system in a way that has not been possible.  As a quick example, it is now possible for users to run the following commands:
 
-    ```
-    $ export PATH=$PATH:/mnt/c/Windows/System32
-    $ notepad.exe
-    $ ipconfig.exe | grep IPv4 | cut -d: -f2
-    $ ls -la | findstr.exe foo.txt
-    $ cmd.exe /c dir
-    ```
+```bash
+$ export PATH=$PATH:/mnt/c/Windows/System32
+$ notepad.exe
+$ ipconfig.exe | grep IPv4 | cut -d: -f2
+$ ls -la | findstr.exe foo.txt
+$ cmd.exe /c dir
+```
 
 More information can be found at:
 
