@@ -7,5 +7,5 @@
       topicHref: /windows/dev-environment/overview
       items:
         - name: WSL
-          tocHref: /windows/wsl/about
-          topicHref: /windows/wsl/about
+          tocHref: /windows/wsl/
+          topicHref: /windows/wsl/
