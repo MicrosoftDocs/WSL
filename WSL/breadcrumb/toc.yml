@@ -3,23 +3,9 @@
   topicHref: /windows/
   items:
     - name: Development environment
-      tocHref: /windows/dev-environment/
-      topicHref: "/windows/dev-environment/"
+      tocHref: /windows/dev-environment/overview
+      topicHref: /windows/dev-environment/overview
       items:
-        - name: Windows Package Manager
-          tocHref: /windows/package-manager/
-          topicHref: "/windows/package-manager"
-        - name: Python
-          tocHref: /windows/python/
-          topicHref: "/windows/python"
-        - name: Node.js
-          tocHref: /windows/nodejs/
-          topicHref: "/windows/nodejs"
-        - name: Android
-          tocHref: /windows/android/
-          topicHref: "/windows/android/overview"
-        - name: Mac to Windows
-          topicHref: "/windows/dev-environment/mac-to-windows"
-        - name: Windows Subsystem for Linux
-          tocHref: /windows/dev-environment/wsl
-          topicHref: "/windows/wsl/about"
+        - name: WSL
+          tocHref: /windows/wsl/about
+          topicHref: /windows/wsl/about
