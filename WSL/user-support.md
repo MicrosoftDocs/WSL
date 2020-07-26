@@ -11,7 +11,7 @@ ms.localizationpriority: high
 
 Once you have [enabled WSL and installed a Linux distribution from the Microsoft Store](./install-win10.md), the first step you will be asked to complete when opening your newly installed Linux distribution is to create an account, including a **User Name** and **Password**.
 
-- This **User Name** and **Password** are specific to your Linux distribution and have no bearing on your Windows user name.
+- These **User Name** and **Password** are specific to your Linux distribution and have no bearing on your Windows user name.
 
 - Once you create this **User Name** and **Password**, the account will be your default user for the distribution and automatically sign-in on launch.
 
