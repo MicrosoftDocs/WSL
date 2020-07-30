@@ -20,7 +20,7 @@ Feature | WSL 1 | WSL 2
  Integration between Windows and Linux| ✅|✅
  Fast boot times| ✅ | ✅
  Small resource foot print| ✅ |✅
- Runs with current versions of VMWare and VirtualBox| ✅ | ✅
+ Runs with current versions of VMware and VirtualBox| ✅ | ✅
  Managed VM| ❌ | ✅
  Full Linux Kernel| ❌ |✅
  Full system call compatibility| ❌ | ✅
@@ -31,7 +31,7 @@ Already using WSL 1 and want to upgrade to WSL 2? Follow the instructions to [up
 WSL 2 is only available in Windows 10, Version 2004, Build 19041 or higher. Check your Windows version by selecting the **Windows logo key + R**, type **winver**, select **OK**. (Or enter the `ver` command in Windows Command Prompt). You may need to [update to the latest Windows version](ms-settings:windowsupdate). For builds lower than 19041, WSL is not supported at all.
 
 > [!NOTE]
-> WSL 2 will work with [VMWare 15.5.5+](https://blogs.vmware.com/workstation/2020/05/vmware-workstation-now-supports-hyper-v-mode.html) and [VirtualBox 6+](https://www.virtualbox.org/wiki/Changelog-6.0).
+> WSL 2 will work with [VMware 15.5.5+](https://blogs.vmware.com/workstation/2020/05/vmware-workstation-now-supports-hyper-v-mode.html) and [VirtualBox 6+](https://www.virtualbox.org/wiki/Changelog-6.0).
 
 ## Use the Linux file system for faster performance
 
