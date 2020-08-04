@@ -38,6 +38,8 @@
       href: enterprise.md
     - name: Build a custom distro
       href: build-custom-distro.md
+    - name: Mount a disk in WSL 2
+      href: wsl2-mount-disk.md
     - name: Command Line Reference
       href: reference.md
 - name: Frequently Asked Questions
