@@ -1,5 +1,5 @@
 ---
-title: Mount disks in WSL2
+title: Mount disks in WSL2 (Preview)
 description: Usage instructions to mount and attach physical disks in WSL2.
 keywords: BashOnWindows, bash, wsl, windows, windows subsystem for linux, windowssubsystem, windows 10, install, WSL2, version 2, disk, mount
 ms.date: 08/03/2020
@@ -7,7 +7,7 @@ ms.topic: article
 ms.localizationpriority: high
 ---
 
-# Mounting a disk using WSL 2
+# Mounting a disk using WSL 2 (Preview)
 
 WSL 2 is capable of mounting disk formats and filesystems that aren't natively supported by Windows.
 
@@ -18,6 +18,12 @@ To mount a disk, run:
 wsl --mount <DiskPath>
 ```
 
+> [!NOTE]
+> Administrator access is required to attach a disk to WSL 2.
+
+> [!NOTE]
+> Depending on the disk layout, `--partition <PartitionIndex>` might be required. Check out [Get started mounting a linux disk in WSL 2](tutorials/wsl-mount-disk.md) for a complete tutorial.
+
 Once attached to WSL 2, the disk appears 'offline' in Windows, and is accessible as a block device in WSL 2.
 
 To list the available disks in Windows, run:
@@ -26,7 +32,7 @@ To list the available disks in Windows, run:
 wmic diskdrive list brief
 ```
 
-The disks paths are available under the 'DeviceID' columns. Usually under the `\\.\\\.\PHYSICALDRIVE*` format.
+The disks paths are available under the 'DeviceID' columns. Usually under the `\\.\PHYSICALDRIVE*` format.
 
 Once mounted, the disk can be accessed under the path pointed to by the config value `automount.root`. The default value is `/mnt/wsl`.
 
