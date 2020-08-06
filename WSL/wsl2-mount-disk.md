@@ -1,5 +1,5 @@
 ---
-title: Mount disks in WSL2 (Preview)
+title: Mount disks in WSL2 (preview)
 description: Usage instructions to mount and attach physical disks in WSL2.
 keywords: BashOnWindows, bash, wsl, windows, windows subsystem for linux, windowssubsystem, windows 10, install, WSL2, version 2, disk, mount
 ms.date: 08/03/2020
@@ -7,7 +7,7 @@ ms.topic: article
 ms.localizationpriority: high
 ---
 
-# Mounting a disk using WSL 2 (Preview)
+# Mounting a disk using WSL 2 (preview)
 
 WSL 2 is capable of mounting disk formats and filesystems that aren't natively supported by Windows.
 
