@@ -23,7 +23,7 @@ The Windows Subsystem for Linux lets developers run a GNU/Linux environment -- i
 * [Update to WSL2](install-win10.md#update-to-wsl-2)
 * [Install Linux on Windows Server](install-on-server.md)
 * [Create a user account and password for your new Linux distribution](user-support.md)
-* [Mount a disk in WSL2 (preview)](wsl2-mount-disk.md)
+
 
 ## Team blogs
 
