@@ -24,7 +24,6 @@ The Windows Subsystem for Linux lets developers run a GNU/Linux environment -- i
 * [Install Linux on Windows Server](install-on-server.md)
 * [Create a user account and password for your new Linux distribution](user-support.md)
 
-
 ## Team blogs
 
 * [Overview post with a collection of videos and blogs](https://blogs.msdn.microsoft.com/commandline/learn-about-windows-console-and-windows-subsystem-for-linux-wsl/)
