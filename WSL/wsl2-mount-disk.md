@@ -169,4 +169,6 @@ If `Diskpath` Is omitted, all attached disks disks are unmounted and detached.
 
 - At this time, only whole disks can be attached to WSL 2 meaning that it's not possible to attach only a partition. Concretely this means that it's not possible to use `wsl --mount` to read a partition on the boot device, because that device can't be detached from Windows.
 
+- USB flash drives are not supported at this time and will fail to attach to WSL 2. USB disks are supported though.
+
 - Only filesystems that are natively supported in the kernel can be mounted by `wsl --mount`. This means that it's not possible to use installed filesystem drivers (such as ntfs-3g for example) by calling `wsl --mount`.
