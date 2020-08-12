@@ -10,6 +10,15 @@ ms.localizationpriority: high
 
 # Release Notes for Windows Subsystem for Linux
 
+## Build 20190
+For general Windows information on build 20190 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2020/08/12/announcing-windows-10-insider-preview-build-20190/).
+
+* Fix bug preventing WSL1 instances from launching [GH 5633]
+* Fix hang when redirecting Windows process output [GH 5648]
+* Add %userprofile%\\.wslconfig option to control the VM idle timeout (wsl2.vmIdleTimeout=<time_in_ms>)
+* Support launching app execution aliases from WSL
+* Added support for installing the WSL2 kernel and distributions to wsl.exe --install
+
 ## Build 20175
 For general Windows information on build 20175 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2020/07/22/announcing-windows-10-insider-preview-build-20175/).
 
