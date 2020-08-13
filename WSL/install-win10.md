@@ -1,6 +1,6 @@
 ---
 title: Install Windows Subsystem for Linux (WSL) on Windows 10
-description: Installation instructions for the Windows Subsystem for Linux on Windows 10.
+description: Learn how to install the Windows Subsystem for Linux on Windows 10. Windows 10 must be updated to version 2004, build 19041 or higher.
 keywords: BashOnWindows, bash, wsl, windows, windows subsystem for linux, windowssubsystem, ubuntu, debian, suse, windows 10, install, enable, WSL2, version 2
 ms.date: 05/12/2020
 ms.topic: article
