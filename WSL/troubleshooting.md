@@ -36,6 +36,22 @@ Lastly, if your issue is related to the Windows Terminal, Windows Console, or th
 
 ## Common issues
 
+### Error: 0x1bc when `wsl --set-default-version 2`
+This may happen when 'Display Language' or 'System Locale' setting is not English.
+```
+wsl --set-default-version 2
+Error: 0x1bc
+For information on key differences with WSL 2 please visit https://aka.ms/wsl2
+```
+
+THe actual error for `0x1bc` is:
+```
+WSL 2 requires an update to its kernel component. For information please visit https://aka.ms/wsl2kernel
+```
+
+For more information, please refer to issue [5749](https://github.com/microsoft/WSL/issues/5749)
+
+
 ### Cannot access WSL files from Windows
 A 9p protocol file server provides the service on the Linux side to allow Windows to access the Linux file system. If you cannot access WSL using `\\wsl$` on Windows, it could be because 9P did not start correctly.
 
