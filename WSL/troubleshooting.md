@@ -36,6 +36,39 @@ Lastly, if your issue is related to the Windows Terminal, Windows Console, or th
 
 ## Common issues
 
+### `command not found` when execute windows .exe in linux
+User can run Windows .exe like notepad.exe directly from linux. Sometime, you may hit "command not found" like below: 
+```
+$ notepad.exe
+-bash: notepad.exe: command not found
+```
+
+If there is no win32 paths in your $PATH, interop isn't going to find the .exe.
+You can verify it by `echo $PATH` in Linux. It's expected that win32 path(for example, /mnt/c/Windows) is in the output.
+If you can't find it, most likely PATH is overwriten by Linux shell. 
+
+Here is a an example that /etc/profile on Debian contributed to the problem:
+```
+if [ "`id -u`" -eq 0 ]; then
+  PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+else
+  PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games"
+fi
+```
+
+The correct way on Debian is to remove above lines.
+You may also append $PATH during the assigment like below, but this lead to some [other problems](https://salsa.debian.org/debian/WSL/-/commit/7611edba482fd0b3f67143aa0fc1e2cc1d4100a6) with WSL and VSCode..
+
+```
+if [ "`id -u`" -eq 0 ]; then
+  PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH"
+else
+  PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:$PATH"
+fi
+```
+
+For more information, please refer to issue [5296](https://github.com/microsoft/WSL/issues/5296)
+
 ### Error: 0x1bc when `wsl --set-default-version 2`
 This may happen when 'Display Language' or 'System Locale' setting is not English.
 ```
