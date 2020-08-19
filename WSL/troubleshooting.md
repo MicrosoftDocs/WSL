@@ -36,7 +36,7 @@ Lastly, if your issue is related to the Windows Terminal, Windows Console, or th
 
 ## Common issues
 
-### `command not found` when execute windows .exe in linux
+### `command not found` when executing windows .exe in linux
 User can run Windows .exe like notepad.exe directly from linux. Sometime, you may hit "command not found" like below: 
 ```
 $ notepad.exe
