@@ -4,7 +4,7 @@
   items:
     - name: What is WSL?
       href: about.md
-    - name: Whats new in WSL 2 
+    - name: What's new in WSL 2?
       href: wsl2-index.md
     - name: Comparing WSL 2 and WSL 1
       href: compare-versions.md
@@ -38,6 +38,8 @@
       href: enterprise.md
     - name: Build a custom distro
       href: build-custom-distro.md
+    - name: Update WSL 2's Linux kernel
+      href: wsl2-kernel.md
     - name: Command Line Reference
       href: reference.md
 - name: Frequently Asked Questions
