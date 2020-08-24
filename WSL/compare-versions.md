@@ -1,13 +1,13 @@
 ---
-title: An overview on the the Windows Subsystem for Linux
-description: Learn about the Windows Subsystem for Linux, the different versions and ways you can use them.
+title: Comparing WSL 2 and WSL 1
+description: Compare version 1 and version 2 of the Windows Subsystem for Linux. Hint- version 2 runs an actual Linux kernel and has faster performance speed, but WSL 1 works better if your working across BOTH Windows and Linux file systems.
 keywords: BashOnWindows, bash, wsl, windows, windowssubsystem, gnu, linux, ubuntu, debian, suse, windows 10, UX changes, WSL 2, linux kernel, network applications, localhost, IPv6, Virtual Hardware Disk, VHD, VHD limitations, VHD error
-ms.date: 05/12/2020
+ms.date: 07/22/2020
 ms.topic: article
 ms.localizationpriority: high
 ---
 
-# Comparing WSL 2 and WSL 1
+# Comparing WSL 1 and WSL 2
 
 The primary goals of updating the Windows Subsystem for Linux to a new version are to **increase file system performance** and support **full system call compatibility**. 
 
@@ -72,7 +72,7 @@ The [WSL 2 Linux kernel is open source](https://github.com/microsoft/WSL2-Linux-
 
 ### Increased file IO performance
 
-File intensive operations like git clone, npm install, apt update, apt upgrade, and more are all be noticeably faster with WSL 2.
+File intensive operations like git clone, npm install, apt update, apt upgrade, and more are all noticeably faster with WSL 2.
 
 The actual speed increase will depend on which app you're running and how it is interacting with the file system. Initial versions of WSL 2 run up to 20x faster compared to WSL 1 when unpacking a zipped tarball, and around 2-5x faster when using git clone, npm install and cmake on various projects.
 
@@ -131,6 +131,11 @@ For example, you may need to bind your application to `0.0.0.0` instead of `127.
 When using a WSL 1 distribution, if your computer was set up to be accessed by your LAN, then applications run in WSL could be accessed on your LAN as well.
 
 This isn't the default case in WSL 2. WSL 2 has a virtualized ethernet adapter with its own unique IP address. Currently, to enable this workflow you will need to go through the same steps as you would for a regular virtual machine. (We are looking into ways to improve this experience.)
+
+Here's an example PowerShell command to add a port proxy that listens on port 4000 on the host and connects it to port 4000 to the WSL 2 VM with IP address 192.168.101.100.
+```powershell
+netsh interface portproxy add v4tov4 listenport=4000 listenaddress=0.0.0.0 connectport=4000 connectaddress=192.168.101.100
+```
 
 #### IPv6 access
 

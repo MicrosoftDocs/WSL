@@ -39,7 +39,7 @@ For more information, read the article [changes to updating the WSL2 Linux kerne
 
 ### This update only applies to machines with the Windows Subsystem for Linux
 To install MSI kernel, WSL is required and should be enabled first. If it fails, it you will see the message:
-`This update only applies to machines with the Windows Subsytem for Linux`. 
+`This update only applies to machines with the Windows Subsystem for Linux`. 
 
 There are three possible reason you see this message:
 
