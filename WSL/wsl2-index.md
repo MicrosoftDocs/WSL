@@ -1,6 +1,6 @@
 ---
 title: WSL 2
-description: Windows Subsystem for Linux 2
+description: Learn about the new features in Windows Subsystem for Linux 2. View additional available resources, such as updating your WSL version and FAQs.
 keywords: BashOnWindows, bash, wsl, wsl2, windows, windows subsystem for linux, windowssubsystem, ubuntu, debian, suse, windows 10, install
 ms.date: 05/12/2020
 ms.topic: article
