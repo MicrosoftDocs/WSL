@@ -1,6 +1,6 @@
 ---
 title: Frequently Asked Questions (FAQ)
-description: "Find answers to frequently asked questions (FAQs) about the Windows Subsystem for Linux, such as 'Who is WSL for?'."
+description: "Find answers to frequently asked questions (FAQs) about the Windows Subsystem for Linux, such as 'What can I do with WSL?'."
 keywords: BashOnWindows, bash, wsl, windows, windowssubsystem, faq
 ms.date: 9/4/2018
 ms.topic: article
