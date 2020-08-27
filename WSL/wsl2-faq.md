@@ -1,6 +1,6 @@
 ---
 title: WSL 2 Frequently Asked Questions
-description: Frequently Asked Questions about the Windows Subsystem for Linux 2
+description: "Find answers to frequently asked questions (FAQs) about the Windows Subsystem for Linux 2, like 'Can I run WSL 2 on a virtual machine?'."
 keywords: BashOnWindows, bash, wsl, wsl2, windows, windows subsystem for linux, windowssubsystem, ubuntu, debian, suse, windows 10, install
 ms.date: 05/30/2019
 ms.topic: article
