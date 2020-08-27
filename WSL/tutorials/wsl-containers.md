@@ -11,14 +11,6 @@ ms.localizationpriority: medium
 
 This step-by-step guide will help you get started developing with remote containers by setting up Docker on WSL 2 (Windows Subsystem for Linux, version 2). By installing Docker Desktop running on WSL 2, you can share your Docker context across Windows and Linux on the same machine.
 
-## Prerequisites
-
-- Ensure your machine is running Windows 10, [updated to version 2004](ms-settings:windowsupdate), **Build 19041** or higher.
-- [Enable WSL, update to WSL 2, install a Linux distribution, and set that distro to WSL 2](https://docs.microsoft.com/windows/wsl/install-win10). WSL can run distributions in both WSL version 1 or WSL 2 mode. You can check this by opening PowerShell and entering: `wsl -l -v`. Ensure that the your distribution is set to use WSL 2 by entering: `wsl --set-version  <distro> 2`. Replace `<distro>` with the distro name (e.g. Ubuntu 18.04).
-- [Download and install the Linux kernel update package](https://docs.microsoft.com/windows/wsl/wsl2-kernel).
-- [Install Visual Studio Code](https://code.visualstudio.com/download).
-- [Install the VS Code Remote-WSL extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl).
-
 ## Overview of Docker containers
 
 **Docker** is a tool used to create, deploy, and run applications using containers. Containers enable developers to package an app with all of the parts it needs (libraries, frameworks, dependencies, etc) and ship it all out as one package. Using a container ensures that the app will run the same regardless of any customized settings or previously installed libraries on the computer running it that could differ from the machine that was used to write and test the app's code. This permits developers to focus on writing code without worrying about the system that code will be run on.
@@ -29,29 +21,108 @@ Continuous availability, using Docker containers with tools like [Kubernetes](ht
 
 To learn more, checkout the [Introduction to Docker containers](https://docs.microsoft.com/learn/modules/intro-to-docker-containers/) on Microsoft Learn.
 
-## Install Docker Desktop
+## Prerequisites
 
-WSL 2 runs on a full Linux kernel, allowing Linux containers to run natively without emulation and Docker Desktop to use WSL 2 instead of Hyper-V to provide better performance and interoperability between your Windows and Linux tools. Docker Desktop will prompt you to enable WSL 2 during installation.
+- Ensure your machine is running Windows 10, [updated to version 2004](ms-settings:windowsupdate), **Build 19041** or higher.
+- [Enable WSL, update to WSL 2, install a Linux distribution, and set that distro to WSL 2](https://docs.microsoft.com/windows/wsl/install-win10). WSL can run distributions in both WSL version 1 or WSL 2 mode. You can check this by opening PowerShell and entering: `wsl -l -v`. Ensure that the your distribution is set to use WSL 2 by entering: `wsl --set-version  <distro> 2`. Replace `<distro>` with the distro name (e.g. Ubuntu 18.04).
+- [Download and install the Linux kernel update package](https://docs.microsoft.com/windows/wsl/wsl2-kernel).
+- [Install Visual Studio Code](https://code.visualstudio.com/download) *(optional)*.
+- [Install Windows Terminal](https://docs.microsoft.com/windows/terminal/get-started) *(optional)*. This will provide the best experience, including the ability to customize and open multiple terminals in the same interface (including Ubuntu, Debian, PowerShell, Azure CLI, or whatever you prefer to use).
+- [Sign up for a Docker ID at Docker Hub](https://hub.docker.com/signup) *(optional)*.
 
 > [!NOTE]
-> If you don't yet have a Docker ID, you may want to set one up by visiting: https://hub.docker.com/signup.
+> In WSL 1, due to fundamental differences between Windows and Linux, the Docker Engine couldn't run directly inside WSL, and the Docker team developed an alternative solution using Hyper-V VMs and LinuxKit. However, since WSL 2 now runs on a Linux kernel with full system call capacity, Docker can fully run in WSL 2. This means that Linux containers can run natively without emulation, resulting in better performance and interoperability between your Windows and Linux tools.
+
+## Install Docker Desktop
+
+Docker Desktop for Windows now supports a WSL 2 backend, enabling you to use a Linux workspace without the need to maintain both Linux and Windows build scripts - just install Docker Desktop for Windows and enable the WSL integration.
+
+To install Docker (after already installing WSL 2):
 
 1. Download [Docker Desktop](https://docs.docker.com/docker-for-windows/wsl/#download) and follow the installation instructions.
 
 2. Once installed, start Docker Desktop from the Windows Start menu, then select the Docker icon from the hidden icons menu of your taskbar. Right-click the icon to display the Docker commands menu and select "Dashboard". Ensure that "Use the WSL 2 based engine" is checked in **Settings** > **General**.
     ![Docker Desktop dashboard icon](../media/docker-running.png)
 
-3. From the dashboard, go to **Settings** > **Resources** > **WSL Integration**.
+3. From the dashboard, go to **Settings** > **Resources** > **WSL Integration** and select which WSL 2 distributions you want to access Docker from.
     ![Docker Desktop dashboard settings](../media/docker-dashboard.png)
 
-4. 
+4. To confirm that Docker has been installed, open a WSL distribution (e.g. Ubuntu) and display the version and build number by entering: `docker --version`
+
+5. Test that your installation works correctly by running a simple built-in Docker image using: `docker run hello-world`
+
+Here are a few helpful Docker commands to know:
+
+- List the commands available in the Docker CLI by entering: `docker`
+- List information for a specific command with: `docker <COMMAND> --help`
+- List the docker images on your machine (which is just the hello-world image at this point), with: `docker image ls --all`
+- List the containers on your machine, with: `docker container ls --all` or `docker ps -a` (without the -a show all flag, only running containers will be displayed)
+- List system-wide information regarding the Docker installation, including statistics and resources (CPU & memory) available to you in the WSL 2 context, with: `docker info`
+
+## Develop in remote containers using Docker with WSL 2 and VS Code
+
+To get started developing apps using Docker with WSL 2, we recommend using VS Code, along with the Remote-WSL extension and Docker extension.
+
+- [Install the VS Code Remote-WSL extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl). This extension enables you to run commands and extensions directly in WSL from your instance of VS Code running on Windows without the need to worry about pathing issues, binary compatibility, or other cross-OS challenges.
+
+- [Install the VS Code Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker). This extension adds the functionality to build, manage, and deploy containerized applications from right inside VS Code, as well as support for debugging inside a container.
+
+- [Install the VS code Remote-Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers). This extension enables you to view and attach to containers, opening any folder inside (or mounted into) a container to take advantage of VS Code's full feature set.
+
+Let's use Docker to create a development container for an existing app project.
+
+1. For this example, I'll use the source code from my [Hello World tutorial for Django](https://docs.microsoft.com/windows/python/web-frameworks#hello-world-tutorial-for-django) in the Python development environment set up docs. You can skip this step if you prefer to use your own project source code. To download my HelloWorld-Django web app from GitHub, open a WSL terminal (Ubuntu for example) and enter: `git clone https://github.com/mattwojo/helloworld-django.git`
+
+    > [!NOTE]
+    > For faster file access performance, store your code in the WSL file system `\\wsl\`. Storing your project files on the Windows file system will significantly slow things down if you are planning to use Linux tools in WSL to access them.
+
+2. From your WSL terminal, change directories to the source code folder for this project: `cd helloworld-django`
+
+3. Open the project in VS Code running on the local Remote-WSL extension server by entering: `code .`
+
+4. From the VS Code command pallette (Ctrl + Shift + P), enter: **Remote-Containers: Open Folder in Container...** If this command doesn't display as you begin to type it, check to ensure that you've installed the Remote Container extension linked above.
+    ![VS Code Remote Container command](../media/docker-extension.png)
+
+5. Select the project folder that you wish to containerize. In my case, this is `\\wsl\Ubuntu-20.04\home\mattwojo\repos\helloworld-django\`
+    ![VS Code Remote Container folder](../media/docker-extension2.png)
+
+6. A list of container definitions will appear, since there is no DevContainer configuration in the project folder (repo) yet. The list of container configuration definitions that appears is filtered based on your project type. For my Django project, I'll select Python 3.
+    ![VS Code Remote Container config definitions](../media/docker-extension3.png)
+
+7. A new instance of VS Code will open, begin building our new image, and once the build completed, will start our container. You will see that a new `.devcontainer` folder has appeared with container configuration information inside a `Dockerfile` and `devcontainer.json` file.  
+    ![VS Code .devcontainer folder](../media/docker-extension4.png)
+
+8. To confirm that your project is still connected to both WSL and within a container, open the VS Code integrated terminal (Ctrl + Shift + ~). Check the operating system by entering: `uname` and the Python version with: `python3 --version`. You can see that the uname came back as "Linux", so you are still connected to the WSL 2 engine, and Python version number will be based on the container config that may differ from the Python version installed on your WSL distribution.
+
+You have now successfully configured a remote development container using Docker Desktop, powered by the WSL 2 backend, that you can code in, build, run, deploy, or debug using VS Code.
+
+## Troubleshooting
+
+### WSL docker context deprecated
+
+If you were using an  early Tech Preview of Docker for WSL, you may have a Docker context called "wsl" that is now deprecated and no longer used. You can check with the command: `docker context ls`. You can remove this "wsl" context to avoid errors with the command: `docker context rm wsl` as you want to use the default context for both Windows and WSL2.
+
+Possible errors you might encounter with this deprecated wsl context include: `docker wsl open //./pipe/docker_wsl: The system cannot find the file specified.` or `error during connect: Get http://%2F%2F.%2Fpipe%2Fdocker_wsl/v1.40/images/json?all=1: open //./pipe/docker_wsl: The system cannot find the file specified.`
+
+For more on this issue, see [How to set up Docker within Windows System for Linux (WSL2) on Windows 10](https://www.hanselman.com/blog/HowToSetUpDockerWithinWindowsSystemForLinuxWSL2OnWindows10.aspx).
 
 
+## Questions
+
+Does Docker work with WSL 1?
+
+How do I SSH into Linux stuff from Windows?
+Hanselman wrote this: 
+https://www.hanselman.com/blog/HowToSetUpDockerWithinWindowsSystemForLinuxWSL2OnWindows10.aspx
+
+There's 15 years of websites telling you to install Putty but you might not need it. [OpenSSH has been shipping in Windows 10 for over two years](). You can add them with Windows Features, or if you like, grab a release and [put it on your PATH]().
+
+You can also do things like set up keys to use Windows 10's built-in OpenSSH to automatically SSH into a remote Linux machine. I also like to setup Signed Git Commits with a YubiKey NEO and GPG and Keybase on Windows.
 
 ## Additional resources
 
 - [How does the Docker architecture work with WSL](https://code.visualstudio.com/blogs/2020/03/02/docker-in-wsl2#_how-it-works)
-- []()
-- []()
+- [VS Code Blog: Using Docker in WSL 2](https://code.visualstudio.com/blogs/2020/03/02/docker-in-wsl2)
+- [VS Code Blog: Using Remote Containers in WSL 2](https://code.visualstudio.com/blogs/2020/07/01/containers-wsl)
 - [Hanselminutes Podcast: Making Docker lovely for Developers with Simon Ferquel](https://hanselminutes.com/736/making-docker-lovely-for-developers-with-simon-ferquel)
 - []()
