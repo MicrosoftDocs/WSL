@@ -45,7 +45,7 @@ If you forgot the password for your Linux distribution:
 
     > If you need to update the forgotten password on a distribution that is not your default, use the command: `wsl -d Debian -u root`, replacing `Debian` with the name of your targeted distribution.
 
-2. Once your WSL distribution has been opened at the root level inside PowerShell, you can use this command to update your password: `passwd`
+2. Once your WSL distribution has been opened at the root level inside PowerShell, you can use this command to update your password: `passwd <WSLUsername>` where `<WSLUsername>` is the username of the account in the DISTRO whose password you've forgotten.
 
 3. You will be prompted to enter a new UNIX password and then confirm that password. Once you're told that the password has updated successfully, close WSL inside of PowerShell using the command: `exit`
 
