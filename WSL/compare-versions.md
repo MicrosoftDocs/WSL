@@ -44,7 +44,18 @@ For example, when storing your WSL project files:
 
 Project files that you are working with using a WSL distribution (like Ubuntu) must be in the Linux root file system to take advantage of faster file system access.
 
-You can access your Linux root file system with Windows apps and tools like File Explorer. Try opening a Linux distribution (like Ubuntu), be sure that you are in the Linux home directory by entering this command: `cd ~`. Then open your Linux file system in File Explorer by entering *(don't forget the period at the end)*: `explorer.exe .`
+### Accsess the Linux file system and run Windows commands inside distribution
+
+You can access your Linux root file system with Windows apps and tools like File Explorer.
+All currently running distributions (`wsl -l`) are accessible via network connection. To get there run a coomand \[WIN+R\] keyboard shortcut or type in File Explorer adress bar `\\wsl$` to find respective disto names and access their root file systems.
+
+You can also use windows commands inside wsl Linux [Terminal](https://en.wikipedia.org/wiki/Linux_console). Try opening a Linux distribution (ie Ubuntu), be sure that you are in the Linux home directory by entering this command: `cd ~`. Then open your Linux file system in File Explorer by entering *(don't forget the period at the end)*: `explorer.exe .`
+
+Note, that some distributions [avalable in Microsoft Store](install-win10.md#install-your-linux-distribution-of-choice) are yet not fully compatible to run Windows commands in [Terminal](https://en.wikipedia.org/wiki/Linux_console) out of the box. If you get error an `-bash: explorer.exe: command not found` running `explorer.exe .` or any other Windows command, you resolve it following these steps:
+1. In wsl distribution Terminal run `echo $PATH`. If it does not feature `/mnt/c/Windows/system32` something is redifining the standard PATH variable.
+2. Look at profile settings with `cat /etc/profile`. If it contains assignment of PATH variable, run this command `sudo sed -i 's/PATH/NULL/g' /etc/profile` or edit manually the file with one of Linux Terminal text editors, ie `sudo nano /etc/profile`, commenting out PATH block with **#** charecter.
+3. Check if wsl.conf is present `cat /etc/wsl.conf` and make sure it does not contain `appendWindowsPath=false`, otherwise comment it out.
+4. Restart distribution by typing `wsl -t DistroName` or `wsl --shutdown` either in cmd or PowerShell.
 
 ## Exceptions for using WSL 1 rather than WSL 2
 
