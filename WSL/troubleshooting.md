@@ -37,15 +37,15 @@ Lastly, if your issue is related to the Windows Terminal, Windows Console, or th
 ## Common issues
 
 ### `command not found` when executing windows .exe in linux
-User can run Windows executables like notepad.exe directly from linux. Sometimes, you may hit "command not found" like below: 
+Users can run Windows executables like notepad.exe directly from Linux. Sometimes, you may hit "command not found" like below: 
 ```
 $ notepad.exe
 -bash: notepad.exe: command not found
 ```
 
-If there is no win32 paths in your $PATH, interop isn't going to find the .exe.
-You can verify it by `echo $PATH` in Linux. It's expected that win32 path(for example, /mnt/c/Windows) is in the output.
-If you can't find it, most likely PATH is overwriten by Linux shell. 
+If there are no win32 paths in your $PATH, interop isn't going to find the .exe.
+You can verify it by running `echo $PATH` in Linux. It's expected that you will see a win32 path (for example, /mnt/c/Windows) in the output.
+If you can't see any Windows paths then most likely your PATH is being overwritten by your Linux shell. 
 
 Here is a an example that /etc/profile on Debian contributed to the problem:
 ```
