@@ -49,13 +49,13 @@ sudo apt-get install git
 To set up your Git config file, open a command line for the distribution you're working in and set your name with this command (replacing "Your Name" with your Git username):
 
 ```bash
- `git config --global user.name "Your Name"`
+git config --global user.name "Your Name"
 ```
 
 Set your email with this command (replacing "youremail@domain.com" with the email you use on your Git account):
 
 ```bash
-`git config --global user.email "youremail@domain.com"`
+git config --global user.email "youremail@domain.com"
 ```
 
 > [!TIP]
