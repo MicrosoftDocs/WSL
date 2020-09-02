@@ -2,7 +2,7 @@
 title: Get started using Docker containers with Windows Subsystem for Linux
 description: Learn how to set up Docker containers on the Windows Subsystem for Linux.
 keywords: wsl, windows, windowssubsystem, windows 10, docker, containers
-ms.date: 07/07/2020
+ms.date: 08/28/2020
 ms.topic: article
 ms.localizationpriority: medium
 ---
@@ -94,7 +94,7 @@ Let's use Docker to create a development container for an existing app project.
 
 8. To confirm that your project is still connected to both WSL and within a container, open the VS Code integrated terminal (Ctrl + Shift + ~). Check the operating system by entering: `uname` and the Python version with: `python3 --version`. You can see that the uname came back as "Linux", so you are still connected to the WSL 2 engine, and Python version number will be based on the container config that may differ from the Python version installed on your WSL distribution.
 
-You have now successfully configured a remote development container using Docker Desktop, powered by the WSL 2 backend, that you can code in, build, run, deploy, or debug using VS Code.
+You have now successfully configured a remote development container using Docker Desktop, powered by the WSL 2 backend, that you can code in, build, run, deploy, or debug using VS Code!
 
 ## Troubleshooting
 
@@ -106,12 +106,11 @@ Possible errors you might encounter with this deprecated wsl context include: `d
 
 For more on this issue, see [How to set up Docker within Windows System for Linux (WSL2) on Windows 10](https://www.hanselman.com/blog/HowToSetUpDockerWithinWindowsSystemForLinuxWSL2OnWindows10.aspx).
 
-
 ## Questions
 
 Does Docker work with WSL 1?
 
-How do I SSH into Linux stuff from Windows?
+How do I SSH into Linux stuff from Windows? *(not sure whether to include something about this here)*
 Hanselman wrote this: 
 https://www.hanselman.com/blog/HowToSetUpDockerWithinWindowsSystemForLinuxWSL2OnWindows10.aspx
 
@@ -121,7 +120,8 @@ You can also do things like set up keys to use Windows 10's built-in OpenSSH to 
 
 ## Additional resources
 
-- [How does the Docker architecture work with WSL](https://code.visualstudio.com/blogs/2020/03/02/docker-in-wsl2#_how-it-works)
+- [VS Code Blog: Guidelines for choosing a development environment](https://code.visualstudio.com/docs/containers/choosing-dev-environment#_guidelines-for-choosing-a-development-environment)
+- [VS Code Blog: How does the Docker architecture work with WSL](https://code.visualstudio.com/blogs/2020/03/02/docker-in-wsl2#_how-it-works)
 - [VS Code Blog: Using Docker in WSL 2](https://code.visualstudio.com/blogs/2020/03/02/docker-in-wsl2)
 - [VS Code Blog: Using Remote Containers in WSL 2](https://code.visualstudio.com/blogs/2020/07/01/containers-wsl)
 - [Hanselminutes Podcast: Making Docker lovely for Developers with Simon Ferquel](https://hanselminutes.com/736/making-docker-lovely-for-developers-with-simon-ferquel)
