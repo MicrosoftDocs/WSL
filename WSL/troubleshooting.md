@@ -36,6 +36,12 @@ Lastly, if your issue is related to the Windows Terminal, Windows Console, or th
 
 ## Common issues
 
+### I'm on Windows 10 version 1903 and I still do not see options for WSL 2. 
+
+This is likely because your machine has not yet taken the backport for WSL 2. The simplest way to resolve this is by going to Windows Settings and clicking 'Check for Updates' to install the latest updates on your system. You can view the full instructions on taking the backport [here](https://devblogs.microsoft.com/commandline/wsl-2-support-is-coming-to-windows-10-versions-1903-and-1909/#how-do-i-get-it). 
+
+If you hit 'Check for Updates' and still do not receive the update you can install KB KB4566116 manually by [following this link](http://www.catalog.update.microsoft.com/Search.aspx?q=KB4566116).  
+
 ### Error: 0x1bc when `wsl --set-default-version 2`
 This may happen when 'Display Language' or 'System Locale' setting is not English.
 ```
