@@ -28,7 +28,7 @@ Feature | WSL 1 | WSL 2
 
 Already using WSL 1 and want to upgrade to WSL 2? Follow the instructions to [update to WSL 2](./install-win10.md#update-to-wsl-2)!
 
-WSL 2 is only available in Windows 10, Version 2004, Build 19041 or higher. Check your Windows version by selecting the **Windows logo key + R**, type **winver**, select **OK**. (Or enter the `ver` command in Windows Command Prompt). You may need to [update to the latest Windows version](ms-settings:windowsupdate). For builds lower than 19041, WSL is not supported at all.
+WSL 2 is only available in Windows 10, Version 1903, Build 18362 or higher. Check your Windows version by selecting the **Windows logo key + R**, type **winver**, select **OK**. (Or enter the `ver` command in Windows Command Prompt). You may need to [update to the latest Windows version](ms-settings:windowsupdate). For builds lower than 18362, WSL is not supported at all.
 
 > [!NOTE]
 > WSL 2 will work with [VMWare 15.5.5+](https://blogs.vmware.com/workstation/2020/05/vmware-workstation-now-supports-hyper-v-mode.html) and [VirtualBox 6+](https://www.virtualbox.org/wiki/Changelog-6.0).
