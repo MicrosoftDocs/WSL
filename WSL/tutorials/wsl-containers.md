@@ -25,14 +25,14 @@ To learn more, checkout the [Introduction to Docker containers](https://docs.mic
 
 - Ensure your machine is running Windows 10, [updated to version 2004](ms-settings:windowsupdate), **Build 18362** or higher.
 - [Enable WSL, install a Linux distribution, and update to WSL 2](https://docs.microsoft.com/windows/wsl/install-win10).
-    > [!NOTE]
-    > WSL can run distributions in both WSL version 1 or WSL 2 mode. You can check this by opening PowerShell and entering: `wsl -l -v`. Ensure that the your distribution is set to use WSL 2 by entering: `wsl --set-version  <distro> 2`. Replace `<distro>` with the distro name (e.g. Ubuntu 18.04).
 - [Download and install the Linux kernel update package](https://docs.microsoft.com/windows/wsl/wsl2-kernel).
 - [Install Visual Studio Code](https://code.visualstudio.com/download) *(optional)*.
 - [Install Windows Terminal](https://docs.microsoft.com/windows/terminal/get-started) *(optional)*. This will provide the best experience, including the ability to customize and open multiple terminals in the same interface (including Ubuntu, Debian, PowerShell, Azure CLI, or whatever you prefer to use).
 - [Sign up for a Docker ID at Docker Hub](https://hub.docker.com/signup) *(optional)*.
 
 > [!NOTE]
+> WSL can run distributions in both WSL version 1 or WSL 2 mode. You can check this by opening PowerShell and entering: `wsl -l -v`. Ensure that the your distribution is set to use WSL 2 by entering: `wsl --set-version  <distro> 2`. Replace `<distro>` with the distro name (e.g. Ubuntu 18.04).
+> 
 > In WSL version 1, due to fundamental differences between Windows and Linux, the Docker Engine couldn't run directly inside WSL, so the Docker team developed an alternative solution using Hyper-V VMs and LinuxKit. However, since WSL 2 now runs on a Linux kernel with full system call capacity, Docker can fully run in WSL 2. This means that Linux containers can run natively without emulation, resulting in better performance and interoperability between your Windows and Linux tools.
 
 ## Install Docker Desktop
