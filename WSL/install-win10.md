@@ -26,7 +26,7 @@ To only install WSL 1, you should now restart your machine and move on to [Insta
 To update to WSL 2, you must meet the following criteria:
 
 - Running Windows 10, [updated to version 1903 or higher](ms-settings:windowsupdate), **Build 18362** or higher for x64 systems.
-   - If you are on Windows 10 version 1903 or 1909 make sure your minor build number is 1049 or higher. See [full troubleshooting instructions here](https://docs.microsoft.com/en-us/windows/wsl/troubleshooting#im-on-windows-10-version-1903-and-i-still-do-not-see-options-for-wsl-2)
+   - If you are on Windows 10 version 1903 or 1909 make sure your minor build number is 1049 or higher. See [full troubleshooting instructions here](https://docs.microsoft.com/windows/wsl/troubleshooting#im-on-windows-10-version-1903-and-i-still-do-not-see-options-for-wsl-2)
 - Running Windows 10, updated to version 2004 or higher, **build 19041**, for ARM64 systems.
 - Please note if you are on Windows 10 version 1903 or 1909 you will need to ensure that you have the proper backport, instructions can be [found here](https://devblogs.microsoft.com/commandline/wsl-2-support-is-coming-to-windows-10-versions-1903-and-1909/#how-do-i-get-it). 
 
