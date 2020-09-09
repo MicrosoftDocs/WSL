@@ -9,9 +9,9 @@ ms.localizationpriority: medium
 
 # Get started mounting a linux disk in WSL 2 (preview)
 
-If you're dual booting to Linux, or simply want to access a linux disk format that isn't supported by Windows, WSL 2 can mount your disk and let you access its content.
+If you want to access a Linux disk format that isn't supported by Windows, you can use WSL 2 to mount your disk and access its content. No more need to dual-boot.
 
-This tutorial will outline the steps to identify the disk and partition to attach to WSL2, how mount them, and how to access them.
+This tutorial will cover the steps to identify the disk and partition to attach to WSL2, how to mount them, and how to access them.
 
 > [!NOTE]
 > Administrator access is required to attach a disk to WSL 2.
@@ -43,6 +43,7 @@ lsblk
 ```
 
 This will display the available block devices and their partitions.
+
 Inside Linux, a block device is identified as  `/dev/<Device><Partition>`. For example, /dev/sdb3, is the partition number 3 of disk `sdb`.
 
 Example output:
@@ -59,39 +60,37 @@ sda      8:0    0  256G  0 disk
 
 ## Identifying the filesystem type
 
-If you don't know the type of filesystem of a disk or partition, you can use.
+If you don't know the type of filesystem of a disk or partition, you can use this command:
 
 ```powershell
 blkid <BlockDevice>
 ```
 
-Which will output the detected filesystem type (under the `TYPE="<Filesystem>"` format).
+This will output the detected filesystem type (under the `TYPE="<Filesystem>"` format).
 
 ## Mount the selected partitions
 
-Once you know which partitions you want to mount, run: 
+Once you have identified the partitions you want to mount, run this command on each partition: 
 
 ```powershell
 wsl --mount <DiskPath> --partition <PartitionNumber> --type <Filesystem>
 ```
 
-On each partition.
-
 > [!NOTE]
-> If you wish to mount the whole disk as a single volume (i.e. if the disk isn't partitioned), `--partition` can be omitted
-
-> [!NOTE]
-> If omitted, the default filesystem type is "ext4"
+> If you wish to mount the entire disk as a single volume (i.e. if the disk isn't partitioned), `--partition` can be omitted.
+> 
+> If omitted, the default filesystem type is "ext4".
 
 ## Access the disk content
 
-Once mounted, the disk can be accessed under the path pointed to by the config value `automount.root`. The default value is `/mnt/wsl`.
+Once mounted, the disk can be accessed under the path pointed to by the config value: `automount.root`. The default value is `/mnt/wsl`.
 
-From Windows, the disk can be accessed from the Explorer by navigating to `\\wsl$\\<Distro>\\<Mountpoint>` (pick any Linux distribution).
+From Windows, the disk can be accessed from File Explorer by navigating to: `\\wsl$\\<Distro>\\<Mountpoint>` (pick any Linux distribution).
 
 ## Unmount the disk
 
 If you want to unmount and detach the disk from WSL 2, run:
+
 ```powershell
 wsl --unmount <DiskPath>
 ```
@@ -107,23 +106,23 @@ wsl --mount <DiskPath> -t <FileSystem>
 ```
 
 For example, to mount a disk as fat, run:
+
 ```
 wsl --mount <Diskpath> -t vfat
 ```
 
 > [!NOTE]
-> To list the available filesystems in WSL2, run `cat /proc/filesystems`
+> To list the available filesystems in WSL2, run: `cat /proc/filesystems`
 
 ### Mouting a specific partition
 
-By default, WSL 2 attempts to mount the whole disk, to mount a specific partition, run:
+By default, WSL 2 attempts to mount the entire disk. To mount a specific partition, run:
 
 ```
 wsl --mount <Diskpath> -p <PartitionIndex>
 ```
 
-> [!NOTE]
-> This only works if the disk is either GPT or MBR.
+This only works if the disk is either MBR (Master Boot Record) or GPT (GUID Partition Table). [Read about partition styles - MBR and GPT](https://docs.microsoft.com/windows-server/storage/disk-management/initialize-new-disks#about-partition-styles---gpt-and-mbr).
 
 ### Specifying mount options
 
@@ -155,19 +154,19 @@ This will make the block device available inside WSL 2 so it can be mounted manu
 ### Detaching a disk
 
 To detach a disk from WSL 2, run:
+
 ```powershell
 wsl --unmount [DiskPath]
 ```
 
-If `Diskpath` Is omitted, all attached disks disks are unmounted and detached.
+If `Diskpath` is omitted, all attached disks are unmounted and detached.
 
 > [!NOTE]
 > If one disk fails to unmount, WSL 2 can be forced to exit by running `wsl --shutdown`, which will detach the disk.
 
-
 ## Limitations
 
-- At this time, only whole disks can be attached to WSL 2 meaning that it's not possible to attach only a partition. Concretely this means that it's not possible to use `wsl --mount` to read a partition on the boot device, because that device can't be detached from Windows.
+- At this time, only entire disks can be attached to WSL 2, meaning that it's not possible to attach only a partition. Concretely, this means that it's not possible to use `wsl --mount` to read a partition on the boot device, because that device can't be detached from Windows.
 
 - USB flash drives are not supported at this time and will fail to attach to WSL 2. USB disks are supported though.
 
