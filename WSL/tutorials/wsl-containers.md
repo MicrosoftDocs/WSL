@@ -9,7 +9,9 @@ ms.localizationpriority: medium
 
 # Get started with Docker remote containers on WSL 2
 
-This step-by-step guide will help you get started developing with remote containers by **setting up Docker Desktop for Windows with WSL 2** (Windows Subsystem for Linux, version 2). Docker Desktop for Windows is available for free and provides a development environment for building, shipping, and running dockerized apps. By enabling the WSL 2 based engine, you can run both Linux and Windows containers in Docker Desktop on the same machine.
+This step-by-step guide will help you get started developing with remote containers by **setting up Docker Desktop for Windows with WSL 2** (Windows Subsystem for Linux, version 2).
+
+Docker Desktop for Windows is available for free and provides a development environment for building, shipping, and running dockerized apps. By enabling the WSL 2 based engine, you can run both Linux and Windows containers in Docker Desktop on the same machine.
 
 ## Overview of Docker containers
 
@@ -136,22 +138,23 @@ Possible errors you might encounter with this deprecated wsl context include: `d
 
 For more on this issue, see [How to set up Docker within Windows System for Linux (WSL2) on Windows 10](https://www.hanselman.com/blog/HowToSetUpDockerWithinWindowsSystemForLinuxWSL2OnWindows10.aspx).
 
-## Questions
+### Trouble finding docker image storage folder
 
-Does Docker work with WSL 1?
+Docker creates two distro folders to store data:
+- \\wsl$\docker-desktop
+- \\wsl$\docker-desktop-data
 
-How do I SSH into Linux stuff from Windows? *(not sure whether to include something about this here)*
-Hanselman wrote this: 
-https://www.hanselman.com/blog/HowToSetUpDockerWithinWindowsSystemForLinuxWSL2OnWindows10.aspx
+You can find these folders by opening your WSL Linux distribution and entering: `explorer.exe .` to view the folder in Windows File Explorer. Enter: `\\wsl\<distro name>\mnt\wsl` replacing `<distro name>` with the name of your distribution (ie. Ubuntu-20.04) to see these folders.
 
-There's 15 years of websites telling you to install Putty but you might not need it. [OpenSSH has been shipping in Windows 10 for over two years](). You can add them with Windows Features, or if you like, grab a release and [put it on your PATH]().
+Find more info in this [issue from the WSL repo](https://github.com/microsoft/WSL/issues/4176) or this [StackOverlow post](https://stackoverflow.com/questions/62380124/where-docker-image-is-stored-with-docker-desktop-for-windows).
 
-You can also do things like set up keys to use Windows 10's built-in OpenSSH to automatically SSH into a remote Linux machine. I also like to setup Signed Git Commits with a YubiKey NEO and GPG and Keybase on Windows.
+Find more in the [WSL troubleshooting](../troubleshooting.md) doc.
 
 ## Additional resources
 
+- [Docker docs: Best practices for Docker Desktop with WSL 2](https://docs.docker.com/docker-for-windows/wsl/#best-practices)
+- [Feedback for Docker Desktop for Windows: File an issue](https://github.com/docker/for-win/issues)
 - [VS Code Blog: Guidelines for choosing a development environment](https://code.visualstudio.com/docs/containers/choosing-dev-environment#_guidelines-for-choosing-a-development-environment)
 - [VS Code Blog: Using Docker in WSL 2](https://code.visualstudio.com/blogs/2020/03/02/docker-in-wsl2)
 - [VS Code Blog: Using Remote Containers in WSL 2](https://code.visualstudio.com/blogs/2020/07/01/containers-wsl)
 - [Hanselminutes Podcast: Making Docker lovely for Developers with Simon Ferquel](https://hanselminutes.com/736/making-docker-lovely-for-developers-with-simon-ferquel)
-- []()
