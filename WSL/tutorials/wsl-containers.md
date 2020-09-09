@@ -49,10 +49,10 @@ To install Docker (after already [installing WSL 2](https://docs.microsoft.com/w
     ![Docker Desktop dashboard icon](../media/docker-starting.png)
 
 3. Ensure that "Use the WSL 2 based engine" is checked in **Settings** > **General**.
-    ![Docker Desktop dashboard icon](../media/docker-running.png)
+    ![Docker Desktop general settings](../media/docker-running.png)
 
 4. Select from your installed WSL 2 distributions which you want to enable Docker integration on by going to: **Settings** > **Resources** > **WSL Integration**.
-    ![Docker Desktop dashboard settings](../media/docker-dashboard.png)
+    ![Docker Desktop resource settings](../media/docker-dashboard.png)
 
 5. To confirm that Docker has been installed, open a WSL distribution (e.g. Ubuntu) and display the version and build number by entering: `docker --version`
 
