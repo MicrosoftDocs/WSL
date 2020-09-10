@@ -10,6 +10,16 @@ ms.localizationpriority: high
 
 # Release Notes for Windows Subsystem for Linux
 
+## Build 20211
+For general Windows information on build 20211 visit the [Windows blog](https://blogs.windows.com/windows-insider/2020/09/10/announcing-windows-10-insider-preview-build-20211/).
+
+* Introduce wsl.exe --mount for mounting physical or virtual disks. For more information see [here](https://devblogs.microsoft.com/commandline/access-linux-filesystems-in-windows-and-wsl-2/).
+* Fix crash in LxssManager service when checking if the VM is idle [GH 5768]
+* Support for compressed VHD files [GH 4103]
+* Ensure that Linux user mode libs installed to c:\windows\system32\lxss\lib are preserved across OS upgrade [GH 5848]
+* Added the ability to list available distributions that can be installed with `wsl --install --list-distributions`
+* WSL instances are now terminated when the user logs off.
+
 ## Build 20190
 For general Windows information on build 20190 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2020/08/12/announcing-windows-10-insider-preview-build-20190/).
 
