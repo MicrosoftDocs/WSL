@@ -9,7 +9,7 @@ ms.localizationpriority: medium
 
 # Get started mounting a linux disk in WSL 2 (preview)
 
-If you want to access a Linux disk format that isn't supported by Windows, you can use WSL 2 to mount your disk and access its content. No more need to dual-boot.
+If you want to access a Linux disk format that isn't supported by Windows, you can use WSL 2 to mount your disk and access its content.
 
 This tutorial will cover the steps to identify the disk and partition to attach to WSL2, how to mount them, and how to access them.
 
