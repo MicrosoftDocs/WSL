@@ -9,7 +9,7 @@ ms.localizationpriority: high
 
 # Updating the WSL 2 Linux kernel
 
-To manually update the Linux kernel inside of WSL 2 please follow these steps.
+To manually update the Linux kernel inside of WSL 2, please follow these steps.
 
 > [!NOTE] 
 > If the installer can't find WSL 1, right-click the Linux kernel update installer and press "Uninstall", then rerun the installer.
@@ -27,7 +27,7 @@ To install the Linux kernel update package:
 
   1. Run the update package downloaded in the previous step.
 
-  2. You will be prompted for elevated permissions, select ‘yes’ to approve this installation.
+  2. You will be prompted for elevated permissions, select "yes" to approve this installation.
 
   3. Once the installation is complete, you are ready to begin using WSL2!
 
@@ -43,15 +43,15 @@ To install MSI kernel, WSL is required and should be enabled first. If it fails,
 
 There are three possible reason you see this message:
 
-1. You are still in old version of Windows which doesn't support WSL 2. Please check the [WSL 2 requirements](https://docs.microsoft.com/windows/wsl/install-win10#update-to-wsl-2) and upgrade to use WSL 2. 
+1. You are still running an old version of Windows which doesn't support WSL 2. Please check the [WSL 2 requirements](https://docs.microsoft.com/windows/wsl/install-win10#update-to-wsl-2) and upgrade to use WSL 2. 
 2. `Windows Subsystem for Linux` is not enabled. Please follow the [Windows Subsystem for Linux Installation Guide](https://docs.microsoft.com/windows/wsl/install-win10).
-3. After you enabled `Windows Subsystem for Linux`, a reboot is required to take into effect, please reboot your machine and try again.
+3. After `Windows Subsystem for Linux` is enabled, a reboot is required for it to take effect. Please reboot your machine and try again.
 
 ### `WSL 2 requires an update to its kernel component. For information please visit https://aka.ms/wsl2kernel`
 
-Each time kernel is missing in %SystemRoot%\system32\lxss\tools\, you may run into the above error.
+You may run into the above error if the kernel is missing from `%SystemRoot%\system32\lxss\tools`.
 
 Here are some possible ways to resolve it:
 
 1. Install the Linux kernel manually following the instructions on this page.
-2. Uninstall the MSI from 'Add or Remove Programs', and install it again.
+2. Uninstall the MSI from "Add or Remove Programs", and install it again.
