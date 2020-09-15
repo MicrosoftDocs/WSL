@@ -2,7 +2,7 @@
 title: Install Windows Subsystem for Linux (WSL) on Windows 10
 description: Learn how to install the Windows Subsystem for Linux on Windows 10. Windows 10 must be updated to version 2004, build 19041 or higher.
 keywords: BashOnWindows, bash, wsl, windows, windows subsystem for linux, windowssubsystem, ubuntu, debian, suse, windows 10, install, enable, WSL2, version 2
-ms.date: 05/12/2020
+ms.date: 09/15/2020
 ms.topic: article
 ms.localizationpriority: high
 ---
@@ -172,7 +172,7 @@ Below are related errors and suggested fixes. Refer to the [WSL troubleshooting 
 > Check [WSL Docs GitHub thread #4103](https://github.com/microsoft/WSL/issues/4103) where this issue is being tracked for updated information.
 
 - **The term 'wsl' is not recognized as the name of a cmdlet, function, script file, or operable program.**
-  - Ensure that the [Windows Subsystem for Linux Optional Component is installed](./install-win10.md#enable-the-virtual-machine-platform-optional-component). Additionally, if you are using an ARM64 device and running this command from PowerShell, you will receive this error. Instead run `wsl.exe` from [PowerShell Core](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-6), or Command Prompt.
+  - Ensure that the [Windows Subsystem for Linux Optional Component is installed](./install-win10.md#step-3---enable-virtual-machine-feature). Additionally, if you are using an ARM64 device and running this command from PowerShell, you will receive this error. Instead run `wsl.exe` from [PowerShell Core](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-windows), or Command Prompt.
 
 - **Error: This update only applies to machines with the Windows Subsystem for Linux.**
   - To install the Linux kernel update MSI package, WSL is required and should be enabled first. If it fails, it you will see the message: `This update only applies to machines with the Windows Subsystem for Linux`.

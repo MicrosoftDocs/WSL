@@ -3,24 +3,28 @@ title: An overview on the Windows Subsystem for Linux
 description: Explore the Windows Subsystem for Linux documentation.
 keywords: BashOnWindows, bash, wsl, windows, windowssubsystem, gnu, linux
 ms.topic: article
+ms.date: 09/15/2020
 ms.localizationpriority: high
 ---
 
 # Windows Subsystem for Linux Documentation
 
-The Windows Subsystem for Linux lets developers run a GNU/Linux environment -- including most command-line tools, utilities, and applications -- directly on Windows, unmodified, without the overhead of a traditional virtual machine or dualboot setup.
+The Windows Subsystem for Linux lets developers run a GNU/Linux environment -- including most command-line tools, utilities, and applications -- directly on Windows, unmodified, without the overhead of a traditional virtual machine or dual-boot setup.
 
-## Learn more here
+> [!div class="nextstepaction"]
+> [Install WSL](install-win10.md)
+
+## Learn more
 
 * [What is the Windows Subsystem for Linux?](about.md)
-* [What's new with WSL 2?](wsl2-index.md)
+* [What's new with WSL 2?](compare-versions.md#whats-new-in-wsl-2)
 * [Compare WSL 2 and WSL 1](compare-versions.md)
 * [Read frequently asked questions](faq.md)
 
 ## Get started
 
 * [Install WSL1](install-win10.md)
-* [Update to WSL2](install-win10.md#update-to-wsl-2)
+* [Update to WSL2](install-win10.md#step-2---update-to-wsl-2)
 * [Install Linux on Windows Server](install-on-server.md)
 * [Create a user account and password for your new Linux distribution](user-support.md)
 
