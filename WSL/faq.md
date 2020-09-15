@@ -2,7 +2,7 @@
 title: Frequently Asked Questions (FAQ)
 description: "Find answers to frequently asked questions (FAQs) about the Windows Subsystem for Linux, such as 'What can I do with WSL?'."
 keywords: BashOnWindows, bash, wsl, windows, windowssubsystem, faq
-ms.date: 9/4/2018
+ms.date: 09/15/2020
 ms.topic: article
 ms.assetid: 129101ed-b88a-43c2-b6a2-cd2c4ff6fee1
 ms.localizationpriority: high
@@ -176,7 +176,7 @@ WSL does not support running in a legacy console. To turn off legacy console:
 
 ## Why do I get "Error: 0x80040154" when I run bash.exe after upgrading Windows?
 
-The "Windows Subsystem for Linux" feature may be disabled during a Windows update. If this happens the Windows feature must be re-enabled. Instructions for enabling the "Windows Subsystem for Linux" feature can be found in the [Installation Guide](https://docs.microsoft.com/windows/wsl/install-win10#install-the-windows-subsystem-for-linux).
+The "Windows Subsystem for Linux" feature may be disabled during a Windows update. If this happens the Windows feature must be re-enabled. Instructions for enabling the "Windows Subsystem for Linux" feature can be found in the [Installation Guide](https://docs.microsoft.com/windows/wsl/install-win10).
 
 ## How do I change the display language of WSL?
 

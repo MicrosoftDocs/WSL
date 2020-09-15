@@ -1,8 +1,8 @@
 ---
 title: Comparing WSL 2 and WSL 1
-description: Compare version 1 and version 2 of the Windows Subsystem for Linux. WSL 2 runs an actual Linux kernel, increasing speed and full system call compatibility. WSL 1 works better if your working across BOTH Windows and Linux file systems.
+description: Compare version 1 and version 2 of the Windows Subsystem for Linux. Learn whats new in WSL 2 - actual Linux kernel, faster speed, full system call compatibility. WSL 1 works better if your storing files across operating file systems. You can expand the size of your WSL 2 Virtual Hardware Disk (VHD).
 keywords: BashOnWindows, bash, wsl, windows, windowssubsystem, gnu, linux, ubuntu, debian, suse, windows 10, UX changes, WSL 2, linux kernel, network applications, localhost, IPv6, Virtual Hardware Disk, VHD, VHD limitations, VHD error
-ms.date: 07/22/2020
+ms.date: 09/15/2020
 ms.topic: article
 ms.localizationpriority: high
 ---
@@ -62,9 +62,17 @@ We recommend that you use WSL 2 as it offers faster performance and 100% system 
 > [!NOTE]
 > Consider trying the VS Code [Remote WSL Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) to enable you to store your project files on the Linux file system, using Linux command line tools, but also using VS Code on Windows to author, edit, debug, or run your project in an internet browser without any of the performance slow-downs associated with working across the Linux and Windows file systems. [Learn more](https://code.visualstudio.com/docs/remote/wsl).
 
-## WSL 2 architecture
+## Whats new in WSL 2
 
-A traditional VM experience can be slow to boot up, is isolated, consumes lots of resources, and requires your time to manage it. WSL 2 does not have these attributes.
+WSL 2 is a major overhaul of the underlying architecture and uses virtualization technology and a Linux kernel to enable new features. The primary goals of this update are to increase file system performance and add full system call compatibility.
+
+- [WSL 2 system requirements](./install-win10.md#step-2---update-to-wsl-2)
+- [Update from WSL 1 to WSL 2](./install-win10.md#step-2---update-to-wsl-2)
+- [Frequently Asked Questions about WSL 2](./wsl2-faq.md)
+
+### WSL 2 architecture
+
+A traditional VM experience can be slow to boot up, is isolated, consumes a lot of resources, and requires your time to manage it. WSL 2 does not have these attributes.
 
 WSL 2 provides the benefits of WSL 1, including seamless integration between Windows and Linux, fast boot times, a small resource footprint, and requires no VM configuration or management. While WSL 2 does use a VM, it is managed and run behind the scenes, leaving you with the same user experience as WSL 1.
 
@@ -84,9 +92,9 @@ The actual speed increase will depend on which app you're running and how it is 
 
 Linux binaries use system calls to perform functions such as accessing files, requesting memory, creating processes, and more. Whereas WSL 1 used a translation layer that was built by the WSL team, WSL 2 includes its own Linux kernel with full system call compatibility. Benefits include:
 
-* A whole new set of apps that you can run inside of WSL, such as **[Docker](https://code.visualstudio.com/blogs/2020/03/02/docker-in-wsl2)** and more.
+- A whole new set of apps that you can run inside of WSL, such as **[Docker](https://code.visualstudio.com/blogs/2020/03/02/docker-in-wsl2)** and more.
 
-* Any updates to the Linux kernel are immediately ready for use. (You don't have to wait for the WSL team to implement updates and add the changes).
+- Any updates to the Linux kernel are immediately ready for use. (You don't have to wait for the WSL team to implement updates and add the changes).
 
 ### WSL 2 uses a smaller amount of memory on startup
 
@@ -109,7 +117,7 @@ To find the IP address of the virtual machine powering your Linux distribution:
 
 The picture below shows an example of this by connecting to a Node.js server using the Edge browser.
 
-![Accessing Linux network applications from Windows](media/wsl2-network-w2l.jpg)
+![Connect to NodeJS server with Edge](media/wsl2-network-w2l.jpg)
 
 ### Accessing Windows networking apps from Linux (host IP)
 
@@ -120,7 +128,7 @@ If you want to access a networking app running on Windows (for example an app ru
 
 The picture below shows an example of this by connecting to a Node.js server running in Windows via curl.
 
-![Accessing Linux network applications from Windows](media/wsl2-network-l2w.png)
+![Connect to NodeJS server in Windows via Curl](media/wsl2-network-l2w.png)
 
 ### Additional networking considerations
 
