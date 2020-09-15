@@ -1,6 +1,6 @@
 ---
 title: Install Windows Subsystem for Linux (WSL) on Windows 10
-description: Learn how to install the Windows Subsystem for Linux on Windows 10. Windows 10 must be updated to version 2004, build 19041 or higher.
+description: Learn how to install Linux distributions on your Windows 10 machine, with a Bash terminal, including Ubuntu, Debian, SUSE, Kali, Fedora, Pengwin, and Alpine.
 keywords: BashOnWindows, bash, wsl, windows, windows subsystem for linux, windowssubsystem, ubuntu, debian, suse, windows 10, install, enable, WSL2, version 2
 ms.date: 09/15/2020
 ms.topic: article
@@ -116,6 +116,14 @@ You will then need to [create a user account and password for your new Linux dis
 ![Ubuntu unpacking in the Windows console](media/UbuntuInstall.png)
 
 **CONGRATULATIONS! You've successfully installed and set up a Linux distribution that is completely integrated with your Windows operating system!**
+
+## Install Windows Terminal (optional)
+
+Windows Terminal enables multiple tabs (quickly switch between multiple Linux command lines, Windows Command Prompt, PowerShell, Azure CLI, etc), create custom key bindings (shortcut keys for opening or closing tabs, copy+paste, etc.), use the search feature, and custom themes (color schemes, font styles and sizes, background image/blur/transparency). [Learn more.](https://docs.microsoft.com/windows/terminal)
+
+[Install Windows Terminal](https://docs.microsoft.com/windows/terminal/get-started).
+
+  ![Windows Terminal](media/terminal.png)
 
 ## Set your distribution version to WSL 1 or WSL 2
 
