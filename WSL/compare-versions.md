@@ -9,9 +9,15 @@ ms.localizationpriority: high
 
 # Comparing WSL 1 and WSL 2
 
-The primary goals of updating the Windows Subsystem for Linux to a new version are to **increase file system performance** and support **full system call compatibility**. 
+The primary difference and reasons for updating the Windows Subsystem for Linux from WSL 1 to WSL 2 are:
 
-WSL 2 uses the latest and greatest in virtualization technology to run a Linux kernel inside of a lightweight utility virtual machine (VM). However, WSL 2 is not a traditional VM experience. [Learn more about the WSL 2 architecture](#wsl-2-architecture).
+- **increase file system performance**
+- **support full system call compatibility**
+
+WSL 2 uses the latest and greatest in virtualization technology to run a Linux kernel inside of a lightweight utility virtual machine (VM). However, WSL 2 is not a traditional VM experience.
+
+- [Enable WSL, up to WSL 2, and install a Linux distribution](/install-win10.md)
+- [Learn more about the WSL 2 architecture](#wsl-2-architecture).
 
 ## Comparing features
 
@@ -26,34 +32,32 @@ Feature | WSL 1 | WSL 2
  Full system call compatibility| ❌ | ✅
  Performance across OS file systems| ✅ | ❌
 
-Already using WSL 1 and want to upgrade to WSL 2? Follow the instructions to [update to WSL 2](./install-win10.md#update-to-wsl-2)!
+As you can tell from the comparison table above, the WSL 2 architecture outperforms WSL 1 in several ways, with the exception of performance across OS file systems.
+
+## Performance across OS file systems
+
+We recommend against working across operating systems with your files, unless you have a specific reason for doing so. For the fastest performance speed, store your files in the WSL file system if you are working in a Linux command line (Ubuntu, OpenSUSE, etc). If your working in a Windows command line (PowerShell, Command Prompt), store your files in the Windows file system.
+
+For example, when storing your WSL project files:
+
+- Use the Linux file system root directory: `\\wsl$\Ubuntu-18.04\home\<user name>\Project`
+- Not the Windows file system root directory: `C:\Users\<user name>\Project`
+
+You can access your Linux root file system with Windows apps and tools like File Explorer. Try opening a Linux distribution (like Ubuntu), be sure that you are in the Linux home directory by entering this command: `cd ~`. Then open your Linux file system in File Explorer by entering *(don't forget the period at the end)*: `explorer.exe .`
 
 WSL 2 is only available in Windows 10, Version 1903, Build 18362 or higher. Check your Windows version by selecting the **Windows logo key + R**, type **winver**, select **OK**. (Or enter the `ver` command in Windows Command Prompt). You may need to [update to the latest Windows version](ms-settings:windowsupdate). For builds lower than 18362, WSL is not supported at all.
 
 > [!NOTE]
 > WSL 2 will work with [VMWare 15.5.5+](https://blogs.vmware.com/workstation/2020/05/vmware-workstation-now-supports-hyper-v-mode.html) and [VirtualBox 6+](https://www.virtualbox.org/wiki/Changelog-6.0).
 
-## Use the Linux file system for faster performance
-
-In order to optimize for the fastest performance speed, be sure to store your project files in the Linux file system (not the Windows file system).
-
-For example, when storing your WSL project files:
-
-* Use the Linux file system root directory: `\\wsl$\Ubuntu-18.04\home\<user name>\Project`
-* Not the Windows file system root directory: `C:\Users\<user name>\Project`
-
-Project files that you are working with using a WSL distribution (like Ubuntu) must be in the Linux root file system to take advantage of faster file system access.
-
-You can access your Linux root file system with Windows apps and tools like File Explorer. Try opening a Linux distribution (like Ubuntu), be sure that you are in the Linux home directory by entering this command: `cd ~`. Then open your Linux file system in File Explorer by entering *(don't forget the period at the end)*: `explorer.exe .`
-
 ## Exceptions for using WSL 1 rather than WSL 2
 
 We recommend that you use WSL 2 as it offers faster performance and 100% system call compatibility. However, there are a few specific scenarios where you might prefer using WSL 1. Consider using WSL 1 if:
 
-* Your project files must be stored in the Windows file system.
-  * If you will be using your WSL Linux distribution to access project files on the Windows file system, and these files cannot be stored on the Linux file system, you will achieve faster performance across the OS files systems by using WSL 1.
-* A project which requires cross-compilation using both Windows and Linux tools on the same files.
-  * File performance across the Windows and Linux operating systems is faster in WSL 1 than WSL 2, so if you are using Windows applications to access Linux files, you will currently achieve faster performance with WSL 1.
+- Your project files must be stored in the Windows file system. WSL 1 offers faster access to files mounted from Windows.
+  - If you will be using your WSL Linux distribution to access project files on the Windows file system, and these files cannot be stored on the Linux file system, you will achieve faster performance across the OS files systems by using WSL 1.
+- A project which requires cross-compilation using both Windows and Linux tools on the same files.
+  - File performance across the Windows and Linux operating systems is faster in WSL 1 than WSL 2, so if you are using Windows applications to access Linux files, you will currently achieve faster performance with WSL 1.
 
 > [!NOTE]
 > Consider trying the VS Code [Remote WSL Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) to enable you to store your project files on the Linux file system, using Linux command line tools, but also using VS Code on Windows to author, edit, debug, or run your project in an internet browser without any of the performance slow-downs associated with working across the Linux and Windows file systems. [Learn more](https://code.visualstudio.com/docs/remote/wsl).
@@ -98,10 +102,10 @@ However, if you are running an older version of Windows (Build 18945 or less), y
 
 To find the IP address of the virtual machine powering your Linux distribution:
 
-* From your WSL distribution (ie Ubuntu), run the command: `ip addr`
-* Find and copy the address under the `inet` value of the `eth0` interface.
-* If you have the grep tool installed, find this more easily by filtering the output with the command: `ip addr | grep eth0`
-* Connect to your Linux server using this IP address.
+- From your WSL distribution (ie Ubuntu), run the command: `ip addr`
+- Find and copy the address under the `inet` value of the `eth0` interface.
+- If you have the grep tool installed, find this more easily by filtering the output with the command: `ip addr | grep eth0`
+- Connect to your Linux server using this IP address.
 
 The picture below shows an example of this by connecting to a Node.js server using the Edge browser.
 
@@ -133,6 +137,7 @@ When using a WSL 1 distribution, if your computer was set up to be accessed by y
 This isn't the default case in WSL 2. WSL 2 has a virtualized ethernet adapter with its own unique IP address. Currently, to enable this workflow you will need to go through the same steps as you would for a regular virtual machine. (We are looking into ways to improve this experience.)
 
 Here's an example PowerShell command to add a port proxy that listens on port 4000 on the host and connects it to port 4000 to the WSL 2 VM with IP address 192.168.101.100.
+
 ```powershell
 netsh interface portproxy add v4tov4 listenport=4000 listenaddress=0.0.0.0 connectport=4000 connectaddress=192.168.101.100
 ```
@@ -152,26 +157,26 @@ To expand your maximum VHD size beyond 256GB:
 1. Terminate all WSL instances using the command: `wsl --shutdown`
 
 2. Find your distribution installation package name ('PackageFamilyName')
-    * Using PowerShell (where 'distro' is your distribution name) enter the command:
-    * `Get-AppxPackage -Name "*<distro>*" | Select PackageFamilyName`
+    - Using PowerShell (where 'distro' is your distribution name) enter the command:
+    - `Get-AppxPackage -Name "*<distro>*" | Select PackageFamilyName`
 
 3. Locate the VHD file `fullpath` used by your WSL 2 installation, this will be your `pathToVHD`:
-     * `%LOCALAPPDATA%\Packages\<PackageFamilyName>\LocalState\<disk>.vhdx`
+     - `%LOCALAPPDATA%\Packages\<PackageFamilyName>\LocalState\<disk>.vhdx`
 
 4. Resize your WSL 2 VHD by completing the following commands:
-   * Open Windows Command Prompt with admin privileges and enter:
-      * `diskpart`
-      * `Select vdisk file="<pathToVHD>"`
-      * `expand vdisk maximum="<sizeInMegaBytes>"`
+   - Open Windows Command Prompt with admin privileges and enter:
+      - `diskpart`
+      - `Select vdisk file="<pathToVHD>"`
+      - `expand vdisk maximum="<sizeInMegaBytes>"`
 
 5. Launch your WSL distribution (Ubuntu, for example).
 
 6. Make WSL aware that it can expand its file system's size by running these commands from your Linux distribution command line:
-    * `sudo mount -t devtmpfs none /dev`
-    * `mount | grep ext4`
-    * Copy the name of this entry, which will look like: `/dev/sdXX` (with the X representing any other character)
-    * `sudo resize2fs /dev/sdXX`
-    * Use the value you copied earlier. You may also need to install resize2fs: `apt install resize2fs`
+    - `sudo mount -t devtmpfs none /dev`
+    - `mount | grep ext4`
+    - Copy the name of this entry, which will look like: `/dev/sdXX` (with the X representing any other character)
+    - `sudo resize2fs /dev/sdXX`
+    - Use the value you copied earlier. You may also need to install resize2fs: `apt install resize2fs`
 
 > [!NOTE]
 > In general do not modify, move, or access the WSL related files located inside of your AppData folder using Windows tools or editors. Doing so could cause your Linux distribution to become corrupted.

@@ -11,7 +11,7 @@ ms.localizationpriority: high
 
 To manually update the Linux kernel inside of WSL 2 please follow these steps.
 
-> [!NOTE] 
+> [!NOTE]
 > If the installer can't find WSL 1, right-click the Linux kernel update installer and press "Uninstall", then rerun the installer.
 
 ## Download the Linux kernel update package
@@ -53,5 +53,5 @@ Each time kernel is missing in %SystemRoot%\system32\lxss\tools\, you may run in
 
 Here are some possible ways to resolve it:
 
-1. Please install the Linux kernel manually by following the instructions at: https://aka.ms/wsl2kernel
-2. Uninstall the MSI from 'Add or Remove Programs', and install it again
+1. Install the Linux kernel manually following the instructions on this page.
+2. Uninstall the MSI from 'Add or Remove Programs', and install it again.
