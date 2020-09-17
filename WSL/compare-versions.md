@@ -3,21 +3,18 @@ title: Comparing WSL 2 and WSL 1
 description: Compare version 1 and version 2 of the Windows Subsystem for Linux. Learn whats new in WSL 2 - actual Linux kernel, faster speed, full system call compatibility. WSL 1 works better if your storing files across operating file systems. You can expand the size of your WSL 2 Virtual Hardware Disk (VHD).
 keywords: BashOnWindows, bash, wsl, windows, windowssubsystem, gnu, linux, ubuntu, debian, suse, windows 10, UX changes, WSL 2, linux kernel, network applications, localhost, IPv6, Virtual Hardware Disk, VHD, VHD limitations, VHD error
 ms.date: 09/15/2020
-ms.topic: article
+ms.topic: conceptual
 ms.localizationpriority: high
 ---
 
 # Comparing WSL 1 and WSL 2
 
-The primary difference and reasons for updating the Windows Subsystem for Linux from WSL 1 to WSL 2 are:
+The primary difference and reasons for updating the Windows Subsystem for Linux from WSL 1 to WSL 2 are to:
 
-- **increase file system performance**
-- **support full system call compatibility**
+- **increase file system performance**,
+- **support full system call compatibility**.
 
 WSL 2 uses the latest and greatest in virtualization technology to run a Linux kernel inside of a lightweight utility virtual machine (VM). However, WSL 2 is not a traditional VM experience.
-
-- [Enable WSL, up to WSL 2, and install a Linux distribution](/install-win10.md)
-- [Learn more about the WSL 2 architecture](#wsl-2-architecture).
 
 ## Comparing features
 
@@ -50,18 +47,6 @@ WSL 2 is only available in Windows 10, Version 1903, Build 18362 or higher. Chec
 > [!NOTE]
 > WSL 2 will work with [VMWare 15.5.5+](https://blogs.vmware.com/workstation/2020/05/vmware-workstation-now-supports-hyper-v-mode.html) and [VirtualBox 6+](https://www.virtualbox.org/wiki/Changelog-6.0).
 
-## Exceptions for using WSL 1 rather than WSL 2
-
-We recommend that you use WSL 2 as it offers faster performance and 100% system call compatibility. However, there are a few specific scenarios where you might prefer using WSL 1. Consider using WSL 1 if:
-
-- Your project files must be stored in the Windows file system. WSL 1 offers faster access to files mounted from Windows.
-  - If you will be using your WSL Linux distribution to access project files on the Windows file system, and these files cannot be stored on the Linux file system, you will achieve faster performance across the OS files systems by using WSL 1.
-- A project which requires cross-compilation using both Windows and Linux tools on the same files.
-  - File performance across the Windows and Linux operating systems is faster in WSL 1 than WSL 2, so if you are using Windows applications to access Linux files, you will currently achieve faster performance with WSL 1.
-
-> [!NOTE]
-> Consider trying the VS Code [Remote WSL Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) to enable you to store your project files on the Linux file system, using Linux command line tools, but also using VS Code on Windows to author, edit, debug, or run your project in an internet browser without any of the performance slow-downs associated with working across the Linux and Windows file systems. [Learn more](https://code.visualstudio.com/docs/remote/wsl).
-
 ## Whats new in WSL 2
 
 WSL 2 is a major overhaul of the underlying architecture and uses virtualization technology and a Linux kernel to enable new features. The primary goals of this update are to increase file system performance and add full system call compatibility.
@@ -92,13 +77,25 @@ The actual speed increase will depend on which app you're running and how it is 
 
 Linux binaries use system calls to perform functions such as accessing files, requesting memory, creating processes, and more. Whereas WSL 1 used a translation layer that was built by the WSL team, WSL 2 includes its own Linux kernel with full system call compatibility. Benefits include:
 
-- A whole new set of apps that you can run inside of WSL, such as **[Docker](https://code.visualstudio.com/blogs/2020/03/02/docker-in-wsl2)** and more.
+- A whole new set of apps that you can run inside of WSL, such as **[Docker](/tutorials/wsl-containers.md)** and more.
 
 - Any updates to the Linux kernel are immediately ready for use. (You don't have to wait for the WSL team to implement updates and add the changes).
 
 ### WSL 2 uses a smaller amount of memory on startup
 
 WSL 2 uses a lightweight utility VM on a real Linux kernel with a small memory footprint. The utility will allocate Virtual Address backed memory on startup. It is configured to start with a smaller proportion of your total memory that what was required for WSL 1.
+
+## Exceptions for using WSL 1 rather than WSL 2
+
+We recommend that you use WSL 2 as it offers faster performance and 100% system call compatibility. However, there are a few specific scenarios where you might prefer using WSL 1. Consider using WSL 1 if:
+
+- Your project files must be stored in the Windows file system. WSL 1 offers faster access to files mounted from Windows.
+  - If you will be using your WSL Linux distribution to access project files on the Windows file system, and these files cannot be stored on the Linux file system, you will achieve faster performance across the OS files systems by using WSL 1.
+- A project which requires cross-compilation using both Windows and Linux tools on the same files.
+  - File performance across the Windows and Linux operating systems is faster in WSL 1 than WSL 2, so if you are using Windows applications to access Linux files, you will currently achieve faster performance with WSL 1.
+
+> [!NOTE]
+> Consider trying the VS Code [Remote WSL Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) to enable you to store your project files on the Linux file system, using Linux command line tools, but also using VS Code on Windows to author, edit, debug, or run your project in an internet browser without any of the performance slow-downs associated with working across the Linux and Windows file systems. [Learn more](https://code.visualstudio.com/docs/remote/wsl).
 
 ## Accessing network applications
 
