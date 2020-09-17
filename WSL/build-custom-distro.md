@@ -41,4 +41,3 @@ Follow the instructions on the [Distro Launcher GitHub repo](https://github.com/
 
 - [Distro Launcher GitHub repo](https://github.com/Microsoft/WSL-DistroLauncher)
 - [GitHub issue tracker for WSL](https://github.com/Microsoft/BashOnWindows/issues)
-- [Command-line UserVoice portal](https://wpdev.uservoice.com/forums/266908-command-prompt-console-bash-on-ubuntu-on-windo/category/161892-bash)
