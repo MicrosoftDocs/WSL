@@ -347,6 +347,8 @@ These settings affect the VM that powers any WSL 2 distribution.
 | swap | size | 25% of memory size on Windows rounded up to the nearest GB | How much swap space to add to the WSL 2 VM, 0 for no swap file. |
 | swapFile | string | %USERPROFILE%\AppData\Local\Temp\swap.vhdx | An absolute Windows path to the swap virtual hard disk. |
 
+* Note: This value is true for Windows Build 19041 and may be different in Windows builds in the Insiders program
+
 Entries with the `path` value must be Windows paths with escaped backslashes, e.g: `C:\\Temp\\myCustomKernel`
 
 Entries with the `size` value must be a size followed by a unit, for example `8GB` or `512MB`.
