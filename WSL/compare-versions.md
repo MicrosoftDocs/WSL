@@ -16,6 +16,9 @@ The primary difference and reasons for updating the Windows Subsystem for Linux 
 
 WSL 2 uses the latest and greatest in virtualization technology to run a Linux kernel inside of a lightweight utility virtual machine (VM). However, WSL 2 is not a traditional VM experience.
 
+> [!div class="nextstepaction"]
+> [Install WSL 1 and update to WSL 2](install-win10.md)
+
 ## Comparing features
 
 Feature | WSL 1 | WSL 2
