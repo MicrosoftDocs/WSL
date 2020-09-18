@@ -192,5 +192,5 @@ Below are related errors and suggested fixes. Refer to the [WSL troubleshooting 
 
   3. After you enabled WSL, a reboot is required for it to take effect, reboot your machine and try again.
 
-- **Error: WSL 2 requires an update to its kernel component. For information please visit https://aka.ms/wsl2kernel.**
+- **Error: WSL 2 requires an update to its kernel component. For information please visit https://aka.ms/wsl2kernel .**
   - If the Linux kernel package is missing in the %SystemRoot%\system32\lxss\tools folder, you will encounter this error. Resolve it by installing the Linux kernel update MSI package in step #4 of these installation instructions. You may need to uninstall the MSI from ['Add or Remove Programs'](ms-settings:appsfeatures-app), and install it again.
