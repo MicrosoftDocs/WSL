@@ -11,9 +11,9 @@ ms.localizationpriority: high
 
 Once you have [enabled WSL and installed a Linux distribution from the Microsoft Store](./install-win10.md), the first step you will be asked to complete when opening your newly installed Linux distribution is to create an account, including a **User Name** and **Password**.
 
-- This **User Name** and **Password** is specific to your Linux distribution and has no bearing on your Windows user name.
+- This **User Name** and **Password** is specific to each separate Linux distribution that you install and has no bearing on your Windows user name.
 
-- Once you create this **User Name** and **Password**, the account will be your default user for the distribution and automatically sign-in on launch.
+- Once you create a **User Name** and **Password**, the account will be your default user for the distribution and automatically sign-in on launch.
 
 - This account will be considered the Linux administrator, with the ability to run `sudo` (Super User Do) administrative commands.
 
@@ -29,7 +29,7 @@ Most distributions ship with an empty or minimal package catalog. We strongly re
 sudo apt update && sudo apt upgrade
 ```
 
-Windows does not automatically update or upgrade your Linux distribution(s). This is a task that the most Linux users prefer to control themselves.
+Windows does not automatically update or upgrade your Linux distribution(s). This is a task that most Linux users prefer to control themselves.
 
 ## Reset your Linux password
 
