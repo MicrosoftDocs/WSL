@@ -36,30 +36,11 @@ Lastly, if your issue is related to the Windows Terminal, Windows Console, or th
 
 ## Common issues
 
-### `command not found` when executing windows .exe in linux
-Users can run Windows executables like notepad.exe directly from Linux. Sometimes, you may hit "command not found" like below: 
-```
-$ notepad.exe
--bash: notepad.exe: command not found
-```
+### I'm on Windows 10 version 1903 and I still do not see options for WSL 2. 
 
-If there are no win32 paths in your $PATH, interop isn't going to find the .exe.
-You can verify it by running `echo $PATH` in Linux. It's expected that you will see a win32 path (for example, /mnt/c/Windows) in the output.
-If you can't see any Windows paths then most likely your PATH is being overwritten by your Linux shell. 
+This is likely because your machine has not yet taken the backport for WSL 2. The simplest way to resolve this is by going to Windows Settings and clicking 'Check for Updates' to install the latest updates on your system. You can view the full instructions on taking the backport [here](https://devblogs.microsoft.com/commandline/wsl-2-support-is-coming-to-windows-10-versions-1903-and-1909/#how-do-i-get-it). 
 
-Here is a an example that /etc/profile on Debian contributed to the problem:
-```
-if [ "`id -u`" -eq 0 ]; then
-  PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-else
-  PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games"
-fi
-```
-
-The correct way on Debian is to remove above lines.
-You may also append $PATH during the assigment like below, but this lead to some [other problems](https://salsa.debian.org/debian/WSL/-/commit/7611edba482fd0b3f67143aa0fc1e2cc1d4100a6) with WSL and VSCode..
-
-For more information, please refer to issue [5296](https://github.com/microsoft/WSL/issues/5296)
+If you hit 'Check for Updates' and still do not receive the update you can install KB KB4566116 manually by [following this link](http://www.catalog.update.microsoft.com/Search.aspx?q=KB4566116).  
 
 ### Error: 0x1bc when `wsl --set-default-version 2`
 This may happen when 'Display Language' or 'System Locale' setting is not English.
@@ -99,6 +80,31 @@ WSL 2
 ```
 
 To resolve this issue, please visit `https://aka.ms/wsl2kernel` and install the kernel manually by following the directions on that doc page. 
+
+### `command not found` when executing windows .exe in linux
+Users can run Windows executables like notepad.exe directly from Linux. Sometimes, you may hit "command not found" like below: 
+```
+$ notepad.exe
+-bash: notepad.exe: command not found
+```
+
+If there are no win32 paths in your $PATH, interop isn't going to find the .exe.
+You can verify it by running `echo $PATH` in Linux. It's expected that you will see a win32 path (for example, /mnt/c/Windows) in the output.
+If you can't see any Windows paths then most likely your PATH is being overwritten by your Linux shell. 
+
+Here is a an example that /etc/profile on Debian contributed to the problem:
+```
+if [ "`id -u`" -eq 0 ]; then
+  PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+else
+  PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games"
+fi
+```
+
+The correct way on Debian is to remove above lines.
+You may also append $PATH during the assigment like below, but this lead to some [other problems](https://salsa.debian.org/debian/WSL/-/commit/7611edba482fd0b3f67143aa0fc1e2cc1d4100a6) with WSL and VSCode..
+
+For more information, see issue [5296](https://github.com/microsoft/WSL/issues/5296) and issue [5779](https://github.com/microsoft/WSL/issues/5779).
 
 ### Please enable the Virtual Machine Platform Windows feature and ensure virtualization is enabled in the BIOS.
 
