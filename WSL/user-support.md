@@ -11,9 +11,9 @@ ms.localizationpriority: high
 
 Once you have [enabled WSL and installed a Linux distribution from the Microsoft Store](./install-win10.md), the first step you will be asked to complete when opening your newly installed Linux distribution is to create an account, including a **User Name** and **Password**.
 
-- This **User Name** and **Password** is specific to your Linux distribution and has no bearing on your Windows user name.
+- This **User Name** and **Password** is specific to each separate Linux distribution that you install and has no bearing on your Windows user name.
 
-- Once you create this **User Name** and **Password**, the account will be your default user for the distribution and automatically sign-in on launch.
+- Once you create a **User Name** and **Password**, the account will be your default user for the distribution and automatically sign-in on launch.
 
 - This account will be considered the Linux administrator, with the ability to run `sudo` (Super User Do) administrative commands.
 
@@ -29,7 +29,7 @@ Most distributions ship with an empty or minimal package catalog. We strongly re
 sudo apt update && sudo apt upgrade
 ```
 
-Windows does not automatically update or upgrade your Linux distribution(s). This is a task that the most Linux users prefer to control themselves.
+Windows does not automatically update or upgrade your Linux distribution(s). This is a task that most Linux users prefer to control themselves.
 
 ## Reset your Linux password
 
@@ -45,7 +45,7 @@ If you forgot the password for your Linux distribution:
 
     > If you need to update the forgotten password on a distribution that is not your default, use the command: `wsl -d Debian -u root`, replacing `Debian` with the name of your targeted distribution.
 
-2. Once your WSL distribution has been opened at the root level inside PowerShell, you can use this command to update your password: `passwd`
+2. Once your WSL distribution has been opened at the root level inside PowerShell, you can use this command to update your password: `passwd <WSLUsername>` where `<WSLUsername>` is the username of the account in the DISTRO whose password you've forgotten.
 
 3. You will be prompted to enter a new UNIX password and then confirm that password. Once you're told that the password has updated successfully, close WSL inside of PowerShell using the command: `exit`
 

@@ -1,6 +1,6 @@
 ---
 title: Release Notes for Windows Subsystem for Linux
-description: Release notes for the Windows Subsystem for Linux.  Updated weekly.
+description: Read release notes for the Windows Subsystem for Linux. These release notes include fixed issues and are updated weekly.
 keywords: release notes, wsl, windows, windows subsystem for linux, windowssubsystem, ubuntu
 author: benhillis
 ms.date: 05/15/2020
@@ -9,6 +9,25 @@ ms.localizationpriority: high
 ---
 
 # Release Notes for Windows Subsystem for Linux
+
+## Build 20211
+For general Windows information on build 20211 visit the [Windows blog](https://blogs.windows.com/windows-insider/2020/09/10/announcing-windows-10-insider-preview-build-20211/).
+
+* Introduce wsl.exe --mount for mounting physical or virtual disks. For more information see [Access Linux filesystems in Windows and WSL 2](https://devblogs.microsoft.com/commandline/access-linux-filesystems-in-windows-and-wsl-2/).
+* Fix crash in LxssManager service when checking if the VM is idle. [GH 5768]
+* Support for compressed VHD files. [GH 4103]
+* Ensure that Linux user mode libs installed to c:\windows\system32\lxss\lib are preserved across OS upgrade. [GH 5848]
+* Added the ability to list available distributions that can be installed with `wsl --install --list-distributions`.
+* WSL instances are now terminated when the user logs off.
+
+## Build 20190
+For general Windows information on build 20190 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2020/08/12/announcing-windows-10-insider-preview-build-20190/).
+
+* Fix bug preventing WSL1 instances from launching. [GH 5633]
+* Fix hang when redirecting Windows process output. [GH 5648]
+* Add %userprofile%\\.wslconfig option to control the VM idle timeout (wsl2.vmIdleTimeout=<time_in_ms>).
+* Support launching app execution aliases from WSL.
+* Added support for installing the WSL2 kernel and distributions to wsl.exe --install.
 
 ## Build 20175
 For general Windows information on build 20175 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2020/07/22/announcing-windows-10-insider-preview-build-20175/).

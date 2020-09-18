@@ -36,6 +36,28 @@ Lastly, if your issue is related to the Windows Terminal, Windows Console, or th
 
 ## Common issues
 
+### I'm on Windows 10 version 1903 and I still do not see options for WSL 2. 
+
+This is likely because your machine has not yet taken the backport for WSL 2. The simplest way to resolve this is by going to Windows Settings and clicking 'Check for Updates' to install the latest updates on your system. You can view the full instructions on taking the backport [here](https://devblogs.microsoft.com/commandline/wsl-2-support-is-coming-to-windows-10-versions-1903-and-1909/#how-do-i-get-it). 
+
+If you hit 'Check for Updates' and still do not receive the update you can install KB KB4566116 manually by [following this link](http://www.catalog.update.microsoft.com/Search.aspx?q=KB4566116).  
+
+### Error: 0x1bc when `wsl --set-default-version 2`
+This may happen when 'Display Language' or 'System Locale' setting is not English.
+```
+wsl --set-default-version 2
+Error: 0x1bc
+For information on key differences with WSL 2 please visit https://aka.ms/wsl2
+```
+
+THe actual error for `0x1bc` is:
+```
+WSL 2 requires an update to its kernel component. For information please visit https://aka.ms/wsl2kernel
+```
+
+For more information, please refer to issue [5749](https://github.com/microsoft/WSL/issues/5749)
+
+
 ### Cannot access WSL files from Windows
 A 9p protocol file server provides the service on the Linux side to allow Windows to access the Linux file system. If you cannot access WSL using `\\wsl$` on Windows, it could be because 9P did not start correctly.
 
