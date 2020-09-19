@@ -5,6 +5,7 @@ keywords: BashOnWindows, bash, wsl, windows, windowssubsystem, gnu, linux, ubunt
 ms.date: 09/15/2020
 ms.topic: conceptual
 ms.localizationpriority: high
+ms.custom: contperfq1
 ---
 
 # Comparing WSL 1 and WSL 2
@@ -26,7 +27,7 @@ Feature | WSL 1 | WSL 2
  Integration between Windows and Linux| ✅|✅
  Fast boot times| ✅ | ✅
  Small resource foot print| ✅ |✅
- Runs with current versions of VMWare and VirtualBox| ✅ | ✅
+ Runs with current versions of VMware and VirtualBox| ✅ | ✅
  Managed VM| ❌ | ✅
  Full Linux Kernel| ❌ |✅
  Full system call compatibility| ❌ | ✅
@@ -48,7 +49,7 @@ You can access your Linux root file system with Windows apps and tools like File
 WSL 2 is only available in Windows 10, Version 1903, Build 18362 or higher. Check your Windows version by selecting the **Windows logo key + R**, type **winver**, select **OK**. (Or enter the `ver` command in Windows Command Prompt). You may need to [update to the latest Windows version](ms-settings:windowsupdate). For builds lower than 18362, WSL is not supported at all.
 
 > [!NOTE]
-> WSL 2 will work with [VMWare 15.5.5+](https://blogs.vmware.com/workstation/2020/05/vmware-workstation-now-supports-hyper-v-mode.html) and [VirtualBox 6+](https://www.virtualbox.org/wiki/Changelog-6.0).
+> WSL 2 will work with [VMware 15.5.5+](https://blogs.vmware.com/workstation/2020/05/vmware-workstation-now-supports-hyper-v-mode.html) and [VirtualBox 6+](https://www.virtualbox.org/wiki/Changelog-6.0). Learn more in our [WSL 2 FAQs.](./wsl2-faq.md#will-i-be-able-to-run-wsl-2-and-other-3rd-party-virtualization-tools-such-as-vmware-or-virtualbox)
 
 ## Whats new in WSL 2
 

@@ -122,7 +122,7 @@ Let's use Docker to create a development container for an existing app project.
 
     ![VS Code run debug configuration](../media/vscode-run-config.png)
 
-10. From inside VS Code, select **Run** > **Start debugging** (or just press the **F5** key). This will open a terminal inside VS Code and you should see a result saying something like: "Starting development server at http://127.0.0.1:8000/ Quit the server with CONTROL-C." Hold down the Control key and select the address displayed to open your app in your default web browser and see your project running inside of it's container.
+10. From inside VS Code, select **Run** > **Start debugging** (or just press the **F5** key). This will open a terminal inside VS Code and you should see a result saying something like: "Starting development server at http://127.0.0.1:8000/ Quit the server with CONTROL-C." Hold down the Control key and select the address displayed to open your app in your default web browser and see your project running inside of its container.
 
     ![VS Code running a docker container](../media/vscode-running-in-container.png)
 

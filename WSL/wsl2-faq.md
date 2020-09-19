@@ -25,13 +25,13 @@ We currently have no plans to deprecate WSL 1. You can run WSL 1 and WSL 2 distr
 
 ## Will I be able to run WSL 2 and other 3rd party virtualization tools such as VMware, or VirtualBox?
 
-Some 3rd party applications cannot work when Hyper-V is in use, which means they will not be able to run when WSL 2 is enabled, such as VMware and VirtualBox. However, recently both VirtualBox and VMware have released versions that support Hyper-V and WSL2! You can learn more about [VirtualBox's changes here][1] and [VMware's changes here][4].
+Some 3rd party applications cannot work when Hyper-V is in use, which means they will not be able to run when WSL 2 is enabled, such as VMware and VirtualBox. However, recently both VirtualBox and VMware have released versions that support Hyper-V and WSL2. Learn more about [VirtualBox's changes here][1] and [VMware's changes here][4]. For troubleshooting issues, take a look at the [VirtualBox issue discussions in the WSL repo on GitHub](https://github.com/MicrosoftDocs/WSL/issues?q=is%3Aissue+virtualbox+sort%3Acomments-desc).
 
 We are consistently working on solutions to support third-party integration of Hyper-V. For example, we expose a set of APIs called [Hypervisor Platform][2] that third-party virtualization providers can use to make their software compatible with Hyper-V. This lets applications use the Hyper-V architecture for their emulation such as [the Google Android Emulator][3], and VirtualBox 6 and above which are both now compatible with Hyper-V.
 
 ## Can I access the GPU in WSL 2? Are there plans to increase hardware support?
 
-We have released support for accessing the GPU inside of WSL 2 distros! This means you can now use WSL for machine learning, artificial intelligence, and data science scenarios more easily when big data sets are involved. You can find a tutorial to [get started with GPU support here](./tutorials/gpu-compute). As of right now WSL 2 does not include serial support, or USB device support. We are investigating the best way to add these features.
+We have released support for accessing the GPU inside of WSL 2 distros! This means you can now use WSL for machine learning, artificial intelligence, and data science scenarios more easily when big data sets are involved. Check out the [get started with GPU support](./tutorials/gpu-compute.md) tutorial. As of right now WSL 2 does not include serial support, or USB device support. We are investigating the best way to add these features.
 
 ## Will WSL 2 be able to use networking applications?
 
