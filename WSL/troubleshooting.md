@@ -9,7 +9,7 @@ ms.localizationpriority: high
 
 # Troubleshooting Windows Subsystem for Linux
 
-For support with issues related to WSL, please see our GitHub repo:
+For support with issues related to WSL, please see our GitHub repo: https://github.com/Microsoft/wsl/issues
 
 ## Search for any existing issues related to your problem
 
