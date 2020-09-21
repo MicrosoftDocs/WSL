@@ -87,7 +87,7 @@ To install Git, see [set up Git to work with Windows Subsystem for Linux](./wsl-
 
 ## Install Windows Terminal (optional)
 
-The new Windows Terminal enables multiple tabs (quickly switch between Command Prompt, PowerShell, or multiple Linux distributions), custom key bindings (create your own shortcut keys for opening or closing tabs, copy+paste, etc.), emojis ☺, and custom themes (color schemes, font styles and sizes, background image/blur/transparency). Learn more in the [Windows Terminal docs](https://docs.microsoft.com/windows/terminal).
+The new Windows Terminal enables multiple tabs (quickly switch between Command Prompt, PowerShell, or multiple Linux distributions), custom key bindings (create your own shortcut keys for opening or closing tabs, copy+paste, etc.), emojis ☺, and custom themes (color schemes, font styles and sizes, background image/blur/transparency). Learn more in the [Windows Terminal docs](/windows/terminal).
 
 1. Get [Windows Terminal in the Microsoft Store](https://www.microsoft.com/store/apps/9n0dx20hk701): By installing via the store, updates are handled automatically.
 
@@ -100,7 +100,7 @@ The new Windows Terminal enables multiple tabs (quickly switch between Command P
 * [Remote development with WSL tutorial](https://code.visualstudio.com/remote-tutorials/wsl/getting-started)
 * [Using Docker with WSL 2 and VS Code](https://code.visualstudio.com/blogs/2020/03/02/docker-in-wsl2)
 * [Using C++ and WSL in VS Code](https://code.visualstudio.com/docs/cpp/config-wsl)
-* [Remote R Service for Linux](https://docs.microsoft.com/visualstudio/rtvs/setting-up-remote-r-service-on-linux?view=vs-2017)
+* [Remote R Service for Linux](/visualstudio/rtvs/setting-up-remote-r-service-on-linux?view=vs-2017)
 
 A few additional extensions you may want to consider include:
 

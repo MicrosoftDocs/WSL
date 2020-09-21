@@ -10,7 +10,7 @@ ROBOTS: NOINDEX
 
 This content is archived for users of earlier versions of Windows operating system that support the subsystem for Linux and need support with updating Linux user accounts.
 
-For current documentation, see [User Accounts for Windows Subsystem for Linux](../user-support.md).
+For current documentation, see [User Accounts for Windows Subsystem for Linux](./user-support.md).
 
 ### For Creators Update version of Windows and earlier
 

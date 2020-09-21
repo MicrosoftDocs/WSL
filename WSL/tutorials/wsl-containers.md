@@ -19,17 +19,17 @@ Docker is a tool used to create, deploy, and run applications using containers. 
 
 Docker containers are similar to virtual machines, but don't create an entire virtual operating system. Instead, Docker enables the app to use the same Linux kernel as the system that it's running on. This allows the app package to only require parts not already on the host computer, reducing the package size and improving performance.
 
-Continuous availability, using Docker containers with tools like [Kubernetes](https://docs.microsoft.com/azure/aks/), is another reason for the popularity of containers. This enables multiple versions of your app container to be created at different times. Rather than needing to take down an entire system for updates or maintenance, each container (and it's specific microservices) can be replaced on the fly. You can prepare a new container with all of your updates, set up the container for production, and just point to the new container once it's ready. You can also archive different versions of your app using containers and keep them running as a safety fallback if needed.
+Continuous availability, using Docker containers with tools like [Kubernetes](/azure/aks/), is another reason for the popularity of containers. This enables multiple versions of your app container to be created at different times. Rather than needing to take down an entire system for updates or maintenance, each container (and it's specific microservices) can be replaced on the fly. You can prepare a new container with all of your updates, set up the container for production, and just point to the new container once it's ready. You can also archive different versions of your app using containers and keep them running as a safety fallback if needed.
 
-To learn more, checkout the [Introduction to Docker containers](https://docs.microsoft.com/learn/modules/intro-to-docker-containers/) on Microsoft Learn.
+To learn more, checkout the [Introduction to Docker containers](/learn/modules/intro-to-docker-containers/) on Microsoft Learn.
 
 ## Prerequisites
 
 - Ensure your machine is running Windows 10, [updated to version 2004](ms-settings:windowsupdate), **Build 18362** or higher.
-- [Enable WSL, install a Linux distribution, and update to WSL 2](https://docs.microsoft.com/windows/wsl/install-win10).
-- [Download and install the Linux kernel update package](https://docs.microsoft.com/windows/wsl/wsl2-kernel).
+- [Enable WSL, install a Linux distribution, and update to WSL 2](../install-win10.md).
+- [Download and install the Linux kernel update package](/windows/wsl/wsl2-kernel).
 - [Install Visual Studio Code](https://code.visualstudio.com/download) *(optional)*. This will provide the best experience, including the ability to code and debug inside a remote Docker container and connected to your Linux distribution.
-- [Install Windows Terminal](https://docs.microsoft.com/windows/terminal/get-started) *(optional)*. This will provide the best experience, including the ability to customize and open multiple terminals in the same interface (including Ubuntu, Debian, PowerShell, Azure CLI, or whatever you prefer to use).
+- [Install Windows Terminal](/windows/terminal/get-started) *(optional)*. This will provide the best experience, including the ability to customize and open multiple terminals in the same interface (including Ubuntu, Debian, PowerShell, Azure CLI, or whatever you prefer to use).
 - [Sign up for a Docker ID at Docker Hub](https://hub.docker.com/signup) *(optional)*.
 
 > [!NOTE]
@@ -41,7 +41,7 @@ To learn more, checkout the [Introduction to Docker containers](https://docs.mic
 
 With the WSL 2 backend supported in Docker Desktop for Windows, you can work in a Linux-based development environment and build Linux-based containers, while using Visual Studio Code for code editing and debugging, and running your container in the Microsoft Edge browser on Windows.
 
-To install Docker (after already [installing WSL 2](https://docs.microsoft.com/windows/wsl/install-win10)):
+To install Docker (after already [installing WSL 2](../install-win10.md)):
 
 1. Download [Docker Desktop](https://docs.docker.com/docker-for-windows/wsl/#download) and follow the installation instructions.
 
@@ -79,7 +79,7 @@ To get started developing apps using Docker with WSL 2, we recommend using VS Co
 
 Let's use Docker to create a development container for an existing app project.
 
-1. For this example, I'll use the source code from my [Hello World tutorial for Django](https://docs.microsoft.com/windows/python/web-frameworks#hello-world-tutorial-for-django) in the Python development environment set up docs. You can skip this step if you prefer to use your own project source code. To download my HelloWorld-Django web app from GitHub, open a WSL terminal (Ubuntu for example) and enter: `git clone https://github.com/mattwojo/helloworld-django.git`
+1. For this example, I'll use the source code from my [Hello World tutorial for Django](/windows/python/web-frameworks#hello-world-tutorial-for-django) in the Python development environment set up docs. You can skip this step if you prefer to use your own project source code. To download my HelloWorld-Django web app from GitHub, open a WSL terminal (Ubuntu for example) and enter: `git clone https://github.com/mattwojo/helloworld-django.git`
 
     > [!NOTE]
     > Always store your code in the same file system that you're using tools in. This will result in faster file access performance. In this example, we are using a Linux distro (Ubuntu) and want to store our project files on the WSL file system `\\wsl\`. Storing project files on the Windows file system would significantly slow things down when using Linux tools in WSL to access those files.

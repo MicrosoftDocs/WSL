@@ -27,7 +27,7 @@ WSL can add four NTFS extended attributes:
 | $LXMOD | File mode (File systems permission octals and type, e.g: 0777) |
 | $LXDEV | Device, if it is a device file |
 
-Additionally, any file that is not a regular file or directory (e.g: symlinks, FIFOs, block devices, unix sockets, and character devices) also have an NTFS [reparse point](https://docs.microsoft.com/windows/win32/fileio/reparse-points). This makes it much faster to determine the kind of file in a given directory without having to query its extended attributes.
+Additionally, any file that is not a regular file or directory (e.g: symlinks, FIFOs, block devices, unix sockets, and character devices) also have an NTFS [reparse point](/windows/win32/fileio/reparse-points). This makes it much faster to determine the kind of file in a given directory without having to query its extended attributes.
 
 ## File Access Scenarios
 

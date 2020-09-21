@@ -14,9 +14,9 @@ This step-by-step guide will help you get started connecting your project in WSL
 ## Prerequisites
 
 - Running Windows 10, [updated to version 2004](ms-settings:windowsupdate), **Build 19041** or higher.
-- [WSL enabled and installed, and updated to WSL 2](https://docs.microsoft.com/windows/wsl/install-win10).
-- [Linux distribution installed](https://docs.microsoft.com/windows/wsl/install-win10#step-6---install-your-linux-distribution-of-choice) (Ubuntu 18.04 for our examples).
-- Ensure your Ubuntu 18.04 distribution is [running in WSL 2 mode](https://docs.microsoft.com/windows/wsl/install-win10#set-your-distribution-version-to-wsl-1-or-wsl-2). (WSL can run distributions in both v1 or v2 mode.) You can check this by opening PowerShell and entering: `wsl -l -v`
+- [WSL enabled and installed, and updated to WSL 2](../install-win10.md).
+- [Linux distribution installed](../install-win10.md#step-6---install-your-linux-distribution-of-choice) (Ubuntu 18.04 for our examples).
+- Ensure your Ubuntu 18.04 distribution is [running in WSL 2 mode](../install-win10.md#set-your-distribution-version-to-wsl-1-or-wsl-2). (WSL can run distributions in both v1 or v2 mode.) You can check this by opening PowerShell and entering: `wsl -l -v`
 
 ## Differences between database systems
 
@@ -24,7 +24,7 @@ The most [popular choices](https://insights.stackoverflow.com/survey/2019#techno
 
 - [MySQL](https://www.mysql.com/why-mysql/) (SQL)
 - [PostgreSQL](https://www.postgresql.org/about/) (SQL)
-- [Microsoft SQL Server](https://docs.microsoft.com/sql) (SQL)
+- [Microsoft SQL Server](/sql) (SQL)
 - [SQLite](https://www.sqlite.org/about.html) (SQL)
 - [MongoDB](https://www.mongodb.com/what-is-mongodb) (NoSQL)
 - [Redis](https://redis.io/topics/introduction) (NoSQL)
@@ -155,7 +155,7 @@ Learn more in the MongoDB docs:
 
 ## Install Microsoft SQL Server
 
-To install SQL Server on WSL (Ubuntu 18.04), follow this quickstart: [Install SQL Server and create a database on Ubuntu](https://docs.microsoft.com/sql/linux/quickstart-install-connect-ubuntu).
+To install SQL Server on WSL (Ubuntu 18.04), follow this quickstart: [Install SQL Server and create a database on Ubuntu](/sql/linux/quickstart-install-connect-ubuntu).
 
 To work with Microsoft SQL Server databases in VS Code, try the [MSSQL extension](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql).
 
@@ -224,4 +224,4 @@ To set up your own custom alias, or shortcut, for executing these commands:
 
 ## Additional resources
 
-- [Setting up your development environment on Windows 10](https://docs.microsoft.com/windows/dev-environment/)
+- [Setting up your development environment on Windows 10](/windows/dev-environment/)
