@@ -100,7 +100,7 @@ The new Windows Terminal enables multiple tabs (quickly switch between Command P
 * [Remote development with WSL tutorial](https://code.visualstudio.com/remote-tutorials/wsl/getting-started)
 * [Using Docker with WSL 2 and VS Code](https://code.visualstudio.com/blogs/2020/03/02/docker-in-wsl2)
 * [Using C++ and WSL in VS Code](https://code.visualstudio.com/docs/cpp/config-wsl)
-* [Remote R Service for Linux](/visualstudio/rtvs/setting-up-remote-r-service-on-linux?view=vs-2017)
+* [Remote R Service for Linux](/visualstudio/rtvs/setting-up-remote-r-service-on-linux)
 
 A few additional extensions you may want to consider include:
 
