@@ -49,14 +49,14 @@ https://docs.microsoft.com/microsoft-store/sign-up-microsoft-store-for-business
 
 5. Select an 'Offline' license in the License type dropdown menu and select 'Get the app'. (Some Linux distributions may elect not to provide an offline license).
 
-    ![MS Store for business Ubuntu product page](media/offlineinstallscreens/4-screen.png)
+    ![MS Store for business Ubuntu select offline](media/offlineinstallscreens/4-screen.png)
 
 6. Select the 'Manage' button to get to the app's product page.
 
-    ![MS Store for business Ubuntu product page](media/offlineinstallscreens/5-screen.png)
+    ![MS Store for business Ubuntu select manage](media/offlineinstallscreens/5-screen.png)
 
 7. Select your architecture and download the package for offline use.
 
-    ![MS Store for business Ubuntu product details page](media/offlineinstallscreens/6-screen.png)
+    ![MS Store for business Ubuntu select architecture](media/offlineinstallscreens/6-screen.png)
 
 This installer can then be distributed to any computer where you would like to install WSL.
