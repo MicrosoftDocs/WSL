@@ -35,7 +35,7 @@ Git comes already installed with most of the Windows Subsystem for Linux distrib
 
 To install Git, see the [Git Download for Linux](https://git-scm.com/download/linux) site. Each Linux distribution has their own package manager and install command.
 
-For the latest stable GIt version in Ubuntu/Debian, enter the command:
+For the latest stable Git version in Ubuntu/Debian, enter the command:
 
 ```bash
 sudo apt-get install git
