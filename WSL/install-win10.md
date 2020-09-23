@@ -115,7 +115,7 @@ This will set the version of any new distribution installed to WSL 2.
 
 ## Install and upgrade all distros 
 
-Run the following command in PowerShell for upgrade all your distros and install wsl update package.
+Run the following command in PowerShell to upgrade all your distros and install wsl update package.
 ```powershell
 #WSL2 Install and Update
 #enable feature
