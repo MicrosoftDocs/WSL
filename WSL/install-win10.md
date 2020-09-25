@@ -23,6 +23,8 @@ Open PowerShell as Administrator and run:
 dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
 ```
 
+*If you prefer to use the Settings menu and Control panel to enable WSL, rather than this PowerShell script, follow these [steps to enable WSL](/enable.md).*
+
 We recommend now moving on to step #2, updating to WSL 2, but if you wish to only install WSL 1, you can now restart your machine and move on to [Step 6 - Install your Linux distribution of choice](./install-win10.md#step-6---install-your-linux-distribution-of-choice). To update to WSL 2, wait to restart your machine and move on to the next step.
 
 ## Step 2 - Update to WSL 2
