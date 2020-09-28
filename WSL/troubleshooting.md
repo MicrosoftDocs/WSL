@@ -328,7 +328,7 @@ Please note that adding this command will include metadata and modify the file p
 
 ### Running Windows commands fails inside a distribution
 
-Some distributions [available in Microsoft Store](install-win10.md#install-your-linux-distribution-of-choice) are yet not fully compatible to run Windows commands in [Terminal](https://en.wikipedia.org/wiki/Linux_console) out of the box. If you get an error `-bash: powershell.exe: command not found` running `powershell.exe /c start .` or any other Windows command, you can resolve it following these steps:
+Some distributions [available in Microsoft Store](install-win10.md#step-6---install-your-linux-distribution-of-choice) are yet not fully compatible to run Windows commands in [Terminal](https://en.wikipedia.org/wiki/Linux_console) out of the box. If you get an error `-bash: powershell.exe: command not found` running `powershell.exe /c start .` or any other Windows command, you can resolve it following these steps:
 
 1. In wsl distribution Terminal run `echo $PATH`.  
    If it does not feature `/mnt/c/Windows/system32` something is redefining the standard PATH variable.
