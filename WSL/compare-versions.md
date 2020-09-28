@@ -37,7 +37,7 @@ As you can tell from the comparison table above, the WSL 2 architecture outperfo
 
 ## Performance across OS file systems
 
-We recommend against working across operating systems with your files, unless you have a specific reason for doing so. For the fastest performance speed, store your files in the WSL file system if you are working in a Linux command line (Ubuntu, OpenSUSE, etc). If your working in a Windows command line (PowerShell, Command Prompt), store your files in the Windows file system.
+We recommend against working across operating systems with your files, unless you have a specific reason for doing so. For the fastest performance speed, store your files in the WSL file system if you are working in a Linux command line (Ubuntu, OpenSUSE, etc). If you're working in a Windows command line (PowerShell, Command Prompt), store your files in the Windows file system.
 
 For example, when storing your WSL project files:
 
