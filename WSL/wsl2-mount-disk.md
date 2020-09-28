@@ -122,7 +122,7 @@ By default, WSL 2 attempts to mount the entire disk. To mount a specific partiti
 wsl --mount <Diskpath> -p <PartitionIndex>
 ```
 
-This only works if the disk is either MBR (Master Boot Record) or GPT (GUID Partition Table). [Read about partition styles - MBR and GPT](https://docs.microsoft.com/windows-server/storage/disk-management/initialize-new-disks#about-partition-styles---gpt-and-mbr).
+This only works if the disk is either MBR (Master Boot Record) or GPT (GUID Partition Table). [Read about partition styles - MBR and GPT](/windows-server/storage/disk-management/initialize-new-disks#about-partition-styles---gpt-and-mbr).
 
 ### Specifying mount options
 

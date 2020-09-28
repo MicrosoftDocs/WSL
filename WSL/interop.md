@@ -235,4 +235,4 @@ The Windows binary must include the file extension, match the file case, and be 
 
 ## Additional resources
 
-* [WSL blog post on interoperability from 2016](https://blogs.msdn.microsoft.com/wsl/2016/10/19/windows-and-ubuntu-interoperability/)
+* [WSL blog post on interoperability from 2016](/archive/blogs/wsl/windows-and-ubuntu-interoperability)

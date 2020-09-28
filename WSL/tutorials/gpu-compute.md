@@ -17,7 +17,7 @@ Leveraging GPU acceleration for compute-intensive tasks is generally referred  t
 
 ## Install and set up
 
-Learn more about WSL 2 support and how to start training machine learning models in the [GPU Accelerated Training guide](https://docs.microsoft.com/windows/win32/direct3d12/gpu-accelerated-training) inside the DirectML docs. This guide covers:
+Learn more about WSL 2 support and how to start training machine learning models in the [GPU Accelerated Training guide](/windows/win32/direct3d12/gpu-accelerated-training) inside the DirectML docs. This guide covers:
 
 * Guidance for beginners or students to set up TensorFlow with DirectML
 * Guidance for professionals to start running their exisiting CUDA ML workflows

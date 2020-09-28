@@ -40,7 +40,7 @@ WSL targets a developer audience with the intent to be used as part of an inner 
 
 ## How does this work?
 
-Check out our [blog](https://blogs.msdn.microsoft.com/wsl/) where we go into detail about the underlying technology.
+Check out our [blog](/archive/blogs/wsl/) where we go into detail about the underlying technology.
 
 ## Why would I use WSL rather than Linux in a VM?
 
@@ -98,7 +98,7 @@ git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/libexec
 
 Now any git operation you perform within your WSL distribution will use the credential manager. If you already have credentials cached for a host, it will access them from the credential manager. If not, you'll receive a dialog response requesting your credentials, even if you're in a Linux console.
 
-This support relies on the [interoperability between Windows Subsystem for Linux and Windows itself](https://docs.microsoft.com/windows/wsl/interop).
+This support relies on the [interoperability between Windows Subsystem for Linux and Windows itself](./interop.md).
 
 ## How do I use a Windows file with a Linux app?
 
@@ -156,7 +156,7 @@ On builds prior to 1709 (16299) open a command prompt and run:
   lxrun /uninstall /full
   ```
   
-WSL distributions installed from the store can be uninstalled like any other Windows app, by right-clicking on the app tile and clicking Uninstall, or via PowerShell using the [`Remove-AppxPackage` cmdlet](https://technet.microsoft.com/library/hh856038.aspx).
+WSL distributions installed from the store can be uninstalled like any other Windows app, by right-clicking on the app tile and clicking Uninstall, or via PowerShell using the [`Remove-AppxPackage` cmdlet](/previous-versions//hh856038(v=technet.10)).
 
 ## Why does ping generate permission denied errors?
 
@@ -176,7 +176,7 @@ WSL does not support running in a legacy console. To turn off legacy console:
 
 ## Why do I get "Error: 0x80040154" when I run bash.exe after upgrading Windows?
 
-The "Windows Subsystem for Linux" feature may be disabled during a Windows update. If this happens the Windows feature must be re-enabled. Instructions for enabling the "Windows Subsystem for Linux" feature can be found in the [Installation Guide](https://docs.microsoft.com/windows/wsl/install-win10).
+The "Windows Subsystem for Linux" feature may be disabled during a Windows update. If this happens the Windows feature must be re-enabled. Instructions for enabling the "Windows Subsystem for Linux" feature can be found in the [Installation Guide](./install-win10.md).
 
 ## How do I change the display language of WSL?
 

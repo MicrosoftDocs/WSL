@@ -9,13 +9,13 @@ ms.localizationpriority: high
 
 # Set up Windows Subsystem for Linux for your enterprise company
 
-The Microsoft Store for Business offers a variety of solutions to Enterprises who want to deploy WSL to their company. The [Microsoft Store for Business and Education docs](https://docs.microsoft.com/microsoft-store/) are a great resource to find out general information about the Store experience.
+The Microsoft Store for Business offers a variety of solutions to Enterprises who want to deploy WSL to their company. The [Microsoft Store for Business and Education docs](/microsoft-store/) are a great resource to find out general information about the Store experience.
 
 If you're a company that's just looking to get set up to start deploying WSL, follow these steps:
 
-* [Sign up for the Microsoft Store for Business and get started](https://docs.microsoft.com/microsoft-store/sign-up-microsoft-store-for-business-overview)
-* [Manage your products and services (including who can access which apps in your private store)](https://docs.microsoft.com/microsoft-store/manage-apps-microsoft-store-for-business-overview). Here you can add WSL distros to your store and control who can install them
-* [Use a distribution method of your choice to deploy the software to your company](https://docs.microsoft.com/microsoft-store/distribute-apps-to-your-employees-microsoft-store-for-business)
+* [Sign up for the Microsoft Store for Business and get started](/microsoft-store/sign-up-microsoft-store-for-business-overview)
+* [Manage your products and services (including who can access which apps in your private store)](/microsoft-store/manage-apps-microsoft-store-for-business-overview). Here you can add WSL distros to your store and control who can install them
+* [Use a distribution method of your choice to deploy the software to your company](/microsoft-store/distribute-apps-to-your-employees-microsoft-store-for-business)
 * Communicate to the employees of your company that they can use this documentation link to install WSL: [Install the Windows Subsystem for Linux](./install-win10.md)
 
 ## How to distribute a Linux distribution on Windows offline
@@ -24,7 +24,7 @@ If the computers in your company don't have access to the Microsoft Store or the
 
 ### Set up an Azure Active Directory account
 
-You need to [sign up for an Azure AD account](https://docs.microsoft.com/azure/active-directory/fundamentals/sign-up-organization?WT.mc_id=windows-c9-niner) and be the global administrator for your organization to get the installer of Microsoft Store apps. If you already have an account, you can skip this step.
+You need to [sign up for an Azure AD account](/azure/active-directory/fundamentals/sign-up-organization?WT.mc_id=windows-c9-niner) and be the global administrator for your organization to get the installer of Microsoft Store apps. If you already have an account, you can skip this step.
 
 ### Set up WSL using your Microsoft Store for Business account
 
@@ -49,14 +49,14 @@ https://docs.microsoft.com/microsoft-store/sign-up-microsoft-store-for-business
 
 5. Select an 'Offline' license in the License type dropdown menu and select 'Get the app'. (Some Linux distributions may elect not to provide an offline license).
 
-    ![MS Store for business Ubuntu product page](media/offlineinstallscreens/4-screen.png)
+    ![MS Store for business Ubuntu select offline](media/offlineinstallscreens/4-screen.png)
 
 6. Select the 'Manage' button to get to the app's product page.
 
-    ![MS Store for business Ubuntu product page](media/offlineinstallscreens/5-screen.png)
+    ![MS Store for business Ubuntu select manage](media/offlineinstallscreens/5-screen.png)
 
 7. Select your architecture and download the package for offline use.
 
-    ![MS Store for business Ubuntu product details page](media/offlineinstallscreens/6-screen.png)
+    ![MS Store for business Ubuntu select architecture](media/offlineinstallscreens/6-screen.png)
 
 This installer can then be distributed to any computer where you would like to install WSL.

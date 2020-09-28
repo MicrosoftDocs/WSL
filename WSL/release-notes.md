@@ -1181,14 +1181,14 @@ For general Windows information on build 16176 visit the [Windows Blog](https://
 
 ### Fixed
 
-- [Enabled serial support](https://blogs.msdn.microsoft.com/wsl/2017/04/14/serial-support-on-the-windows-subsystem-for-linux/)
+- [Enabled serial support](/archive/blogs/wsl/serial-support-on-the-windows-subsystem-for-linux)
 - Added IP socket option IP_OPTIONS [GH 1116]
 - Implemented pwritev function (while uploading file to nginx/PHP-FPM) [GH 1506]
 - Added IP socket options IP_MULTICAST_IF & IPV6_MULTICAST_IF [GH 990]
 - Support for socket option IP_MULTICAST_LOOP & IPV6_MULTICAST_LOOP [GH 1678]
 - Added IP(V6)_MTU socket option for apps node, traceroute, dig, nslookup, host
 - Added IP socket option IPV6_UNICAST_HOPS
-- [Filesystem Improvements](https://blogs.msdn.microsoft.com/wsl/2017/04/18/file-system-improvements-to-the-windows-subsystem-for-linux/)
+- [Filesystem Improvements](/archive/blogs/wsl/file-system-improvements-to-the-windows-subsystem-for-linux)
     * Allow mounting of UNC paths
     * Enable CDFS support in drvfs
     * Correctly handle permissions for network file systems in drvfs
@@ -1205,7 +1205,7 @@ No changes since 15042
 
 For general Windows information on build 16170 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/04/07/announcing-windows-10-insider-preview-build-16170-pc/).<br/>
 
-We released a new [blog post](https://blogs.msdn.microsoft.com/wsl/2017/04/11/testing-the-windows-subsystem-for-linux/) discussing our efforts to test WSL.
+We released a new [blog post](/archive/blogs/wsl/testing-the-windows-subsystem-for-linux) discussing our efforts to test WSL.
 
 ### Fixed
 
@@ -1539,7 +1539,7 @@ For general Windows information on build 14959 visit the [Windows Blog](https://
 
 ### Fixed
 
-- Improved Pico Process notification for Windows.  Additional information found on the [WSL Blog](https://blogs.msdn.microsoft.com/wsl/2016/11/01/wsl-antivirus-and-firewall-compatibility/).
+- Improved Pico Process notification for Windows.  Additional information found on the [WSL Blog](/archive/blogs/wsl/wsl-antivirus-and-firewall-compatibility).
 - Improved stability with Windows interoperability
 - Fixed error 0x80070057 when launching bash.exe when Enterprise Data Protection (EDP) is enabled
 - Additional bugfixes and improvements
@@ -1585,8 +1585,8 @@ $ cmd.exe /c dir
 
 More information can be found at:
 
-- [WSL Team Blog for Interop](https://blogs.msdn.microsoft.com/wsl/2016/10/19/windows-and-ubuntu-interoperability/)<br/>
-- [MSDN Interop Documentation](https://msdn.microsoft.com/commandline/wsl/interop)<br/>
+- [WSL Team Blog for Interop](/archive/blogs/wsl/windows-and-ubuntu-interoperability)<br/>
+- [MSDN Interop Documentation](./interop.md)<br/>
 
 ### Fixed
 
@@ -1806,7 +1806,7 @@ For general Windows information on build 14388 visit the [Windows Blog](https://
 
 ### Fixed
 - Fixes to prepare for the Windows 10 Anniversary Update on 8/2
-  - More information about WSL in the Anniversary Update can be found on our [blog](https://blogs.msdn.microsoft.com/wsl/)
+  - More information about WSL in the Anniversary Update can be found on our [blog](/archive/blogs/wsl/)
 
 <br/>
 
@@ -1925,7 +1925,7 @@ Below are a list of new or enhanced syscalls that have some implementation in WS
 ## Build 14342
 For general Windows information on build 14342 the [Windows Blog](https://aka.ms/wip14342). <br/>
 
-Information on VolFs and DriveFs can be found on the [WSL Blog](https://blogs.msdn.microsoft.com/wsl). <br/>
+Information on VolFs and DriveFs can be found on the [WSL Blog](/archive/blogs/wsl/). <br/>
 
 ### Fixed
 - Fixed install issue when the Windows user had Unicode characters in the username
