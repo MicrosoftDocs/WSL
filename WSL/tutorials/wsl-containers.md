@@ -27,7 +27,7 @@ To learn more, checkout the [Introduction to Docker containers](/learn/modules/i
 
 - Ensure your machine is running Windows 10, [updated to version 2004](ms-settings:windowsupdate), **Build 18362** or higher.
 - [Enable WSL, install a Linux distribution, and update to WSL 2](../install-win10.md).
-- [Download and install the Linux kernel update package](/windows/wsl/wsl2-kernel).
+- [Download and install the Linux kernel update package](../wsl2-kernel.md).
 - [Install Visual Studio Code](https://code.visualstudio.com/download) *(optional)*. This will provide the best experience, including the ability to code and debug inside a remote Docker container and connected to your Linux distribution.
 - [Install Windows Terminal](/windows/terminal/get-started) *(optional)*. This will provide the best experience, including the ability to customize and open multiple terminals in the same interface (including Ubuntu, Debian, PowerShell, Azure CLI, or whatever you prefer to use).
 - [Sign up for a Docker ID at Docker Hub](https://hub.docker.com/signup) *(optional)*.
