@@ -81,7 +81,9 @@ WSL 2
 
 To resolve this issue, please visit `https://aka.ms/wsl2kernel` and install the kernel manually by following the directions on that doc page. 
 
-### Please enable the Virtual Machine Platform Windows feature and ensure virtualization is enabled in the BIOS.
+### "Error: 0x80370102 The virtual machine could not be started because a required feature is not installed."
+
+Please enable the Virtual Machine Platform Windows feature and ensure virtualization is enabled in the BIOS.
 
 1. Check the [Hyper-V system requirements](/windows-server/virtualization/hyper-v/system-requirements-for-hyper-v-on-windows#:~:text=on%20Windows%20Server.-,General%20requirements,the%20processor%20must%20have%20SLAT.)
 2. If your machine is a VM, please enable [nested virtualization](./wsl2-faq.md#can-i-run-wsl-2-in-a-virtual-machine) manually. Launch powershell with admin, and run: 
