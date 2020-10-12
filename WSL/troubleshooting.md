@@ -92,7 +92,7 @@ Please enable the Virtual Machine Platform Windows feature and ensure virtualiza
 Set-VMProcessor -VMName <VMName> -ExposeVirtualizationExtensions $true
 ```
 
-3. Please follow guidelines from your PC's manufacturer on how to enable virtualization. In general, this can involve using the system BIOS to ensure that these features are enabled on your CPU. 
+3. Please follow guidelines from your PC's manufacturer on how to enable virtualization. In general, this can involve using the system BIOS to ensure that these features are enabled on your CPU. Instructions for this process can vary from machine to machine, please see [this article](https://www.bleepingcomputer.com/tutorials/how-to-enable-cpu-virtualization-in-your-computer-bios/) from Bleeping Computer for an example. 
 4. Restart your machine after enabling the `Virtual Machine Platform` optional component. 
 
 ### Bash loses network connectivity once connected to a VPN
