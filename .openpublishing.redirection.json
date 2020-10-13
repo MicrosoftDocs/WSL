@@ -39,6 +39,11 @@
       "source_path": "wsl/wsl2-index.md",
       "redirect_url": "compare-versions#whats-new-in-wsl-2",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "wsl/wsl2-kernel.md",
+      "redirect_url": "install-win10#step-4---download-the-linux-kernel-update-package",
+      "redirect_document_id": true
     }
   ]
 }
