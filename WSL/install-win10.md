@@ -23,7 +23,7 @@ Open PowerShell as Administrator and run:
 dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
 ```
 
-We recommend now moving on to step #2, updating to WSL 2, but if you wish to only install WSL 1, you can now restart your machine and move on to [Step 6 - Install your Linux distribution of choice](./install-win10.md#step-6---install-your-linux-distribution-of-choice). To update to WSL 2, wait to restart your machine and move on to the next step.
+We recommend now moving on to step #2, updating to WSL 2, but if you wish to only install WSL 1, you can now **restart** your machine and move on to [Step 6 - Install your Linux distribution of choice](./install-win10.md#step-6---install-your-linux-distribution-of-choice). To update to WSL 2, **wait to restart** your machine and move on to the next step.
 
 ## Step 2 - Update to WSL 2
 
@@ -69,7 +69,7 @@ Once the installation is complete, move on to the next step - setting WSL 2 as y
 
 ## Step 5 - Set WSL 2 as your default version
 
-Open PowerShell as Administrator and run this command to set WSL 2 as the default version when installing a new Linux distribution:
+Open PowerShell and run this command to set WSL 2 as the default version when installing a new Linux distribution:
 
 ```powershell
 wsl --set-default-version 2
@@ -155,7 +155,7 @@ Below are related errors and suggested fixes. Refer to the [WSL troubleshooting 
 
 - **Installation failed with error 0x80070003**
   - The Windows Subsystem for Linux only runs on your system drive (usually this is your `C:` drive). Make sure that distributions are stored on your system drive:  
-  - Open **Settings** -> **Storage** -> **More Storage Settings: Change where new content is saved**
+  - Open **Settings** -> **System --> **Storage** -> **More Storage Settings: Change where new content is saved**
     ![Picture of system settings to install apps on C: drive](media/AppStorage.png)
 
 - **WslRegisterDistribution failed with error 0x8007019e**
