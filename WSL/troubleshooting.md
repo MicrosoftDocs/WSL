@@ -2,7 +2,7 @@
 title: Troubleshooting the Windows Subsystem for Linux
 description: Provides detailed information about common errors and issues people run into while running Linux on the Windows Subsystem for Linux. 
 keywords: BashOnWindows, bash, wsl, windows, windowssubsystem, ubuntu
-ms.date: 01/20/2020
+ms.date: 09/28/2020
 ms.topic: article
 ms.localizationpriority: high
 ---
@@ -360,3 +360,14 @@ options = metadata,uid=1000,gid=1000,umask=0022
 ```
 
 Please note that adding this command will include metadata and modify the file permissions on the Windows files seen from WSL. Please see the [File System Permissions](./file-permissions.md) for more information.
+
+### Running Windows commands fails inside a distribution
+
+Some distributions [available in Microsoft Store](install-win10.md#step-6---install-your-linux-distribution-of-choice) are yet not fully compatible to run Windows commands in [Terminal](https://en.wikipedia.org/wiki/Linux_console) out of the box. If you get an error `-bash: powershell.exe: command not found` running `powershell.exe /c start .` or any other Windows command, you can resolve it following these steps:
+
+1. In your WSL distribution run `echo $PATH`.  
+   If it does not include: `/mnt/c/Windows/system32` something is redefining the standard PATH variable.
+2. Check profile settings with `cat /etc/profile`.  
+   If it contains assignment of the PATH variable, edit the file to comment out PATH assignment block with a **#** character.
+3. Check if wsl.conf is present `cat /etc/wsl.conf` and make sure it does not contain `appendWindowsPath=false`, otherwise comment it out.
+4. Restart distribution by typing `wsl -t ` followed by distribution name or run `wsl --shutdown` either in cmd or PowerShell.

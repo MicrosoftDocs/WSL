@@ -1,8 +1,8 @@
 ---
 title: Comparing WSL 2 and WSL 1
-description: Compare version 1 and version 2 of the Windows Subsystem for Linux. Learn whats new in WSL 2 - actual Linux kernel, faster speed, full system call compatibility. WSL 1 works better if your storing files across operating file systems. You can expand the size of your WSL 2 Virtual Hard Disk (VHD).
-keywords: BashOnWindows, bash, wsl, windows, windowssubsystem, gnu, linux, ubuntu, debian, suse, windows 10, UX changes, WSL 2, linux kernel, network applications, localhost, IPv6, Virtual Hard Disk, VHD, VHD limitations, VHD error
-ms.date: 09/15/2020
+description: Compare version 1 and version 2 of the Windows Subsystem for Linux. Learn whats new in WSL 2 - actual Linux kernel, faster speed, full system call compatibility. WSL 1 works better if your storing files across operating file systems. You can expand the size of your WSL 2 Virtual Hardware Disk (VHD).
+keywords: BashOnWindows, bash, wsl, windows, windowssubsystem, gnu, linux, ubuntu, debian, suse, windows 10, UX changes, WSL 2, linux kernel, network applications, localhost, IPv6, Virtual Hardware Disk, VHD, VHD limitations, VHD error
+ms.date: 09/28/2020
 ms.topic: conceptual
 ms.localizationpriority: high
 ms.custom: contperfq1
@@ -44,7 +44,12 @@ For example, when storing your WSL project files:
 - Use the Linux file system root directory: `\\wsl$\Ubuntu-18.04\home\<user name>\Project`
 - Not the Windows file system root directory: `C:\Users\<user name>\Project`
 
-You can access your Linux root file system with Windows apps and tools like File Explorer. Try opening a Linux distribution (like Ubuntu), be sure that you are in the Linux home directory by entering this command: `cd ~`. Then open your Linux file system in File Explorer by entering *(don't forget the period at the end)*: `explorer.exe .`
+All currently running distributions (`wsl -l`) are accessible via network connection. To get there run a command \[WIN+R\] (keyboard shortcut) or type in File Explorer address bar `\\wsl$` to find respective distribution names and access their root file systems.
+
+You can also use windows commands inside WSL's Linux [Terminal](https://en.wikipedia.org/wiki/Linux_console). Try opening a Linux distribution (ie Ubuntu), be sure that you are in the Linux home directory by entering this command: `cd ~`. Then open your Linux file system in File Explorer by entering *(don't forget the period at the end)*: `powershell.exe /c start .`
+
+> [!IMPORTANT]
+> If you experience an error **-bash: powershell.exe: command not found** please refer to the [WSL troubleshooting page](troubleshooting.md#running-windows-commands-fails-inside-a-distribution) to resolve it.
 
 WSL 2 is only available in Windows 10, Version 1903, Build 18362 or higher. Check your Windows version by selecting the **Windows logo key + R**, type **winver**, select **OK**. (Or enter the `ver` command in Windows Command Prompt). You may need to [update to the latest Windows version](ms-settings:windowsupdate). For builds lower than 18362, WSL is not supported at all.
 
