@@ -56,7 +56,7 @@ WSL 2 is only available in Windows 10, Version 1903, Build 18362 or higher. Chec
 > [!NOTE]
 > WSL 2 will work with [VMware 15.5.5+](https://blogs.vmware.com/workstation/2020/05/vmware-workstation-now-supports-hyper-v-mode.html) and [VirtualBox 6+](https://www.virtualbox.org/wiki/Changelog-6.0). Learn more in our [WSL 2 FAQs.](./wsl2-faq.md#will-i-be-able-to-run-wsl-2-and-other-3rd-party-virtualization-tools-such-as-vmware-or-virtualbox)
 
-## Whats new in WSL 2
+## What's new in WSL 2
 
 WSL 2 is a major overhaul of the underlying architecture and uses virtualization technology and a Linux kernel to enable new features. The primary goals of this update are to increase file system performance and add full system call compatibility.
 
@@ -160,11 +160,11 @@ netsh interface portproxy add v4tov4 listenport=4000 listenaddress=0.0.0.0 conne
 
 WSL 2 distributions currently cannot reach IPv6-only addresses. We are working on adding this feature.
 
-## Expanding the size of your WSL 2 Virtual Hardware Disk
+## Expanding the size of your WSL 2 Virtual Hard Disk
 
-WSL 2 uses a Virtual Hardware Disk (VHD) to store your Linux files. If you reach its max size you may need to expand it.
+WSL 2 uses a Virtual Hard Disk (VHD) to store your Linux files. In WSL 2, a VHD is represented on your Windows hard drive as a *.vhdx* file.
 
-The WSL 2 VHD uses the ext4 file system. This VHD automatically resizes to meet your storage needs and has an initial maximum size of 256GB. If your distribution grows in size to be greater than 256GB, you will see errors stating that you've run out of disk space. You can fix this error by expanding the VHD size.
+The WSL 2 VHD uses the ext4 file system. This VHD automatically resizes to meet your storage needs and has an initial maximum size of 256GB. If the storage space required by your Linux files exceeds this size you may need to expand it. If your distribution grows in size to be greater than 256GB, you will see errors stating that you've run out of disk space. You can fix this error by expanding the VHD size.
 
 To expand your maximum VHD size beyond 256GB:
 
@@ -179,18 +179,54 @@ To expand your maximum VHD size beyond 256GB:
 
 4. Resize your WSL 2 VHD by completing the following commands:
    - Open Windows Command Prompt with admin privileges and enter:
-      - `diskpart`
-      - `Select vdisk file="<pathToVHD>"`
-      - `expand vdisk maximum="<sizeInMegaBytes>"`
+
+      ```powershell
+      diskpart
+      DISKPART> Select vdisk file="<pathToVHD>"
+      DISKPART> detail vdisk
+      ```
+
+   - Examine the output of the **detail** command.  The output will include a value for **Virtual size**.  This is the current maximum.  Convert this value to megabytes.  The new value after resizing must be greater than this value.  For example, if the **detail** output shows **Virtual size: 256 GB**, then you must specify a value greater than **256000**.  Once you have your new size in megabytes, enter the following command in **diskpart**:
+
+      ```powershell
+      DISKPART> expand vdisk maximum=<sizeInMegaBytes>
+      ```
+
+   - Exit **diskpart**
+
+      ```powershell
+      DISKPART> exit
+      ```
 
 5. Launch your WSL distribution (Ubuntu, for example).
 
-6. Make WSL aware that it can expand its file system's size by running these commands from your Linux distribution command line:
-    - `sudo mount -t devtmpfs none /dev`
-    - `mount | grep ext4`
-    - Copy the name of this entry, which will look like: `/dev/sdXX` (with the X representing any other character)
-    - `sudo resize2fs /dev/sdXX`
-    - Use the value you copied earlier. You may also need to install resize2fs: `apt install resize2fs`
+6. Make WSL aware that it can expand its file system's size by running these commands from your Linux distribution command line.
+
+   > [!NOTE]
+   > You may see this message in response to the first **mount** command: **/dev: none already mounted on /dev**.  This message can safely be ignored.
+
+   ```powershell
+      sudo mount -t devtmpfs none /dev
+      mount | grep ext4
+   ```
+
+   Copy the name of this entry, which will look like: `/dev/sdX` (with the X representing any other character).  In the following example the value of **X** is **b**:
+
+   ```powershell
+      sudo resize2fs /dev/sdb <sizeInMegabytes>M
+   ```
+
+   > [!NOTE]
+   > You may need to install **resize2fs**.  If so, you can use this command to install it:  `sudo apt install resize2fs`.
+
+   The output will look similar to the following:
+
+   ```bash
+      resize2fs 1.44.1 (24-Mar-2018)
+      Filesystem at /dev/sdb is mounted on /; on-line resizing required
+      old_desc_blocks = 32, new_desc_blocks = 38
+      The filesystem on /dev/sdb is now 78643200 (4k) blocks long.
+      ```
 
 > [!NOTE]
 > In general do not modify, move, or access the WSL related files located inside of your AppData folder using Windows tools or editors. Doing so could cause your Linux distribution to become corrupted.
