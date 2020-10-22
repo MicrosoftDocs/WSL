@@ -84,11 +84,6 @@ WSL 2
 
 To resolve this issue, please visit `https://aka.ms/wsl2kernel` and install the kernel manually by following the directions on that doc page. 
 
-<<<<<<< HEAD
-Please enable the Virtual Machine Platform Windows feature and ensure virtualization is enabled in the BIOS.
-
-=======
->>>>>>> master
 ### `command not found` when executing windows .exe in linux
 
 Users can run Windows executables like notepad.exe directly from Linux. Sometimes, you may hit "command not found" like below: 
