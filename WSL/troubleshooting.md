@@ -9,13 +9,13 @@ ms.localizationpriority: high
 
 # Troubleshooting Windows Subsystem for Linux
 
-For support with issues related to WSL, please see our GitHub repo: https://github.com/Microsoft/wsl/issues
+For support with issues related to WSL, please see our [WSL product repo on GitHub](https://github.com/Microsoft/wsl/issues).
 
 ## Search for any existing issues related to your problem
 
-For technical issues, use the product repo: https://github.com/Microsoft/wsl/issues
+For technical issues, use the [product repo](https://github.com/Microsoft/wsl/issues).
 
-For issues related to the contents of this documentation, use the docs repo: https://github.com/MicrosoftDocs/wsl/issues
+For issues related to the contents of this documentation, use the [docs repo](https://github.com/MicrosoftDocs/wsl/issues).
 
 ## Submit a bug report
 
@@ -23,8 +23,7 @@ For bugs related to WSL functions or features, file an issue in the product repo
 
 ## Submit a feature request
 
-To request a new feature related to WSL functionality or compatibility, file an issue in the product repo:
-	https://github.com/Microsoft/wsl/issues
+To request a new feature related to WSL functionality or compatibility, [file an issue in the product repo](https://github.com/Microsoft/wsl/issues).
 
 ## Contribute to the docs
 
@@ -36,34 +35,37 @@ Lastly, if your issue is related to the Windows Terminal, Windows Console, or th
 
 ## Common issues
 
-### I'm on Windows 10 version 1903 and I still do not see options for WSL 2. 
+### I'm on Windows 10 version 1903 and I still do not see options for WSL 2
 
-This is likely because your machine has not yet taken the backport for WSL 2. The simplest way to resolve this is by going to Windows Settings and clicking 'Check for Updates' to install the latest updates on your system. You can view the full instructions on taking the backport [here](https://devblogs.microsoft.com/commandline/wsl-2-support-is-coming-to-windows-10-versions-1903-and-1909/#how-do-i-get-it). 
+This is likely because your machine has not yet taken the backport for WSL 2. The simplest way to resolve this is by going to Windows Settings and clicking 'Check for Updates' to install the latest updates on your system. See [the full instructions on taking the backport](https://devblogs.microsoft.com/commandline/wsl-2-support-is-coming-to-windows-10-versions-1903-and-1909/#how-do-i-get-it).
 
-If you hit 'Check for Updates' and still do not receive the update you can install KB KB4566116 manually by [following this link](https://www.catalog.update.microsoft.com/Search.aspx?q=KB4566116).  
+If you hit 'Check for Updates' and still do not receive the update you can [install KB KB4566116 manually](https://www.catalog.update.microsoft.com/Search.aspx?q=KB4566116).  
 
 ### Error: 0x1bc when `wsl --set-default-version 2`
+
 This may happen when 'Display Language' or 'System Locale' setting is not English.
-```
+
+```powershell
 wsl --set-default-version 2
 Error: 0x1bc
 For information on key differences with WSL 2 please visit https://aka.ms/wsl2
 ```
 
 THe actual error for `0x1bc` is:
-```
+
+```powershell
 WSL 2 requires an update to its kernel component. For information please visit https://aka.ms/wsl2kernel
 ```
 
 For more information, please refer to issue [5749](https://github.com/microsoft/WSL/issues/5749)
 
-
 ### Cannot access WSL files from Windows
+
 A 9p protocol file server provides the service on the Linux side to allow Windows to access the Linux file system. If you cannot access WSL using `\\wsl$` on Windows, it could be because 9P did not start correctly.
 
-To check this, you can check the start up logs using: `dmesg |grep 9p`, and this will show you any errors. A successfull output looks like the following: 
+To check this, you can check the start up logs using: `dmesg |grep 9p`, and this will show you any errors. A successfull output looks like the following:
 
-```
+```bash
 [    0.363323] 9p: Installing v9fs 9p2000 file system support
 [    0.363336] FS-Cache: Netfs '9p' registered for caching
 [    0.398989] 9pnet: Installing 9P2000 support
@@ -71,7 +73,8 @@ To check this, you can check the start up logs using: `dmesg |grep 9p`, and this
 
 Please see [this Github thread](https://github.com/microsoft/wsl/issues/5307) for further discussion on this issue.
 
-### Can't start WSL 2 distro and only see 'WSL 2' in output
+### Can't start WSL 2 distribution and only see 'WSL 2' in output
+
 If your display language is not English, then it is possible you are seeing a truncated version of an error text.
 
 ```powershell
@@ -81,19 +84,51 @@ WSL 2
 
 To resolve this issue, please visit `https://aka.ms/wsl2kernel` and install the kernel manually by following the directions on that doc page. 
 
+Please enable the Virtual Machine Platform Windows feature and ensure virtualization is enabled in the BIOS.
+
+### `command not found` when executing windows .exe in linux
+
+Users can run Windows executables like notepad.exe directly from Linux. Sometimes, you may hit "command not found" like below: 
+
+```Bash
+$ notepad.exe
+-bash: notepad.exe: command not found
+```
+
+If there are no win32 paths in your $PATH, interop isn't going to find the .exe.
+You can verify it by running `echo $PATH` in Linux. It's expected that you will see a win32 path (for example, /mnt/c/Windows) in the output.
+If you can't see any Windows paths then most likely your PATH is being overwritten by your Linux shell. 
+
+Here is a an example that /etc/profile on Debian contributed to the problem:
+
+```Bash
+if [ "`id -u`" -eq 0 ]; then
+  PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+else
+  PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games"
+fi
+```
+
+The correct way on Debian is to remove above lines.
+You may also append $PATH during the assignment like below, but this lead to some [other problems](https://salsa.debian.org/debian/WSL/-/commit/7611edba482fd0b3f67143aa0fc1e2cc1d4100a6) with WSL and VSCode..
+
+For more information, see issue [5296](https://github.com/microsoft/WSL/issues/5296) and issue [5779](https://github.com/microsoft/WSL/issues/5779).
+
 ### "Error: 0x80370102 The virtual machine could not be started because a required feature is not installed."
 
 Please enable the Virtual Machine Platform Windows feature and ensure virtualization is enabled in the BIOS.
 
 1. Check the [Hyper-V system requirements](/windows-server/virtualization/hyper-v/system-requirements-for-hyper-v-on-windows#:~:text=on%20Windows%20Server.-,General%20requirements,the%20processor%20must%20have%20SLAT.)
-2. If your machine is a VM, please enable [nested virtualization](./wsl2-faq.md#can-i-run-wsl-2-in-a-virtual-machine) manually. Launch powershell with admin, and run: 
 
-```powershell
-Set-VMProcessor -VMName <VMName> -ExposeVirtualizationExtensions $true
-```
+2. If your machine is a VM, please enable [nested virtualization](./wsl2-faq.md#can-i-run-wsl-2-in-a-virtual-machine) manually. Launch powershell with admin, and run:
 
-3. Please follow guidelines from your PC's manufacturer on how to enable virtualization. In general, this can involve using the system BIOS to ensure that these features are enabled on your CPU. Instructions for this process can vary from machine to machine, please see [this article](https://www.bleepingcomputer.com/tutorials/how-to-enable-cpu-virtualization-in-your-computer-bios/) from Bleeping Computer for an example. 
-4. Restart your machine after enabling the `Virtual Machine Platform` optional component. 
+    ```powershell
+    Set-VMProcessor -VMName <VMName> -ExposeVirtualizationExtensions $true
+    ```
+
+3. Please follow guidelines from your PC's manufacturer on how to enable virtualization. In general, this can involve using the system BIOS to ensure that these features are enabled on your CPU. Instructions for this process can vary from machine to machine, please see [this article](https://www.bleepingcomputer.com/tutorials/how-to-enable-cpu-virtualization-in-your-computer-bios/) from Bleeping Computer for an example.
+
+4. Restart your machine after enabling the `Virtual Machine Platform` optional component.
 
 ### Bash loses network connectivity once connected to a VPN
 
@@ -311,7 +346,7 @@ This error is related to being in a bad install state. Please complete the follo
 
 If you're seeing this error:
 
-```
+```bash
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 @         WARNING: UNPROTECTED PRIVATE KEY FILE!          @
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -320,7 +355,7 @@ Permissions 0777 for '/home/artur/.ssh/private-key.pem' are too open.
 
 To fix this, append the following to the the ```/etc/wsl.conf``` file:
 
-```
+```bash
 [automount]
 enabled = true
 options = metadata,uid=1000,gid=1000,umask=0022
