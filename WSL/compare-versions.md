@@ -128,9 +128,10 @@ The picture below shows an example of this by connecting to a Node.js server usi
 ### Accessing Windows networking apps from Linux (host IP)
 
 If you want to access a networking app running on Windows (for example an app running on a NodeJS or SQL server) from your Linux distribution (ie Ubuntu), then you need to use the IP address of your host machine. While this is not a common scenario, you can follow these steps to make it work.
-    - Obtain the IP address of your host machine by running this command from your Linux distribution: `cat /etc/resolv.conf`
-    - Copy the IP address following the term: `nameserver`.
-    - Connect to any Windows server using the copied IP address.
+
+1. Obtain the IP address of your host machine by running this command from your Linux distribution: `cat /etc/resolv.conf`
+2. Copy the IP address following the term: `nameserver`.
+3. Connect to any Windows server using the copied IP address.
 
 The picture below shows an example of this by connecting to a Node.js server running in Windows via curl.
 
