@@ -14,6 +14,7 @@ If you want to access a Linux disk format that isn't supported by Windows, you c
 This tutorial will cover the steps to identify the disk and partition to attach to WSL2, how to mount them, and how to access them.
 
 > [!NOTE]
+> You will need to be on Windows 10 Build 20211 or higher to access this feature. You can join the [Windows Insiders Program](https://insider.windows.com/) to get the latest preview builds.
 > Administrator access is required to attach a disk to WSL 2.
 
 ## Identify the disk
