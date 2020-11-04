@@ -281,6 +281,7 @@ Setting different mount options for Windows drives (DrvFs) can control how file 
 |umask | An octal mask of permissions to exclude for all files and directories | 000
 |fmask | An octal mask of permissions to exclude for all files | 000
 |dmask | An octal mask of permissions to exclude for all directories | 000
+|metadata | Whether metadata is added to Windows files to support Linux system permissions | enabled
 
 **Note:** The permission masks are put through a logical OR operation before being applied to files or directories. 
 
