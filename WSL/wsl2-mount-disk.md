@@ -165,6 +165,18 @@ If `Diskpath` is omitted, all attached disks are unmounted and detached.
 > [!NOTE]
 > If one disk fails to unmount, WSL 2 can be forced to exit by running `wsl --shutdown`, which will detach the disk.
 
+## Mount a VHD in WSL
+
+You can also mount virtual hard disk files (VHD) into WSL using `wsl --mount`. To do this, you first need to mount the VHD into Windows using the [`Mount-VHD`](https://docs.microsoft.com/powershell/module/hyper-v/mount-vhd) command in Windows. Be sure to run this command in a window with administrator privileges. Below is an example where we use this command, and also output the disk path 
+
+```powershell
+Write-Output "\.\\PhysicalDrive$((Mount-VHD -Path .\ext4.vhdx -PassThru | Get-Disk).Number)"
+```
+
+You can use the output above to obtain the disk path for this VHD and mount that into WSL following the instructions in the previous section.
+
+You can also use this technique to mount and interact with the virtual hard disks of other WSL distros, as each WSL 2 distro is stored via a virtual hard disk file called: `ext4.vhdx`. By default the VHDs for WSL 2 distros are stored in this path: `C:\Users\[user]\AppData\Local\Packages\[distro]\LocalState\[distroPackageName]`, please exercise caution accessing these system files, this is a power user workflow.
+
 ## Limitations
 
 - At this time, only entire disks can be attached to WSL 2, meaning that it's not possible to attach only a partition. Concretely, this means that it's not possible to use `wsl --mount` to read a partition on the boot device, because that device can't be detached from Windows.
