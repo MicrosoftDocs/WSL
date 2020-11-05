@@ -98,7 +98,7 @@ wsl --unmount <DiskPath>
 
 ## Command line reference
 
-### Mouting a specific filesystem
+### Mounting a specific filesystem
 
 By default, WSL 2 will attempt to mount the device as ext4. To specify another filesystem, run:
 
@@ -115,7 +115,7 @@ wsl --mount <Diskpath> -t vfat
 > [!NOTE]
 > To list the available filesystems in WSL2, run: `cat /proc/filesystems`
 
-### Mouting a specific partition
+### Mounting a specific partition
 
 By default, WSL 2 attempts to mount the entire disk. To mount a specific partition, run:
 
