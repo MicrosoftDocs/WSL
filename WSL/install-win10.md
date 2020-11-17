@@ -11,7 +11,7 @@ ms.localizationpriority: high
 
 ## Install Windows Subsystem for Linux (Insiders)
 
-If you're on the latest build in the Windows Insiders program, you can install all of WSL with just one command.
+If you're on the latest build in the Windows Insiders program, you can install all of WSL with just one command. You can get these latest builds, and this new simplified install by [joining the Windows Insiders Program](https://insider.windows.com/en-us/getting-started).
 
 ### Pre-Requisites
 
@@ -23,6 +23,8 @@ If you're on the latest build in the Windows Insiders program, you can install a
 - Run `wsl.exe --install`
 - Restart your machine if necessary and directed by the command
 - Upon restart your installation will finish and you'll be ready to start using WSL!
+
+This will install the Ubuntu distribution. You can also install other distributions by passing in arguments, for example `wsl --install -d Debian` will install Debian. Running `wsl --list --online` will show you a list of available distributions. 
 
 ## Install Windows Subsystem for Linux (Retail)
 
