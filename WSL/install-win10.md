@@ -9,7 +9,22 @@ ms.localizationpriority: high
 
 # Windows Subsystem for Linux Installation Guide for Windows 10
 
-## Install Windows Subsystem for Linux
+## Install Windows Subsystem for Linux (Insiders)
+
+If you're on the latest build in the Windows Insiders program, you can install all of WSL with just one command.
+
+### Pre-Requisites
+
+- Please ensure you're using Windows Build **20211** or higher. (You can check your version by running `ver` in Command Prompt)
+
+### Install Steps
+
+- Open a command window with Administrator privileges
+- Run `wsl.exe --install`
+- Restart your machine if necessary and directed by the command
+- Upon restart your installation will finish and you'll be ready to start using WSL!
+
+## Install Windows Subsystem for Linux (Retail)
 
 Windows Subsystem for Linux has two different versions to choose between during the installation process. WSL 2 has better overall performance and we recommend using it. If your system does not support WSL 2, or you have a specific situation that requires cross-system file storage, then you may want to stick with WSL 1. Read more about [Comparing WSL 2 and WSL 1](./compare-versions.md).
 
