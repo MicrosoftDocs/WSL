@@ -11,7 +11,7 @@ ms.localizationpriority: high
 
 ## Install Windows Subsystem for Linux (Insiders)
 
-If you're on the latest build in the Windows Insiders program, you can install all of WSL with just one command. You can get these latest builds, and this new simplified install by [joining the Windows Insiders Program](https://insider.windows.com/en-us/getting-started).
+If you're on the latest build in the Windows Insiders program, you can enjoy the latest experience and install all of WSL with just one command. You can get these latest builds, and this new simplified install by [joining the Windows Insiders Program](https://insider.windows.com/en-us/getting-started).
 
 ### Pre-Requisites
 
