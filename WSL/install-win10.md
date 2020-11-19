@@ -13,6 +13,20 @@ ms.localizationpriority: high
 
 Windows Subsystem for Linux has two different versions to choose between during the installation process. WSL 2 has better overall performance and we recommend using it. If your system does not support WSL 2, or you have a specific situation that requires cross-system file storage, then you may want to stick with WSL 1. Read more about [Comparing WSL 2 and WSL 1](./compare-versions.md).
 
+> [!NOTE]
+> To use the new `wsl --install` command and skip steps 1-6 below, you need to join the [Windows Insiders Program](https://insider.windows.com/getting-started) and install a preview build of Windows 10 (OS build 20211 or higher). 
+>
+> Once the preview build is installed, you can open a command prompt window with administrator privileges and run `wsl --install`. This will automatically enable the optional WSL and Virtual Machine Platform components, download and install the latest Linux kernel, set WSL 2 as the default, and download Ubuntu (this can be changed using `wsl --install -d Debian` as an example, to see a list of available Linux distributions, enter `wsl --list --online`). Once the command has completed, you will be prompted to restart. After restarting, the Linux distribution (Ubuntu by default) completes installing and opens a Linux command line for you to begin using. You could then skip to [Step 7 - Set up a new distribution](./install-win10.md#step-7---set-up-a-new-distribution).
+
+### Install Steps
+
+- Open a command window with Administrator privileges
+- Run `wsl.exe --install`
+- Restart your machine if necessary and directed by the command
+- Upon restart your installation will finish and you'll be ready to start using WSL!
+
+This will install the Ubuntu distribution. You can also install other distributions by passing in arguments, for example `wsl --install -d Debian` will install Debian. Running `wsl --list --online` will show you a list of available distributions. 
+
 ## Step 1 - Enable the Windows Subsystem for Linux
 
 You must first enable the "Windows Subsystem for Linux" optional feature before installing any Linux distributions on Windows.
