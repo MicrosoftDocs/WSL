@@ -371,3 +371,7 @@ Some distributions [available in Microsoft Store](install-win10.md#step-6---inst
    If it contains assignment of the PATH variable, edit the file to comment out PATH assignment block with a **#** character.
 3. Check if wsl.conf is present `cat /etc/wsl.conf` and make sure it does not contain `appendWindowsPath=false`, otherwise comment it out.
 4. Restart distribution by typing `wsl -t ` followed by distribution name or run `wsl --shutdown` either in cmd or PowerShell.
+
+### Unable to boot after installing WSL 2
+
+We are aware of an issue affecting users where they are unable to boot after installing WSL 2. While we fully diagnose those issue, users have reported that [changing the buffer size](https://github.com/microsoft/WSL/issues/4784#issuecomment-639219363) or [installing the right drivers](https://github.com/microsoft/WSL/issues/4784#issuecomment-675702244) can help address this. Please view this [Github issue](https://github.com/microsoft/WSL/issues/4784) to see the latest updates on this issue. 
