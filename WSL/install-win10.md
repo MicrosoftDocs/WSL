@@ -14,10 +14,9 @@ ms.localizationpriority: high
 Windows Subsystem for Linux has two different versions to choose between during the installation process. WSL 2 has better overall performance and we recommend using it. If your system does not support WSL 2, or you have a specific situation that requires cross-system file storage, then you may want to stick with WSL 1. Read more about [Comparing WSL 2 and WSL 1](./compare-versions.md).
 
 > [!NOTE]
-> If you would like to run the latest Windows Insiders preview build of Windows 10 on your machine, you can use the new WSL single-command install: `wsl --install`. To do this, ensure you are using Windows 10 OS preview build 20211 or higher (You can join the [Windows Insiders Program](https://insider.windows.com/getting-started) to get preview builds). Then, open a command prompt window with administrator privileges and run `wsl --install`. This would eliminate the need to follow steps 1-6 below, so you could jump straight to [Step 7 - Set up a new distribution](./install-win10.md#step-7---set-up-a-new-distribution).
-> 
-> Using the command `wsl --install` will automatically accomplish the following install steps: Enable the optional WSL and Virtual Machine Platform components, download and install the latest Linux kernel, set WSL 2 as the default distribution type, and download Ubuntu (this can be changed using `wsl --install -d Debian` as an example, to see a list of available Linux distributions, enter `wsl --list --online`). Once the command has completed, you will be prompted to restart. After restarting, the Linux distribution (Ubuntu by default) completes installing and opens a Linux command line for you to begin using.
-> 
+> To use the new `wsl --install` command and skip steps 1-6 below, you need to join the [Windows Insiders Program](https://insider.windows.com/getting-started) and install a preview build of Windows 10 (OS build 20211 or higher). 
+>
+> Once the preview build is installed, you can open a command prompt window with administrator privileges and run `wsl --install`. This will automatically enable the optional WSL and Virtual Machine Platform components, download and install the latest Linux kernel, set WSL 2 as the default, and download Ubuntu (this can be changed using `wsl --install -d Debian` as an example, to see a list of available Linux distributions, enter `wsl --list --online`). Once the command has completed, you will be prompted to restart. After restarting, the Linux distribution (Ubuntu by default) completes installing and opens a Linux command line for you to begin using. You could then skip to [Step 7 - Set up a new distribution](./install-win10.md#step-7---set-up-a-new-distribution).
 
 ### Install Steps
 
