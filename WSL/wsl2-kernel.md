@@ -43,8 +43,9 @@ To install MSI kernel, WSL is required and should be enabled first. If it fails,
 
 There are three possible reason you see this message:
 
-1. You are still in old version of Windows which doesn't support WSL 2. Please check the [WSL 2 requirements](https://docs.microsoft.com/windows/wsl/install-win10#update-to-wsl-2) and upgrade to use WSL 2. 
-2. `Windows Subsystem for Linux` is not enabled. Please follow the [Windows Subsystem for Linux Installation Guide](https://docs.microsoft.com/windows/wsl/install-win10).
+1. You are still in old version of Windows which doesn't support WSL 2. Please check the [WSL 2 requirements](./install-win10.md#step-2---update-to-wsl-2) and upgrade to use WSL 
+2. 
+2. `Windows Subsystem for Linux` is not enabled. Please follow the [Windows Subsystem for Linux Installation Guide](./install-win10.md#step-1---enable-the-windows-subsystem-for-linux).
 3. After you enabled `Windows Subsystem for Linux`, a reboot is required to take into effect, please reboot your machine and try again.
 
 ### `WSL 2 requires an update to its kernel component. For information please visit https://aka.ms/wsl2kernel`
