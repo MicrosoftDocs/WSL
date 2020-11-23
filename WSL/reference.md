@@ -19,6 +19,10 @@ Run the following command in Powershell to set WSL 2 as the default version when
 ```powershell
 wsl --set-default-version 2
 ```
+Note - if you're running a 32-bit process in order to access wsl.exe (a 64-bit tool), you may have to run the above command in the following manner:
+```powershell
+C:\Windows\Sysnative\wsl.exe --set-default-version 2
+```
 
 ## Set your distribution version to WSL 1 or WSL 2
 
