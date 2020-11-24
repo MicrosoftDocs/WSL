@@ -82,7 +82,7 @@ Let's use Docker to create a development container for an existing app project.
 1. For this example, I'll use the source code from my [Hello World tutorial for Django](/windows/python/web-frameworks#hello-world-tutorial-for-django) in the Python development environment set up docs. You can skip this step if you prefer to use your own project source code. To download my HelloWorld-Django web app from GitHub, open a WSL terminal (Ubuntu for example) and enter: `git clone https://github.com/mattwojo/helloworld-django.git`
 
     > [!NOTE]
-    > Always store your code in the same file system that you're using tools in. This will result in faster file access performance. In this example, we are using a Linux distro (Ubuntu) and want to store our project files on the WSL file system `\\wsl\`. Storing project files on the Windows file system would significantly slow things down when using Linux tools in WSL to access those files.
+    > Always store your code in the same file system that you're using tools in. This will result in faster file access performance. In this example, we are using a Linux distro (Ubuntu) and want to store our project files on the WSL file system `\\wsl$\`. Storing project files on the Windows file system would significantly slow things down when using Linux tools in WSL to access those files.
 
 2. From your WSL terminal, change directories to the source code folder for this project:
 
