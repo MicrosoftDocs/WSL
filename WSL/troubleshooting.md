@@ -296,7 +296,7 @@ Trying to connect your SSH server is failed with the following error: "Connectio
    ```
 
    and you've followed this tutorial:
-   https://help.ubuntu.com/lts/serverguide/openssh-server.html.en
+   https://ubuntu.com/server/docs/service-openssh
 
 2. Stop the sshd service and start sshd in debug mode:
 
