@@ -69,10 +69,10 @@ dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /nores
 ## Step 4 - Download the Linux kernel update package
 
 1. Download the latest package:
-    - [WSL2 Linux kernel update package for x64 machines](https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi)
+    - [WSL2 Linux kernel update package for x64 machines](http://aka.ms/wsl2kernelmsix64)
 
     > [!NOTE]
-    > If you're using an ARM64 machine, please download the [ARM64 package](https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_arm64.msi) instead. If you're not sure what kind of machine you have, open Command Prompt or PowerShell and enter: `systeminfo | find "System Type"`.
+    > If you're using an ARM64 machine, please download the [ARM64 package](http://aka.ms/wsl2kernelmsiarm64) instead. If you're not sure what kind of machine you have, open Command Prompt or PowerShell and enter: `systeminfo | find "System Type"`.
 
 2. Run the update package downloaded in the previous step. (Double-click to run - you will be prompted for elevated permissions, select ‘yes’ to approve this installation.)
 
