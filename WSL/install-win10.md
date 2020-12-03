@@ -17,20 +17,16 @@ The installation process for Windows Subsystem for Linux has been greatly enhanc
 
 - Open a command window with Administrator privileges
 - Run `wsl.exe --install`
-- Restart your machine if necessary and directed by the command
+- Restart your machine
+
+> [!NOTE]
+> To use the new `wsl --install` command, you need to join the [Windows Insiders Program](https://insider.windows.com/getting-started) and install a preview build of Windows 10 (OS build 20262 or higher). 
 
 The first time you launch a newly installed Linux distribution, a console window will open and you'll be asked to wait for a minute or two for files to de-compress and be stored on your PC. All future launches should take less than a second.
 
 You will then need to [create a user account and password for your new Linux distribution](./user-support.md).
 
-![Ubuntu unpacking in the Windows console](media/UbuntuInstall.png)
-
 **CONGRATULATIONS! You've successfully installed and set up a Linux distribution that is completely integrated with your Windows operating system!**
-
-
-> [!NOTE]
-> To use the new `wsl --install` command, you need to join the [Windows Insiders Program](https://insider.windows.com/getting-started) and install a preview build of Windows 10 (OS build 20262 or higher). 
-
 
 The --install command performs the following actions:
 - Enable the optional WSL and Virtual Machine Platform components
@@ -39,8 +35,7 @@ The --install command performs the following actions:
 - Download and install a Linux Distro
 - (After reboot, if required) Finish installing the Distro
 
- By default, the installed distro will be Ubuntu, but this can be changed using `wsl --install -d {Distro}`. To see a list of available Linux distributions, enter `wsl --list --online`). Additional Distros may also be added after the initial install using the `wsl --install -d {Distro}` command.
-
+ By default, the installed distro will be Ubuntu, but this can be changed using `wsl --install -d <Distro>`. To see a list of available Linux distributions, enter `wsl --list --online`). Additional Distros may also be added after the initial install using the `wsl --install -d <Distro>` command.
 
 ## Installation Steps of WSL 2 without using --install
 
@@ -56,14 +51,14 @@ Open PowerShell as Administrator and run:
 dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
 ```
 
-## Step 2 - Choose WSL 2 or WSL 1
+We recommend now moving on to step #2, updating to WSL 2, but if you wish to only install WSL 1, you can now **restart** your machine and move on to [Step 6 - Install your Linux distribution of choice](./install-win10.md#step-6---install-your-linux-distribution-of-choice). To update to WSL 2, **wait to restart** your machine and move on to the next step.
 
-Windows Subsystem for Linux has two different versions to choose between during the installation process. WSL 2 has better overall performance and we recommend using it. If your system does not support WSL 2, or you have a specific situation that requires cross-system file storage, then you may want to stick with WSL 1. Read more about [Comparing WSL 2 and WSL 1](./compare-versions.md).
+## Step 2 - Update to WSL 2
 
-We recommend using WSL 2, but if you need to only use WSL 1, you can now **restart** your machine and move on to [Step 6 - Install your Linux distribution of choice](./install-win10.md#step-6---install-your-linux-distribution-of-choice). To use WSL 2, **wait to restart** your machine and move on to the next step.
+To update to WSL 2, you must be running Windows 10.
 
-### WSL 2 Requirements
-To use WSL 2, you must be running the following versions of Windows 10:
+### Requirements
+
 - For x64 systems: **Version 1903** or higher, with **Build 18362** or higher.
 - For ARM64 systems: **Version 2004** or higher, with **Build 19041** or higher.
 - Builds lower than 18362 do not support WSL 2. Use the [Windows Update Assistant](https://www.microsoft.com/software-download/windows10) to update your version of Windows.
@@ -88,10 +83,10 @@ dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /nores
 ## Step 4 - Download the Linux kernel update package
 
 1. Download the latest package:
-    - [WSL2 Linux kernel update package for x64 machines](http://aka.ms/wsl2kernelmsix64)
+    - [WSL2 Linux kernel update package for x64 machines](https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi)
 
     > [!NOTE]
-    > If you're using an ARM64 machine, please download the [ARM64 package](http://aka.ms/wsl2kernelmsiarm64) instead. If you're not sure what kind of machine you have, open Command Prompt or PowerShell and enter: `systeminfo | find "System Type"`.
+    > If you're using an ARM64 machine, please download the [ARM64 package](https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_arm64.msi) instead. If you're not sure what kind of machine you have, open Command Prompt or PowerShell and enter: `systeminfo | find "System Type"`.
 
 2. Run the update package downloaded in the previous step. (Double-click to run - you will be prompted for elevated permissions, select ‘yes’ to approve this installation.)
 
