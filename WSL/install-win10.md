@@ -9,18 +9,18 @@ ms.localizationpriority: high
 
 # Windows Subsystem for Linux Installation Guide for Windows 10
 
-## Installation For Windows Insiders using --install
+## Simplified Installation for Windows Insiders
 
-The installation process for Windows Subsystem for Linux has been greatly enhanced in Windows Insiders builds.  The previously manual steps have all been replaced with a single command,making the process simple and reliable.
+The installation process for Windows Subsystem for Linux has been greatly enhanced in Windows Insiders builds.  The previously manual steps have all been replaced with a single command, making the process simple and reliable.
+
+> [!NOTE]
+> To use the new `wsl --install` command, you need to join the [Windows Insiders Program](https://insider.windows.com/getting-started) and install a preview build of Windows 10 (OS build 20262 or higher). 
 
 ### Install Steps
 
 - Open a command window with Administrator privileges
 - Run `wsl.exe --install`
 - Restart your machine
-
-> [!NOTE]
-> To use the new `wsl --install` command, you need to join the [Windows Insiders Program](https://insider.windows.com/getting-started) and install a preview build of Windows 10 (OS build 20262 or higher). 
 
 The first time you launch a newly installed Linux distribution, a console window will open and you'll be asked to wait for a minute or two for files to de-compress and be stored on your PC. All future launches should take less than a second.
 
@@ -37,9 +37,9 @@ The --install command performs the following actions:
 
  By default, the installed distro will be Ubuntu, but this can be changed using `wsl --install -d <Distro>`. To see a list of available Linux distributions, enter `wsl --list --online`). Additional Distros may also be added after the initial install using the `wsl --install -d <Distro>` command.
 
-## Installation Steps of WSL 2 without using --install
+## Install Steps
 
-If you are not on a Windows Insiders build, the installation is a more manual process.
+If you are not on a Windows Insiders build, the features required for WSL will need to be enabled manually.
 
 ## Step 1 - Enable the Windows Subsystem for Linux
 
