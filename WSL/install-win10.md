@@ -9,37 +9,19 @@ ms.localizationpriority: high
 
 # Windows Subsystem for Linux Installation Guide for Windows 10
 
-## Simplified Installation for Windows Insiders
+There are two options available for installing Windows Subsystem for Linux (WSL):
 
-The installation process for Windows Subsystem for Linux has been greatly enhanced in Windows Insiders builds.  The previously manual steps have all been replaced with a single command, making the process simple and reliable.
+- **[Manual install](#manual-installation-steps)**: Follow the six steps listed below.
 
-> [!NOTE]
-> To use the new `wsl --install` command, you need to join the [Windows Insiders Program](https://insider.windows.com/getting-started) and install a preview build of Windows 10 (OS build 20262 or higher). 
+    The manual install steps for WSL are listed below and can be used to install Linux on any version of Windows 10.
 
-### Install Steps
+- **[Simplified install](#simplified-installation-for-windows-insiders)** *(preview release)*: `wsl --install`
 
-- Open a command window with Administrator privileges
-- Run `wsl.exe --install`
-- Restart your machine
+    The `wsl --install` simplified install command requires that you join the [Windows Insiders Program](https://insider.windows.com/getting-started) and install a preview build of Windows 10 (OS build 20262 or higher), but eliminates the need to follow the manual install steps. [Skip directly to the simplified `wsl --install` steps for Windows Insiders](#simplified-installation-for-windows-insiders).
 
-The first time you launch a newly installed Linux distribution, a console window will open and you'll be asked to wait for a minute or two for files to de-compress and be stored on your PC. All future launches should take less than a second.
+## Manual Installation Steps
 
-You will then need to [create a user account and password for your new Linux distribution](./user-support.md).
-
-**CONGRATULATIONS! You've successfully installed and set up a Linux distribution that is completely integrated with your Windows operating system!**
-
-The --install command performs the following actions:
-- Enable the optional WSL and Virtual Machine Platform components
-- Download and install the latest Linux kernel
-- Set WSL 2 as the default
-- Download and install a Linux Distro
-- (After reboot, if required) Finish installing the Distro
-
- By default, the installed distro will be Ubuntu, but this can be changed using `wsl --install -d <Distro>`. To see a list of available Linux distributions, enter `wsl --list --online`). Additional Distros may also be added after the initial install using the `wsl --install -d <Distro>` command.
-
-## Install Steps
-
-If you are not on a Windows Insiders build, the features required for WSL will need to be enabled manually.
+If you are not on a Windows Insiders build, the features required for WSL will need to be enabled manually following the steps below.
 
 ## Step 1 - Enable the Windows Subsystem for Linux
 
@@ -142,6 +124,38 @@ You will then need to [create a user account and password for your new Linux dis
 ![Ubuntu unpacking in the Windows console](media/UbuntuInstall.png)
 
 **CONGRATULATIONS! You've successfully installed and set up a Linux distribution that is completely integrated with your Windows operating system!**
+
+## Simplified Installation for Windows Insiders
+
+The installation process for Windows Subsystem for Linux has been significantly improved in the latest Windows Insiders preview builds of Windows 10, replacing the manual steps below with a single command.
+
+In order to use the `wsl --install` simplified install command, you must:
+
+- Join the [Windows Insiders Program](https://insider.windows.com/getting-started)
+- Install a preview build of Windows 10 (OS build 20262 or higher).
+- Open a command line windows with Administrator privileges
+
+Once those requirements are met, to install WSL:
+
+- Enter this command in the command line you've opened in Admin mode: `wsl.exe --install`
+- Restart your machine
+
+The first time you launch a newly installed Linux distribution, a console window will open and you'll be asked to wait for files to de-compress and be stored on your PC. All future launches should take less than a second.
+
+You will then need to [create a user account and password for your new Linux distribution](./user-support.md).
+
+**CONGRATULATIONS! You've successfully installed and set up a Linux distribution that is completely integrated with your Windows operating system!**
+
+The --install command performs the following actions:
+
+- Enables the optional WSL and Virtual Machine Platform components
+- Downloads and installs the latest Linux kernel
+- Sets WSL 2 as the default
+- Downloads and installs a Linux distribution *(reboot may be required)*
+
+By default, the installed Linux distribution will be Ubuntu. This can be changed using `wsl --install -d <Distribution Name>`. *(Replacing `<Distribution Name>` with the name of your desired distribution.)* Additional Linux distributions may be added to your machine after the initial install using the `wsl --install -d <Distribution Name>` command.
+
+To see a list of available Linux distributions, enter `wsl --list --online`.
 
 ## Install Windows Terminal (optional)
 
