@@ -157,38 +157,6 @@ You will then need to [create a user account and password for your new Linux dis
 
 **CONGRATULATIONS! You've successfully installed and set up a Linux distribution that is completely integrated with your Windows operating system!**
 
-## Simplified Installation for Windows Insiders
-
-The installation process for Windows Subsystem for Linux has been significantly improved in the latest Windows Insiders preview builds of Windows 10, replacing the manual steps below with a single command.
-
-In order to use the `wsl --install` simplified install command, you must:
-
-- Join the [Windows Insiders Program](https://insider.windows.com/getting-started)
-- Install a preview build of Windows 10 (OS build 20262 or higher).
-- Open a command line windows with Administrator privileges
-
-Once those requirements are met, to install WSL:
-
-- Enter this command in the command line you've opened in Admin mode: `wsl.exe --install`
-- Restart your machine
-
-The first time you launch a newly installed Linux distribution, a console window will open and you'll be asked to wait for files to de-compress and be stored on your PC. All future launches should take less than a second.
-
-You will then need to [create a user account and password for your new Linux distribution](./user-support.md).
-
-**CONGRATULATIONS! You've successfully installed and set up a Linux distribution that is completely integrated with your Windows operating system!**
-
-The --install command performs the following actions:
-
-- Enables the optional WSL and Virtual Machine Platform components
-- Downloads and installs the latest Linux kernel
-- Sets WSL 2 as the default
-- Downloads and installs a Linux distribution *(reboot may be required)*
-
-By default, the installed Linux distribution will be Ubuntu. This can be changed using `wsl --install -d <Distribution Name>`. *(Replacing `<Distribution Name>` with the name of your desired distribution.)* Additional Linux distributions may be added to your machine after the initial install using the `wsl --install -d <Distribution Name>` command.
-
-To see a list of available Linux distributions, enter `wsl --list --online`.
-
 ## Install Windows Terminal (optional)
 
 Windows Terminal enables multiple tabs (quickly switch between multiple Linux command lines, Windows Command Prompt, PowerShell, Azure CLI, etc), create custom key bindings (shortcut keys for opening or closing tabs, copy+paste, etc.), use the search feature, and custom themes (color schemes, font styles and sizes, background image/blur/transparency). [Learn more.](/windows/terminal)
