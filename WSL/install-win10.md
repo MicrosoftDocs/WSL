@@ -13,7 +13,7 @@ There are two options available for installing Windows Subsystem for Linux (WSL)
 
 - **[Simplified install](#simplified-installation-for-windows-insiders)** *(preview release)*: `wsl --install`
 
-    The `wsl --install` simplified install command requires that you join the [Windows Insiders Program](https://insider.windows.com/getting-started) and install a preview build of Windows 10 (OS build 20262 or higher), but eliminates the need to follow the manual install steps. All you need to do is open a command window with administrator privileges and run `wsl --install`, after a restart you will be ready to use WSL. [Click here to learn more about this command](#simplified-installation-for-windows-insiders).
+    The `wsl --install` simplified install command requires that you join the [Windows Insiders Program](https://insider.windows.com/getting-started) and install a preview build of Windows 10 (OS build 20262 or higher), but eliminates the need to follow the manual install steps. All you need to do is open a command window with administrator privileges and run `wsl --install`, after a restart you will be ready to use WSL.
 
 - **[Manual install](#manual-installation-steps)**: Follow the six steps listed below.
 
