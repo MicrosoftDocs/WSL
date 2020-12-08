@@ -5,7 +5,7 @@ keywords: BashOnWindows, bash, wsl, windows, windowssubsystem, gnu, linux, ubunt
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.localizationpriority: high
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 ---
 
 # Comparing WSL 1 and WSL 2
