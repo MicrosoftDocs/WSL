@@ -1,11 +1,9 @@
 ---
 title: Install the Linux Subsystem on Windows Server
-description: Installation instructions for the Linux Subsystem on Windows Server.
+description: Learn how to install the Linux Subsystem on Windows Server. WSL is available for installation on Windows Server 2019 (version 1709) and later.
 keywords: BashOnWindows, bash, wsl, windows, windows subsystem for linux, windowssubsystem, ubuntu, windows server
-ms.date: 05/22/2018
+ms.date: 05/12/2020
 ms.topic: article
-ms.assetid: 9281ffa2-4fa9-4078-bf6f-b51c967617e3
-ms.custom: seodec18
 ms.localizationpriority: high
 ---
 
@@ -24,24 +22,11 @@ Open PowerShell as Administrator and run:
 
 ```
 
-**If you're looking for 100% system call compatibility and faster IO performance, read below to install WSL 2!**
-> WSL 2 is only available in Windows 10 builds 18917 or higher
-
-**If continuing with WSL 1, restart your machine when prompted and continue with installation [here](./install-on-server.md##download-a-linux-distro)**
-
-## Enable the Virtual Machine Platform optional component
-
-Ensure the 'Virtual Machine Platform' optional component is installed. You can do that by running the following command in PowerShell:
-
-```powershell
-dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
-```
-
-## Download a Linux distro
+## Download a Linux distribution
 
 Follow [these instructions](install-manual.md) to download your favorite Linux distribution.
 
-## Extract and install a Linux distro
+## Extract and install a Linux distribution
 
 Now that you've downloaded a Linux distribution, in order to extract its contents and manually install, follow these steps:
 
@@ -61,11 +46,11 @@ Now that you've downloaded a Linux distribution, in order to extract its content
 
 3.Add your distro path to the Windows environment PATH (`C:\Users\Administrator\Ubuntu` in this example), using PowerShell:
 
-   ```powershell
-    $userenv = [System.Environment]::GetEnvironmentVariable("Path", "User")
-    [System.Environment]::SetEnvironmentVariable("PATH", $userenv + ";C:\Users\Administrator\Ubuntu", "User")
-    ```
-    You can now launch your distribution from any path by typing `<distro>.exe`. For example: `ubuntu.exe`.
+```powershell
+$userenv = [System.Environment]::GetEnvironmentVariable("Path", "User")
+[System.Environment]::SetEnvironmentVariable("PATH", $userenv + ";C:\Users\Administrator\Ubuntu", "User")
+```
 
+You can now launch your distribution from any path by typing `<distro>.exe`. For example: `ubuntu.exe`.
 
 Now that it is installed, you must [initialize your new distribution instance](initialize-distro.md) before using it.

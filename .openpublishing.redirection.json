@@ -16,13 +16,33 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "WSL/index.md",
-      "redirect_url": "about",
+      "source_path": "wsl/initialize-distro.md",
+      "redirect_url": "install-win10",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "wsl/wsl2-ux-changes.md",
+      "redirect_url": "compare-versions",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "wsl/wsl2-install.md",
+      "redirect_url": "install-win10",
       "redirect_document_id": false
     },
     {
-      "source_path": "wsl/initialize-distro.md",
-      "redirect_url": "wsl/install-win10",
+      "source_path": "wsl/wsl2-about.md",
+      "redirect_url": "compare-versions#whats-new-in-wsl-2",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "wsl/wsl2-index.md",
+      "redirect_url": "compare-versions#whats-new-in-wsl-2",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "wsl/wsl2-kernel.md",
+      "redirect_url": "install-win10#step-4---download-the-linux-kernel-update-package",
       "redirect_document_id": true
     }
   ]

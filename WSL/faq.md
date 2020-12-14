@@ -1,8 +1,8 @@
 ---
 title: Frequently Asked Questions (FAQ)
-description: Frequently Asked Questions about the Windows Subsystem for Linux.
+description: "Find answers to frequently asked questions (FAQs) about the Windows Subsystem for Linux, such as 'What can I do with WSL?'."
 keywords: BashOnWindows, bash, wsl, windows, windowssubsystem, faq
-ms.date: 9/4/2018
+ms.date: 09/15/2020
 ms.topic: article
 ms.assetid: 129101ed-b88a-43c2-b6a2-cd2c4ff6fee1
 ms.localizationpriority: high
@@ -30,13 +30,17 @@ You can also access your local machine’s filesystem from within the Linux Bash
 
 ![Screenshot of mounted C drive](media/ls.png)
 
+## Could you describe a typical development workflow that incorporates WSL?
+
+WSL targets a developer audience with the intent to be used as part of an inner development loop. Let's say that Sam is creating a CI/CD pipeline (Continuous Integration & Continuous Delivery) and wants to test it first on a local machine (laptop) before deploying it to the cloud. Sam can enable WSL (& WSL 2 to improve speed and performance), and then use a genuine Linux Ubuntu instance locally (on the laptop) with whatever Bash commands and tools they prefer. Once the development pipeline is verified locally, Sam can then push that CI/CD pipeline up to the cloud (ie Azure) by making it into a Docker container and pushing the container to a cloud instance where it runs on a production-ready Ubuntu VM.
+
 ## What is Bash?
 
 [Bash](https://en.wikipedia.org/wiki/Bash_%28Unix_shell%29) is a popular text-based shell and command-language. It is the default shell included within Ubuntu and other Linux distros, and in macOS. Users type commands into a shell to execute scripts and/or run commands and tools to accomplish many tasks.
 
 ## How does this work?
 
-Check out our [blog](https://blogs.msdn.microsoft.com/wsl/) where we go into detail about the underlying technology.
+Check out our [blog](/archive/blogs/wsl/) where we go into detail about the underlying technology.
 
 ## Why would I use WSL rather than Linux in a VM?
 
@@ -94,7 +98,7 @@ git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/libexec
 
 Now any git operation you perform within your WSL distribution will use the credential manager. If you already have credentials cached for a host, it will access them from the credential manager. If not, you'll receive a dialog response requesting your credentials, even if you're in a Linux console.
 
-This support relies on the [interoperability between Windows Subsystem for Linux and Windows itself](https://docs.microsoft.com/windows/wsl/interop).
+This support relies on the [interoperability between Windows Subsystem for Linux and Windows itself](./interop.md).
 
 ## How do I use a Windows file with a Linux app?
 
@@ -152,7 +156,7 @@ On builds prior to 1709 (16299) open a command prompt and run:
   lxrun /uninstall /full
   ```
   
-WSL distributions installed from the store can be uninstalled like any other Windows app, by right-clicking on the app tile and clicking Uninstall, or via PowerShell using the [`Remove-AppxPackage` cmdlet](https://technet.microsoft.com/library/hh856038.aspx).
+WSL distributions installed from the store can be uninstalled like any other Windows app, by right-clicking on the app tile and clicking Uninstall, or via PowerShell using the [`Remove-AppxPackage` cmdlet](/previous-versions//hh856038(v=technet.10)).
 
 ## Why does ping generate permission denied errors?
 
@@ -172,7 +176,7 @@ WSL does not support running in a legacy console. To turn off legacy console:
 
 ## Why do I get "Error: 0x80040154" when I run bash.exe after upgrading Windows?
 
-The "Windows Subsystem for Linux" feature may be disabled during a Windows update. If this happens the Windows feature must be re-enabled. Instructions for enabling the "Windows Subsystem for Linux" feature can be found in the [Installation Guide](https://docs.microsoft.com/windows/wsl/install-win10#install-the-windows-subsystem-for-linux).
+The "Windows Subsystem for Linux" feature may be disabled during a Windows update. If this happens the Windows feature must be re-enabled. Instructions for enabling the "Windows Subsystem for Linux" feature can be found in the [Installation Guide](./install-win10.md).
 
 ## How do I change the display language of WSL?
 
@@ -197,9 +201,9 @@ In some cases turning off the firewall allows for access. In some cases simply h
 ## How do I access a port from WSL in Windows?
 WSL shares the IP address of Windows, as it is running on Windows. As such you can access any ports on localhost e.g. if you had web content on port 1234 you could https://localhost:1234 into your Windows browser.
 
-## How can I back up my WSL distros?
+## How can I back up my WSL distros, or move them from one drive to another?
 
-The best way to backup your distros is available in Windows Version 1809 and later. You can export your entire distribution to a tarball using the `wsl --export` command. You can then import this distro back into WSL using the `wsl --import` command, allowing you to backup and save states of your WSL distributions. 
+The best way to backup or move your distros is via the export/import commands available in Windows Version 1809 and later. You can export your entire distribution to a tarball using the `wsl --export` command. You can then import this distro back into WSL using the `wsl --import` command, which can name a new drive location for the import, allowing you to backup and save states of (or move) your WSL distributions. 
 
 Please note that traditional backup services that backup files in your Appdata folders (like Windows Backup) will not corrupt your Linux files.
 
