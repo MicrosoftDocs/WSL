@@ -1,6 +1,6 @@
 ---
-title: Windows Subsystem for Linux for Enterprise
-description: Resources and instructions on how to best use the Windows Subsystem for Linux in an Enterprise environment.
+title: WSL for Enterprise
+description: Resources and instructions on how to best use the WSL in an Enterprise environment.
 keywords: BashOnWindows, bash, wsl, windows, windows subsystem for linux, windowssubsystem, ubuntu, debian, suse, windows 10, enterprise, deployment, offline, packaging, store, distribution, installation, install
 ms.date: 09/04/2018
 ms.topic: article

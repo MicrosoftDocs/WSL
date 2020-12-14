@@ -35,7 +35,7 @@
     - name: File permissions
       href: file-permissions.md
     - name: Set up WSL for your company
-      href: enterprise.md
+      href: enterprise-current.md
     - name: Build a custom distro
       href: build-custom-distro.md
     - name: Mount a disk in WSL 2 (Preview)

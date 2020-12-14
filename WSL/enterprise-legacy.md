@@ -20,28 +20,16 @@ If you're a company that's just looking to get set up to start deploying WSL, fo
 
 ## How to distribute a Linux distribution on Windows offline
 
-<<<<<<< HEAD:WSL/enterprise-legacy.md
-If the computers in your company don't have access to the Microsoft Store or the Microsoft Store for Business, then you can download the installer of a Linux distro that has an offline license by following these steps.
-
-### Set up an Azure Active Directory (AD) Account
-=======
 If the computers in your company don't have access to the Microsoft Store or the Microsoft Store for Business, then you can download the installer of a Linux distribution that has an offline license by following these steps.
 
 ### Set up an Azure Active Directory account
->>>>>>> 07c5d790871104ba71e689d98d6d4a30203fffce:WSL/enterprise.md
 
 You need to [sign up for an Azure AD account](/azure/active-directory/fundamentals/sign-up-organization?WT.mc_id=windows-c9-niner) and be the global administrator for your organization to get the installer of Microsoft Store apps. If you already have an account, you can skip this step.
 
 ### Set up WSL using your Microsoft Store for Business account
 
-<<<<<<< HEAD:WSL/enterprise-legacy.md
-### Sign into the Store for Business and go to the homepage
-
-Sign in here: https://www.microsoft.com/business-store
-=======
 The instructions to register an account are found here:
 https://docs.microsoft.com/microsoft-store/sign-up-microsoft-store-for-business
->>>>>>> 07c5d790871104ba71e689d98d6d4a30203fffce:WSL/enterprise.md
 
 1. Sign into the Store for Business and go to the homepage: https://www.microsoft.com/business-store
 

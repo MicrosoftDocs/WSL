@@ -63,7 +63,7 @@ Individual Linux distributions can be run with either the WSL 1 or WSL 2 archite
 
 * [Set up file permissions](./file-permissions.md)
 
-* [Set up WSL for Enterprise](./enterprise.md)
+* [Set up WSL for Enterprise](./enterprise-current.md)
 
 * [Reference WSL commands](./reference.md)
 
