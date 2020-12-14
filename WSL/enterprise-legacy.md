@@ -21,9 +21,9 @@ If you're a company that's just looking to get set up to start deploying WSL you
 
 ## How to Distribute a Distro Offline
 
-If the computers in your company don't have access to the Microsoft Store or the Microsoft Store for Business, then you can download the installer of a Linux distro that has an offline license by following these steps. 
+If the computers in your company don't have access to the Microsoft Store or the Microsoft Store for Business, then you can download the installer of a Linux distro that has an offline license by following these steps.
 
-### Set up an Azure Active Directory (AD) Account 
+### Set up an Azure Active Directory (AD) Account
 
 You need to have an Azure AD account and be the global administrator for your organization to get the installer of Microsoft Store apps. If you already have an account, you can skip this step.
 
@@ -31,6 +31,7 @@ The instructions to register an account can be found here:
 https://docs.microsoft.com/microsoft-store/sign-up-microsoft-store-for-business
 
 ### Sign into the Store for Business and go to the homepage
+
 Sign in here: https://www.microsoft.com/business-store
 
 ![MS Store for business home page](media/offlineinstallscreens/1-screen.png)
