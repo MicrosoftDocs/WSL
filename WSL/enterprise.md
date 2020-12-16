@@ -12,7 +12,7 @@ ms.custom: seodec18
 
 As an administrator or manager, you may require all developers to use the same approved software. This consistency helps to create a well-defined work environment. The Windows Subsystem for Linux aids in this consistency by allowing you to import and export custom WSL images from one machine to the next. Read the guide below to learn more about:
 
-* [Creating a custom WSL image](#creating-your-custom-wsl-image)
+* [Creating a custom WSL image](#creating-your-wsl-image)
 * Installing a Linux distribution with the Microsoft Store
 * [Exporting a WSL image](#exporting-your-wsl-image)
 * [Distributing a WSL image](#distributing-your-wsl-image)
