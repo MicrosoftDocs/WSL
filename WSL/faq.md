@@ -26,7 +26,7 @@ WSL provides an application called Bash.exe that, when started, opens a Windows 
 
 ![Screenshot of distro details](media/distro.png)
 
-You can also access your local machine’s filesystem from within the Linux Bash shell – you’ll find your local drives mounted under the `/mnt` folder. For example, your `C:` drive is mounted under `/mnt/c`:  
+You can also access your local machine’s file system from within the Linux Bash shell – you’ll find your local drives mounted under the `/mnt` folder. For example, your `C:` drive is mounted under `/mnt/c`:
 
 ![Screenshot of mounted C drive](media/ls.png)
 
@@ -58,15 +58,15 @@ These are just some of issues that caused many people to ask Microsoft to improv
 
 While working with OSS projects, there are numerous scenarios where it’s immensely useful to drop into Bash from a PowerShell prompt. Bash support is complementary and strengthens the value of the command-line on Windows, allowing PowerShell and the PowerShell community to leverage other popular technologies.
 
-Read more on the PowerShell team blog -- [Bash for Windows: Why it’s awesome and what it means for PowerShell](https://blogs.msdn.microsoft.com/powershell/2016/04/01/bash-for-windows-why-its-awesome-and-what-it-means-for-powershell/)
+Read more on the PowerShell team blog -- [Bash for Windows: Why it’s awesome and what it means for PowerShell](https://devblogs.microsoft.com/powershell/bash-for-windows-why-its-awesome-and-what-it-means-for-powershell/)
 
 ## Can I run ALL Linux apps in WSL?
 
 No! WSL is a tool aimed at enabling users who need them to run Bash and core Linux command-line tools on Windows.
 
-WSL does **not** aim to support GUI desktops or applications (e.g. Gnome, KDE, etc.)  
+WSL does **not** aim to support GUI desktops or applications (e.g. Gnome, KDE, etc.)
 
-Also, even though you will be able to run many popular server applications (e.g. Redis), we do not recommend WSL for hosting production services – Microsoft offers a variety of solutions for running production Linux workloads in Azure, Hyper-V, and Docker. 
+Also, even though you will be able to run many popular server applications (e.g. Redis), we do not recommend WSL for hosting production services – Microsoft offers a variety of solutions for running production Linux workloads in Azure, Hyper-V, and Docker.
 
 ## What Windows SKUs is WSL included in?
 
@@ -80,13 +80,13 @@ WSL supports x64 and ARM CPUs.
 
 ## How do I access my C: drive?
 
-Mount points for hard drives on the local machine are automatically created and provide easy access to the Windows filesystem.
+Mount points for hard drives on the local machine are automatically created and provide easy access to the Windows file system.
 
 **/mnt/\<drive letter>/**
 
 Example usage would be `cd /mnt/c` to access c:\
 
-## How do I set up Git Credential Manager? (How do I use my Windows Git permissions in WSL?) 
+## How do I set up Git Credential Manager? (How do I use my Windows Git permissions in WSL?)
 
 Git Credential Manager enables you to authenticate a remote Git server, even if you have a complex authentication pattern like Azure Active Directory or two-factor authentication. Git Credential Manager integrates into the authentication flow for services like GitHub and, once you're authenticated to your hosting provider, requests a new authentication token. It then stores the token securely in the Windows Credential Manager. After the first time, you can use git to talk to your hosting provider without needing to re-authenticate. It will just access the token in the Windows Credential Manager.
 
@@ -102,13 +102,13 @@ This support relies on the [interoperability between Windows Subsystem for Linux
 
 ## How do I use a Windows file with a Linux app?
 
-One of the benefits of WSL is being able to access your files via both Windows and Linux apps or tools. 
+One of the benefits of WSL is being able to access your files via both Windows and Linux apps or tools.
 
 WSL mounts your machine's fixed drives under the `/mnt/<drive>` folder in your Linux distros. For example, your `C:` drive is mounted under `/mnt/c/`
 
 Using your mounted drives, you can edit code in, for example, `C:\dev\myproj\` using [Visual Studio](https://visualstudio.microsoft.com/vs/) / or [VS Code](https://code.visualstudio.com/), and build/test that code in Linux by accessing the same files via `/mnt/c/dev/myproj`.
 
-> **IMPORTANT NOTE**: One of the key limitations of using WSL is that directly accessing/changing files in your Linux distros' filesystem using Windows apps or tools is not supported. See: [Do not change Linux files using Windows apps and tools](https://blogs.msdn.microsoft.com/commandline/2016/11/17/do-not-change-linux-files-using-windows-apps-and-tools/)
+> **IMPORTANT NOTE**: One of the key limitations of using WSL is that directly accessing/changing files in your Linux distros' file system using Windows apps or tools is not supported. See: [Do not change Linux files using Windows apps and tools](https://devblogs.microsoft.com/commandline/do-not-change-linux-files-using-windows-apps-and-tools/)
 
 ## Are files in the Linux drive different from the mounted Windows drive?
 
@@ -140,7 +140,7 @@ To fix issues related to `udev`, follow the following steps:
     ```bash
     chmod +x /usr/sbin/policy-rc.d
     ```
-  
+
 3. Run the following commands
 
     ```bash
@@ -155,8 +155,8 @@ On builds prior to 1709 (16299) open a command prompt and run:
   ```batchfile
   lxrun /uninstall /full
   ```
-  
-WSL distributions installed from the store can be uninstalled like any other Windows app, by right-clicking on the app tile and clicking Uninstall, or via PowerShell using the [`Remove-AppxPackage` cmdlet](/previous-versions//hh856038(v=technet.10)).
+
+WSL distributions installed from the store can be uninstalled like any other Windows app, by right-clicking on the app tile and clicking Uninstall, or via PowerShell using the [`Remove-AppxPackage` cmdlet](https://docs.microsoft.com/powershell/module/appx/remove-appxpackage).
 
 ## Why does ping generate permission denied errors?
 
@@ -203,9 +203,9 @@ WSL shares the IP address of Windows, as it is running on Windows. As such you c
 
 ## How can I back up my WSL distros, or move them from one drive to another?
 
-The best way to backup or move your distros is via the export/import commands available in Windows Version 1809 and later. You can export your entire distribution to a tarball using the `wsl --export` command. You can then import this distro back into WSL using the `wsl --import` command, which can name a new drive location for the import, allowing you to backup and save states of (or move) your WSL distributions. 
+The best way to backup or move your distros is via the export/import commands available in Windows Version 1809 and later. You can export your entire distribution to a tarball using the `wsl --export` command. You can then import this distro back into WSL using the `wsl --import` command, which can name a new drive location for the import, allowing you to backup and save states of (or move) your WSL distributions.
 
-Please note that traditional backup services that backup files in your Appdata folders (like Windows Backup) will not corrupt your Linux files.
+Please note that traditional backup services that backup files in your AppData folders (like Windows Backup) will not corrupt your Linux files.
 
 ## Where can I provide feedback?
 
@@ -217,5 +217,5 @@ If you have technical issues, or want to request new features please go to our G
 
 If you'd like to stay up to date with the latest WSL news you can do so with:
 
-* Our [command-line team blog](https://blogs.msdn.microsoft.com/commandline/)
+* Our [command-line team blog](https://devblogs.microsoft.com/commandline/)
 * Twitter. Please follow [@craigaloewen](https://twitter.com/craigaloewen) on Twitter to learn of news, updates, etc.
