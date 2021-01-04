@@ -195,6 +195,7 @@ Some users have reported issues with specific firewall applications blocking int
 1. Kaspersky
 1. AVG
 1. Avast
+1. Symantec Endpoint Protection
 
 In some cases turning off the firewall allows for access. In some cases simply having the firewall installed looks to block access.
 
