@@ -15,7 +15,7 @@ In these cases, while WSL itself is available, how do you download and install L
 
 > Note: **Command-line shell environments including Cmd, PowerShell, and Linux/WSL distros are not permitted to run on Windows 10 S Mode**. This restriction exists in order to ensure the integrity and safety goals that S Mode delivers: Read [this post](https://blogs.msdn.microsoft.com/commandline/2017/05/18/will-linux-distros-run-on-windows-10-s/) for more information.
 
-## Downloading distros
+## Downloading distributions
 
 If the Microsoft Store app is not available, you can download and manually install Linux distros by clicking these links:
 * [Ubuntu 20.04](https://aka.ms/wslubuntu2004)
@@ -32,9 +32,11 @@ If the Microsoft Store app is not available, you can download and manually insta
 This will cause the `<distro>.appx` packages to download to a folder of your choosing. Follow the [installation instructions](#installing-your-distro) to install your downloaded distro(s).
 
 ## Downloading distros via the command line
+
 If you prefer, you can also download your preferred distro(s) via the command line:
 
  ### Download using PowerShell
+
  To download distros using PowerShell, use the [Invoke-WebRequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest) cmdlet. Here's a sample instruction to download Ubuntu 16.04.
 
 ```powershell
@@ -56,6 +58,7 @@ In the above example, `curl.exe` is executed (not just `curl`) to ensure that, i
 > Note: Using `curl` might be preferable if you have to invoke/script download steps using Cmd shell and/or `.bat` / `.cmd` scripts.
 
 ## Installing your distro
+
 If you're using Windows 10 you can install your distro with PowerShell. Simply navigate to folder containing the distro downloaded from above, and in that directory run the following command where `app_name` is the name of your distro .appx file.  
 ```Powershell
 Add-AppxPackage .\app_name.appx
@@ -63,4 +66,4 @@ Add-AppxPackage .\app_name.appx
 
 If you are using Windows server you can find the install instructions on the [Windows Server](install-on-server.md) documentation page.
 
-Once your distribution is installed, follow the normal instructions to [update to WSL 2](./install-win10.md#step-2---update-to-wsl-2) or [create a new user account and password](./user-support.md).
+Once your distribution is installed, follow the normal instructions to * [Update from WSL 1 to WSL 2](./install-win10.md#set-your-distribution-version-to-wsl-1-or-wsl-2) or [create a new user account and password](./user-support.md).

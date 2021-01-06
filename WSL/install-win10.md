@@ -67,11 +67,9 @@ dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux 
 
 We recommend now moving on to step #2, updating to WSL 2, but if you wish to only install WSL 1, you can now **restart** your machine and move on to [Step 6 - Install your Linux distribution of choice](./install-win10.md#step-6---install-your-linux-distribution-of-choice). To update to WSL 2, **wait to restart** your machine and move on to the next step.
 
-## Step 2 - Update to WSL 2
+## Step 2 - Check requirements for running WSL 2
 
 To update to WSL 2, you must be running Windows 10.
-
-### Requirements
 
 - For x64 systems: **Version 1903** or higher, with **Build 18362** or higher.
 - For ARM64 systems: **Version 2004** or higher, with **Build 19041** or higher.
@@ -116,13 +114,6 @@ Open PowerShell and run this command to set WSL 2 as the default version when in
 ```powershell
 wsl --set-default-version 2
 ```
-
-> [!NOTE]
-> The update from WSL 1 to WSL 2 may take several minutes to complete depending on the size of your targeted distribution. If you are running an older (legacy) installation of WSL 1 from Windows 10 Anniversary Update or Creators Update, you may encounter an update error. Follow these instructions to [uninstall and remove any legacy distributions](./install-legacy.md#uninstallingremoving-the-legacy-distro).
->
-> If `wsl --set-default-version` results as an invalid command, enter `wsl --help`. If the `--set-default-version` is not listed, it means that your OS doesn't support it and you need to update to version 1903, Build 18362 or higher.
->
-> If you see this message after running the command: `WSL 2 requires an update to its kernel component. For information please visit https://aka.ms/wsl2kernel`. You still need to install the MSI Linux kernel update package.
 
 ## Step 6 - Install your Linux distribution of choice
 
@@ -180,6 +171,13 @@ wsl --set-version <distribution name> <versionNumber>
 ```
 
 Make sure to replace `<distribution name>` with the actual name of your distribution and `<versionNumber>` with the number '1' or '2'. You can change back to WSL 1 at anytime by running the same command as above but replacing the '2' with a '1'.
+
+> [!NOTE]
+> The update from WSL 1 to WSL 2 may take several minutes to complete depending on the size of your targeted distribution. If you are running an older (legacy) installation of WSL 1 from Windows 10 Anniversary Update or Creators Update, you may encounter an update error. Follow these instructions to [uninstall and remove any legacy distributions](./install-legacy.md#uninstallingremoving-the-legacy-distro).
+>
+> If `wsl --set-default-version` results as an invalid command, enter `wsl --help`. If the `--set-default-version` is not listed, it means that your OS doesn't support it and you need to update to version 1903, Build 18362 or higher.
+>
+> If you see this message after running the command: `WSL 2 requires an update to its kernel component. For information please visit https://aka.ms/wsl2kernel`. You still need to install the MSI Linux kernel update package.
 
 Additionally, if you want to make WSL 2 your default architecture you can do so with this command:
 
