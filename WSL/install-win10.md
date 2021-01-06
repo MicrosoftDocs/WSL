@@ -67,11 +67,9 @@ dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux 
 
 We recommend now moving on to step #2, updating to WSL 2, but if you wish to only install WSL 1, you can now **restart** your machine and move on to [Step 6 - Install your Linux distribution of choice](./install-win10.md#step-6---install-your-linux-distribution-of-choice). To update to WSL 2, **wait to restart** your machine and move on to the next step.
 
-## Step 2 - Update to WSL 2
+## Step 2 - Check requirements for running WSL 2
 
 To update to WSL 2, you must be running Windows 10.
-
-### Requirements
 
 - For x64 systems: **Version 1903** or higher, with **Build 18362** or higher.
 - For ARM64 systems: **Version 2004** or higher, with **Build 19041** or higher.
