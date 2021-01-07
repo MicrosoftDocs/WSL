@@ -13,10 +13,14 @@ ms.localizationpriority: high
 ## Build 21286
 For general Windows information on build 21286 visit the [Windows blog](https://blogs.windows.com/windows-insider/2021/01/06/announcing-windows-10-insider-preview-build-21286/).
 
-* Added a boot.command option to /etc/wsl.conf to enable start up commands.
 * Introduce wsl.exe --cd command to set current working directory of a command.
 * Improve mapping of NTSTATUS to Linux error codes. [GH 6063]
 * Improve wsl.exe --mount error reporting.
+* Added an option to /etc/wsl.conf to enable start up commands:
+```
+[boot]
+command=<string>
+```
 
 ## Build 20226
 For general Windows information on build 20226 visit the [Windows blog](https://blogs.windows.com/windows-insider/2020/09/10/announcing-windows-10-insider-preview-build-20226/).
