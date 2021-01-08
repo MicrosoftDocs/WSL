@@ -1,5 +1,5 @@
 ---
-title: Get started using MySQL MongoDB, PostgreSQL, SQLite, Microsoft SQL Server, or Redis to set up a database on Windows Subsystem for Linux
+title: Get started with using databases on WSL
 description: Learn how to set up MySQL MongoDB, PostgreSQL, SQLite, Microsoft SQL Server, or Redis on the Windows Subsystem for Linux.
 keywords: wsl, windows, windowssubsystem, MySQL MongoDB, PostgreSQL, SQLite, Microsoft SQL Server, Redis, windows 10
 ms.date: 07/07/2020

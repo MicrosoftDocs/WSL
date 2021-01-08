@@ -1,5 +1,5 @@
 ---
-title: Frequently Asked Questions (FAQ)
+title: FAQ's about Windows Subsystem for Linux
 description: "Find answers to frequently asked questions (FAQs) about the Windows Subsystem for Linux, such as 'What can I do with WSL?'."
 keywords: BashOnWindows, bash, wsl, windows, windowssubsystem, faq
 ms.date: 09/15/2020
