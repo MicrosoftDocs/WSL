@@ -12,21 +12,21 @@ ms.localizationpriority: high
 We've added support for WSL 2 distributions, [which use a full Linux kernel](https://devblogs.microsoft.com/commandline/shipping-a-linux-kernel-with-windows/). This Linux kernel is open source, with its source code available at the [WSL2-Linux-Kernel](https://github.com/microsoft/WSL2-Linux-Kernel) repository. This Linux kernel is delivered to your machine via Microsoft Update, and follows a separate release schedule to the Windows Subsystem for Linux which is delivered as part of the Windows image.
 
 ## 5.4.72
-*Release Date*: Prerelease - 11/10/2020
+*Release Date*: 2021/01/21
 
 [Official Github release link](https://github.com/microsoft/WSL2-Linux-Kernel/releases/tag/linux-msft-5.4.72)
 
 * Fix config for 5.4.72
 
 ## 5.4.51-microsoft-standard
-*Release Date*: Prerelease - 10/22/2020
+*Release Date*: Prerelease - 2020/10/22
 
 [Official Github release link](https://github.com/microsoft/WSL2-Linux-Kernel/releases/tag/linux-msft-5.4.51).
 
 * Stable release of 5.4.51
 
 ## 4.19.128-microsoft-standard
-*Release Date*: 09/15/2020
+*Release Date*: 2020/09/15
 
 [Official Github release link](https://github.com/microsoft/WSL2-Linux-Kernel/releases/tag/4.19.128-microsoft-standard).
 
@@ -42,14 +42,14 @@ We've added support for WSL 2 distributions, [which use a full Linux kernel](htt
 * Added support for GPU Compute
 
 ## 4.19.104-microsoft-standard
-*Release Date*: 06/09/2020 
+*Release Date*: 2020/06/09
 
 [Official Github release link](https://github.com/microsoft/WSL2-Linux-Kernel/releases/tag/4.19.104-microsoft-standard).
 
 * Update WSL config for 4.19.104
 
 ## 4.19.84-microsoft-standard
-*Release Date*: 11/12/2019 
+*Release Date*: 2019/12/11
 
 [Official Github release link](https://github.com/microsoft/WSL2-Linux-Kernel/releases/tag/4.19.84-microsoft-standard).
 
