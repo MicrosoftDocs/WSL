@@ -12,14 +12,12 @@ ms.custom: seodec18
 
 As an administrator or manager, you may require all developers to use the same approved software. This consistency helps to create a well-defined work environment. The Windows Subsystem for Linux aids in this consistency by allowing you to import and export custom WSL images from one machine to the next. Read the guide below to learn more about:
 
-* [Creating a custom WSL image](#creating-your-wsl-image)
-* Installing a Linux distribution with the Microsoft Store
-* [Exporting a WSL image](#exporting-your-wsl-image)
+* [Creating a custom WSL image](#creating-a-custom-wsl-image)
 * [Distributing a WSL image](#distributing-your-wsl-image)
-* [Updating and patching linux distributions and packages](#update-and-patch-linux-distributions-and-packages)
+* [Update and patch Linux distributions and packages](#update-and-patch-linux-distributions-and-packages)
 * [Enterprise security and control options](#enterprise-security-and-control-options)
 
-## Creating your WSL image
+## Creating a custom WSL image
 
 What is commonly referred to as an "image", is simply a snapshot of your software and its components saved to a file. In the case of the Windows Subsystem for Linux, your image would consist of the subsystem, its distributions, and whatever software and packages are installed on the distribution.
 
@@ -27,7 +25,7 @@ To begin creating your WSL image, first [install the Windows Subsystem for Linux
 
 Once installed, use The Microsoft Store for Business to download and install the Linux distribution that’s right for you. Create an account with the [Microsoft Store for Business](https://docs.microsoft.com/microsoft-store/sign-up-microsoft-store-for-business.)
 
-## Exporting your WSL image
+### Exporting your WSL image
 
 Export your custom WSL image by running wsl --export `<Distro> <FileName>`, which will wrap your image in a tar file and make it ready for distribution on to other machines.
 
