@@ -1,62 +1,59 @@
 ---
-title: Windows Subsystem for Linux for Enterprise
-description: Resources and instructions on how to best use the Windows Subsystem for Linux in an Enterprise environment.
+title: WSL for Enterprise
+description: Resources and instructions on how to best use the WSL in an Enterprise environment.
 keywords: BashOnWindows, bash, wsl, windows, windows subsystem for linux, windowssubsystem, ubuntu, debian, suse, windows 10, enterprise, deployment, offline, packaging, store, distribution, installation, install
-ms.date: 05/15/2020
+ms.date: 12/14/2020
 ms.topic: article
-ms.localizationpriority: high
+ms.assetid: 7afaeacf-435a-4e58-bff0-a9f0d75b8a51
+ms.custom: seodec18
 ---
 
-# Set up Windows Subsystem for Linux for your enterprise company
+# Windows Subsystem for Linux for Enterprise
 
-The Microsoft Store for Business offers a variety of solutions to Enterprises who want to deploy WSL to their company. The [Microsoft Store for Business and Education docs](/microsoft-store/) are a great resource to find out general information about the Store experience.
+As an administrator or manager, you may require all developers to use the same approved software. This consistency helps to create a well-defined work environment. The Windows Subsystem for Linux aids in this consistency by allowing you to import and export custom WSL images from one machine to the next. Read the guide below to learn more about:
 
-If you're a company that's just looking to get set up to start deploying WSL, follow these steps:
+* [Creating a custom WSL image](#creating-a-custom-wsl-image)
+* [Distributing a WSL image](#distributing-your-wsl-image)
+* [Update and patch Linux distributions and packages](#update-and-patch-linux-distributions-and-packages)
+* [Enterprise security and control options](#enterprise-security-and-control-options)
 
-* [Sign up for the Microsoft Store for Business and get started](/microsoft-store/sign-up-microsoft-store-for-business-overview)
-* [Manage your products and services (including who can access which apps in your private store)](/microsoft-store/manage-apps-microsoft-store-for-business-overview). Here you can add WSL distros to your store and control who can install them
-* [Use a distribution method of your choice to deploy the software to your company](/microsoft-store/distribute-apps-to-your-employees-microsoft-store-for-business)
-* Communicate to the employees of your company that they can use this documentation link to install WSL: [Install the Windows Subsystem for Linux](./install-win10.md)
+## Creating a custom WSL image
 
-## How to distribute a Linux distribution on Windows offline
+What is commonly referred to as an "image", is simply a snapshot of your software and its components saved to a file. In the case of the Windows Subsystem for Linux, your image would consist of the subsystem, its distributions, and whatever software and packages are installed on the distribution.
 
-If the computers in your company don't have access to the Microsoft Store or the Microsoft Store for Business, then you can download the installer of a Linux distribution that has an offline license by following these steps.
+To begin creating your WSL image, first [install the Windows Subsystem for Linux](./install-win10.md).
 
-### Set up an Azure Active Directory account
+Once installed, use The Microsoft Store for Business to download and install the Linux distribution that’s right for you. Create an account with the [Microsoft Store for Business](https://docs.microsoft.com/microsoft-store/sign-up-microsoft-store-for-business.)
 
-You need to [sign up for an Azure AD account](/azure/active-directory/fundamentals/sign-up-organization?WT.mc_id=windows-c9-niner) and be the global administrator for your organization to get the installer of Microsoft Store apps. If you already have an account, you can skip this step.
+### Exporting your WSL image
 
-### Set up WSL using your Microsoft Store for Business account
+Export your custom WSL image by running wsl --export `<Distro> <FileName>`, which will wrap your image in a tar file and make it ready for distribution on to other machines.
 
-The instructions to register an account are found here:
-https://docs.microsoft.com/microsoft-store/sign-up-microsoft-store-for-business
+## Distributing your WSL image
 
-1. Sign into the Store for Business and go to the homepage: https://www.microsoft.com/business-store
+Distribute the WSL image from a share or storage device by running wsl --import `<Distro> <InstallLocation> <FileName>`, which will import the specified tar file as a new distribution.
 
-    ![MS Store for business home page](media/offlineinstallscreens/1-screen.png)
+## Update and patch Linux distributions and packages
 
-2. Go to Manage > Settings and enable 'Show offline apps'.
+Using Linux configuration manager tools is strongly recommended for monitoring and managing Linux user space. There are a host of Linux configuration managers to choose from. Check out this [blog post](http://www.craigloewen.com/blog/2019/12/04/running-puppet-quickly-in-wsl2/) on how to install Puppet in WSL 2.
 
-    ![MS Store for business Settings page](media/offlineinstallscreens/2-screen.png)
+## Enterprise security and control options
 
-3. Go back to the main page by selecting 'Shop for my group'.
+Currently, WSL offers limited control mechanisms in regard to modifying the user experience in an Enterprise scenario. Enterprise features continue in development however, below are the areas of supported and unsupported features. To request a new feature not covered in this list, file an issue in our [GitHub repo](https://github.com/microsoft/WSL/issues?q=is%3Aissue+is%3Aopen+enterprise).
 
-    ![MS Store for business home page](media/offlineinstallscreens/1-screen.png)
+### Supported
 
-4. Search for your desired distribution and select it.
+* Sharing an approved image internally using `wsl --import` and `wsl --export`
+* Creating your own WSL distro for your Enterprise using the [WSL Distro Launcher repo](https://github.com/microsoft/WSL-DistroLauncher)
 
-    ![MS Store for business home page with active search](media/offlineinstallscreens/3-screen.png)
+Here's a list of features for which we don't yet have support for, but are investigating.
 
-5. Select an 'Offline' license in the License type dropdown menu and select 'Get the app'. (Some Linux distributions may elect not to provide an offline license).
+### Unsupported
 
-    ![MS Store for business Ubuntu select offline](media/offlineinstallscreens/4-screen.png)
-
-6. Select the 'Manage' button to get to the app's product page.
-
-    ![MS Store for business Ubuntu select manage](media/offlineinstallscreens/5-screen.png)
-
-7. Select your architecture and download the package for offline use.
-
-    ![MS Store for business Ubuntu select architecture](media/offlineinstallscreens/6-screen.png)
-
-This installer can then be distributed to any computer where you would like to install WSL.
+* Synchronizing the user inside WSL with the Windows user on the host machine
+* Managing updates and patching of the Linux distributions and packages using Windows tools
+* Having Windows update also update WSL distro contents
+* Controlling which distributions users in your Enterprise can access
+* Running mandatory services (logging or monitoring) inside of WSL
+* Monitoring Linux instances using Windows configuration manager tools such as SCCM or Intune
+* McAfee support
