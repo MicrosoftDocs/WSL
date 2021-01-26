@@ -64,6 +64,6 @@ If you're using Windows 10 you can install your distro with PowerShell. Simply n
 Add-AppxPackage .\app_name.appx
 ```
 
-If you are using Windows server you can find the install instructions on the [Windows Server](install-on-server.md) documentation page.
+If you are using Windows server, or run into problems running the command above you can find the alternate install instructions on the [Windows Server](install-on-server.md) documentation page to install the `.appx` file by changing it to a zip file.
 
 Once your distribution is installed, follow the normal instructions to * [Update from WSL 1 to WSL 2](./install-win10.md#set-your-distribution-version-to-wsl-1-or-wsl-2) or [create a new user account and password](./user-support.md).
