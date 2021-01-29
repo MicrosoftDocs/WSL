@@ -19,6 +19,9 @@ There are two options available for installing Windows Subsystem for Linux (WSL)
 
     The manual install steps for WSL are listed below and can be used to install Linux on any version of Windows 10.
 
+> [!NOTE]
+> If you run into an issue during the install process, check the [Troubleshooting installation](#troubleshooting-installation) section at the bottom of this page.
+
 ## Simplified Installation for Windows Insiders
 
 The installation process for Windows Subsystem for Linux has been significantly improved in the latest Windows Insiders preview builds of Windows 10, replacing the manual steps below with a single command.
