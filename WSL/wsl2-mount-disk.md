@@ -16,6 +16,7 @@ This tutorial will cover the steps to identify the disk and partition to attach 
 > [!NOTE]
 > You will need to be on Windows 10 Build 20211 or higher to access this feature. You can join the [Windows Insiders Program](https://insider.windows.com/) to get the latest preview builds.
 > Administrator access is required to attach a disk to WSL 2.
+> WSL 2 `mount` command does not support mounting disk (or partitions belong to a disk) that is currently in use (You can't mount a partition from the same disk as Windows).
 
 ## Identify the disk
 
