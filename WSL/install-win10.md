@@ -19,6 +19,9 @@ There are two options available for installing Windows Subsystem for Linux (WSL)
 
     The manual install steps for WSL are listed below and can be used to install Linux on any version of Windows 10.
 
+> [!NOTE]
+> If you run into an issue during the install process, check the [Troubleshooting installation](#troubleshooting-installation) section at the bottom of this page.
+
 ## Simplified Installation for Windows Insiders
 
 The installation process for Windows Subsystem for Linux has been significantly improved in the latest Windows Insiders preview builds of Windows 10, replacing the manual steps below with a single command.
@@ -82,7 +85,7 @@ To check your version and build number, select **Windows logo key + R**, type **
 
 ## Step 3 - Enable Virtual Machine feature
 
-Before installing WSL 2, you must enable the **Virtual Machine Platform** optional feature.
+Before installing WSL 2, you must enable the **Virtual Machine Platform** optional feature. Your machine will require [virtualization capabilities](https://docs.microsoft.com/windows/wsl/troubleshooting#error-0x80370102-the-virtual-machine-could-not-be-started-because-a-required-feature-is-not-installed) to use this feature.
 
 Open PowerShell as Administrator and run:
 
