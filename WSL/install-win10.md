@@ -65,7 +65,7 @@ You must first enable the "Windows Subsystem for Linux" optional feature before 
 Open PowerShell as Administrator and run:
 
 ```powershell
-dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+Enable-WindowsOptionalFeature -FeatureName Microsoft-Windows-Subsystem-Linux -Online -All -NoRestart
 ```
 
 We recommend now moving on to step #2, updating to WSL 2, but if you wish to only install WSL 1, you can now **restart** your machine and move on to [Step 6 - Install your Linux distribution of choice](./install-win10.md#step-6---install-your-linux-distribution-of-choice). To update to WSL 2, **wait to restart** your machine and move on to the next step.
@@ -90,7 +90,7 @@ Before installing WSL 2, you must enable the **Virtual Machine Platform** option
 Open PowerShell as Administrator and run:
 
 ```powershell
-dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+Enable-WindowsOptionalFeature -FeatureName VirtualMachinePlatform -Online -All -NoRestart
 ```
 
 **Restart** your machine to complete the WSL install and update to WSL 2.
