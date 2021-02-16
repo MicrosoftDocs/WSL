@@ -48,7 +48,9 @@ Currently, WSL offers limited control mechanisms in regard to modifying the user
 
 Here's a list of features for which we don't yet have support for, but are investigating.
 
-### Unsupported
+### Currently unsupported
+
+Below is a list of commonly asked features that are currently unsupported within WSL. These requests are on our backlog and we are investigating ways to add them. 
 
 * Synchronizing the user inside WSL with the Windows user on the host machine
 * Managing updates and patching of the Linux distributions and packages using Windows tools
