@@ -85,7 +85,7 @@ To check your version and build number, select **Windows logo key + R**, type **
 
 ## Step 3 - Enable Virtual Machine feature
 
-Before installing WSL 2, you must enable the **Virtual Machine Platform** optional feature. Your machine will require [virtualization capabilities](https://docs.microsoft.com/windows/wsl/troubleshooting#error-0x80370102-the-virtual-machine-could-not-be-started-because-a-required-feature-is-not-installed) to use this feature.
+Before installing WSL 2, you must enable the **Virtual Machine Platform** optional feature. Your machine will require [virtualization capabilities](./troubleshooting.md#error-0x80370102-the-virtual-machine-could-not-be-started-because-a-required-feature-is-not-installed) to use this feature.
 
 Open PowerShell as Administrator and run:
 
