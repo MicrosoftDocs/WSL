@@ -39,7 +39,7 @@ wsl --import CentOS E:\wslDistroStorage\CentOS .\centos.tar
 
 From here you can use `wsl -l -v` to check which distros you have installed, and then use `wsl -d CentOS` to run your distro. 
 
-![Example of the above commands running in WSL](run-any-distro-import.png)
+![Example of the above commands running in WSL](./media/run-any-distro-import.png)
 
 ## Add WSL specific components like a default user
 
@@ -68,7 +68,7 @@ wsl -d CentOS
 
 And you'll see in the example above: `[caloewen@loewen-dev]$` as the output! This lets you run your custom distro with the same experience as a distro in the store. 
 
-![Example of the code above running in WSL](./media/run-any-distr-customeruser.png)
+![Example of the code above running in WSL](./media/run-any-distro-customuser.png)
 
 For more WSL settings that you can configure please check out our [Launch commands & configurations](https://docs.microsoft.com/windows/wsl/wsl-config#configure-per-distro-launch-settings-with-wslconf) doc page.
 
