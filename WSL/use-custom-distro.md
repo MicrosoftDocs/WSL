@@ -6,6 +6,8 @@ ms.date: 02/17/2021
 ms.topic: article
 ---
 
+# Use any Linux distribution with WSL 
+
 You can use any Linux distribution inside of the Windows Subsystem for Linux, even ones that aren't available in the Microsoft store. This article shows how to use CentOS as a distribution inside of WSL. 
 
 ## Get your distribution's tar file

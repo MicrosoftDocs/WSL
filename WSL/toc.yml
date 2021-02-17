@@ -38,7 +38,7 @@
       href: enterprise.md
     - name: Build a custom distro
       href: build-custom-distro.md
-    - name: Use any Linux distribution as a WSL distro
+    - name: Use any Linux distribution with WSL 
       href: use-custom-distro.md
     - name: Mount a disk in WSL 2 (Preview)
       href: wsl2-mount-disk.md
