@@ -18,7 +18,7 @@
     {
       "source_path": "wsl/initialize-distro.md",
       "redirect_url": "/windows/wsl/install-win10",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "wsl/wsl2-ux-changes.md",
