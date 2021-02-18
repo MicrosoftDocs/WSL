@@ -10,7 +10,7 @@ ms.topic: article
 
 You can use any Linux distribution inside of the Windows Subsystem for Linux (WSL), even if it is not available in the [Microsoft Store](https://www.microsoft.com/en-us/search/shop/apps?q=linux), by importing it with a tar file. 
 
-This article shows how to import the Linux distribution, [CentOS](https://www.centos.org/), for use with WSL by obtaining it's tar file using a Docker container. This process can be applied to import any Linux distribution.
+This article shows how to import the Linux distribution, [CentOS](https://www.centos.org/), for use with WSL by obtaining its tar file using a Docker container. This process can be applied to import any Linux distribution.
 
 ## Obtain a tar file for the distribution
 
@@ -18,19 +18,19 @@ First you'll need to obtain a tar file that contains all the Linux binaries for 
 
 You can obtain a tar file in a varity of ways, two of which include:
 
-- Download a provided tar file. You can find examples in the "Mini Root Filesystem" section of the [Alpine Linux downloads](https://alpinelinux.org/downloads/) site.
+- Download a provided tar file. You can find an example for Alpine in the "Mini Root Filesystem" section of the [Alpine Linux downloads](https://alpinelinux.org/downloads/) site.
 - Find a Linux distribution container and export an instance as a tar file. The example below will show this process using the [CentOS container](https://hub.docker.com/_/centos).
 
-## CentOS import example
+### Obtaining a tar file for CentOS example
 
 In this example, we'll use Docker inside of a WSL distribution to obtain the tar file for CentOS.
 
-### Prerequisites
+#### Prerequisites
 
 - You must have [WSL enabled with a Linux distribution installed running WSL 2](./install-win10.md#manual-installation-steps).
 - You must have [Docker Desktop for Windows installed with the WSL 2 engine enabled and integration checked](./tutorials/wsl-containers.md#install-docker-desktop) for the distribution you will use in the next steps.
 
-### Export the tar from a container
+#### Export the tar from a container
 
 1. Open the command line (Bash) for a Linux distribution that you've already installed from the Microsoft Store (Ubuntu in this example). 
 
@@ -62,7 +62,11 @@ docker export $dockerContainerID > /mnt/c/temp/centos.tar
 
 This process exports the CentOS tar file from the Docker container so that we can now import it for use locally with WSL.
 
-### Import the tar into WSL
+## Import the tar file into WSL
+
+Once you have a tar file ready, you can import it using the command: `wsl --import <Distro> <InstallLocation> <FileName>`.
+
+### Importing CentOS example
 
 To import the CentOS distribution tar file into WSL:
 
