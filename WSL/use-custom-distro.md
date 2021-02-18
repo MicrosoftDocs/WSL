@@ -16,7 +16,7 @@ This article shows how to import the Linux distribution, [CentOS](https://www.ce
 
 First you'll need to obtain a tar file that contains all the Linux binaries for the distribution.
 
-You can obtain a tar file in a varity of ways, two of which include:
+You can obtain a tar file in a variety of ways, two of which include:
 
 - Download a provided tar file. You can find an example for Alpine in the "Mini Root Filesystem" section of the [Alpine Linux downloads](https://alpinelinux.org/downloads/) site.
 - Find a Linux distribution container and export an instance as a tar file. The example below will show this process using the [CentOS container](https://hub.docker.com/_/centos).
