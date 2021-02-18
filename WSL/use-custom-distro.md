@@ -18,9 +18,6 @@ First you'll need to obtain a tar file that contains all the Linux binaries for 
 
 You can obtain a tar file in a varity of ways, two of which include:
 
-- Download a minimal Linux root file system and extract the tar file. You can find examples on the [Alpine Linux downloads](https://alpinelinux.org/downloads/) site.
-- Find a Linux distribution container and extract the tar file. You can find examples by searching [Docker Hub](https://hub.docker.com/). The example below will use the [CentOS container](https://hub.docker.com/_/centos). 
-
 - Download a provided tar file. You can find examples in the "Mini Root Filesystem" section of the [Alpine Linux downloads](https://alpinelinux.org/downloads/) site.
 - Find a Linux distribution container and export an instance as a tar file. The example below will show this process using the [CentOS container](https://hub.docker.com/_/centos).
 
@@ -30,8 +27,8 @@ In this example, we'll use Docker inside of a WSL distribution to obtain the tar
 
 ### Prerequisites
 
-- You must have [WSL enabled with a Linux distribution installed running WSL 2](./install-win10#manual-installation-steps).
-- You must have [Docker Desktop for Windows installed with the WSL 2 engine enabled and integration checked](./tutorials/wsl-containers#install-docker-desktop) for the distribution you will use in the next steps.
+- You must have [WSL enabled with a Linux distribution installed running WSL 2](./install-win10.md#manual-installation-steps).
+- You must have [Docker Desktop for Windows installed with the WSL 2 engine enabled and integration checked](./tutorials/wsl-containers.md#install-docker-desktop) for the distribution you will use in the next steps.
 
 ### Export the tar from a container
 
