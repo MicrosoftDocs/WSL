@@ -1,55 +1,104 @@
 ---
-title: Use any Linux distribution with WSL
-description: Learn how to use any Linux distribution within WSL using the import command.
+title: Import any Linux distribution to use with WSL
+description: Learn how to import any Linux distribution to use with the Windows Subsystem for Linux.
 keywords: BashOnWindows, bash, wsl, windows, windows subsystem, distro, custom
 ms.date: 02/17/2021
 ms.topic: article
 ---
 
-# Use any Linux distribution with WSL 
+# Import any Linux distribution to use with WSL 
 
-You can use any Linux distribution inside of the Windows Subsystem for Linux, even ones that aren't available in the Microsoft store. This article shows how to use CentOS as a distribution inside of WSL. 
+You can use any Linux distribution inside of the Windows Subsystem for Linux (WSL), even if it is not available in the [Microsoft Store](https://www.microsoft.com/en-us/search/shop/apps?q=linux), by importing it with a tar file. 
 
-## Get your distribution's tar file
+This article shows how to import the Linux distribution, [CentOS](https://www.centos.org/), for use with WSL by obtaining it's tar file using a Docker container. This process can be applied to import any Linux distribution.
 
-First you'll need to obtain a tar file that contains all the Linux binaries for your distribution. This can be accomplished through a variety of ways, such as downloading a minimal root file system like what [Alpine Linux has on their downloads page](https://alpinelinux.org/downloads/). In this example we'll use Docker inside of a WSL distro to obtain this tar file for CentOS.
+## Obtain a tar file for the distribution
 
-To do this step you'll need to have a [WSL 2 distro enabled](https://docs.microsoft.com/windows/wsl/install-win10#step-2---check-requirements-for-running-wsl-2) with [Docker](https://docs.docker.com/engine/install/ubuntu/) enabled inside of it. Then inside of your distro run these commands:
+First you'll need to obtain a tar file that contains all the Linux binaries for the distribution.
+
+You can obtain a tar file in a varity of ways, two of which include:
+
+- Download a minimal Linux root file system and extract the tar file. You can find examples on the [Alpine Linux downloads](https://alpinelinux.org/downloads/) site.
+- Find a Linux distribution container and extract the tar file. You can find examples by searching [Docker Hub](https://hub.docker.com/). The example below will use the [CentOS container](https://hub.docker.com/_/centos). 
+
+- Download a provided tar file. You can find examples in the "Mini Root Filesystem" section of the [Alpine Linux downloads](https://alpinelinux.org/downloads/) site.
+- Find a Linux distribution container and export an instance as a tar file. The example below will show this process using the [CentOS container](https://hub.docker.com/_/centos).
+
+## CentOS import example
+
+In this example, we'll use Docker inside of a WSL distribution to obtain the tar file for CentOS.
+
+### Prerequisites
+
+- You must have [WSL enabled with a Linux distribution installed running WSL 2](./install-win10#manual-installation-steps).
+- You must have [Docker Desktop for Windows installed with the WSL 2 engine enabled and integration checked](./tutorials/wsl-containers#install-docker-desktop) for the distribution you will use in the next steps.
+
+### Export the tar from a container
+
+1. Open the command line (Bash) for a Linux distribution that you've already installed from the Microsoft Store (Ubuntu in this example). 
+
+2. Start the Docker service: 
 
 ```bash
 sudo service docker start
+```
+
+3. Run the CentOS container inside Docker:
+
+```bash
 docker run -t centos bash ls /
+```
+
+4. Grab the CentOS container ID using grep and awk:
+
+```bash
 dockerContainerID=$(docker container ls -a | grep -i centos | awk '{print $1}')
+```
+
+5. Export the container ID to a tar file on your mounted c-drive:
+
+```bash
 docker export $dockerContainerID > /mnt/c/temp/centos.tar
 ```
 
 ![Example of running the commands above](./media/run-any-distro-tarfile.png)
 
-After this we'll have a working tar file ready to import!
+This process exports the CentOS tar file from the Docker container so that we can now import it for use locally with WSL.
 
-## Import the distribution into WSL
+### Import the tar into WSL
 
-To import the distribution into WSL, open PowerShell and ensure that you have a folder ready where you'd like the distribution to be stored. We'll be using the `wsl --import <DistroName> <InstallLocation> <InstallTarFile>` command. 
+To import the CentOS distribution tar file into WSL:
+
+1. Open PowerShell and ensure that you have a folder created where you'd like the distribution to be stored.
 
 ```PowerShell
 cd C:\temp
 mkdir E:\wslDistroStorage\CentOS
+```
+
+2. Use the command `wsl --import <DistroName> <InstallLocation> <InstallTarFile>` to import the tar file. 
+
+```PowerShell
 wsl --import CentOS E:\wslDistroStorage\CentOS .\centos.tar
 ```
 
-From here you can use `wsl -l -v` to check which distros you have installed, and then use `wsl -d CentOS` to run your distro. 
+3. Use the command `wsl -l -v` to check which distributions you have installed.
 
 ![Example of the above commands running in WSL](./media/run-any-distro-import.png)
 
+4. Finally, use the command `wsl -d CentOS` to run your newly imported CentOS Linux distribution.
+
 ## Add WSL specific components like a default user
 
-By default when using --import, you are always started as the root user. If you'd like to have a user account you can set that up, but each set up will be slightly different depending on your distribution of choice. This example will show how to do this with the CentOS distribution described above. First open PowerShell and boot into the CentOS distro:
+By default when using --import, you are always started as the root user. You can set up your own user account, but note that the set up process will vary slightly based on each different Linux distribution.
+
+To set up user account with the CentOS distribution we just imported, first open PowerShell and boot into CentOS, using the command:
 
 ```PowerShell
 wsl -d CentOS
 ```
 
-Then we will install sudo and password setting tools into CentOS, create a user account and set it as the default user, in this example the username will be 'caloewen'. 
+Next, open your CentOS command line. Use this command to install sudo and password setting tools into CentOS, create a user account, and set it as the default user. In this example, the username will be 'caloewen'. 
 
 ```bash
 yum update -y && yum install passwd sudo -y
@@ -59,21 +108,19 @@ echo -e "[user]\ndefault=$myUsername" >> /etc/wsl.conf
 passwd $myUsername
 ```
 
-Then you can quit out of that instance, ensure that all WSL instances are terminated, and then start up your distribution again to see your new default user. In PowerShell run:
+You must now quit out of that instance and ensure that all WSL instances are terminated. Start your distribution again to see your new default user by running this command in PowerShell:
 
 ```PowerShell
 wsl --shutdown
 wsl -d CentOS
 ```
 
-And you'll see in the example above: `[caloewen@loewen-dev]$` as the output! This lets you run your custom distro with the same experience as a distro in the store. 
+You will now see `[caloewen@loewen-dev]$` as the output based on this example.
 
 ![Example of the code above running in WSL](./media/run-any-distro-customuser.png)
 
-For more WSL settings that you can configure please check out our [Launch commands & configurations](https://docs.microsoft.com/windows/wsl/wsl-config#configure-per-distro-launch-settings-with-wslconf) doc page.
+To learn more about configuring WSL settings, see [Launch commands & configurations](./wsl-config.md#configure-per-distro-launch-settings-with-wslconf).
 
-## Finished!
+## Use a custom Linux distribution
 
-From there you should be able to fully access your new distro and use it however you like.
-
-You can also create your own WSL distro packaged as a UWP app that will behave exactly like a WSL distro seen in the Microsoft Store, the instructions to do this are on our [Build a custom distro](https://docs.microsoft.com/windows/wsl/build-custom-distro) doc page.
+You can create your own customized Linux distribution, packaged as a UWP app, that will behave exactly like the WSL distributions available in the Microsoft Store. To learn how, see [Creating a Custom Linux Distribution for WSL](./build-custom-distro.md).
