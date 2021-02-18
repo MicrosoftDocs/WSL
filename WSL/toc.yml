@@ -36,7 +36,9 @@
       href: file-permissions.md
     - name: Set up WSL for your company
       href: enterprise.md
-    - name: Build a custom distro
+    - name: Import any Linux distribution
+      href: use-custom-distro.md
+    - name: Build a custom distribution
       href: build-custom-distro.md
     - name: Mount a disk in WSL 2 (Preview)
       href: wsl2-mount-disk.md
