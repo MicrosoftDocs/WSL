@@ -23,7 +23,7 @@ command=<string>
 ```
 
 ## Build 20226
-For general Windows information on build 20226 visit the [Windows blog](https://blogs.windows.com/windows-insider/2020/09/10/announcing-windows-10-insider-preview-build-20226/).
+For general Windows information on build 20226 visit the [Windows blog](https://blogs.windows.com/windows-insider/2020/09/30/announcing-windows-10-insider-preview-build-20226/).
 
 * Fix crash in LxssManager service. [GH 5902]
 
