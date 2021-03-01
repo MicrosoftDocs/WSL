@@ -115,7 +115,7 @@ Once the installation is complete, move on to the next step - setting WSL 2 as y
 Open PowerShell and run this command to set WSL 2 as the default version when installing a new Linux distribution:
 
 ```powershell
-wsl --set-default-version 2
+wsl -- set-default-version 2
 ```
 
 ## Step 6 - Install your Linux distribution of choice
