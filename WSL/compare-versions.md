@@ -26,7 +26,7 @@ Feature | WSL 1 | WSL 2
 --- | --- | ---
  Integration between Windows and Linux| ✅|✅
  Fast boot times| ✅ | ✅
- Small resource foot print| ✅ |✅
+ Small resource foot print compared to traditional Virtual Machines| ✅ |✅
  Runs with current versions of VMware and VirtualBox| ✅ | ✅
  Managed VM| ❌ | ✅
  Full Linux Kernel| ❌ |✅
@@ -98,6 +98,8 @@ We recommend that you use WSL 2 as it offers faster performance and 100% system 
   - If you will be using your WSL Linux distribution to access project files on the Windows file system, and these files cannot be stored on the Linux file system, you will achieve faster performance across the OS files systems by using WSL 1.
 - A project which requires cross-compilation using both Windows and Linux tools on the same files.
   - File performance across the Windows and Linux operating systems is faster in WSL 1 than WSL 2, so if you are using Windows applications to access Linux files, you will currently achieve faster performance with WSL 1.
+- You have strict memory requirements
+  - WSL 2's memory usage grows and shrinks as you use it. When a process frees memory this is automatically returned to Windows. However, as of right now WSL 2 does not yet release cached pages in memory back to Windows until the WSL instance is shut down. If you have long running WSL sessions, or access a very large amount of files, this cache can take up memory on Windows. We are tracking the work to improve this exprience on [the WSL Github repository issue 4166](https://github.com/microsoft/WSL/issues/4166).
 
 > [!NOTE]
 > Consider trying the VS Code [Remote WSL Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) to enable you to store your project files on the Linux file system, using Linux command line tools, but also using VS Code on Windows to author, edit, debug, or run your project in an internet browser without any of the performance slow-downs associated with working across the Linux and Windows file systems. [Learn more](tutorials/wsl-vscode.md).
