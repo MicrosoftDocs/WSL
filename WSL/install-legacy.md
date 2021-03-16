@@ -36,7 +36,7 @@ If you cannot upgrade to Fall Creators Update or later, follow the steps below t
 
     ![Prompt to install Ubuntu](media/bashShellInstall.png)
 
-    The first time you run Bash on Ubuntu on Windows, you will be prompted to create a UNIX username and password. Follow the [new distro instance instructions](initialize-distro.md) to complete your installation
+    The first time you run Bash on Ubuntu on Windows, you will be prompted to create a UNIX username and password. Follow the [new distro instance instructions](./install-win10.md) to complete your installation
 
 1. Launch a new Ubuntu shell by either:
     * Running `bash` from a command-prompt
