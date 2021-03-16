@@ -45,7 +45,7 @@
     - name: Command Line Reference
       href: reference.md
 - name: Frequently Asked Questions
-  href: faq.md
+  href: faq.yml
 - name: WSL 2 FAQ
   href: wsl2-faq.md
 - name: Troubleshooting
