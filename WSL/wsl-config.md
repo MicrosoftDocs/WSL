@@ -253,7 +253,7 @@ generateResolvConf = true
 
 In keeping with .ini conventions, keys are declared under a section. 
 
-WSL supports two sections: `automount` and `network`.
+WSL supports four sections: `automount`, `network`, `interop`, and `user`.
 
 #### automount
 
