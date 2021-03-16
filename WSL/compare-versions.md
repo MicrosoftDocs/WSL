@@ -90,10 +90,6 @@ Linux binaries use system calls to perform functions such as accessing files, re
 
 - Any updates to the Linux kernel are immediately ready for use. (You don't have to wait for the WSL team to implement updates and add the changes).
 
-### WSL 2 uses a smaller amount of memory on startup
-
-WSL 2 uses a lightweight utility VM on a real Linux kernel with a small memory footprint. The utility will allocate Virtual Address backed memory on startup. It is configured to start with a smaller proportion of your total memory that what was required for WSL 1.
-
 ## Exceptions for using WSL 1 rather than WSL 2
 
 We recommend that you use WSL 2 as it offers faster performance and 100% system call compatibility. However, there are a few specific scenarios where you might prefer using WSL 1. Consider using WSL 1 if:
