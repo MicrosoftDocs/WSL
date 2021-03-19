@@ -17,19 +17,19 @@ sections:
       - question: |
          What is Windows Subsystem for Linux (WSL)?
         answer: |
-          The Windows Subsystem for Linux (WSL) is a new Windows 10 feature that enables you to run native Linux command-line tools directly on Windows, alongside your traditional Windows desktop and modern store apps.
+          The Windows Subsystem for Linux (WSL) is a feature of Windows 10 that enables you to run native Linux command-line tools directly on Windows, alongside your traditional Windows desktop and apps.
           
           See the [about page](./about.md) for more details.
           
       - question: |
          Who is WSL for?
         answer: |
-         This is primarily a tool for developers -- especially web developers and those who work on or with open source projects. This allows those who want/need to use Bash, common Linux tools (`sed`, `awk`, etc.) and many Linux-first tools (Ruby, Python, etc.) to use their toolchain on Windows.
+         This is primarily a tool for developers, especially web developers, those working on open source projects, or deploying to Linux server environments. WSL is for anyone who likes using Bash, common Linux tools (`sed`, `awk`, etc.) and Linux-first frameworks (Ruby, Python, etc.) but also enjoys using Windows productivity tools
 
       - question: |
          What can I do with WSL?
         answer: |
-          WSL provides an application called Bash.exe that, when started, opens a Windows console running the Bash shell. Using Bash, you can run command-line Linux tools and apps. For example, type `lsb_release -a` and hit enter; you’ll see details of the Linux distro currently running:
+          WSL enables you to run Linux in a Bash shell with your choice of distribution (Ubuntu, Debian, OpenSUSE, Kali, Alpine, etc). Using Bash, you can run command-line Linux tools and apps. For example, type `lsb_release -a` and hit enter; you’ll see details of the Linux distro currently running:
           
           ![Screenshot of distro details](media/distro.png)
           
