@@ -53,7 +53,7 @@ Individual Linux distributions can be run with either the WSL 1 or WSL 2 archite
 
 * [Read Frequently Asked Questions](./faq.md)
 
-* [Read Frequently Asked Questions about WSL 2](./wsl2-faq.md)
+* [Read Frequently Asked Questions about WSL 2](./wsl2-faq.yml)
 
 * [Troubleshooting](./troubleshooting.md)
 

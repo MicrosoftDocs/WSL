@@ -118,7 +118,7 @@ Please enable the Virtual Machine Platform Windows feature and ensure virtualiza
 
 1. Check the [Hyper-V system requirements](/windows-server/virtualization/hyper-v/system-requirements-for-hyper-v-on-windows#:~:text=on%20Windows%20Server.-,General%20requirements,the%20processor%20must%20have%20SLAT.)
 
-2. If your machine is a VM, please enable [nested virtualization](./wsl2-faq.md#can-i-run-wsl-2-in-a-virtual-machine) manually. Launch powershell with admin, and run:
+2. If your machine is a VM, please enable [nested virtualization](./wsl2-faq.yml#can-i-run-wsl-2-in-a-virtual-machine) manually. Launch powershell with admin, and run:
 
     ```powershell
     Set-VMProcessor -VMName <VMName> -ExposeVirtualizationExtensions $true
