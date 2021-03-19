@@ -19,7 +19,7 @@ The Windows Subsystem for Linux lets developers run a GNU/Linux environment -- i
 * [What is the Windows Subsystem for Linux?](about.md)
 * [What's new with WSL 2?](compare-versions.md#whats-new-in-wsl-2)
 * [Compare WSL 2 and WSL 1](compare-versions.md)
-* [Read frequently asked questions](faq.md)
+* [Read frequently asked questions](faq.yml)
 
 ## Get started
 

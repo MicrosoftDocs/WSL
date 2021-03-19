@@ -26,7 +26,7 @@ Feature | WSL 1 | WSL 2
 --- | --- | ---
  Integration between Windows and Linux| ✅|✅
  Fast boot times| ✅ | ✅
- Small resource foot print| ✅ |✅
+ Small resource foot print compared to traditional Virtual Machines| ✅ |✅
  Runs with current versions of VMware and VirtualBox| ✅ | ✅
  Managed VM| ❌ | ✅
  Full Linux Kernel| ❌ |✅
@@ -54,7 +54,7 @@ You can also use windows commands inside WSL's Linux [Terminal](https://en.wikip
 WSL 2 is only available in Windows 10, Version 1903, Build 18362 or higher. Check your Windows version by selecting the **Windows logo key + R**, type **winver**, select **OK**. (Or enter the `ver` command in Windows Command Prompt). You may need to [update to the latest Windows version](ms-settings:windowsupdate). For builds lower than 18362, WSL is not supported at all.
 
 > [!NOTE]
-> WSL 2 will work with [VMware 15.5.5+](https://blogs.vmware.com/workstation/2020/05/vmware-workstation-now-supports-hyper-v-mode.html) and [VirtualBox 6+](https://www.virtualbox.org/wiki/Changelog-6.0). Learn more in our [WSL 2 FAQs.](./wsl2-faq.md#will-i-be-able-to-run-wsl-2-and-other-3rd-party-virtualization-tools-such-as-vmware-or-virtualbox)
+> WSL 2 will work with [VMware 15.5.5+](https://blogs.vmware.com/workstation/2020/05/vmware-workstation-now-supports-hyper-v-mode.html) and [VirtualBox 6+](https://www.virtualbox.org/wiki/Changelog-6.0). Learn more in our [WSL 2 FAQs.](./wsl2-faq.yml#will-i-be-able-to-run-wsl-2-and-other-3rd-party-virtualization-tools-such-as-vmware--or-virtualbox-)
 
 ## What's new in WSL 2
 
@@ -62,7 +62,7 @@ WSL 2 is a major overhaul of the underlying architecture and uses virtualization
 
 - [WSL 2 system requirements](./install-win10.md#step-2---check-requirements-for-running-wsl-2)
 - [Update from WSL 1 to WSL 2](./install-win10.md#set-your-distribution-version-to-wsl-1-or-wsl-2)
-- [Frequently Asked Questions about WSL 2](./wsl2-faq.md)
+- [Frequently Asked Questions about WSL 2](./wsl2-faq.yml)
 
 ### WSL 2 architecture
 
@@ -90,10 +90,6 @@ Linux binaries use system calls to perform functions such as accessing files, re
 
 - Any updates to the Linux kernel are immediately ready for use. (You don't have to wait for the WSL team to implement updates and add the changes).
 
-### WSL 2 uses a smaller amount of memory on startup
-
-WSL 2 uses a lightweight utility VM on a real Linux kernel with a small memory footprint. The utility will allocate Virtual Address backed memory on startup. It is configured to start with a smaller proportion of your total memory that what was required for WSL 1.
-
 ## Exceptions for using WSL 1 rather than WSL 2
 
 We recommend that you use WSL 2 as it offers faster performance and 100% system call compatibility. However, there are a few specific scenarios where you might prefer using WSL 1. Consider using WSL 1 if:
@@ -102,6 +98,8 @@ We recommend that you use WSL 2 as it offers faster performance and 100% system 
   - If you will be using your WSL Linux distribution to access project files on the Windows file system, and these files cannot be stored on the Linux file system, you will achieve faster performance across the OS files systems by using WSL 1.
 - A project which requires cross-compilation using both Windows and Linux tools on the same files.
   - File performance across the Windows and Linux operating systems is faster in WSL 1 than WSL 2, so if you are using Windows applications to access Linux files, you will currently achieve faster performance with WSL 1.
+- You have strict memory requirements
+  - WSL 2's memory usage grows and shrinks as you use it. When a process frees memory this is automatically returned to Windows. However, as of right now WSL 2 does not yet release cached pages in memory back to Windows until the WSL instance is shut down. If you have long running WSL sessions, or access a very large amount of files, this cache can take up memory on Windows. We are tracking the work to improve this experience on [the WSL Github repository issue 4166](https://github.com/microsoft/WSL/issues/4166).
 
 > [!NOTE]
 > Consider trying the VS Code [Remote WSL Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) to enable you to store your project files on the Linux file system, using Linux command line tools, but also using VS Code on Windows to author, edit, debug, or run your project in an internet browser without any of the performance slow-downs associated with working across the Linux and Windows file systems. [Learn more](tutorials/wsl-vscode.md).
