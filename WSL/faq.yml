@@ -50,7 +50,7 @@ sections:
       - question: |
          How does this work?
         answer: |
-          Check out our [blog](/archive/blogs/wsl/) where we go into detail about the underlying technology.
+          Check out our [blog](https://devblogs.microsoft.com/commandline/a-deep-dive-into-how-wsl-allows-windows-to-access-linux-files/) where we go into detail about the underlying technology.
           
       - question: |
          Why would I use WSL rather than Linux in a VM?
@@ -78,7 +78,7 @@ sections:
         answer: |
           No! WSL is a tool aimed at enabling users who need them to run Bash and core Linux command-line tools on Windows.
           
-          WSL does **not** aim to support GUI desktops or applications (e.g. Gnome, KDE, etc.)  
+          WSL does not yet support GUI desktops or applications (e.g. Gnome, KDE, etc.) Follow the [Command Line Blog](https://devblogs.microsoft.com/commandline/whats-new-in-the-windows-subsystem-for-linux-september-2020/#gui-apps) for updates.  
           
           Also, even though you will be able to run many popular server applications (e.g. Redis), we do not recommend WSL for hosting production services – Microsoft offers a variety of solutions for running production Linux workloads in Azure, Hyper-V, and Docker. 
           
