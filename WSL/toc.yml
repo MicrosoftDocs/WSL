@@ -47,7 +47,7 @@
 - name: Frequently Asked Questions
   href: faq.md
 - name: WSL 2 FAQ
-  href: wsl2-faq.md
+  href: wsl2-faq.yml
 - name: Troubleshooting
   href: troubleshooting.md
 - name : Release Notes
