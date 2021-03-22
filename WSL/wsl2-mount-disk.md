@@ -41,7 +41,7 @@ wsl --mount <DiskPath>
 
 ![Mounting a drive in WSL](./media/wslmountsimple.png)
 
-## Mounting a disk with unknown formats
+## Mounting a partitioned disk
 
 If you have a disk that you aren't sure what file format it is in, or what partitions it has, you can follow the steps below to mount it. 
 
