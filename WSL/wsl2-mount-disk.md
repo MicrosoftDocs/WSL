@@ -17,9 +17,9 @@ This tutorial will cover the steps to identify the disk and partition to attach 
 > You will need to be on Windows 10 Build 20211 or higher to access this feature. You can join the [Windows Insiders Program](https://insider.windows.com/) to get the latest preview builds.
 > Administrator access is required to attach a disk to WSL 2.
 
-## Mounting a known formatted disk
+## Mounting an unpartitioned disk
 
-In this simplest case, if you have a disk that is just used for storage and doesn't have any partitions, you can mount it directly using the `wsl --mount` command. First you need to identify the disk.
+In this simplest case, if you have a disk that doesn't have any partitions, you can mount it directly using the `wsl --mount` command. First you need to identify the disk.
 
 ### Identify the disk
 
@@ -126,7 +126,7 @@ wsl --unmount <DiskPath>
 
 ## Mount a VHD in WSL
 
-You can also mount virtual hard disk files (VHD) into WSL using `wsl --mount`. To do this, you first need to mount the VHD into Windows using the [`Mount-VHD`](/powershell/module/hyper-v/mount-vhd) command in Windows. Be sure to run this command in a window with administrator privileges. Below is an example where we use this command, and also output the disk path. Be sure to replace `<pathToVHD>` with your actual VHD path. 
+You can also mount virtual hard disk files (VHD) into WSL using `wsl --mount`. To do this, you first need to mount the VHD into Windows using the [`Mount-VHD`](/powershell/module/hyper-v/mount-vhd) command in Windows. Be sure to run this command with administrator privileges. Below is an example where we use this command, and also output the disk path. Be sure to replace `<pathToVHD>` with your actual VHD path. 
 
 ```powershell
 Write-Output "\\.\PhysicalDrive$((Mount-VHD -Path <pathToVHD> -PassThru | Get-Disk).Number)"
@@ -134,7 +134,7 @@ Write-Output "\\.\PhysicalDrive$((Mount-VHD -Path <pathToVHD> -PassThru | Get-Di
 
 You can use the output above to obtain the disk path for this VHD and mount that into WSL following the instructions in the previous section.
 
-You can also use this technique to mount and interact with the virtual hard disks of other WSL distros, as each WSL 2 distro is stored via a virtual hard disk file called: `ext4.vhdx`. By default the VHDs for WSL 2 distros are stored in this path: `C:\Users\[user]\AppData\Local\Packages\[distro]\LocalState\[distroPackageName]`, please exercise caution accessing these system files, this is a power user workflow.
+You can also use this technique to mount and interact with the virtual hard disks of other WSL distros, as each WSL 2 distro is stored via a virtual hard disk file called: `ext4.vhdx`. By default the VHDs for WSL 2 distros are stored in this path: `C:\Users\[user]\AppData\Local\Packages\[distro]\LocalState\[distroPackageName]`, please exercise caution accessing these system files, this is a power user workflow. Make sure to run `wsl --shutdown` before interacting with this disk to ensure the disk is not in use. 
 
 ![Mounting WSL VHD](./media/wslmountvhd.png)
 
