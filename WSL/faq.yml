@@ -222,6 +222,8 @@ sections:
           1. Kaspersky
           1. AVG
           1. Avast
+          1. Symantec
+          1. F-Secure
           
           In some cases turning off the firewall allows for access. In some cases simply having the firewall installed looks to block access.
           
