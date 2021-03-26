@@ -175,6 +175,8 @@ To expand your maximum VHD size beyond 256GB:
 
 3. Locate the VHD file `fullpath` used by your WSL 2 installation, this will be your `pathToVHD`:
      - `%LOCALAPPDATA%\Packages\<PackageFamilyName>\LocalState\<disk>.vhdx`
+     - As an example, to find the path for Ubuntu, you would enter: `Get-AppxPackage -Name "*Ubuntu*" | Select PackageFamilyName`
+     ![Get-AppxPackage command line screenshot](/media/get-AppxPackage.png)
 
 4. Resize your WSL 2 VHD by completing the following commands:
    - Open Windows Command Prompt with admin privileges and enter:
@@ -228,4 +230,4 @@ To expand your maximum VHD size beyond 256GB:
       ```
 
 > [!NOTE]
-> In general do not modify, move, or access the WSL related files located inside of your AppData folder using Windows tools or editors. Doing so could cause your Linux distribution to become corrupted.
+> We recommend that you do not modify, move, or access the WSL related files located inside of your AppData folder using Windows tools or editors. Doing so could cause your Linux distribution to become corrupted. If you would like to access your Linux files from Windows that is possible via the path `\\wsl$\<distroName>\`. To learn more, see the blog post: [Accessing Linux files from Windows](https://devblogs.microsoft.com/commandline/whats-new-for-wsl-in-windows-10-version-1903/#accessing-linux-files-from-windows).
