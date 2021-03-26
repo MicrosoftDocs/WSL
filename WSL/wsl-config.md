@@ -2,7 +2,7 @@
 title: Manage Linux Distributions
 description: Reference listing and configuring multiple Linux distributions running on the Windows Subsystem for Linux.
 keywords: BashOnWindows, bash, wsl, windows, windows subsystem for linux, windowssubsystem, ubuntu, wsl.conf, wslconfig
-ms.date: 05/12/2020
+ms.date: 03/26/2021
 ms.topic: article
 ---
 
@@ -227,9 +227,7 @@ To reinstall, find the distribution in the Microsoft store and select "Launch".
 
 > **Available in Windows Build 17093 and later**
 
-Automatically configure certain functionality in WSL that will be applied every time you launch the subsystem using `wsl.conf`.
-
-Right now, this includes automount options and network configuration.
+Automatically configure functionality in WSL that will be applied every time you launch the subsystem using `wsl.conf`. This includes automount options and network configuration.
 
 `wsl.conf` is located in each Linux distribution in `/etc/wsl.conf`. If the file is not there, you can create it yourself. WSL will detect the existence of the file and will read its contents. If the file is missing or malformed (that is, improper markup formatting), WSL will continue to launch as normal.
 
@@ -248,6 +246,8 @@ mountFsTab = false
 generateHosts = true
 generateResolvConf = true
 ```
+
+When launching multiple Linux shells for the same distribution, you must wait until the Linux subsystem stops running, this can take approximately 8 seconds after closing the last instance of the distribution shell. If you launch a distribution (ie. Ubuntu), modify the wsl.conf file, close the distribution, and then re-launch it. You might assume that your changes to the wsl.conf file have immediately gone into effect. This is not currently the case as the subsystem could still be running. You must wait ~8 seconds for the subsystem to stop before relaunching in order to give enough time for your changes to be picked up. You can check to see whether your Linux distribution (shell) is still running after closing it by using PowerShell with the command: `wsl --list --running`. If no distributions are running, you will receive the response: "There are no running distributions." You can now restart the distribution to see your wsl.conf updates applied.
 
 ### Configuration Options
 
