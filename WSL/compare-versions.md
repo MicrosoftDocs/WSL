@@ -1,11 +1,11 @@
 ---
 title: Comparing WSL 2 and WSL 1
-description: Compare version 1 and version 2 of the Windows Subsystem for Linux. Learn whats new in WSL 2 - actual Linux kernel, faster speed, full system call compatibility. WSL 1 works better if your storing files across operating file systems. You can expand the size of your WSL 2 Virtual Hardware Disk (VHD).
+description: Compare version 1 and version 2 of the Windows Subsystem for Linux. Learn whats new in WSL 2.
 keywords: BashOnWindows, bash, wsl, windows, windowssubsystem, gnu, linux, ubuntu, debian, suse, windows 10, UX changes, WSL 2, linux kernel, network applications, localhost, IPv6, Virtual Hardware Disk, VHD, VHD limitations, VHD error
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.localizationpriority: high
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 ---
 
 # Comparing WSL 1 and WSL 2
@@ -26,7 +26,7 @@ Feature | WSL 1 | WSL 2
 --- | --- | ---
  Integration between Windows and Linux| ✅|✅
  Fast boot times| ✅ | ✅
- Small resource foot print| ✅ |✅
+ Small resource foot print compared to traditional Virtual Machines| ✅ |✅
  Runs with current versions of VMware and VirtualBox| ✅ | ✅
  Managed VM| ❌ | ✅
  Full Linux Kernel| ❌ |✅
@@ -54,15 +54,15 @@ You can also use windows commands inside WSL's Linux [Terminal](https://en.wikip
 WSL 2 is only available in Windows 10, Version 1903, Build 18362 or higher. Check your Windows version by selecting the **Windows logo key + R**, type **winver**, select **OK**. (Or enter the `ver` command in Windows Command Prompt). You may need to [update to the latest Windows version](ms-settings:windowsupdate). For builds lower than 18362, WSL is not supported at all.
 
 > [!NOTE]
-> WSL 2 will work with [VMware 15.5.5+](https://blogs.vmware.com/workstation/2020/05/vmware-workstation-now-supports-hyper-v-mode.html) and [VirtualBox 6+](https://www.virtualbox.org/wiki/Changelog-6.0). Learn more in our [WSL 2 FAQs.](./wsl2-faq.md#will-i-be-able-to-run-wsl-2-and-other-3rd-party-virtualization-tools-such-as-vmware-or-virtualbox)
+> WSL 2 will work with [VMware 15.5.5+](https://blogs.vmware.com/workstation/2020/05/vmware-workstation-now-supports-hyper-v-mode.html) and [VirtualBox 6+](https://www.virtualbox.org/wiki/Changelog-6.0). Learn more in our [WSL 2 FAQs.](./wsl2-faq.yml#will-i-be-able-to-run-wsl-2-and-other-3rd-party-virtualization-tools-such-as-vmware--or-virtualbox-)
 
 ## What's new in WSL 2
 
 WSL 2 is a major overhaul of the underlying architecture and uses virtualization technology and a Linux kernel to enable new features. The primary goals of this update are to increase file system performance and add full system call compatibility.
 
-- [WSL 2 system requirements](./install-win10.md#step-2---update-to-wsl-2)
-- [Update from WSL 1 to WSL 2](./install-win10.md#step-2---update-to-wsl-2)
-- [Frequently Asked Questions about WSL 2](./wsl2-faq.md)
+- [WSL 2 system requirements](./install-win10.md#step-2---check-requirements-for-running-wsl-2)
+- [Update from WSL 1 to WSL 2](./install-win10.md#set-your-distribution-version-to-wsl-1-or-wsl-2)
+- [Frequently Asked Questions about WSL 2](./wsl2-faq.yml)
 
 ### WSL 2 architecture
 
@@ -90,10 +90,6 @@ Linux binaries use system calls to perform functions such as accessing files, re
 
 - Any updates to the Linux kernel are immediately ready for use. (You don't have to wait for the WSL team to implement updates and add the changes).
 
-### WSL 2 uses a smaller amount of memory on startup
-
-WSL 2 uses a lightweight utility VM on a real Linux kernel with a small memory footprint. The utility will allocate Virtual Address backed memory on startup. It is configured to start with a smaller proportion of your total memory that what was required for WSL 1.
-
 ## Exceptions for using WSL 1 rather than WSL 2
 
 We recommend that you use WSL 2 as it offers faster performance and 100% system call compatibility. However, there are a few specific scenarios where you might prefer using WSL 1. Consider using WSL 1 if:
@@ -104,6 +100,8 @@ We recommend that you use WSL 2 as it offers faster performance and 100% system 
   - File performance across the Windows and Linux operating systems is faster in WSL 1 than WSL 2, so if you are using Windows applications to access Linux files, you will currently achieve faster performance with WSL 1.
 - Your project needs access to a serial port or USB device.
    - According to the [WSL 2 FAQ](https://docs.microsoft.com/windows/wsl/wsl2-faq#can-i-access-the-gpu-in-wsl-2-are-there-plans-to-increase-hardware-support), WSL 2 does not include support for accessing serial ports. The [open issue on serial support](https://github.com/microsoft/WSL/issues/4322) indicates that support has not been added yet.
+- You have strict memory requirements
+  - WSL 2's memory usage grows and shrinks as you use it. When a process frees memory this is automatically returned to Windows. However, as of right now WSL 2 does not yet release cached pages in memory back to Windows until the WSL instance is shut down. If you have long running WSL sessions, or access a very large amount of files, this cache can take up memory on Windows. We are tracking the work to improve this experience on [the WSL Github repository issue 4166](https://github.com/microsoft/WSL/issues/4166).
 
 > [!NOTE]
 > Consider trying the VS Code [Remote WSL Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) to enable you to store your project files on the Linux file system, using Linux command line tools, but also using VS Code on Windows to author, edit, debug, or run your project in an internet browser without any of the performance slow-downs associated with working across the Linux and Windows file systems. [Learn more](tutorials/wsl-vscode.md).
@@ -173,51 +171,66 @@ To expand your maximum VHD size beyond 256GB:
 
 1. Terminate all WSL instances using the command: `wsl --shutdown`
 
-2. Find your distribution installation package name ('PackageFamilyName')
+2. To find your distribution installation package name ('PackageFamilyName'):
     - Using PowerShell (where 'distro' is your distribution name) enter the command:
     - `Get-AppxPackage -Name "*<distro>*" | Select PackageFamilyName`
+    - For example: `Get-AppxPackage -Name "*Ubuntu*" | Select PackageFamilyName`
 
-3. Locate the VHD file `fullpath` used by your WSL 2 installation, this will be your `pathToVHD`:
-     - `%LOCALAPPDATA%\Packages\<PackageFamilyName>\LocalState\<disk>.vhdx`
+    ![Get-AppxPackage command line screenshot](./media/get-appxpackage.png)
+
+3. Use the resulting `PackageFamilyName` to locate the VHD file `fullpath` used by your WSL 2 installation, this will be your `pathToVHD`. To find the full path:
+   - In your Start menu, enter: "%LOCALAPPDATA%" and select to open the %LOCALAPPDATA% file folder.
+   - Next, open the "Packages" folder and search for the `PackageFamilyName` of your distribution. Open that folder (ie. CanonicalGroupLimited.Ubuntu20.04onWindows_79xxxxx).
+   - Inside the `PackageFamilyName` folder, open the "LocalState" folder and find the `<disk>.vhdx` file.
+   - Copy the path to that file, it should look something like:
+     `%LOCALAPPDATA%\Packages\<PackageFamilyName>\LocalState\<disk>.vhdx`
+   - For example, the `<pathToVHD>` for Ubuntu 20.04 should look something like: `%LOCALAPPDATA%\Packages\CanonicalGroupLimited.Ubuntu20.04onWindows_79xxxx\LocalState\ext4.vhdx`.
 
 4. Resize your WSL 2 VHD by completing the following commands:
    - Open Windows Command Prompt with admin privileges and enter:
 
-      ```powershell
+      ```cmd
       diskpart
+      ```
+
+      ```cmd
       DISKPART> Select vdisk file="<pathToVHD>"
+      ```
+
+      ```cmd
       DISKPART> detail vdisk
       ```
 
-   - Examine the output of the **detail** command.  The output will include a value for **Virtual size**.  This is the current maximum.  Convert this value to megabytes.  The new value after resizing must be greater than this value.  For example, if the **detail** output shows **Virtual size: 256 GB**, then you must specify a value greater than **256000**.  Once you have your new size in megabytes, enter the following command in **diskpart**:
+   - Examine the output of the **detail** command.  The output will include a value for **Virtual size**. This is the current maximum. Convert this value to megabytes. For example, if the **detail** output shows **Virtual size: 256 GB**, convert this to **256000**.
+   - The new value you enter must be greater than this original value. As an example, to double the virtual size listed above, you could enter the value: **512000**. Once you have determined the number you would like to set for your new size (in megabytes), enter the following command in your Windows Command Prompt **diskpart** prompt:
 
-      ```powershell
+      ```cmd
       DISKPART> expand vdisk maximum=<sizeInMegaBytes>
       ```
 
    - Exit **diskpart**
 
-      ```powershell
+      ```cmd
       DISKPART> exit
       ```
 
 5. Launch your WSL distribution (Ubuntu, for example).
 
-6. Make WSL aware that it can expand its file system's size by running these commands from your Linux distribution command line.
+6. Make WSL aware that it can expand its file system's size by running these commands from your WSL distribution command line.
 
-   > [!NOTE]
-   > You may see this message in response to the first **mount** command: **/dev: none already mounted on /dev**.  This message can safely be ignored.
-
-   ```powershell
+   ```bash
       sudo mount -t devtmpfs none /dev
       mount | grep ext4
    ```
 
-   Copy the name of this entry, which will look like: `/dev/sdX` (with the X representing any other character).  In the following example the value of **X** is **b**:
+   - You may see this message in response to the first **mount** command: "/dev: none already mounted on /dev." This message can safely be ignored.
+   - Copy the name of this entry, which will look like: `/dev/sdX` (with the X representing any other character).  In the following example the value of **X** is **b**:
 
-   ```powershell
+   ```bash
       sudo resize2fs /dev/sdb <sizeInMegabytes>M
    ```
+
+   - Using the example from above, we changed the vhd size to **512000**, so the command would be: `sudo resize2fs /dev/sbd 512000M`.
 
    > [!NOTE]
    > You may need to install **resize2fs**.  If so, you can use this command to install it:  `sudo apt install resize2fs`.
@@ -225,11 +238,11 @@ To expand your maximum VHD size beyond 256GB:
    The output will look similar to the following:
 
    ```bash
-      resize2fs 1.44.1 (24-Mar-2018)
+      resize2fs 1.44.1 (24-Mar-2021)
       Filesystem at /dev/sdb is mounted on /; on-line resizing required
       old_desc_blocks = 32, new_desc_blocks = 38
       The filesystem on /dev/sdb is now 78643200 (4k) blocks long.
       ```
 
-> [!NOTE]
-> In general do not modify, move, or access the WSL related files located inside of your AppData folder using Windows tools or editors. Doing so could cause your Linux distribution to become corrupted.
+> [!IMPORTANT]
+> We recommend that you do not modify, move, or access the WSL related files located inside of your AppData folder using Windows tools or editors. Doing so could cause your Linux distribution to become corrupted. If you would like to access your Linux files from Windows, that is possible via the path `\\wsl$\<distroName>\`. Open your WSL distribution and enter `explorer.exe .` to view that folder. To learn more, see the blog post: [Accessing Linux files from Windows](https://devblogs.microsoft.com/commandline/whats-new-for-wsl-in-windows-10-version-1903/#accessing-linux-files-from-windows).
