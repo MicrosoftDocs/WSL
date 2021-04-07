@@ -1,5 +1,5 @@
 ---
-title: Install or remove on Windows 10 Anniversary Update or Creators Update
+title: Install or remove Windows 10 Anniversary Update
 description: Installation and un-installation instructions for the legacy, beta distro on Windows 10 Anniversary Update or Creators Update
 keywords: BashOnWindows, bash, wsl, windows, windows subsystem for linux, windowssubsystem, ubuntu, debian, suse, windows 10, legacy, beta, install, remove, uninstall, un-install, delete, deprecated
 ms.date: 07/24/2018

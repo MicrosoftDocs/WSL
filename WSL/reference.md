@@ -1,5 +1,5 @@
 ---
-title: Windows Subsystem for Linux Command Reference
+title: WSL Command Line Reference
 description: See a list of commands that manage the Windows Subsystem for Linux, such as arguments for running Linux commands.
 keywords: BashOnWindows, bash, wsl, windows, windows subsystem for linux, windowssubsystem, ubuntu
 ms.date: 09/15/2020
