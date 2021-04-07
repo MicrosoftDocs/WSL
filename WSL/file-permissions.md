@@ -1,5 +1,5 @@
 ---
-title: File Permissions
+title: File Permissions for WSL
 description: Understanding how WSL determines file permissions in Windows
 keywords: BashOnWindows, bash, wsl, wsl2, windows, windows subsystem for linux, windowssubsystem, ubuntu, debian, suse, windows 10, file,permissions
 ms.date: 01/14/2020

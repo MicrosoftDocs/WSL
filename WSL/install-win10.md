@@ -1,6 +1,6 @@
 ---
-title: Install Windows Subsystem for Linux (WSL) on Windows 10
-description: Installation guide for WSL on your Windows 10, with a Bash terminal, including Ubuntu, Debian, SUSE, Kali, Fedora, Pengwin, and Alpine. 
+title: Install WSL on Windows 10
+description: Learn how to install Linux distributions on your Windows 10 machine, with a Bash terminal, including Ubuntu, Debian, SUSE, Kali, Fedora, Pengwin, and Alpine.
 keywords: BashOnWindows, bash, wsl, windows, windows subsystem for linux, windowssubsystem, ubuntu, debian, suse, windows 10, install, enable, WSL2, version 2
 ms.date: 04/07/2021
 ms.topic: article

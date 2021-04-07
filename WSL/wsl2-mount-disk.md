@@ -1,5 +1,5 @@
 ---
-title: Get started mounting a Linux disk in WSL 2 (preview)
+title: Get started mounting a Linux disk in WSL 2 
 description: Learn how to set up a disk mount in WSL 2 and how to access it.
 keywords: wsl, windows, windowssubsystem, gnu, linux, bash, disk, ext4, filesystem, mount
 ms.date: 11/04/2020
