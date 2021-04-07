@@ -53,4 +53,4 @@ $userenv = [System.Environment]::GetEnvironmentVariable("Path", "User")
 
 You can now launch your distribution from any path by typing `<distro>.exe`. For example: `ubuntu.exe`.
 
-Now that it is installed, you must [initialize your new distribution instance](initialize-distro.md) before using it.
+Now that it is installed, you must [initialize your new distribution instance](./install-win10.md) before using it.
