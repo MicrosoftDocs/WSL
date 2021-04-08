@@ -51,7 +51,7 @@ Error: 0x1bc
 For information on key differences with WSL 2 please visit https://aka.ms/wsl2
 ```
 
-THe actual error for `0x1bc` is:
+The actual error for `0x1bc` is:
 
 ```powershell
 WSL 2 requires an update to its kernel component. For information please visit https://aka.ms/wsl2kernel
