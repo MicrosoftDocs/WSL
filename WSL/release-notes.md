@@ -10,6 +10,15 @@ ms.localizationpriority: high
 
 # Release Notes for Windows Subsystem for Linux
 
+## Build 21354
+For general Windows information on build 21354 visit the [Windows blog](https://blogs.windows.com/windows-insider/2021/04/07/announcing-windows-10-insider-preview-build-21354/).
+
+* Switch the \\wsl prefix to \\wsl.localhost to avoid issues when there is a machine on the network named "wsl". \\wsl$ will continue to work.
+* Enable Linux quick access icon for wow processes.
+* Update issue where version 2 was always being passed via wslapi RegisterDistribution.
+* Change the fmask of the /usr/lib/wsl/lib directory to 222 so files are marked as executable [GH 3847]
+* Fix wsl service crash if Virtual Machine Platform is not enabled.
+
 ## Build 21286
 For general Windows information on build 21286 visit the [Windows blog](https://blogs.windows.com/windows-insider/2021/01/06/announcing-windows-10-insider-preview-build-21286/).
 
