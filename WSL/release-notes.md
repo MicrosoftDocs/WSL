@@ -3,7 +3,7 @@ title: Release Notes for Windows Subsystem for Linux
 description: Read release notes for the Windows Subsystem for Linux. These release notes include fixed issues and are updated weekly.
 keywords: release notes, wsl, windows, windows subsystem for linux, windowssubsystem, ubuntu
 author: benhillis
-ms.date: 05/15/2020
+ms.date: 04/08/2021
 ms.topic: article
 ms.localizationpriority: high
 ---
