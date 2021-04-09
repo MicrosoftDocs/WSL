@@ -9,14 +9,15 @@ ms.localizationpriority: medium
 
 # Get started mounting a Linux disk in WSL 2 (preview)
 
-If you want to access a Linux disk format that isn't supported by Windows, you can use WSL 2 to mount your disk and access its content.
-
-This tutorial will cover the steps to identify the disk and partition to attach to WSL2, how to mount them, and how to access them.
+If you want to access a Linux disk format that isn't supported by Windows, you can use WSL 2 to mount your disk and access its content. This tutorial will cover the steps to identify the disk and partition to attach to WSL2, how to mount them, and how to access them.
 
 > [!NOTE]
-> You will need to be on Windows 10 Build 20211 or higher to access this feature. You can join the [Windows Insiders Program](https://insider.windows.com/) to get the latest preview builds.
 > Administrator access is required to attach a disk to WSL 2.
-> WSL 2 `mount` command does not support mounting disk (or partitions belong to a disk) that is currently in use (You can't mount a partition from the same disk as Windows).
+> The WSL 2 `mount` command does not support mounting a disk (or partitions that belong to the disk) that is currently in use. `wsl --mount` always attaches the entire disk even if only a partition is requested. You can't mount the Windows installation disk.
+
+## Prerequisites
+
+You will need to be on Windows 10 Build 20211 or higher to access this feature. You can join the [Windows Insiders Program](https://insider.windows.com/) to get the latest preview builds.
 
 ## Identify the disk
 
