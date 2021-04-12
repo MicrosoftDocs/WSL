@@ -125,7 +125,7 @@ There are 3 commands you need to know once MongoDB is installed:
 - `sudo service mongodb stop` to stop running your database.
 
 > [!NOTE]
-> You might see the command `sudo systemctl status mongodb` used in tutorials or articles. In order to remain lightweight, WSL does not include `systemd` (a service management system in Linux). Instead, it uses SysVinit to start services on your machine. You shouldn't notice a difference, but if a tutorial recommends using `sudo systemctl`, instead use: `sudo /etc/init.d/`. For example, `sudo systemctl status mongodb`, for WSL would be `sudo /etc/inid.d/mongodb status` ...or you can also use `sudo service mongodb status`.
+> You might see the command `sudo systemctl status mongodb` used in tutorials or articles. In order to remain lightweight, WSL does not include `systemd` (a service management system in Linux). Instead, it uses SysVinit to start services on your machine. You shouldn't notice a difference, but if a tutorial recommends using `sudo systemctl`, instead use: `sudo /etc/init.d/`. For example, `sudo systemctl status mongodb`, for WSL would be `sudo /etc/init.d/mongodb status` ...or you can also use `sudo service mongodb status`.
 
 To run your Mongo database in a local server:
 
