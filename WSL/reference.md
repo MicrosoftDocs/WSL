@@ -1,5 +1,5 @@
 ---
-title: Windows Subsystem for Linux Command Reference
+title: WSL Command Line Reference
 description: See a list of commands that manage the Windows Subsystem for Linux, such as arguments for running Linux commands.
 keywords: BashOnWindows, bash, wsl, windows, windows subsystem for linux, windowssubsystem, ubuntu
 ms.date: 09/15/2020
@@ -19,6 +19,8 @@ Run the following command in Powershell to set WSL 2 as the default version when
 ```powershell
 wsl --set-default-version 2
 ```
+> [!NOTE]
+> If you're running a 32-bit process in order to access wsl.exe (a 64-bit tool), you may have to run the above command in the following manner: `C:\Windows\Sysnative\wsl.exe --set-default-version 2`
 
 ## Set your distribution version to WSL 1 or WSL 2
 

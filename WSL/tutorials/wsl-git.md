@@ -1,5 +1,5 @@
 ---
-title: Get started using Git on Windows Subsystem for Linux
+title: Get started using Git on WSL
 description: Learn how to set up Git for version control on the Windows Subsystem for Linux.
 keywords: wsl, windows, windowssubsystem, gnu, linux, bash, git, github, version control
 ms.date: 06/04/2020
@@ -13,7 +13,7 @@ Git is the most commonly used version control system. With Git, you can track ch
 
 ## Git can be installed on Windows AND on WSL
 
-An important consideration: when you enable WSL and install a Linux distribution, you are installing a new file system, separated from the Windows NTFS C:\ drive on your machine. In Linux, drives are not given letters. They are given mount points. The root of your file system `/` is the mount point of your root partition, or folder, in the case of WSL. Not everything under `/` is the same drive. For example, on my laptop, I've installed two version of Ubuntu (20.04 and 18.04), as well as Debian. If I open those distributions, select the root directory with the command `cd ~`, and then enter the command `explorer.exe .`, Windows File Explorer will open and show me the directory path for that distribution.
+An important consideration: when you enable WSL and install a Linux distribution, you are installing a new file system, separated from the Windows NTFS C:\ drive on your machine. In Linux, drives are not given letters. They are given mount points. The root of your file system `/` is the mount point of your root partition, or folder, in the case of WSL. Not everything under `/` is the same drive. For example, on my laptop, I've installed two version of Ubuntu (20.04 and 18.04), as well as Debian. If I open those distributions, select the home directory with the command `cd ~`, and then enter the command `explorer.exe .`, Windows File Explorer will open and show me the directory path for that distribution.
 
 | Linux distro | Windows Path to access home folder |
 | ----------- | ----------- |

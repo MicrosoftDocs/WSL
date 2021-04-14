@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting the Windows Subsystem for Linux
+title: Troubleshooting Windows Subsystem for Linux
 description: Provides detailed information about common errors and issues people run into while running Linux on the Windows Subsystem for Linux. 
 keywords: BashOnWindows, bash, wsl, windows, windowssubsystem, ubuntu
 ms.date: 09/28/2020
@@ -51,7 +51,7 @@ Error: 0x1bc
 For information on key differences with WSL 2 please visit https://aka.ms/wsl2
 ```
 
-THe actual error for `0x1bc` is:
+The actual error for `0x1bc` is:
 
 ```powershell
 WSL 2 requires an update to its kernel component. For information please visit https://aka.ms/wsl2kernel
@@ -109,6 +109,14 @@ fi
 
 The correct way on Debian is to remove above lines.
 You may also append $PATH during the assignment like below, but this lead to some [other problems](https://salsa.debian.org/debian/WSL/-/commit/7611edba482fd0b3f67143aa0fc1e2cc1d4100a6) with WSL and VSCode..
+
+```Bash
+if [ "`id -u`" -eq 0 ]; then
+  PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH"
+else
+  PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:$PATH"
+fi
+```
 
 For more information, see issue [5296](https://github.com/microsoft/WSL/issues/5296) and issue [5779](https://github.com/microsoft/WSL/issues/5779).
 
@@ -233,6 +241,7 @@ Some users have reported issues with specific firewall applications blocking int
 1. Kaspersky
 2. AVG
 3. Avast
+4. Symantec Endpoint Protection
 
 In some cases turning off the firewall allows for access.  In some cases simply having the firewall installed looks to block access.
 
