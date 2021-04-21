@@ -17,7 +17,7 @@ We've added support for WSL 2 distributions, [which use a full Linux kernel](htt
 [Official Github release link](https://github.com/microsoft/WSL2-Linux-Kernel/releases/tag/linux-msft-wsl-5.10.16.3)
 
 * Fixes [GH 5324](https://github.com/microsoft/WSL/issues/5324)
-* Adds support for LUKS encyrpted disks using wsl --mount
+* Adds support for LUKS encrypted disks using wsl --mount
 
 ## 5.4.91
 *Release Date*: Prerelease 2021/02/22
