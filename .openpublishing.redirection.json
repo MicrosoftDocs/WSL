@@ -43,7 +43,7 @@
     {
       "source_path": "wsl/wsl2-kernel.md",
       "redirect_url": "/windows/wsl/install-win10#step-4---download-the-linux-kernel-update-package",
-      "redirect_document_id": true
+      "redirect_document_id": false
     }
   ]
 }
