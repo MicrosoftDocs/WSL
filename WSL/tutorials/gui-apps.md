@@ -21,6 +21,7 @@ WSL 2 enables Linux GUI applications to feel native and natural to use on Window
 You can now integrate both Windows and Linux applications into your workflow for a seamless desktop experience.
 
 ![Illustration of laptop with Linux and Windows apps open](../media/wsl-gui-apps.png)
+
 ## Install support for Linux GUI apps
 
 ### Prerequisites
@@ -75,7 +76,7 @@ If you already have WSL installed on your machine, you can update to the latest 
 > [!NOTE]
 > Linux GUI apps are only supported with WSL 2 and will not work with a Linux distribution configured for WSL 1. Read about [how to change your distribution from WSL 1 to WSL 2](./reference.md#set-your-distribution-version-to-wsl-1-or-wsl-2).
 
-## Install and run Linux GUI apps
+## Run Linux GUI apps
 
 You can run the following commands from your Linux terminal to download and install these popular Linux applications. If you are using a different distribution than Ubuntu, it may use a different package manager than apt.
 
