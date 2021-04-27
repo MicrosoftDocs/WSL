@@ -10,6 +10,13 @@ ms.localizationpriority: high
 
 # Release Notes for Windows Subsystem for Linux
 
+## Build 21364
+For general Windows information on build 21364 visit the [Windows blog](https://blogs.windows.com/windows-insider/2021/04/21/announcing-windows-10-insider-preview-build-21364/).
+
+* GUI apps are now available! For more information see [this blog post](https://devblogs.microsoft.com/commandline/the-initial-preview-of-gui-app-support-is-now-available-for-the-windows-subsystem-for-linux).
+* Resolve error when accessing files via \\\\wsl.localhost\\.
+* Fix potential deadlock in LxssManager service.
+
 ## Build 21354
 For general Windows information on build 21354 visit the [Windows blog](https://blogs.windows.com/windows-insider/2021/04/07/announcing-windows-10-insider-preview-build-21354/).
 
