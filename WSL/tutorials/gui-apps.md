@@ -78,7 +78,7 @@ If you already have WSL installed on your machine, you can update to the latest 
 
 ## Run Linux GUI apps
 
-You can run the following commands from your Linux terminal to download and install these popular Linux applications. If you are using a different distribution than Ubuntu, it may use a different package manager than apt.
+You can run the following commands from your Linux terminal to download and install these popular Linux applications. If you are using a different distribution than Ubuntu, it may use a different package manager than apt. Once the Linux application is installed, you can find it in your **Start** menu under the distribution name. For example: `Ubuntu -> Microsoft Edge`.
 
 ### Update the packages in your distribution
 
@@ -166,7 +166,5 @@ To install Microsoft Edge for Linux:
 
 1. Use curl to download the package: `sudo curl https://packages.microsoft.com/repos/edge/pool/main/m/microsoft-edge-dev/microsoft-edge-dev_91.0.852.0-1_amd64.deb -o /tmp/edge.deb`
 2. Use apt to install it: `sudo apt install /tmp/edge.deb -y`
-
-Once these applications are installed, you can find them in your **Start** menu under the distribution name. For example: `Ubuntu -> Microsoft Edge`. You can also launch these from your terminal window using the commands:
 
 To launch, enter: `microsoft-edge`
