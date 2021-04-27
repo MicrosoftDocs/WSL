@@ -20,7 +20,7 @@ WSL 2 enables Linux GUI applications to feel native and natural to use on Window
 
 You can now integrate both Windows and Linux applications into your workflow for a seamless desktop experience.
 
-![Screenshot of Linux and Windows apps open on a desktop](../media/wsl-gui-apps-screenshot.png)
+![Screenshot of Linux and Windows apps open on a desktop](../media/wsl-gui-screenshot.png)
 
 ## Install support for Linux GUI apps
 
