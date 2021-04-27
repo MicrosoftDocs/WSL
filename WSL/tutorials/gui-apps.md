@@ -7,11 +7,18 @@ ms.topic: article
 ms.localizationpriority: medium
 ---
 
-# Run Linux GUI apps on the Windows Subsystem for Linux
+# Run Linux GUI apps on the Windows Subsystem for Linux (PREVIEW)
 
-You can now run Linux GUI applications (X11 and Wayland) on Windows in a fully integrated desktop experience thanks to Windows Subsystem for Linux (WSL).
+You can now preview Windows Subsystem for Linux (WSL) support for running Linux GUI applications (X11 and Wayland) on Windows in a fully integrated desktop experience.
 
-WSLg strives to make Linux GUI applications feel native and natural to use on Windows. From integration into the Start Menu for launch to appearing in the task bar, alt-tab experience to enabling cut/paste across Windows and Linux applications, WSLg enables a seamless desktop experience and workflow leveraging Windows and Linux applications.
+WSL 2 enables Linux GUI applications to feel native and natural to use on Windows.
+
+- Launch Linux apps from the Windows Start menu
+- Pin Linux apps to the Windows task bar
+- Use alt-tab to switch between Linux and Windows apps
+- Cut + Paste across Windows and Linux apps
+
+You can now integrate both Windows and Linux applications into your workflow for a seamless desktop experience.
 
 ## Install support for Linux GUI apps
 
