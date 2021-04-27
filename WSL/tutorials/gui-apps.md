@@ -85,6 +85,8 @@ Gedit is the default text editor of the GNOME desktop environment.
 sudo apt install gedit -y
 ```
 
+To launch your bashrc file in the editor, enter: `gedit ~/.bashrc`
+
 ### Install GIMP
 
 GIMP is a free and open-source raster graphics editor used for image manipulation and image editing, free-form drawing, transcoding between different image file formats, and more specialized tasks.
@@ -92,6 +94,8 @@ GIMP is a free and open-source raster graphics editor used for image manipulatio
 ```bash
 sudo apt install gimp -y
 ```
+
+To launch, enter: `gimp`
 
 ### Install Nautilus
 
@@ -101,6 +105,8 @@ Nautilus, also known as GNOME Files, is the file manager for the GNOME desktop. 
 sudo apt install nautilus -y
 ```
 
+To launch, enter: `nautilus`
+
 ### Install VLC
 
 VLC is a free and open source cross-platform multimedia player and framework that plays most multimedia files.
@@ -109,6 +115,8 @@ VLC is a free and open source cross-platform multimedia player and framework tha
 sudo apt install vlc -y
 ```
 
+To launch, enter: `vlc`
+
 ### Install X11 apps
 
 X11 is the Linux windowing system and this is a miscellaneous collection of apps and tools that ship with it, such as the xclock, xcalc calculator, xclipboard for cut and paste, xmark, x11perf, and x11perfcomp tools for benchmarking graphical operations, etc.
@@ -116,6 +124,10 @@ X11 is the Linux windowing system and this is a miscellaneous collection of apps
 ```bash
 sudo apt install x11-apps -y
 ```
+
+To launch, enter the name of the tool you would like to use. For example:
+
+- `xcalc`, `xclock`, `xeyes`
 
 ### Install Google Chrome for Linux
 
@@ -127,6 +139,8 @@ To install the Google Chrome for Linux:
 4. Fix the package: `sudo apt install --fix-broken -y`
 5. Configure the package: `sudo dpkg -i google-chrome-stable_current_amd64.deb`
 
+To launch, enter: `google-chrome`
+
 ### Install Microsoft Teams for Linux
 
 To install Microsoft Teams for Linux:
@@ -135,7 +149,9 @@ To install Microsoft Teams for Linux:
 2. Use curl to download the package: `sudo curl -L -o "./teams.deb" "https://teams.microsoft.com/downloads/desktopurl?env=production&plat=linux&arch=x64&download=true&linuxArchiveType=deb"`
 3. Use apt to install it: `sudo apt install ./teams.deb -y`
 
-### Microsoft Edge browser for Linux
+To launch, enter: `teams`
+
+### Install Microsoft Edge browser for Linux
 
 To install Microsoft Edge for Linux:
 
@@ -144,11 +160,4 @@ To install Microsoft Edge for Linux:
 
 Once these applications are installed, you can find them in your **Start** menu under the distribution name. For example: `Ubuntu -> Microsoft Edge`. You can also launch these from your terminal window using the commands:
 
-- `xcalc`, `xclock`, `xeyes`
-- `gimp`
-- `gedit ~/.bashrc`
-- `nautilus`
-- `vlc`
-- `google-chrome`
-- `teams`
-- `microsoft-edge`
+To launch, enter: `microsoft-edge`
