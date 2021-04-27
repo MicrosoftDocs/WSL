@@ -7,7 +7,7 @@ ms.topic: article
 ms.localizationpriority: medium
 ---
 
-# Run Linux GUI apps on the Windows Subsystem for Linux (PREVIEW)
+# Run Linux GUI apps on the Windows Subsystem for Linux (preview)
 
 You can now preview Windows Subsystem for Linux (WSL) support for running Linux GUI applications (X11 and Wayland) on Windows in a fully integrated desktop experience.
 
@@ -20,6 +20,7 @@ WSL 2 enables Linux GUI applications to feel native and natural to use on Window
 
 You can now integrate both Windows and Linux applications into your workflow for a seamless desktop experience.
 
+![Illustration of laptop with Linux and Windows apps open](../media/wsl-gui-apps.png)
 ## Install support for Linux GUI apps
 
 ### Prerequisites
