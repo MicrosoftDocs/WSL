@@ -20,7 +20,7 @@ WSL 2 enables Linux GUI applications to feel native and natural to use on Window
 
 You can now integrate both Windows and Linux applications into your workflow for a seamless desktop experience.
 
-![Illustration of laptop with Linux and Windows apps open](../media/wsl-gui-apps.png)
+![Illustration of laptop with Linux and Windows apps open](../media/wsl-gui-apps-screenshot.png)
 
 ## Install support for Linux GUI apps
 
@@ -128,7 +128,7 @@ To launch, enter: `vlc`
 
 ### Install X11 apps
 
-X11 is the Linux windowing system and this is a miscellaneous collection of apps and tools that ship with it, such as the xclock, xcalc calculator, xclipboard for cut and paste, xmark, x11perf, and x11perfcomp tools for benchmarking graphical operations, etc.
+X11 is the Linux windowing system and this is a miscellaneous collection of apps and tools that ship with it, such as the xclock, xcalc calculator, xclipboard for cut and paste, xev for event testing, etc. See the [x.org docs](https://www.x.org/wiki/UserDocumentation/GettingStarted/) for more info.
 
 ```bash
 sudo apt install x11-apps -y
