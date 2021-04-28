@@ -26,6 +26,8 @@
       href: tutorials/wsl-containers.md
     - name: Set up GPU acceleration (NVIDIA CUDA/DirectML)
       href: tutorials/gpu-compute.md
+    - name: Run Linux GUI apps
+      href: tutorials/gui-apps.md
 - name: How-to
   items:
     - name: Interoperability commands
