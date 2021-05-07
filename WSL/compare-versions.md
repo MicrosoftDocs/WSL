@@ -99,7 +99,7 @@ We recommend that you use WSL 2 as it offers faster performance and 100% system 
 - A project which requires cross-compilation using both Windows and Linux tools on the same files.
   - File performance across the Windows and Linux operating systems is faster in WSL 1 than WSL 2, so if you are using Windows applications to access Linux files, you will currently achieve faster performance with WSL 1.
 - Your project needs access to a serial port or USB device.
-   - According to the [WSL 2 FAQ](https://docs.microsoft.com/windows/wsl/wsl2-faq#can-i-access-the-gpu-in-wsl-2-are-there-plans-to-increase-hardware-support), WSL 2 does not include support for accessing serial ports. The [open issue on serial support](https://github.com/microsoft/WSL/issues/4322) indicates that support has not been added yet.
+   - According to the [WSL 2 FAQ](./wsl2-faq.yml#can-i-access-the-gpu-in-wsl-2-are-there-plans-to-increase-hardware-support), WSL 2 does not include support for accessing serial ports. The [open issue on serial support](https://github.com/microsoft/WSL/issues/4322) indicates that support has not been added yet.
 - You have strict memory requirements
   - WSL 2's memory usage grows and shrinks as you use it. When a process frees memory this is automatically returned to Windows. However, as of right now WSL 2 does not yet release cached pages in memory back to Windows until the WSL instance is shut down. If you have long running WSL sessions, or access a very large amount of files, this cache can take up memory on Windows. We are tracking the work to improve this experience on [the WSL Github repository issue 4166](https://github.com/microsoft/WSL/issues/4166).
 

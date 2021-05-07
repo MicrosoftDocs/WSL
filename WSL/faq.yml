@@ -177,7 +177,7 @@ sections:
             lxrun /uninstall /full
             ```
             
-          WSL distributions installed from the store can be uninstalled like any other Windows app, by right-clicking on the app tile and clicking Uninstall, or via PowerShell using the [`Remove-AppxPackage` cmdlet](https://docs.microsoft.com/powershell/module/appx/remove-appxpackage)).
+          WSL distributions installed from the store can be uninstalled like any other Windows app, by right-clicking on the app tile and clicking Uninstall, or via PowerShell using the [`Remove-AppxPackage` cmdlet](/powershell/module/appx/remove-appxpackage)).
           
       - question: |
          Why does ping generate permission denied errors?
