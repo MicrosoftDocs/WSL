@@ -196,7 +196,7 @@ Below are related errors and suggested fixes. Refer to the [WSL troubleshooting 
 
 - **Installation failed with error 0x80070003**
   - The Windows Subsystem for Linux only runs on your system drive (usually this is your `C:` drive). Make sure that distributions are stored on your system drive:  
-  - Open **Settings** -> **System --> **Storage** -> **More Storage Settings: Change where new content is saved**
+  - Open **Settings** -> **System** --> **Storage** -> **More Storage Settings: Change where new content is saved**
     ![Picture of system settings to install apps on C: drive](media/AppStorage.png)
 
 - **WslRegisterDistribution failed with error 0x8007019e**
