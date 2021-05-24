@@ -384,3 +384,15 @@ Some distributions [available in Microsoft Store](install-win10.md#step-6---inst
 ### Unable to boot after installing WSL 2
 
 We are aware of an issue affecting users where they are unable to boot after installing WSL 2. While we fully diagnose those issue, users have reported that [changing the buffer size](https://github.com/microsoft/WSL/issues/4784#issuecomment-639219363) or [installing the right drivers](https://github.com/microsoft/WSL/issues/4784#issuecomment-675702244) can help address this. Please view this [Github issue](https://github.com/microsoft/WSL/issues/4784) to see the latest updates on this issue. 
+
+### WSL 2 errors when ICS is disabled
+
+Internet Connection Sharing (ICS) is a required component of WSL 2. The ICS service is used by the Host Network Service (HNS) to create the underlying virtual network which WSL 2 relies on for NAT, DNS, DHCP, and host connection sharing.
+
+Disabling the ICS service (SharedAccess) or disabling ICS through group policy will prevent the WSL HNS network from being created. This will result in failures when creating a new WSL version 2 image, and the following error when trying to convert a version 1 image to version 2.
+
+```
+There are no more endpoints available from the endpoint mapper.
+```
+
+Systems that require WSL 2 should leave the ICS service (SharedAccess) in it's default start state, Manual (Trigger Start), and any policy that disables ICS should be overwritten or removed.
