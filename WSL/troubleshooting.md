@@ -395,4 +395,4 @@ Disabling the ICS service (SharedAccess) or disabling ICS through group policy w
 There are no more endpoints available from the endpoint mapper.
 ```
 
-Systems that require WSL 2 should leave the ICS service (SharedAccess) in it's default start state, Manual (Trigger Start), and any policy that disables ICS should be overwritten or removed.
+Systems that require WSL 2 should leave the ICS service (SharedAccess) in it's default start state, Manual (Trigger Start), and any policy that disables ICS should be overwritten or removed. We do not recommend disabling ICS, however it can be disabled [using these instructions](https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-application-guard/faq-md-app-guard#how-can-i-disable-portions-of-ics-without-breaking-application-guard)
