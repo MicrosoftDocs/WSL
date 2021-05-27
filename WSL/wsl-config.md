@@ -282,7 +282,7 @@ Setting different mount options for Windows drives (DrvFs) can control how file 
 |fmask | An octal mask of permissions to exclude for all files | 000
 |dmask | An octal mask of permissions to exclude for all directories | 000
 |metadata | Whether metadata is added to Windows files to support Linux system permissions | disabled
-|case | Determines directories treated as case sensitive and whether new directories created with WSL will have the flag set. See [Per-directory case sensitivity and WSL](https://devblogs.microsoft.com/commandline/per-directory-case-sensitivity-and-wsl/#per-directory-case-sensitivity-in-wsl) for a detailed explanation of the options. | `dir`
+|case | Determines directories treated as case sensitive and whether new directories created with WSL will have the flag set. See [Per-directory case sensitivity and WSL](https://devblogs.microsoft.com/commandline/per-directory-case-sensitivity-and-wsl/#per-directory-case-sensitivity-in-wsl) for a detailed explanation of the options. | `off`
 
 **Note:** The permission masks are put through a logical OR operation before being applied to files or directories. 
 
