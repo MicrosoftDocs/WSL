@@ -31,7 +31,7 @@ To contribute to the WSL documentation, submit a pull request in the docs repo: 
 
 ## Terminal or Command Line
 
-Lastly, if your issue is related to the Windows Terminal, Windows Console, or the command-line UI, use the Windows terminal repo: https://github.com/microsoft/terminal
+Lastly, if your issue is related to the Windows Terminal, Windows Console, or the command-line UI, use the Windows Terminal repo: https://github.com/microsoft/terminal
 
 ## Common issues
 
