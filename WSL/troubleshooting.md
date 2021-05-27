@@ -395,4 +395,17 @@ Disabling the ICS service (SharedAccess) or disabling ICS through group policy w
 There are no more endpoints available from the endpoint mapper.
 ```
 
-Systems that require WSL 2 should leave the ICS service (SharedAccess) in it's default start state, Manual (Trigger Start), and any policy that disables ICS should be overwritten or removed.
+Systems that require WSL 2 should leave the ICS service (SharedAccess) in it's default start state, Manual (Trigger Start). Thos who wish to harden the ICS service can disable IpNat by following these steps.
+
+1. In the Group Policy setting, "**Prohibit use of Internet Connection Sharing on your DNS domain network**," set it to Disabled.
+
+2. Disable IpNat.sys from ICS load as follows:
+`System\CurrentControlSet\Services\SharedAccess\Parameters\DisableIpNat = 1`
+
+3. Configure ICS (SharedAccess) to enabled as follows:
+`HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SharedAccess\Start = 3`
+
+4. (This is optional) Disable IPNAT as follows:
+`HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\IPNat\Start = 4`
+
+5. Reboot the device.
