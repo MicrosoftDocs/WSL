@@ -112,7 +112,7 @@ passwd $myUsername
 You must now quit out of that instance and ensure that all WSL instances are terminated. Start your distribution again to see your new default user by running this command in PowerShell:
 
 ```PowerShell
-wsl --shutdown
+wsl --terminate CentOS
 wsl -d CentOS
 ```
 
