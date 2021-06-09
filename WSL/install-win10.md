@@ -224,8 +224,8 @@ Below are related errors and suggested fixes. Refer to the [WSL troubleshooting 
   - Ensure that the [Windows Subsystem for Linux Optional Component is installed](./install-win10.md#step-3---enable-virtual-machine-feature). Additionally, if you are using an ARM64 device and running this command from PowerShell, you will receive this error. Instead run `wsl.exe` from [PowerShell Core](/powershell/scripting/install/installing-powershell-core-on-windows), or Command Prompt.
 
 - **Error: Windows Subsystem for Linux has no installed distributions.**
-  - This error could be related to:
-  1. Run the distribution at least once before involing it from the command line.
+  - If you receive this error after you have already installed WSL distributions:
+  1. Run the distribution at least once before invoking it from the command line.
   2. Check whether you may be running separate user accounts. Running your primary user account with elevated permissions (in admin mode) should not result in this error, but you should ensure that you aren't accidentally running the built-in Administrator account that comes with Windows. This is a separate user account and will not show any installed WSL distributions by design. https://docs.microsoft.com/windows-hardware/manufacture/desktop/enable-and-disable-the-built-in-administrator-account
   3. The WSL executable is only installed to the native system directory. When you’re running a 32-bit process on 64-bit Windows (or on ARM64, any non-native combination), the hosted non-native process actually sees a different System32 folder. (The one a 32-bit process sees on x64 Windows is stored on disk at \Windows\SysWOW64.) You can access the “native” system32 from a hosted process by looking in the virtual folder \Windows\sysnative. It won’t actually be present on disk, mind you, but the filesystem path resolver will find it.
 
