@@ -2,7 +2,7 @@
 title: WSL Command Line Reference
 description: See a list of commands that manage the Windows Subsystem for Linux, such as arguments for running Linux commands.
 keywords: BashOnWindows, bash, wsl, windows, windows subsystem for linux, windowssubsystem, ubuntu
-ms.date: 09/15/2020
+ms.date: 06/09/2021
 ms.topic: article
 ms.localizationpriority: high
 ---
@@ -94,6 +94,10 @@ The above commands also accept the following options:
   * **--all**
 
     List all distributions, including distributions that are currently being installed or uninstalled.
+    
+  * **--verbose, -v**
+
+     Display additional or expanded details for the command.
 
   * **--running**
 
@@ -112,6 +116,7 @@ The above commands also accept the following options:
   Un-register the distribution.
 
 * **--help**
+
   Display usage information.
 
 ## Additional Commands
