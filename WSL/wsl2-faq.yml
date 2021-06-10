@@ -18,7 +18,7 @@ sections:
       - question: |
           Does WSL 2 use Hyper-V? Will it be available on Windows 10 Home?
         answer: |
-          WSL 2 is available on all SKUs where WSL is currently available, including Windows 10 Home.
+          WSL 2 is available on all Desktop SKUs where WSL is available, including Windows 10 Home.
           
           The newest version of WSL uses Hyper-V architecture to enable its virtualization. This architecture will be available in the 'Virtual Machine Platform' optional component. This optional component will be available on all SKUs. You can expect to see more details about this experience soon as we get closer to the WSL 2 release.
           
