@@ -2,7 +2,7 @@
 title: Install WSL on Windows 10
 description: Learn how to install Linux distributions on your Windows 10 machine, with a Bash terminal, including Ubuntu, Debian, SUSE, Kali, Fedora, Pengwin, and Alpine.
 keywords: BashOnWindows, bash, wsl, windows, windows subsystem for linux, windowssubsystem, ubuntu, debian, suse, windows 10, install, enable, WSL2, version 2
-ms.date: 04/07/2021
+ms.date: 06/09/2021
 ms.topic: article
 ms.localizationpriority: high
 ---
@@ -222,6 +222,12 @@ Below are related errors and suggested fixes. Refer to the [WSL troubleshooting 
 
 - **The term 'wsl' is not recognized as the name of a cmdlet, function, script file, or operable program.**
   - Ensure that the [Windows Subsystem for Linux Optional Component is installed](./install-win10.md#step-3---enable-virtual-machine-feature). Additionally, if you are using an ARM64 device and running this command from PowerShell, you will receive this error. Instead run `wsl.exe` from [PowerShell Core](/powershell/scripting/install/installing-powershell-core-on-windows), or Command Prompt.
+
+- **Error: Windows Subsystem for Linux has no installed distributions.**
+  - If you receive this error after you have already installed WSL distributions:
+  1. Run the distribution at least once before invoking it from the command line.
+  2. Check whether you may be running separate user accounts. Running your primary user account with elevated permissions (in admin mode) should not result in this error, but you should ensure that you aren't accidentally running the built-in Administrator account that comes with Windows. This is a separate user account and will not show any installed WSL distributions by design. https://docs.microsoft.com/windows-hardware/manufacture/desktop/enable-and-disable-the-built-in-administrator-account
+  3. The WSL executable is only installed to the native system directory. When you’re running a 32-bit process on 64-bit Windows (or on ARM64, any non-native combination), the hosted non-native process actually sees a different System32 folder. (The one a 32-bit process sees on x64 Windows is stored on disk at \Windows\SysWOW64.) You can access the “native” system32 from a hosted process by looking in the virtual folder \Windows\sysnative. It won’t actually be present on disk, mind you, but the filesystem path resolver will find it.
 
 - **Error: This update only applies to machines with the Windows Subsystem for Linux.**
   - To install the Linux kernel update MSI package, WSL is required and should be enabled first. If it fails, it you will see the message: `This update only applies to machines with the Windows Subsystem for Linux`.
