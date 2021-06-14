@@ -21,6 +21,9 @@ Once you have [enabled WSL and installed a Linux distribution from the Microsoft
 
 ![Ubuntu unpacking in the Windows console](media/UbuntuInstall.png)
 
+> [!NOTE]
+> Linux distributions installed with WSL are a per-user installation and can't be shared with other Windows user accounts.
+
 ## Update and upgrade packages
 
 Most distributions ship with an empty or minimal package catalog. We strongly recommend regularly updating your package catalog and upgrading your installed packages using your distribution's preferred package manager. For Debian/Ubuntu, use apt:
