@@ -137,6 +137,7 @@ wsl --set-default-version 2
     - [Pengwin](https://www.microsoft.com/store/apps/9NV1GV1PXZ6P)
     - [Pengwin Enterprise](https://www.microsoft.com/store/apps/9N8LP0X93VCP)
     - [Alpine WSL](https://www.microsoft.com/store/apps/9p804crf0395)
+    - [Raft(Free Trial)](https://www.microsoft.com/store/apps/9msmjqd017x7)
 
 2. From the distribution's page, select "Get".
 
