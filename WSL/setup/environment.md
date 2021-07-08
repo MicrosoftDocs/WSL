@@ -1,0 +1,131 @@
+---
+title: Best practices for setting up a WSL 2 development environment
+description: A step-by-step guide to help you set up a WSL 2 development environment using Ubuntu, Visual Studio Code, Git, Windows Credential Manager, and with recommended tutorials.
+keywords: Best practices, wsl, wsl 2, windows subsystem for linux, set up your dev environment with wsl 2, development environment, set up wsl 2
+ms.date: 05/03/2021
+ms.topic: article
+ms.localizationpriority: medium
+---
+
+# Best practices for setting up a WSL 2 development environment
+
+A step-by-step guide to help you set up a WSL 2 development environment using Ubuntu, Visual Studio Code, Git, Windows Credential Manager, and with recommended tutorials.
+
+## Install WSL
+
+Windows Subsystem for Linux comes with the Windows operating system, but you must enable it and install a Linux distribution before you can begin using it. To use the simplified --install command, you must be running a recent build of Windows (Build 20262+). To check your version and build number, select **Windows logo key + R**, type **winver**, select **OK**. You can update using the [Settings menu](ms-settings:windowsupdate) or [Windows Update Assistant](https://www.microsoft.com/software-download/).
+
+Open PowerShell (or Windows Command Prompt) and enter:
+
+```powershell
+wsl --install
+```
+
+The --install command performs the following actions:
+
+- Enables the optional WSL and Virtual Machine Platform components
+- Downloads and installs the latest Linux kernel
+- Sets WSL 2 as the default
+- Downloads and installs the Ubuntu Linux distribution (reboot may be required)
+
+You will need to restart your machine during this installation process.
+
+If you prefer to install a Linux distribution other than Ubuntu, or would prefer to complete these steps manually, see the [WSL installation page](./install-win10.md) for more details. Check the [troubleshooting installation](../install-win10.md#install-windows-terminal-optional) section if you run into any issues.
+
+## Set up your Linux user info
+
+Once the process of installing your Linux distribution with WSL is complete, open the distribution (Ubuntu by default) using the Start menu. You will be asked to create a [User Name and Password](../user-support.md) for your Linux distribution.
+
+You may also want to [update and upgrade your packages](../user-support.md#update-and-upgrade-packages). For Ubuntu, use the command: `sudo apt update && sudo apt upgrade`.
+
+To add additional Linux distributions, you can install via the [Microsoft Store](https://aka.ms/wslstore), via the [--import command](../use-custom-distro.md), or by [sideloading your own custom distribution](../build-custom-distro.md). You may also want to [set up custom WSL images for distribution across your enterprise company](../enterprise.md).
+
+## Set up Windows Terminal
+
+Windows Terminal can run any application with a command line interface. Its main features include multiple tabs, panes, Unicode and UTF-8 character support, a GPU accelerated text rendering engine, and the ability to create your own themes and customize text, colors, backgrounds, and shortcuts.
+
+Whenever a new WSL Linux distribution is installed, a new instance will be created for it inside the Windows Terminal that can be customized to your preferences.
+
+We recommend using WSL with Windows Terminal, especially if you plan to work with multiple command lines. See the Windows Terminal docs for help with setting it up and customizing your preferences, including:
+
+- [Install Windows Terminal or Windows Terminal (Preview)](/windows/terminal/get-started) from the Microsoft Store
+- [Use the Command Palette](/windows/terminal/get-started#invoke-the-command-palette)
+- Set up [custom actions](/windows/terminal/#custom-actions) like keyboard shortcuts to make the terminal feel natural to your preferences
+- Set up the [default startup profile](/windows/terminal/customize-settings/startup)
+- Customize the appearance: [theme](/windows/terminal/customize-settings/appearance#theme), [color schemes](/windows/terminal/customize-settings/color-schemes), [name and starting directory](/windows/terminal/customize-settings/profile-general), [background image](/windows/terminal/customize-settings/profile-appearance#background-image), etc.
+- Learn how to use [command line arguments](/windows/terminal/command-line-arguments?tabs=windows) like opening a terminal with multiple command lines split into window panes or tabs
+- Learn about the [search feature](/windows/terminal/search)
+- Find [tips and tricks](/windows/terminal/tips-and-tricks), like how to rename or color a tab, use mouse interactions, or enable "Quake mode"
+- Find tutorials on how to set up [Powerline](/windows/terminal/tutorials/powerline-setup), [SSH profiles](/windows/terminal/tutorials/ssh), or [tab titles](/windows/terminal/tutorials/tab-title)
+- Find a [custom terminal gallery](/windows/terminal/custom-terminal-gallery/custom-schemes) and a [troubleshooting guide](/windows/terminal/troubleshooting)
+
+## File storage
+
+- To open your WSL project in Windows File Explorer, enter: `explorer.exe .` <br> *Be sure to add the period at the end of the command to open the current directory.*
+
+- [Store your project files on the same operating system as the tools you plan to use](..//compare-versions.md#performance-across-os-file-systems). <br>For the fastest performance speed, store your files in the WSL file system if you are working on them with Linux tools in a Linux command line (Ubuntu, OpenSUSE, etc). If you're working in a Windows command line (PowerShell, Command Prompt) with Windows tools, store your files in the Windows file system. Files can be accessed across the operating systems, but it may significantly slow down performance.
+
+For example, when storing your WSL project files:
+
+- Use the Linux file system root directory: `\\wsl$\<DistroName>\home\<UserName>\Project`
+- Not the Windows file system root directory: `C:\Users\<UserName>\Project` or `/mnt/c/Users/<UserName>/Project$`
+
+## Set up VS Code for editing and debugging
+
+Follow this step-by-step guide to [Get started using Visual Studio Code with WSL](../tutorials/wsl-vscode.md), which includes installing the[Remote Development extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack). This extension enables you to run WSL, SSH, or a remote container for editing and debugging with the full set of Visual Studio Code features. Quickly swap between different, separate development environments and make updates without worrying about impacting your local machine.
+
+Once VS Code is installed and set up, you can open your WSL project with a VS Code remote server by entering: `code .` <br>*Be sure to add the period at the end of the command to open the current directory.*
+
+## Set up version management with Git
+
+Follow this step-by-step guide to [Get started using Git on WSL](wsl-git.md) and connect your project to the Git version control system, along with using the credential manager for authentication, using Git Ignore files, understanding Git line endings, and using the Git commands built-in to VS Code.
+
+## Set up remote development containers with Docker
+
+Follow this step-by-step guide to [Get started with Docker remote containers on WSL 2](wsl-containers.md) and connect your project to a remote development container with Docker Desktop for Windows.
+
+## Set up a database
+
+Follow this step-by-step guide to [Get started with databases on WSL](wsl-database.md) and connect your project to a database in the WSL environment. Get started with MySQL, PostgreSQL, MongoDB, Redis, Microsoft SQL Server, or SQLite.
+
+## Set up GPU acceleration for faster performance
+<!-- We should probably update this to be not just for "machine learning training", yes? -->
+Follow this step-by-step guide to set up [GPU accelerated machine learning training in WSL](gpu-compute.md) and leverage your computer's GPU (graphics processing unit) to accelerate performance heavy workloads.
+
+## Basic WSL commands
+
+The Linux distributions that you install via WSL are best managed using PowerShell or Windows Command Prompt (CMD). A few of the basic commands include:
+
+- [List the distributions you have installed](../wsl-config.md#list-distributions): `wsl -l -v`
+
+- [Unregister and reinstall a distribution](..//wsl-config.md#unregister-and-reinstall-a-distribution): `wsl --unregister <DistributionName>`
+
+- [Run as a specific user](../wsl-config.md#run-as-a-specific-user): `wsl -u <Username>`
+
+- [Mounting a disk](..//wsl2-mount-disk.md). To view available disks in Windows: `wmic diskdrive list brief`. To mount the disk using the path discovered with the previous command: `wsl --mount <DiskPath>`.
+
+- [Unmount a disk](..//wsl2-mount-disk.md#unmount-the-disk): `wsl --unmount <DiskPath>`.
+
+- [Mount a virtual hard disk (VHD)](../wsl2-mount-disk.md#mount-a-vhd-in-wsl)
+
+In addition, many commands are interoperable between Windows and Linux. Here are a couple of examples:
+
+- [Run Linux tools from a Windows command line](../interop.md#run-linux-tools-from-a-windows-command-line): Open PowerShell and display the directory contents of `C:\temp>` using the Linux `ls -la` command by entering: `wsl ls -la`
+
+- [Mix Linux and Windows commands](../interop.md#mixing-linux-and-windows-commands): In this example, the Linux command `ls -la` is used to list files in the directory, then the PowerShell command `findstr` is used to filter the results for words containing "git": `wsl ls -la | findstr "git"`. This could also be done mixing the Windows `dir` command with the Linux `grep` command: `dir | wsl grep git`.
+
+- [Run a Windows tool directly from the WSL command line](../interop.md#run-windows-tools-from-linux): `<tool-name>.exe`
+    For example, to open your .bashrc file (the shell script that runs whenever your Linux command line is started), enter: `notepad.exe .bashrc`
+
+- [Run the Windows ipconfig.exe tool with the Linux Grep tool](../interop.md#run-windows-tools-from-linux): `ipconfig.exe | grep IPv4 | cut -d: -f2`
+    This example demonstrates the ipconfig tool on the Windows file system being used to display the current TCP/IP network configuration values and then being filtered to only the IPv4 result with grep, a Linux tool.
+
+## Mount an external drive or USB
+
+Follow this step-by-step guide to [Get started mounting a Linux disk in WSL 2](wsl2-mount-disk.md).
+
+## Additional resources
+
+- [Troubleshooting](troubleshooting.md)
+- [FAQs](wsl2-faq.yml)
+- [Release Notes](release-notes.md)
