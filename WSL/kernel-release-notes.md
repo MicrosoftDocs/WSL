@@ -11,6 +11,17 @@ ms.localizationpriority: high
 
 We've added support for WSL 2 distributions, [which use a full Linux kernel](https://devblogs.microsoft.com/commandline/shipping-a-linux-kernel-with-windows/). This Linux kernel is open source, with its source code available at the [WSL2-Linux-Kernel](https://github.com/microsoft/WSL2-Linux-Kernel) repository. This Linux kernel is delivered to your machine via Microsoft Update, and follows a separate release schedule to the Windows Subsystem for Linux which is delivered as part of the Windows image.
 
+## 5.10.43.3
+*Release Date*: Prerelease 2021/07/12
+
+[Official Github release link](https://github.com/microsoft/WSL2-Linux-Kernel/releases/tag/linux-msft-wsl-5.10.43.3)
+
+- Version rolling-lts/wsl/5.10.43.3
+- Update to upstream stable kernel release 5.10.43
+- Improved dxgkrnl driver
+- New revision of arm64 Linux on Hyper-V series (v9)
+- Always use the Hyper-V hypercall interface on arm64 guests to support running on all versions of Windows
+
 ## 5.10.16.3
 *Release Date*: Prerelease 2021/04/16
 
