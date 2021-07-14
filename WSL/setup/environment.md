@@ -9,11 +9,15 @@ ms.localizationpriority: medium
 
 # Best practices for setting up a WSL development environment
 
-A step-by-step guide to help you set up a WSL 2 development environment using Ubuntu, Visual Studio Code, Git, Windows Credential Manager, and with recommended tutorials.
+A step-by-step guide to help you set up a WSL development environment using Ubuntu, Visual Studio Code, Git, Windows Credential Manager, and with recommended tutorials for everything you might want.
 
 ## Install WSL
 
-Windows Subsystem for Linux comes with the Windows operating system, but you must enable it and install a Linux distribution before you can begin using it. To use the simplified --install command, you must be running a recent build of Windows (Build 20262+). To check your version and build number, select **Windows logo key + R**, type **winver**, select **OK**. You can update using the [Settings menu](ms-settings:windowsupdate) or [Windows Update Assistant](https://www.microsoft.com/software-download/).
+Windows Subsystem for Linux comes with the Windows operating system, but you must enable it and install a Linux distribution before you can begin using it.
+
+To use the simplified --install command, you must be running a recent build of Windows (Build 20262+). To check your version and build number, select **Windows logo key + R**, type **winver**, select **OK**. You can update using the [Settings menu](ms-settings:windowsupdate) or [Windows Update Assistant](https://www.microsoft.com/software-download/).
+
+If you prefer to install a Linux distribution other than Ubuntu, or would prefer to complete these steps manually, see the [WSL installation page](./install-win10.md) for more details.
 
 Open PowerShell (or Windows Command Prompt) and enter:
 
@@ -30,11 +34,15 @@ The --install command performs the following actions:
 
 You will need to restart your machine during this installation process.
 
-If you prefer to install a Linux distribution other than Ubuntu, or would prefer to complete these steps manually, see the [WSL installation page](./install-win10.md) for more details. Check the [troubleshooting installation](../install-win10.md#install-windows-terminal-optional) section if you run into any issues.
+![PowerShell command line running wsl --install](../media/wsl-install.png)
+
+Check the [troubleshooting installation](../install-win10.md#install-windows-terminal-optional) section if you run into any issues.
 
 ## Set up your Linux user info
 
 Once the process of installing your Linux distribution with WSL is complete, open the distribution (Ubuntu by default) using the Start menu. You will be asked to create a [User Name and Password](../user-support.md) for your Linux distribution.
+
+![Ubuntu command line enter UNIX username](../media/UbuntuInstall.png)
 
 You may also want to [update and upgrade your packages](../user-support.md#update-and-upgrade-packages). For Ubuntu, use the command: `sudo apt update && sudo apt upgrade`.
 
@@ -59,6 +67,8 @@ We recommend using WSL with Windows Terminal, especially if you plan to work wit
 - Find tutorials on how to set up [Powerline](/windows/terminal/tutorials/powerline-setup), [SSH profiles](/windows/terminal/tutorials/ssh), or [tab titles](/windows/terminal/tutorials/tab-title)
 - Find a [custom terminal gallery](/windows/terminal/custom-terminal-gallery/custom-schemes) and a [troubleshooting guide](/windows/terminal/troubleshooting)
 
+![Windows Terminal screenshot](https://docs.microsoft.com/windows/terminal/images/overview.png)
+
 ## File storage
 
 - To open your WSL project in Windows File Explorer, enter: `explorer.exe .` <br> *Be sure to add the period at the end of the command to open the current directory.*
@@ -70,27 +80,41 @@ For example, when storing your WSL project files:
 - Use the Linux file system root directory: `\\wsl$\<DistroName>\home\<UserName>\Project`
 - Not the Windows file system root directory: `C:\Users\<UserName>\Project` or `/mnt/c/Users/<UserName>/Project$`
 
+![Windows File Explorer displaying Linux storage](../media/windows-file-explorer.png)
+
 ## Set up VS Code for editing and debugging
 
-Follow this step-by-step guide to [Get started using Visual Studio Code with WSL](../tutorials/wsl-vscode.md), which includes installing the[Remote Development extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack). This extension enables you to run WSL, SSH, or a remote container for editing and debugging with the full set of Visual Studio Code features. Quickly swap between different, separate development environments and make updates without worrying about impacting your local machine.
+Follow this step-by-step guide to [Get started using Visual Studio Code with WSL](../tutorials/wsl-vscode.md), which includes installing the [Remote Development extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack). This extension enables you to run WSL, SSH, or a remote container for editing and debugging with the full set of Visual Studio Code features. Quickly swap between different, separate development environments and make updates without worrying about impacting your local machine.
 
-Once VS Code is installed and set up, you can open your WSL project with a VS Code remote server by entering: `code .` <br>*Be sure to add the period at the end of the command to open the current directory.*
+Once VS Code is installed and set up, you can open your WSL project with a VS Code remote server by entering: `code .`
+
+*Be sure to add the period at the end of the command to open the current directory.*
+
+![VS Code with WSL extensions displayed](../media/vscode-remote-wsl-extensions.png)
 
 ## Set up version management with Git
 
 Follow this step-by-step guide to [Get started using Git on WSL](wsl-git.md) and connect your project to the Git version control system, along with using the credential manager for authentication, using Git Ignore files, understanding Git line endings, and using the Git commands built-in to VS Code.
 
+![Displaying git version in the command line](../media/git-versions.gif)
+
 ## Set up remote development containers with Docker
 
 Follow this step-by-step guide to [Get started with Docker remote containers on WSL 2](wsl-containers.md) and connect your project to a remote development container with Docker Desktop for Windows.
+
+![Docker Desktop screenshot](../media/docker-running.png)
 
 ## Set up a database
 
 Follow this step-by-step guide to [Get started with databases on WSL](wsl-database.md) and connect your project to a database in the WSL environment. Get started with MySQL, PostgreSQL, MongoDB, Redis, Microsoft SQL Server, or SQLite.
 
+![Running MongoDB in Ubuntu via WSL](../media/mongodb.png)
+
 ## Set up GPU acceleration for faster performance
 <!-- We should probably update this to be not just for "machine learning training", yes? -->
 Follow this step-by-step guide to set up [GPU accelerated machine learning training in WSL](gpu-compute.md) and leverage your computer's GPU (graphics processing unit) to accelerate performance heavy workloads.
+
+![Running GPU acceleration with WSL](../media/gpu-acceleration.gif)
 
 ## Basic WSL commands
 
@@ -123,6 +147,8 @@ In addition, many commands are interoperable between Windows and Linux. Here are
 ## Mount an external drive or USB
 
 Follow this step-by-step guide to [Get started mounting a Linux disk in WSL 2](wsl2-mount-disk.md).
+
+![wsl mount command screenshot](../media/wslmountsimple.png)
 
 ## Additional resources
 
