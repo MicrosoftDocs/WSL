@@ -17,7 +17,7 @@ Windows Subsystem for Linux comes with the Windows operating system, but you mus
 
 To use the simplified --install command, you must be running a recent build of Windows (Build 20262+). To check your version and build number, select **Windows logo key + R**, type **winver**, select **OK**. You can update using the [Settings menu](ms-settings:windowsupdate) or [Windows Update Assistant](https://www.microsoft.com/software-download/).
 
-If you prefer to install a Linux distribution other than Ubuntu, or would prefer to complete these steps manually, see the [WSL installation page](./install-win10.md) for more details.
+If you prefer to install a Linux distribution other than Ubuntu, or would prefer to complete these steps manually, see the [WSL installation page](../install-win10.md) for more details.
 
 Open PowerShell (or Windows Command Prompt) and enter:
 
@@ -67,7 +67,7 @@ We recommend using WSL with Windows Terminal, especially if you plan to work wit
 - Find tutorials on how to set up [Powerline](/windows/terminal/tutorials/powerline-setup), [SSH profiles](/windows/terminal/tutorials/ssh), or [tab titles](/windows/terminal/tutorials/tab-title)
 - Find a [custom terminal gallery](/windows/terminal/custom-terminal-gallery/custom-schemes) and a [troubleshooting guide](/windows/terminal/troubleshooting)
 
-![Windows Terminal screenshot](https://docs.microsoft.com/windows/terminal/images/overview.png)
+![Windows Terminal screenshot](/windows/terminal/images/overview.png)
 
 ## File storage
 
@@ -94,25 +94,25 @@ Once VS Code is installed and set up, you can open your WSL project with a VS Co
 
 ## Set up version management with Git
 
-Follow this step-by-step guide to [Get started using Git on WSL](wsl-git.md) and connect your project to the Git version control system, along with using the credential manager for authentication, using Git Ignore files, understanding Git line endings, and using the Git commands built-in to VS Code.
+Follow this step-by-step guide to [Get started using Git on WSL](../wsl-git.md) and connect your project to the Git version control system, along with using the credential manager for authentication, using Git Ignore files, understanding Git line endings, and using the Git commands built-in to VS Code.
 
 ![Displaying git version in the command line](../media/git-versions.gif)
 
 ## Set up remote development containers with Docker
 
-Follow this step-by-step guide to [Get started with Docker remote containers on WSL 2](wsl-containers.md) and connect your project to a remote development container with Docker Desktop for Windows.
+Follow this step-by-step guide to [Get started with Docker remote containers on WSL 2](../wsl-containers.md) and connect your project to a remote development container with Docker Desktop for Windows.
 
 ![Docker Desktop screenshot](../media/docker-running.png)
 
 ## Set up a database
 
-Follow this step-by-step guide to [Get started with databases on WSL](wsl-database.md) and connect your project to a database in the WSL environment. Get started with MySQL, PostgreSQL, MongoDB, Redis, Microsoft SQL Server, or SQLite.
+Follow this step-by-step guide to [Get started with databases on WSL](../wsl-database.md) and connect your project to a database in the WSL environment. Get started with MySQL, PostgreSQL, MongoDB, Redis, Microsoft SQL Server, or SQLite.
 
 ![Running MongoDB in Ubuntu via WSL](../media/mongodb.png)
 
 ## Set up GPU acceleration for faster performance
 <!-- We should probably update this to be not just for "machine learning training", yes? -->
-Follow this step-by-step guide to set up [GPU accelerated machine learning training in WSL](gpu-compute.md) and leverage your computer's GPU (graphics processing unit) to accelerate performance heavy workloads.
+Follow this step-by-step guide to set up [GPU accelerated machine learning training in WSL](../gpu-compute.md) and leverage your computer's GPU (graphics processing unit) to accelerate performance heavy workloads.
 
 ![Running GPU acceleration with WSL](../media/gpu-acceleration.gif)
 
@@ -122,13 +122,13 @@ The Linux distributions that you install via WSL are best managed using PowerShe
 
 - [List the distributions you have installed](../wsl-config.md#list-distributions): `wsl -l -v`
 
-- [Unregister and reinstall a distribution](..//wsl-config.md#unregister-and-reinstall-a-distribution): `wsl --unregister <DistributionName>`
+- [Unregister and reinstall a distribution](../wsl-config.md#unregister-and-reinstall-a-distribution): `wsl --unregister <DistributionName>`
 
 - [Run as a specific user](../wsl-config.md#run-as-a-specific-user): `wsl -u <Username>`
 
-- [Mounting a disk](..//wsl2-mount-disk.md). To view available disks in Windows: `wmic diskdrive list brief`. To mount the disk using the path discovered with the previous command: `wsl --mount <DiskPath>`.
+- [Mounting a disk](../wsl2-mount-disk.md). To view available disks in Windows: `wmic diskdrive list brief`. To mount the disk using the path discovered with the previous command: `wsl --mount <DiskPath>`.
 
-- [Unmount a disk](..//wsl2-mount-disk.md#unmount-the-disk): `wsl --unmount <DiskPath>`.
+- [Unmount a disk](../wsl2-mount-disk.md#unmount-the-disk): `wsl --unmount <DiskPath>`.
 
 - [Mount a virtual hard disk (VHD)](../wsl2-mount-disk.md#mount-a-vhd-in-wsl)
 
@@ -146,12 +146,12 @@ In addition, many commands are interoperable between Windows and Linux. Here are
 
 ## Mount an external drive or USB
 
-Follow this step-by-step guide to [Get started mounting a Linux disk in WSL 2](wsl2-mount-disk.md).
+Follow this step-by-step guide to [Get started mounting a Linux disk in WSL 2](../wsl2-mount-disk.md).
 
 ![wsl mount command screenshot](../media/wslmountsimple.png)
 
 ## Additional resources
 
-- [Troubleshooting](troubleshooting.md)
-- [FAQs](wsl2-faq.yml)
-- [Release Notes](release-notes.md)
+- [Troubleshooting](../troubleshooting.md)
+- [FAQs](../wsl2-faq.yml)
+- [Release Notes](../release-notes.md)
