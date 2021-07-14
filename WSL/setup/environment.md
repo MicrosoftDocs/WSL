@@ -94,25 +94,25 @@ Once VS Code is installed and set up, you can open your WSL project with a VS Co
 
 ## Set up version management with Git
 
-Follow this step-by-step guide to [Get started using Git on WSL](../wsl-git.md) and connect your project to the Git version control system, along with using the credential manager for authentication, using Git Ignore files, understanding Git line endings, and using the Git commands built-in to VS Code.
+Follow this step-by-step guide to [Get started using Git on WSL](../tutorials/wsl-git.md) and connect your project to the Git version control system, along with using the credential manager for authentication, using Git Ignore files, understanding Git line endings, and using the Git commands built-in to VS Code.
 
 ![Displaying git version in the command line](../media/git-versions.gif)
 
 ## Set up remote development containers with Docker
 
-Follow this step-by-step guide to [Get started with Docker remote containers on WSL 2](../wsl-containers.md) and connect your project to a remote development container with Docker Desktop for Windows.
+Follow this step-by-step guide to [Get started with Docker remote containers on WSL 2](../tutorials/wsl-containers.md) and connect your project to a remote development container with Docker Desktop for Windows.
 
 ![Docker Desktop screenshot](../media/docker-running.png)
 
 ## Set up a database
 
-Follow this step-by-step guide to [Get started with databases on WSL](../wsl-database.md) and connect your project to a database in the WSL environment. Get started with MySQL, PostgreSQL, MongoDB, Redis, Microsoft SQL Server, or SQLite.
+Follow this step-by-step guide to [Get started with databases on WSL](../tutorials/wsl-database.md) and connect your project to a database in the WSL environment. Get started with MySQL, PostgreSQL, MongoDB, Redis, Microsoft SQL Server, or SQLite.
 
 ![Running MongoDB in Ubuntu via WSL](../media/mongodb.png)
 
 ## Set up GPU acceleration for faster performance
 <!-- We should probably update this to be not just for "machine learning training", yes? -->
-Follow this step-by-step guide to set up [GPU accelerated machine learning training in WSL](../gpu-compute.md) and leverage your computer's GPU (graphics processing unit) to accelerate performance heavy workloads.
+Follow this step-by-step guide to set up [GPU accelerated machine learning training in WSL](../tutorials/gpu-compute.md) and leverage your computer's GPU (graphics processing unit) to accelerate performance heavy workloads.
 
 ![Running GPU acceleration with WSL](../media/gpu-acceleration.gif)
 
