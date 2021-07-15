@@ -28,7 +28,7 @@ In this simplest case, if you have a disk that doesn't have any partitions, you 
 To list the available disks in Windows, run:
 
 ```powershell
-wmic diskdrive list brief
+GET-WMIOBJECT -query "SELECT * from Win32_DiskDrive"
 ```
 
 The disks paths are available under the 'DeviceID' columns. Usually under the `\\.\PHYSICALDRIVE*` format.
