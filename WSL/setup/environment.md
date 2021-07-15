@@ -155,4 +155,4 @@ Follow this step-by-step guide to [Get started mounting a Linux disk in WSL 2](.
 - [Set up your development environment on Windows](/windows/dev-environment/): Learn more about setting up your developerment environment for your preferred language or framework, such as React, Python, NodeJS, Vue, etc.
 - [Troubleshooting](../troubleshooting.md): Find common issues, where to report bugs, where to request new features, and how to contribute to the docs.
 - [FAQs](../faq.yml): Find a list of frequently asked questions. You can also find [FAQs specifically about WSL 2](../wsl2-faq.yml).
-- [Release Notes](../release-notes.md): Review the WSL Release Notes for a history of past build updates. You can also find the [release notes for the WSL Linux Kernel](../kernel-release-notes). 
+- [Release Notes](../release-notes.md): Review the WSL Release Notes for a history of past build updates. You can also find the [release notes for the WSL Linux Kernel](../kernel-release-notes.md). 
