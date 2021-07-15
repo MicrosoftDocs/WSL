@@ -10,6 +10,8 @@
   items:
     - name: Install WSL & update to WSL 2
       href: install-win10.md
+    - name: Best practices for setting up
+      href: setup/environment.md
     - name: Install on Windows Server
       href: install-on-server.md
     - name: Create a user account & password
