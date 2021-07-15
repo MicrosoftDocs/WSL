@@ -2,7 +2,7 @@
 title: Best practices for setting up a WSL 2 development environment
 description: A step-by-step guide to help you set up a WSL 2 development environment using Ubuntu, Visual Studio Code, Git, Windows Credential Manager, and with recommended tutorials.
 keywords: Best practices, wsl, wsl 2, windows subsystem for linux, set up your dev environment with wsl 2, development environment, set up wsl 2
-ms.date: 05/03/2021
+ms.date: 07/14/2021
 ms.topic: article
 ms.localizationpriority: medium
 ---
@@ -67,7 +67,7 @@ We recommend using WSL with Windows Terminal, especially if you plan to work wit
 - Find tutorials on how to set up [Powerline](/windows/terminal/tutorials/powerline-setup), [SSH profiles](/windows/terminal/tutorials/ssh), or [tab titles](/windows/terminal/tutorials/tab-title)
 - Find a [custom terminal gallery](/windows/terminal/custom-terminal-gallery/custom-schemes) and a [troubleshooting guide](/windows/terminal/troubleshooting)
 
-![Windows Terminal screenshot](/windows/terminal/images/overview.png)
+![Windows Terminal screenshot](../media/terminal.png)
 
 ## File storage
 
