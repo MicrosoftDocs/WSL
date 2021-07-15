@@ -28,7 +28,7 @@ In this simplest case, if you have a disk that doesn't have any partitions, you 
 To list the available disks in Windows, run:
 
 ```powershell
-wmic diskdrive list brief
+GET-WMIOBJECT -query "SELECT * from Win32_DiskDrive"
 ```
 
 The disks paths are available under the 'DeviceID' columns. Usually under the `\\.\PHYSICALDRIVE*` format.
@@ -52,10 +52,10 @@ If you have a disk that you aren't sure what file format it is in, or what parti
 To list the available disks in Windows, run:
 
 ```powershell
-wmic diskdrive list brief
+GET-WMIOBJECT -query "SELECT * from Win32_DiskDrive"
 ```
 
-The disks paths are available under the 'DeviceID' columns. Usually under the `\\.\PHYSICALDRIVE*` format
+The disks paths are listed after 'DeviceID', usually in the `\\.\PHYSICALDRIVE*` format
 
 ### List and select the partitions to mount in WSL 2
 
@@ -65,7 +65,7 @@ Once the disk is identified, run:
 wsl --mount <DiskPath> --bare
 ```
 
-This will make the disk available in WSL 2.
+This will make the disk available in WSL 2. (In the case of our example, the `<DiskPath>` is `\\.\PHYSICALDRIVE*`. 
 
 Once attached, the partition can be listed by running the following command inside WSL 2:
 
