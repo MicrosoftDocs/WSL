@@ -23,7 +23,7 @@ We've added support for WSL 2 distributions, [which use a full Linux kernel](htt
 - Always use the Hyper-V hypercall interface on arm64 guests to support running on all versions of Windows
 
 ## 5.10.16.3
-*Release Date*: Prerelease 2021/04/16
+*Release Date*: 2021/07/20 ( Prerelease 2021/04/16 )
 
 [Official Github release link](https://github.com/microsoft/WSL2-Linux-Kernel/releases/tag/linux-msft-wsl-5.10.16.3)
 
