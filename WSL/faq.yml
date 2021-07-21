@@ -74,15 +74,6 @@ sections:
           Read more on the PowerShell team blog -- [Bash for Windows: Why it’s awesome and what it means for PowerShell](https://devblogs.microsoft.com/powershell/bash-for-windows-why-its-awesome-and-what-it-means-for-powershell/)
           
       - question: |
-         Can I run ALL Linux apps in WSL?
-        answer: |
-          No! WSL is a tool aimed at enabling users who need them to run Bash and core Linux command-line tools on Windows.
-          
-          WSL does not yet support GUI desktops or applications (e.g. Gnome, KDE, etc.) Follow the [Command Line Blog](https://devblogs.microsoft.com/commandline/whats-new-in-the-windows-subsystem-for-linux-september-2020/#gui-apps) for updates.  
-          
-          Also, even though you will be able to run many popular server applications (e.g. Redis), we do not recommend WSL for hosting production services – Microsoft offers a variety of solutions for running production Linux workloads in Azure, Hyper-V, and Docker. 
-          
-      - question: |
          What Windows SKUs is WSL included in?
         answer: |
           Windows Subsystem for Linux is available on the desktop version of Windows for Windows 10 Anniversary and Creators update or later.
@@ -171,13 +162,9 @@ sections:
       - question: |
          How do I uninstall a WSL Distribution?
         answer: |
-          On builds prior to 1709 (16299) open a command prompt and run:
-          
-            ```batchfile
-            lxrun /uninstall /full
-            ```
-            
-          WSL distributions installed from the store can be uninstalled like any other Windows app, by right-clicking on the app tile and clicking Uninstall, or via PowerShell using the [`Remove-AppxPackage` cmdlet](/powershell/module/appx/remove-appxpackage)).
+          To remove a distro from WSL and *delete all data inside of the Linux distro* you can run `wsl --unregister <distroName>` where <distroName> is the name of your Linux distro, which can be seen from the list in the `wsl -l` command. 
+
+          Additionally, you can then uninstall the Linux distro app on your machine just like any other store application.
           
       - question: |
          Why does ping generate permission denied errors?
