@@ -351,6 +351,12 @@ These settings affect the VM that powers any WSL 2 distribution.
 | kernelCommandLine | string | Blank | Additional kernel command line arguments. |
 | swap | size | 25% of memory size on Windows rounded up to the nearest GB | How much swap space to add to the WSL 2 VM, 0 for no swap file. |
 | swapFile | string | %USERPROFILE%\AppData\Local\Temp\swap.vhdx | An absolute Windows path to the swap virtual hard disk. |
+#### In preview options
+These options are only available in preview builds.
+
+| key | value | default | notes|
+|:----|:----|:----|:----|
+| guiApplications | boolean | `true` | Boolean to  turn on or off support for GUI applications(WSLg) in WSL. |
 
 * Note: This value is true for Windows Build 19041 and may be different in Windows builds in the Insiders program
 
