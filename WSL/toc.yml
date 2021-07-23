@@ -48,6 +48,8 @@
       href: wsl2-mount-disk.md
     - name: Command Line Reference
       href: reference.md
+    - name: Adjust case sensitivity
+      href: case-sensitivity.md
 - name: Frequently Asked Questions
   href: faq.yml
 - name: WSL 2 FAQ
