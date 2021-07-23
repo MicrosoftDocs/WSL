@@ -11,8 +11,8 @@ ms.localizationpriority: medium
 
 Case sensitivity determines whether uppercase (FOO.txt) and lowercase (foo.txt) letters are handled as distinct (case-sensitive) or equivalent (case-insensitive) in a file name or directory.
 
-- Case-sensitive: FOO.txt = foo.txt = Foo.txt
-- Case-insenstive: FOO.text ≠ foo.txt ≠ Foo.txt
+- Case-sensitive: FOO.txt ≠ foo.txt ≠ Foo.txt
+- Case-insenstive: FOO.text = foo.txt = Foo.txt
 
 Windows Subsystem for Linux (WSL) enables you to make adjustments to how case sensitivity is handled by the file system per directory.
 
