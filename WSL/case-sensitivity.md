@@ -35,7 +35,7 @@ Windows Subsystem for Linux (WSL 2) is running a real Linux kernel and, thus, fo
 
 While Linux distributions run with WSL are case-sensitive by default, WSL enables you to flag specific directories as case-sensitive or case-insensitive.
 
-> ![NOTE]
+> [!NOTE]
 > Support for per-directory case sensitivity began in Windows 10, build 17107. In Windows 10, build 17692, support was updated to include inspecting and modifying the case sensitivity flag for a directory from inside WSL. Case sensitivity is exposed using an extended attribute named `system.wsl_case_sensitive`. The value of this attribute will be 0 for case insensitive directories, and 1 for case sensitive directories.
 
 ### Inspect and modify case sensitivity
@@ -69,7 +69,7 @@ To check whether a directory is case sensitive inside the WSL filesystem, run th
 
 ```
 
-> ![NOTE]
+> [!NOTE]
 > If you change the case sensitive flag on an existing directory while WSL is running, ensure WSL has no references to that directory or else the change will not be effective. This means the directory must not be open by any WSL processes, including using the directory (or its descendants) as the current working directory.
 
 ## Case sensitivity inheritance
@@ -131,7 +131,7 @@ For more WSL configuration options, see [Configure per distro launch settings wi
 
 You will need to restart WSL after making any changes to the `wsl.conf` file in order for those changes to take effect. You can restart WSL using the command: `wsl --shutdown`
 
-> ![NOTE]
+> [!NOTE]
 > You can check what your mount options are by sharing the output of the mount command.
 <!-- Should we include instructions on how to do this? -->
 
@@ -147,9 +147,25 @@ reg.exe add HKLM\SYSTEM\CurrentControlSet\Services\lxss /v DrvFsAllowForceCaseSe
 
 <!-- Do we need to refer to DrvFs? Is it helpful to know the term "DrvFs" and for WSL users to understand what this is?
 
-> ![NOTE]
+> [!NOTE]
 > DrvFs is a filesystem plugin to WSL that was designed to support interop between WSL and the Windows filesystem. DrvFs enables WSL to mount drives with supported file systems under /mnt, such as /mnt/c, /mnt/d, etc.
  -->
+
+## Configure case sensitivity with Git
+
+The Git version control system also has a configuration setting that can be used to adjust case sensitivity for the files you are working with. If you are using Git, you may want to adjust the [`git config core.ignorecase`](https://git-scm.com/docs/git-config/#Documentation/git-config.txt-coreignoreCase) setting.
+
+To set Git to be case-sensitive (FOO.txt ≠ foo.txt), enter:
+
+`git config core.ignorecase false`
+
+To set Git to be case-insensitive (FOO.txt = foo.txt), enter:
+
+`git config core.ignorecase true`
+
+Setting this option to false on a case-insensitive file system may lead to confusing errors, false conflicts, or duplicate files.
+
+For more information, see the [Git Config documentation](https://git-scm.com/docs/git-config/).
 
 ## Troubleshooting
 
@@ -171,39 +187,3 @@ Check to be sure that you have the “Write attributes”, “Create files”, �
 
 - [DevBlog: Per-directory case sensitivity and WSL](https://devblogs.microsoft.com/commandline/per-directory-case-sensitivity-and-wsl/)
 - [DevBlog: Improved per-directory case sensitivity support in WSL](https://devblogs.microsoft.com/commandline/improved-per-directory-case-sensitivity-support-in-wsl/)
-
-<!-- Notes from issue:
-
-https://github.com/microsoft/WSL/issues/7211
-
-how are you mounting your windows drives? Are you setting the case=dir mount option?
-You can do this by adding this line to /etc/wsl.conf (and restarting wsl via wsl --shutdown).
-[automount]
-options=case=dir
-You can check what your mount options are by sharing the output of the mount command.
-
- I didn’t have a default /etc/wsl.conf so I created one “sudo vi /etc/wsl.conf” and put the text that you suggested. I then ran wsl --shutdown in PowerShell. It did not seem to have an impact on the case sensitivity.
-
-
-* the getfattr / setfattr commands will only work for WSL1
-You should be able to use fsutil.exe to accomplish this:
-fsutil.exe file setCaseSensitiveInfo dum enable
-fsutil.exe file setCaseSensitiveInfo dum disable
-**Update this blog: https://devblogs.microsoft.com/commandline/improved-per-directory-case-sensitivity-support-in-wsl/
-
-I see case=dir in our mount output. Did you also try to use fsutil.exe to set the per-directory case sensitivity?
-
-1) I added the option: [automount] options=case=dir to /etc/wsl.conf, which I had to create because it didn’t exist initially.
-2) then went to the directory where dum is located on /mnt/d/, which is a mount that I created and may not be configured properly, because I don’t know what I am doing.
-3) I tried: fsutil.exe file setCaseSensitiveInfo dum enable
-and get the result: Error:  The directory is not empty. ...It does contain the file: DUMMY_FILE.
-
->> As the error implies, you can only change the sensitivity of empty directories.
-
-I have a directory full of files with file names with mixed case. Is there a way to change the state of directory with content or do I have to create a directory, enable it and then move the files over?
-
->> generally what I will do is create the directory I want case-sensitive, mark as case sensitive, then git clone or untar into that location. If you already have the files somewhere case-insensitive (and there were conflicts) you probably ended up overwriting some files, if that makes sense.
-
-Thank you! I’m good to go. I now have the ability to rename files with the same name but different cases. I think we can close this thread.
-
- -->
