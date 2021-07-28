@@ -1,8 +1,8 @@
 ---
-title: Get started using Git on Windows Subsystem for Linux
+title: Get started using Git on WSL
 description: Learn how to set up Git for version control on the Windows Subsystem for Linux.
 keywords: wsl, windows, windowssubsystem, gnu, linux, bash, git, github, version control
-ms.date: 06/04/2020
+ms.date: 05/26/2021
 ms.topic: article
 ms.localizationpriority: medium
 ---
@@ -13,7 +13,7 @@ Git is the most commonly used version control system. With Git, you can track ch
 
 ## Git can be installed on Windows AND on WSL
 
-An important consideration: when you enable WSL and install a Linux distribution, you are installing a new file system, separated from the Windows NTFS C:\ drive on your machine. In Linux, drives are not given letters. They are given mount points. The root of your file system `/` is the mount point of your root partition, or folder, in the case of WSL. Not everything under `/` is the same drive. For example, on my laptop, I've installed two version of Ubuntu (20.04 and 18.04), as well as Debian. If I open those distributions, select the root directory with the command `cd ~`, and then enter the command `explorer.exe .`, Windows File Explorer will open and show me the directory path for that distribution.
+An important consideration: when you enable WSL and install a Linux distribution, you are installing a new file system, separated from the Windows NTFS C:\ drive on your machine. In Linux, drives are not given letters. They are given mount points. The root of your file system `/` is the mount point of your root partition, or folder, in the case of WSL. Not everything under `/` is the same drive. For example, on my laptop, I've installed two version of Ubuntu (20.04 and 18.04), as well as Debian. If I open those distributions, select the home directory with the command `cd ~`, and then enter the command `explorer.exe .`, Windows File Explorer will open and show me the directory path for that distribution.
 
 | Linux distro | Windows Path to access home folder |
 | ----------- | ----------- |
@@ -35,7 +35,7 @@ Git comes already installed with most of the Windows Subsystem for Linux distrib
 
 To install Git, see the [Git Download for Linux](https://git-scm.com/download/linux) site. Each Linux distribution has their own package manager and install command.
 
-For the latest stable GIt version in Ubuntu/Debian, enter the command:
+For the latest stable Git version in Ubuntu/Debian, enter the command:
 
 ```bash
 sudo apt-get install git
@@ -46,34 +46,34 @@ sudo apt-get install git
 
 ## Git config file setup
 
-To set up your Git config file, open a command line for the distribution you're working in and set your name with this command (replacing "Your Name" with your Git username):
+To set up your Git config file, open a command line for the distribution you're working in and set your name with this command (replacing "Your Name" with your preferred username):
 
 ```bash
- `git config --global user.name "Your Name"`
+git config --global user.name "Your Name"
 ```
 
-Set your email with this command (replacing "youremail@domain.com" with the email you use on your Git account):
+Set your email with this command (replacing "youremail@domain.com" with the email you prefer):
 
 ```bash
-`git config --global user.email "youremail@domain.com"`
+git config --global user.email "youremail@domain.com"
 ```
 
 > [!TIP]
-> If you don't yet have a Git account, you can [sign-up for one on GitHub](https://github.com/join). If you've never worked with Git before, [GitHub Guides](https://guides.github.com/) can help you get started. If you need to edit your git config, you can do so with a built-in text editor like nano: `nano ~/.gitconfig`.
+> If you don't yet have a GitHub account, you can [sign-up for one on GitHub](https://github.com/join). If you've never worked with Git before, [GitHub Guides](https://guides.github.com/) can help you get started. If you need to edit your Git config, you can do so with a built-in text editor like nano: `nano ~/.gitconfig`.
 
 We recommend that you [secure your account with two-factor authentication (2FA)](https://help.github.com/en/github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa).
 
 ## Git Credential Manager setup
 
-Git Credential Manager enables you to authenticate a remote Git server, even if you have a complex authentication pattern like two-factor authentication, Azure Active Directory, or using SSH remote URLs that require an SSH key password for every git push. Git Credential Manager integrates into the authentication flow for services like GitHub and, once you're authenticated to your hosting provider, requests a new authentication token. It then stores the token securely in the [Windows Credential Manager](https://support.microsoft.com/help/4026814/windows-accessing-credential-manager). After the first time, you can use git to talk to your hosting provider without needing to re-authenticate. It will just access the token in the Windows Credential Manager.
+[Git Credential Manager (GCM) Core](https://github.com/microsoft/Git-Credential-Manager-Core) enables you to authenticate a remote Git server, even if you have a complex authentication pattern like two-factor authentication, Azure Active Directory, or using SSH remote URLs that require an SSH key password for every Git push. GCM Core integrates into the authentication flow for services like GitHub and, once you're authenticated to your hosting provider, requests a new authentication token. It then stores the token securely in the [Windows Credential Manager](https://support.microsoft.com/help/4026814/windows-accessing-credential-manager). After the first time, you can use Git to talk to your hosting provider without needing to re-authenticate. It will just access the token in the Windows Credential Manager.
 
-To set up Git Credential Manager for use with a WSL distribution, open your distribution and enter this command:
+To set up GCM Core for use with a WSL distribution, open your distribution and enter this command:
 
 ```Bash
-git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/libexec/git-core/git-credential-manager.exe"
+git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/libexec/git-core/git-credential-manager-core.exe"
 ```
 
-Now any git operation you perform within your WSL distribution will use the credential manager. If you already have credentials cached for a host, it will access them from the credential manager. If not, you'll receive a dialog response requesting your credentials, even if you're in a Linux console.
+Now any git operation you perform within your WSL distribution will use GCM Core. If you already have credentials cached for a host, it will access them from the credential manager. If not, you'll receive a dialog response requesting your credentials, even if you're in a Linux console.
 
 > [!NOTE]
 > If you are using a GPG key for code signing security, you may need to [associate your GPG key with your GitHub email](https://help.github.com/en/github/authenticating-to-github/associating-an-email-with-your-gpg-key).

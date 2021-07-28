@@ -1,24 +1,31 @@
 ---
-title: An overview on the the Windows Subsystem for Linux
+title: Windows Subsystem for Linux Documentation
 description: Explore the Windows Subsystem for Linux documentation.
 keywords: BashOnWindows, bash, wsl, windows, windowssubsystem, gnu, linux
 ms.topic: article
+ms.date: 09/15/2020
 ms.localizationpriority: high
 ---
 
 # Windows Subsystem for Linux Documentation
 
-## Learn more here
+The Windows Subsystem for Linux lets developers run a GNU/Linux environment -- including most command-line tools, utilities, and applications -- directly on Windows, unmodified, without the overhead of a traditional virtual machine or dual-boot setup.
+
+> [!div class="nextstepaction"]
+> [Install WSL](install-win10.md)
+
+## Learn more
 
 * [What is the Windows Subsystem for Linux?](about.md)
-* [What's new with WSL2?](wsl2-index.md)
+* [What's new with WSL 2?](compare-versions.md#whats-new-in-wsl-2)
 * [Compare WSL 2 and WSL 1](compare-versions.md)
-* [Read frequently asked questions](faq.md)
+* [Read frequently asked questions](faq.yml)
 
 ## Get started
 
 * [Install WSL1](install-win10.md)
-* [Update to WSL2](install-win10.md#update-to-wsl-2)
+* [Check requirements for WSL2](./install-win10.md#step-2---check-requirements-for-running-wsl-2)
+* [Update from WSL 1 to WSL 2](./install-win10.md#set-your-distribution-version-to-wsl-1-or-wsl-2)
 * [Install Linux on Windows Server](install-on-server.md)
 * [Create a user account and password for your new Linux distribution](user-support.md)
 
@@ -26,7 +33,7 @@ ms.localizationpriority: high
 
 * [Overview post with a collection of videos and blogs](https://blogs.msdn.microsoft.com/commandline/learn-about-windows-console-and-windows-subsystem-for-linux-wsl/)
 * [Command-Line blog](https://blogs.msdn.microsoft.com/commandline/) (Active)
-* [Windows Subsystem for Linux Blog](https://blogs.msdn.microsoft.com/wsl/) (Historical)
+* [Windows Subsystem for Linux Blog](/archive/blogs/wsl/) (Historical)
 
 ## Posts and articles
 

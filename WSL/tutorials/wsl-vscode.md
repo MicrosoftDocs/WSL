@@ -1,5 +1,5 @@
 ---
-title: Get started using VS Code with Windows Subsystem for Linux
+title: Get started using VS Code with WSL
 description: Learn how to set up VS Code to author and debug code using the Windows Subsystem for Linux.
 keywords: wsl, windows, windowssubsystem, gnu, linux, bash, vs code, remote extension, debug, path, visual studio
 ms.date: 05/28/2020
@@ -29,7 +29,7 @@ Visual Studio Code, along with the Remote - WSL extension, enables you to use WS
 * Install the [Remote Development extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack). This extension pack includes the Remote - WSL extension, in addition to the Remote - SSH, and Remote - Containers extensions, enabling you to open any folder in a container, on a remote machine, or in WSL.
 
 > [!IMPORTANT]
-> In order to install the Remote-WSL extension, you will need the [1.35 May release](https://code.visualstudio.com/updates/v1_35) version or later of VS Code. We do not recommend using WSL in VS Code without the Remote-WSL extension as you will lose support for auto-complete, debugging, linting, etc. Fun fact: this WSL extension is installed in $HOME/.vscode-server/extensions.
+> In order to install the Remote-WSL extension, you will need the [1.35 May release](https://code.visualstudio.com/updates/v1_35) version or later of VS Code. We do not recommend using WSL in VS Code without the Remote-WSL extension as you will lose support for auto-complete, debugging, linting, etc. Fun fact: this WSL extension is installed in $HOME/.vscode/extensions (enter the command `ls $HOME\.vscode\extensions\` in PowerShell).
 
 ## Update your Linux distribution
 
@@ -57,7 +57,7 @@ To open a project from your WSL distribution, open the distribution's command li
 
 ### From VS Code
 
-You can also access more VS Code Remote options by using the shortcut: `CTRL+SHIFT+P` in VS Code to bring up the command palette. If you then type `VSCODE-REMOTE` you will see all of the VS Code Remote options available, allowing you to reopen the folder in a remote session, specify which distribution you want to open in, and more.
+You can also access more VS Code Remote options by using the shortcut: `CTRL+SHIFT+P` in VS Code to bring up the command palette. If you then type `Remote-WSL` you will see a list of the VS Code Remote options available, allowing you to reopen the folder in a remote session, specify which distribution you want to open in, and more.
 
 ![VS Code's command palette](../media/vscode-remote-command-palette.png)
 
@@ -87,7 +87,7 @@ To install Git, see [set up Git to work with Windows Subsystem for Linux](./wsl-
 
 ## Install Windows Terminal (optional)
 
-The new Windows Terminal enables multiple tabs (quickly switch between Command Prompt, PowerShell, or multiple Linux distributions), custom key bindings (create your own shortcut keys for opening or closing tabs, copy+paste, etc.), emojis ☺, and custom themes (color schemes, font styles and sizes, background image/blur/transparency). Learn more in the [Windows Terminal docs](https://docs.microsoft.com/windows/terminal).
+The new Windows Terminal enables multiple tabs (quickly switch between Command Prompt, PowerShell, or multiple Linux distributions), custom key bindings (create your own shortcut keys for opening or closing tabs, copy+paste, etc.), emojis ☺, and custom themes (color schemes, font styles and sizes, background image/blur/transparency). Learn more in the [Windows Terminal docs](/windows/terminal).
 
 1. Get [Windows Terminal in the Microsoft Store](https://www.microsoft.com/store/apps/9n0dx20hk701): By installing via the store, updates are handled automatically.
 
@@ -100,7 +100,7 @@ The new Windows Terminal enables multiple tabs (quickly switch between Command P
 * [Remote development with WSL tutorial](https://code.visualstudio.com/remote-tutorials/wsl/getting-started)
 * [Using Docker with WSL 2 and VS Code](https://code.visualstudio.com/blogs/2020/03/02/docker-in-wsl2)
 * [Using C++ and WSL in VS Code](https://code.visualstudio.com/docs/cpp/config-wsl)
-* [Remote R Service for Linux](https://docs.microsoft.com/visualstudio/rtvs/setting-up-remote-r-service-on-linux?view=vs-2017)
+* [Remote R Service for Linux](/visualstudio/rtvs/setting-up-remote-r-service-on-linux)
 
 A few additional extensions you may want to consider include:
 

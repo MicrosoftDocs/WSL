@@ -1,8 +1,8 @@
 ---
-title: Windows Subsystem for Linux Command Reference
-description: List of commands that manage the Windows Subsystem for Linux
+title: WSL Command Line Reference
+description: See a list of commands that manage the Windows Subsystem for Linux, such as arguments for running Linux commands.
 keywords: BashOnWindows, bash, wsl, windows, windows subsystem for linux, windowssubsystem, ubuntu
-ms.date: 07/31/2017
+ms.date: 06/09/2021
 ms.topic: article
 ms.localizationpriority: high
 ---
@@ -19,6 +19,8 @@ Run the following command in Powershell to set WSL 2 as the default version when
 ```powershell
 wsl --set-default-version 2
 ```
+> [!NOTE]
+> If you're running a 32-bit process in order to access wsl.exe (a 64-bit tool), you may have to run the above command in the following manner: `C:\Windows\Sysnative\wsl.exe --set-default-version 2`
 
 ## Set your distribution version to WSL 1 or WSL 2
 
@@ -92,6 +94,10 @@ The above commands also accept the following options:
   * **--all**
 
     List all distributions, including distributions that are currently being installed or uninstalled.
+    
+  * **--verbose, -v**
+
+     Display additional or expanded details for the command.
 
   * **--running**
 
@@ -110,6 +116,7 @@ The above commands also accept the following options:
   Un-register the distribution.
 
 * **--help**
+
   Display usage information.
 
 ## Additional Commands
@@ -172,7 +179,7 @@ Using: `bash [Options...]`
 
 The `lxrun.exe` was the first command used to install and manage the Windows Subsystem for Linux. It is deprecated as of Windows 10 1803 and later.
 
-The command `lxrun.exe` can be used to interact with the [Windows Subsystem for Linux (WSL)](https://msdn.microsoft.com/commandline/wsl/faq#what-windows-subsystem-for-linux-wsl-) directly.  These commands are installed into the `\Windows\System32` directory and may be run within a Windows command prompt or in PowerShell.
+The command `lxrun.exe` can be used to interact with the Windows Subsystem for Linux (WSL) directly.  These commands are installed into the `\Windows\System32` directory and may be run within a Windows command prompt or in PowerShell.
 
 | Command                     | Description                     |
 |:----------------------------|:---------------------------|

@@ -146,6 +146,7 @@ Properties of `WSLENV` variable:
 
 > [!NOTE]
 > Prior to 17063, only Windows environment variable that WSL could access was `PATH` (so you could launch Win32 executables from under WSL). Starting in 17063, `WSLENV` begins being supported.
+> WSLENV is case sensitive.
 
 ## WSLENV flags
 
@@ -234,4 +235,4 @@ The Windows binary must include the file extension, match the file case, and be 
 
 ## Additional resources
 
-* [WSL blog post on interoperability from 2016](https://blogs.msdn.microsoft.com/wsl/2016/10/19/windows-and-ubuntu-interoperability/)
+* [WSL blog post on interoperability from 2016](/archive/blogs/wsl/windows-and-ubuntu-interoperability)

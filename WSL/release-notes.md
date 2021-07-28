@@ -1,14 +1,76 @@
 ---
-title: Release Notes for Windows Subsystem for Linux
-description: Release notes for the Windows Subsystem for Linux.  Updated weekly.
+title: Release Notes for WSL 
+description: Read release notes for the Windows Subsystem for Linux. These release notes include fixed issues and are updated weekly.
 keywords: release notes, wsl, windows, windows subsystem for linux, windowssubsystem, ubuntu
 author: benhillis
-ms.date: 05/15/2020
+ms.date: 04/08/2021
 ms.topic: article
 ms.localizationpriority: high
 ---
 
 # Release Notes for Windows Subsystem for Linux
+
+## Build 21364
+For general Windows information on build 21364 visit the [Windows blog](https://blogs.windows.com/windows-insider/2021/04/21/announcing-windows-10-insider-preview-build-21364/).
+
+* GUI apps are now available! For more information see [this blog post](https://devblogs.microsoft.com/commandline/the-initial-preview-of-gui-app-support-is-now-available-for-the-windows-subsystem-for-linux).
+* Resolve error when accessing files via \\\\wsl.localhost\\.
+* Fix potential deadlock in LxssManager service.
+
+## Build 21354
+For general Windows information on build 21354 visit the [Windows blog](https://blogs.windows.com/windows-insider/2021/04/07/announcing-windows-10-insider-preview-build-21354/).
+
+* Switch the \\wsl prefix to \\wsl.localhost to avoid issues when there is a machine on the network named "wsl". \\wsl$ will continue to work.
+* Enable Linux quick access icon for wow processes.
+* Update issue where version 2 was always being passed via wslapi RegisterDistribution.
+* Change the fmask of the /usr/lib/wsl/lib directory to 222 so files are marked as executable [GH 3847]
+* Fix wsl service crash if Virtual Machine Platform is not enabled.
+
+## Build 21286
+For general Windows information on build 21286 visit the [Windows blog](https://blogs.windows.com/windows-insider/2021/01/06/announcing-windows-10-insider-preview-build-21286/).
+
+* Introduce wsl.exe --cd command to set current working directory of a command.
+* Improve mapping of NTSTATUS to Linux error codes. [GH 6063]
+* Improve wsl.exe --mount error reporting.
+* Added an option to /etc/wsl.conf to enable start up commands:
+```
+[boot]
+command=<string>
+```
+
+## Build 20226
+For general Windows information on build 20226 visit the [Windows blog](https://blogs.windows.com/windows-insider/2020/09/30/announcing-windows-10-insider-preview-build-20226/).
+
+* Fix crash in LxssManager service. [GH 5902]
+
+## Build 20211
+For general Windows information on build 20211 visit the [Windows blog](https://blogs.windows.com/windows-insider/2020/09/10/announcing-windows-10-insider-preview-build-20211/).
+
+* Introduce `wsl.exe --mount` for mounting physical or virtual disks. For more information see [Access Linux filesystems in Windows and WSL 2](https://devblogs.microsoft.com/commandline/access-linux-filesystems-in-windows-and-wsl-2/).
+* Fix crash in LxssManager service when checking if the VM is idle. [GH 5768]
+* Support for compressed VHD files. [GH 4103]
+* Ensure that Linux user mode libs installed to c:\windows\system32\lxss\lib are preserved across OS upgrade. [GH 5848]
+* Added the ability to list available distributions that can be installed with `wsl --install --list-distributions`.
+* WSL instances are now terminated when the user logs off.
+
+## Build 20190
+For general Windows information on build 20190 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2020/08/12/announcing-windows-10-insider-preview-build-20190/).
+
+* Fix bug preventing WSL1 instances from launching. [GH 5633]
+* Fix hang when redirecting Windows process output. [GH 5648]
+* Add %userprofile%\\.wslconfig option to control the VM idle timeout (wsl2.vmIdleTimeout=<time_in_ms>).
+* Support launching app execution aliases from WSL.
+* Added support for installing the WSL2 kernel and distributions to wsl.exe --install.
+
+## Build 20175
+For general Windows information on build 20175 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2020/07/22/announcing-windows-10-insider-preview-build-20175/).
+
+* Adjust default memory assignment of WSL2 VM to be 50% of host memory or 8GB, whichever is less [GH 4166].
+* Change \\\\wsl$ prefix to \\\\wsl to support URI parsing. The old \\\\wsl$ path is still supported.
+* Enable nested virtualization for WSL2 by default on amd64. You can disable this via %userprofile%\\.wslconfig ([wsl2] nestedVirtualization=false).
+* Make wsl.exe --update demand start Microsoft Update.
+* Support renaming over a read-only file in DrvFs.
+* Ensure error messages are always printed in the correct codepage.
 
 ## Build 20150
 For general Windows information on build 20150 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2020/06/17/announcing-windows-10-insider-preview-build-20150/).
@@ -1152,14 +1214,14 @@ For general Windows information on build 16176 visit the [Windows Blog](https://
 
 ### Fixed
 
-- [Enabled serial support](https://blogs.msdn.microsoft.com/wsl/2017/04/14/serial-support-on-the-windows-subsystem-for-linux/)
+- [Enabled serial support](/archive/blogs/wsl/serial-support-on-the-windows-subsystem-for-linux)
 - Added IP socket option IP_OPTIONS [GH 1116]
 - Implemented pwritev function (while uploading file to nginx/PHP-FPM) [GH 1506]
 - Added IP socket options IP_MULTICAST_IF & IPV6_MULTICAST_IF [GH 990]
 - Support for socket option IP_MULTICAST_LOOP & IPV6_MULTICAST_LOOP [GH 1678]
 - Added IP(V6)_MTU socket option for apps node, traceroute, dig, nslookup, host
 - Added IP socket option IPV6_UNICAST_HOPS
-- [Filesystem Improvements](https://blogs.msdn.microsoft.com/wsl/2017/04/18/file-system-improvements-to-the-windows-subsystem-for-linux/)
+- [Filesystem Improvements](/archive/blogs/wsl/file-system-improvements-to-the-windows-subsystem-for-linux)
     * Allow mounting of UNC paths
     * Enable CDFS support in drvfs
     * Correctly handle permissions for network file systems in drvfs
@@ -1176,7 +1238,7 @@ No changes since 15042
 
 For general Windows information on build 16170 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2017/04/07/announcing-windows-10-insider-preview-build-16170-pc/).<br/>
 
-We released a new [blog post](https://blogs.msdn.microsoft.com/wsl/2017/04/11/testing-the-windows-subsystem-for-linux/) discussing our efforts to test WSL.
+We released a new [blog post](/archive/blogs/wsl/testing-the-windows-subsystem-for-linux) discussing our efforts to test WSL.
 
 ### Fixed
 
@@ -1510,7 +1572,7 @@ For general Windows information on build 14959 visit the [Windows Blog](https://
 
 ### Fixed
 
-- Improved Pico Process notification for Windows.  Additional information found on the [WSL Blog](https://blogs.msdn.microsoft.com/wsl/2016/11/01/wsl-antivirus-and-firewall-compatibility/).
+- Improved Pico Process notification for Windows.  Additional information found on the [WSL Blog](/archive/blogs/wsl/wsl-antivirus-and-firewall-compatibility).
 - Improved stability with Windows interoperability
 - Fixed error 0x80070057 when launching bash.exe when Enterprise Data Protection (EDP) is enabled
 - Additional bugfixes and improvements
@@ -1546,18 +1608,18 @@ For general Windows information on build 14951 visit the [Windows Blog](https://
 ### New Feature: Windows / Ubuntu Interoperability
 Windows binaries can now be invoked directly from the WSL command line.  This gives users the ability to interact with their Windows environment and system in a way that has not been possible.  As a quick example, it is now possible for users to run the following commands:
 
-    ```
-    $ export PATH=$PATH:/mnt/c/Windows/System32
-    $ notepad.exe
-    $ ipconfig.exe | grep IPv4 | cut -d: -f2
-    $ ls -la | findstr.exe foo.txt
-    $ cmd.exe /c dir
-    ```
+```bash
+$ export PATH=$PATH:/mnt/c/Windows/System32
+$ notepad.exe
+$ ipconfig.exe | grep IPv4 | cut -d: -f2
+$ ls -la | findstr.exe foo.txt
+$ cmd.exe /c dir
+```
 
 More information can be found at:
 
-- [WSL Team Blog for Interop](https://blogs.msdn.microsoft.com/wsl/2016/10/19/windows-and-ubuntu-interoperability/)<br/>
-- [MSDN Interop Documentation](https://msdn.microsoft.com/commandline/wsl/interop)<br/>
+- [WSL Team Blog for Interop](/archive/blogs/wsl/windows-and-ubuntu-interoperability)<br/>
+- [MSDN Interop Documentation](./interop.md)<br/>
 
 ### Fixed
 
@@ -1777,7 +1839,7 @@ For general Windows information on build 14388 visit the [Windows Blog](https://
 
 ### Fixed
 - Fixes to prepare for the Windows 10 Anniversary Update on 8/2
-  - More information about WSL in the Anniversary Update can be found on our [blog](https://blogs.msdn.microsoft.com/wsl/)
+  - More information about WSL in the Anniversary Update can be found on our [blog](/archive/blogs/wsl/)
 
 <br/>
 
@@ -1896,7 +1958,7 @@ Below are a list of new or enhanced syscalls that have some implementation in WS
 ## Build 14342
 For general Windows information on build 14342 the [Windows Blog](https://aka.ms/wip14342). <br/>
 
-Information on VolFs and DriveFs can be found on the [WSL Blog](https://blogs.msdn.microsoft.com/wsl). <br/>
+Information on VolFs and DriveFs can be found on the [WSL Blog](/archive/blogs/wsl/). <br/>
 
 ### Fixed
 - Fixed install issue when the Windows user had Unicode characters in the username

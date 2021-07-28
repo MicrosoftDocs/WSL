@@ -2,7 +2,7 @@
 title: Manage Linux Distributions
 description: Reference listing and configuring multiple Linux distributions running on the Windows Subsystem for Linux.
 keywords: BashOnWindows, bash, wsl, windows, windows subsystem for linux, windowssubsystem, ubuntu, wsl.conf, wslconfig
-ms.date: 05/12/2020
+ms.date: 03/26/2021
 ms.topic: article
 ---
 
@@ -169,7 +169,7 @@ For example:
 `ubuntu config --default-user johndoe` would change the default user for the Ubuntu distribution to the "johndoe" user.
 
 > [!NOTE]
-> If you are having trouble figuring out the name of your distribution, see [List distributions](https://docs.microsoft.com/windows/wsl/wsl-config#list-distributions) for the command to list the official name of the installed distributions. 
+> If you are having trouble figuring out the name of your distribution, see [List distributions](#list-distributions) for the command to list the official name of the installed distributions. 
 
 ## Run a specific distribution
 
@@ -227,9 +227,7 @@ To reinstall, find the distribution in the Microsoft store and select "Launch".
 
 > **Available in Windows Build 17093 and later**
 
-Automatically configure certain functionality in WSL that will be applied every time you launch the subsystem using `wsl.conf`.
-
-Right now, this includes automount options and network configuration.
+Automatically configure functionality in WSL that will be applied every time you launch the subsystem using `wsl.conf`. This includes automount options and network configuration.
 
 `wsl.conf` is located in each Linux distribution in `/etc/wsl.conf`. If the file is not there, you can create it yourself. WSL will detect the existence of the file and will read its contents. If the file is missing or malformed (that is, improper markup formatting), WSL will continue to launch as normal.
 
@@ -249,11 +247,16 @@ generateHosts = true
 generateResolvConf = true
 ```
 
+When launching multiple Linux shells for the same distribution, you must wait until the Linux subsystem stops running, this can take approximately 8 seconds after closing the last instance of the distribution shell. If you launch a distribution (ie. Ubuntu), modify the wsl.conf file, close the distribution, and then re-launch it. You might assume that your changes to the wsl.conf file have immediately gone into effect. This is not currently the case as the subsystem could still be running. You must wait ~8 seconds for the subsystem to stop before relaunching in order to give enough time for your changes to be picked up. You can check to see whether your Linux distribution (shell) is still running after closing it by using PowerShell with the command: `wsl --list --running`. If no distributions are running, you will receive the response: "There are no running distributions." You can now restart the distribution to see your wsl.conf updates applied.
+
+> [!TIP]
+> `wsl --shutdown` is a fast path to restarting WSL 2 distributions, but it will shut down all running distributions, so use wisely.
+
 ### Configuration Options
 
 In keeping with .ini conventions, keys are declared under a section. 
 
-WSL supports two sections: `automount` and `network`.
+WSL supports four sections: `automount`, `network`, `interop`, and `user`.
 
 #### automount
 
@@ -281,6 +284,8 @@ Setting different mount options for Windows drives (DrvFs) can control how file 
 |umask | An octal mask of permissions to exclude for all files and directories | 000
 |fmask | An octal mask of permissions to exclude for all files | 000
 |dmask | An octal mask of permissions to exclude for all directories | 000
+|metadata | Whether metadata is added to Windows files to support Linux system permissions | disabled
+|case | Determines directories treated as case sensitive and whether new directories created with WSL will have the flag set. See [Per-directory case sensitivity and WSL](https://devblogs.microsoft.com/commandline/per-directory-case-sensitivity-and-wsl/#per-directory-case-sensitivity-in-wsl) for a detailed explanation of the options. | `off`
 
 **Note:** The permission masks are put through a logical OR operation before being applied to files or directories. 
 
@@ -340,12 +345,14 @@ These settings affect the VM that powers any WSL 2 distribution.
 | key | value | default | notes|
 |:----|:----|:----|:----|
 | kernel | string | The Microsoft built kernel provided inbox | An absolute Windows path to a custom Linux kernel. |
-| memory | size | 80% of your total memory on Windows | How much memory to assign to the WSL 2 VM. |
+| memory | size | 50% of total memory on Windows or 8GB, whichever is less; on builds before 20175: 80% of your total memory on Windows | How much memory to assign to the WSL 2 VM. |
 | processors | number | The same number of processors on Windows | How many processors to assign to the WSL 2 VM. |
 | localhostForwarding | boolean | `true` | Boolean specifying if ports bound to wildcard or localhost in the WSL 2 VM should be connectable from the host via localhost:port. |
 | kernelCommandLine | string | Blank | Additional kernel command line arguments. |
 | swap | size | 25% of memory size on Windows rounded up to the nearest GB | How much swap space to add to the WSL 2 VM, 0 for no swap file. |
 | swapFile | string | %USERPROFILE%\AppData\Local\Temp\swap.vhdx | An absolute Windows path to the swap virtual hard disk. |
+
+* Note: This value is true for Windows Build 19041 and may be different in Windows builds in the Insiders program
 
 Entries with the `path` value must be Windows paths with escaped backslashes, e.g: `C:\\Temp\\myCustomKernel`
 
