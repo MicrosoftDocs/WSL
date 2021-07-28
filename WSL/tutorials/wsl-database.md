@@ -136,7 +136,7 @@ There are 3 commands you need to know once MongoDB is installed:
 - `sudo service mongodb stop` to stop running your database.
 
 > [!WARNING]
-> MongoDB uses the operating system's built-in init system. You might see the command `sudo systemctl status mongodb` used in tutorials or articles. In order to remain lightweight, WSL does not include `systemd` (a service management system in Linux). Instead, it uses SysVinit to start services on your machine. You shouldn't notice a difference, but if a tutorial recommends using `sudo systemctl`, instead use: `sudo /etc/init.d/`. For example, `sudo systemctl status mongodb`, for WSL would be `sudo /etc/inid.d/mongodb status` ...or you can also use `sudo service mongodb status`.
+> In the example above we started MongoDB directly. Other tutorials start MongoDB using the operating system's built-in init system. You might see the command `sudo systemctl status mongodb` used in tutorials or articles. Currently WSL does not have support for `systemd` (a service management system in Linux). You shouldn't notice a difference, but if a tutorial recommends using `sudo systemctl`, instead use: `sudo /etc/init.d/`. For example, `sudo systemctl status docker`, for WSL would be `sudo /etc/inid.d/docker status` ...or you can also use `sudo service docker status`. The installation instructions above install a version of MongoDB that doesn't include a script automatically in `/etc/init.d/` but you can download the init.d script for mongodb [from this source](https://github.com/mongodb/mongo/blob/master/debian/init.d), place that manually as a file at this path: `/etc/init.d/mongodb` and then you can start Mongo as a service using `sudo service mongodb start`.
 
 To run your Mongo database in a local server:
 
