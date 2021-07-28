@@ -15,7 +15,7 @@ This step-by-step guide will help you get started connecting your project in WSL
 
 - Running Windows 10, [updated to version 2004](ms-settings:windowsupdate), **Build 19041** or higher.
 - [WSL enabled and installed, and updated to WSL 2](../install-win10.md).
-- [Linux distribution installed](../install-win10.md#step-6---install-your-linux-distribution-of-choice) (Ubuntu 18.04 for our examples).
+- [Linux distribution installed](../install-win10.md#step-6---install-your-linux-distribution-of-choice) (Ubuntu was used in our examples).
 - Linux distribution [running in WSL 2 mode](../install-win10.md#set-your-distribution-version-to-wsl-1-or-wsl-2). (WSL can run distributions in both v1 or v2 mode. You can check this by opening PowerShell and entering: `wsl -l -v`).
 
 ## Differences between database systems
