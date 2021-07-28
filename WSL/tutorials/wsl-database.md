@@ -15,8 +15,8 @@ This step-by-step guide will help you get started connecting your project in WSL
 
 - Running Windows 10, [updated to version 2004](ms-settings:windowsupdate), **Build 19041** or higher.
 - [WSL enabled and installed, and updated to WSL 2](https://docs.microsoft.com/windows/wsl/install-win10).
-- [Linux distribution installed](https://docs.microsoft.com/windows/wsl/install-win10#install-your-linux-distribution-of-choice) (Ubuntu 18.04 for our examples).
-- Ensure your Ubuntu 18.04 distribution is [running in WSL 2 mode](https://docs.microsoft.com/windows/wsl/install-win10#set-your-distribution-version-to-wsl-1-or-wsl-2). (WSL can run distributions in both v1 or v2 mode.) You can check this by opening PowerShell and entering: `wsl -l -v`
+- [Linux distribution installed](https://docs.microsoft.com/windows/wsl/install-win10#install-your-linux-distribution-of-choice) (Ubuntu for our examples).
+- Ensure your Linux distribution (ie. Ubuntu) is [running in WSL 2 mode](https://docs.microsoft.com/windows/wsl/install-win10#set-your-distribution-version-to-wsl-1-or-wsl-2). (WSL can run distributions in both v1 or v2 mode.) You can check this by opening PowerShell and entering: `wsl -l -v`
 
 ## Differences between database systems
 
@@ -45,9 +45,9 @@ The sort of database you choose should depend on the type of application you wil
 
 ## Install MySQL
 
-To install MySQL on WSL (Ubuntu 18.04):
+To install MySQL on WSL (ie. Ubuntu):
 
-1. Open your WSL terminal (ie. Ubuntu 18.04).
+1. Open your WSL terminal (ie. Ubuntu).
 2. Update your Ubuntu packages: `sudo apt update`
 3. Once the packages have updated, install MySQL with: `sudo apt install mysql-server`
 4. Confirm installation and get the version number: `mysql --version`
@@ -72,9 +72,9 @@ To work with with MySQL databases in VS Code, try the [MySQL extension](https://
 
 ## Install PostgreSQL
 
-To install PostgreSQL on WSL (Ubuntu 18.04):
+To install PostgreSQL on WSL (ie. Ubuntu):
 
-1. Open your WSL terminal (ie. Ubuntu 18.04).
+1. Open your WSL terminal (ie. Ubuntu).
 2. Update your Ubuntu packages: `sudo apt update`
 3. Once the packages have updated, install PostgreSQL (and the -contrib package which has some helpful utilities) with: `sudo apt install postgresql postgresql-contrib`
 4. Confirm installation and get the version number: `psql --version`
@@ -111,12 +111,23 @@ To work with with PostgreSQL databases in VS Code, try the [PostgreSQL extension
 
 ## Install MongoDB
 
-To install MongoDB on WSL (Ubuntu 18.04):
+To install MongoDB (version 5.0) on WSL (Ubuntu 20.04):
 
-1. Open your WSL terminal (ie. Ubuntu 18.04).
+1. Open your WSL terminal (ie. Ubuntu) and go to the root directory: `cd ~`
 2. Update your Ubuntu packages: `sudo apt update`
-3. Once the packages have updated, install MongoDB with: `sudo apt-get install mongodb`
-4. Confirm installation and get the version number: `mongod --version`
+3. Import the public key used by the MongoDB package management system: `wget -qO - https://www.mongodb.org/static/pgp/server-5.0.asc | sudo apt-key add -`
+4. Create a list file for MongoDB: `echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/5.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-5.0.list`
+5. Reload local package database: `sudo apt-get update`
+6. Install MongoDB packages: `sudo apt-get install -y mongodb-org`
+7. Confirm installation and get the version number: `mongod --version`
+8. Go to your home directory: `cd / && cd home`
+9. Make a directory to store data: `mkdir -p data/db`
+10. Run a Mongo instance: `sudo mongod --dbpath ~/data/db`
+11. Check to see that your MongoDB instance is running with: `ps -e | grep 'mongod'`
+12. To exit the MongoDB Shell, use the shortcut keys: Ctrl + C
+
+> [!TIP]
+> Installing MongoDB may require slightly different steps depending on the Linux distribution being used for installation. See the [MongoDB installation tutorials](https://docs.mongodb.com/manual/installation/#mongodb-installation-tutorials). Also note that MongoDB installation may differ depending on the version # that you are aiming to install. Use the version drop-down list in the top-left corner of the MongoDB documentation to select the version that aligns with your goal.
 
 There are 3 commands you need to know once MongoDB is installed:
 
@@ -124,8 +135,8 @@ There are 3 commands you need to know once MongoDB is installed:
 - `sudo service mongodb start`  to start running your database.
 - `sudo service mongodb stop` to stop running your database.
 
-> [!NOTE]
-> You might see the command `sudo systemctl status mongodb` used in tutorials or articles. In order to remain lightweight, WSL does not include `systemd` (a service management system in Linux). Instead, it uses SysVinit to start services on your machine. You shouldn't notice a difference, but if a tutorial recommends using `sudo systemctl`, instead use: `sudo /etc/init.d/`. For example, `sudo systemctl status mongodb`, for WSL would be `sudo /etc/inid.d/mongodb status` ...or you can also use `sudo service mongodb status`.
+> [!WARNING]
+> MongoDB uses the operating system's built-in init system. You might see the command `sudo systemctl status mongodb` used in tutorials or articles. In order to remain lightweight, WSL does not include `systemd` (a service management system in Linux). Instead, it uses SysVinit to start services on your machine. You shouldn't notice a difference, but if a tutorial recommends using `sudo systemctl`, instead use: `sudo /etc/init.d/`. For example, `sudo systemctl status mongodb`, for WSL would be `sudo /etc/inid.d/mongodb status` ...or you can also use `sudo service mongodb status`.
 
 To run your Mongo database in a local server:
 
@@ -155,15 +166,15 @@ Learn more in the MongoDB docs:
 
 ## Install Microsoft SQL Server
 
-To install SQL Server on WSL (Ubuntu 18.04), follow this quickstart: [Install SQL Server and create a database on Ubuntu](https://docs.microsoft.com/sql/linux/quickstart-install-connect-ubuntu?view=sql-server-ver15).
+To install SQL Server on WSL (ie. Ubuntu), follow this quickstart: [Install SQL Server and create a database on Ubuntu](https://docs.microsoft.com/sql/linux/quickstart-install-connect-ubuntu?view=sql-server-ver15).
 
 To work with Microsoft SQL Server databases in VS Code, try the [MSSQL extension](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql).
 
 ## Install SQLite
 
-To install SQLite on WSL (Ubuntu 18.04):
+To install SQLite on WSL (ie. Ubuntu):
 
-1. Open your WSL terminal (ie. Ubuntu 18.04).
+1. Open your WSL terminal (ie. Ubuntu).
 2. Update your Ubuntu packages: `sudo apt update`
 3. Once the packages have updated, install SQLite3 with: `sudo apt install sqlite3`
 4. Confirm installation and get the version number: `sqlite3 --version`
@@ -182,9 +193,9 @@ To work with SQLite databases in VS Code, try the [SQLite extension](https://mar
 
 ## Install Redis
 
-To install Redis on WSL (Ubuntu 18.04):
+To install Redis on WSL (ie. Ubuntu):
 
-1. Open your WSL terminal (ie. Ubuntu 18.04).
+1. Open your WSL terminal (ie. Ubuntu).
 2. Update your Ubuntu packages: `sudo apt update`
 3. Once the packages have updated, install Redis with: `sudo apt install redis-server`
 4. Confirm installation and get the version number: `redis-server --version`
@@ -221,6 +232,12 @@ To set up your own custom alias, or shortcut, for executing these commands:
 
 4. Once you've added your new aliases, exit the Nano text editor using **Ctrl+X** -- select `Y` (Yes) when prompted to save and Enter (leaving the file name as `.profile`).
 5. Close and re-open your WSL terminal, then try your new alias commands.
+
+## Troubleshooting
+
+### Error: directory-sync fdatasync Invalid argument
+
+Ensure that you are running your Linux distribution in WSL 2 mode. For help switching from WSL 1 to WSL 2, see [Set your distribution version to WSL 1 or WSL 2](../reference.md).
 
 ## Additional resources
 
