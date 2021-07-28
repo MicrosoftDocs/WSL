@@ -15,8 +15,8 @@ This step-by-step guide will help you get started connecting your project in WSL
 
 - Running Windows 10, [updated to version 2004](ms-settings:windowsupdate), **Build 19041** or higher.
 - [WSL enabled and installed, and updated to WSL 2](../install-win10.md).
-- [Linux distribution installed](../install-win10.md#step-6---install-your-linux-distribution-of-choice) (Ubuntu 18.04 for our examples).
-- Ensure your Ubuntu 18.04 distribution is [running in WSL 2 mode](../install-win10.md#set-your-distribution-version-to-wsl-1-or-wsl-2). (WSL can run distributions in both v1 or v2 mode.) You can check this by opening PowerShell and entering: `wsl -l -v`
+- [Linux distribution installed](../install-win10.md#step-6---install-your-linux-distribution-of-choice) (Ubuntu was used in our examples).
+- Linux distribution [running in WSL 2 mode](../install-win10.md#set-your-distribution-version-to-wsl-1-or-wsl-2). (WSL can run distributions in both v1 or v2 mode. You can check this by opening PowerShell and entering: `wsl -l -v`).
 
 ## Differences between database systems
 
@@ -45,9 +45,9 @@ The sort of database you choose should depend on the type of application you wil
 
 ## Install MySQL
 
-To install MySQL on WSL (Ubuntu 18.04):
+To install MySQL on WSL (ie. Ubuntu):
 
-1. Open your WSL terminal (ie. Ubuntu 18.04).
+1. Open your WSL terminal (ie. Ubuntu).
 2. Update your Ubuntu packages: `sudo apt update`
 3. Once the packages have updated, install MySQL with: `sudo apt install mysql-server`
 4. Confirm installation and get the version number: `mysql --version`
@@ -72,9 +72,9 @@ To work with with MySQL databases in VS Code, try the [MySQL extension](https://
 
 ## Install PostgreSQL
 
-To install PostgreSQL on WSL (Ubuntu 18.04):
+To install PostgreSQL on WSL (ie. Ubuntu):
 
-1. Open your WSL terminal (ie. Ubuntu 18.04).
+1. Open your WSL terminal (ie. Ubuntu).
 2. Update your Ubuntu packages: `sudo apt update`
 3. Once the packages have updated, install PostgreSQL (and the -contrib package which has some helpful utilities) with: `sudo apt install postgresql postgresql-contrib`
 4. Confirm installation and get the version number: `psql --version`
@@ -111,34 +111,41 @@ To work with with PostgreSQL databases in VS Code, try the [PostgreSQL extension
 
 ## Install MongoDB
 
-To install MongoDB on WSL (Ubuntu 18.04):
+To install MongoDB (version 5.0) on WSL (Ubuntu 20.04):
 
-1. Open your WSL terminal (ie. Ubuntu 18.04).
+1. Open your WSL terminal (ie. Ubuntu) and go to the root directory: `cd ~`
 2. Update your Ubuntu packages: `sudo apt update`
-3. Once the packages have updated, install MongoDB with: `sudo apt-get install mongodb`
-4. Confirm installation and get the version number: `mongod --version`
+3. Import the public key used by the MongoDB package management system: `wget -qO - https://www.mongodb.org/static/pgp/server-5.0.asc | sudo apt-key add -`
+4. Create a list file for MongoDB: `echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/5.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-5.0.list`
+5. Reload local package database: `sudo apt-get update`
+6. Install MongoDB packages: `sudo apt-get install -y mongodb-org`
+7. Confirm installation and get the version number: `mongod --version`
+8. Go to your home directory: `cd / && cd home`
+9. Make a directory to store data: `mkdir -p data/db`
+10. Run a Mongo instance: `sudo mongod --dbpath ~/data/db`
+11. Check to see that your MongoDB instance is running with: `ps -e | grep 'mongod'`
+12. To exit the MongoDB Shell, use the shortcut keys: Ctrl + C
 
-There are 3 commands you need to know once MongoDB is installed:
+> [!TIP]
+> Installing MongoDB may require slightly different steps depending on the Linux distribution being used for installation. See the [MongoDB installation tutorials](https://docs.mongodb.com/manual/installation/#mongodb-installation-tutorials). Also note that MongoDB installation may differ depending on the version # that you are aiming to install. Use the version drop-down list in the top-left corner of the MongoDB documentation to select the version that aligns with your goal.
 
-- `sudo service mongodb status` for checking the status of your database.
-- `sudo service mongodb start`  to start running your database.
-- `sudo service mongodb stop` to stop running your database.
+### MongoDB init system differences
 
-> [!NOTE]
-> You might see the command `sudo systemctl status mongodb` used in tutorials or articles. In order to remain lightweight, WSL does not include `systemd` (a service management system in Linux). Instead, it uses SysVinit to start services on your machine. You shouldn't notice a difference, but if a tutorial recommends using `sudo systemctl`, instead use: `sudo /etc/init.d/`. For example, `sudo systemctl status mongodb`, for WSL would be `sudo /etc/init.d/mongodb status` ...or you can also use `sudo service mongodb status`.
+In the example above we ran MongoDB directly. Other tutorials may start MongoDB using the operating system's built-in init system. You might see the command `sudo systemctl status mongodb` used in tutorials or articles. Currently WSL does not have support for `systemd` (a service management system in Linux).
 
-To run your Mongo database in a local server:
+You shouldn't notice a difference, but if a tutorial recommends using `sudo systemctl`, instead use: `sudo /etc/init.d/`. For example, `sudo systemctl status docker`, for WSL would be `sudo /etc/inid.d/docker status` ...or you can also use `sudo service docker status`.
 
-1. Check the status of your database: `sudo service mongodb status`
-    You should see a [Fail] response, unless you've already started your database.
+### Add the init script to start MongoDB as a service
 
-2. Start your database: `sudo service mongodb start`
-    You should now see an [OK] response.
+The installation instructions above install a version of MongoDB that doesn't include a script automatically in `/etc/init.d/`. If you would like to use the service commands, you can download the init.d script for mongodb [from this source](https://github.com/mongodb/mongo/blob/master/debian/init.d), place that manually as a file at this path: `/etc/init.d/mongodb` and then you can start Mongo as a service using `sudo service mongodb start`.
 
-3. Verify by connecting to the database server and running a diagnostic command: `mongo --eval 'db.runCommand({ connectionStatus: 1 })'`
-    This will output the current database version, the server address and port, and the output of the status command. A value of `1` for the "ok" field in the response indicates that the server is working.
-
-4. To stop your MongoDB service from running, enter: `sudo service mongodb stop`
+1. Download the init.d script for MongoDB: `curl https://raw.githubusercontent.com/mongodb/mongo/master/debian/init.d | sudo tee /etc/init.d/mongodb >/dev/null'
+2. Assign that script executable permissions: `sudo chmod +x /etc/init.d/mongodb`
+3. Now you can use MongoDB service commands:
+    - `sudo service mongodb status` for checking the status of your database. You should see a [Fail] response if no database is running.
+    - `sudo service mongodb start`  to start running your database. You should see a [Ok] response.
+    - `sudo service mongodb stop` to stop running your database.
+4. Verify that you are connected to the database server with the diagnostic command: `mongo --eval 'db.runCommand({ connectionStatus: 1 })'` This will output the current database version, the server address and port, and the output of the status command. A value of `1` for the "ok" field in the response indicates that the server is working.
 
 > [!NOTE]
 > MongoDB has several default parameters, including storing data in /data/db and running on port 27017. Also, `mongod` is the daemon (host process for the database) and `mongo` is the command-line shell that connects to a specific instance of `mongod`.
@@ -155,15 +162,15 @@ Learn more in the MongoDB docs:
 
 ## Install Microsoft SQL Server
 
-To install SQL Server on WSL (Ubuntu 18.04), follow this quickstart: [Install SQL Server and create a database on Ubuntu](/sql/linux/quickstart-install-connect-ubuntu).
+To install SQL Server on WSL (ie. Ubuntu), follow this quickstart: [Install SQL Server and create a database on Ubuntu](/sql/linux/quickstart-install-connect-ubuntu).
 
 To work with Microsoft SQL Server databases in VS Code, try the [MSSQL extension](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql).
 
 ## Install SQLite
 
-To install SQLite on WSL (Ubuntu 18.04):
+To install SQLite on WSL (ie. Ubuntu):
 
-1. Open your WSL terminal (ie. Ubuntu 18.04).
+1. Open your WSL terminal (ie. Ubuntu).
 2. Update your Ubuntu packages: `sudo apt update`
 3. Once the packages have updated, install SQLite3 with: `sudo apt install sqlite3`
 4. Confirm installation and get the version number: `sqlite3 --version`
@@ -182,9 +189,9 @@ To work with SQLite databases in VS Code, try the [SQLite extension](https://mar
 
 ## Install Redis
 
-To install Redis on WSL (Ubuntu 18.04):
+To install Redis on WSL (ie. Ubuntu):
 
-1. Open your WSL terminal (ie. Ubuntu 18.04).
+1. Open your WSL terminal (ie. Ubuntu).
 2. Update your Ubuntu packages: `sudo apt update`
 3. Once the packages have updated, install Redis with: `sudo apt install redis-server`
 4. Confirm installation and get the version number: `redis-server --version`
@@ -221,6 +228,12 @@ To set up your own custom alias, or shortcut, for executing these commands:
 
 4. Once you've added your new aliases, exit the Nano text editor using **Ctrl+X** -- select `Y` (Yes) when prompted to save and Enter (leaving the file name as `.profile`).
 5. Close and re-open your WSL terminal, then try your new alias commands.
+
+## Troubleshooting
+
+### Error: directory-sync fdatasync Invalid argument
+
+Ensure that you are running your Linux distribution in WSL 2 mode. For help switching from WSL 1 to WSL 2, see [Set your distribution version to WSL 1 or WSL 2](../reference.md).
 
 ## Additional resources
 
