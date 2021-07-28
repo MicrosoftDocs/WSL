@@ -129,27 +129,23 @@ To install MongoDB (version 5.0) on WSL (Ubuntu 20.04):
 > [!TIP]
 > Installing MongoDB may require slightly different steps depending on the Linux distribution being used for installation. See the [MongoDB installation tutorials](https://docs.mongodb.com/manual/installation/#mongodb-installation-tutorials). Also note that MongoDB installation may differ depending on the version # that you are aiming to install. Use the version drop-down list in the top-left corner of the MongoDB documentation to select the version that aligns with your goal.
 
-There are 3 commands you need to know once MongoDB is installed:
+### MongoDB init system differences
 
-- `sudo service mongodb status` for checking the status of your database.
-- `sudo service mongodb start`  to start running your database.
-- `sudo service mongodb stop` to stop running your database.
+In the example above we ran MongoDB directly. Other tutorials may start MongoDB using the operating system's built-in init system. You might see the command `sudo systemctl status mongodb` used in tutorials or articles. Currently WSL does not have support for `systemd` (a service management system in Linux).
 
-> [!WARNING]
-> In the example above we started MongoDB directly. Other tutorials start MongoDB using the operating system's built-in init system. You might see the command `sudo systemctl status mongodb` used in tutorials or articles. Currently WSL does not have support for `systemd` (a service management system in Linux). You shouldn't notice a difference, but if a tutorial recommends using `sudo systemctl`, instead use: `sudo /etc/init.d/`. For example, `sudo systemctl status docker`, for WSL would be `sudo /etc/inid.d/docker status` ...or you can also use `sudo service docker status`. The installation instructions above install a version of MongoDB that doesn't include a script automatically in `/etc/init.d/` but you can download the init.d script for mongodb [from this source](https://github.com/mongodb/mongo/blob/master/debian/init.d), place that manually as a file at this path: `/etc/init.d/mongodb` and then you can start Mongo as a service using `sudo service mongodb start`.
+You shouldn't notice a difference, but if a tutorial recommends using `sudo systemctl`, instead use: `sudo /etc/init.d/`. For example, `sudo systemctl status docker`, for WSL would be `sudo /etc/inid.d/docker status` ...or you can also use `sudo service docker status`.
 
-To run your Mongo database in a local server:
+### Add the init script to start MongoDB as a service
 
-1. Check the status of your database: `sudo service mongodb status`
-    You should see a [Fail] response, unless you've already started your database.
+The installation instructions above install a version of MongoDB that doesn't include a script automatically in `/etc/init.d/`. If you would like to use the service commands, you can download the init.d script for mongodb [from this source](https://github.com/mongodb/mongo/blob/master/debian/init.d), place that manually as a file at this path: `/etc/init.d/mongodb` and then you can start Mongo as a service using `sudo service mongodb start`.
 
-2. Start your database: `sudo service mongodb start`
-    You should now see an [OK] response.
-
-3. Verify by connecting to the database server and running a diagnostic command: `mongo --eval 'db.runCommand({ connectionStatus: 1 })'`
-    This will output the current database version, the server address and port, and the output of the status command. A value of `1` for the "ok" field in the response indicates that the server is working.
-
-4. To stop your MongoDB service from running, enter: `sudo service mongodb stop`
+1. Download the init.d script for MongoDB: `curl https://raw.githubusercontent.com/mongodb/mongo/master/debian/init.d | sudo tee /etc/init.d/mongodb >/dev/null'
+2. Assign that script executable permissions: `sudo chmod +x /etc/init.d/mongodb`
+3. Now you can use MongoDB service commands:
+    - `sudo service mongodb status` for checking the status of your database. You should see a [Fail] response if no database is running.
+    - `sudo service mongodb start`  to start running your database. You should see a [Ok] response.
+    - `sudo service mongodb stop` to stop running your database.
+4. Verify that you are connected to the database server with the diagnostic command: `mongo --eval 'db.runCommand({ connectionStatus: 1 })'` This will output the current database version, the server address and port, and the output of the status command. A value of `1` for the "ok" field in the response indicates that the server is working.
 
 > [!NOTE]
 > MongoDB has several default parameters, including storing data in /data/db and running on port 27017. Also, `mongod` is the daemon (host process for the database) and `mongo` is the command-line shell that connects to a specific instance of `mongod`.
