@@ -30,7 +30,7 @@ In order to use the `wsl --install` simplified install command, you must:
 
 - Join the [Windows Insiders Program](https://insider.windows.com/getting-started)
 - Install a preview build of Windows 10 (OS build 20262 or higher).
-- Open a command line windows with Administrator privileges
+- Open a command line window with Administrator privileges
 
 Once those requirements are met, to install WSL:
 

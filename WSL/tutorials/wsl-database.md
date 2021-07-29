@@ -139,7 +139,7 @@ You shouldn't notice a difference, but if a tutorial recommends using `sudo syst
 
 The installation instructions above install a version of MongoDB that doesn't include a script automatically in `/etc/init.d/`. If you would like to use the service commands, you can download the init.d script for mongodb [from this source](https://github.com/mongodb/mongo/blob/master/debian/init.d), place that manually as a file at this path: `/etc/init.d/mongodb` and then you can start Mongo as a service using `sudo service mongodb start`.
 
-1. Download the init.d script for MongoDB: `curl https://raw.githubusercontent.com/mongodb/mongo/master/debian/init.d | sudo tee /etc/init.d/mongodb >/dev/null'
+1. Download the init.d script for MongoDB: `curl https://raw.githubusercontent.com/mongodb/mongo/master/debian/init.d | sudo tee /etc/init.d/mongodb >/dev/null`
 2. Assign that script executable permissions: `sudo chmod +x /etc/init.d/mongodb`
 3. Now you can use MongoDB service commands:
     - `sudo service mongodb status` for checking the status of your database. You should see a [Fail] response if no database is running.
