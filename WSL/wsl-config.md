@@ -373,4 +373,4 @@ These options are only available in the latest preview builds if you are on the 
 | key | value | default | notes|
 |:----|:----|:----|:----|
 | guiApplications | boolean | `true` | Boolean to turn on or off support for GUI applications(WSLg) in WSL. |
-| debugConsole | boolean | `false` | Boolean to turn 
+| debugConsole | boolean | `false` | Boolean to turn on an output console Window that shows the contents of `dmesg` upon start of a WSL 2 distro instance.
