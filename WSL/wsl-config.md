@@ -319,6 +319,17 @@ These options are available in Build 18980 and later.
 |:----|:----|:----|:----|
 | default | string | The initial username created on first run | Setting this key specifies which user to run as when first starting a WSL session. |
 
+#### In Preview Options
+These options are only available in the latest preview builds if you are on the latest builds of the [Windows Insiders program](https://insider.windows.com/getting-started).
+
+##### boot
+
+Section label: `[boot]`
+
+| key | value | default | notes|
+|:----|:----|:----|:----|
+| command | string | "" | A string of the command that you would like to run when the WSL instance starts. This command is run as the root user. e.g: `service docker start` |
+
 ## Configure global options with .wslconfig
 
 > **Available in Windows Build 19041 and later**
@@ -352,8 +363,14 @@ These settings affect the VM that powers any WSL 2 distribution.
 | swap | size | 25% of memory size on Windows rounded up to the nearest GB | How much swap space to add to the WSL 2 VM, 0 for no swap file. |
 | swapFile | string | %USERPROFILE%\AppData\Local\Temp\swap.vhdx | An absolute Windows path to the swap virtual hard disk. |
 
-* Note: This value is true for Windows Build 19041 and may be different in Windows builds in the Insiders program
-
 Entries with the `path` value must be Windows paths with escaped backslashes, e.g: `C:\\Temp\\myCustomKernel`
 
 Entries with the `size` value must be a size followed by a unit, for example `8GB` or `512MB`.
+
+#### In Preview Options
+These options are only available in the latest preview builds if you are on the latest builds of the [Windows Insiders program](https://insider.windows.com/getting-started). 
+
+| key | value | default | notes|
+|:----|:----|:----|:----|
+| guiApplications | boolean | `true` | Boolean to turn on or off support for GUI applications(WSLg) in WSL. |
+| debugConsole | boolean | `false` | Boolean to turn on an output console Window that shows the contents of `dmesg` upon start of a WSL 2 distro instance.
