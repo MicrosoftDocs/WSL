@@ -14,16 +14,18 @@ Case sensitivity determines whether uppercase (FOO.txt) and lowercase (foo.txt) 
 - Case-sensitive: FOO.txt ≠ foo.txt ≠ Foo.txt
 - Case-insenstive: FOO.text = foo.txt = Foo.txt
 
-Windows Subsystem for Linux (WSL) enables you to make adjustments to how case sensitivity is handled by the Windows file system, setting case sensitivity with attribute flags per directory.
-
 ## Differences between Windows and Linux case sensitivity
+
+When working with both Linux and Windows files and directories, you may need to adjust how case sensitivity is handled.
 
 Standard behavior:
 
 - Windows file system treats file and directory names as case-insensitive. FOO.txt and foo.txt will be treated as equivalent files.
 - Linux file system treats file and directory names as case-sensitive. FOO.txt and foo.txt will be treated as distinct files.
 
-Windows Subsystem for Linux (WSL 2) is running a real Linux kernel and, thus, follows the standard Linux behavior of treating files and directories (folders) as case-sensitive.
+The Windows file system supports setting case sensitivity with attribute flags per directory. While the standard behavior is to be case-insensitive, you can assign an attribute flag to make a directory case sensitive, so that it will recognize Linux files and folders that may differ only by case.
+
+This may be especially true when mounting drives to the Windows Subsystem for Linux (WSL) file system. When working in the WSL file system, you are running Linux, thus files and directories are treated as case-sensitive by default.
 
 > [!NOTE]
 > In the past, if you had files whose name differed only by case, these files could not be accessed by Windows, because Windows applications treat the file system as case insensitive and cannot distinguish between files whose names only differ in case. While Windows File Explorer will show both files, only one will open regardless of which you select.
@@ -50,7 +52,6 @@ Replace `<path>` with your file path. For a directory in the Windows (NTFS) file
 Support for per-directory case sensitivity began in Windows 10, build 17107. In Windows 10, build 17692, support was updated to include inspecting and modifying the case sensitivity flag for a directory from inside WSL. Case sensitivity is exposed using an extended attribute named `system.wsl_case_sensitive`. The value of this attribute will be 0 for case insensitive directories, and 1 for case sensitive directories.
 
 Changing the case-sensitivity of a directory requires that you run **elevated permissions** (run as Administrator). Changing the case-sensitivity flag also requires “Write attributes”, “Create files”, “Create folders” and “Delete subfolders and files” permissions on the directory.
-<!-- Should we cover how to check whether you have these permissions on a directory? Or trust that it's easy enough to find how to do this elsewhere? -->
 
 To change a directory in the Windows file system so that it is case-sensitive (FOO ≠ foo), run PowerShell as Administrator and use the command:
 
@@ -70,24 +71,9 @@ A directory must be empty in order to change the case sensitivity flag attribute
 
 When creating new directories, those directories will inherit the case sensitivity from it's parent directory.
 
-<!-- Sven's blog post from 2018 also says the contradictory, but from testing, this no longer seems to be the case:
-"The per-directory case sensitivity flag is not inherited; directories created in a case sensitive directory are not automatically case sensitive themselves. You must explicitly mark each directory as case sensitive."
-https://devblogs.microsoft.com/commandline/per-directory-case-sensitivity-and-wsl/#per-directory-case-sensitivity -->
-
 ## Case sensitivity options for mounting a drive in WSL configuration file
 
-Case sensitivity can be managed when mounting a drive on the Windows Subsystem for Linux using the WSL config file. (Currently only NTFS formatted drives are supported.) Each Linux distribution that you have installed can have it's own WSL config file, called `/etc/wsl.conf`.
-
-<!-- Do we need to refer to DrvFs? Is it helpful to know the term "DrvFs" and for WSL users to understand what this is?
-
-> [!NOTE]
-> DrvFs is a filesystem plugin to WSL that was designed to support interop between WSL and the Windows filesystem. DrvFs enables WSL to mount drives with supported file systems under /mnt, such as /mnt/c, /mnt/d, etc.
- -->
-
-<!-- Are NTFS formatted drives the only type that can be mounted to WSL period? Or just the only type that can have case sensitivity adjusted?
-Does anyone have a wsl.conf file by default? Our docs imply that they will be can also create one. From what I can tell, they will always have to create this file themselves... true? 
-What happens if two different WSL distros have conflicting automount instructions for how they handle case sensitivity? The drive is only mounted on a per-distro basis?
--->
+Case sensitivity can be managed when mounting a drive on the Windows Subsystem for Linux using the WSL config file. (Currently only NTFS formatted drives are supported.) Each Linux distribution that you have installed can have it's own WSL config file, called `/etc/wsl.conf`. For more information about how to mount a drive, see [Get started mounting a Linux disk in WSL 2](./wsl2-mount-disk.md).
 
 To configure the case sensitivity option when mounting a drive in your `wsl.config` file:
 
@@ -127,12 +113,10 @@ reg.exe add HKLM\SYSTEM\CurrentControlSet\Services\lxss /v DrvFsAllowForceCaseSe
 ```
 -->
 
-<!-- Not all file systems support per-directory case sensitivity; currently, it only works on local NTFS drives. To make sure your drive was successfully mounted with the desired case sensitivity option, use the mount command and see if the option was applied. You can check what your mount options are by sharing the output of the mount command."
-What is the mount command? Does any of this need to be included? -->
-
 You will need to restart WSL after making any changes to the `wsl.conf` file in order for those changes to take effect. You can restart WSL using the command: `wsl --shutdown`
 
 > [!TIP]
+> To mount a drive (which uses the DrvFs filesystem plugin to make the disk available under /mnt, such as /mnt/c, /mnt/d, etc) with a specific case sensitivity setting for ALL drives, use `/etc/wsl.conf` as described above. To set the default mount options for one specific drive, use the [`/etc/fstab` file](http://manpages.ubuntu.com/manpages/xenial/man5/fstab.5.html) to specify these options.
 > For more WSL configuration options, see [Configure per distro launch settings with wslconf](./wsl-config.md#configure-per-distro-launch-settings-with-wslconf).
 
 ### Changing the case sensitivity on a drive mounted to a WSL distribution
@@ -151,11 +135,11 @@ To disable case-sensitivity on a directory and return to the case-insensitive de
 sudo fsutil.exe file setCaseSensitiveInfo <path> disable
 ```
 
-<!-- Not quite understanding this statement from the blog: "To mount DrvFs with a specific case sensitivity setting, use /etc/wsl.conf to set the default mount options for all drives, or /etc/fstab to specify options for a specific drive. 
-Do I need to add a section about how to set up a fstab file configuration? What is the use-case scenario here? -->
-
 > [!NOTE]
 > If you change the case sensitive flag on an existing directory for a mounted drive while WSL is running, ensure WSL has no references to that directory or else the change will not be effective. This means the directory must not be open by any WSL processes, including using the directory (or its descendants) as the current working directory.
+
+> [!TIP]
+> To mount
 
 ## Configure case sensitivity with Git
 
@@ -175,6 +159,10 @@ For more information, see the [Git Config documentation](https://git-scm.com/doc
 
 ## Troubleshooting
 
+### My directory has files that are mixed case and require case sensitivity but Windows FS tools will not recognize these files
+
+To use Windows file system tools to work on a Linux directory that contains mixed case files, you will need to create a brand new directory and set it to be case-sensitive, then copy the files into that directory (using git clone or untar). The files will remain mixed case. (Note that if you have already tried moving the files to a case-insensitive directory and there were conflicts, there were likely some files that were overwritten and will no longer be available.)
+
 ### Error: The directory is not empty
 
 You cannot change the case sensitivity setting on a directory that contains other files or directories. Try creating a new directory, changing the setting, then copying your mixed-case files into it.
@@ -186,13 +174,6 @@ Check to be sure that you have the “Write attributes”, “Create files”, �
 ### Error: A local NTFS volume is required for this operation
 
 The case sensitivity attribute can only be set on directories within an NTFS-formatted file system. Directories in the WSL (Linux) file system are case sensitive by default (and cannot be set to be case insensitive using the fsutil.exe tool).  
-
-<!-- What other errors should be included? -->
-
-<!-- Would it be helpful to list a couple of scenarios like the one from the original issue? If so, I could use help with what they are.
-
-Q: “I have a directory full of files with file names that are mixed case. How can I work on this directory using Windows FS tools?”
-A: Create a new directory and set it to be case-sensitive. Copy the files into that directory (using git clone or untar). The files will remain mixed case. (Note that if you have already tried moving the files to a case-insensitive directory and there were conflicts, there were likely some files that were overwritten and will no longer be available.) -->
 
 ## Additional resources
 
