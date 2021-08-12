@@ -126,13 +126,13 @@ To change the case sensitivity for a directory on a drive mounted to a WSL distr
 To enable case-sensitivity on a directory (FOO ≠ foo), use the command:
 
 ```bash
-sudo fsutil.exe file setCaseSensitiveInfo <path> enable
+fsutil.exe file setCaseSensitiveInfo <path> enable
 ```
 
 To disable case-sensitivity on a directory and return to the case-insensitive default (FOO = foo), use the command:
 
 ```bash
-sudo fsutil.exe file setCaseSensitiveInfo <path> disable
+fsutil.exe file setCaseSensitiveInfo <path> disable
 ```
 
 > [!NOTE]
