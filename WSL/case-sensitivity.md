@@ -138,9 +138,6 @@ fsutil.exe file setCaseSensitiveInfo <path> disable
 > [!NOTE]
 > If you change the case sensitive flag on an existing directory for a mounted drive while WSL is running, ensure WSL has no references to that directory or else the change will not be effective. This means the directory must not be open by any WSL processes, including using the directory (or its descendants) as the current working directory.
 
-> [!TIP]
-> To mount
-
 ## Configure case sensitivity with Git
 
 The Git version control system also has a configuration setting that can be used to adjust case sensitivity for the files you are working with. If you are using Git, you may want to adjust the [`git config core.ignorecase`](https://git-scm.com/docs/git-config/#Documentation/git-config.txt-coreignoreCase) setting.
