@@ -1,13 +1,13 @@
 ---
 title: Case Sensitivity
 description: Learn how case sensitive file names are handled between Windows and Linux file systems, how to adjust these settings by directory with WSL, and how to troubleshoot issues.
-keywords: case sensitivity, wsl, windows, linux, ntfs
-ms.date: 07/21/2021
+keywords: case sensitivity, wsl, windows, linux, ntfs, mount
+ms.date: 08/12/2021
 ms.topic: article
 ms.localizationpriority: medium
 ---
 
-# Case sensitivity
+# Adjust case sensitivity
 
 Case sensitivity determines whether uppercase (FOO.txt) and lowercase (foo.txt) letters are handled as distinct (case-sensitive) or equivalent (case-insensitive) in a file name or directory.
 
@@ -30,7 +30,7 @@ This may be especially true when mounting drives to the Windows Subsystem for Li
 > [!NOTE]
 > In the past, if you had files whose name differed only by case, these files could not be accessed by Windows, because Windows applications treat the file system as case insensitive and cannot distinguish between files whose names only differ in case. While Windows File Explorer will show both files, only one will open regardless of which you select.
 
-## Adjust the case sensitivity of files and directories
+## Change the case sensitivity of files and directories
 
 The following steps explain how to change a directory on the Windows file system so that it is case-sensitive and will recognize files and folders that differ only by case.
 
