@@ -136,6 +136,8 @@ Please enable the Virtual Machine Platform Windows feature and ensure virtualiza
 
 4. Restart your machine after enabling the `Virtual Machine Platform` optional component.
 
+5. Additionally, if you have 3rd party hypervisors installed (Such as VMware or VirtualBox) then please ensure you have these on the latest versions which can support HyperV ([VMware 15.5.5+](https://blogs.vmware.com/workstation/2020/05/vmware-workstation-now-supports-hyper-v-mode.html) and [VirtualBox 6+](https://www.virtualbox.org/wiki/Changelog-6.0)) or are turned off.
+
 ### Bash loses network connectivity once connected to a VPN
 
 If after connecting to a VPN on Windows, bash loses network connectivity, try this workaround from within bash. This workaround will allow you to manually override the DNS resolution through `/etc/resolv.conf`.
