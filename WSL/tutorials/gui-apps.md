@@ -26,9 +26,7 @@ You can now integrate both Windows and Linux applications into your workflow for
 
 ### Prerequisites
 
-- **[Windows 10 Insider Preview build 21362+](https://insider.windows.com)**
-
-    Support for Linux GUI apps via WSL will become generally available in the next major release of Windows. To access to the preview build of Windows and try running Linux GUI apps now, you'll need to join the [Windows Insider Program](https://insider.windows.com/) and run a Windows 10 Insider Preview build from the dev channel.
+- You will need to be on **Windows 11 Build 22000 or higher** to access this feature. You can join the [Windows Insiders Program](https://insider.windows.com/) to get the latest preview builds.
 
 - **Installed driver for vGPU**
 
