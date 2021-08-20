@@ -17,7 +17,7 @@ If you want to access a Linux disk format that isn't supported by Windows, you c
 
 ## Prerequisites
 
-You will need to be on Windows 10 Build 20211 or higher to access this feature. You can join the [Windows Insiders Program](https://insider.windows.com/) to get the latest preview builds.
+You will need to be on Windows 11 Build 22000 or higher to access this feature. You can join the [Windows Insiders Program](https://insider.windows.com/) to get the latest preview builds.
 
 ## Mounting an unpartitioned disk
 
