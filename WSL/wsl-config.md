@@ -372,5 +372,7 @@ These options are only available in the latest preview builds if you are on the 
 
 | key | value | default | notes|
 |:----|:----|:----|:----|
-| guiApplications | boolean | `true` | Boolean to turn on or off support for GUI applications(WSLg) in WSL. |
-| debugConsole | boolean | `false` | Boolean to turn on an output console Window that shows the contents of `dmesg` upon start of a WSL 2 distro instance.
+| guiApplications | boolean | `true` | Boolean to turn on or off support for GUI applications ([WSLg](https://github.com/microsoft/wslg)) in WSL. |
+| debugConsole | boolean | `false` | Boolean to turn on an output console Window that shows the contents of `dmesg` upon start of a WSL 2 distro instance. |
+| nestedVirtualization | boolean | `true` | Boolean to turn on or off nested virtualization for WSL2. |
+| vmIdleTimeout | number | `60000` | The number of milliseconds that a VM is idle, before it is shut down. |
