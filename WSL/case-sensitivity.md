@@ -51,7 +51,7 @@ Replace `<path>` with your file path. For a directory in the Windows (NTFS) file
 
 Support for per-directory case sensitivity began in Windows 10, build 17107. In Windows 10, build 17692, support was updated to include inspecting and modifying the case sensitivity flag for a directory from inside WSL. Case sensitivity is exposed using an extended attribute named `system.wsl_case_sensitive`. The value of this attribute will be 0 for case insensitive directories, and 1 for case sensitive directories.
 
-Changing the case-sensitivity of a directory requires that you run **elevated permissions** (run as Administrator). Changing the case-sensitivity flag also requires “Write attributes”, “Create files”, “Create folders” and “Delete subfolders and files” permissions on the directory.
+Changing the case-sensitivity of a directory requires that you run **elevated permissions** (run as Administrator). Changing the case-sensitivity flag also requires “Write attributes”, “Create files”, “Create folders” and “Delete subfolders and files” permissions on the directory. [See the troubleshooting section for more about this](#error-access-denied).
 
 To change a directory in the Windows file system so that it is case-sensitive (FOO ≠ foo), run PowerShell as Administrator and use the command:
 
@@ -71,16 +71,19 @@ A directory must be empty in order to change the case sensitivity flag attribute
 
 When creating new directories, those directories will inherit the case sensitivity from it's parent directory.
 
+> [!WARNING]
+> There is an exception to this inheritance policy when running in WSL 1 mode. When a distribution is running in WSL 1 mode, the per-directory case sensitivity flag is not inherited; directories created in a case sensitive directory are not automatically case sensitive themselves. You must explicitly mark each directory as case sensitive
+
 ## Case sensitivity options for mounting a drive in WSL configuration file
 
-Case sensitivity can be managed when mounting a drive on the Windows Subsystem for Linux using the WSL config file. (Currently only NTFS formatted drives are supported.) Each Linux distribution that you have installed can have it's own WSL config file, called `/etc/wsl.conf`. For more information about how to mount a drive, see [Get started mounting a Linux disk in WSL 2](./wsl2-mount-disk.md).
+Case sensitivity can be managed when mounting a drive on the Windows Subsystem for Linux using the WSL config file. Each Linux distribution that you have installed can have it's own WSL config file, called `/etc/wsl.conf`. For more information about how to mount a drive, see [Get started mounting a Linux disk in WSL 2](./wsl2-mount-disk.md).
 
-To configure the case sensitivity option when mounting a drive in your `wsl.config` file:
+To configure the case sensitivity option in the `wsl.config` file when mounting a drive:
 
 1. Open the Linux distribution you will be using (ie. Ubuntu).
-2. Change directories up until you see the `etc` folder (this may require you to `cd ..` up from the `home` directory). 
+2. Change directories up until you see the `etc` folder (this may require you to `cd ..` up from the `home` directory).
 3. List the files in the `etc` directory to see if a `wsl.conf` file already exists (use the `ls` command, or `explorer.exe .` to view the directory with Windows File Explorer).
-4. If the `wsl.conf` file does not already exist, you can create it using: `sudo touch wsl.conf`.
+4. If the `wsl.conf` file does not already exist, you can create it using: `sudo touch wsl.conf` or by running `sudo nano /etc/wsl.conf`, which will create the file upon saving from the Nano editor.
 5. The following options are available for you to add into your `wsl.config` file:
 
 **Default setting: `dir` for enabling case sensitivity per directory.**
@@ -104,14 +107,7 @@ options = case = off
 options = case = force
 ```
 
-This option is only supported for mounting drives on Linux distributions running as WSL 1.
-<!-- Does this require setting a registry key?? 
-As of build 17110, using “case=force” requires setting a registry key, which you can do by running the following command from an elevated command prompt:
-
-```powershell
-reg.exe add HKLM\SYSTEM\CurrentControlSet\Services\lxss /v DrvFsAllowForceCaseSensitivity /t REG_DWORD /d 1
-```
--->
+This option is only supported for mounting drives on Linux distributions running as WSL 1 and may require a registration key. To add a registration key, you can use this command from an elevated (admin) command prompt: `reg.exe add HKLM\SYSTEM\CurrentControlSet\Services\lxss /v DrvFsAllowForceCaseSensitivity /t REG_DWORD /d 1`.
 
 You will need to restart WSL after making any changes to the `wsl.conf` file in order for those changes to take effect. You can restart WSL using the command: `wsl --shutdown`
 
@@ -121,7 +117,7 @@ You will need to restart WSL after making any changes to the `wsl.conf` file in 
 
 ### Changing the case sensitivity on a drive mounted to a WSL distribution
 
-To change the case sensitivity for a directory on a drive mounted to a WSL distribution (ie. Ubuntu), follow the same steps as listed above for the Windows file system.
+NTFS-formatted drives mounted to a WSL distribution will be case-insensitive by default. To change the case sensitivity for a directory on a drive mounted to a WSL distribution (ie. Ubuntu), follow the same steps as listed above for the Windows file system. (EXT4 drives will be case-sensitive by default).
 
 To enable case-sensitivity on a directory (FOO ≠ foo), use the command:
 
@@ -166,7 +162,9 @@ You cannot change the case sensitivity setting on a directory that contains othe
 
 ### Error: Access denied
 
-Check to be sure that you have the “Write attributes”, “Create files”, “Create folders” and “Delete subfolders and files” permissions on the directory required for changing case-sensitivity.
+Ensure that you have the “Write attributes”, “Create files”, “Create folders” and “Delete subfolders and files” permissions on the directory required for changing case-sensitivity. To check these settings, open the directory in Windows File Explorer (from command line, use the command: `explorer.exe .`). Right-click the directory and select **Properties** to open the Document Properties window, then select **Edit** to view or change permissions for the directory.
+
+![Properties windows to view or change permissions on NTFS directories](./media/ntfs-properties.png)
 
 ### Error: A local NTFS volume is required for this operation
 
