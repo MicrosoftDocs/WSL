@@ -120,7 +120,7 @@ To install MongoDB (version 5.0) on WSL (Ubuntu 20.04):
 5. Reload local package database: `sudo apt-get update`
 6. Install MongoDB packages: `sudo apt-get install -y mongodb-org`
 7. Confirm installation and get the version number: `mongod --version`
-8. Go to your home directory: `cd / && cd home`
+8. Go to your home directory: `cd ~`
 9. Make a directory to store data: `mkdir -p data/db`
 10. Run a Mongo instance: `sudo mongod --dbpath ~/data/db`
 11. Check to see that your MongoDB instance is running with: `ps -e | grep 'mongod'`
