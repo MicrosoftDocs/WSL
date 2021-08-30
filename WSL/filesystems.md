@@ -1,21 +1,56 @@
 ---
-title: Windows interoperability with Linux
-description: Describes Windows interoperability with Linux distributions running on the Windows Subsystem for Linux. 
-ms.date: 05/12/2020
+title: Working across file systems
+description: Learn about the considerations and interop commands available when working across Windows and Linux file systems with WSL.
+keywords: wsl, Linux, Windows, file systems, interop, across directories, mnt
+ms.date: 08/30/2021
 ms.topic: article
 ms.localizationpriority: high
 ---
 
-# Windows interoperability with Linux
+# Working across Windows and Linux file systems
 
-The Windows Subsystem for Linux (WSL) is continuously improving integration between Windows and Linux.  You can:
+There are a number of considerations to keep in mind when working between Windows and Linux file systems. We have outlined a few of them for you in this guide, including some examples of interoperability support for mixing Windows and Linux-based commands.
 
-* Run Windows tools (ie. notepad.exe) from a Linux command line (ie. Ubuntu).
-* Run Linux tools (ie. grep) from a Windows command line (ie. PowerShell).
-* Share environment variables between Linux and Windows. (Build 17063+)
+## File storage and performance across file systems
 
-> [!NOTE]
-> If you're running Creators Update (Oct 2017, Build 16299) or Anniversary Update (Aug 2016, Build 14393), jump to the [Earlier versions of Windows 10](#earlier-versions-of-windows-10).
+We recommend against working across operating systems with your files, unless you have a specific reason for doing so. For the fastest performance speed, store your files in the WSL file system if you are working in a Linux command line (Ubuntu, OpenSUSE, etc). If you're working in a Windows command line (PowerShell, Command Prompt), store your files in the Windows file system.
+
+For example, when storing your WSL project files:
+
+- Use the Linux file system root directory: `\\wsl$\Ubuntu-18.04\home\<user name>\Project`
+- Not the Windows file system root directory: `/mnt/c/Users/<user name>/Project$` or  `C:\Users\<user name>\Project`
+
+When you see `/mnt/` in the file path of a WSL command line, it means that you are working from a mounted drive. So the Windows file system C:/ drive (`C:\Users\<user name>\Project`) will look like this when mounted in a WSL command line: `/mnt/c/Users/<user name>/Project$`. It is possible to store your project files on a mounted drive, but your performance speed will improve if you store them directly on the `\\wsl$` drive.
+
+## View your current directory in Windows File Explorer
+
+You can view the directory where your files are stored by opening the Windows File Explorer from the command line, using:
+
+```bash
+explorer.exe .
+```
+
+Alternatively, you can also use the command: `powershell.exe /c start .` Be sure to add the period at the end of the command to open the current directory.
+
+To view all of your available Linux distributions and their root file systems in Windows File explorer, in the address bar enter: `\\wsl$`
+
+![View project files in Windows File Explorer](media/windows-file-explorer.png)
+
+
+
+<!-- You can also use windows commands inside WSL's Linux [Terminal](https://en.wikipedia.org/wiki/Linux_console). Try opening a Linux distribution (ie Ubuntu), be sure that you are in the Linux home directory by entering this command: `cd ~`. Then open your Linux file system in File Explorer by entering *(don't forget the period at the end)*: `powershell.exe /c start .` -->
+
+## Filename and directory case sensitivity
+
+Case sensitivity determines whether uppercase (FOO.txt) and lowercase (foo.txt) letters are handled as distinct (case-sensitive) or equivalent (case-insensitive) in a file name or directory. Windows and Linux file systems handle case sensitivity in different ways - Windows is case-insenstive and Linux is case-sensitive. Learn more about how to adjust case sensitivity, particularly when mounting disks with WSL, in the [Adjust case sensitivity](./case-sensitivity.md) how-to article.
+
+## Interoperability between Windows and Linux commands
+
+Windows and Linux tools and commands can be used interchangeably with WSL.
+
+- Run Windows tools (ie. notepad.exe) from a Linux command line (ie. Ubuntu).
+- Run Linux tools (ie. grep) from a Windows command line (ie. PowerShell).
+- Share environment variables between Linux and Windows. (Build 17063+)
 
 ## Run Linux tools from a Windows command line
 
@@ -30,9 +65,9 @@ C:\temp> wsl ls -la
 
 Binaries invoked in this way:
 
-* Use the same working directory as the current CMD or PowerShell prompt.
-* Run as the WSL default user.
-* Have the same Windows administrative rights as the calling process and terminal.
+- Use the same working directory as the current CMD or PowerShell prompt.
+- Run as the WSL default user.
+- Have the same Windows administrative rights as the calling process and terminal.
 
 The Linux command following `wsl` (or `wsl.exe`) is handled like any command run in WSL.  Things such as sudo, piping, and file redirection work.
 
@@ -84,14 +119,12 @@ C:\temp> wsl ls -la "/mnt/c/Program Files"
 
 WSL can run Windows tools directly from the WSL command line using `[tool-name].exe`.  For example, `notepad.exe`.
 
-<!-- Craig - could you help add a section with an example here to explain this scenario: "To access your Linux files using a Windows tool, use `\\wsl$\<distroName>\'` as the file path." Currently it I can just enter `notepad.exe foo.txt` and it seems to work fine, so explaining a situation where the file path is needed would be helpful. -->
-
 Applications run this way have the following properties:
 
-* Retain the working directory as the WSL command prompt (for the most part -- exceptions are explained below).
-* Have the same permission rights as the WSL process.
-* Run as the active Windows user.
-* Appear in the Windows Task Manager as if directly executed from the CMD prompt.
+- Retain the working directory as the WSL command prompt (for the most part -- exceptions are explained below).
+- Have the same permission rights as the WSL process.
+- Run as the active Windows user.
+- Appear in the Windows Task Manager as if directly executed from the CMD prompt.
 
 Windows executables run in WSL are handled similarly to native Linux executables -- piping, redirects, and even backgrounding work as expected.
 
@@ -139,10 +172,10 @@ WSL and Windows share a special environment variable, `WSLENV`, created to bridg
 
 Properties of `WSLENV` variable:
 
-* It is shared; it exists in both Windows and WSL environments.
-* It is a list of environment variables to share between Windows and WSL.
-* It can format environment variables to work well in Windows and WSL.
-* It can assist in the flow between WSL and Win32.
+- It is shared; it exists in both Windows and WSL environments.
+- It is a list of environment variables to share between Windows and WSL.
+- It can format environment variables to work well in Windows and WSL.
+- It can assist in the flow between WSL and Win32.
 
 > [!NOTE]
 > Prior to 17063, only Windows environment variable that WSL could access was `PATH` (so you could launch Win32 executables from under WSL). Starting in 17063, `WSLENV` begins being supported.
@@ -154,10 +187,10 @@ There are four flags available in `WSLENV` to influence how the environment vari
 
 `WSLENV` flags:
 
-* `/p` - translates the path between WSL/Linux style paths and Win32 paths.
-* `/l` - indicates the environment variable is a list of paths.
-* `/u` - indicates that this environment variable should only be included when running WSL from Win32.
-* `/w` - indicates that this environment variable should only be included when running Win32 from WSL.
+- `/p` - translates the path between WSL/Linux style paths and Win32 paths.
+- `/l` - indicates the environment variable is a list of paths.
+- `/u` - indicates that this environment variable should only be included when running WSL from Win32.
+- `/w` - indicates that this environment variable should only be included when running Win32 from WSL.
 
 Flags can be combined as needed.
 
@@ -178,61 +211,3 @@ echo 1 > /proc/sys/fs/binfmt_misc/WSLInterop
 ```
 
 Disabling interop will not persist between WSL sessions -- interop will be enabled again when a new session is launched.
-
-## Earlier versions of Windows 10
-
-There are several differences for the interoperability commands on earlier Windows 10 versions. If you're running a Creators Update (Oct 2017, Build 16299), or Anniversary Update (Aug 2016, Build 14393) version of Windows 10, we recommend you [update to the latest Windows version](ms-settings:windowsupdate), but if that's not possible, we have outlined some of the interop differences below.
-
-Summary:
-
-* `bash.exe` has been replaced with `wsl.exe`.
-* `-c` option for running a single command isn't needed with `wsl.exe`.
-* Windows path is included in the WSL `$PATH`.
-* The process for disabling interop is unchanged.
-
-Linux commands can be run from the Windows Command Prompt or from PowerShell, but for early Windows versions, you man need to use the `bash` command. For example:
-
-```powershell
-C:\temp> bash -c "ls -la"
-```
-
-Things such as input, piping, and file redirection work as expected.
-
-The WSL commands passed into `bash -c` are forwarded to the WSL process without modification.  File paths must be specified in the WSL format and care must be taken to escape relevant characters. Example:
-
-```console
-C:\temp> bash -c "ls -la /proc/cpuinfo"
-```
-
-Or...
-
-```powershell
-C:\temp> bash -c "ls -la \"/mnt/c/Program Files\""
-```
-
-When calling a Windows tool from a WSL distribution in an earlier version of Windows 10, you will need to specify the directory path. For example, from your WSL command line, enter:
-
-```bash
-/mnt/c/Windows/System32/notepad.exe
-```
-
-In WSL, these executables are handled similar to native Linux executables.  This means adding directories to the Linux path and piping between commands works as expected.  For example:
-
-```bash
-export PATH=$PATH:/mnt/c/Windows/System32
-```
-Or
-
-```bash
-ipconfig.exe | grep IPv4 | cut -d: -f2
-```
-
-The Windows binary must include the file extension, match the file case, and be executable.  Non-executables including batch scripts and command like `dir` can be run with `/mnt/c/Windows/System32/cmd.exe /C` command. For example:
-
-```bash
-/mnt/c/Windows/System32/cmd.exe /C dir
-```
-
-## Additional resources
-
-* [WSL blog post on interoperability from 2016](/archive/blogs/wsl/windows-and-ubuntu-interoperability)

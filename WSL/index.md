@@ -29,6 +29,14 @@ The Windows Subsystem for Linux lets developers run a GNU/Linux environment -- i
 * [Install Linux on Windows Server](install-on-server.md)
 * [Create a user account and password for your new Linux distribution](user-support.md)
 
+## Try WSL preview features by joining the Windows Insiders Program
+
+To try the most recent features or updates to WSL, join the [Windows Insiders Program](https://insider.windows.com/getting-started). Once you have joined Windows Insiders, you can choose the channel you would like to receive preview builds from inside the Windows settings menu. You can choose from:
+
+* Dev channel: Most recent updates, but low stability.
+* Beta channel: Ideal for early adopters, more reliable builds than the Dev channel.
+* Release Preview channel: Preview fixes and key features on the next version of Windows just before its available to the general public.
+
 ## Team blogs
 
 * [Overview post with a collection of videos and blogs](https://blogs.msdn.microsoft.com/commandline/learn-about-windows-console-and-windows-subsystem-for-linux-wsl/)

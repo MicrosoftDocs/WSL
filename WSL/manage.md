@@ -1,157 +1,44 @@
 ---
-title: Manage Linux Distributions
-description: Reference listing and configuring multiple Linux distributions running on the Windows Subsystem for Linux.
+title: Manage multiple Linux distributions
+description: A reference guide to help you manage and configure multiple Linux distributions running on the Windows Subsystem for Linux.
 keywords: BashOnWindows, bash, wsl, windows, windows subsystem for linux, windowssubsystem, ubuntu, wsl.conf, wslconfig
-ms.date: 03/26/2021
+ms.date: 08/30/2021
 ms.topic: article
 ---
 
-# WSL commands and launch configurations
+# Manage multiple Linux distributions
+
+Windows Subsystem for Linux (WSL) supports running as many different Linux distributions as you would like to install. This can include choosing distributions from the [Microsoft Store](https://aka.ms/wslstore), [importing a custom distribution](./use-custom-distro.md), or [building your own custom distribution](./build-custom-distro.md).
 
 ## Ways to run WSL
 
-There are several ways to run a Linux distribution with WSL once it's [installed](install-win10.md).
+There are several ways to run a Linux distribution with WSL once it's installed:
 
-1. Open your Linux distribution by visiting the Windows Start menu and typing the name of your installed distributions. For example: "Ubuntu".
-2. From Windows Command Prompt or PowerShell, enter the name of your installed distribution. For example: `ubuntu`
-3. From Windows Command Prompt or PowerShell, to open your default Linux distribution inside your current command line, enter: `wsl.exe`.
-4. From Windows Command Prompt or PowerShell, to open your default Linux distribution inside your current command line, enter:`wsl [command]`.
+1. The number one way that we recommend you run Linux distributions is by [installing Windows Terminal](/windows/terminal/get-started). Using Windows Terminal enables you to open multiple tabs or window panes to display and quickly switch between multiple Linux distributions or other command lines (PowerShell, Command Prompt, PowerShell, Azure CLI, etc). You can fully customize your terminal with unique color schemes, font styles, sizes, background images, and custom keyboard shortcuts. [Learn more.](/windows/terminal)
+2. You can directly open your Linux distribution by visiting the Windows Start menu and typing the name of your installed distributions. For example: "Ubuntu". This will open Ubuntu in it's own console window.
+3. From Windows Command Prompt or PowerShell, you can enter the name of your installed distribution. For example: `ubuntu`
+4. From Windows Command Prompt or PowerShell, you can open your default Linux distribution inside your current command line, by entering: `wsl.exe`.
+5. From Windows Command Prompt or PowerShell, you can use your default Linux distribution inside your current command line, without entering a new one, by entering:`wsl [command]`. Replacing `[command]` with a WSL command, such as: `wsl -l -v` to list installed distributions or `wsl pwd` to see where the current directory path is mounted in wsl. From PowerShell, the command `get-date` will provide the date from the Windows file system and `wsl date` will provide the date from the Linux file system.
 
-Which method you should use depends on what you're doing. If you've opened a WSL command line within a Windows Prompt or PowerShell window and want to exit, enter the command: `exit`.
-
-## Launch WSL by distribution
-
-Running a distribution using it's distro-specific application launches that distribution in it's own console window.
+The method you select should depend on what you're doing. If you've opened a WSL command line within a Windows Prompt or PowerShell window and want to exit, enter the command: `exit`.
 
 ![Launch WSL from Start menu](media/start-launch.png)
 
-It is the same as clicking "Launch" in the Microsoft store.
+## List installed distributions
 
-![Launch WSL from the Microsoft store](media/store-launch.png)
-
-You can also run the distribution from the command line by running `[distribution].exe`.
-
-The disadvantage of running a distribution from the command line in this way is that it will automatically change your working directory from the current directory to the distribution's home directory.
-
-**Example: (using PowerShell)**
-
-```console
-PS C:\Users\sarah> pwd
-
-Path
-----
-C:\Users\sarah
-
-PS C:\Users\sarah> ubuntu
-
-scooley@scooley-elmer:~$ pwd
-/home/scooley
-scooley@scooley-elmer:~$ exit
-logout
-
-PS C:\Users\sarah>
-```
-
-### wsl and wsl [command]
-
-The best way to run WSL from the command line is using `wsl.exe`.
-
-**Example: (using PowerShell)**
-
-```console
-PS C:\Users\sarah> pwd
-
-Path
-----
-C:\Users\sarah
-
-PS C:\Users\sarah> wsl
-
-scooley@scooley-elmer:/mnt/c/Users/sarah$ pwd
-/mnt/c/Users/sarah
-```
-
-Not only does `wsl` keep the current working directory in place, it lets you run a single command along side Windows commands.
-
-**Example: (using PowerShell)**
-
-```console
-PS C:\Users\sarah> Get-Date
-
-Sunday, March 11, 2018 7:54:05 PM
-
-PS C:\Users\sarah> wsl
-scooley@scooley-elmer:/mnt/c/Users/sarah$ date
-Sun Mar 11 19:55:47 DST 2018
-scooley@scooley-elmer:/mnt/c/Users/sarah$ exit
-logout
-
-PS C:\Users\sarah> wsl date
-Sun Mar 11 19:56:57 DST 2018
-```
-
-**Example: (using PowerShell)**
-
-```console
-PS C:\Users\sarah> Get-VM
-
-Name            State CPUUsage(%) MemoryAssigned(M) Uptime   Status
-----            ----- ----------- ----------------- ------   ------
-Server17093     Off   0           0                 00:00:00 Opera...
-Ubuntu          Off   0           0                 00:00:00 Opera...
-Ubuntu (bionic) Off   0           0                 00:00:00 Opera...
-Windows         Off   0           0                 00:00:00 Opera...
-
-
-PS C:\Users\sarah> Get-VM | wsl grep "Ubuntu"
-Ubuntu          Off   0           0                 00:00:00 Opera...
-Ubuntu (bionic) Off   0           0                 00:00:00 Opera...
-PS C:\Users\sarah>
-```
-
-## Managing multiple Linux Distributions
-
-In Windows 10 Version 1903 [and later](ms-settings:windowsupdate), you can use `wsl.exe` to manage your distributions in the Windows Subsystem for Linux (WSL), including listing available distributions, setting a default distribution, and uninstalling distributions.
-
-Each Linux distribution independently manages its own configurations. To see distribution-specific commands, run `[distro.exe] /?`.  For example `ubuntu /?`.
-
-## List distributions
-
-`wsl -l` , `wsl --list`  
-Lists available Linux distributions available to WSL.  If a distribution is listed, it's installed and ready to use.
-
-`wsl --list --all`
-Lists all distributions, including ones that aren't currently usable.  They may be in the process of installing, uninstalling, or are in a broken state.  
-
-`wsl --list --running`
-Lists all distributions that are currently running.
-
-## Set a default distribution
-
-The default WSL distribution is the one that runs when you run `wsl` on a command line.
-
-`wsl -s <DistributionName>`, `wsl --setdefault <DistributionName>`
-
-Sets the default distribution to `<DistributionName>`.
-
-**Example: (using PowerShell)**  
-`wsl -s Ubuntu` would set my default distribution to Ubuntu.  Now when I run `wsl npm init` it will run in Ubuntu.  If I run `wsl` it will open an Ubuntu session.
+To see a list of the Linux distributions you have installed, enter: `wsl --list` or `wsl -l -v` for a verbose list. To set an installed Linux distribution as the default that is used with the `wsl` command, enter: `wsl -s <DistributionName>` or `wsl --setdefault <DistributionName>`, replacing `<DistributionName>` with the name of the Linux distribution you would like to use. For example, from Powershell, enter: `wsl -s Debian` to set the default distribution to Debian. Now running `wsl npm init` from Powershell will run the `npm init` command in Debian.
 
 ## Unregister and reinstall a distribution
 
-While Linux distributions can be installed through the Microsoft store, they can't be uninstalled through the store.  WSL Config allows distributions to be unregistered/uninstalled.
+While Linux distributions can be installed through the Microsoft Store, they can't be uninstalled through the store.
 
-Unregistering also allows distributions to be reinstalled.
-
-> **Caution:** Once unregistered, all data, settings, and software associated with that distribution will be permanently lost.  Reinstalling from the store will install a clean copy of the distribution.
+To unregister and uninstall a WSL distribution:
 
 `wsl --unregister <DistributionName>`  
-Unregisters the distribution from WSL so it can be reinstalled or cleaned up.
+Unregisters the distribution from WSL so it can be reinstalled or cleaned up. **Caution:** Once unregistered, all data, settings, and software associated with that distribution will be permanently lost.  Reinstalling from the store will install a clean copy of the distribution.
 
 For example:
-`wsl --unregister Ubuntu` would remove Ubuntu from the distributions available in WSL.  When I run `wsl --list` it will not be listed.
-
-To reinstall, find the distribution in the Microsoft store and select "Launch".
+`wsl --unregister Ubuntu` would remove Ubuntu from the distributions available in WSL.  Running `wsl --list` will reveal that it is no longer listed. To reinstall, find the distribution in the Microsoft Store and select "Launch".
 
 ## Run as a specific user
 
@@ -163,7 +50,7 @@ Run WSL as the specified user. Please note that user must exist inside of the WS
 
 `<DistributionName> config --default-user <Username>`
 
-Change the default user that for your distribution log-in. The user has to already exist inside the distribution in order to become the default user. 
+Change the default user that for your distribution log-in. The user has to already exist inside the distribution in order to become the default user.
 
 For example:
 `ubuntu config --default-user johndoe` would change the default user for the Ubuntu distribution to the "johndoe" user.
@@ -319,7 +206,8 @@ These options are available in Build 18980 and later.
 |:----|:----|:----|:----|
 | default | string | The initial username created on first run | Setting this key specifies which user to run as when first starting a WSL session. |
 
-#### In Preview Options
+#### User preview options
+
 These options are only available in the latest preview builds if you are on the latest builds of the [Windows Insiders program](https://insider.windows.com/getting-started).
 
 ##### boot
@@ -367,8 +255,9 @@ Entries with the `path` value must be Windows paths with escaped backslashes, e.
 
 Entries with the `size` value must be a size followed by a unit, for example `8GB` or `512MB`.
 
-#### In Preview Options
-These options are only available in the latest preview builds if you are on the latest builds of the [Windows Insiders program](https://insider.windows.com/getting-started). 
+### WSL 2 setting preview options
+
+These options are only available in the latest preview builds if you are on the latest builds of the [Windows Insiders program](https://insider.windows.com/getting-started).
 
 | key | value | default | notes|
 |:----|:----|:----|:----|

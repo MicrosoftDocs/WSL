@@ -44,6 +44,26 @@
       "source_path": "wsl/wsl2-kernel.md",
       "redirect_url": "/windows/wsl/install-win10#step-4---download-the-linux-kernel-update-package",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "wsl/install-win10.md",
+      "redirect_url": "/windows/wsl/install-command",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "wsl/interop.md",
+      "redirect_url": "/windows/wsl/filesystems",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "wsl/reference.md",
+      "redirect_url": "/windows/wsl/basic-commands",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "wsl/wsl-config.md",
+      "redirect_url": "windows/wsl/manage",
+      "redirect_document_id": false
     }
   ]
 }
