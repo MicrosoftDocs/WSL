@@ -39,7 +39,7 @@
     - name: Working across file systems
       href: filesystems.md
     - name: Managing multiple distributions
-      href: manage-distos.md
+      href: manage.md
     - name: File access and permissions
       href: file-permissions.md
     - name: Networking considerations

@@ -56,7 +56,7 @@ For example:
 `ubuntu config --default-user johndoe` would change the default user for the Ubuntu distribution to the "johndoe" user.
 
 > [!NOTE]
-> If you are having trouble figuring out the name of your distribution, see [List distributions](#list-distributions) for the command to list the official name of the installed distributions. 
+> If you are having trouble figuring out the name of your distribution, use the command `wsl -l`.
 
 ## Run a specific distribution
 

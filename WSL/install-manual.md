@@ -105,7 +105,7 @@ You will then need to [create a user account and password for your new Linux dis
 
 ## Troubleshooting installation
 
-If you run into an issue during the install process, check the [installation section of the troubleshooting guide](./troubleshooting.md#installation).
+If you run into an issue during the install process, check the [installation section of the troubleshooting guide](./troubleshooting.md#installation-issues).
 
 ## Downloading distributions
 
@@ -125,7 +125,7 @@ If the Microsoft Store app is not available, you can download and manually insta
 - [openSUSE Leap 15.2](https://aka.ms/wsl-opensuseleap15-2)
 - [Fedora Remix for WSL](https://github.com/WhitewaterFoundry/WSLFedoraRemix/releases/)
 
-This will cause the `<distro>.appx` packages to download to a folder of your choosing. Follow the [installation instructions](#installing-your-distro) to install your downloaded distribution(s).
+This will cause the `<distro>.appx` packages to download to a folder of your choosing.
 
 If you prefer, you can also download your preferred distribution(s) via the command line, you can use PowerShell with the [Invoke-WebRequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest) cmdlet. For example, to download Ubuntu 20.04:
 
