@@ -23,57 +23,49 @@ You will need to be on Windows 11 Build 22000 or higher to access this feature. 
 
 In this simplest case, if you have a disk that doesn't have any partitions, you can mount it directly using the `wsl --mount` command. First you need to identify the disk.
 
-### Identify the disk
+1. **Identify the disk** - To list the available disks in Windows, run:
 
-To list the available disks in Windows, run:
+    ```powershell
+    GET-WMIOBJECT -query "SELECT * from Win32_DiskDrive"
+    ```
 
-```powershell
-GET-WMIOBJECT -query "SELECT * from Win32_DiskDrive"
-```
+    The disks paths are available under the 'DeviceID' columns. Usually under the `\\.\PHYSICALDRIVE*` format.
 
-The disks paths are available under the 'DeviceID' columns. Usually under the `\\.\PHYSICALDRIVE*` format.
+2. **Mount the disk** - Using PowerShell, you can mount the disk using the Disk path discovered above, run:
 
-### Mount the disk
+    ```powershell
+    wsl --mount <DiskPath>
+    ```
 
-Then in Powershell you can mount the disk using the Disk path discovered above. 
-
-```powershell
-wsl --mount <DiskPath>
-```
-
-![Mounting a drive in WSL](./media/wslmountsimple.png)
+    ![Mounting a drive in WSL](./media/wslmountsimple.png)
 
 ## Mounting a partitioned disk
 
-If you have a disk that you aren't sure what file format it is in, or what partitions it has, you can follow the steps below to mount it. 
+If you have a disk that you aren't sure what file format it is in, or what partitions it has, you can follow the steps below to mount it.
 
-### Identify the disk
+1. **Identify the disk** - To list the available disks in Windows, run:
 
-To list the available disks in Windows, run:
+    ```powershell
+    GET-WMIOBJECT -query "SELECT * from Win32_DiskDrive"
+    ```
 
-```powershell
-GET-WMIOBJECT -query "SELECT * from Win32_DiskDrive"
-```
+    The disks paths are listed after 'DeviceID', usually in the `\\.\PHYSICALDRIVE*` format.
 
-The disks paths are listed after 'DeviceID', usually in the `\\.\PHYSICALDRIVE*` format
+2. **List and select the partitions to mount in WSL 2** - Once the disk is identified, run:
 
-### List and select the partitions to mount in WSL 2
+    ```powershell
+    wsl --mount <DiskPath> --bare
+    ```
 
-Once the disk is identified, run:
+    This will make the disk available in WSL 2. (In the case of our example, the `<DiskPath>` is `\\.\PHYSICALDRIVE*`.
 
-```powershell
-wsl --mount <DiskPath> --bare
-```
+3. Once attached, the partition can be listed by running the following command inside WSL 2:
 
-This will make the disk available in WSL 2. (In the case of our example, the `<DiskPath>` is `\\.\PHYSICALDRIVE*`. 
+    ```bash
+    lsblk
+    ```
 
-Once attached, the partition can be listed by running the following command inside WSL 2:
-
-```bash
-lsblk
-```
-
-This will display the available block devices and their partitions.
+    This will display the available block devices and their partitions.
 
 Inside Linux, a block device is identified as  `/dev/<Device><Partition>`. For example, /dev/sdb3, is the partition number 3 of disk `sdb`.
 
@@ -101,7 +93,7 @@ This will output the detected filesystem type (under the `TYPE="<Filesystem>"` f
 
 ### Mount the selected partitions
 
-Once you have identified the partitions you want to mount, run this command on each partition: 
+Once you have identified the partitions you want to mount, run this command on each partition:
 
 ```powershell
 wsl --mount <DiskPath> --partition <PartitionNumber> --type <Filesystem>
@@ -109,7 +101,7 @@ wsl --mount <DiskPath> --partition <PartitionNumber> --type <Filesystem>
 
 > [!NOTE]
 > If you wish to mount the entire disk as a single volume (i.e. if the disk isn't partitioned), `--partition` can be omitted.
-> 
+>
 > If omitted, the default filesystem type is "ext4".
 
 ### Access the disk content

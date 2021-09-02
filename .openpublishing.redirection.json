@@ -1,34 +1,9 @@
 {
   "redirections": [
     {
-      "source_path": "wsl/install_guide.md",
-      "redirect_url": "/windows/wsl/install-win10",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "wsl/user_support.md",
-      "redirect_url": "/windows/wsl/user-support",
-      "redirect_document_id": true
-    },
-    {
       "source_path": "wsl/release_notes.md",
       "redirect_url": "/windows/wsl/release-notes",
       "redirect_document_id": true
-    },
-    {
-      "source_path": "wsl/initialize-distro.md",
-      "redirect_url": "/windows/wsl/install-win10",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "wsl/wsl2-ux-changes.md",
-      "redirect_url": "/windows/wsl/compare-versions",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "wsl/wsl2-install.md",
-      "redirect_url": "/windows/wsl/install-win10",
-      "redirect_document_id": false
     },
     {
       "source_path": "wsl/wsl2-about.md",
@@ -42,13 +17,13 @@
     },
     {
       "source_path": "wsl/wsl2-kernel.md",
-      "redirect_url": "/windows/wsl/install-win10#step-4---download-the-linux-kernel-update-package",
+      "redirect_url": "/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package",
       "redirect_document_id": false
     },
     {
       "source_path": "wsl/install-win10.md",
       "redirect_url": "/windows/wsl/install-command",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
     {
       "source_path": "wsl/interop.md",
@@ -63,6 +38,11 @@
     {
       "source_path": "wsl/wsl-config.md",
       "redirect_url": "windows/wsl/manage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "wsl/wsl2-faq.md",
+      "redirect_url": "windows/wsl/faq",
       "redirect_document_id": false
     }
   ]
