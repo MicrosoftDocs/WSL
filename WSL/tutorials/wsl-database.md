@@ -14,9 +14,8 @@ This step-by-step guide will help you get started connecting your project in WSL
 ## Prerequisites
 
 - Running Windows 10, [updated to version 2004](ms-settings:windowsupdate), **Build 19041** or higher.
-- [WSL enabled and installed, and updated to WSL 2](../install-win10.md).
-- [Linux distribution installed](../install-win10.md#step-6---install-your-linux-distribution-of-choice) (Ubuntu was used in our examples).
-- Linux distribution [running in WSL 2 mode](../install-win10.md#set-your-distribution-version-to-wsl-1-or-wsl-2). (WSL can run distributions in both v1 or v2 mode. You can check this by opening PowerShell and entering: `wsl -l -v`).
+- [Install WSL and create a user name and password for the Linux distribution](../install-command.md).
+- Linux distribution [running in WSL 2 mode](./basic-commands.md#set-wsl-version-to-1-or-2).
 
 ## Differences between database systems
 
@@ -233,7 +232,7 @@ To set up your own custom alias, or shortcut, for executing these commands:
 
 ### Error: directory-sync fdatasync Invalid argument
 
-Ensure that you are running your Linux distribution in WSL 2 mode. For help switching from WSL 1 to WSL 2, see [Set your distribution version to WSL 1 or WSL 2](../reference.md).
+Ensure that you are running your Linux distribution in WSL 2 mode. For help switching from WSL 1 to WSL 2, see [Set your distribution version to WSL 1 or WSL 2](../basic-commands.md).
 
 ## Additional resources
 

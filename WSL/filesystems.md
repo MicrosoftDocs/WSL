@@ -36,10 +36,6 @@ To view all of your available Linux distributions and their root file systems in
 
 ![View project files in Windows File Explorer](media/windows-file-explorer.png)
 
-
-
-<!-- You can also use windows commands inside WSL's Linux [Terminal](https://en.wikipedia.org/wiki/Linux_console). Try opening a Linux distribution (ie Ubuntu), be sure that you are in the Linux home directory by entering this command: `cd ~`. Then open your Linux file system in File Explorer by entering *(don't forget the period at the end)*: `powershell.exe /c start .` -->
-
 ## Filename and directory case sensitivity
 
 Case sensitivity determines whether uppercase (FOO.txt) and lowercase (foo.txt) letters are handled as distinct (case-sensitive) or equivalent (case-insensitive) in a file name or directory. Windows and Linux file systems handle case sensitivity in different ways - Windows is case-insenstive and Linux is case-sensitive. Learn more about how to adjust case sensitivity, particularly when mounting disks with WSL, in the [Adjust case sensitivity](./case-sensitivity.md) how-to article.
@@ -166,7 +162,7 @@ This will also work:
 notepad.exe C:\\temp\\foo.txt
 ```
 
-## Share environment variables between Windows and WSL
+## Share environment variables between Windows and WSL with WSLENV
 
 WSL and Windows share a special environment variable, `WSLENV`, created to bridge Windows and Linux distributions running on WSL.
 

@@ -1619,7 +1619,7 @@ $ cmd.exe /c dir
 More information can be found at:
 
 - [WSL Team Blog for Interop](/archive/blogs/wsl/windows-and-ubuntu-interoperability)<br/>
-- [MSDN Interop Documentation](./interop.md)<br/>
+- [WSL File Systems Documentation](./filesystems.md)<br/>
 
 ### Fixed
 

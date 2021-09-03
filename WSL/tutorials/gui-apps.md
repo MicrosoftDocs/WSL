@@ -38,11 +38,12 @@ You can now integrate both Windows and Linux applications into your workflow for
 
 ### Fresh install - No prior WSL installation
 
-If you have not already followed the steps to [install WSL](../install-win10.md), you can use the new simplified install command.
+If you have not already done so, [install WSL](../install-command.md) and set up a user name and password for your Linux distribution.
 
-1. Open a command prompt with administrator privileges. 
+1. Open a command prompt with administrator privileges.
 
     *Select **Start**, type **PowerShell**, right-click **Windows PowerShell**, and then select **Run as administrator**.*
+
 2. Run this command and reboot your machine when prompted:
 
     ```powershell
@@ -72,7 +73,7 @@ If you already have WSL installed on your machine, you can update to the latest 
     ```
 
 > [!NOTE]
-> Linux GUI apps are only supported with WSL 2 and will not work with a Linux distribution configured for WSL 1. Read about [how to change your distribution from WSL 1 to WSL 2](../reference.md#set-your-distribution-version-to-wsl-1-or-wsl-2).
+> Linux GUI apps are only supported with WSL 2 and will not work with a Linux distribution configured for WSL 1. Read about [how to change your distribution from WSL 1 to WSL 2](../basic-commands.md#set-your-distribution-version-to-wsl-1-or-wsl-2).
 
 ## Run Linux GUI apps
 

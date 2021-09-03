@@ -17,7 +17,7 @@ The primary difference and reasons for updating the Windows Subsystem for Linux 
 WSL 2 uses the latest and greatest in virtualization technology to run a Linux kernel inside of a lightweight utility virtual machine (VM). However, WSL 2 is not a traditional VM experience.
 
 > [!div class="nextstepaction"]
-> [Install WSL 1 and update to WSL 2](install-win10.md)
+> [Install WSL](install-command.md)
 
 ## Comparing features
 
@@ -37,15 +37,15 @@ As you can tell from the comparison table above, the WSL 2 architecture outperfo
 WSL 2 is only available in Windows 10, Version 1903, Build 18362 or higher. Check your Windows version by selecting the **Windows logo key + R**, type **winver**, select **OK**. (Or enter the `ver` command in Windows Command Prompt). You may need to [update to the latest Windows version](ms-settings:windowsupdate). For builds lower than 18362, WSL is not supported at all.
 
 > [!NOTE]
-> WSL 2 will work with [VMware 15.5.5+](https://blogs.vmware.com/workstation/2020/05/vmware-workstation-now-supports-hyper-v-mode.html) and [VirtualBox 6+](https://www.virtualbox.org/wiki/Changelog-6.0). Learn more in our [WSL 2 FAQs.](./wsl2-faq.yml#will-i-be-able-to-run-wsl-2-and-other-3rd-party-virtualization-tools-such-as-vmware--or-virtualbox-)
+> WSL 2 will work with [VMware 15.5.5+](https://blogs.vmware.com/workstation/2020/05/vmware-workstation-now-supports-hyper-v-mode.html) and [VirtualBox 6+](https://www.virtualbox.org/wiki/Changelog-6.0). Learn more in our [FAQs.](./faq.yml#will-i-be-able-to-run-wsl-2-and-other-3rd-party-virtualization-tools-such-as-vmware--or-virtualbox-)
 
 ## What's new in WSL 2
 
 WSL 2 is a major overhaul of the underlying architecture and uses virtualization technology and a Linux kernel to enable new features. The primary goals of this update are to increase file system performance and add full system call compatibility.
 
-- [WSL 2 system requirements](./install-win10.md#step-2---check-requirements-for-running-wsl-2)
-- [Update from WSL 1 to WSL 2](./install-win10.md#set-your-distribution-version-to-wsl-1-or-wsl-2)
-- [Frequently Asked Questions about WSL 2](./wsl2-faq.yml)
+- [WSL 2 system requirements](./install-manual.md#step-2---check-requirements-for-running-wsl-2)
+- [Update from WSL 1 to WSL 2](./install-manual.md#set-your-distribution-version-to-wsl-1-or-wsl-2)
+- [Frequently Asked Questions about WSL 2](./faq.yml)
 
 ### WSL 2 architecture
 
@@ -82,7 +82,7 @@ We recommend that you use WSL 2 as it offers faster performance and 100% system 
 - A project which requires cross-compilation using both Windows and Linux tools on the same files.
   - File performance across the Windows and Linux operating systems is faster in WSL 1 than WSL 2, so if you are using Windows applications to access Linux files, you will currently achieve faster performance with WSL 1.
 - Your project needs access to a serial port or USB device.
-  - According to the [WSL 2 FAQ](./wsl2-faq.yml#can-i-access-the-gpu-in-wsl-2--are-there-plans-to-increase-hardware-support-), WSL 2 does not include support for accessing serial ports. The [open issue on serial support](https://github.com/microsoft/WSL/issues/4322) indicates that support has not been added yet.
+- WSL 2 does not include support for accessing serial ports. Learn more in the [FAQs](./faq.yml#can-i-access-the-gpu-in-wsl-2--are-there-plans-to-increase-hardware-support-) or in [WSL GitHub repo issue on serial support](https://github.com/microsoft/WSL/issues/4322).
 - You have strict memory requirements
   - WSL 2's memory usage grows and shrinks as you use it. When a process frees memory this is automatically returned to Windows. However, as of right now WSL 2 does not yet release cached pages in memory back to Windows until the WSL instance is shut down. If you have long running WSL sessions, or access a very large amount of files, this cache can take up memory on Windows. We are tracking the work to improve this experience on [the WSL Github repository issue 4166](https://github.com/microsoft/WSL/issues/4166).
 

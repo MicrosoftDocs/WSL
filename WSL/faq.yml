@@ -165,7 +165,8 @@ sections:
           The best way to backup or move your distributions is via the [export/import commands](./basic-commands.md) available in Windows Version 1809 and later. You can export your entire distribution to a tarball using the `wsl --export` command. You can then import this distribution back into WSL using the `wsl --import` command, which can name a new drive location for the import, allowing you to backup and save states of (or move) your WSL distributions. 
           
           Please note that traditional backup services that backup files in your AppData folders (like Windows Backup) will not corrupt your Linux files.
-
+  - name: WSL 2
+    questions:
       - question: |
           Does WSL 2 use Hyper-V? Will it be available on Windows 10 Home?
         answer: |
@@ -211,7 +212,7 @@ sections:
       - question: |
           Can I use wsl.conf in WSL 2?
         answer: |
-          WSL 2 supports the same wsl.conf file that WSL 1 uses. This means that any configuration options that you had set in a WSL 1 distro, such as automounting Windows drives, enabling or disabling interop, changing the directory where Windows drives will be mounted, etc. will all work inside of WSL 2. You can learn more about the configuration options in WSL in the [Distro Management](./wsl-config.md) page. Learn more about support for mounting drives, disks, devices, or virtual hard disks (VHDs) in the [Mount a Linux disk in WSL 2](./wsl2-mount-disk.md) article.
+          WSL 2 supports the same wsl.conf file that WSL 1 uses. This means that any configuration options that you had set in a WSL 1 distro, such as automounting Windows drives, enabling or disabling interop, changing the directory where Windows drives will be mounted, etc. will all work inside of WSL 2. You can learn more about the configuration options in WSL in the [Distribution Management](./manage.md) page. Learn more about support for mounting drives, disks, devices, or virtual hard disks (VHDs) in the [Mount a Linux disk in WSL 2](./wsl2-mount-disk.md) article.
           
            [1]: https://www.virtualbox.org/wiki/Changelog-6.0
            [2]: https://docs.microsoft.com/virtualization/api/

@@ -113,7 +113,7 @@ You will need to restart WSL after making any changes to the `wsl.conf` file in 
 
 > [!TIP]
 > To mount a drive (which uses the DrvFs filesystem plugin to make the disk available under /mnt, such as /mnt/c, /mnt/d, etc) with a specific case sensitivity setting for ALL drives, use `/etc/wsl.conf` as described above. To set the default mount options for one specific drive, use the [`/etc/fstab` file](http://manpages.ubuntu.com/manpages/xenial/man5/fstab.5.html) to specify these options.
-> For more WSL configuration options, see [Configure per distro launch settings with wslconf](./wsl-config.md#configure-per-distro-launch-settings-with-wslconf).
+> For more WSL configuration options, see [Configure per distro launch settings with wslconf](./manage.md#configure-per-distro-launch-settings-with-wslconf).
 
 ### Changing the case sensitivity on a drive mounted to a WSL distribution
 

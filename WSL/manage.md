@@ -64,61 +64,25 @@ For example:
 
 Run a specified distribution of WSL, can be used to send commands to a specific distribution without having to change your default.
 
-## Managing multiple Linux Distributions in earlier Windows versions
+## Configure settings with .wslconfig and wsl.conf
 
-In Windows 10 prior to version 1903, the WSL Config (`wslconfig.exe`) command-line tool should be used to manage Linux distributions running on the Windows Subsystem for Linux (WSL).  It lets you list available distributions, set a default distribution, and uninstall distributions.
+You can configure options for your installed Linux distributions, such as automount options and network configuration, that will automatically be applied every time you launch WSL in two ways:
 
-While WSL Config is helpful for settings that span or coordinate distributions, each Linux distribution independently manages its own configurations.  To see distribution-specific commands, run `[distro.exe] /?`.  For example `ubuntu /?`.
+- Globally for all installed distributions running in WSL 2 mode with a **.wslconfig** file stored in your `%UserProfile%` directory
+- On a per-distribution basis with a **wsl.conf** file stored in the `/etc` directory of the distribution
 
-To see all available options for wslconfig, run:  `wslconfig /?`
+To get to your `%UserProfile%` directory, in PowerShell, use `cd ~` to access your home directory (which is typically your user profile, `C:\Users\<UserName>`) or you can open Windows File Explorer and enter `%UserProfile%` in the address bar. The directory path for globally configuring WSL options will be `C:\Users\<UserName>\.wslconfig`.
 
-```console
-wslconfig.exe
-Performs administrative operations on Windows Subsystem for Linux
+To get to the `/etc` directory for an installed distribution, use the distribution's command line with `cd /` to access the root directory, then `ls` to list files or `explorer.exe .` to view in Windows File Explorer. The directory path for configuring WSL options on a per-distribution basis will be `/etc/wsl.conf`.
 
-Usage:
-    /l, /list [/all] - Lists registered distributions.
-        /all - Optionally list all distributions, including distributions that
-               are currently being installed or uninstalled.
-    /s, /setdefault <DistributionName> - Sets the specified distribution as the default.
-    /u, /unregister <DistributionName> - Unregisters a distribution.
-```
+WSL will detect the existence of these files and read the contents. If the file is missing or malformed (that is, improper markup formatting), WSL will continue to launch as normal.
 
-To list distributions, use:
+> [!NOTE]
+> Adjusting per-distribution settings with the .wsl.conf file is only available in Windows Build 17093 and later.
 
-`wslconfig /list`  
-Lists available Linux distributions available to WSL.  If a distribution is listed, it's installed and ready to use.
+## Per distribution configuration options with wsl.conf
 
-`wslconfig /list /all`  
-Lists all distributions, including ones that aren't currently usable.  They may be in the process of installing, uninstalling, or are in a broken state.  
-
-To set a default distribution that runs when you run `wsl` on a command line:
-
-`wslconfig /setdefault <DistributionName>`
-Sets the default distribution to `<DistributionName>`.
-
-**Example: (using PowerShell)**  
-`wslconfig /setdefault Ubuntu` would set my default distribution to Ubuntu.  Now when I run `wsl npm init` it will run in Ubuntu.  If I run `wsl` it will open an Ubuntu session.
-
-To unregister and reinstall a distribution:
-
-`wslconfig /unregister <DistributionName>`  
-Unregisters the distribution from WSL so it can be reinstalled or cleaned up.
-
-For example:
-`wslconfig /unregister Ubuntu` would remove Ubuntu from the distributions available in WSL.  When I run `wslconfig /list` it will not be listed.
-
-To reinstall, find the distribution in the Microsoft store and select "Launch".
-
-## Configure per distro launch settings with wslconf
-
-> **Available in Windows Build 17093 and later**
-
-Automatically configure functionality in WSL that will be applied every time you launch the subsystem using `wsl.conf`. This includes automount options and network configuration.
-
-`wsl.conf` is located in each Linux distribution in `/etc/wsl.conf`. If the file is not there, you can create it yourself. WSL will detect the existence of the file and will read its contents. If the file is missing or malformed (that is, improper markup formatting), WSL will continue to launch as normal.
-
-Here is a sample `wsl.conf` file you could add into your distributions:
+The `wsl.conf` sample file below demonstrates some of the configuration options available to add into your distributions:
 
 ```console
 # Enable extra metadata options by default
@@ -139,9 +103,9 @@ When launching multiple Linux shells for the same distribution, you must wait un
 > [!TIP]
 > `wsl --shutdown` is a fast path to restarting WSL 2 distributions, but it will shut down all running distributions, so use wisely.
 
-### Configuration Options
+### Options for wsl.conf
 
-In keeping with .ini conventions, keys are declared under a section. 
+In keeping with .ini conventions, keys are declared under a section.
 
 WSL supports four sections: `automount`, `network`, `interop`, and `user`.
 
@@ -149,12 +113,12 @@ WSL supports four sections: `automount`, `network`, `interop`, and `user`.
 
 Section: `[automount]`
 
-| key        | value                          | default      | notes                                                                                                                                                                                                                                                                                                                          |
-|:-----------|:-------------------------------|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| enabled    | boolean                        | true         | `true` causes fixed drives (i.e `C:/` or `D:/`) to be automatically mounted with DrvFs under `/mnt`.  `false` means drives won't be mounted automatically, but you could still mount them manually or via `fstab`.                                                                                                             |
-| mountFsTab | boolean                        | true         | `true` sets `/etc/fstab` to be processed on WSL start. /etc/fstab is a file where you can declare other filesystems, like an SMB share. Thus, you can mount these filesystems automatically in WSL on start up.                                                                                                                |
-| root       | String                         | `/mnt/`      | Sets the directory where fixed drives will be automatically mounted. For example, if you have a directory in WSL at `/windir/` and you specify that as the root, you would expect to see your fixed drives mounted at `/windir/c`                                                                                              |
-| options    | comma-separated list of values | empty string | This value is appended to the default DrvFs mount options string. **Only DrvFs-specific options can be specified.** Options that the mount binary would normally parse into a flag are not supported. If you want to explicitly specify those options, you must include every drive for which you want to do so in /etc/fstab. |
+| key | value | default | notes |
+|:-----------|:---------|:--------|:------|
+| enabled | boolean | true | `true` causes fixed drives (i.e `C:/` or `D:/`) to be automatically mounted with DrvFs under `/mnt`.  `false` means drives won't be mounted automatically, but you could still mount them manually or via `fstab`.                                                                                                             |
+| mountFsTab | boolean | true | `true` sets `/etc/fstab` to be processed on WSL start. /etc/fstab is a file where you can declare other filesystems, like an SMB share. Thus, you can mount these filesystems automatically in WSL on start up.                                                                                                                |
+| root| String | `/mnt/` | Sets the directory where fixed drives will be automatically mounted. For example, if you have a directory in WSL at `/windir/` and you specify that as the root, you would expect to see your fixed drives mounted at `/windir/c`                                                                                              |
+| options | comma-separated list of values | empty string | This value is appended to the default DrvFs mount options string. **Only DrvFs-specific options can be specified.** Options that the mount binary would normally parse into a flag are not supported. If you want to explicitly specify those options, you must include every drive for which you want to do so in /etc/fstab. |
 
 By default, WSL sets the uid and gid to the value of the default user (in Ubuntu distro, the default user is created with uid=1000,gid=1000). If the user specifies a gid or uid option explicitly via this key, the associated value will be overwritten. Otherwise, the default value will always be appended.
 
@@ -172,9 +136,10 @@ Setting different mount options for Windows drives (DrvFs) can control how file 
 |fmask | An octal mask of permissions to exclude for all files | 000
 |dmask | An octal mask of permissions to exclude for all directories | 000
 |metadata | Whether metadata is added to Windows files to support Linux system permissions | disabled
-|case | Determines directories treated as case sensitive and whether new directories created with WSL will have the flag set. See [Per-directory case sensitivity and WSL](https://devblogs.microsoft.com/commandline/per-directory-case-sensitivity-and-wsl/#per-directory-case-sensitivity-in-wsl) for a detailed explanation of the options. | `off`
+|case | Determines directories treated as case sensitive and whether new directories created with WSL will have the flag set. See [case sensitivity](./case-sensitivity.md) for a detailed explanation of the options. | `off`
 
-**Note:** The permission masks are put through a logical OR operation before being applied to files or directories. 
+> [!NOTE]
+> The permission masks are put through a logical OR operation before being applied to files or directories.
 
 #### network
 
@@ -218,13 +183,9 @@ Section label: `[boot]`
 |:----|:----|:----|:----|
 | command | string | "" | A string of the command that you would like to run when the WSL instance starts. This command is run as the root user. e.g: `service docker start` |
 
-## Configure global options with .wslconfig
+## Global configuration options with .wslconfig
 
-> **Available in Windows Build 19041 and later**
-
-You can configure global WSL options by placing a `.wslconfig` file into the root directory of your users folder: `C:\Users\<yourUserName>\.wslconfig`. Many of these files are related to WSL 2, please keep in mind you may need to run `wsl --shutdown` to shut down the WSL 2 VM and then restart your WSL instance for these changes to take affect.
-
-Here is a sample .wslconfig file:
+The `wsl.conf` sample file below demonstrates some of the configuration options available to add into your distributions:
 
 ```console
 [wsl2]
@@ -233,9 +194,12 @@ memory=4GB # Limits VM memory in WSL 2 to 4 GB
 processors=2 # Makes the WSL 2 VM use two virtual processors
 ```
 
+> [!NOTE]
+> Global configuration options with `wsl.conf` in only available for distributions running as WSL 2 in Windows Build 19041 and later. Keep in mind you may need to run `wsl --shutdown` to shut down the WSL 2 VM and then restart your WSL instance for these changes to take affect.
+
 This file can contain the following options:
 
-### WSL 2 Settings
+### Options for .wslconfig
 
 Section label: `[wsl2]`
 
@@ -246,10 +210,10 @@ These settings affect the VM that powers any WSL 2 distribution.
 | kernel | string | The Microsoft built kernel provided inbox | An absolute Windows path to a custom Linux kernel. |
 | memory | size | 50% of total memory on Windows or 8GB, whichever is less; on builds before 20175: 80% of your total memory on Windows | How much memory to assign to the WSL 2 VM. |
 | processors | number | The same number of processors on Windows | How many processors to assign to the WSL 2 VM. |
-| localhostForwarding | boolean | `true` | Boolean specifying if ports bound to wildcard or localhost in the WSL 2 VM should be connectable from the host via localhost:port. |
+| localhostForwarding | boolean | `true` | Boolean specifying if ports bound to wildcard or localhost in the WSL 2 VM should be connectable from the host via `localhost:port`. |
 | kernelCommandLine | string | Blank | Additional kernel command line arguments. |
 | swap | size | 25% of memory size on Windows rounded up to the nearest GB | How much swap space to add to the WSL 2 VM, 0 for no swap file. |
-| swapFile | string | %USERPROFILE%\AppData\Local\Temp\swap.vhdx | An absolute Windows path to the swap virtual hard disk. |
+| swapFile | string | `%USERPROFILE%\AppData\Local\Temp\swap.vhdx` | An absolute Windows path to the swap virtual hard disk. |
 
 Entries with the `path` value must be Windows paths with escaped backslashes, e.g: `C:\\Temp\\myCustomKernel`
 

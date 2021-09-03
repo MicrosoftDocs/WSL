@@ -27,7 +27,9 @@ You will then need to [create a user account and password for your new Linux dis
 **CONGRATULATIONS! You've successfully installed and set up a Linux distribution that is completely integrated with your Windows operating system!**
 
 > [!IMPORTANT]
-> The `wsl --install` command is only supported on Windows 10 version 2004 and higher (Build 19041 and higher) or Windows 11. If you're running an older build, or just prefer not to use the install command and would like step-by-step directions, see **[WSL manual installation steps](./install-manual.md)**. To check your version and build number, select **Windows logo key + R**, type **winver**, select **OK**. You can [update to the latest Windows version](ms-settings:windowsupdate) in the Settings menu or using the [Windows Update Assistant](https://www.microsoft.com/software-download/windows10).
+> The `wsl --install` command is only supported on Windows 10 version 2004 and higher (Build 19041 and higher) or Windows 11. If you're running an older build, or just prefer not to use the install command and would like step-by-step directions, see **[WSL manual installation steps](./install-manual.md)**.
+>
+> To check your version and build number, select **Windows logo key + R**, type **winver**, select **OK**. You can [update to the latest Windows version](ms-settings:windowsupdate) in the Settings menu or using the [Windows Update Assistant](https://www.microsoft.com/software-download/windows10).
 
 ## Change the default Linux distribution installed
 

@@ -17,7 +17,7 @@ Windows Subsystem for Linux comes with the Windows operating system, but you mus
 
 To use the simplified --install command, you must be running a recent build of Windows (Build 20262+). To check your version and build number, select **Windows logo key + R**, type **winver**, select **OK**. You can update using the [Settings menu](ms-settings:windowsupdate) or [Windows Update Assistant](https://www.microsoft.com/software-download/).
 
-If you prefer to install a Linux distribution other than Ubuntu, or would prefer to complete these steps manually, see the [WSL installation page](../install-win10.md) for more details.
+If you prefer to install a Linux distribution other than Ubuntu, or would prefer to complete these steps manually, see the [WSL installation page](../install-command.md) for more details.
 
 Open PowerShell (or Windows Command Prompt) and enter:
 
@@ -36,7 +36,7 @@ You will need to restart your machine during this installation process.
 
 ![PowerShell command line running wsl --install](../media/wsl-install.png)
 
-Check the [troubleshooting installation](../install-win10.md#install-windows-terminal-optional) section if you run into any issues.
+Check the [troubleshooting installation](../troubleshooting.md) article if you run into any issues.
 
 ## Set up your Linux user info
 
@@ -118,30 +118,18 @@ Follow this step-by-step guide to set up [GPU accelerated machine learning train
 
 ## Basic WSL commands
 
-The Linux distributions that you install via WSL are best managed using PowerShell or Windows Command Prompt (CMD). A few of the basic commands include:
-
-- [List the distributions you have installed](../wsl-config.md#list-distributions): `wsl -l -v`
-
-- [Unregister and reinstall a distribution](../wsl-config.md#unregister-and-reinstall-a-distribution): `wsl --unregister <DistributionName>`
-
-- [Run as a specific user](../wsl-config.md#run-as-a-specific-user): `wsl -u <Username>`
-
-- [Mounting a disk](../wsl2-mount-disk.md). To view available disks in Windows: `wmic diskdrive list brief`. To mount the disk using the path discovered with the previous command: `wsl --mount <DiskPath>`.
-
-- [Unmount a disk](../wsl2-mount-disk.md#unmount-the-disk): `wsl --unmount <DiskPath>`.
-
-- [Mount a virtual hard disk (VHD)](../wsl2-mount-disk.md#mount-a-vhd-in-wsl)
+The Linux distributions that you install via WSL are best managed using PowerShell or Windows Command Prompt (CMD). See the [WSL command reference guide](../basic-commands.md) for a list of basic commands to be familiar with when using WSL.
 
 In addition, many commands are interoperable between Windows and Linux. Here are a couple of examples:
 
-- [Run Linux tools from a Windows command line](../interop.md#run-linux-tools-from-a-windows-command-line): Open PowerShell and display the directory contents of `C:\temp>` using the Linux `ls -la` command by entering: `wsl ls -la`
+- [Run Linux tools from a Windows command line](../filesystems.md#run-linux-tools-from-a-windows-command-line): Open PowerShell and display the directory contents of `C:\temp>` using the Linux `ls -la` command by entering: `wsl ls -la`
 
-- [Mix Linux and Windows commands](../interop.md#mixing-linux-and-windows-commands): In this example, the Linux command `ls -la` is used to list files in the directory, then the PowerShell command `findstr` is used to filter the results for words containing "git": `wsl ls -la | findstr "git"`. This could also be done mixing the Windows `dir` command with the Linux `grep` command: `dir | wsl grep git`.
+- [Mix Linux and Windows commands](../filesystems.md#mixing-linux-and-windows-commands): In this example, the Linux command `ls -la` is used to list files in the directory, then the PowerShell command `findstr` is used to filter the results for words containing "git": `wsl ls -la | findstr "git"`. This could also be done mixing the Windows `dir` command with the Linux `grep` command: `dir | wsl grep git`.
 
-- [Run a Windows tool directly from the WSL command line](../interop.md#run-windows-tools-from-linux): `<tool-name>.exe`
+- [Run a Windows tool directly from the WSL command line](../filesystems.md#run-windows-tools-from-linux): `<tool-name>.exe`
     For example, to open your .bashrc file (the shell script that runs whenever your Linux command line is started), enter: `notepad.exe .bashrc`
 
-- [Run the Windows ipconfig.exe tool with the Linux Grep tool](../interop.md#run-windows-tools-from-linux): `ipconfig.exe | grep IPv4 | cut -d: -f2`
+- [Run the Windows ipconfig.exe tool with the Linux Grep tool](../filesystems.md#run-windows-tools-from-linux): `ipconfig.exe | grep IPv4 | cut -d: -f2`
     This example demonstrates the ipconfig tool on the Windows file system being used to display the current TCP/IP network configuration values and then being filtered to only the IPv4 result with grep, a Linux tool.
 
 ## Mount an external drive or USB
@@ -154,5 +142,5 @@ Follow this step-by-step guide to [Get started mounting a Linux disk in WSL 2](.
 
 - [Set up your development environment on Windows](/windows/dev-environment/): Learn more about setting up your developerment environment for your preferred language or framework, such as React, Python, NodeJS, Vue, etc.
 - [Troubleshooting](../troubleshooting.md): Find common issues, where to report bugs, where to request new features, and how to contribute to the docs.
-- [FAQs](../faq.yml): Find a list of frequently asked questions. You can also find [FAQs specifically about WSL 2](../wsl2-faq.yml).
+- [FAQs](../faq.yml): Find a list of frequently asked questions.
 - [Release Notes](../release-notes.md): Review the WSL Release Notes for a history of past build updates. You can also find the [release notes for the WSL Linux Kernel](../kernel-release-notes.md). 

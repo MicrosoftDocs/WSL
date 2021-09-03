@@ -27,36 +27,36 @@ In this example, we'll use Docker inside of a WSL distribution to obtain the tar
 
 #### Prerequisites
 
-- You must have [WSL enabled with a Linux distribution installed running WSL 2](./install-win10.md#manual-installation-steps).
+- You must have [WSL enabled with a Linux distribution installed running WSL 2](./install-manual.md).
 - You must have [Docker Desktop for Windows installed with the WSL 2 engine enabled and integration checked](./tutorials/wsl-containers.md#install-docker-desktop) for the distribution you will use in the next steps.
 
 #### Export the tar from a container
 
-1. Open the command line (Bash) for a Linux distribution that you've already installed from the Microsoft Store (Ubuntu in this example). 
+1. Open the command line (Bash) for a Linux distribution that you've already installed from the Microsoft Store (Ubuntu in this example).
 
-2. Start the Docker service: 
+2. Start the Docker service:
 
-```bash
-sudo service docker start
-```
+    ```bash
+    sudo service docker start
+    ```
 
 3. Run the CentOS container inside Docker:
 
-```bash
-docker run -t centos bash ls /
-```
+    ```bash
+    docker run -t centos bash ls /
+    ```
 
 4. Grab the CentOS container ID using grep and awk:
 
-```bash
-dockerContainerID=$(docker container ls -a | grep -i centos | awk '{print $1}')
-```
+    ```bash
+    dockerContainerID=$(docker container ls -a | grep -i centos | awk '{print $1}')
+    ```
 
 5. Export the container ID to a tar file on your mounted c-drive:
 
-```bash
-docker export $dockerContainerID > /mnt/c/temp/centos.tar
-```
+    ```bash
+    docker export $dockerContainerID > /mnt/c/temp/centos.tar
+    ```
 
 ![Example of running the commands above](./media/run-any-distro-tarfile.png)
 
@@ -72,20 +72,20 @@ To import the CentOS distribution tar file into WSL:
 
 1. Open PowerShell and ensure that you have a folder created where you'd like the distribution to be stored.
 
-```PowerShell
-cd C:\temp
-mkdir E:\wslDistroStorage\CentOS
-```
+    ```PowerShell
+    cd C:\temp
+    mkdir E:\wslDistroStorage\CentOS
+    ```
 
 2. Use the command `wsl --import <DistroName> <InstallLocation> <InstallTarFile>` to import the tar file. 
 
-```PowerShell
-wsl --import CentOS E:\wslDistroStorage\CentOS .\centos.tar
-```
+    ```PowerShell
+    wsl --import CentOS E:\wslDistroStorage\CentOS .\centos.tar
+    ```
 
 3. Use the command `wsl -l -v` to check which distributions you have installed.
 
-![Example of the above commands running in WSL](./media/run-any-distro-import.png)
+    ![Example of the above commands running in WSL](./media/run-any-distro-import.png)
 
 4. Finally, use the command `wsl -d CentOS` to run your newly imported CentOS Linux distribution.
 
@@ -99,7 +99,7 @@ To set up user account with the CentOS distribution we just imported, first open
 wsl -d CentOS
 ```
 
-Next, open your CentOS command line. Use this command to install sudo and password setting tools into CentOS, create a user account, and set it as the default user. In this example, the username will be 'caloewen'. 
+Next, open your CentOS command line. Use this command to install sudo and password setting tools into CentOS, create a user account, and set it as the default user. In this example, the username will be 'caloewen'.
 
 ```bash
 yum update -y && yum install passwd sudo -y
@@ -120,7 +120,7 @@ You will now see `[caloewen@loewen-dev]$` as the output based on this example.
 
 ![Example of the code above running in WSL](./media/run-any-distro-customuser.png)
 
-To learn more about configuring WSL settings, see [Launch commands & configurations](./wsl-config.md#configure-per-distro-launch-settings-with-wslconf).
+To learn more about configuring WSL settings, see [Launch commands & configurations](./manage.md#configure-per-distro-launch-settings-with-wslconf).
 
 ## Use a custom Linux distribution
 

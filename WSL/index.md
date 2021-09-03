@@ -12,7 +12,7 @@ ms.localizationpriority: high
 The Windows Subsystem for Linux lets developers run a GNU/Linux environment -- including most command-line tools, utilities, and applications -- directly on Windows, unmodified, without the overhead of a traditional virtual machine or dual-boot setup.
 
 > [!div class="nextstepaction"]
-> [Install WSL](install-win10.md)
+> [Install WSL](install-command.md)
 
 ## Learn more
 
@@ -23,9 +23,7 @@ The Windows Subsystem for Linux lets developers run a GNU/Linux environment -- i
 
 ## Get started
 
-* [Install WSL1](install-win10.md)
-* [Check requirements for WSL2](./install-win10.md#step-2---check-requirements-for-running-wsl-2)
-* [Update from WSL 1 to WSL 2](./install-win10.md#set-your-distribution-version-to-wsl-1-or-wsl-2)
+* [Install WSL](install-command.md)
 * [Install Linux on Windows Server](install-on-server.md)
 * [Create a user account and password for your new Linux distribution](user-support.md)
 

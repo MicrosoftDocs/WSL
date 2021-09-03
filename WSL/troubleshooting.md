@@ -54,7 +54,7 @@ You can also:
 > Check [WSL Docs GitHub thread #4103](https://github.com/microsoft/WSL/issues/4103) where this issue is being tracked for updated information.
 
 - **The term 'wsl' is not recognized as the name of a cmdlet, function, script file, or operable program.**
-  - Ensure that the [Windows Subsystem for Linux Optional Component is installed](./install-win10.md#step-3---enable-virtual-machine-feature). Additionally, if you are using an ARM64 device and running this command from PowerShell, you will receive this error. Instead run `wsl.exe` from [PowerShell Core](/powershell/scripting/install/installing-powershell-core-on-windows), or Command Prompt.
+  - Ensure that the [Windows Subsystem for Linux Optional Component is installed](./install-manual.md#step-3---enable-virtual-machine-feature). Additionally, if you are using an ARM64 device and running this command from PowerShell, you will receive this error. Instead run `wsl.exe` from [PowerShell Core](/powershell/scripting/install/installing-powershell-core-on-windows), or Command Prompt.
 
 - **Error: Windows Subsystem for Linux has no installed distributions.**
   - If you receive this error after you have already installed WSL distributions:
@@ -168,7 +168,7 @@ Please enable the Virtual Machine Platform Windows feature and ensure virtualiza
 
 1. Check the [Hyper-V system requirements](/windows-server/virtualization/hyper-v/system-requirements-for-hyper-v-on-windows#:~:text=on%20Windows%20Server.-,General%20requirements,the%20processor%20must%20have%20SLAT.)
 
-2. If your machine is a VM, please enable [nested virtualization](./wsl2-faq.yml#can-i-run-wsl-2-in-a-virtual-machine-) manually. Launch powershell with admin, and run:
+2. If your machine is a VM, please enable [nested virtualization](./faq.yml#can-i-run-wsl-2-in-a-virtual-machine-) manually. Launch powershell with admin, and run:
 
     ```powershell
     Set-VMProcessor -VMName <VMName> -ExposeVirtualizationExtensions $true
@@ -205,20 +205,13 @@ Once you have disconnected the VPN, you will have to revert the changes to `/etc
 
 Follow [these instructions](https://github.com/Microsoft/WSL/blob/master/CONTRIBUTING.md#8-detailed-logs) to collect detailed logs and file an issue on our GitHub.
 
-### Updating Bash on Ubuntu on Windows
+### Updating WSL
 
-There are two components of Bash on Ubuntu on Windows that can require updating.
+There are two components of Windows Subsystem for Linux that can require updating.
 
-1. The Windows Subsystem for Linux
-  
-   Upgrading this portion of Bash on Ubuntu on Windows will enable any new fixes outlines in the [release notes](./release-notes.md). Ensure that you are subscribed to the Windows Insider Program and that your build is up to date. For finer grain control including resetting your Ubuntu instance check out the [command reference page](./reference.md).
+1. To update the Windows Subsystem for Linux itself, use the command `wsl --update` in PowerShell or CMD.
 
-2. The Ubuntu user binaries
-
-   Upgrading this portion of Bash on Ubuntu on Windows will install any updates to the Ubuntu user binaries including applications that you have installed via apt-get. To update run the following commands in Bash:
-  
-   1. `apt-get update`
-   2. `apt-get upgrade`
+2. To update the specific Linux distribution user binaries, use the command: `apt-get update | apt-get upgrade` in the Linux distribution that you are seeking to update.
   
 ### Apt-get upgrade errors
 
@@ -257,7 +250,7 @@ To turn off legacy console:
 
 ### "Error: 0x80040154" after Windows update
 
-The Windows Subsystem for Linux feature may be disabled during a Windows update. If this happens the Windows feature must be re-enabled. Instructions for enabling the Windows Subsystem for Linux can be found in the [Installation Guide](./install-win10.md).
+The Windows Subsystem for Linux feature may be disabled during a Windows update. If this happens the Windows feature must be re-enabled. Instructions for enabling the Windows Subsystem for Linux can be found in the [Manual Installation Guide](./install-manual.md).
 
 ### Changing the display language
 
@@ -416,7 +409,7 @@ Please note that adding this command will include metadata and modify the file p
 
 ### Running Windows commands fails inside a distribution
 
-Some distributions [available in Microsoft Store](install-win10.md#step-6---install-your-linux-distribution-of-choice) are yet not fully compatible to run Windows commands in [Terminal](https://en.wikipedia.org/wiki/Linux_console) out of the box. If you get an error `-bash: powershell.exe: command not found` running `powershell.exe /c start .` or any other Windows command, you can resolve it following these steps:
+Some distributions [available in Microsoft Store](install-manual.md#step-6---install-your-linux-distribution-of-choice) are yet not fully compatible to run Windows commands out of the box. If you get an error `-bash: powershell.exe: command not found` running `powershell.exe /c start .` or any other Windows command, you can resolve it following these steps:
 
 1. In your WSL distribution run `echo $PATH`.  
    If it does not include: `/mnt/c/Windows/system32` something is redefining the standard PATH variable.
