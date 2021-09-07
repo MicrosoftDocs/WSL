@@ -133,7 +133,7 @@ To install MongoDB (version 5.0) on WSL (Ubuntu 20.04):
 
 In the example above we ran MongoDB directly. Other tutorials may start MongoDB using the operating system's built-in init system. You might see the command `sudo systemctl status mongodb` used in tutorials or articles. Currently WSL does not have support for `systemd` (a service management system in Linux).
 
-You shouldn't notice a difference, but if a tutorial recommends using `sudo systemctl`, instead use: `sudo /etc/init.d/`. For example, `sudo systemctl status docker`, for WSL would be `sudo /etc/inid.d/docker status` ...or you can also use `sudo service docker status`.
+You shouldn't notice a difference, but if a tutorial recommends using `sudo systemctl`, instead use: `sudo /etc/init.d/`. For example, `sudo systemctl status docker`, for WSL would be `sudo /etc/init.d/docker status` ...or you can also use `sudo service docker status`.
 
 ### Add the init script to start MongoDB as a service
 
