@@ -26,7 +26,7 @@ Install WSL and the Ubuntu distribution of Linux. [Learn more](./install-command
 ### Install a specific Linux distribution
 
 ```powershell
-wsl --install -distribution <Distribution Name>
+wsl --install --distribution <Distribution Name>
 ```
 
 Designate a distribution of Linux for installation besides the default (Ubuntu) by replacing `<Distribution Name>` with the name of the distribution. This command can also be entered as: `wsl -d <Distribution Name>`.
