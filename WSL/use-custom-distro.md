@@ -120,7 +120,7 @@ You will now see `[caloewen@loewen-dev]$` as the output based on this example.
 
 ![Example of the code above running in WSL](./media/run-any-distro-customuser.png)
 
-To learn more about configuring WSL settings, see [Launch commands & configurations](./manage.md#configure-per-distro-launch-settings-with-wslconf).
+To learn more about configuring WSL settings, see [Configure settings with .wslconfig and wsl.conf](./manage.md#configure-settings-with-wslconfig-and-wslconf).
 
 ## Use a custom Linux distribution
 

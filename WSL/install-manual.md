@@ -1,6 +1,6 @@
 ---
 title: WSL manual installation steps
-description: 
+description: Step by step instructions to manually install WSL, rather than using the wsl install command.
 keywords: wsl, install, BashOnWindows, bash, windows subsystem for linux, install ubuntu on windows, enable WSL2, linux on windows
 ms.date: 08/25/2021
 ms.topic: article

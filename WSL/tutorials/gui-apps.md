@@ -2,7 +2,7 @@
 title: Run Linux GUI apps with WSL 
 description: Learn how WSL support running Linux GUI apps.
 keywords: wsl, windows, windows subsystem for linux, gui apps 
-ms.date: 04/27/2021
+ms.date: 09/07/2021
 ms.topic: article
 ms.localizationpriority: medium
 ---
@@ -73,7 +73,7 @@ If you already have WSL installed on your machine, you can update to the latest 
     ```
 
 > [!NOTE]
-> Linux GUI apps are only supported with WSL 2 and will not work with a Linux distribution configured for WSL 1. Read about [how to change your distribution from WSL 1 to WSL 2](../basic-commands.md#set-your-distribution-version-to-wsl-1-or-wsl-2).
+> Linux GUI apps are only supported with WSL 2 and will not work with a Linux distribution configured for WSL 1. Read about [how to change your distribution from WSL 1 to WSL 2](../basic-commands.md#set-wsl-version-to-1-or-2).
 
 ## Run Linux GUI apps
 

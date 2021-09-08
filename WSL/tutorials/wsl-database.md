@@ -15,7 +15,7 @@ This step-by-step guide will help you get started connecting your project in WSL
 
 - Running Windows 10, [updated to version 2004](ms-settings:windowsupdate), **Build 19041** or higher.
 - [Install WSL and create a user name and password for the Linux distribution](../install-command.md).
-- Linux distribution [running in WSL 2 mode](./basic-commands.md#set-wsl-version-to-1-or-2).
+- Linux distribution [running in WSL 2 mode](../basic-commands.md#set-wsl-version-to-1-or-2).
 
 ## Differences between database systems
 

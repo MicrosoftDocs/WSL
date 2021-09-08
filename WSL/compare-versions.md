@@ -44,7 +44,7 @@ WSL 2 is only available in Windows 10, Version 1903, Build 18362 or higher. Chec
 WSL 2 is a major overhaul of the underlying architecture and uses virtualization technology and a Linux kernel to enable new features. The primary goals of this update are to increase file system performance and add full system call compatibility.
 
 - [WSL 2 system requirements](./install-manual.md#step-2---check-requirements-for-running-wsl-2)
-- [Update from WSL 1 to WSL 2](./install-manual.md#set-your-distribution-version-to-wsl-1-or-wsl-2)
+- [Set your Linux distribution version to WSL 1 to WSL 2](./basic-commands.md#set-wsl-version-to-1-or-2)
 - [Frequently Asked Questions about WSL 2](./faq.yml)
 
 ### WSL 2 architecture
