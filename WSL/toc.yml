@@ -4,8 +4,6 @@
   items:
     - name: What is WSL?
       href: about.md
-    - name: Best practices for set up
-      href: setup/environment.md
     - name: Comparing WSL 2 and WSL 1
       href: compare-versions.md
 - name: Install
@@ -18,6 +16,8 @@
       href: install-on-server.md
 - name: Tutorials
   items: 
+    - name: Best practices for set up
+      href: setup/environment.md
     - name: Get started with VS Code
       href: tutorials/wsl-vscode.md
     - name: Get started with Git
