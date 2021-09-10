@@ -21,7 +21,7 @@ As an administrator or manager, you may require all developers to use the same a
 
 What is commonly referred to as an "image", is simply a snapshot of your software and its components saved to a file. In the case of the Windows Subsystem for Linux, your image would consist of the subsystem, its distributions, and whatever software and packages are installed on the distribution.
 
-To begin creating your WSL image, first [install the Windows Subsystem for Linux](./install-command.md).
+To begin creating your WSL image, first [install the Windows Subsystem for Linux](./install.md).
 
 Once installed, use The Microsoft Store for Business to download and install the Linux distribution that’s right for you. Create an account with the [Microsoft Store for Business](/microsoft-store/sign-up-microsoft-store-for-business.)
 

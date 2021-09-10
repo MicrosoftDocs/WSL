@@ -17,7 +17,7 @@ Windows Subsystem for Linux comes with the Windows operating system, but you mus
 
 To use the simplified --install command, you must be running a recent build of Windows (Build 20262+). To check your version and build number, select **Windows logo key + R**, type **winver**, select **OK**. You can update using the [Settings menu](ms-settings:windowsupdate) or [Windows Update Assistant](https://www.microsoft.com/software-download/).
 
-If you prefer to install a Linux distribution other than Ubuntu, or would prefer to complete these steps manually, see the [WSL installation page](../install-command.md) for more details.
+If you prefer to install a Linux distribution other than Ubuntu, or would prefer to complete these steps manually, see the [WSL installation page](../install.md) for more details.
 
 Open PowerShell (or Windows Command Prompt) and enter:
 
@@ -40,11 +40,11 @@ Check the [troubleshooting installation](../troubleshooting.md) article if you r
 
 ## Set up your Linux user info
 
-Once the process of installing your Linux distribution with WSL is complete, open the distribution (Ubuntu by default) using the Start menu. You will be asked to create a [User Name and Password](../user-support.md) for your Linux distribution.
+Once the process of installing your Linux distribution with WSL is complete, open the distribution (Ubuntu by default) using the Start menu. You will be asked to create a [User Name and Password](../install.md#create-a-user-account-and-password-for-your-new-linux-distribution) for your Linux distribution.
 
 ![Ubuntu command line enter UNIX username](../media/UbuntuInstall.png)
 
-You may also want to [update and upgrade your packages](../user-support.md#update-and-upgrade-packages). For Ubuntu, use the command: `sudo apt update && sudo apt upgrade`.
+You may also want to [update and upgrade your packages](../install.md#update-and-upgrade-packages). For Ubuntu, use the command: `sudo apt update && sudo apt upgrade`.
 
 To add additional Linux distributions, you can install via the [Microsoft Store](https://aka.ms/wslstore), via the [--import command](../use-custom-distro.md), or by [sideloading your own custom distribution](../build-custom-distro.md). You may also want to [set up custom WSL images for distribution across your enterprise company](../enterprise.md).
 

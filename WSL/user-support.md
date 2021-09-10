@@ -9,7 +9,7 @@ ms.localizationpriority: high
 
 # Create a user account and password for your new Linux distribution
 
-Once you have [enabled WSL and installed a Linux distribution from the Microsoft Store](./install-command.md), the first step you will be asked to complete when opening your newly installed Linux distribution is to create an account, including a **User Name** and **Password**.
+Once you have [enabled WSL and installed a Linux distribution from the Microsoft Store](./install.md), the first step you will be asked to complete when opening your newly installed Linux distribution is to create an account, including a **User Name** and **Password**.
 
 - This **User Name** and **Password** is specific to each separate Linux distribution that you install and has no bearing on your Windows user name.
 

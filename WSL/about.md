@@ -25,7 +25,7 @@ You can:
 - Invoke GNU/Linux applications on Windows.
 
 > [!div class="nextstepaction"]
-> [Install WSL](install-command.md)
+> [Install WSL](install.md)
 
 <br>
 

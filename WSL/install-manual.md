@@ -1,15 +1,15 @@
 ---
-title: WSL manual installation steps
-description: Step by step instructions to manually install WSL, rather than using the wsl install command.
+title: Manual installation steps for older versions of WSL
+description: Step by step instructions to manually install WSL on older versions of Windows, rather than using the wsl install command.
 keywords: wsl, install, BashOnWindows, bash, windows subsystem for linux, install ubuntu on windows, enable WSL2, linux on windows
-ms.date: 08/25/2021
+ms.date: 00/10/2021
 ms.topic: article
 ms.localizationpriority: high
 ---
 
-# WSL manual installation steps
+# Manual installation steps for older versions of WSL
 
-For simplicity, we generally recommend using the [`wsl --install`](./install-command.md) to install Windows Subsystem for Linux, but if you're running an older build of Windows, that may not be supported. We have included the manual installation steps below. If you run into an issue during the install process, check the [installation section of the troubleshooting guide](./troubleshooting.md#installation-issues).
+For simplicity, we generally recommend using the [`wsl --install`](./install.md) to install Windows Subsystem for Linux, but if you're running an older build of Windows, that may not be supported. We have included the manual installation steps below. If you run into an issue during the install process, check the [installation section of the troubleshooting guide](./troubleshooting.md#installation-issues).
 
 ## Step 1 - Enable the Windows Subsystem for Linux
 
@@ -97,7 +97,7 @@ wsl --set-default-version 2
 
 The first time you launch a newly installed Linux distribution, a console window will open and you'll be asked to wait for a minute or two for files to de-compress and be stored on your PC. All future launches should take less than a second.
 
-You will then need to [create a user account and password for your new Linux distribution](./user-support.md).
+You will then need to [create a user account and password for your new Linux distribution](./install.md#create-a-user-account-and-password-for-your-new-linux-distribution).
 
 ![Ubuntu unpacking in the Windows console](media/UbuntuInstall.png)
 
@@ -152,7 +152,7 @@ Add-AppxPackage .\app_name.appx
 
 If you are using Windows server, or run into problems running the command above you can find the alternate install instructions on the [Windows Server](install-on-server.md) documentation page to install the `.appx` file by changing it to a zip file.
 
-Once your distribution is installed, follow the instructions to [create a user account and password for your new Linux distribution](./user-support.md).
+Once your distribution is installed, follow the instructions to [create a user account and password for your new Linux distribution](./install.md#create-a-user-account-and-password-for-your-new-linux-distribution).
 
 ## Install Windows Terminal (optional)
 

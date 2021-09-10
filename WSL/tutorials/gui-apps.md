@@ -38,7 +38,7 @@ You can now integrate both Windows and Linux applications into your workflow for
 
 ### Fresh install - No prior WSL installation
 
-If you have not already done so, [install WSL](../install-command.md) and set up a user name and password for your Linux distribution.
+If you have not already done so, [install WSL](../install.md) and set up a user name and password for your Linux distribution.
 
 1. Open a command prompt with administrator privileges.
 

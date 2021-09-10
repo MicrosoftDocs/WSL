@@ -10,16 +10,12 @@
       href: compare-versions.md
 - name: Install
   items:
-    - name: Install command
-      href: install-command.md
-    - name: Manual install
+    - name: Install WSL
+      href: install.md
+    - name: Manual install steps for older versions
       href: install-manual.md
     - name: Install on Windows Server
       href: install-on-server.md
-    - name: Create a user account & password
-      href: user-support.md
-    - name: Import any Linux distribution
-      href: use-custom-distro.md
 - name: Tutorials
   items: 
     - name: Get started with VS Code
@@ -50,6 +46,8 @@
       href: basic-commands.md
     - name: Set up WSL for your company
       href: enterprise.md
+    - name: Import any Linux distribution
+      href: use-custom-distro.md
     - name: Build a custom distribution
       href: build-custom-distro.md
     - name: Mount a disk in WSL 2 (Preview)

@@ -13,7 +13,7 @@ The basic WSL commands below are listed in a format supported by PowerShell or W
 
 ## Basic commands
 
-The following basic commands are supported after [installing WSL](./install-command.md).
+The following basic commands are supported after [installing WSL](./install.md).
 
 ### Install
 
@@ -21,7 +21,7 @@ The following basic commands are supported after [installing WSL](./install-comm
 wsl --install
 ```
 
-Install WSL and the Ubuntu distribution of Linux. [Learn more](./install-command.md).
+Install WSL and the Ubuntu distribution of Linux. [Learn more](./install.md).
 
 ### Install a specific Linux distribution
 
