@@ -247,6 +247,8 @@ Some users have reported issues with specific firewall applications blocking int
 
 In some cases turning off the firewall allows for access.  In some cases simply having the firewall installed looks to block access.
 
+If you are using Microsoft Defender Firewall, unchecking "Blocks all incoming connections, including those in the list of allowed apps." allows for access.
+
 ### Permission Denied error when using ping
 
 For [Windows Anniversary Update, version 1607](./release-notes.md#build-14388-to-windows-10-anniversary-update),
