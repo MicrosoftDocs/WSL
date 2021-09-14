@@ -2,7 +2,7 @@
 title: Best practices for setting up a WSL 2 development environment
 description: A step-by-step guide to help you set up a WSL 2 development environment using Ubuntu, Visual Studio Code, Git, Windows Credential Manager, and with recommended tutorials.
 keywords: Best practices, wsl, wsl 2, windows subsystem for linux, set up your dev environment with wsl 2, development environment, set up wsl 2
-ms.date: 07/14/2021
+ms.date: 09/14/2021
 ms.topic: article
 ms.localizationpriority: medium
 ---
@@ -40,11 +40,44 @@ Check the [troubleshooting installation](../troubleshooting.md) article if you r
 
 ## Set up your Linux user info
 
-Once the process of installing your Linux distribution with WSL is complete, open the distribution (Ubuntu by default) using the Start menu. You will be asked to create a [User Name and Password](../install.md#create-a-user-account-and-password-for-your-new-linux-distribution) for your Linux distribution.
+Once the process of installing your Linux distribution with WSL is complete, open the distribution (Ubuntu by default) using the Start menu. You will be asked to create a **User Name** and **Password** for your Linux distribution.
+
+- This **User Name** and **Password** is specific to each separate Linux distribution that you install and has no bearing on your Windows user name.
+
+- Once you create a **User Name** and **Password**, the account will be your default user for the distribution and automatically sign-in on launch.
+
+- This account will be considered the Linux administrator, with the ability to run `sudo` (Super User Do) administrative commands.
+
+- Each Linux distribution running on WSL has its own Linux user accounts and passwords.  You will have to configure a Linux user account every time you add a distribution, reinstall, or reset.
+
+> [!NOTE]
+> Linux distributions installed with WSL are a per-user installation and can't be shared with other Windows user accounts.
 
 ![Ubuntu command line enter UNIX username](../media/UbuntuInstall.png)
 
-You may also want to [update and upgrade your packages](../install.md#update-and-upgrade-packages). For Ubuntu, use the command: `sudo apt update && sudo apt upgrade`.
+To change or reset your password, open the Linux distribution and enter the command: `passwd`. You will be asked to enter your current password, then asked to enter your new password, and then to confirm your new password.
+
+If you forgot the password for your Linux distribution:
+
+1. Open PowerShell and enter the root of your default WSL distribution using the command: `wsl -u root`
+
+    > If you need to update the forgotten password on a distribution that is not your default, use the command: `wsl -d Debian -u root`, replacing `Debian` with the name of your targeted distribution.
+
+2. Once your WSL distribution has been opened at the root level inside PowerShell, you can use this command to update your password: `passwd <username>` where `<username>` is the username of the account in the distribution whose password you've forgotten.
+
+3. You will be prompted to enter a new UNIX password and then confirm that password. Once you're told that the password has updated successfully, close WSL inside of PowerShell using the command: `exit`.
+
+## Update and upgrade packages
+
+We recommend that you regularly update and upgrade your packages using the preferred package manager for the distribution. For Ubuntu or Debian, use the command:
+
+```bash
+sudo apt update && sudo apt upgrade
+```
+
+Windows does not automatically update or upgrade your Linux distribution(s). This is a task that most Linux users prefer to control themselves.
+
+## Add additional distributions
 
 To add additional Linux distributions, you can install via the [Microsoft Store](https://aka.ms/wslstore), via the [--import command](../use-custom-distro.md), or by [sideloading your own custom distribution](../build-custom-distro.md). You may also want to [set up custom WSL images for distribution across your enterprise company](../enterprise.md).
 
@@ -140,7 +173,7 @@ Follow this step-by-step guide to [Get started mounting a Linux disk in WSL 2](.
 
 ## Additional resources
 
-- [Set up your development environment on Windows](/windows/dev-environment/): Learn more about setting up your developerment environment for your preferred language or framework, such as React, Python, NodeJS, Vue, etc.
+- [Set up your development environment on Windows](/windows/dev-environment/): Learn more about setting up your development environment for your preferred language or framework, such as React, Python, NodeJS, Vue, etc.
 - [Troubleshooting](../troubleshooting.md): Find common issues, where to report bugs, where to request new features, and how to contribute to the docs.
 - [FAQs](../faq.yml): Find a list of frequently asked questions.
-- [Release Notes](../release-notes.md): Review the WSL Release Notes for a history of past build updates. You can also find the [release notes for the WSL Linux Kernel](../kernel-release-notes.md). 
+- [Release Notes](../release-notes.md): Review the WSL Release Notes for a history of past build updates. You can also find the [release notes for the WSL Linux Kernel](../kernel-release-notes.md).
