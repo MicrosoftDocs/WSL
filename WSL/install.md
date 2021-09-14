@@ -9,32 +9,26 @@ ms.localizationpriority: high
 
 # Install WSL
 
+## Prerequisites
+
+You must be running Windows 10 version 2004 and higher (Build 19041 and higher) or Windows 11.
+  
+> [!NOTE]
+> To check your Windows version and build number, select **Windows logo key + R**, type **winver**, select **OK**. You can [update to the latest Windows version](ms-settings:windowsupdate) in the Settings menu or using the [Windows Update Assistant](https://www.microsoft.com/software-download/windows10).
+
+If you're running an older build, or just prefer not to use the install command and would like step-by-step directions, see **[WSL manual installation steps for older versions](./install-manual.md)**.
+
+## Install
+
 You can now install everything you need to run Windows Subsystem for Linux (WSL) by entering this command in PowerShell or Windows Command Prompt and then restarting your machine.
 
 ```powershell
 wsl --install
 ```
 
-> [!IMPORTANT]
-> The `wsl --install` command is only supported on Windows 10 version 2004 and higher (Build 19041 and higher) or Windows 11. If you're running an older build, or just prefer not to use the install command and would like step-by-step directions, see **[WSL manual installation steps for older versions](./install-manual.md)**.
->
-> To check your Windows version and build number, select **Windows logo key + R**, type **winver**, select **OK**. You can [update to the latest Windows version](ms-settings:windowsupdate) in the Settings menu or using the [Windows Update Assistant](https://www.microsoft.com/software-download/windows10).
+This command will enable the required optional components, download the latest Linux kernel, set WSL 2 as your default, and install a Linux distribution for you *(Ubuntu by default, see below to change this)*.
 
-
-## Understanding the install command
-
-The `wsl --install` command performs the following actions:
-
-- Enables WSL and Virtual Machine Platform components
-- Downloads and installs the latest Linux kernel
-- Sets WSL 2 as the default
-- Downloads and installs a Linux distribution *(Ubuntu by default, see below to change this)*
-
-The install command does not automatically restart your machine, but may prompt you to do so.
-
-The first time you launch a newly installed Linux distribution, a console window will open and you'll be asked to wait for files to de-compress and be stored on your PC. All future launches should take less than a second.
-
-**CONGRATULATIONS! You've successfully installed and set up a Linux distribution that is completely integrated with your Windows operating system!**
+The first time you launch a newly installed Linux distribution, a console window will open and you'll be asked to wait for files to de-compress and be stored on your machine. All future launches should take less than a second.
 
 ## Change the default Linux distribution installed
 
