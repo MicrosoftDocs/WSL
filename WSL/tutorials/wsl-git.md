@@ -73,6 +73,12 @@ To set up GCM Core for use with a WSL distribution, open your distribution and e
 git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/libexec/git-core/git-credential-manager-core.exe"
 ```
 
+If you intend to work with Azure Repos, some [additional configuration](https://github.com/microsoft/Git-Credential-Manager-Core/blob/main/docs/configuration.md#credentialusehttppath) is required:
+
+```Bash
+git config --global credential.https://dev.azure.com.useHttpPath true
+```
+
 Now any git operation you perform within your WSL distribution will use GCM Core. If you already have credentials cached for a host, it will access them from the credential manager. If not, you'll receive a dialog response requesting your credentials, even if you're in a Linux console.
 
 > [!NOTE]
