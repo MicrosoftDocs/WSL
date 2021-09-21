@@ -47,6 +47,10 @@ If you run into an issue during the install process, check the [installation sec
 
 Once you have installed WSL, you will need to create a user account and password for your newly installed Linux distribution. See the [Best practices for setting up a WSL development environment](./setup/environment.md#set-up-your-linux-user-info) guide to learn more.
 
+## Set up and best practices
+
+We recommend following our [Best practices for setting up a WSL development environment](./setup/environment.md) guide for a step-by-step walk-through of how to set up a user name and password for your installed Linux distribution(s), using basic WSL commands, installing and customizing Windows Terminal, set up for Git version control, code editing and debugging using the VS Code remote server, good practices for file storage, setting up a database, mounting an external drive, setting up GPU acceleration, and more. 
+
 ## Want to try the latest WSL preview features?
 
 Try the most recent features or updates to WSL by joining the [Windows Insiders Program](https://insider.windows.com/getting-started). Once you have joined Windows Insiders, you can choose the channel you would like to receive preview builds from inside the Windows settings menu to automatically receive any WSL updates or preview features associated with that build. You can choose from:
@@ -54,14 +58,6 @@ Try the most recent features or updates to WSL by joining the [Windows Insiders 
 - Dev channel: Most recent updates, but low stability.
 - Beta channel: Ideal for early adopters, more reliable builds than the Dev channel.
 - Release Preview channel: Preview fixes and key features on the next version of Windows just before its available to the general public.
-
-## Install Windows Terminal (optional)
-
-Using Windows Terminal enables you to open multiple tabs or window panes to display and quickly switch between multiple Linux distributions or other command lines (PowerShell, Command Prompt, PowerShell, Azure CLI, etc). You can fully customize your terminal with unique color schemes, font styles, sizes, background images, and custom keyboard shortcuts. [Learn more.](/windows/terminal)
-
-[Install Windows Terminal](/windows/terminal/get-started).
-
-![Windows Terminal](media/terminal.png)
 
 ## Additional resources
 
