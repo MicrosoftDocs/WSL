@@ -6,6 +6,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "wsl/install_guide.md",
+      "redirect_url": "/windows/wsl/install",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "wsl/wsl2-about.md",
       "redirect_url": "/windows/wsl/compare-versions#whats-new-in-wsl-2",
       "redirect_document_id": false
