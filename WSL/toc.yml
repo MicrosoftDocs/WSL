@@ -6,18 +6,18 @@
       href: about.md
     - name: Comparing WSL 2 and WSL 1
       href: compare-versions.md
-- name: Quickstart
+- name: Install
   items:
-    - name: Install WSL & update to WSL 2
-      href: install-win10.md
-    - name: Best practices for setting up
-      href: setup/environment.md
+    - name: Install WSL
+      href: install.md
+    - name: Manual install steps for older versions
+      href: install-manual.md
     - name: Install on Windows Server
       href: install-on-server.md
-    - name: Create a user account & password
-      href: user-support.md
 - name: Tutorials
   items: 
+    - name: Best practices for set up
+      href: setup/environment.md
     - name: Get started with VS Code
       href: tutorials/wsl-vscode.md
     - name: Get started with Git
@@ -30,14 +30,20 @@
       href: tutorials/gpu-compute.md
     - name: Run Linux GUI apps
       href: tutorials/gui-apps.md
+- name: Concepts
+  items:
+    - name: Working across file systems
+      href: filesystems.md
+    - name: Managing multiple distributions
+      href: manage.md
+    - name: File access and permissions
+      href: file-permissions.md
+    - name: Networking considerations
+      href: networking.md
 - name: How-to
   items:
-    - name: Interoperability commands
-      href: interop.md
-    - name: Launch commands & configurations
-      href: wsl-config.md
-    - name: File permissions
-      href: file-permissions.md
+    - name: Basic commands
+      href: basic-commands.md
     - name: Set up WSL for your company
       href: enterprise.md
     - name: Import any Linux distribution
@@ -50,10 +56,10 @@
       href: reference.md
     - name: Adjust case sensitivity
       href: case-sensitivity.md
+    - name: Expand virtual hard disk size
+      href: vhd-size.md
 - name: Frequently Asked Questions
   href: faq.yml
-- name: WSL 2 FAQ
-  href: wsl2-faq.yml
 - name: Troubleshooting
   href: troubleshooting.md
 - name : Release Notes

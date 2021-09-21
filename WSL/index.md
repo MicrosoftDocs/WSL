@@ -12,7 +12,7 @@ ms.localizationpriority: high
 The Windows Subsystem for Linux lets developers run a GNU/Linux environment -- including most command-line tools, utilities, and applications -- directly on Windows, unmodified, without the overhead of a traditional virtual machine or dual-boot setup.
 
 > [!div class="nextstepaction"]
-> [Install WSL](install-win10.md)
+> [Install WSL](install.md)
 
 ## Learn more
 
@@ -23,11 +23,16 @@ The Windows Subsystem for Linux lets developers run a GNU/Linux environment -- i
 
 ## Get started
 
-* [Install WSL1](install-win10.md)
-* [Check requirements for WSL2](./install-win10.md#step-2---check-requirements-for-running-wsl-2)
-* [Update from WSL 1 to WSL 2](./install-win10.md#set-your-distribution-version-to-wsl-1-or-wsl-2)
+* [Install WSL](install.md)
 * [Install Linux on Windows Server](install-on-server.md)
-* [Create a user account and password for your new Linux distribution](user-support.md)
+
+## Try WSL preview features by joining the Windows Insiders Program
+
+To try the most recent features or updates to WSL, join the [Windows Insiders Program](https://insider.windows.com/getting-started). Once you have joined Windows Insiders, you can choose the channel you would like to receive preview builds from inside the Windows settings menu. You can choose from:
+
+* Dev channel: Most recent updates, but low stability.
+* Beta channel: Ideal for early adopters, more reliable builds than the Dev channel.
+* Release Preview channel: Preview fixes and key features on the next version of Windows just before its available to the general public.
 
 ## Team blogs
 
