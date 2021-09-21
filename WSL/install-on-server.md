@@ -53,4 +53,4 @@ $userenv = [System.Environment]::GetEnvironmentVariable("Path", "User")
 
 You can now launch your distribution from any path by typing `<DistributionName>.exe`. For example: `ubuntu.exe`.
 
-Once installation is complete, you can [create a user account and password for your new Linux distribution](./install.md#create-a-user-account-and-password-for-your-new-linux-distribution).
+Once installation is complete, you can [create a user account and password for your new Linux distribution](./setup/environment.md#set-up-your-linux-user-info).
