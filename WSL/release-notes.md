@@ -629,7 +629,7 @@ For general Windows information on build 17110 visit the [Windows Blog](https://
 * Allow /init to be terminated from Windows [GH 2928].
 * DrvFs now uses per-directory case sensitivity by default (equivalent to the "case=dir" mount option).
     * Using "case=force" (the old behavior) requires setting a registry key. Run the following command to enable "case=force" if you need to use it: reg add HKLM\SYSTEM\CurrentControlSet\Services\lxss /v DrvFsAllowForceCaseSensitivity /t REG_DWORD /d 1
-    * If you have existing directories created with WSL in older version of Windows which need to be case sensitive, use fsutil.exe to mark them as case sensitive: fsutil.exe file setcasesensitiveinfo <path> enable
+    * If you have existing directories created with WSL in older version of Windows which need to be case sensitive, use fsutil.exe to mark them as case sensitive: fsutil.exe file setcasesensitiveinfo `<path>` enable
 * NULL terminate strings returned from the uname syscall.
 
 ### Console
@@ -1388,7 +1388,7 @@ For general Windows information on build 15007 visit the [Windows Blog]( https:/
 
 ### Known Issue
 
-- There is a known bug where the console does not recognize some Ctrl + <key> input.  This includes the ctrl-c command which will act as a normal 'c' keypress.
+- There is a known bug where the console does not recognize some Ctrl + `<key>` input.  This includes the ctrl-c command which will act as a normal 'c' keypress.
 
   - Workaround: Map an alternate key to Ctrl+C. For example, to map Ctrl+K to Ctrl+C do:
 `stty intr \^k`.  This mapping is per terminal and will have to be done *every* time bash is launched. Users can explore the option to include this in their `.bashrc`
@@ -1415,7 +1415,7 @@ For general Windows information on build 15002 visit the [Windows Blog](https://
 ### Known Issue
 
 Two known issues:
-- There is a known bug where the console does not recognize some Ctrl + <key> input.  This includes the ctrl-c command which will act as a normal 'c' keypress.
+- There is a known bug where the console does not recognize some Ctrl + `<key>` input.  This includes the ctrl-c command which will act as a normal 'c' keypress.
 
   - Workaround: Map an alternate key to Ctrl+C. For example, to map Ctrl+K to Ctrl+C do:
 `stty intr \^k`.  This mapping is per terminal and will have to be done *every* time bash is launched. Users can explore the option to include this in their `.bashrc`
@@ -1547,7 +1547,7 @@ For general Windows information on build 14965 visit the [Windows Blog](https://
 - Added support for CLONE_PARENT
 - Fixed error where piping gets stuck i.e. bash -c "ls -alR /" | bash -c "cat" (GH #1214)
 - Handle requests to connect to the current terminal.
-- Mark /proc/<pid>/oom_score_adj as writable.
+- Mark `/proc/<pid>/oom_score_adj` as writable.
 - Add /sys/fs/cgroup folder.
 - sched_setaffinity should return number of affinity bits mask
 - Fix ELF validation logic which incorrectly assumes interpreter paths must be less than 64 characters long. (GH #743)
@@ -1619,7 +1619,7 @@ $ cmd.exe /c dir
 More information can be found at:
 
 - [WSL Team Blog for Interop](/archive/blogs/wsl/windows-and-ubuntu-interoperability)<br/>
-- [MSDN Interop Documentation](./interop.md)<br/>
+- [WSL File Systems Documentation](./filesystems.md)<br/>
 
 ### Fixed
 
@@ -1703,7 +1703,7 @@ WSL is experiencing an issue with some socket implementations.  The bugcheck man
 - Implemented the chroot system call
 - Improvements in inotify ~~including support for notifications generated from Windows applications on DrvFs~~
   - Correction: Inotify support for changes originating from Windows applications not available at this time.
-- Socket binding to IPV6::<port n> now supports IPV6_V6ONLY  (GH #68, #157, #393, #460, #674, #740, #982, #996)
+- Socket binding to `IPV6::<port n>` now supports `IPV6_V6ONLY`  (GH #68, #157, #393, #460, #674, #740, #982, #996)
 - WNOWAIT behavior for waitid systemcall implemented (GH #638)
 - Support for IP socket options IP_HDRINCL and IP_TTL
 - Zero-length read() should return immediately (GH #975)
@@ -1963,7 +1963,7 @@ Information on VolFs and DriveFs can be found on the [WSL Blog](/archive/blogs/w
 ### Fixed
 - Fixed install issue when the Windows user had Unicode characters in the username
 - The apt-get update udev workaround in the FAQ is now provided by default on first run
-- Enabled symlinks in DriveFs (/mnt/<drive>) directories
+- Enabled symlinks in DriveFs (`/mnt/<drive>`) directories
 - Symlinks now work between DriveFs and VolFs
 - Addressed top level path parsing issue: ls .// will now work as expected
 - npm install on DriveFs and the -g options are now working
@@ -2033,7 +2033,7 @@ For general Windows information on build 14332 visit the [Windows Blog](https://
 * For more information on build 14328, visit: https://aka.ms/wip14328
 
 ### Fixed
-* Symlink improvements for non /mnt/<drive> files
+* Symlink improvements for non `/mnt/<drive>` files
     * npm install now works
     * jdk / jre now installable using instructions found [here](https://xubuntugeek.blogspot.com/2012/09/how-to-install-oracle-jdk-7-manually-in.html).
     * known issue: symlinks do not work for Windows mounts.  Functionality will be available in a later build

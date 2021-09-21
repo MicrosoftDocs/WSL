@@ -26,8 +26,7 @@ To learn more, checkout the [Introduction to Docker containers](/learn/modules/i
 ## Prerequisites
 
 - Ensure your machine is running Windows 10, [updated to version 2004](ms-settings:windowsupdate), **Build 18362** or higher.
-- [Enable WSL, install a Linux distribution, and update to WSL 2](../install-win10.md).
-- [Download and install the Linux kernel update package](../install-win10.md#step-4---download-the-linux-kernel-update-package).
+- [Install WSL and set up a user name and password for your Linux distribution running in WSL 2](../install.md).
 - [Install Visual Studio Code](https://code.visualstudio.com/download) *(optional)*. This will provide the best experience, including the ability to code and debug inside a remote Docker container and connected to your Linux distribution.
 - [Install Windows Terminal](/windows/terminal/get-started) *(optional)*. This will provide the best experience, including the ability to customize and open multiple terminals in the same interface (including Ubuntu, Debian, PowerShell, Azure CLI, or whatever you prefer to use).
 - [Sign up for a Docker ID at Docker Hub](https://hub.docker.com/signup) *(optional)*.
@@ -41,7 +40,7 @@ To learn more, checkout the [Introduction to Docker containers](/learn/modules/i
 
 With the WSL 2 backend supported in Docker Desktop for Windows, you can work in a Linux-based development environment and build Linux-based containers, while using Visual Studio Code for code editing and debugging, and running your container in the Microsoft Edge browser on Windows.
 
-To install Docker (after already [installing WSL 2](../install-win10.md)):
+To install Docker (after already [installing WSL](../install.md)):
 
 1. Download [Docker Desktop](https://docs.docker.com/docker-for-windows/wsl/#download) and follow the installation instructions.
 
