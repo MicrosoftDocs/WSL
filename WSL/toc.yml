@@ -42,8 +42,6 @@
       href: networking.md
 - name: How-to
   items:
-    - name: Basic commands
-      href: basic-commands.md
     - name: Set up WSL for your company
       href: enterprise.md
     - name: Import any Linux distribution
@@ -56,6 +54,8 @@
       href: case-sensitivity.md
     - name: Expand virtual hard disk size
       href: vhd-size.md
+    - name: Commandline reference
+      href: basic-commands.md
 - name: Frequently Asked Questions
   href: faq.yml
 - name: Troubleshooting
