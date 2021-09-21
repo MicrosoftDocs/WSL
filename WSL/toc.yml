@@ -52,8 +52,6 @@
       href: build-custom-distro.md
     - name: Mount a disk in WSL 2 (Preview)
       href: wsl2-mount-disk.md
-    - name: Command Line Reference
-      href: reference.md
     - name: Adjust case sensitivity
       href: case-sensitivity.md
     - name: Expand virtual hard disk size
