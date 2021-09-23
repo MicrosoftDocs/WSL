@@ -41,8 +41,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "wsl/wsl-config.md",
-      "redirect_url": "/windows/wsl/manage",
+      "source_path": "wsl/manage.md",
+      "redirect_url": "/windows/wsl/wsl-config",
       "redirect_document_id": false
     },
     {

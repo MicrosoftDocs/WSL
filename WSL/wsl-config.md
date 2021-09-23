@@ -1,12 +1,12 @@
 ---
-title: Manage multiple Linux distributions
+title: Configure Linux distributions
 description: A reference guide to help you manage and configure multiple Linux distributions running on the Windows Subsystem for Linux.
 keywords: BashOnWindows, bash, wsl, windows, windows subsystem for linux, windowssubsystem, ubuntu, wsl.conf, wslconfig
 ms.date: 08/30/2021
 ms.topic: article
 ---
 
-# Manage multiple Linux distributions
+# Configure Linux distributions
 
 Windows Subsystem for Linux (WSL) supports running as many different Linux distributions as you would like to install. This can include choosing distributions from the [Microsoft Store](https://aka.ms/wslstore), [importing a custom distribution](./use-custom-distro.md), or [building your own custom distribution](./build-custom-distro.md).
 
