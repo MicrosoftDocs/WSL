@@ -8,7 +8,7 @@
     {
       "source_path": "wsl/install_guide.md",
       "redirect_url": "/windows/wsl/install",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "wsl/wsl2-about.md",
