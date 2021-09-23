@@ -42,12 +42,12 @@
     },
     {
       "source_path": "wsl/wsl-config.md",
-      "redirect_url": "windows/wsl/manage",
+      "redirect_url": "/windows/wsl/manage",
       "redirect_document_id": false
     },
     {
       "source_path": "wsl/wsl2-faq.md",
-      "redirect_url": "windows/wsl/faq",
+      "redirect_url": "/windows/wsl/faq",
       "redirect_document_id": false
     }
   ]
