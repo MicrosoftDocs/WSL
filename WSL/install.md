@@ -23,7 +23,7 @@ If you're running an older build, or just prefer not to use the install command 
 You can now install everything you need to run Windows Subsystem for Linux (WSL) by entering this command in PowerShell or Windows Command Prompt and then restarting your machine.
 
 ```powershell
-wsl --install
+wsl --install -d <Your preferred Linux distribution eg: "Ubuntu">
 ```
 
 This command will enable the required optional components, download the latest Linux kernel, set WSL 2 as your default, and install a Linux distribution for you *(Ubuntu by default, see below to change this)*.
