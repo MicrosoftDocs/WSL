@@ -195,7 +195,7 @@ processors=2 # Makes the WSL 2 VM use two virtual processors
 ```
 
 > [!NOTE]
-> Global configuration options with `wsl.conf` in only available for distributions running as WSL 2 in Windows Build 19041 and later. Keep in mind you may need to run `wsl --shutdown` to shut down the WSL 2 VM and then restart your WSL instance for these changes to take affect.
+> Global configuration options with `.wslconfig` in only available for distributions running as WSL 2 in Windows Build 19041 and later. Keep in mind you may need to run `wsl --shutdown` to shut down the WSL 2 VM and then restart your WSL instance for these changes to take affect.
 
 This file can contain the following options:
 
