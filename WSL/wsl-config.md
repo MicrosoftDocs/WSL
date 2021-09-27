@@ -185,7 +185,7 @@ Section label: `[boot]`
 
 ## Global configuration options with .wslconfig
 
-The `wsl.conf` sample file below demonstrates some of the configuration options available to add into your distributions:
+You can add a file named `.wslconfig` to your Windows home directory (e.g: `C:\Users\crloewen\.wslconfig`) to control global WSL options across Linux distributions. Please see the sample file below as an example. 
 
 ```console
 [wsl2]
