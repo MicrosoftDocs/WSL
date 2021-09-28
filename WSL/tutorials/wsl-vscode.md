@@ -2,7 +2,7 @@
 title: Get started using VS Code with WSL
 description: Learn how to set up VS Code to author and debug code using the Windows Subsystem for Linux.
 keywords: wsl, windows, windowssubsystem, gnu, linux, bash, vs code, remote extension, debug, path, visual studio
-ms.date: 05/28/2020
+ms.date: 09/27/2021
 ms.topic: article
 ms.localizationpriority: medium
 ---

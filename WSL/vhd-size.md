@@ -2,7 +2,7 @@
 title: Expand the size of your WSL 2 Virtual Hard Disk
 description: Learn how to expand the size of the Virtual Hard Disk (VHD) used with Windows Subsystem for Linux (WSL 2).
 keywords: wsl, vhd, size, resize, virtual hard disk, ext4, file system, expand, increase, storage space, diskpart, resize2fs
-ms.date: 08/25/2021
+ms.date: 09/27/2021
 ms.topic: article
 ms.localizationpriority: high
 ---

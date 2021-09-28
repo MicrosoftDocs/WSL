@@ -2,7 +2,7 @@
 title: Comparing WSL 1 and WSL 2
 description: Compare version 1 and version 2 of the Windows Subsystem for Linux. Learn whats new in WSL 2.
 keywords: BashOnWindows, bash, wsl, windows, windowssubsystem, gnu, linux, ubuntu, debian, suse, windows 10, UX changes, WSL 2, linux kernel, network applications, localhost, IPv6, Virtual Hardware Disk, VHD, VHD limitations, VHD error
-ms.date: 08/30/2021
+ms.date: 09/27/2021
 ms.topic: conceptual
 ms.localizationpriority: high
 ---

@@ -2,7 +2,7 @@
 title: Create user account for Linux distribution 
 description: Reference for user accounts and permission management with the Windows Subsystem for Linux.
 keywords: BashOnWindows, bash, wsl, windows, windows subsystem for linux, windowssubsystem, ubuntu, user accounts
-ms.date: 05/12/2020
+ms.date: 09/27/2021
 ms.topic: article
 ms.localizationpriority: high
 ---

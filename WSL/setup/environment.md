@@ -2,7 +2,7 @@
 title: Best practices for setting up a WSL 2 development environment
 description: A step-by-step guide to help you set up a WSL 2 development environment using Ubuntu, Visual Studio Code, Git, Windows Credential Manager, and with recommended tutorials.
 keywords: Best practices, wsl, wsl 2, windows subsystem for linux, set up your dev environment with wsl 2, development environment, set up wsl 2
-ms.date: 09/14/2021
+ms.date: 09/27/2021
 ms.topic: article
 ms.localizationpriority: medium
 ---

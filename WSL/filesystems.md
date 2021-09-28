@@ -2,7 +2,7 @@
 title: Working across file systems
 description: Learn about the considerations and interop commands available when working across Windows and Linux file systems with WSL.
 keywords: wsl, Linux, Windows, file systems, interop, across directories, mnt
-ms.date: 08/30/2021
+ms.date: 09/27/2021
 ms.topic: article
 ms.localizationpriority: high
 ---

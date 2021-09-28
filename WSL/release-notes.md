@@ -3,7 +3,7 @@ title: Release Notes for WSL
 description: Read release notes for the Windows Subsystem for Linux. These release notes include fixed issues and are updated weekly.
 keywords: release notes, wsl, windows, windows subsystem for linux, windowssubsystem, ubuntu
 author: benhillis
-ms.date: 04/08/2021
+ms.date: 09/27/2021
 ms.topic: article
 ms.localizationpriority: high
 ---
@@ -11,125 +11,141 @@ ms.localizationpriority: high
 # Release Notes for Windows Subsystem for Linux
 
 ## Build 21364
+
 For general Windows information on build 21364 visit the [Windows blog](https://blogs.windows.com/windows-insider/2021/04/21/announcing-windows-10-insider-preview-build-21364/).
 
-* GUI apps are now available! For more information see [this blog post](https://devblogs.microsoft.com/commandline/the-initial-preview-of-gui-app-support-is-now-available-for-the-windows-subsystem-for-linux).
-* Resolve error when accessing files via \\\\wsl.localhost\\.
-* Fix potential deadlock in LxssManager service.
+- GUI apps are now available! For more information see [this blog post](https://devblogs.microsoft.com/commandline/the-initial-preview-of-gui-app-support-is-now-available-for-the-windows-subsystem-for-linux).
+- Resolve error when accessing files via \\\\wsl.localhost\\.
+- Fix potential deadlock in LxssManager service.
 
 ## Build 21354
+
 For general Windows information on build 21354 visit the [Windows blog](https://blogs.windows.com/windows-insider/2021/04/07/announcing-windows-10-insider-preview-build-21354/).
 
-* Switch the \\wsl prefix to \\wsl.localhost to avoid issues when there is a machine on the network named "wsl". \\wsl$ will continue to work.
-* Enable Linux quick access icon for wow processes.
-* Update issue where version 2 was always being passed via wslapi RegisterDistribution.
-* Change the fmask of the /usr/lib/wsl/lib directory to 222 so files are marked as executable [GH 3847]
-* Fix wsl service crash if Virtual Machine Platform is not enabled.
+- Switch the \\wsl prefix to \\wsl.localhost to avoid issues when there is a machine on the network named "wsl". \\wsl$ will continue to work.
+- Enable Linux quick access icon for wow processes.
+- Update issue where version 2 was always being passed via wslapi RegisterDistribution.
+- Change the fmask of the /usr/lib/wsl/lib directory to 222 so files are marked as executable [GH 3847]
+- Fix wsl service crash if Virtual Machine Platform is not enabled.
 
 ## Build 21286
+
 For general Windows information on build 21286 visit the [Windows blog](https://blogs.windows.com/windows-insider/2021/01/06/announcing-windows-10-insider-preview-build-21286/).
 
-* Introduce wsl.exe --cd command to set current working directory of a command.
-* Improve mapping of NTSTATUS to Linux error codes. [GH 6063]
-* Improve wsl.exe --mount error reporting.
-* Added an option to /etc/wsl.conf to enable start up commands:
-```
+- Introduce wsl.exe --cd command to set current working directory of a command.
+- Improve mapping of NTSTATUS to Linux error codes. [GH 6063]
+- Improve wsl.exe --mount error reporting.
+- Added an option to /etc/wsl.conf to enable start up commands:
+
+```console
 [boot]
 command=<string>
 ```
 
 ## Build 20226
+
 For general Windows information on build 20226 visit the [Windows blog](https://blogs.windows.com/windows-insider/2020/09/30/announcing-windows-10-insider-preview-build-20226/).
 
-* Fix crash in LxssManager service. [GH 5902]
+- Fix crash in LxssManager service. [GH 5902]
 
 ## Build 20211
+
 For general Windows information on build 20211 visit the [Windows blog](https://blogs.windows.com/windows-insider/2020/09/10/announcing-windows-10-insider-preview-build-20211/).
 
-* Introduce `wsl.exe --mount` for mounting physical or virtual disks. For more information see [Access Linux filesystems in Windows and WSL 2](https://devblogs.microsoft.com/commandline/access-linux-filesystems-in-windows-and-wsl-2/).
-* Fix crash in LxssManager service when checking if the VM is idle. [GH 5768]
-* Support for compressed VHD files. [GH 4103]
-* Ensure that Linux user mode libs installed to c:\windows\system32\lxss\lib are preserved across OS upgrade. [GH 5848]
-* Added the ability to list available distributions that can be installed with `wsl --install --list-distributions`.
-* WSL instances are now terminated when the user logs off.
+- Introduce `wsl.exe --mount` for mounting physical or virtual disks. For more information see [Access Linux filesystems in Windows and WSL 2](https://devblogs.microsoft.com/commandline/access-linux-filesystems-in-windows-and-wsl-2/).
+- Fix crash in LxssManager service when checking if the VM is idle. [GH 5768]
+- Support for compressed VHD files. [GH 4103]
+- Ensure that Linux user mode libs installed to c:\windows\system32\lxss\lib are preserved across OS upgrade. [GH 5848]
+- Added the ability to list available distributions that can be installed with `wsl --install --list-distributions`.
+- WSL instances are now terminated when the user logs off.
 
 ## Build 20190
+
 For general Windows information on build 20190 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2020/08/12/announcing-windows-10-insider-preview-build-20190/).
 
-* Fix bug preventing WSL1 instances from launching. [GH 5633]
-* Fix hang when redirecting Windows process output. [GH 5648]
-* Add %userprofile%\\.wslconfig option to control the VM idle timeout (wsl2.vmIdleTimeout=<time_in_ms>).
-* Support launching app execution aliases from WSL.
-* Added support for installing the WSL2 kernel and distributions to wsl.exe --install.
+- Fix bug preventing WSL1 instances from launching. [GH 5633]
+- Fix hang when redirecting Windows process output. [GH 5648]
+- Add %userprofile%\\.wslconfig option to control the VM idle timeout (wsl2.vmIdleTimeout=<time_in_ms>).
+- Support launching app execution aliases from WSL.
+- Added support for installing the WSL2 kernel and distributions to wsl.exe --install.
 
 ## Build 20175
+
 For general Windows information on build 20175 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2020/07/22/announcing-windows-10-insider-preview-build-20175/).
 
-* Adjust default memory assignment of WSL2 VM to be 50% of host memory or 8GB, whichever is less [GH 4166].
-* Change \\\\wsl$ prefix to \\\\wsl to support URI parsing. The old \\\\wsl$ path is still supported.
-* Enable nested virtualization for WSL2 by default on amd64. You can disable this via %userprofile%\\.wslconfig ([wsl2] nestedVirtualization=false).
-* Make wsl.exe --update demand start Microsoft Update.
-* Support renaming over a read-only file in DrvFs.
-* Ensure error messages are always printed in the correct codepage.
+- Adjust default memory assignment of WSL2 VM to be 50% of host memory or 8GB, whichever is less [GH 4166].
+- Change \\\\wsl$ prefix to \\\\wsl to support URI parsing. The old \\\\wsl$ path is still supported.
+- Enable nested virtualization for WSL2 by default on amd64. You can disable this via %userprofile%\\.wslconfig ([wsl2] nestedVirtualization=false).
+- Make wsl.exe --update demand start Microsoft Update.
+- Support renaming over a read-only file in DrvFs.
+- Ensure error messages are always printed in the correct codepage.
 
 ## Build 20150
+
 For general Windows information on build 20150 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2020/06/17/announcing-windows-10-insider-preview-build-20150/).
 
-* WSL2 GPU compute see [Windows blog](https://blogs.windows.com/windowsexperience/2020/06/17/announcing-windows-10-insider-preview-build-20150/) for more information.
-* Introduce wsl.exe --install command line option to easily set up WSL.
-* Introduce wsl.exe --update command line option to manage updates to the WSL2 kernel. 
-* Set WSL2 as the default.
-* Increase WSL2 vm graceful shutdown timeout.
-* Fix virtio-9p race condition when mapping device memory.
-* Don't run an elevated 9p server if UAC is disabled.
+- WSL2 GPU compute see [Windows blog](https://blogs.windows.com/windowsexperience/2020/06/17/announcing-windows-10-insider-preview-build-20150/) for more information.
+- Introduce wsl.exe --install command line option to easily set up WSL.
+- Introduce wsl.exe --update command line option to manage updates to the WSL2 kernel. 
+- Set WSL2 as the default.
+- Increase WSL2 vm graceful shutdown timeout.
+- Fix virtio-9p race condition when mapping device memory.
+- Don't run an elevated 9p server if UAC is disabled.
 
 ## Build 19640
+
 For general Windows information on build 19640 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2020/06/03/announcing-windows-10-insider-preview-build-19640/).
 
-* [WSL2] Stability improvements for virtio-9p (drvfs).
+- [WSL2] Stability improvements for virtio-9p (drvfs).
 
 ## Build 19555
+
 For general Windows information on build 19555 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2020/01/30/announcing-windows-10-insider-preview-build-19555/).
 
-* [WSL2] Use a memory cgroup to limit the amount of memory used by install and conversion operations [GH 4669]
-* Make wsl.exe present when the Windows Subsystem for Linux optional component is not enabled to improve feature discoverability.
-* Change wsl.exe to print help text if the WSL optional component is not installed
-* Fix race condition when creating instances
-* Create wslclient.dll that contains all command line functionality
-* Prevent crash during LxssManagerUser service stop
-* Fix wslapi.dll fast fail when distroName parameter is NULL
+- [WSL2] Use a memory cgroup to limit the amount of memory used by install and conversion operations [GH 4669]
+- Make wsl.exe present when the Windows Subsystem for Linux optional component is not enabled to improve feature discoverability.
+- Change wsl.exe to print help text if the WSL optional component is not installed
+- Fix race condition when creating instances
+- Create wslclient.dll that contains all command line functionality
+- Prevent crash during LxssManagerUser service stop
+- Fix wslapi.dll fast fail when distroName parameter is NULL
 
 ## Build 19041
+
 For general Windows information on build 19041 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2019/12/10/announcing-windows-10-insider-preview-build-19041/).
 
-* [WSL2] Clear the signal mask before launching the processes
-* [WSL2] Update Linux kernel to 4.19.84
-* Handle creation of /etc/resolv.conf symlink when the symlink is non-relative
+- [WSL2] Clear the signal mask before launching the processes
+- [WSL2] Update Linux kernel to 4.19.84
+- Handle creation of /etc/resolv.conf symlink when the symlink is non-relative
 
 ## Build 19028
+
 For general Windows information on build 19028 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2019/11/19/announcing-windows-10-insider-preview-build-19028/).
 
-* [WSL2] Update Linux kernel to 4.19.81
-* [WSL2] Change the default permission of /dev/net/tun to 0666 [GH 4629]
-* [WSL2] Tweak default amount of memory assigned to Linux VM to be 80% of host memory
-* [WSL2] fix interop server to handle requests with a timeout so bad callers cannot hang the server
+- [WSL2] Update Linux kernel to 4.19.81
+- [WSL2] Change the default permission of /dev/net/tun to 0666 [GH 4629]
+- [WSL2] Tweak default amount of memory assigned to Linux VM to be 80% of host memory
+- [WSL2] fix interop server to handle requests with a timeout so bad callers cannot hang the server
 
 ## Build 19018
+
 For general Windows information on build 19018 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2019/11/05/announcing-windows-10-insider-preview-build-19018/).
 
-* [WSL2] Use cache=mmap as the default for 9p mounts to fix dotnet apps
-* [WSL2] Fixes for localhost relay [GH 4340]
-* [WSL2] Introduce a cross-distro shared tmpfs mount for sharing state between distros
-* Fix restoring persistent network drive for \\\\wsl$
+- [WSL2] Use cache=mmap as the default for 9p mounts to fix dotnet apps
+- [WSL2] Fixes for localhost relay [GH 4340]
+- [WSL2] Introduce a cross-distro shared tmpfs mount for sharing state between distros
+- Fix restoring persistent network drive for \\\\wsl$
 
 ## Build 19013
+
 For general Windows information on build 19013 visit the [Windows blog](https://blogs.windows.com/windowsexperience/2019/10/29/announcing-windows-10-insider-preview-build-19013/).
 
-* [WSL2] Improve memory performance of WSL utility VM. Memory that is no longer in use will be freed back to the host.
-* [WSL2] Update kernel version to 4.19.79. (add CONFIG_HIGH_RES_TIMERS, CONFIG_TASK_XACCT, CONFIG_TASK_IO_ACCOUNTING, CONFIG_SCHED_HRTICK, and CONFIG_BRIDGE_VLAN_FILTERING).
-* [WSL2] Fix input relay to handle cases where stdin is a pipe handle that is not closed [GH 4424]
-* Make the check for \\\\wsl$ case-insensitive.
-```
+- [WSL2] Improve memory performance of WSL utility VM. Memory that is no longer in use will be freed back to the host.
+- [WSL2] Update kernel version to 4.19.79. (add CONFIG_HIGH_RES_TIMERS, CONFIG_TASK_XACCT, CONFIG_TASK_IO_ACCOUNTING, CONFIG_SCHED_HRTICK, and CONFIG_BRIDGE_VLAN_FILTERING).
+- [WSL2] Fix input relay to handle cases where stdin is a pipe handle that is not closed [GH 4424]
+- Make the check for \\\\wsl$ case-insensitive.
+
+```console
 [wsl2]
 pageReporting = <bool>    # Enable or disable the free memory page reporting feature (default true).
 idleThreshold = <integer> # Set the idle threshold for memory compaction, 0 disables the feature (default 1).

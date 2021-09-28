@@ -1,9 +1,9 @@
 ---
 title: Windows Subsystem for Linux Documentation
 description: Explore the Windows Subsystem for Linux documentation.
-keywords: BashOnWindows, bash, wsl, windows, windowssubsystem, gnu, linux
+keywords: wsl docs, BashOnWindows, bash, wsl, windows, windowssubsystem, gnu, linux
 ms.topic: article
-ms.date: 09/15/2020
+ms.date: 09/27/2021
 ms.localizationpriority: high
 ---
 
