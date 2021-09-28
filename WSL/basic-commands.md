@@ -2,7 +2,7 @@
 title: Basic commands for WSL
 description: Reference for the basic commands included with Windows Subsystem for Linux (WSL).
 keywords: wsl, install, BashOnWindows, bash, windows subsystem for linux, install ubuntu on windows, enable WSL2, linux on windows
-ms.date: 08/25/2021
+ms.date: 09/27/2021
 ms.topic: article
 ms.localizationpriority: high
 ---

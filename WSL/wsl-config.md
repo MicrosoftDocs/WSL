@@ -2,7 +2,7 @@
 title: Configure Linux distributions
 description: A reference guide to help you manage and configure multiple Linux distributions running on the Windows Subsystem for Linux.
 keywords: BashOnWindows, bash, wsl, windows, windows subsystem for linux, windowssubsystem, ubuntu, wsl.conf, wslconfig
-ms.date: 08/30/2021
+ms.date: 09/27/2021
 ms.topic: article
 ---
 

@@ -2,9 +2,8 @@
 title: File Permissions for WSL
 description: Understanding how WSL determines file permissions in Windows
 keywords: File permissions, bash, wsl, wsl2, windows, windows subsystem for linux, windows subsystem, ubuntu, debian, suse, windows 10
-ms.date: 09/07/2021
+ms.date: 09/27/2021
 ms.topic: article
-ms.assetid: 7afaeacf-435a-4e58-bff0-a9f0d75b8a51
 ms.localizationpriority: high
 ---
 

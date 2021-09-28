@@ -2,7 +2,7 @@
 title: Install WSL
 description: Install Windows Subsystem for Linux with the command, wsl --install. Use a Bash terminal on your Windows machine run by your preferred Linux distribution - Ubuntu, Debian, SUSE, Kali, Fedora, Pengwin, Alpine, and more are available.
 keywords: wsl, install, BashOnWindows, bash, windows subsystem for linux, install ubuntu on windows, enable WSL2, linux on windows
-ms.date: 09/10/2021
+ms.date: 09/27/2021
 ms.topic: article
 ms.localizationpriority: high
 ---
