@@ -140,7 +140,7 @@ Invoke-WebRequest -Uri https://aka.ms/wslubuntu2004 -OutFile Ubuntu.appx -UseBas
 You also have the option to use the [curl command-line utility](https://curl.se/) for downloading. To download Ubuntu 20.04 with curl:
 
 ```console
-curl.exe -L -o ubuntu-1604.appx https://aka.ms/wsl-ubuntu-2004
+curl.exe -L -o ubuntu-2004.appx https://aka.ms/wsl-ubuntu-2004
 ```
 
 In this example, `curl.exe` is executed (not just `curl`) to ensure that, in PowerShell, the real curl executable is invoked, not the PowerShell curl alias for [Invoke-WebRequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest).
