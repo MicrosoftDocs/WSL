@@ -39,7 +39,7 @@ wsl --list --online
 
 See a list of the Linux distributions available through the online store. This command can also be entered as: `wsl -l -o`.
 
-### List install Linux distributions
+### List installed Linux distributions
 
 ```powershell
 wsl --list --verbose
