@@ -2,14 +2,14 @@
 title: Create user account for Linux distribution 
 description: Reference for user accounts and permission management with the Windows Subsystem for Linux.
 keywords: BashOnWindows, bash, wsl, windows, windows subsystem for linux, windowssubsystem, ubuntu, user accounts
-ms.date: 05/12/2020
+ms.date: 09/27/2021
 ms.topic: article
 ms.localizationpriority: high
 ---
 
 # Create a user account and password for your new Linux distribution
 
-Once you have [enabled WSL and installed a Linux distribution from the Microsoft Store](./install-win10.md), the first step you will be asked to complete when opening your newly installed Linux distribution is to create an account, including a **User Name** and **Password**.
+Once you have [enabled WSL and installed a Linux distribution from the Microsoft Store](./install.md), the first step you will be asked to complete when opening your newly installed Linux distribution is to create an account, including a **User Name** and **Password**.
 
 - This **User Name** and **Password** is specific to each separate Linux distribution that you install and has no bearing on your Windows user name.
 
@@ -53,4 +53,4 @@ If you forgot the password for your Linux distribution:
 3. You will be prompted to enter a new UNIX password and then confirm that password. Once you're told that the password has updated successfully, close WSL inside of PowerShell using the command: `exit`
 
 > [!NOTE]
-> If you are running an early version of Windows operating system, like 1703 (Creators Update) or 1709 (Fall Creators Update), see the [archived version of this user account update doc](./user-support-archived.md).
+> If you are running an early version of Windows operating system, like 1703 (Creators Update) or 1709 (Fall Creators Update), see the [Using older version of Windows and WSL](./troubleshooting.md#using-older-versions-of-windows-and-wsl) in the Troubleshooting guide.

@@ -2,7 +2,7 @@
 title: Install Linux Subsystem on Windows Server
 description: Learn how to install the Linux Subsystem on Windows Server. WSL is available for installation on Windows Server 2019 (version 1709) and later.
 keywords: BashOnWindows, bash, wsl, windows, windows subsystem for linux, windowssubsystem, ubuntu, windows server
-ms.date: 05/12/2020
+ms.date: 09/27/2021
 ms.topic: article
 ms.localizationpriority: high
 ---
@@ -13,7 +13,7 @@ The Windows Subsystem for Linux is available for installation on Windows Server 
 
 ## Enable the Windows Subsystem for Linux
 
-Before you can run Linux distros on Windows, you must enable the "Windows Subsystem for Linux" optional feature and reboot.
+Before you can run Linux distributions on Windows, you must enable the "Windows Subsystem for Linux" optional feature and reboot.
 
 Open PowerShell as Administrator and run:
 
@@ -30,27 +30,27 @@ Follow [these instructions](install-manual.md) to download your favorite Linux d
 
 Now that you've downloaded a Linux distribution, in order to extract its contents and manually install, follow these steps:
 
-1. Extract the `<distro>.appx` package's contents, using PowerShell:
+1. Extract the `<DistributionName>.appx` package's contents, using PowerShell:
 
     ```powershell
     Rename-Item .\Ubuntu.appx .\Ubuntu.zip
     Expand-Archive .\Ubuntu.zip .\Ubuntu
     ```
 
-2. Run the distribution launcher application in the target folder. The launcher is typically named `<distro>.exe` (for example, `ubuntu.exe`).
+2. Run the distribution launcher application in the target folder. The launcher is typically named `<DistributionName>.exe` (for example, `ubuntu.exe`).
 
-    ![Expanded Ubuntu distro on Windows Server](media/server-appx-expand.png)
+    ![Expanded Ubuntu distribution on Windows Server](media/server-appx-expand.png)
 
 > [!CAUTION]
 > **Installation failed with error 0x8007007e**: If you receive this error, then your system doesn't support WSL. Ensure that you're running Windows build 16215 or later. [Check your build](troubleshooting.md#check-your-build-number). Also check to [confirm that WSL is enabled](troubleshooting.md#confirm-wsl-is-enabled) and your computer was restarted after the feature was enabled.  
 
-3.Add your distro path to the Windows environment PATH (`C:\Users\Administrator\Ubuntu` in this example), using PowerShell:
+3.Add your Linux distribution path to the Windows environment PATH (`C:\Users\Administrator\Ubuntu` in this example), using PowerShell:
 
 ```powershell
 $userenv = [System.Environment]::GetEnvironmentVariable("Path", "User")
 [System.Environment]::SetEnvironmentVariable("PATH", $userenv + ";C:\Users\Administrator\Ubuntu", "User")
 ```
 
-You can now launch your distribution from any path by typing `<distro>.exe`. For example: `ubuntu.exe`.
+You can now launch your distribution from any path by typing `<DistributionName>.exe`. For example: `ubuntu.exe`.
 
-Now that it is installed, you must [initialize your new distribution instance](./install-win10.md) before using it.
+Once installation is complete, you can [create a user account and password for your new Linux distribution](./setup/environment.md#set-up-your-linux-user-info).

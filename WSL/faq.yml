@@ -3,21 +3,20 @@ metadata:
   title: FAQ's about Windows Subsystem for Linux
   description: "Find answers to frequently asked questions (FAQs) about the Windows Subsystem for Linux, such as 'What can I do with WSL?'."
   keywords: BashOnWindows, bash, wsl, windows, windowssubsystem, faq
-  ms.date: 09/15/2020
+  ms.date: 09/27/2021
   ms.topic: article
-  ms.assetid: 129101ed-b88a-43c2-b6a2-cd2c4ff6fee1
   ms.localizationpriority: high
     
 title: Frequently Asked Questions about Windows Subsystem for Linux
 summary: |
 
 sections:
-  - name: Ignored
+  - name: General
     questions:
       - question: |
          What is Windows Subsystem for Linux (WSL)?
         answer: |
-          The Windows Subsystem for Linux (WSL) is a feature of Windows 10 that enables you to run native Linux command-line tools directly on Windows, alongside your traditional Windows desktop and apps.
+          The Windows Subsystem for Linux (WSL) is a feature of the Windows operating system that enables you to run a Linux file system, along with Linux command-line tools and GUI apps, directly on Windows, alongside your traditional Windows desktop and apps.
           
           See the [about page](./about.md) for more details.
           
@@ -50,7 +49,7 @@ sections:
       - question: |
          How does this work?
         answer: |
-          Check out our [blog](https://devblogs.microsoft.com/commandline/a-deep-dive-into-how-wsl-allows-windows-to-access-linux-files/) where we go into detail about the underlying technology.
+          Check out this article on the Windows Command Line blog: [A Deep Dive Into How WSL Allows Windows to Access Linux Files](https://devblogs.microsoft.com/commandline/a-deep-dive-into-how-wsl-allows-windows-to-access-linux-files/) which goes into detail about the underlying technology.
           
       - question: |
          Why would I use WSL rather than Linux in a VM?
@@ -62,7 +61,7 @@ sections:
         answer: |
           Some cross-platform tools were built assuming that the environment in which they run behaves like Linux. For example, some tools assume that they are able to access very long file paths or that specific files/folders exist. This often causes problems on Windows which often behaves differently from Linux.
           
-          Many languages like Ruby and node are often ported to, and run great, on Windows. However, not all of the Ruby Gem or node/NPM library owners port their libraries to support Windows, and many have Linux-specific dependencies. This can often result in systems built using such tools and libraries suffering from build and sometimes runtime errors or unwanted behaviors on Windows.
+          Many languages like Ruby and Node.js are often ported to, and run great, on Windows. However, not all of the Ruby Gem or node/NPM library owners port their libraries to support Windows, and many have Linux-specific dependencies. This can often result in systems built using such tools and libraries suffering from build and sometimes runtime errors or unwanted behaviors on Windows.
           
           These are just some of issues that caused many people to ask Microsoft to improve Windows’ command-line tools and what drove us to partner with Canonical to enable native Bash and Linux command-line tools to run on Windows.
           
@@ -72,13 +71,6 @@ sections:
           While working with OSS projects, there are numerous scenarios where it’s immensely useful to drop into Bash from a PowerShell prompt. Bash support is complementary and strengthens the value of the command-line on Windows, allowing PowerShell and the PowerShell community to leverage other popular technologies.
           
           Read more on the PowerShell team blog -- [Bash for Windows: Why it’s awesome and what it means for PowerShell](https://devblogs.microsoft.com/powershell/bash-for-windows-why-its-awesome-and-what-it-means-for-powershell/)
-          
-      - question: |
-         What Windows SKUs is WSL included in?
-        answer: |
-          Windows Subsystem for Linux is available on the desktop version of Windows for Windows 10 Anniversary and Creators update or later.
-          
-          Beginning in the Fall Creators update WSL will be available on both the desktop and server SKUs of Windows.
           
       - question: |
          What processors does WSL support?
@@ -95,19 +87,9 @@ sections:
           
       - question: |
          How do I set up Git Credential Manager? (How do I use my Windows Git permissions in WSL?) 
-        answer: |
-          Git Credential Manager enables you to authenticate a remote Git server, even if you have a complex authentication pattern like Azure Active Directory or two-factor authentication. Git Credential Manager integrates into the authentication flow for services like GitHub and, once you're authenticated to your hosting provider, requests a new authentication token. It then stores the token securely in the Windows Credential Manager. After the first time, you can use git to talk to your hosting provider without needing to re-authenticate. It will just access the token in the Windows Credential Manager.
-          
-          To set up Git Credential Manager for use with a WSL distribution, open your distribution and enter this command:
-          
-          ```Bash
-          git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/libexec/git-core/git-credential-manager.exe"
-          ```
-          
-          Now any git operation you perform within your WSL distribution will use the credential manager. If you already have credentials cached for a host, it will access them from the credential manager. If not, you'll receive a dialog response requesting your credentials, even if you're in a Linux console.
-          
-          This support relies on the [interoperability between Windows Subsystem for Linux and Windows itself](./interop.md).
-          
+        answer: 
+         See the tutorial [Get started using Git on Windows Subsystem for Linux](./tutorials/wsl-git.md), which features a section on setting up Git Credential Manager and storing authentication tokens in Windows Credential Manager.
+
       - question: |
          How do I use a Windows file with a Linux app?
         answer: |
@@ -117,12 +99,12 @@ sections:
           
           Using your mounted drives, you can edit code in, for example, `C:\dev\myproj\` using [Visual Studio](https://visualstudio.microsoft.com/vs/) / or [VS Code](https://code.visualstudio.com/), and build/test that code in Linux by accessing the same files via `/mnt/c/dev/myproj`.
           
-          > **IMPORTANT NOTE**: One of the key limitations of using WSL is that directly accessing/changing files in your Linux distros' file system using Windows apps or tools is not supported. See: [Do not change Linux files using Windows apps and tools](https://devblogs.microsoft.com/commandline/do-not-change-linux-files-using-windows-apps-and-tools/)
+          Learn more in [Working across Windows and Linux file systems](./filesystems.md) article.
           
       - question: |
          Are files in the Linux drive different from the mounted Windows drive?
         answer: |
-          1. Files under the Linux root (i.e. `/`) are controlled by WSL which mimics Linux specific behavior, including but not limited to:
+          1. Files under the Linux root (i.e. `/`) are controlled by WSL which aligns with Linux behavior, including but not limited to:
              * Files which contain invalid Windows filename characters
              * Symlinks created for non-admin users
              * Changing file attributes through chmod and chown
@@ -131,69 +113,25 @@ sections:
           2. Files in mounted drives are controlled by Windows and have the following behaviors:
              * Support case sensitivity
              * All permissions are set to best reflect the Windows permissions
-          
-      - question: |
-         Why are there so many errors when I run apt-get upgrade?
-        answer: |
-          Some packages use features that we haven't implemented yet. `udev`, for example, isn't supported yet and causes several `apt-get upgrade` errors.
-          
-          To fix issues related to `udev`, follow the following steps:
-          
-          1. Write the following to `/usr/sbin/policy-rc.d` and save your changes.
-          
-              ```bash
-              #!/bin/sh
-              exit 101
-              ```
-          
-          2. Add execute permissions to `/usr/sbin/policy-rc.d`
-          
-              ```bash
-              chmod +x /usr/sbin/policy-rc.d
-              ```
-            
-          3. Run the following commands
-          
-              ```bash
-              dpkg-divert --local --rename --add /sbin/initctl
-              ln -s /bin/true /sbin/initctl
-              ```
-          
+
       - question: |
          How do I uninstall a WSL Distribution?
         answer: |
-          To remove a distro from WSL and *delete all data inside of the Linux distro* you can run `wsl --unregister <distroName>` where <distroName> is the name of your Linux distro, which can be seen from the list in the `wsl -l` command. 
+          To remove a distribution from WSL and *delete all of the data associated with that Linux distribution*, run `wsl --unregister <distroName>` where `<distroName>` is the name of your Linux distro, which can be seen from the list in the `wsl -l` command. 
 
           Additionally, you can then uninstall the Linux distro app on your machine just like any other store application.
-          
-      - question: |
-         Why does ping generate permission denied errors?
-        answer: |
-         In WSL builds < 14926, ping required WSL to run via an elevated Console. This issue was fixed in Build 14926 and later.
 
+          To learn more about wsl commands, see the article, [Basic commands for WSL](./basic-commands.md).
+          
       - question: |
          How do I run an OpenSSH server?
         answer: |
-         Administrator privileges in Windows are required to run OpenSSH in WSL. To run an OpenSSH server, run Bash on Ubuntu on Windows as an administrator, or run bash.exe from a CMD/PowerShell prompt with administrator privileges.
+         OpenSSH ships with Windows as an optional feature. See the [Install OpenSSH](https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse) doc. Administrator privileges in Windows are required to run OpenSSH in WSL. To run an OpenSSH server, run your WSL distribution (ie Ubuntu) or Windows Terminal as an administrator. There are several resources out there covering SSH scenarios with WSL. Check out Scott Hanselman's blog articles: [How to SSH into a Windows 10 Machine from Linux OR Windows OR anywhere](https://www.hanselman.com/blog/how-to-ssh-into-a-windows-10-machine-from-linux-or-windows-or-anywhere), [How to SSH into WSL2 on Windows 10 from an external machine](https://www.hanselman.com/blog/how-to-ssh-into-wsl2-on-windows-10-from-an-external-machine), [THE EASY WAY how to SSH into Bash and WSL2 on Windows 10 from an external machine](https://www.hanselman.com/blog/the-easy-way-how-to-ssh-into-bash-and-wsl2-on-windows-10-from-an-external-machine), and [How to use Windows 10's built-in OpenSSH to automatically SSH into a remote Linux machine](https://www.hanselman.com/blog/how-to-use-windows-10s-builtin-openssh-to-automatically-ssh-into-a-remote-linux-machine). 
 
-      - question: |
-          Why do I get "Error: 0x80040306" when I try to install?
-        answer: |
-          WSL does not support running in a legacy console. To turn off legacy console:
-          
-          1. Open WSL, PowerShell, or Cmd
-          1. Right click title bar -> Properties -> Uncheck "Use legacy console"
-          1. Click OK
-          
-      - question: |
-          Why do I get "Error: 0x80040154" when I run bash.exe after upgrading Windows?
-        answer: |
-          The "Windows Subsystem for Linux" feature may be disabled during a Windows update. If this happens the Windows feature must be re-enabled. Instructions for enabling the "Windows Subsystem for Linux" feature can be found in the [Installation Guide](./install-win10.md).
-          
       - question: |
          How do I change the display language of WSL?
         answer: |
-          WSL install will try to automatically change the Ubuntu locale to match the locale of your Windows install. If you do not want this behavior you can run this command to change the Ubuntu locale after install completes. You will have to relaunch bash.exe for this change to take effect.
+          WSL install will try to automatically change the Ubuntu locale to match the locale of your Windows install. If you do not want this behavior you can run this command to change the Ubuntu locale after install completes. You will have to relaunch your WSL distribution for this change to take effect.
           
           The below example changes to locale to en-US:
           
@@ -218,24 +156,82 @@ sections:
          How do I access a port from WSL in Windows?
         answer: |
           WSL shares the IP address of Windows, as it is running on Windows. As such you can access any ports on localhost e.g. if you had web content on port 1234 you could https://localhost:1234 into your Windows browser.
+          For more information, see [Accessing network applications](./networking.md).
           
       - question: |
-         How can I back up my WSL distros, or move them from one drive to another?
+         How can I back up my WSL distributions, or move them from one drive to another?
         answer: |
-          The best way to backup or move your distros is via the export/import commands available in Windows Version 1809 and later. You can export your entire distribution to a tarball using the `wsl --export` command. You can then import this distro back into WSL using the `wsl --import` command, which can name a new drive location for the import, allowing you to backup and save states of (or move) your WSL distributions. 
+          The best way to backup or move your distributions is via the [export/import commands](./basic-commands.md) available in Windows Version 1809 and later. You can export your entire distribution to a tarball using the `wsl --export` command. You can then import this distribution back into WSL using the `wsl --import` command, which can name a new drive location for the import, allowing you to backup and save states of (or move) your WSL distributions. 
           
           Please note that traditional backup services that backup files in your AppData folders (like Windows Backup) will not corrupt your Linux files.
+  - name: WSL 2
+    questions:
+      - question: |
+          Does WSL 2 use Hyper-V? Will it be available on Windows 10 Home?
+        answer: |
+          WSL 2 is available on all Desktop SKUs where WSL is available, including Windows 10 Home.
           
+          The newest version of WSL uses Hyper-V architecture to enable its virtualization. This architecture will be available in the 'Virtual Machine Platform' optional component. This optional component will be available on all SKUs. You can expect to see more details about this experience soon as we get closer to the WSL 2 release.
+          
+      - question: |
+          What will happen to WSL 1? Will it be abandoned?
+        answer: |
+          We currently have no plans to deprecate WSL 1. You can run WSL 1 and WSL 2 distros side by side, and can upgrade and downgrade any distro at any time. Adding WSL 2 as a new architecture presents a better platform for the WSL team to deliver features that make WSL an amazing way to run a Linux environment in Windows.
+
+      - question: |
+          Will I be able to run WSL 2 and other 3rd party virtualization tools such as VMware, or VirtualBox?
+        answer: |
+          Some 3rd party applications cannot work when Hyper-V is in use, which means they will not be able to run when WSL 2 is enabled, such as VMware and VirtualBox. However, recently both VirtualBox and VMware have released versions that support Hyper-V and WSL2. Learn more about [VirtualBox's changes here](https://www.virtualbox.org/wiki/Changelog-6.0) and [VMware's changes here](https://blogs.vmware.com/workstation/2020/01/vmware-workstation-tech-preview-20h1.html). For troubleshooting issues, take a look at the [VirtualBox issue discussions in the WSL repo on GitHub](https://github.com/MicrosoftDocs/WSL/issues?q=is%3Aissue+virtualbox+sort%3Acomments-desc).
+          
+          We are consistently working on solutions to support third-party integration of Hyper-V. For example, we expose a set of APIs called [Hypervisor Platform](/virtualization/api/) that third-party virtualization providers can use to make their software compatible with Hyper-V. This lets applications use the Hyper-V architecture for their emulation such as [the Google Android Emulator](https://devblogs.microsoft.com/visualstudio/hyper-v-android-emulator-support/), and VirtualBox 6 and above which are both now compatible with Hyper-V.
+
+          See the WSL issues repo for more background and discussion on [WSL 2 issues with VirtualBox 6.1](https://github.com/MicrosoftDocs/WSL/issues/798).
+
+          *If you're looking for a Windows 10 virtual machine, VMWare, Hyper-V, VirtualBox, and Parallels VM downloads are [available on the Windows Dev Center](https://developer.microsoft.com/windows/downloads/virtual-machines/).
+          
+      - question: |
+          Can I access the GPU in WSL 2? Are there plans to increase hardware support?
+        answer: |
+          We have released support for accessing the GPU inside of WSL 2 distributions! This means you can now use WSL for machine learning, artificial intelligence, and data science scenarios more easily when big data sets are involved. Check out the [get started with GPU support](./tutorials/gpu-compute.md) tutorial. As of right now WSL 2 does not include serial support, or USB device support. We are investigating the best way to add these features.
+          
+      - question: |
+          Will WSL 2 be able to use networking applications?
+        answer: |
+          Yes, in general networking applications will be faster and work better since we have full system call compatibility. However, the new architecture uses virtualized networking components. This means that in initial preview builds WSL 2 will behave more similarly to a virtual machine, e.g: WSL 2 will have a different IP address than the host machine. We are committed to making WSL 2 feel the same as WSL 1, and that includes improving our networking story. 
+          
+      - question: |
+          Can I run WSL 2 in a virtual machine?
+        answer: |
+          Yes! You need to make sure that the virtual machine has nested virtualization enabled. This can be enabled in your parent Hyper-V host by running the following command in a PowerShell window with Administrator privileges:
+          
+          `Set-VMProcessor -VMName <VMName> -ExposeVirtualizationExtensions $true`
+          
+          Make sure to replace '&lt;VMName&gt;' with the name of your virtual machine.
+          
+      - question: |
+          Can I use wsl.conf in WSL 2?
+        answer: |
+          WSL 2 supports the same wsl.conf file that WSL 1 uses. This means that any configuration options that you had set in a WSL 1 distro, such as automounting Windows drives, enabling or disabling interop, changing the directory where Windows drives will be mounted, etc. will all work inside of WSL 2. You can learn more about the configuration options in WSL in the [Distribution Management](./manage.md) page. Learn more about support for mounting drives, disks, devices, or virtual hard disks (VHDs) in the [Mount a Linux disk in WSL 2](./wsl2-mount-disk.md) article.
+          
+           [1]: https://www.virtualbox.org/wiki/Changelog-6.0
+           [2]: https://docs.microsoft.com/virtualization/api/
+           [3]: https://devblogs.microsoft.com/visualstudio/hyper-v-android-emulator-support/
+           [4]: https://blogs.vmware.com/workstation/2020/01/vmware-workstation-tech-preview-20h1.html
+  
       - question: |
          Where can I provide feedback?
         answer: |
-          You can share feedback and ask questions through multiple channels.
+          The [WSL product repo issues](https://github.com/Microsoft/wsl/issues) enables you to:
+            - **Search existing issues** to see if there are any associated with a problem that you are having. Note that in the search bar, you can remove "is:open" to include issues that have already been resolved in your search. Please consider commenting or giving a thumbs up to any open issues that you would like to express your interest in moving forward as a priority.
+            - **File a new issue**. If you have found a problem with WSL and there does not appear to be an existing issue, you can select the green *New issue* button and then choose *WSL - Bug Report*. You will need to include a title for the issue, your Windows build number (run `cmd.exe /c ver` to see your current build #), whether you're running WSL 1 or 2, your current Linux Kernel version # (run `wsl.exe --status` or `cat /proc/version`), the version # of your distribution (run `lsb_release -r`), any other software versions involved, the repro steps, expected behavior, actual behavior, and diagnostic logs if available and appropriate. For more info, see [contributing to WSL](https://github.com/microsoft/WSL/blob/master/CONTRIBUTING.md).
+            - **File a feature request** by selecting the green *New issue* button and then select *Feature request*. You will need to address a few questions describing your request.
+
+            You can also:
+
+            - **File a documentation issue** using the [WSL docs repo](https://github.com/MicrosoftDocs/wsl/issues). To contribute to the WSL docs, see the [Microsoft Docs contributor guide](/contribute).
+            - **File a Windows Terminal** issue using the the [Windows Terminal product repo](https://github.com/microsoft/terminal/issues) if your problem is related more to the Windows Terminal, Windows Console, or the command-line UI.
           
-          If you have technical issues, or want to request new features please go to our Github issue tracker:
+            If you'd like to stay up to date with the latest WSL news you can do so with:
           
-          * [GitHub issue tracker](https://github.com/Microsoft/BashOnWindows/issues)
-          
-          If you'd like to stay up to date with the latest WSL news you can do so with:
-          
-          * Our [command-line team blog](https://devblogs.microsoft.com/commandline/)
-          * Twitter. Please follow [@craigaloewen](https://twitter.com/craigaloewen) on Twitter to learn of news, updates, etc.
+            - Our [command-line team blog](https://devblogs.microsoft.com/commandline/)
+            - Twitter. Please follow [@craigaloewen](https://twitter.com/craigaloewen) on Twitter to learn of news, updates, etc.

@@ -2,36 +2,78 @@
 title: Troubleshooting Windows Subsystem for Linux
 description: Provides detailed information about common errors and issues people run into while running Linux on the Windows Subsystem for Linux. 
 keywords: BashOnWindows, bash, wsl, windows, windowssubsystem, ubuntu
-ms.date: 09/28/2020
+ms.date: 09/27/2021
 ms.topic: article
 ms.localizationpriority: high
 ---
 
 # Troubleshooting Windows Subsystem for Linux
 
-For support with issues related to WSL, please see our [WSL product repo on GitHub](https://github.com/Microsoft/wsl/issues).
+We have covered some common troubleshooting scenarios associated with WSL below, but please consider searching the issues filed in the [WSL product repo on GitHub](https://github.com/Microsoft/wsl/issues) as well.
 
-## Search for any existing issues related to your problem
+## File an issue, bug report, feature request
 
-For technical issues, use the [product repo](https://github.com/Microsoft/wsl/issues).
+The [WSL product repo issues](https://github.com/Microsoft/wsl/issues) enables you to:
 
-For issues related to the contents of this documentation, use the [docs repo](https://github.com/MicrosoftDocs/wsl/issues).
+- **Search existing issues** to see if there are any associated with a problem that you are having. Note that in the search bar, you can remove "is:open" to include issues that have already been resolved in your search. Please consider commenting or giving a thumbs up to any open issues that you would like to express your interest in moving forward as a priority.
+- **File a new issue**. If you have found a problem with WSL and there does not appear to be an existing issue, you can select the green *New issue* button and then choose *WSL - Bug Report*. You will need to include a title for the issue, your Windows build number (run `cmd.exe /c ver` to see your current build #), whether you're running WSL 1 or 2, your current Linux Kernel version # (run `wsl.exe --status` or `cat /proc/version`), the version # of your distribution (run `lsb_release -r`), any other software versions involved, the repro steps, expected behavior, actual behavior, and diagnostic logs if available and appropriate. For more info, see [contributing to WSL](https://github.com/microsoft/WSL/blob/master/CONTRIBUTING.md).
+- **File a feature request** by selecting the green *New issue* button and then select *Feature request*. You will need to address a few questions describing your request.
 
-## Submit a bug report
+You can also:
 
-For bugs related to WSL functions or features, file an issue in the product repo: https://github.com/Microsoft/wsl/issues
+- **File a documentation issue** using the [WSL docs repo](https://github.com/MicrosoftDocs/wsl/issues). To contribute to the WSL docs, see the [Microsoft Docs contributor guide](/contribute).
+- **File a Windows Terminal** issue using the the [Windows Terminal product repo](https://github.com/microsoft/terminal/issues) if your problem is related more to the Windows Terminal, Windows Console, or the command-line UI.
 
-## Submit a feature request
+## Installation issues
 
-To request a new feature related to WSL functionality or compatibility, [file an issue in the product repo](https://github.com/Microsoft/wsl/issues).
+- **Installation failed with error 0x80070003**
+  - The Windows Subsystem for Linux only runs on your system drive (usually this is your `C:` drive). Make sure that distributions are stored on your system drive:  
+  - Open **Settings** -> **System** --> **Storage** -> **More Storage Settings: Change where new content is saved**
+    ![Picture of system settings to install apps on C: drive](media/AppStorage.png)
 
-## Contribute to the docs
+- **WslRegisterDistribution failed with error 0x8007019e**
+  - The Windows Subsystem for Linux optional component is not enabled:
+  - Open **Control Panel** -> **Programs and Features** -> **Turn Windows Feature on or off** -> Check **Windows Subsystem for Linux** or using the PowerShell cmdlet mentioned at the beginning of this article.
 
-To contribute to the WSL documentation, submit a pull request in the docs repo: https://github.com/MicrosoftDocs/wsl/issues
+- **Installation failed with error 0x80070003 or error 0x80370102**
+  - Please make sure that virtualization is enabled inside of your computer's BIOS. The instructions on how to do this will vary from computer to computer, and will most likely be under CPU related options.
+  - WSL2 requires that your CPU supports the Second Level Address Translation (SLAT) feature, which was introduced in Intel Nehalem processors (Intel Core 1st Generation) and AMD Opteron. Older CPUs (such as the Intel Core 2 Duo) will not be able to run WSL2, even if the Virtual Machine Platform is successfully installed. 
 
-## Terminal or Command Line
+- **Error when trying to upgrade: `Invalid command line option: wsl --set-version Ubuntu 2`**
+  - Ensure that you have the Windows Subsystem for Linux enabled, and that you're using Windows Build version 18362 or higher. To enable WSL run this command in a PowerShell prompt with admin privileges: `Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux`.
 
-Lastly, if your issue is related to the Windows Terminal, Windows Console, or the command-line UI, use the Windows Terminal repo: https://github.com/microsoft/terminal
+- **The requested operation could not be completed due to a virtual disk system limitation. Virtual hard disk files must be uncompressed and unencrypted and must not be sparse.**
+  - Deselect “Compress contents” (as well as “Encrypt contents” if that’s checked) by opening the profile folder for your Linux distribution. It should be located in a folder on your Windows file system, something like: `USERPROFILE%\AppData\Local\Packages\CanonicalGroupLimited...`
+  - In this Linux distro profile, there should be a LocalState folder. Right-click this folder to display a menu of options. Select Properties > Advanced and then ensure that the “Compress contents to save disk space” and “Encrypt contents to secure data” checkboxes are unselected (not checked). If you are asked whether to apply this to just to the current folder or to all subfolders and files, select “just this folder” because you are only clearing the compress flag. After this, the `wsl --set-version` command should work.
+
+![Screenshot of WSL distro property settings](media/troubleshooting-virtualdisk-compress.png)
+
+> [!NOTE]
+> In my case, the LocalState folder for my Ubuntu 18.04 distribution was located at C:\Users\<my-user-name>\AppData\Local\Packages\CanonicalGroupLimited.Ubuntu18.04onWindows_79rhkp1fndgsc
+>
+> Check [WSL Docs GitHub thread #4103](https://github.com/microsoft/WSL/issues/4103) where this issue is being tracked for updated information.
+
+- **The term 'wsl' is not recognized as the name of a cmdlet, function, script file, or operable program.**
+  - Ensure that the [Windows Subsystem for Linux Optional Component is installed](./install-manual.md#step-3---enable-virtual-machine-feature). Additionally, if you are using an ARM64 device and running this command from PowerShell, you will receive this error. Instead run `wsl.exe` from [PowerShell Core](/powershell/scripting/install/installing-powershell-core-on-windows), or Command Prompt.
+
+- **Error: Windows Subsystem for Linux has no installed distributions.**
+  - If you receive this error after you have already installed WSL distributions:
+  1. Run the distribution at least once before invoking it from the command line.
+  2. Check whether you may be running separate user accounts. Running your primary user account with elevated permissions (in admin mode) should not result in this error, but you should ensure that you aren't accidentally running the built-in Administrator account that comes with Windows. This is a separate user account and will not show any installed WSL distributions by design. For more info, see [Enable and Disable the Built-in Administrator Account](/windows-hardware/manufacture/desktop/enable-and-disable-the-built-in-administrator-account).
+  3. The WSL executable is only installed to the native system directory. When you’re running a 32-bit process on 64-bit Windows (or on ARM64, any non-native combination), the hosted non-native process actually sees a different System32 folder. (The one a 32-bit process sees on x64 Windows is stored on disk at \Windows\SysWOW64.) You can access the “native” system32 from a hosted process by looking in the virtual folder: `\Windows\sysnative`. It won’t actually be present on disk, mind you, but the filesystem path resolver will find it.
+
+- **Error: This update only applies to machines with the Windows Subsystem for Linux.**
+  - To install the Linux kernel update MSI package, WSL is required and should be enabled first. If it fails, it you will see the message: `This update only applies to machines with the Windows Subsystem for Linux`.
+  - There are three possible reason you see this message:
+
+  1. You are still in old version of Windows which doesn't support WSL 2. See step #2 for version requirements and links to update.
+
+  2. WSL is not enabled. You will need to return to step #1 and ensure that the optional WSL feature is enabled on your machine.
+
+  3. After you enabled WSL, a reboot is required for it to take effect, reboot your machine and try again.
+
+- **Error: WSL 2 requires an update to its kernel component. For information please visit https://aka.ms/wsl2kernel .**
+  - If the Linux kernel package is missing in the %SystemRoot%\system32\lxss\tools folder, you will encounter this error. Resolve it by installing the Linux kernel update MSI package in step #4 of these installation instructions. You may need to uninstall the MSI from ['Add or Remove Programs'](ms-settings:appsfeatures-app), and install it again.
 
 ## Common issues
 
@@ -126,7 +168,7 @@ Please enable the Virtual Machine Platform Windows feature and ensure virtualiza
 
 1. Check the [Hyper-V system requirements](/windows-server/virtualization/hyper-v/system-requirements-for-hyper-v-on-windows#:~:text=on%20Windows%20Server.-,General%20requirements,the%20processor%20must%20have%20SLAT.)
 
-2. If your machine is a VM, please enable [nested virtualization](./wsl2-faq.yml#can-i-run-wsl-2-in-a-virtual-machine-) manually. Launch powershell with admin, and run:
+2. If your machine is a VM, please enable [nested virtualization](./faq.yml#can-i-run-wsl-2-in-a-virtual-machine-) manually. Launch powershell with admin, and run:
 
     ```powershell
     Set-VMProcessor -VMName <VMName> -ExposeVirtualizationExtensions $true
@@ -163,20 +205,13 @@ Once you have disconnected the VPN, you will have to revert the changes to `/etc
 
 Follow [these instructions](https://github.com/Microsoft/WSL/blob/master/CONTRIBUTING.md#8-detailed-logs) to collect detailed logs and file an issue on our GitHub.
 
-### Updating Bash on Ubuntu on Windows
+### Updating WSL
 
-There are two components of Bash on Ubuntu on Windows that can require updating.
+There are two components of Windows Subsystem for Linux that can require updating.
 
-1. The Windows Subsystem for Linux
-  
-   Upgrading this portion of Bash on Ubuntu on Windows will enable any new fixes outlines in the [release notes](./release-notes.md). Ensure that you are subscribed to the Windows Insider Program and that your build is up to date. For finer grain control including resetting your Ubuntu instance check out the [command reference page](./reference.md).
+1. To update the Windows Subsystem for Linux itself, use the command `wsl --update` in PowerShell or CMD.
 
-2. The Ubuntu user binaries
-
-   Upgrading this portion of Bash on Ubuntu on Windows will install any updates to the Ubuntu user binaries including applications that you have installed via apt-get. To update run the following commands in Bash:
-  
-   1. `apt-get update`
-   2. `apt-get upgrade`
+2. To update the specific Linux distribution user binaries, use the command: `apt-get update | apt-get upgrade` in the Linux distribution that you are seeking to update.
   
 ### Apt-get upgrade errors
 
@@ -215,7 +250,7 @@ To turn off legacy console:
 
 ### "Error: 0x80040154" after Windows update
 
-The Windows Subsystem for Linux feature may be disabled during a Windows update. If this happens the Windows feature must be re-enabled. Instructions for enabling the Windows Subsystem for Linux can be found in the [Installation Guide](./install-win10.md).
+The Windows Subsystem for Linux feature may be disabled during a Windows update. If this happens the Windows feature must be re-enabled. Instructions for enabling the Windows Subsystem for Linux can be found in the [Manual Installation Guide](./install-manual.md).
 
 ### Changing the display language
 
@@ -246,6 +281,8 @@ Some users have reported issues with specific firewall applications blocking int
 4. Symantec Endpoint Protection
 
 In some cases turning off the firewall allows for access.  In some cases simply having the firewall installed looks to block access.
+
+If you are using Microsoft Defender Firewall, unchecking "Blocks all incoming connections, including those in the list of allowed apps." allows for access.
 
 ### Permission Denied error when using ping
 
@@ -374,7 +411,7 @@ Please note that adding this command will include metadata and modify the file p
 
 ### Running Windows commands fails inside a distribution
 
-Some distributions [available in Microsoft Store](install-win10.md#step-6---install-your-linux-distribution-of-choice) are yet not fully compatible to run Windows commands in [Terminal](https://en.wikipedia.org/wiki/Linux_console) out of the box. If you get an error `-bash: powershell.exe: command not found` running `powershell.exe /c start .` or any other Windows command, you can resolve it following these steps:
+Some distributions [available in Microsoft Store](install-manual.md#step-6---install-your-linux-distribution-of-choice) are yet not fully compatible to run Windows commands out of the box. If you get an error `-bash: powershell.exe: command not found` running `powershell.exe /c start .` or any other Windows command, you can resolve it following these steps:
 
 1. In your WSL distribution run `echo $PATH`.  
    If it does not include: `/mnt/c/Windows/system32` something is redefining the standard PATH variable.
@@ -393,8 +430,24 @@ Internet Connection Sharing (ICS) is a required component of WSL 2. The ICS serv
 
 Disabling the ICS service (SharedAccess) or disabling ICS through group policy will prevent the WSL HNS network from being created. This will result in failures when creating a new WSL version 2 image, and the following error when trying to convert a version 1 image to version 2.
 
-```
+```console
 There are no more endpoints available from the endpoint mapper.
 ```
 
-Systems that require WSL 2 should leave the ICS service (SharedAccess) in it's default start state, Manual (Trigger Start), and any policy that disables ICS should be overwritten or removed. While disabling the ICS service will break WSL 2, and we do not recommend disabling ICS, portions of ICS can be disabled [using these instructions](windows/security/threat-protection/microsoft-defender-application-guard/faq-md-app-guard#how-can-i-disable-portions-of-ics-without-breaking-application-guard-)
+Systems that require WSL 2 should leave the ICS service (SharedAccess) in it's default start state, Manual (Trigger Start), and any policy that disables ICS should be overwritten or removed. While disabling the ICS service will break WSL 2, and we do not recommend disabling ICS, portions of ICS can be disabled [using these instructions](/windows/security/threat-protection/microsoft-defender-application-guard/faq-md-app-guard)ng-application-guard-)
+
+## Using older versions of Windows and WSL
+
+There are several differences to note if you're running an older version of Windows and WSL, like the Windows 10 Creators Update (Oct 2017, Build 16299) or Anniversary Update (Aug 2016, Build 14393). We recommend that you [update to the latest Windows version](ms-settings:windowsupdate), but if that's not possible, we have outlined some of the differences below.
+
+Interoperability command differences:
+
+- `bash.exe` has been replaced with `wsl.exe`. Linux commands can be run from the Windows Command Prompt or from PowerShell, but for early Windows versions, you man need to use the `bash` command. For example: `C:\temp> bash -c "ls -la"`. The WSL commands passed into `bash -c` are forwarded to the WSL process without modification.  File paths must be specified in the WSL format and care must be taken to escape relevant characters. For example: `C:\temp> bash -c "ls -la /proc/cpuinfo"` or `C:\temp> bash -c "ls -la \"/mnt/c/Program Files\""`.
+- To see what commands are available for a particular distribution, run `[distro.exe] /?`. For example, with Ubuntu: `C:\> ubuntu.exe /?`.
+- Windows path is included in the WSL `$PATH`.
+- When calling a Windows tool from a WSL distribution in an earlier version of Windows 10, you will need to specify the directory path. For example, to call the Windows Notepad app from your WSL command line, enter: `/mnt/c/Windows/System32/notepad.exe`
+- To change the default user to `root` use this command in PowerShell: `C:\> lxrun /setdefaultuser root` and then run Bash.exe to log in: `C:\> bash.exe`. Reset your password using the distributions password command: `$ passwd username` and then close the Linux command line: `$ exit`. From Windows command prompt or Powershell, reset your default user back to your normal Linux user account: `C:\> lxrun.exe /setdefaultuser username`.
+
+## Uninstall legacy version of WSL
+
+If you originally installed WSL on a version of Windows 10 prior to Creators update (Oct 2017, Build 16299), we recommend that you migrate any necessary files, data, etc. from the older Linux distribution you installed, to a newer distribution installed via the Microsoft Store. To remove the legacy distribution from your machine, run the following from a Command Line or PowerShell instance: `wsl --unregister Legacy`. You also have the option to manually remove the older legacy distribution by deleting the `%localappdata%\lxss\` folder (and all it's sub-contents) using Windows File Explorer or with PowerShell: `rm -Recurse $env:localappdata/lxss/`.

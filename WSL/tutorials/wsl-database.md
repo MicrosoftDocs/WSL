@@ -2,7 +2,7 @@
 title: Add or connect a database with WSL
 description: Learn how to set up MySQL MongoDB, PostgreSQL, SQLite, Microsoft SQL Server, or Redis on the Windows Subsystem for Linux.
 keywords: wsl, windows, windowssubsystem, MySQL MongoDB, PostgreSQL, SQLite, Microsoft SQL Server, Redis, windows 10
-ms.date: 04/07/2021
+ms.date: 09/27/2021
 ms.topic: article
 ms.localizationpriority: medium
 ---
@@ -14,9 +14,8 @@ This step-by-step guide will help you get started connecting your project in WSL
 ## Prerequisites
 
 - Running Windows 10, [updated to version 2004](ms-settings:windowsupdate), **Build 19041** or higher.
-- [WSL enabled and installed, and updated to WSL 2](../install-win10.md).
-- [Linux distribution installed](../install-win10.md#step-6---install-your-linux-distribution-of-choice) (Ubuntu was used in our examples).
-- Linux distribution [running in WSL 2 mode](../install-win10.md#set-your-distribution-version-to-wsl-1-or-wsl-2). (WSL can run distributions in both v1 or v2 mode. You can check this by opening PowerShell and entering: `wsl -l -v`).
+- [Install WSL and create a user name and password for the Linux distribution](../install.md).
+- Linux distribution [running in WSL 2 mode](../basic-commands.md#set-wsl-version-to-1-or-2).
 
 ## Differences between database systems
 
@@ -132,7 +131,7 @@ To install MongoDB (version 5.0) on WSL (Ubuntu 20.04):
 
 In the example above we ran MongoDB directly. Other tutorials may start MongoDB using the operating system's built-in init system. You might see the command `sudo systemctl status mongodb` used in tutorials or articles. Currently WSL does not have support for `systemd` (a service management system in Linux).
 
-You shouldn't notice a difference, but if a tutorial recommends using `sudo systemctl`, instead use: `sudo /etc/init.d/`. For example, `sudo systemctl status docker`, for WSL would be `sudo /etc/inid.d/docker status` ...or you can also use `sudo service docker status`.
+You shouldn't notice a difference, but if a tutorial recommends using `sudo systemctl`, instead use: `sudo /etc/init.d/`. For example, `sudo systemctl status docker`, for WSL would be `sudo /etc/init.d/docker status` ...or you can also use `sudo service docker status`.
 
 ### Add the init script to start MongoDB as a service
 
@@ -232,7 +231,7 @@ To set up your own custom alias, or shortcut, for executing these commands:
 
 ### Error: directory-sync fdatasync Invalid argument
 
-Ensure that you are running your Linux distribution in WSL 2 mode. For help switching from WSL 1 to WSL 2, see [Set your distribution version to WSL 1 or WSL 2](../reference.md).
+Ensure that you are running your Linux distribution in WSL 2 mode. For help switching from WSL 1 to WSL 2, see [Set your distribution version to WSL 1 or WSL 2](../basic-commands.md).
 
 ## Additional resources
 

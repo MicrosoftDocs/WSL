@@ -2,7 +2,7 @@
 title: What is Windows Subsystem for Linux 
 description: Learn about the Windows Subsystem for Linux, including the different versions and ways you can use them.
 keywords: BashOnWindows, bash, wsl, windows, windowssubsystem, gnu, linux
-ms.date: 07/21/2020
+ms.date: 09/27/2021
 ms.topic: article
 ms.assetid: 3cefe0db-7616-4848-a2b6-9296746a178b
 ms.localizationpriority: high
@@ -14,18 +14,18 @@ The Windows Subsystem for Linux lets developers run a GNU/Linux environment -- i
 
 You can:
 
-* Choose your favorite GNU/Linux distributions [from the Microsoft Store](https://aka.ms/wslstore).
-* Run common command-line tools such as `grep`, `sed`, `awk`, or other ELF-64 binaries.
-* Run Bash shell scripts and GNU/Linux command-line applications including:  
-    * Tools: vim, emacs, tmux
-    * Languages: [NodeJS](/windows/nodejs/setup-on-wsl2), Javascript, [Python](/windows/python/web-frameworks), Ruby, C/C++, C# & F#, Rust, Go, etc.
-    * Services: SSHD, [MySQL](./tutorials/wsl-database.md), Apache, lighttpd, [MongoDB](./tutorials/wsl-database.md), [PostgreSQL](./tutorials/wsl-database.md).
-* Install additional software using your own GNU/Linux distribution package manager.
-* Invoke Windows applications using a Unix-like command-line shell.
-* Invoke GNU/Linux applications on Windows.
+- Choose your favorite GNU/Linux distributions [from the Microsoft Store](https://aka.ms/wslstore).
+- Run common command-line tools such as `grep`, `sed`, `awk`, or other ELF-64 binaries.
+- Run Bash shell scripts and GNU/Linux command-line applications including:  
+  - Tools: vim, emacs, tmux
+  - Languages: [NodeJS](/windows/nodejs/setup-on-wsl2), Javascript, [Python](/windows/python/web-frameworks), Ruby, C/C++, C# & F#, Rust, Go, etc.
+  - Services: SSHD, [MySQL](./tutorials/wsl-database.md), Apache, lighttpd, [MongoDB](./tutorials/wsl-database.md), [PostgreSQL](./tutorials/wsl-database.md).
+- Install additional software using your own GNU/Linux distribution package manager.
+- Invoke Windows applications using a Unix-like command-line shell.
+- Invoke GNU/Linux applications on Windows.
 
 > [!div class="nextstepaction"]
-> [Install WSL](install-win10.md)
+> [Install WSL](install.md)
 
 <br>
 
@@ -42,31 +42,3 @@ Individual Linux distributions can be run with either the WSL 1 or WSL 2 archite
 <br>
 
 > [!VIDEO https://www.youtube.com/embed/MrZolfGm8Zk]
-
-## Next steps
-
-* [Install WSL 1 and update to WSL 2](./install-win10.md)
-
-* [Compare WSL 2 and WSL 1](./compare-versions.md)
-
-* [Create a user account and password for your new Linux distribution](./user-support.md)
-
-* [Read Frequently Asked Questions](./faq.yml)
-
-* [Read Frequently Asked Questions about WSL 2](./wsl2-faq.yml)
-
-* [Troubleshooting](./troubleshooting.md)
-
-* [Run interoperability commands between Windows and Linux](./interop.md)
-
-* [Run launch commands and configurations](./wsl-config.md)
-
-* [Set up file permissions](./file-permissions.md)
-
-* [Set up WSL for Enterprise](./enterprise.md)
-
-* [Reference WSL commands](./reference.md)
-
-* [Build custom distributions](./build-custom-distro.md)
-
-* [Read the WSL Release Notes](./release-notes.md)

@@ -2,7 +2,7 @@
 title: Get started using Git on WSL
 description: Learn how to set up Git for version control on the Windows Subsystem for Linux.
 keywords: wsl, windows, windowssubsystem, gnu, linux, bash, git, github, version control
-ms.date: 05/26/2021
+ms.date: 09/27/2021
 ms.topic: article
 ms.localizationpriority: medium
 ---
