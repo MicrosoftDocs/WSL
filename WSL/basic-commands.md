@@ -87,7 +87,7 @@ wsl --update
 
 Manually update the version of your WSL Linux kernel. You can also use the command: `wsl --update rollback` to rollback to a previous version of the WSL Linux kernel.
 
-## Check WSL status
+### Check WSL status
 
 ```powershell
 wsl --status
@@ -95,11 +95,23 @@ wsl --status
 
 See general information about your WSL configuration, such as default distribution type, default distribution, and kernel version.
 
+### Help command
+
 ```powershell
 wsl --help
 ```
 
 See a list of options and commands available with WSL.
+
+## Home directory
+
+```powershell
+wsl ~
+```
+
+The `~` can be used with wsl to start in the user's home directory. To jump from any directory back to home from within a WSL command prompt, you can use the command: `cd ~`.
+
+## Shutdown
 
 ```powershell
 wsl --shutdown
@@ -107,7 +119,7 @@ wsl --shutdown
 
 Immediately terminates all running distributions and the WSL 2 lightweight utility virtual machine. This command may be necessary in instances that require you to restart the WSL 2 virtual machine environment, such as [changing memory usage limits](./vhd-size.md) or making a change to your [.wslconfig file](./manage.md#).
 
-### Terminate a WSL distribution
+### Terminate
 
 ```powershell
 wsl --terminate <Distribution Name>
