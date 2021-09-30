@@ -161,9 +161,6 @@ To launch, enter: `teams`
 
 ### Install Microsoft Edge browser for Linux
 
-To install Microsoft Edge for Linux:
-
-1. Use curl to download the package: `sudo curl https://packages.microsoft.com/repos/edge/pool/main/m/microsoft-edge-dev/microsoft-edge-dev_96.0.1028.0-1_amd64.deb -o /tmp/edge.deb`
-2. Use apt to install it: `sudo apt install /tmp/edge.deb -y`
+Find information on how to [install the Microsoft Edge browser for Linux using the command line on the Edge Insider site](https://www.microsoftedgeinsider.com/download/?platform=linux-deb). Select **Get instructions** under the Command line installation section of the page.
 
 To launch, enter: `microsoft-edge`
