@@ -11,7 +11,7 @@ ms.localizationpriority: medium
 
 This step-by-step guide will help you get started developing with remote containers by **setting up Docker Desktop for Windows with WSL 2** (Windows Subsystem for Linux, version 2).
 
-Docker Desktop for Windows is available for free and provides a development environment for building, shipping, and running dockerized apps. By enabling the WSL 2 based engine, you can run both Linux and Windows containers in Docker Desktop on the same machine.
+Docker Desktop for Windows provides a development environment for building, shipping, and running dockerized apps. By enabling the WSL 2 based engine, you can run both Linux and Windows containers in Docker Desktop on the same machine. (Docker Desktop is free for small businesses, for info on Pro, Team, or Business subscriptions, see the [Docker blog](https://www.docker.com/blog/updating-product-subscriptions/)).
 
 ## Overview of Docker containers
 
