@@ -112,18 +112,17 @@ To work with with PostgreSQL databases in VS Code, try the [PostgreSQL extension
 
 To install MongoDB (version 5.0) on WSL (Ubuntu 20.04):
 
-1. Open your WSL terminal (ie. Ubuntu) and go to the root directory: `cd ~`
+1. Open your WSL terminal (ie. Ubuntu) and go to your home directory: `cd ~`
 2. Update your Ubuntu packages: `sudo apt update`
 3. Import the public key used by the MongoDB package management system: `wget -qO - https://www.mongodb.org/static/pgp/server-5.0.asc | sudo apt-key add -`
 4. Create a list file for MongoDB: `echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/5.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-5.0.list`
 5. Reload local package database: `sudo apt-get update`
 6. Install MongoDB packages: `sudo apt-get install -y mongodb-org`
 7. Confirm installation and get the version number: `mongod --version`
-8. Go to your home directory: `cd / && cd home`
-9. Make a directory to store data: `mkdir -p data/db`
-10. Run a Mongo instance: `sudo mongod --dbpath ~/data/db`
-11. Check to see that your MongoDB instance is running with: `ps -e | grep 'mongod'`
-12. To exit the MongoDB Shell, use the shortcut keys: Ctrl + C
+8. Make a directory to store data: `mkdir -p ~/data/db`
+9. Run a Mongo instance: `sudo mongod --dbpath ~/data/db`
+10. Check to see that your MongoDB instance is running with: `ps -e | grep 'mongod'`
+11. To exit the MongoDB Shell, use the shortcut keys: Ctrl + C
 
 > [!TIP]
 > Installing MongoDB may require slightly different steps depending on the Linux distribution being used for installation. See the [MongoDB installation tutorials](https://docs.mongodb.com/manual/installation/#mongodb-installation-tutorials). Also note that MongoDB installation may differ depending on the version # that you are aiming to install. Use the version drop-down list in the top-left corner of the MongoDB documentation to select the version that aligns with your goal.
