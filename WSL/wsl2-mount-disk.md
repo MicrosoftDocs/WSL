@@ -26,7 +26,7 @@ In this simplest case, if you have a disk that doesn't have any partitions, you 
 1. **Identify the disk** - To list the available disks in Windows, run:
 
     ```powershell
-    GET-WMIOBJECT -query "SELECT * from Win32_DiskDrive"
+    GET-CimInstance -query "SELECT * from Win32_DiskDrive"
     ```
 
     The disks paths are available under the 'DeviceID' columns. Usually under the `\\.\PHYSICALDRIVE*` format.
@@ -46,7 +46,7 @@ If you have a disk that you aren't sure what file format it is in, or what parti
 1. **Identify the disk** - To list the available disks in Windows, run:
 
     ```powershell
-    GET-WMIOBJECT -query "SELECT * from Win32_DiskDrive"
+    GET-CimInstance -query "SELECT * from Win32_DiskDrive"
     ```
 
     The disks paths are listed after 'DeviceID', usually in the `\\.\PHYSICALDRIVE*` format.
