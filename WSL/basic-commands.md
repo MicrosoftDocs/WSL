@@ -103,7 +103,7 @@ wsl --help
 
 See a list of options and commands available with WSL.
 
-## Home directory
+### Home directory
 
 ```powershell
 wsl ~
@@ -111,7 +111,7 @@ wsl ~
 
 The `~` can be used with wsl to start in the user's home directory. To jump from any directory back to home from within a WSL command prompt, you can use the command: `cd ~`.
 
-## Shutdown
+### Shutdown
 
 ```powershell
 wsl --shutdown
@@ -151,7 +151,7 @@ wsl --unregister <Distribution Name>
 
 Unregister or uninstall the specific distribution by replacing `<Distribution Name>` with the name of the targeted distribution. This will remove the distribution from WSL and delete all of the associated data. You can also uninstall the Linux distribution app on your Windows machine just like any other store application.
 
-### Mount a disk or device
+## Mount a disk or device
 
 ```powershell
 wsl --mount <DiskPath>
