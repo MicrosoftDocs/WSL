@@ -60,7 +60,7 @@ Chmod will only have one effect, if you remove all the write attributes of a fil
 
 Chmod will change or add metadata depending on the file's already existing metadata. 
 
-Please keep in mind that you cannot give yourself more access than what you have on Windows, even if the metadata says that is the case. For example, you could set the metadata to display that you have write permissions to a file using `chmod 777`, but if you tried to access that file you would still not be able to write to it. This is thanks to interopability, as any read or write commands to Windows files are routed through your Windows user permissions.
+Please keep in mind that you cannot give yourself more access than what you have on Windows, even if the metadata says that is the case. For example, you could set the metadata to display that you have write permissions to a file using `chmod 777`, but if you tried to access that file you would still not be able to write to it. This is thanks to interoperability, as any read or write commands to Windows files are routed through your Windows user permissions.
 
 #### Creating a file in DriveFS
 

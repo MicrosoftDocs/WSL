@@ -105,7 +105,7 @@ For more information, please refer to issue [5749](https://github.com/microsoft/
 
 A 9p protocol file server provides the service on the Linux side to allow Windows to access the Linux file system. If you cannot access WSL using `\\wsl$` on Windows, it could be because 9P did not start correctly.
 
-To check this, you can check the start up logs using: `dmesg |grep 9p`, and this will show you any errors. A successfull output looks like the following:
+To check this, you can check the start up logs using: `dmesg |grep 9p`, and this will show you any errors. A successful output looks like the following:
 
 ```bash
 [    0.363323] 9p: Installing v9fs 9p2000 file system support
