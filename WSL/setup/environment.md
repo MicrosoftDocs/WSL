@@ -52,7 +52,7 @@ Once the process of installing your Linux distribution with WSL is complete, ope
 - Each Linux distribution running on WSL has its own Linux user accounts and passwords.  You will have to configure a Linux user account every time you add a distribution, reinstall, or reset.
 
 > [!NOTE]
-> Linux distributions installed with WSL are a per-user installation and can't be shared with other Windows user accounts.
+> Linux distributions installed with WSL are a per-user installation and can't be shared with other Windows user accounts. Encountering a username error? [StackExchange: What characters should I use or not use in usernames on Linux?](https://serverfault.com/questions/73084/what-characters-should-i-use-or-not-use-in-usernames-on-linux)
 
 ![Ubuntu command line enter UNIX username](../media/UbuntuInstall.png)
 
