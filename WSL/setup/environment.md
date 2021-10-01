@@ -5,6 +5,7 @@ keywords: Best practices, wsl, wsl 2, windows subsystem for linux, set up your d
 ms.date: 09/27/2021
 ms.topic: article
 ms.localizationpriority: medium
+no-loc: [Terminal]
 ---
 
 # Best practices for setting up a WSL development environment
