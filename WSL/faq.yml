@@ -217,7 +217,15 @@ sections:
            [2]: https://docs.microsoft.com/virtualization/api/
            [3]: https://devblogs.microsoft.com/visualstudio/hyper-v-android-emulator-support/
            [4]: https://blogs.vmware.com/workstation/2020/01/vmware-workstation-tech-preview-20h1.html
-  
+
+      - question: |
+         How do I increase or restrict the amount of memory available for WSL 2 to use?
+        answer: See the [Configure settings with .wslconfig and wsl.conf](./wsl-config.md#configure-settings-with-wslconfig-and-wslconf) documentation.
+
+      - question: |
+         How do I restrict the amount of processing power available for WSL 2 to use?
+        answer: See the [Configure settings with .wslconfig and wsl.conf](./wsl-config.md#configure-settings-with-wslconfig-and-wslconf) documentation.
+
       - question: |
          Where can I provide feedback?
         answer: |

@@ -2,7 +2,7 @@
 title: Configure Linux distributions
 description: A reference guide to help you manage and configure multiple Linux distributions running on the Windows Subsystem for Linux.
 keywords: BashOnWindows, bash, wsl, windows, windows subsystem for linux, windowssubsystem, ubuntu, wsl.conf, wslconfig
-ms.date: 09/27/2021
+ms.date: 10/01/2021
 ms.topic: article
 ---
 
@@ -10,7 +10,11 @@ ms.topic: article
 
 Windows Subsystem for Linux (WSL) supports running as many different Linux distributions as you would like to install. This can include choosing distributions from the [Microsoft Store](https://aka.ms/wslstore), [importing a custom distribution](./use-custom-distro.md), or [building your own custom distribution](./build-custom-distro.md).
 
-## Ways to run WSL
+This guide will cover ways to run, manage, and configure your installed Linux distributions, including the configuration options available with **.wslconfig** and **wsl.conf**.
+
+## Managing multiple Linux distributions
+
+### Ways to run WSL
 
 There are several ways to run a Linux distribution with WSL once it's installed:
 
@@ -24,11 +28,11 @@ The method you select should depend on what you're doing. If you've opened a WSL
 
 ![Launch WSL from Start menu](media/start-launch.png)
 
-## List installed distributions
+### List installed distributions
 
 To see a list of the Linux distributions you have installed, enter: `wsl --list` or `wsl -l -v` for a verbose list. To set an installed Linux distribution as the default that is used with the `wsl` command, enter: `wsl -s <DistributionName>` or `wsl --setdefault <DistributionName>`, replacing `<DistributionName>` with the name of the Linux distribution you would like to use. For example, from Powershell, enter: `wsl -s Debian` to set the default distribution to Debian. Now running `wsl npm init` from Powershell will run the `npm init` command in Debian.
 
-## Unregister and reinstall a distribution
+### Unregister and reinstall a distribution
 
 While Linux distributions can be installed through the Microsoft Store, they can't be uninstalled through the store.
 
@@ -40,13 +44,13 @@ Unregisters the distribution from WSL so it can be reinstalled or cleaned up. **
 For example:
 `wsl --unregister Ubuntu` would remove Ubuntu from the distributions available in WSL.  Running `wsl --list` will reveal that it is no longer listed. To reinstall, find the distribution in the Microsoft Store and select "Launch".
 
-## Run as a specific user
+### Run as a specific user
 
 `wsl -u <Username>`, `wsl --user <Username>`
 
 Run WSL as the specified user. Please note that user must exist inside of the WSL distribution.
 
-## Change the default user for a distribution
+### Change the default user for a distribution
 
 `<DistributionName> config --default-user <Username>`
 
@@ -58,7 +62,7 @@ For example:
 > [!NOTE]
 > If you are having trouble figuring out the name of your distribution, use the command `wsl -l`.
 
-## Run a specific distribution
+### Run a specific distribution
 
 `wsl -d <DistributionName>`, `wsl --distribution <DistributionName>`
 
@@ -80,9 +84,9 @@ WSL will detect the existence of these files and read the contents. If the file 
 > [!NOTE]
 > Adjusting per-distribution settings with the .wsl.conf file is only available in Windows Build 17093 and later.
 
-## Per distribution configuration options with wsl.conf
+## wsl.conf
 
-The `wsl.conf` sample file below demonstrates some of the configuration options available to add into your distributions:
+The `wsl.conf` file enables you to set configuration options per each individual Linux distribution. The sample file below demonstrates some of the options available:
 
 ```console
 # Enable extra metadata options by default
@@ -97,11 +101,6 @@ mountFsTab = false
 generateHosts = true
 generateResolvConf = true
 ```
-
-When launching multiple Linux shells for the same distribution, you must wait until the Linux subsystem stops running, this can take approximately 8 seconds after closing the last instance of the distribution shell. If you launch a distribution (ie. Ubuntu), modify the wsl.conf file, close the distribution, and then re-launch it. You might assume that your changes to the wsl.conf file have immediately gone into effect. This is not currently the case as the subsystem could still be running. You must wait ~8 seconds for the subsystem to stop before relaunching in order to give enough time for your changes to be picked up. You can check to see whether your Linux distribution (shell) is still running after closing it by using PowerShell with the command: `wsl --list --running`. If no distributions are running, you will receive the response: "There are no running distributions." You can now restart the distribution to see your wsl.conf updates applied.
-
-> [!TIP]
-> `wsl --shutdown` is a fast path to restarting WSL 2 distributions, but it will shut down all running distributions, so use wisely.
 
 ### Options for wsl.conf
 
@@ -183,21 +182,30 @@ Section label: `[boot]`
 |:----|:----|:----|:----|
 | command | string | "" | A string of the command that you would like to run when the WSL instance starts. This command is run as the root user. e.g: `service docker start` |
 
-## Global configuration options with .wslconfig
+### Restart the distribution after modifying wsl.conf
 
-You can add a file named `.wslconfig` to your Windows home directory (e.g: `C:\Users\crloewen\.wslconfig`) to control global WSL options across Linux distributions. Please see the sample file below as an example. 
+When launching multiple Linux shells for the same distribution, you must wait until the Linux subsystem stops running, this can take approximately 8 seconds after closing the last instance of the distribution shell.
 
-```console
+If you launch a distribution (ie. Ubuntu) and modify the wsl.conf file, you must close the distribution and then re-launch it for those changes to take effect. You might assume that your changes to the wsl.conf file have immediately gone into effect. This is not currently the case as the subsystem could still be running. You must wait ~8 seconds for the subsystem to stop before relaunching in order to give enough time for your changes to be picked up.
+
+You can check to see whether your Linux distribution (shell) is still running after closing it by using PowerShell with the command: `wsl --list --running`. If no distributions are running, you will receive the response: "There are no running distributions." You can now restart the distribution to see your wsl.conf updates applied.
+
+> [!TIP]
+> `wsl --shutdown` is a fast path to restarting WSL 2 distributions, but it will shut down all running distributions, so use wisely.
+
+## .wslconfig
+
+You can add a file named `.wslconfig` to your Windows home directory (e.g: `C:\Users\crloewen\.wslconfig`) to control WSL configuration options **globally** across all of your installed Linux distributions. The sample file below demonstrates some of the options available:
+
+```bash
 [wsl2]
 kernel=C:\\temp\\myCustomKernel
 memory=4GB # Limits VM memory in WSL 2 to 4 GB
-processors=2 # Makes the WSL 2 VM use two virtual processors
+processors=2 # Restricts the WSL 2 VM to using two virtual processors
 ```
 
 > [!NOTE]
 > Global configuration options with `.wslconfig` in only available for distributions running as WSL 2 in Windows Build 19041 and later. Keep in mind you may need to run `wsl --shutdown` to shut down the WSL 2 VM and then restart your WSL instance for these changes to take affect.
-
-This file can contain the following options:
 
 ### Options for .wslconfig
 
@@ -219,7 +227,41 @@ Entries with the `path` value must be Windows paths with escaped backslashes, e.
 
 Entries with the `size` value must be a size followed by a unit, for example `8GB` or `512MB`.
 
-### WSL 2 setting preview options
+### Memory allocation
+
+WSL 2 automatically assigns memory to each Linux distribution as needed. The virtual machine (VM) that powers WSL 2 will default to assigning up to 50% of the available RAM or 8GB, whichever is less (on Windows build 20175 or newer).
+
+The .wslconfig file enables you to set your own memory allocation with the `memory=` option.
+
+If you want to maximize the performance of your machine with WSL, you can **expand** assigned memory by setting the `memory=` option above 8GB in your .wslconfig file:
+
+```bash
+memory=12GB # Expands VM memory in WSL to 12GB
+```
+
+If you are on a low-resource machine and want to **restrict** the amount of memory assigned for WSL, you can set the `memory=` option below 8GB (or 50% of your available RAM) in your .wslconfig file:
+
+```bash
+memory=4GB # Restricts VM memory in WSL to 4GB
+```
+
+Memory can be set as gigabytes (GB) or megabytes (MB) as whole number integers.
+
+### Processor allocation
+
+By default, WSL will use all available cores on your computer's processor. However, you can use the .wslconfig file to control how many of your available processors are used and balance your core usage with any other tasks you may be running.
+
+To limit the number of cores that WSL 2 utilizes, keeping others free for Windows-based tasks, you can set the `processors=` option:
+
+```bash
+[wsl 2]
+processors=2 # Restricts the WSL 2 VM to using two virtual processors
+```
+
+> [!NOTE]
+> To view the number of cores your machine has available, open Windows Task Manager (Ctrl+Alt+Delete) and select the Performance tab.
+
+## WSL 2 setting preview options
 
 These options are only available in the latest preview builds if you are on the latest builds of the [Windows Insiders program](https://insider.windows.com/getting-started).
 
