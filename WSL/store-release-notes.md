@@ -7,7 +7,7 @@ ms.topic: article
 ms.localizationpriority: high
 ---
 
-# Release Notes for Windows Subsystem for Linux kernel
+# Release Notes for Windows Subsystem for Linux in the Microsoft Store
 
 These release notes are for WSL inside of the Microsoft Store, which can be accessed [via this link](https://aka.ms/wslstorepage).
 
