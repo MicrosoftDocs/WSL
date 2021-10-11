@@ -11,6 +11,24 @@ ms.localizationpriority: high
 
 We've added support for WSL 2 distributions, [which use a full Linux kernel](https://devblogs.microsoft.com/commandline/shipping-a-linux-kernel-with-windows/). This Linux kernel is open source, with its source code available at the [WSL2-Linux-Kernel](https://github.com/microsoft/WSL2-Linux-Kernel) repository. This Linux kernel is delivered to your machine via Microsoft Update, and follows a separate release schedule to the Windows Subsystem for Linux which is delivered as part of the Windows image.
 
+## 5.10.60.1
+
+*Release Date*: Prerelease 2021/10/05
+
+[Official Github release link](https://github.com/microsoft/WSL2-Linux-Kernel/releases/tag/linux-msft-wsl-5.10.60.1)
+
+- Release rolling-lts/wsl/5.10.60.1
+- Update to upstream stable kernel release 5.10.60
+- Enable virtio-pmem with support for PCI BAR-relative addresses
+- Enable vPCI support under Hyper-V for arm64
+- Enable io_uring support
+- Enable USB over IP support
+- Enable paravirtualized spinlock support for x86_64
+- Refresh dxgkrnl driver to pick up bug fixes and code cleanups
+- Enable NFS client support for NFSv4.1
+- Enable USB kernel configuration options for interacting with an Arduino over USB
+- Provide a WSL2-specific README.md
+
 ## 5.10.43.3
 
 *Release Date*: Prerelease 2021/07/12
