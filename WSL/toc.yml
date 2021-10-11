@@ -66,3 +66,5 @@
       href: release-notes.md
     - name: Linux kernel Release Notes
       href: kernel-release-notes.md
+    - name: Microsoft Store Release Notes
+      href: store-release-notes.md
