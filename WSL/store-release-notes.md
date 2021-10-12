@@ -11,6 +11,10 @@ ms.localizationpriority: high
 
 These release notes are for [WSL inside of the Microsoft Store](https://aka.ms/wslstorepage).
 
+Known Issues:
+* Launching Windows Subsystem from Linux from session zero does not currently work (for example from an ssh connection).
+* The Linux icon in Windows Explorer will only appear if you have the Windows Subsystem for Linux Optional Component installed.
+
 ## 0.47.1.0
 
 * WSLg is now bundled as part of the WSL app!
