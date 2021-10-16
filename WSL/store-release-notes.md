@@ -15,7 +15,7 @@ These release notes are for [WSL inside of the Microsoft Store](https://aka.ms/w
 * Launching Windows Subsystem from Linux from session zero does not currently work (for example from an ssh connection).
 * The Linux icon in Windows Explorer will only appear if you have the Windows Subsystem for Linux Optional Component installed.
 
-## 0.48.1.0
+## 0.48.2.0
 
 * Fix issue preventing Windows binaries from launching from inside the Linux filesystem [GH 7521].
 * Fix error handling condition for `wsl --mount --bare`.
