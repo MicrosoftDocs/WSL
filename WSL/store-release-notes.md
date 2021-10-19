@@ -11,9 +11,25 @@ ms.localizationpriority: high
 
 These release notes are for [WSL inside of the Microsoft Store](https://aka.ms/wslstorepage).
 
-Known Issues:
+## Known Issues:
 * Launching Windows Subsystem from Linux from session zero does not currently work (for example from an ssh connection).
 * The Linux icon in Windows Explorer will only appear if you have the Windows Subsystem for Linux Optional Component installed.
+
+## 0.48.2.0
+
+* Fix issue preventing Windows binaries from launching from inside the Linux filesystem [GH 7521].
+* Fix error handling condition for `wsl --mount --bare`.
+* Add localized strings for the following locales: `cs-CZ;da-DK;de-DE;en-GB;en-US;es-ES;fi-FI;fr-FR;hu-HU;it-IT;ja-JP;ko-KR;nb-NO;nl-NL;pl-PL;pt-BR;pt-PT;ru-RU;sv-SE;tr-TR;zh-CN;zh-TW`. We are investigating an issue where some strings are not being properly localized.
+* Fix for /etc/fstab mounts so they are present in both elevated and non-elevated mount namespaces.
+* Added a 5 second retry timeout to `wsl.exe --mount` operations.
+* Simplify vm idle termination logic
+* Update `wsl.exe --mount` to support passing options before the disk name for example: `wsl.exe --mount --vhd foo.vhdx`
+* Allow individual distros to opt-out of GUI applications via a new /etc/wsl.conf setting:
+  ```
+  [general]
+  guiApplications=false
+  ```
+* Ensure requested amount of swap size is available to Linux (previously was a page smaller than requested due to mkswap overhead).
 
 ## 0.47.1.0
 
