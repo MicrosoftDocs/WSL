@@ -180,7 +180,7 @@ Please enable the Virtual Machine Platform Windows feature and ensure virtualiza
 
 5. Additionally, if you have 3rd party hypervisors installed (Such as VMware or VirtualBox) then please ensure you have these on the latest versions which can support HyperV ([VMware 15.5.5+](https://blogs.vmware.com/workstation/2020/05/vmware-workstation-now-supports-hyper-v-mode.html) and [VirtualBox 6+](https://www.virtualbox.org/wiki/Changelog-6.0)) or are turned off.
 
-Learn more about how to [Configure Nested Virtualization](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization#configure-nested-virtualization) when running Hyper-V in a Virtual Machine.
+Learn more about how to [Configure Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization#configure-nested-virtualization) when running Hyper-V in a Virtual Machine.
 
 ### Bash loses network connectivity once connected to a VPN
 
