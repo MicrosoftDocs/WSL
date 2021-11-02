@@ -13,7 +13,7 @@ We've added support for WSL 2 distributions, [which use a full Linux kernel](htt
 
 ## 5.10.60.1
 
-*Release Date*: Prerelease 2021/10/05
+*Release Date*: 2021/11/02 ( Prerelease 2021/10/05 )
 
 [Official Github release link](https://github.com/microsoft/WSL2-Linux-Kernel/releases/tag/linux-msft-wsl-5.10.60.1)
 
