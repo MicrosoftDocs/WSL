@@ -116,7 +116,11 @@ For example, when storing your WSL project files:
 
 ![Windows File Explorer displaying Linux storage](../media/windows-file-explorer.png)
 
-## Set up VS Code or Visual Studio for editing and debugging
+## Set up your favorite code editor
+
+We recommend using Visual Studio Code or Visual Studio, as they directly support remote development and debugging with WSL.
+
+### Use Visual Studio Code
 
 Follow this step-by-step guide to [Get started using Visual Studio Code with WSL](../tutorials/wsl-vscode.md), which includes installing the [Remote Development extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack). This extension enables you to run WSL, SSH, or a remote container for editing and debugging with the full set of Visual Studio Code features. Quickly swap between different, separate development environments and make updates without worrying about impacting your local machine.
 
@@ -126,7 +130,9 @@ Once VS Code is installed and set up, you can open your WSL project with a VS Co
 
 ![VS Code with WSL extensions displayed](../media/vscode-remote-wsl-extensions.png)
 
-Follow this step-by-step guide to [Get started using Visual Studio with WSL for C++ cross-platform development](/cpp-docs/build/walkthrough-build-debug-wsl2.md). Visual Studio 2022 enables you to build and debug CMake projects on Windows, WSL distributions, and SSH connections from the same instance of Visual Studio. 
+### Use Visual Studio
+
+Follow this step-by-step guide to [Get started using Visual Studio with WSL for C++ cross-platform development](/cpp-docs/build/walkthrough-build-debug-wsl2). Visual Studio 2022 enables you to build and debug CMake projects on Windows, WSL distributions, and SSH connections from the same instance of Visual Studio. 
 
 ![Select a target system in Visual Studio 2022](../media/vs-target-system.png)
 
