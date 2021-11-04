@@ -27,7 +27,7 @@
     - name: Get started with Docker remote containers
       href: tutorials/wsl-containers.md
     - name: Get started with Visual Studio for C++ development
-      href: /cpp/build/walkthrough-build-debug-wsl2.md
+      href: /cpp/build/walkthrough-build-debug-wsl2
     - name: Set up GPU acceleration (NVIDIA CUDA/DirectML)
       href: tutorials/gpu-compute.md
     - name: Run Linux GUI apps
