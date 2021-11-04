@@ -118,7 +118,7 @@ For example, when storing your WSL project files:
 
 ## Set up your favorite code editor
 
-We recommend using Visual Studio Code or Visual Studio, as they directly support remote development and debugging with WSL.
+We recommend using Visual Studio Code or Visual Studio, as they directly support remote development and debugging with WSL. Visual Studio Code allows you to use WSL as a full-featured development environment. Visual Studio offers native WSL support for C++ cross-platform development. 
 
 ### Use Visual Studio Code
 
