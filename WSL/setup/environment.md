@@ -132,7 +132,7 @@ Once VS Code is installed and set up, you can open your WSL project with a VS Co
 
 ### Use Visual Studio
 
-Follow this step-by-step guide to [Get started using Visual Studio with WSL for C++ cross-platform development](/cpp/build/walkthrough-build-debug-wsl2). Visual Studio 2022 enables you to build and debug CMake projects on Windows, WSL distributions, and SSH connections from the same instance of Visual Studio. 
+Follow this step-by-step guide to [Get started using Visual Studio with WSL for C++ cross-platform development](/cpp/build/walkthrough-build-debug-wsl2.md). Visual Studio 2022 enables you to build and debug CMake projects on Windows, WSL distributions, and SSH connections from the same instance of Visual Studio. 
 
 ![Select a target system in Visual Studio 2022](../media/vs-target-system.png)
 
