@@ -107,7 +107,7 @@ To launch, enter: `gimp`
 
 ### Install Nautilus
 
-Nautilus, also known as GNOME Files, is the file manager for the GNOME desktop. (Similiar to Windows File Explorer).
+Nautilus, also known as GNOME Files, is the file manager for the GNOME desktop. (Similar to Windows File Explorer).
 
 ```bash
 sudo apt install nautilus -y
