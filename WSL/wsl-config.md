@@ -78,7 +78,7 @@ To get to the `/etc` directory for an installed distribution, use the distributi
 WSL will detect the existence of these files and read the contents. If the file is missing or malformed (that is, improper markup formatting), WSL will continue to launch as normal.
 
 > [!NOTE]
-> Adjusting per-distribution settings with the .wsl.conf file is only available in Windows Build 17093 and later.
+> Adjusting per-distribution settings with the wsl.conf file is only available in Windows Build 17093 and later.
 
 ## Per distribution configuration options with wsl.conf
 
