@@ -14,7 +14,7 @@ ms.localizationpriority: high
 You must be running Windows 10 version 2004 and higher (Build 19041 and higher) or Windows 11.
   
 > [!NOTE]
-> To check your Windows version and build number, select **Windows logo key + R**, type **winver**, select **OK**. You can [update to the latest Windows version](ms-settings:windowsupdate) in the Settings menu or using the [Windows Update Assistant](https://www.microsoft.com/software-download/windows10).
+> To check your Windows version and build number, select **Windows logo key + R**, type **winver**, select **OK**. You can update to the latest Windows version by selecting **Start** > **Settings** > **Windows Update **> **[Check for updates](ms-settings:windowsupdate)**.
 
 If you're running an older build, or just prefer not to use the install command and would like step-by-step directions, see **[WSL manual installation steps for older versions](./install-manual.md)**.
 
