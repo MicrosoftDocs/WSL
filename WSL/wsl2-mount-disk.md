@@ -7,7 +7,7 @@ ms.topic: article
 ms.localizationpriority: medium
 ---
 
-# Mount a Linux disk in WSL 2 (preview)
+# Mount a Linux disk in WSL 2
 
 If you want to access a Linux disk format that isn't supported by Windows, you can use WSL 2 to mount your disk and access its content. This tutorial will cover the steps to identify the disk and partition to attach to WSL2, how to mount them, and how to access them.
 
@@ -120,6 +120,10 @@ wsl --unmount <DiskPath>
 
 ## Mount a VHD in WSL
 
+> [!NOTE]
+> [WSL from the Microsoft Store](https://devblogs.microsoft.com/commandline/a-preview-of-wsl-in-the-microsoft-store-is-now-available/) introduces a new argument to directly mount a VHD: `wsl --mount --vhd <pathToVHD>`
+>
+
 You can also mount virtual hard disk files (VHD) into WSL using `wsl --mount`. To do this, you first need to mount the VHD into Windows using the [`Mount-VHD`](/powershell/module/hyper-v/mount-vhd) command in Windows. Be sure to run this command with administrator privileges. Below is an example where we use this command, and also output the disk path. Be sure to replace `<pathToVHD>` with your actual VHD path. 
 
 ```powershell
@@ -188,6 +192,17 @@ wsl --mount <DiskPath> --bare
 ```
 
 This will make the block device available inside WSL 2 so it can be mounted manually from there. Use `lsblk` to list the available block devices inside WSL 2.
+
+### Specifying the mount name
+
+> [!NOTE]
+> This option is only available with [WSL from the Microsoft Store](https://devblogs.microsoft.com/commandline/a-preview-of-wsl-in-the-microsoft-store-is-now-available/)
+
+By default the mountpoint name is generated based on the physical disk or VHD name. This can be overriden with `--name`. Example: 
+
+```powershell
+wsl --mount <DiskPath> --name myDisk
+```
 
 ### Detaching a disk
 
