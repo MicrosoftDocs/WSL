@@ -20,7 +20,7 @@ If you're running an older build, or just prefer not to use the install command 
 
 ## Install
 
-You can now install everything you need to run Windows Subsystem for Linux (WSL) by entering this command in PowerShell or Windows Command Prompt and then restarting your machine.
+You can now install everything you need to run Windows Subsystem for Linux (WSL) by entering this command in an administrator PowerShell or Windows Command Prompt and then restarting your machine.
 
 ```powershell
 wsl --install
