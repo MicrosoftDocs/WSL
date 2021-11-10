@@ -93,3 +93,5 @@ Before attaching your USB device, ensure that a WSL command line is open.  This 
     ```
 
 To learn more about how this works, see the [Windows Command Line Blog](https://devblogs.microsoft.com/commandline/connecting-usb-devices-to-wsl/#how-it-works) and the [usbipd-win repo on GitHub](https://devblogs.microsoft.com/commandline/connecting-usb-devices-to-wsl/#how-it-works).
+
+For a video demonstration, see [WSL 2: Connect USB devices (Tabs vs Spaces show)](https://www.youtube.com/watch?v=I2jOuLU4o8E).
