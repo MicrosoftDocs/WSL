@@ -38,7 +38,7 @@ This will install:
 - A command line tool `usbipd`. The location of this tool will be added to the PATH environment variable.
 - A firewall rule called `usbipd` to allow all local subnets to connect to the service. You can modify this firewall rule to fine tune access control.
 
-## Install the USBIP tools and hardware database
+## Install the USBIP tools and hardware database in Linux
 
 Once the USB/IP project has completed installing, you will need to install the user space tools and a database of USB hardware identifiers.
 
