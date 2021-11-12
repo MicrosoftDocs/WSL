@@ -2,7 +2,7 @@
 title: Manual installation steps for older versions of WSL
 description: Step by step instructions to manually install WSL on older versions of Windows, rather than using the wsl install command.
 keywords: wsl, install, BashOnWindows, bash, windows subsystem for linux, install ubuntu on windows, enable WSL2, linux on windows
-ms.date: 09/27/2021
+ms.date: 11/12/2021
 ms.topic: article
 ms.localizationpriority: high
 ---
@@ -15,7 +15,7 @@ For simplicity, we generally recommend using the [`wsl --install`](./install.md)
 
 You must first enable the "Windows Subsystem for Linux" optional feature before installing any Linux distributions on Windows.
 
-Open PowerShell as Administrator and run:
+Open PowerShell as Administrator (Start menu > PowerShell > right-click > Run as Administrator) and enter this command:
 
 ```powershell
 dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
