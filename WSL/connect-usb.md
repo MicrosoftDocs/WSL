@@ -6,7 +6,7 @@ ms.topic: article
 ms.localizationpriority: medium
 ---
 
-# Connect USB devices to WSL 2
+# Connect USB devices
 
 This guide will walk through the steps necessary to connect a USB device to a Linux distribution running on WSL 2 using the USB/IP open-source project, [usbipd-win](https://github.com/dorssel/usbipd-win).
 
@@ -15,6 +15,7 @@ Setting up the USB/IP project on your Windows machine will enable common develop
 ## Prerequisites
 
 - Running on either Windows 11 (Build 22000 or higher) or Windows 10 (Build ?? or higher).
+- Linux distribution installed and [set to WSL 2](./basic-commands.md#set-wsl-version-to-1-or-2).
 - Running [Linux kernel 5.10.60.1 or higher](./kernel-release-notes.md).
 
 > [!NOTE]
