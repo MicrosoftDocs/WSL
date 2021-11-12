@@ -22,6 +22,9 @@ Setting up the USB/IP project on your Windows machine will enable common develop
 > To check your Windows version and build number, select **Windows logo key + R**, type **winver**, select **OK**. You can update to the latest Windows version by selecting **Start** > **Settings** > **Windows Update** > **[Check for updates](ms-settings:windowsupdate)**.
 > To check your Linux kernel version, open your Linux distribution and enter the command: `uname -a`. To manually update to the latest kernel, open PowerShell and enter the command: 'wsl --update`.
 
+> [!IMPORTANT]
+> Windows 11 is recommended for connecting USB devices to a Linux distribution running on WSL 2. However, Windows 10 can be used to connect USB devices by building your own USBIP enabled WSL 2 kernel following the [instructions in the USBIPD-WIN project repo](https://github.com/dorssel/usbipd-win/wiki/WSL-support).
+
 ## Install the USBIPD-WIN project
 
 Support for connecting USB devices is not natively available in WSL, so you will need to install the open-source usbipd-win project.
