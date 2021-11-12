@@ -76,7 +76,7 @@ To expand your maximum VHD size beyond 256GB:
       sudo resize2fs /dev/sdb <sizeInMegabytes>M
    ```
 
-   - Using the example from above, we changed the vhd size to **512000**, so the command would be: `sudo resize2fs /dev/sbd 512000M`.
+   - Using the example from above, we changed the vhd size to **512000**, so the command would be: `sudo resize2fs /dev/sdb 512000M`.
 
    > [!NOTE]
    > You may need to install **resize2fs**.  If so, you can use this command to install it:  `sudo apt install resize2fs`.
