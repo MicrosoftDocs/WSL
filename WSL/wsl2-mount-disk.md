@@ -1,8 +1,7 @@
 ---
 title: Get started mounting a Linux disk in WSL 2 
 description: Learn how to set up a disk mount in WSL 2 and how to access it.
-keywords: wsl, windows, windowssubsystem, gnu, linux, bash, disk, ext4, filesystem, mount
-ms.date: 09/27/2021
+ms.date: 11/15/2021
 ms.topic: article
 ms.localizationpriority: medium
 ---
@@ -10,6 +9,8 @@ ms.localizationpriority: medium
 # Mount a Linux disk in WSL 2
 
 If you want to access a Linux disk format that isn't supported by Windows, you can use WSL 2 to mount your disk and access its content. This tutorial will cover the steps to identify the disk and partition to attach to WSL2, how to mount them, and how to access them.
+
+If you are looking for guidance on how to connect a USB device (flash drive, SD card reader, etc), see [Connect USB devices](./connect-usb.md).
 
 > [!NOTE]
 > Administrator access is required to attach a disk to WSL 2.
@@ -220,7 +221,5 @@ If `Diskpath` is omitted, all attached disks are unmounted and detached.
 ## Limitations
 
 - At this time, only entire disks can be attached to WSL 2, meaning that it's not possible to attach only a partition. Concretely, this means that it's not possible to use `wsl --mount` to read a partition on the boot device, because that device can't be detached from Windows.
-
-- USB flash drives and SD cards are not supported at this time and will fail to attach to WSL 2. USB disks are supported though.
 
 - Only filesystems that are natively supported in the kernel can be mounted by `wsl --mount`. This means that it's not possible to use installed filesystem drivers (such as ntfs-3g for example) by calling `wsl --mount`.
