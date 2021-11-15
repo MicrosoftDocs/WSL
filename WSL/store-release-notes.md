@@ -11,8 +11,6 @@ ms.localizationpriority: high
 
 The release notes for [WSL inside of the Microsoft Store](https://aka.ms/wslstorepage) can be found on the [Microsoft/WSL Github repository releases page](https://github.com/microsoft/WSL/releases). Please see that list for latest updates.
 
-Below are the known issues for using WSL inside of the Microsoft Store:
-
 ## Known Issues:
 * Launching Windows Subsystem from Linux from session zero does not currently work (for example from an ssh connection).
 * The Linux icon in Windows Explorer will only appear if you have the Windows Subsystem for Linux Optional Component installed.
