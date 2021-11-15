@@ -15,6 +15,40 @@ These release notes are for [WSL inside of the Microsoft Store](https://aka.ms/w
 * Launching Windows Subsystem from Linux from session zero does not currently work (for example from an ssh connection).
 * The Linux icon in Windows Explorer will only appear if you have the Windows Subsystem for Linux Optional Component installed.
 
+## 0.50.2.0
+
+* Added new logo for Windows Subsystem for Linux
+* Enable hardware performance counters if the hardware supports them [GH 4678]
+    A `%USERPROFILE%\.wslconfig` option has been added to opt-out:
+    ```
+    [wsl2]
+    hardwarePerformanceCounters=false
+    ```
+* Fix issue when printing system error messages that contain inserts
+* Update the user tile to launch in the user's home directory instead of C:\WINDOWS\System32
+* Restore default signal dispositions for /etc/wsl.conf boot.command process to prevent zombie processes [GH 7575]
+* Switch to using a static CRT for Windows binaries
+* Use store API to download distributions via `wsl.exe --install`
+* Add `--no-launch` option to `wsl.exe --install`
+* Many updates to localized strings
+* Update to the official 22000 sdk
+* Strip Linux symbols for release builds
+* Update Linux kernel to 5.10.74.3
+ * Update to upstream stable kernel release 5.10.74
+ * Enable BPF Type Format (CONFIG_DEBUG_INFO_BTF) for use by eBPF tools [GH 7437]
+ * Changed Dxgkrnl version to 2110
+  * Implemented D3DKMTShareObjectWithHost
+  * Fixed QueryStatistics VM bus alignment issue for the result
+  * Implemented D3DKMTCreateSyncFile
+  * Address upstream submission feedback
+  * Moved d3dkmthk to include/uapi/misc
+  * Replaces u32 by __u32 and u64 by __u64
+  * Added "_" in front of the enumerator values to support including both WDK and Linux headers
+  * Removed holes in the user mode visible structures to be compatible with 32 bit apps
+  * Replaces pointer in the user mode visible structures with a define to be u64 for user mode apps
+  * Fix build failure with GCC versions older than 8.1 [GH 7558]
+ * Enable the Buffer Sharing and Sync File Frameworks (CONFIG_DMA_SHARED_BUFFER, CONFIG_SYNC_FILE) for Dxgkrnl usage
+
 ## 0.48.2.0
 
 * Fix issue preventing Windows binaries from launching from inside the Linux filesystem [GH 7521].
