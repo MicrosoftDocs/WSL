@@ -1,8 +1,7 @@
 ---
 title: Install WSL
 description: Install Windows Subsystem for Linux with the command, wsl --install. Use a Bash terminal on your Windows machine run by your preferred Linux distribution - Ubuntu, Debian, SUSE, Kali, Fedora, Pengwin, Alpine, and more are available.
-keywords: wsl, install, BashOnWindows, bash, windows subsystem for linux, install ubuntu on windows, enable WSL2, linux on windows
-ms.date: 09/27/2021
+ms.date: 11/22/2021
 ms.topic: article
 ms.localizationpriority: high
 ---
@@ -50,6 +49,12 @@ Once you have installed WSL, you will need to create a user account and password
 ## Set up and best practices
 
 We recommend following our [Best practices for setting up a WSL development environment](./setup/environment.md) guide for a step-by-step walk-through of how to set up a user name and password for your installed Linux distribution(s), using basic WSL commands, installing and customizing Windows Terminal, set up for Git version control, code editing and debugging using the VS Code remote server, good practices for file storage, setting up a database, mounting an external drive, setting up GPU acceleration, and more. 
+
+## Upgrade from WSL 1 to WSL 2
+
+To update from WSL 1 to WSL 2 on previously installed Linux distributions, use the command: `wsl --set-version <distro name> 2` replacing `<distro name>` with the name of the Linux distribution that you want to update. For example, `wsl --set-version Ubuntu-20.04 2` will set your Ubuntu 20.04 distribution to use WSL 2. New Linux installations will be set to WSL 2 by default, but the `wsl --set-version` command can be used to downgrade from WSL 2 to WSL 1 as well. To see whether your Linux distribution is set to WSL 1 or WSL 2, use the command: `wsl -l -v`.
+
+To learn more, see the [Command reference for WSL](./basic-commands.md) for a list of WSL commands, [Comparing WSL 1 and WSL 2](./compare-versions.md) for guidance on which to use for your work scenario, or [Best practices for setting up a WSL development environment](./setup/environment.md) for general guidance on setting up a good development workflow with WSL.
 
 ## Want to try the latest WSL preview features?
 
