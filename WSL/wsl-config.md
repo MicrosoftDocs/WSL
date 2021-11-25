@@ -74,22 +74,20 @@ WSL will detect the existence of these files, read the contents, and automatical
 
 ## Configuration setting options
 
-WSL supports four sections: `automount`, `network`, `interop`, and `user`. *(In keeping with .ini conventions, keys are declared under a section.)*
+WSL supports four sections: `automount`, `network`, `interop`, and `user`. *(Modeled after .ini file conventions, keys are declared under a section, like .gitconfig files.)*
 
 ## Automount settings
 
-Section: `[automount]`
+Section label: `[automount]`
 
 | key | value | default | notes |
 |:-----------|:---------|:--------|:------|
 | enabled | boolean | true | `true` causes fixed drives (i.e `C:/` or `D:/`) to be automatically mounted with DrvFs under `/mnt`.  `false` means drives won't be mounted automatically, but you could still mount them manually or via `fstab`.                                                                                                             |
 | mountFsTab | boolean | true | `true` sets `/etc/fstab` to be processed on WSL start. /etc/fstab is a file where you can declare other filesystems, like an SMB share. Thus, you can mount these filesystems automatically in WSL on start up.                                                                                                                |
-| root| String | `/mnt/` | Sets the directory where fixed drives will be automatically mounted. For example, if you have a directory in WSL at `/windir/` and you specify that as the root, you would expect to see your fixed drives mounted at `/windir/c`                                                                                              |
-| options | comma-separated list of values | empty string | The mount option values are listed below and are appended to the default DrvFs mount options string. **Only DrvFs-specific options can be specified.** Options that the mount binary would normally parse into a flag are not supported. If you want to explicitly specify those options, you must include every drive for which you want to do so in /etc/fstab. |
+| root| string | `/mnt/` | Sets the directory where fixed drives will be automatically mounted. By default this is set to `/mnt/`, so your Windows file system C-drive is mounted to `/mnt/c/`. If you change `/mnt/` to `/windir/`, you should expect to see your fixed C-drive mounted to `/windir/c`.|
+| options | comma-separated list of values, such as uid, gid, etc, see automount options below | empty string | The automount option values are listed below and are appended to the default DrvFs mount options string. **Only DrvFs-specific options can be specified.**|
 
-By default, WSL sets the uid and gid to the value of the default user (in Ubuntu distro, the default user is created with uid=1000,gid=1000). If the user specifies a gid or uid option explicitly via this key, the associated value will be overwritten. Otherwise, the default value will always be appended.
-
-**Note:** These options are applied as the mount options for all automatically mounted drives. To change the options for a specific drive only, use /etc/fstab instead.
+The automount options are applied as the mount options for all automatically mounted drives. To change the options for a specific drive only, use the `/etc/fstab` file instead. Options that the mount binary would normally parse into a flag are not supported. If you want to explicitly specify those options, you must include every drive for which you want to do so in `/etc/fstab`.
 
 ### Automount options
 
@@ -97,13 +95,17 @@ Setting different mount options for Windows drives (DrvFs) can control how file 
 
 | Key | Description | Default |
 |:----|:----|:----|
-|uid| The User ID used for the owner of all files | The default User ID of your WSL distro (On first installation this defaults to 1000)
-|gid| The Group ID used for the owner of all files | The default group ID of your WSL distro (On first installation this defaults to 1000)
+|uid| The User ID used for the owner of all files | The default User ID of your WSL distro (on first installation this defaults to 1000)
+|gid| The Group ID used for the owner of all files | The default group ID of your WSL distro (on first installation this defaults to 1000)
 |umask | An octal mask of permissions to exclude for all files and directories | 000
 |fmask | An octal mask of permissions to exclude for all files | 000
 |dmask | An octal mask of permissions to exclude for all directories | 000
 |metadata | Whether metadata is added to Windows files to support Linux system permissions | disabled
 |case | Determines directories treated as case sensitive and whether new directories created with WSL will have the flag set. See [case sensitivity](./case-sensitivity.md) for a detailed explanation of the options. | `off`
+
+By default, WSL sets the uid and gid to the value of the default user. For example, in Ubuntu, the default user is uid=1000, gid=1000. If this value is used to specify a different gid or uid option, the default user value will be overwritten. Otherwise, the default value will always be appended.
+
+User file-creation mode mask (umask) sets permission for newly created files. The default is 022, only you can write data but anyone can read data. Values can be changed to reflect different permission settings. For example, `umask=077` changes permission to be completely private, no other user can read or write data. To further specify permission, fmask (files) and dmask (directories) can also be used.
 
 > [!NOTE]
 > The permission masks are put through a logical OR operation before being applied to files or directories.
@@ -197,20 +199,42 @@ These options are only available in the latest preview builds if you are on the 
 | nestedVirtualization | boolean | `true` | Boolean to turn on or off nested virtualization for WSL2. |
 | vmIdleTimeout | number | `60000` | The number of milliseconds that a VM is idle, before it is shut down. |
 
-## Example wsl.conf file 
+### Example wsl.conf file
 
-The `wsl.conf` sample file below demonstrates some of the configuration options available to add into your distributions:
+The `wsl.conf` sample file below demonstrates some of the configuration options available. In this example, the distribution is Ubuntu-20.04 and the file path is `\\wsl.localhost\Ubuntu-20.04\etc\wsl.conf`.
 
-```console
-# Enable extra metadata options by default
+```bash
+# Automatically mount Windows drive when the distribution is launched
 [automount]
-enabled = true
-root = /windir/
-options = "metadata,umask=22,fmask=11"
-mountFsTab = false
 
-# Enable DNS – even though these are turned on by default, we'll specify here just to be explicit.
+# Set to true will automount fixed drives (C:/ or D:/) with DrvFs under the root directory set above. Set to false means drives won't be mounted automatically, but need to be mounted manually or with fstab.
+enabled = true
+
+# Sets the directory where fixed drives will be automatically mounted. This example changes the mount location, so your C-drive would be /c, rather than the default /mnt/c. 
+root = /
+
+# DrvFs-specific options can be specified.  
+options = "metadata,uid=1003,gid=1003,umask=077,fmask=11,case=off"
+
+# Sets the `/etc/fstab` file to be processed when a WSL distribution is launched.
+mountFsTab = true
+
+# Network host settings that enable the DNS server used by WSL 2. This example changes the hostname, sets generateHosts to false, preventing WSL from the default behavior of auto-generating /etc/hosts, and sets generateResolvConf to false, preventing WSL from auto-generating /etc/resolv.conf, so that you can create your own (ie. nameserver 1.1.1.1).
 [network]
-generateHosts = true
-generateResolvConf = true
+hostname = DemoHost
+generateHosts = false
+generateResolvConf = false
+
+# Set whether WSL supports interop process like launching Windows apps and adding path variables. Setting these to false will block the launch of Windows processes and block adding $PATH environment variables.
+[interop]
+enabled = false
+appendWindowsPath = false
+
+# Set the user when launching a distribution with WSL.
+[user]
+default = DemoUser
+
+# Set a command to run when a new WSL instance launches. This example starts the Docker container service.
+[boot]
+command = service docker start
 ```
