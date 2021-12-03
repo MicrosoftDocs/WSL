@@ -52,7 +52,7 @@ The command `wsl --shutdown` is a fast path to restarting WSL 2 distributions, b
 
 ## Configuration setting options for wsl.conf
 
-The wsl.conf file configures settings on a per-distribution basis. *(For global configuration of WSL 2 distributions see [.wslconf](#wslconfig)).*
+The wsl.conf file configures settings on a per-distribution basis. *(For global configuration of WSL 2 distributions see [.wslconfig](#wslconfig)).*
 
 The wsl.conf file supports four sections: `automount`, `network`, `interop`, and `user`. *(Modeled after .ini file conventions, keys are declared under a section, like .gitconfig files.)* See [wsl.conf](#wsl-conf) for info on where to store the wsl.conf file.
 
