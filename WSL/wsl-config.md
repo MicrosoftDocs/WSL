@@ -1,80 +1,60 @@
 ---
-title: Configure Linux distributions
-description: A reference guide to help you manage and configure multiple Linux distributions running on the Windows Subsystem for Linux.
-ms.date: 09/27/2021
+title: Configure settings in WSL
+description: A guide to the wsl.conf and .wslconfig files used for configuring settings when running multiple Linux distributions on Windows Subsystem for Linux.
+ms.date: 12/02/2021
 ms.topic: article
+ms.custom: seo-windows-dev
 ---
 
-# Configure WSL distributions
+# How to configure settings in WSL
 
-This guide will cover a variety of ways to configure Linux distributions installed with Windows Subsystem for Linux (WSL), including use of the [wsl.conf or .wslconfig](#wsl-conf-vs-wslconfig) files.
+This guide will cover how to configure Linux distributions installed with Windows Subsystem for Linux (WSL) to launch with automated settings options using [wsl.conf or .wslconfig](#wsl-conf-or-wslconfig) files.
 
-## Check WSL version
+The version of WSL that you are running will impact the configuration settings. WSL 2 runs as a lightweight virtual machine (VM), so uses virtualization settings that allow you to control the amount of memory or processors used (which may be familiar if you use Hyper-V or VirtualBox).
 
-You can list your installed Linux distributions and check the version of WSL each is set to by entering the command: `wsl -l -v` in PowerShell or Windows Command Prompt.
+## What is the difference between wsl.conf and .wslconfig?
 
-To set the default version to WSL 1 or WSL 2 when a new Linux distribution is installed, use the command: `wsl --set-default-version <Version#>`, replacing `<Version#>` with either 1 or 2.
+You can configure the settings for your installed Linux distributions that will automatically be applied every time you launch WSL in two ways, by using:
 
-To set the default Linux distribution used with the `wsl` command, enter: `wsl -s <DistributionName>` or `wsl --setdefault <DistributionName>`, replacing `<DistributionName>` with the name of the Linux distribution you would like to use. For example, from PowerShell/CMD, enter: `wsl -s Debian` to set the default distribution to Debian. Now running `wsl npm init` from Powershell will run the `npm init` command in Debian.
-
-To run a specific wsl distribution from within PowerShell or Windows Command Prompt without changing your default distribution, use the command: `wsl -d <DistributionName>`, replacing `<DistributionName>` with the name of the distribution you want to use.
-
-Learn more in the guide to [Basic commands for WSL](./basic-commands.md).
-
-## Running multiple Linux distributions
-
-WSL supports running as many different Linux distributions as you would like to install. This can include choosing distributions from the [Microsoft Store](https://aka.ms/wslstore), [importing a custom distribution](./use-custom-distro.md), or [building your own custom distribution](./build-custom-distro.md).
-
-There are several ways to run your Linux distributions once installed:
-
-1. [Install Windows Terminal](/windows/terminal/get-started) ***(Recommended)*** Using Windows Terminal supports as many command lines as you would like to install and enables you to open them in multiple tabs or window panes and quickly switch between multiple Linux distributions or other command lines (PowerShell, Command Prompt, PowerShell, Azure CLI, etc). You can fully customize your terminal with unique color schemes, font styles, sizes, background images, and custom keyboard shortcuts. [Learn more.](/windows/terminal)
-2. You can directly open your Linux distribution by visiting the Windows Start menu and typing the name of your installed distributions. For example: "Ubuntu". This will open Ubuntu in it's own console window.
-3. From Windows Command Prompt or PowerShell, you can enter the name of your installed distribution. For example: `ubuntu`
-4. From Windows Command Prompt or PowerShell, you can open your default Linux distribution inside your current command line, by entering: `wsl.exe`.
-5. From Windows Command Prompt or PowerShell, you can use your default Linux distribution inside your current command line, without entering a new one, by entering:`wsl [command]`. Replacing `[command]` with a WSL command, such as: `wsl -l -v` to list installed distributions or `wsl pwd` to see where the current directory path is mounted in wsl. From PowerShell, the command `get-date` will provide the date from the Windows file system and `wsl date` will provide the date from the Linux file system.
-
-The method you select should depend on what you're doing. If you've opened a WSL command line within a Windows Prompt or PowerShell window and want to exit, enter the command: `exit`.
-
-## How to configure WSL settings
-
-You can configure the settings for your installed Linux distributions, such as automount options and network configuration, that will automatically be applied every time you launch WSL in two ways:
-
-- **Globally** with a **.wslconfig** file.
-- On a **per-distribution** basis with a **wsl.conf** file.
-
-### What is the difference between .wslconfig and wsl.conf?
+- **[.wslconfig](#wslconfig)** to configure settings **globally** across all installed distributions running on WSL 2.
+- **[wsl.conf](#wsl-conf)**  to configure settings **per-distribution** for Linux distros running on WSL 1 or WSL 2.
 
 Both file types are used for configuring WSL settings, but the location where the file is stored, the scope of the configuration, and the version of WSL running your distribution all impact which file type to choose.
 
-**wsl.conf**: Stored in the `/etc` directory of the distribution.
+## wsl.conf
 
+- Stored in the `/etc` directory of the distribution.
 - Used to configure settings on a per-distribution basis. Settings configured in this file will only be applied to the specific Linux distribution that contains the directory where this file is stored.
-- Can be used for distributions run by WSL 1 or WSL 2.
+- Can be used for distributions run by either version, WSL 1 or WSL 2.
 - To get to the `/etc` directory for an installed distribution, use the distribution's command line with `cd /` to access the root directory, then `ls` to list files or `explorer.exe .` to view in Windows File Explorer. The directory path should look something like: `/etc/wsl.conf`.
 
-**.wslconfig**: Stored in your `%UserProfile%` directory.
+## .wslconfig
 
-- Used to configure settings globally across all installed Linux distributions.
-- Can be used **only for distributions run by WSL 2**.
+- Stored in your `%UserProfile%` directory.
+- Used to configure settings globally across all installed Linux distributions running as the WSL 2 version.
+- Can be used **only for distributions run by WSL 2**. Distributions running as WSL 1 will not be affected by this configuration as they are not running as a virtual machine.
 - To get to your `%UserProfile%` directory, in PowerShell, use `cd ~` to access your home directory (which is typically your user profile, `C:\Users\<UserName>`) or you can open Windows File Explorer and enter `%UserProfile%` in the address bar. The directory path should look something like: `C:\Users\<UserName>\.wslconfig`.
 
 WSL will detect the existence of these files, read the contents, and automatically apply the configuration settings every time you launch WSL. If the file is missing or malformed (improper markup formatting), WSL will continue to launch as normal without the configuration settings applied.
 
+[Check which version of WSL you are running.](./install.md#check-which-version-of-wsl-you-are-running)
+
 > [!NOTE]
 > Adjusting per-distribution settings with the wsl.conf file is only available in Windows Build 17093 and later.
 
-> [!TIP]
-> **The 8 second rule**
->
-> You must wait until the subsystem running your Linux distribution completely stops running and restarts for configuration setting updates to appear. This typically takes about 8 seconds after closing ALL instances of the distribution shell.
->
-> If you launch a distribution (ie. Ubuntu), modify the configuration file, close the distribution, and then re-launch it. You might assume that your configuration changes have immediately gone into effect. This is not currently the case as the subsystem could still be running. You must wait for the subsystem to stop before relaunching in order to give enough time for your changes to be picked up. You can check to see whether your Linux distribution (shell) is still running after closing it by using PowerShell with the command: `wsl --list --running`. If no distributions are running, you will receive the response: "There are no running distributions." You can now restart the distribution to see your configuration updates applied.
->
-> The command `wsl --shutdown` is a fast path to restarting WSL 2 distributions, but it will shut down all running distributions, so use wisely.
+### The 8 second rule
 
-## Configuration setting options
+You must wait until the subsystem running your Linux distribution completely stops running and restarts for configuration setting updates to appear. This typically takes about 8 seconds after closing ALL instances of the distribution shell.
 
-WSL supports four sections: `automount`, `network`, `interop`, and `user`. *(Modeled after .ini file conventions, keys are declared under a section, like .gitconfig files.)*
+If you launch a distribution (ie. Ubuntu), modify the configuration file, close the distribution, and then re-launch it. You might assume that your configuration changes have immediately gone into effect. This is not currently the case as the subsystem could still be running. You must wait for the subsystem to stop before relaunching in order to give enough time for your changes to be picked up. You can check to see whether your Linux distribution (shell) is still running after closing it by using PowerShell with the command: `wsl --list --running`. If no distributions are running, you will receive the response: "There are no running distributions." You can now restart the distribution to see your configuration updates applied.
+
+The command `wsl --shutdown` is a fast path to restarting WSL 2 distributions, but it will shut down all running distributions, so use wisely.
+
+## Configuration setting options for wsl.conf
+
+The wsl.conf file configures settings on a per-distribution basis. *(For global configuration of WSL 2 distributions see [.wslconf](#wslconfig)).*
+
+The wsl.conf file supports four sections: `automount`, `network`, `interop`, and `user`. *(Modeled after .ini file conventions, keys are declared under a section, like .gitconfig files.)* See [wsl.conf](#wsl-conf) for info on where to store the wsl.conf file.
 
 ## Automount settings
 
@@ -140,11 +120,11 @@ These options are available in Build 18980 and later.
 |:----|:----|:----|:----|
 | default | string | The initial username created on first run | Setting this key specifies which user to run as when first starting a WSL session. |
 
-### User preview options
+## Preview configuration options for wsl.conf
 
 These options are only available in the latest preview builds if you are on the latest builds of the [Windows Insiders program](https://insider.windows.com/getting-started).
 
-## Boot settings
+### Boot settings
 
 Section label: `[boot]`
 
@@ -152,27 +132,18 @@ Section label: `[boot]`
 |:----|:----|:----|:----|
 | command | string | "" | A string of the command that you would like to run when the WSL instance starts. This command is run as the root user. e.g: `service docker start` |
 
-## Global configuration options with .wslconfig
+## Configuration setting options for .wslconfig
 
-You can add a file named `.wslconfig` to your Windows home directory (e.g: `C:\Users\crloewen\.wslconfig`) to control global WSL options across Linux distributions. Please see the sample file below as an example. 
+The .wslconfig file configures settings globally for all Linux distributions running with WSL 2. *(For per-distribution configuration see [wsl.conf](#wsl-conf)).*
 
-```console
-[wsl2]
-kernel=C:\\temp\\myCustomKernel
-memory=4GB # Limits VM memory in WSL 2 to 4 GB
-processors=2 # Makes the WSL 2 VM use two virtual processors
-```
+See [.wslconfig](#wslconfig) for info on where to store the .wslconfig file.
 
 > [!NOTE]
-> Global configuration options with `.wslconfig` in only available for distributions running as WSL 2 in Windows Build 19041 and later. Keep in mind you may need to run `wsl --shutdown` to shut down the WSL 2 VM and then restart your WSL instance for these changes to take affect.
+> Global configuration options with `.wslconfig` is only available for distributions running as WSL 2 in Windows Build 19041 and later. Keep in mind you may need to run `wsl --shutdown` to shut down the WSL 2 VM and then restart your WSL instance for these changes to take affect.
 
-This file can contain the following options:
-
-### Options for .wslconfig
+This file can contain the following options that affect the VM that powers any WSL 2 distribution:
 
 Section label: `[wsl2]`
-
-These settings affect the VM that powers any WSL 2 distribution.
 
 | key | value | default | notes|
 |:----|:----|:----|:----|
@@ -181,14 +152,15 @@ These settings affect the VM that powers any WSL 2 distribution.
 | processors | number | The same number of processors on Windows | How many processors to assign to the WSL 2 VM. |
 | localhostForwarding | boolean | `true` | Boolean specifying if ports bound to wildcard or localhost in the WSL 2 VM should be connectable from the host via `localhost:port`. |
 | kernelCommandLine | string | Blank | Additional kernel command line arguments. |
-| swap | size | 25% of memory size on Windows rounded up to the nearest GB | How much swap space to add to the WSL 2 VM, 0 for no swap file. |
+| swap | size | 25% of memory size on Windows rounded up to the nearest GB | How much swap space to add to the WSL 2 VM, 0 for no swap file. Swap storage is disk-based RAM used when memory demand exceeds limit on hardware device. |
 | swapFile | string | `%USERPROFILE%\AppData\Local\Temp\swap.vhdx` | An absolute Windows path to the swap virtual hard disk. |
+| pageReporting | boolean | `true` | Default `true` setting enables Windows to reclaim unused memory allocated to WSL 2 virtual machine. |
 
 Entries with the `path` value must be Windows paths with escaped backslashes, e.g: `C:\\Temp\\myCustomKernel`
 
 Entries with the `size` value must be a size followed by a unit, for example `8GB` or `512MB`.
 
-### WSL 2 setting preview options
+## Preview configuration options for .wslconfig
 
 These options are only available in the latest preview builds if you are on the latest builds of the [Windows Insiders program](https://insider.windows.com/getting-started).
 
@@ -196,7 +168,7 @@ These options are only available in the latest preview builds if you are on the 
 |:----|:----|:----|:----|
 | guiApplications | boolean | `true` | Boolean to turn on or off support for GUI applications ([WSLg](https://github.com/microsoft/wslg)) in WSL. |
 | debugConsole | boolean | `false` | Boolean to turn on an output console Window that shows the contents of `dmesg` upon start of a WSL 2 distro instance. |
-| nestedVirtualization | boolean | `true` | Boolean to turn on or off nested virtualization for WSL2. |
+| nestedVirtualization | boolean | `true` | Boolean to turn on or off nested virtualization, enabling other nested VMs to run inside WSL 2. |
 | vmIdleTimeout | number | `60000` | The number of milliseconds that a VM is idle, before it is shut down. |
 
 ### Example wsl.conf file
@@ -237,4 +209,47 @@ default = DemoUser
 # Set a command to run when a new WSL instance launches. This example starts the Docker container service.
 [boot]
 command = service docker start
+```
+
+<!-- Do wsl.conf and .wslconfig support different key values? -->
+
+`memory`, `processors`, `kernel`, `kernelCommandLine`, `swap`, `swapfile`, `pageReporting`, `localhostforwarding`, `nestedVirtualization`, and `debugConsole`.
+
+### Example .wslconfig file
+
+The `.wslconfig` sample file below demonstrates some of the configuration options available. In this example, the file path is `C:\Users\<UserName>\.wslconfig`.
+
+```bash
+# Settings apply across all Linux distros running on WSL 2
+[wsl2]
+
+# Limits VM memory to use no more than 4 GB, this can be set as whole numbers using GB or MB
+memory=4GB 
+
+# Sets the VM to use two virtual processors
+processors=2
+
+# Specify a custom Linux kernel to use with your installed distros. The default kernel used can be found at https://github.com/microsoft/WSL2-Linux-Kernel
+kernel=C:\\temp\\myCustomKernel
+
+# Sets additional kernel parameters, in this case enabling older Linux base images such as Centos 6
+kernelCommandLine = vsyscall=emulate
+
+# Sets amount of swap storage space to 8GB, default is 25% of available RAM
+swap=8GB
+
+# Sets swapfile path location, default is %USERPROFILE%\AppData\Local\Temp\swap.vhdx
+swapfile=C:\\temp\\wsl-swap.vhdx
+
+# Disable page reporting so WSL retains all allocated memory claimed from Windows and releases none back when free
+pageReporting=false
+
+# Turn off default connection to bind WSL 2 localhost to Windows localhost
+localhostforwarding=true
+
+# Disables nested virtualization
+nestedVirtualization=false
+
+# Turns on output console showing contents of dmesg when opening a WSL 2 distro for debugging
+debugConsole=true
 ```
