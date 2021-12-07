@@ -8,14 +8,14 @@ ms.custom: seo-windows-dev
 
 # Advanced settings configuration in WSL
 
-The [wsl.conf and .wslconfig](#wsl-conf-or-wslconfig) files are used to configure advanced settings options, on a per-distribution basis (wsl.conf) and globally across all WSL 2 distributions (.wslconfig). This guide will cover each of the settings options, when to use each file type, where to store the file, sample settings files and tips.
+The [wsl.conf](#wslconf) and [.wslconfig](#wslconfig) files are used to configure advanced settings options, on a per-distribution basis (`wsl.conf`) and globally across all WSL 2 distributions (`.wslconfig`). This guide will cover each of the settings options, when to use each file type, where to store the file, sample settings files and tips.
 
 ## What is the difference between wsl.conf and .wslconfig?
 
 You can configure the settings for your installed Linux distributions that will automatically be applied every time you launch WSL in two ways, by using:
 
 - **[.wslconfig](#wslconfig)** to configure settings **globally** across all installed distributions running on WSL 2.
-- **[wsl.conf](#wsl-conf)**  to configure settings **per-distribution** for Linux distros running on WSL 1 or WSL 2.
+- **[wsl.conf](#wslconf)**  to configure settings **per-distribution** for Linux distros running on WSL 1 or WSL 2.
 
 Both file types are used for configuring WSL settings, but the location where the file is stored, the scope of the configuration, and the version of WSL running your distribution all impact which file type to choose.
 
@@ -54,7 +54,7 @@ The command `wsl --shutdown` is a fast path to restarting WSL 2 distributions, b
 
 The wsl.conf file configures settings on a per-distribution basis. *(For global configuration of WSL 2 distributions see [.wslconfig](#wslconfig)).*
 
-The wsl.conf file supports four sections: `automount`, `network`, `interop`, and `user`. *(Modeled after .ini file conventions, keys are declared under a section, like .gitconfig files.)* See [wsl.conf](#wsl-conf) for info on where to store the wsl.conf file.
+The wsl.conf file supports four sections: `automount`, `network`, `interop`, and `user`. *(Modeled after .ini file conventions, keys are declared under a section, like .gitconfig files.)* See [wsl.conf](#wslconf) for info on where to store the wsl.conf file.
 
 ### Automount settings
 
@@ -176,7 +176,7 @@ command = service docker start
 
 ## Configuration setting for .wslconfig
 
-The .wslconfig file configures settings globally for all Linux distributions running with WSL 2. *(For per-distribution configuration see [wsl.conf](#wsl-conf)).*
+The .wslconfig file configures settings globally for all Linux distributions running with WSL 2. *(For per-distribution configuration see [wsl.conf](#wslconf)).*
 
 See [.wslconfig](#wslconfig) for info on where to store the .wslconfig file.
 

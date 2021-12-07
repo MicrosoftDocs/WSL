@@ -9,7 +9,7 @@ ms.localizationpriority: high
 
 # Comparing WSL 1 and WSL 2
 
-The primary reasons to [update from WSL 1 to WSL 2](./install.md#upgrade-from-wsl-1-to-wsl-2) are to:
+The primary reasons to [update from WSL 1 to WSL 2](./install.md#upgrade-version-from-wsl-1-to-wsl-2) are to:
 
 - **increase file system performance**,
 - **support full system call compatibility**.

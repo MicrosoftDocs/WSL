@@ -1,6 +1,6 @@
 ---
-title: Set up a WSL 2 development environment
-description: Set up a WSL 2 development environment using best practices from this set-by-step guide. Learn how to run Ubuntu, Visual Studio Code or Visual Studio, Git, Windows Credential Manager, MongoDB, MySQL, Docker remote containers and more.
+title: Set up a WSL development environment
+description: Set up a WSL development environment using best practices from this set-by-step guide. Learn how to run Ubuntu, Visual Studio Code or Visual Studio, Git, Windows Credential Manager, MongoDB, MySQL, Docker remote containers and more.
 ms.date: 12/06/2021
 ms.topic: article
 ms.localizationpriority: medium
@@ -8,7 +8,7 @@ no-loc: [Terminal]
 ms.custom: seo-windows-dev
 ---
 
-# Set up a WSL 2 development environment
+# Set up a WSL development environment
 
 A step-by-step guide to the best practices for setting up a WSL development environment. Learn how to run the command to install the default Bash shell that uses Ubuntu or can be set to install other Linux distributions, use basic WSL commands, set up Visual Studio Code or Visual Studio, Git, Windows Credential Manager, databases like MongoDB, Postgres, or MySQL, set up GPU acceleration, run GUI apps, and more.
 
