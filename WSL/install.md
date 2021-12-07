@@ -44,7 +44,7 @@ If you run into an issue during the install process, check the [installation sec
 
 ## Set up your Linux user info
 
-Once you have installed WSL, you will need to create a user account and password for your newly installed Linux distribution. See the [Best practices for setting up a WSL development environment](./setup/environment.md#set-up-your-linux-user-info) guide to learn more.
+Once you have installed WSL, you will need to create a user account and password for your newly installed Linux distribution. See the [Best practices for setting up a WSL development environment](./setup/environment.md#set-up-your-linux-username-and-password) guide to learn more.
 
 ## Set up and best practices
 

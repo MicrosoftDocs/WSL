@@ -1,16 +1,14 @@
 ---
-title: Configure settings in WSL
+title: Advanced settings configuration in WSL
 description: A guide to the wsl.conf and .wslconfig files used for configuring settings when running multiple Linux distributions on Windows Subsystem for Linux.
 ms.date: 12/02/2021
 ms.topic: article
 ms.custom: seo-windows-dev
 ---
 
-# How to configure settings in WSL
+# Advanced settings configuration in WSL
 
-This guide will cover how to configure Linux distributions installed with Windows Subsystem for Linux (WSL) to launch with automated settings options using [wsl.conf or .wslconfig](#wsl-conf-or-wslconfig) files.
-
-The version of WSL that you are running will impact the configuration settings. WSL 2 runs as a lightweight virtual machine (VM), so uses virtualization settings that allow you to control the amount of memory or processors used (which may be familiar if you use Hyper-V or VirtualBox).
+The [wsl.conf and .wslconfig](#wsl-conf-or-wslconfig) files are used to configure advanced settings options, on a per-distribution basis (wsl.conf) and globally across all WSL 2 distributions (.wslconfig). This guide will cover each of the settings options, when to use each file type, where to store the file, sample settings files and tips.
 
 ## What is the difference between wsl.conf and .wslconfig?
 
@@ -20,6 +18,8 @@ You can configure the settings for your installed Linux distributions that will 
 - **[wsl.conf](#wsl-conf)**  to configure settings **per-distribution** for Linux distros running on WSL 1 or WSL 2.
 
 Both file types are used for configuring WSL settings, but the location where the file is stored, the scope of the configuration, and the version of WSL running your distribution all impact which file type to choose.
+
+The version of WSL that you are running will impact the configuration settings. WSL 2 runs as a lightweight virtual machine (VM), so uses virtualization settings that allow you to control the amount of memory or processors used (which may be familiar if you use Hyper-V or VirtualBox).
 
 ## wsl.conf
 
@@ -50,13 +50,13 @@ If you launch a distribution (ie. Ubuntu), modify the configuration file, close 
 
 The command `wsl --shutdown` is a fast path to restarting WSL 2 distributions, but it will shut down all running distributions, so use wisely.
 
-## Configuration setting options for wsl.conf
+## Configuration settings for wsl.conf
 
 The wsl.conf file configures settings on a per-distribution basis. *(For global configuration of WSL 2 distributions see [.wslconfig](#wslconfig)).*
 
 The wsl.conf file supports four sections: `automount`, `network`, `interop`, and `user`. *(Modeled after .ini file conventions, keys are declared under a section, like .gitconfig files.)* See [wsl.conf](#wsl-conf) for info on where to store the wsl.conf file.
 
-## Automount settings
+### Automount settings
 
 Section label: `[automount]`
 
@@ -69,7 +69,7 @@ Section label: `[automount]`
 
 The automount options are applied as the mount options for all automatically mounted drives. To change the options for a specific drive only, use the `/etc/fstab` file instead. Options that the mount binary would normally parse into a flag are not supported. If you want to explicitly specify those options, you must include every drive for which you want to do so in `/etc/fstab`.
 
-### Automount options
+#### Automount options
 
 Setting different mount options for Windows drives (DrvFs) can control how file permissions are calculated for Windows files. The following options are available:
 
@@ -90,7 +90,7 @@ User file-creation mode mask (umask) sets permission for newly created files. Th
 > [!NOTE]
 > The permission masks are put through a logical OR operation before being applied to files or directories.
 
-## Network settings
+### Network settings
 
 Section label: `[network]`
 
@@ -99,7 +99,7 @@ Section label: `[network]`
 | generateHosts | boolean | `true` | `true` sets WSL to generate `/etc/hosts`. The `hosts` file contains a static map of hostnames corresponding IP address. |
 | generateResolvConf | boolean | `true` | `true` set WSL to generate `/etc/resolv.conf`. The `resolv.conf` contains a DNS list that are capable of resolving a given hostname to its IP address. |
 
-## Interop settings
+### Interop settings
 
 Section label: `[interop]`
 
@@ -110,7 +110,7 @@ These options are available in Insider Build 17713 and later.
 | enabled | boolean | `true` | Setting this key will determine whether WSL will support launching Windows processes. |
 | appendWindowsPath | boolean | `true` | Setting this key will determine whether WSL will add Windows path elements to the $PATH environment variable. |
 
-## User settings
+### User settings
 
 Section label: `[user]`
 
@@ -120,56 +120,19 @@ These options are available in Build 18980 and later.
 |:----|:----|:----|:----|
 | default | string | The initial username created on first run | Setting this key specifies which user to run as when first starting a WSL session. |
 
-## Preview configuration options for wsl.conf
-
-These options are only available in the latest preview builds if you are on the latest builds of the [Windows Insiders program](https://insider.windows.com/getting-started).
-
 ### Boot settings
+
+The Boot setting is only available on Windows 11.
 
 Section label: `[boot]`
 
 | key | value | default | notes|
 |:----|:----|:----|:----|
-| command | string | "" | A string of the command that you would like to run when the WSL instance starts. This command is run as the root user. e.g: `service docker start` |
+| command | string | "" | A string of the command that you would like to run when the WSL instance starts. This command is run as the root user. e.g: `service docker start` Only available for Windows 11.|
 
-## Configuration setting options for .wslconfig
+<!-- ## Preview configuration options for wsl.conf
 
-The .wslconfig file configures settings globally for all Linux distributions running with WSL 2. *(For per-distribution configuration see [wsl.conf](#wsl-conf)).*
-
-See [.wslconfig](#wslconfig) for info on where to store the .wslconfig file.
-
-> [!NOTE]
-> Global configuration options with `.wslconfig` is only available for distributions running as WSL 2 in Windows Build 19041 and later. Keep in mind you may need to run `wsl --shutdown` to shut down the WSL 2 VM and then restart your WSL instance for these changes to take affect.
-
-This file can contain the following options that affect the VM that powers any WSL 2 distribution:
-
-Section label: `[wsl2]`
-
-| key | value | default | notes|
-|:----|:----|:----|:----|
-| kernel | string | The Microsoft built kernel provided inbox | An absolute Windows path to a custom Linux kernel. |
-| memory | size | 50% of total memory on Windows or 8GB, whichever is less; on builds before 20175: 80% of your total memory on Windows | How much memory to assign to the WSL 2 VM. |
-| processors | number | The same number of processors on Windows | How many processors to assign to the WSL 2 VM. |
-| localhostForwarding | boolean | `true` | Boolean specifying if ports bound to wildcard or localhost in the WSL 2 VM should be connectable from the host via `localhost:port`. |
-| kernelCommandLine | string | Blank | Additional kernel command line arguments. |
-| swap | size | 25% of memory size on Windows rounded up to the nearest GB | How much swap space to add to the WSL 2 VM, 0 for no swap file. Swap storage is disk-based RAM used when memory demand exceeds limit on hardware device. |
-| swapFile | string | `%USERPROFILE%\AppData\Local\Temp\swap.vhdx` | An absolute Windows path to the swap virtual hard disk. |
-| pageReporting | boolean | `true` | Default `true` setting enables Windows to reclaim unused memory allocated to WSL 2 virtual machine. |
-
-Entries with the `path` value must be Windows paths with escaped backslashes, e.g: `C:\\Temp\\myCustomKernel`
-
-Entries with the `size` value must be a size followed by a unit, for example `8GB` or `512MB`.
-
-## Preview configuration options for .wslconfig
-
-These options are only available in the latest preview builds if you are on the latest builds of the [Windows Insiders program](https://insider.windows.com/getting-started).
-
-| key | value | default | notes|
-|:----|:----|:----|:----|
-| guiApplications | boolean | `true` | Boolean to turn on or off support for GUI applications ([WSLg](https://github.com/microsoft/wslg)) in WSL. |
-| debugConsole | boolean | `false` | Boolean to turn on an output console Window that shows the contents of `dmesg` upon start of a WSL 2 distro instance. |
-| nestedVirtualization | boolean | `true` | Boolean to turn on or off nested virtualization, enabling other nested VMs to run inside WSL 2. |
-| vmIdleTimeout | number | `60000` | The number of milliseconds that a VM is idle, before it is shut down. |
+These options are only available in the latest preview builds if you are on the latest builds of the [Windows Insiders program](https://insider.windows.com/getting-started). -->
 
 ### Example wsl.conf file
 
@@ -211,11 +174,48 @@ default = DemoUser
 command = service docker start
 ```
 
-<!-- Do wsl.conf and .wslconfig support different key values? -->
+## Configuration setting for .wslconfig
 
-`memory`, `processors`, `kernel`, `kernelCommandLine`, `swap`, `swapfile`, `pageReporting`, `localhostforwarding`, `nestedVirtualization`, and `debugConsole`.
+The .wslconfig file configures settings globally for all Linux distributions running with WSL 2. *(For per-distribution configuration see [wsl.conf](#wsl-conf)).*
 
-### Example .wslconfig file
+See [.wslconfig](#wslconfig) for info on where to store the .wslconfig file.
+
+> [!NOTE]
+> Global configuration options with `.wslconfig` is only available for distributions running as WSL 2 in Windows Build 19041 and later. Keep in mind you may need to run `wsl --shutdown` to shut down the WSL 2 VM and then restart your WSL instance for these changes to take affect.
+
+This file can contain the following options that affect the VM that powers any WSL 2 distribution:
+
+Section label: `[wsl2]`
+
+| key | value | default | notes|
+|:----|:----|:----|:----|
+| kernel | string | The Microsoft built kernel provided inbox | An absolute Windows path to a custom Linux kernel. |
+| memory | size | 50% of total memory on Windows or 8GB, whichever is less; on builds before 20175: 80% of your total memory on Windows | How much memory to assign to the WSL 2 VM. |
+| processors | number | The same number of processors on Windows | How many processors to assign to the WSL 2 VM. |
+| localhostForwarding | boolean | `true` | Boolean specifying if ports bound to wildcard or localhost in the WSL 2 VM should be connectable from the host via `localhost:port`. |
+| kernelCommandLine | string | Blank | Additional kernel command line arguments. |
+| swap | size | 25% of memory size on Windows rounded up to the nearest GB | How much swap space to add to the WSL 2 VM, 0 for no swap file. Swap storage is disk-based RAM used when memory demand exceeds limit on hardware device. |
+| swapFile | string | `%USERPROFILE%\AppData\Local\Temp\swap.vhdx` | An absolute Windows path to the swap virtual hard disk. |
+| pageReporting | boolean | `true` | Default `true` setting enables Windows to reclaim unused memory allocated to WSL 2 virtual machine. |
+| guiApplications | boolean* | `true` | Boolean to turn on or off support for GUI applications ([WSLg](https://github.com/microsoft/wslg)) in WSL. Only available for Windows 11.|
+| debugConsole | boolean* | `false` | Boolean to turn on an output console Window that shows the contents of `dmesg` upon start of a WSL 2 distro instance. Only available for Windows 11.|
+| nestedVirtualization | boolean* | `true` | Boolean to turn on or off nested virtualization, enabling other nested VMs to run inside WSL 2. Only available for Windows 11.|
+| vmIdleTimeout | number* | `60000` | The number of milliseconds that a VM is idle, before it is shut down. Only available for Windows 11.|
+
+Entries with the `path` value must be Windows paths with escaped backslashes, e.g: `C:\\Temp\\myCustomKernel`
+
+Entries with the `size` value must be a size followed by a unit, for example `8GB` or `512MB`.
+
+Entries with an * after the value type are only available on Windows 11.
+
+<!-- ## Preview configuration options for .wslconfig
+
+These options are only available in the latest preview builds if you are on the latest builds of the [Windows Insiders program](https://insider.windows.com/getting-started).
+
+| key | value | default | notes|
+|:----|:----|:----|:----| -->
+
+## Example .wslconfig file
 
 The `.wslconfig` sample file below demonstrates some of the configuration options available. In this example, the file path is `C:\Users\<UserName>\.wslconfig`.
 
