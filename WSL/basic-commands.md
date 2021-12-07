@@ -1,21 +1,16 @@
 ---
 title: Basic commands for WSL
 description: Reference for the basic commands included with Windows Subsystem for Linux (WSL).
-keywords: wsl, install, BashOnWindows, bash, windows subsystem for linux, install ubuntu on windows, enable WSL2, linux on windows
-ms.date: 09/27/2021
+ms.date: 11/23/2021
 ms.topic: article
 ms.localizationpriority: high
 ---
 
-# Command reference for WSL
+# Basic commands for WSL
 
-The basic WSL commands below are listed in a format supported by PowerShell or Windows Command Prompt. To run these commands from a Bash / Linux distribution command line, you must replace `wsl` with `wsl.exe`.
+The WSL commands below are listed in a format supported by PowerShell or Windows Command Prompt. To run these commands from a Bash / Linux distribution command line, you must replace `wsl` with `wsl.exe`.
 
-## Basic commands
-
-The following basic commands are supported after [installing WSL](./install.md).
-
-### Install
+## Install
 
 ```powershell
 wsl --install
@@ -23,7 +18,7 @@ wsl --install
 
 Install WSL and the Ubuntu distribution of Linux. [Learn more](./install.md).
 
-### Install a specific Linux distribution
+## Install a specific Linux distribution
 
 ```powershell
 wsl --install --distribution <Distribution Name>
@@ -31,7 +26,7 @@ wsl --install --distribution <Distribution Name>
 
 Designate a distribution of Linux for installation besides the default (Ubuntu) by replacing `<Distribution Name>` with the name of the distribution. This command can also be entered as: `wsl -d <Distribution Name>`.
 
-### List available Linux distributions
+## List available Linux distributions
 
 ```powershell
 wsl --list --online
@@ -39,7 +34,7 @@ wsl --list --online
 
 See a list of the Linux distributions available through the online store. This command can also be entered as: `wsl -l -o`.
 
-### List installed Linux distributions
+## List installed Linux distributions
 
 ```powershell
 wsl --list --verbose
@@ -47,7 +42,7 @@ wsl --list --verbose
 
 See a list of the Linux distributions installed on your Windows machine, including the state (whether the distribution is running or stopped) and the version of WSL running the distribution (WSL 1 or WSL 2). [Comparing WSL 1 and WSL 2](./compare-versions.md). This command can also be entered as: `wsl -l -v`. Additional options that can be used with the list command include: `--all` to list all distributions, `--running` to list only distributions that are currently running, or `--quite` to only show distribution names.
 
-### Set WSL version to 1 or 2
+## Set WSL version to 1 or 2
 
 ```powershell
 wsl --set-version <distribution name> <versionNumber>
@@ -55,7 +50,7 @@ wsl --set-version <distribution name> <versionNumber>
 
 To designate the version of WSL (1 or 2) that a Linux distribution is running on, replace `<distribution name>` with the name of the distribution and replace `<versionNumber>` with 1 or 2. [Comparing WSL 1 and WSL 2](./compare-versions.md).
 
-### Set default WSL version
+## Set default WSL version
 
 ```powershell
 wsl --set-default-version <Version>
@@ -63,7 +58,7 @@ wsl --set-default-version <Version>
 
 To set a default version of WSL 1 or WSL 2, replacing `<Version>` with either the number 1 or 2 to represent which version of WSL you would like the installation to default on for new Linux distribution installations. For example, `wsl --set-default-version 2`. [Comparing WSL 1 and WSL 2](./compare-versions.md).
 
-### Set default Linux distribution
+## Set default Linux distribution
 
 ```powershell
 wsl --set-default <Distribution Name>
@@ -71,39 +66,7 @@ wsl --set-default <Distribution Name>
 
 To set the default Linux distribution that WSL commands will use to run, replace `<Distribution Name>` with the name of your preferred Linux distribution.
 
-### Run a specific Linux distribution from PowerShell or CMD
-
-```powershell
-wsl --distribution <Distribution Name> --user <User Name>
-```
-
-To run a specific Linux distribution with a specific user, replace `<Distribution Name>` with the name of your preferred Linux distribution (ie. Debian) and `<User Name>` with the name of an existing user (ie. root). If the user doesn't exist in the WSL distribution, you will receive an error. To print the current user name, use the command `whoami`.
-
-### Update WSL
-
-```powershell
-wsl --update
-```
-
-Manually update the version of your WSL Linux kernel. You can also use the command: `wsl --update rollback` to rollback to a previous version of the WSL Linux kernel.
-
-### Check WSL status
-
-```powershell
-wsl --status
-```
-
-See general information about your WSL configuration, such as default distribution type, default distribution, and kernel version.
-
-### Help command
-
-```powershell
-wsl --help
-```
-
-See a list of options and commands available with WSL.
-
-### Home directory
+## Change directory to home
 
 ```powershell
 wsl ~
@@ -111,7 +74,61 @@ wsl ~
 
 The `~` can be used with wsl to start in the user's home directory. To jump from any directory back to home from within a WSL command prompt, you can use the command: `cd ~`.
 
-### Shutdown
+## Run a specific Linux distribution from PowerShell or CMD
+
+```powershell
+wsl --distribution <Distribution Name> --user <User Name>
+```
+
+To run a specific Linux distribution with a specific user, replace `<Distribution Name>` with the name of your preferred Linux distribution (ie. Debian) and `<User Name>` with the name of an existing user (ie. root). If the user doesn't exist in the WSL distribution, you will receive an error. To print the current user name, use the command `whoami`.
+
+## Update WSL
+
+```powershell
+wsl --update
+```
+
+Manually update the version of your WSL Linux kernel. You can also use the command: `wsl --update rollback` to rollback to a previous version of the WSL Linux kernel.
+
+## Check WSL status
+
+```powershell
+wsl --status
+```
+
+See general information about your WSL configuration, such as default distribution type, default distribution, and kernel version.
+
+## Help command
+
+```powershell
+wsl --help
+```
+
+See a list of options and commands available with WSL.
+
+## Run as a specific user
+
+```powershell
+wsl -u <Username>`, `wsl --user <Username>
+```
+
+To run WSL as a specified user, replace `<Username>` with the name of a user that exists in the WSL distribution.
+
+## Change the default user for a distribution
+
+```powershell
+<DistributionName> config --default-user <Username>
+```
+
+Change the default user for your distribution log-in. The user has to already exist inside the distribution in order to become the default user.
+
+For example:
+`ubuntu config --default-user johndoe` would change the default user for the Ubuntu distribution to the "johndoe" user.
+
+> [!NOTE]
+> If you are having trouble figuring out the name of your distribution, use the command `wsl -l`.
+
+## Shutdown
 
 ```powershell
 wsl --shutdown
@@ -119,7 +136,7 @@ wsl --shutdown
 
 Immediately terminates all running distributions and the WSL 2 lightweight utility virtual machine. This command may be necessary in instances that require you to restart the WSL 2 virtual machine environment, such as [changing memory usage limits](./vhd-size.md) or making a change to your [.wslconfig file](./manage.md#).
 
-### Terminate
+## Terminate
 
 ```powershell
 wsl --terminate <Distribution Name>
@@ -127,7 +144,7 @@ wsl --terminate <Distribution Name>
 
 To terminate the specified distribution, or stop it from running, replace `<Distribution Name>` with the name of the targeted distribution.
 
-### Export a distribution to a TAR file
+## Export a distribution to a TAR file
 
 ```powershell
 wsl --export <Distribution Name> <FileName>
@@ -135,7 +152,7 @@ wsl --export <Distribution Name> <FileName>
 
 Exports the distribution to a tar file. The filename can be - for standard output.
 
-### Import a new distribution
+## Import a new distribution
 
 ```powershell
 wsl --import <Distribution Name> <InstallLocation> <FileName>
@@ -143,13 +160,19 @@ wsl --import <Distribution Name> <InstallLocation> <FileName>
 
 Imports the specified tar file as a new distribution. The filename can be - for standard input. The `--version` option can also be used with this command to designate whether the imported distribution will run on WSL 1 or WSL 2.
 
-### Unregister or uninstall a Linux distribution
+## Unregister or uninstall a Linux distribution
+
+While Linux distributions can be installed through the Microsoft Store, they can't be uninstalled through the store.
+
+To unregister and uninstall a WSL distribution:
 
 ```powershell
-wsl --unregister <Distribution Name>
+wsl --unregister <DistributionName>
 ```
 
-Unregister or uninstall the specific distribution by replacing `<Distribution Name>` with the name of the targeted distribution. This will remove the distribution from WSL and delete all of the associated data. You can also uninstall the Linux distribution app on your Windows machine just like any other store application.
+Replacing `<DistributionName>` with the name of your targeted Linux distribution will unregister that distribution from WSL so it can be reinstalled or cleaned up. **Caution:** Once unregistered, all data, settings, and software associated with that distribution will be permanently lost.  Reinstalling from the store will install a clean copy of the distribution. For example, `wsl --unregister Ubuntu` would remove Ubuntu from the distributions available in WSL.  Running `wsl --list` will reveal that it is no longer listed.
+
+You can also uninstall the Linux distribution app on your Windows machine just like any other store application. To reinstall, find the distribution in the Microsoft Store and select "Launch".
 
 ## Mount a disk or device
 
