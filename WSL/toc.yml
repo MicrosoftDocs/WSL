@@ -36,7 +36,7 @@
   items:
     - name: Working across file systems
       href: filesystems.md
-    - name: Configure Linux distributions
+    - name: Advanced settings configuration
       href: wsl-config.md
     - name: File access and permissions
       href: file-permissions.md
