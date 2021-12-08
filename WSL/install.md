@@ -1,8 +1,7 @@
 ---
 title: Install WSL
 description: Install Windows Subsystem for Linux with the command, wsl --install. Use a Bash terminal on your Windows machine run by your preferred Linux distribution - Ubuntu, Debian, SUSE, Kali, Fedora, Pengwin, Alpine, and more are available.
-keywords: wsl, install, BashOnWindows, bash, windows subsystem for linux, install ubuntu on windows, enable WSL2, linux on windows
-ms.date: 09/27/2021
+ms.date: 11/22/2021
 ms.topic: article
 ms.localizationpriority: high
 ---
@@ -45,11 +44,45 @@ If you run into an issue during the install process, check the [installation sec
 
 ## Set up your Linux user info
 
-Once you have installed WSL, you will need to create a user account and password for your newly installed Linux distribution. See the [Best practices for setting up a WSL development environment](./setup/environment.md#set-up-your-linux-user-info) guide to learn more.
+Once you have installed WSL, you will need to create a user account and password for your newly installed Linux distribution. See the [Best practices for setting up a WSL development environment](./setup/environment.md#set-up-your-linux-username-and-password) guide to learn more.
 
 ## Set up and best practices
 
-We recommend following our [Best practices for setting up a WSL development environment](./setup/environment.md) guide for a step-by-step walk-through of how to set up a user name and password for your installed Linux distribution(s), using basic WSL commands, installing and customizing Windows Terminal, set up for Git version control, code editing and debugging using the VS Code remote server, good practices for file storage, setting up a database, mounting an external drive, setting up GPU acceleration, and more. 
+We recommend following our [Best practices for setting up a WSL development environment](./setup/environment.md) guide for a step-by-step walk-through of how to set up a user name and password for your installed Linux distribution(s), using basic WSL commands, installing and customizing Windows Terminal, set up for Git version control, code editing and debugging using the VS Code remote server, good practices for file storage, setting up a database, mounting an external drive, setting up GPU acceleration, and more.
+
+## Check which version of WSL you are running
+
+You can list your installed Linux distributions and check the version of WSL each is set to by entering the command: `wsl -l -v` in PowerShell or Windows Command Prompt.
+
+To set the default version to WSL 1 or WSL 2 when a new Linux distribution is installed, use the command: `wsl --set-default-version <Version#>`, replacing `<Version#>` with either 1 or 2.
+
+To set the default Linux distribution used with the `wsl` command, enter: `wsl -s <DistributionName>` or `wsl --setdefault <DistributionName>`, replacing `<DistributionName>` with the name of the Linux distribution you would like to use. For example, from PowerShell/CMD, enter: `wsl -s Debian` to set the default distribution to Debian. Now running `wsl npm init` from Powershell will run the `npm init` command in Debian.
+
+To run a specific wsl distribution from within PowerShell or Windows Command Prompt without changing your default distribution, use the command: `wsl -d <DistributionName>`, replacing `<DistributionName>` with the name of the distribution you want to use.
+
+Learn more in the guide to [Basic commands for WSL](./basic-commands.md).
+
+## Upgrade version from WSL 1 to WSL 2
+
+To update from WSL 1 to WSL 2 on previously installed Linux distributions, use the command: `wsl --set-version <distro name> 2` replacing `<distro name>` with the name of the Linux distribution that you want to update. For example, `wsl --set-version Ubuntu-20.04 2` will set your Ubuntu 20.04 distribution to use WSL 2. You may also need to [enable the virtual machine optional component](./install-manual.md#step-3---enable-virtual-machine-feature) used by WSL 2 and [install the kernel package](./install-manual.md#step-4---download-the-linux-kernel-update-package) if you haven't already done so.
+
+New Linux installations will be set to WSL 2 by default, but the `wsl --set-version` command can be used to downgrade from WSL 2 to WSL 1 as well. To see whether your Linux distribution is set to WSL 1 or WSL 2, use the command: `wsl -l -v`.
+
+To learn more, see the [Command reference for WSL](./basic-commands.md) for a list of WSL commands, [Comparing WSL 1 and WSL 2](./compare-versions.md) for guidance on which to use for your work scenario, or [Best practices for setting up a WSL development environment](./setup/environment.md) for general guidance on setting up a good development workflow with WSL.
+
+## Ways to run multiple Linux distributions with WSL
+
+WSL supports running as many different Linux distributions as you would like to install. This can include choosing distributions from the [Microsoft Store](https://aka.ms/wslstore), [importing a custom distribution](./use-custom-distro.md), or [building your own custom distribution](./build-custom-distro.md).
+
+There are several ways to run your Linux distributions once installed:
+
+1. [Install Windows Terminal](/windows/terminal/get-started) ***(Recommended)*** Using Windows Terminal supports as many command lines as you would like to install and enables you to open them in multiple tabs or window panes and quickly switch between multiple Linux distributions or other command lines (PowerShell, Command Prompt, PowerShell, Azure CLI, etc). You can fully customize your terminal with unique color schemes, font styles, sizes, background images, and custom keyboard shortcuts. [Learn more.](/windows/terminal)
+2. You can directly open your Linux distribution by visiting the Windows Start menu and typing the name of your installed distributions. For example: "Ubuntu". This will open Ubuntu in it's own console window.
+3. From Windows Command Prompt or PowerShell, you can enter the name of your installed distribution. For example: `ubuntu`
+4. From Windows Command Prompt or PowerShell, you can open your default Linux distribution inside your current command line, by entering: `wsl.exe`.
+5. From Windows Command Prompt or PowerShell, you can use your default Linux distribution inside your current command line, without entering a new one, by entering:`wsl [command]`. Replacing `[command]` with a WSL command, such as: `wsl -l -v` to list installed distributions or `wsl pwd` to see where the current directory path is mounted in wsl. From PowerShell, the command `get-date` will provide the date from the Windows file system and `wsl date` will provide the date from the Linux file system.
+
+The method you select should depend on what you're doing. If you've opened a WSL command line within a Windows Prompt or PowerShell window and want to exit, enter the command: `exit`.
 
 ## Want to try the latest WSL preview features?
 

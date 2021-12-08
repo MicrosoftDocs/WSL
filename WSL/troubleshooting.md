@@ -29,7 +29,7 @@ You can also:
 - **Installation failed with error 0x80070003**
   - The Windows Subsystem for Linux only runs on your system drive (usually this is your `C:` drive). Make sure that distributions are stored on your system drive:  
   - Open **Settings** -> **System** --> **Storage** -> **More Storage Settings: Change where new content is saved**
-    ![Picture of system settings to install apps on C: drive](media/AppStorage.png)
+    ![Picture of system settings to install apps on C: drive](media/appstorage.png)
 
 - **WslRegisterDistribution failed with error 0x8007019e**
   - The Windows Subsystem for Linux optional component is not enabled:

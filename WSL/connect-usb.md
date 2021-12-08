@@ -14,7 +14,7 @@ Setting up the USB/IP project on your Windows machine will enable common develop
 
 ## Prerequisites
 
-- Running on either Windows 11 (Build 22000 or higher) or Windows 10 (Build ?? or higher).
+- Running Windows 11 (Build 22000 or higher). *(Windows 10 support is possible, see note below).*
 - Linux distribution installed and [set to WSL 2](./basic-commands.md#set-wsl-version-to-1-or-2).
 - Running [Linux kernel 5.10.60.1 or higher](./kernel-release-notes.md).
 
