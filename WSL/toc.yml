@@ -6,6 +6,8 @@
       href: about.md
     - name: Comparing WSL 2 and WSL 1
       href: compare-versions.md
+    - name: Basic wsl commands
+      href: basic-commands.md
 - name: Install
   items:
     - name: Install WSL
@@ -58,8 +60,6 @@
       href: case-sensitivity.md
     - name: Expand virtual hard disk size
       href: vhd-size.md
-    - name: Commandline reference
-      href: basic-commands.md
 - name: Frequently Asked Questions
   href: faq.yml
 - name: Troubleshooting
