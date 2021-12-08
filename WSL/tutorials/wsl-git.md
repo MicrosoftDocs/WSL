@@ -65,21 +65,21 @@ We recommend that you [secure your account with two-factor authentication (2FA)]
 
 ## Git Credential Manager setup
 
-[Git Credential Manager (GCM) Core](https://github.com/microsoft/Git-Credential-Manager-Core) enables you to authenticate a remote Git server, even if you have a complex authentication pattern like two-factor authentication, Azure Active Directory, or using SSH remote URLs that require an SSH key password for every Git push. GCM Core integrates into the authentication flow for services like GitHub and, once you're authenticated to your hosting provider, requests a new authentication token. It then stores the token securely in the [Windows Credential Manager](https://support.microsoft.com/help/4026814/windows-accessing-credential-manager). After the first time, you can use Git to talk to your hosting provider without needing to re-authenticate. It will just access the token in the Windows Credential Manager.
+[Git Credential Manager (GCM)](https://github.com/GitCredentialManager/git-credential-manager) enables you to authenticate a remote Git server, even if you have a complex authentication pattern like two-factor authentication, Azure Active Directory, or using SSH remote URLs that require an SSH key password for every Git push. GCM integrates into the authentication flow for services like GitHub and, once you're authenticated to your hosting provider, requests a new authentication token. It then stores the token securely in the [Windows Credential Manager](https://support.microsoft.com/help/4026814/windows-accessing-credential-manager). After the first time, you can use Git to talk to your hosting provider without needing to re-authenticate. It will just access the token in the Windows Credential Manager.
 
-To set up GCM Core for use with a WSL distribution, open your distribution and enter this command:
+To set up GCM for use with a WSL distribution, open your distribution and enter this command:
 
 ```Bash
 git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/libexec/git-core/git-credential-manager-core.exe"
 ```
 
-If you intend to work with Azure Repos, some [additional configuration](https://github.com/microsoft/Git-Credential-Manager-Core/blob/main/docs/configuration.md#credentialusehttppath) is required:
+If you intend to work with Azure Repos, some [additional configuration](https://github.com/GitCredentialManager/git-credential-manager/blob/main/docs/configuration.md#credentialusehttppath) is required:
 
 ```Bash
 git config --global credential.https://dev.azure.com.useHttpPath true
 ```
 
-Now any git operation you perform within your WSL distribution will use GCM Core. If you already have credentials cached for a host, it will access them from the credential manager. If not, you'll receive a dialog response requesting your credentials, even if you're in a Linux console.
+Now any git operation you perform within your WSL distribution will use GCM. If you already have credentials cached for a host, it will access them from the credential manager. If not, you'll receive a dialog response requesting your credentials, even if you're in a Linux console.
 
 > [!NOTE]
 > If you are using a GPG key for code signing security, you may need to [associate your GPG key with your GitHub email](https://help.github.com/en/github/authenticating-to-github/associating-an-email-with-your-gpg-key).

@@ -1,30 +1,32 @@
 ---
 title: Windows Subsystem for Linux Documentation
-description: Explore the Windows Subsystem for Linux documentation.
-keywords: wsl docs, BashOnWindows, bash, wsl, windows, windowssubsystem, gnu, linux
-ms.topic: article
-ms.date: 09/27/2021
+description: Overview of the Windows Subsystem for Linux documentation.
+ms.topic: overview
+ms.date: 12/06/2021
 ms.localizationpriority: high
+ms.custom: seo-windows-dev
 ---
 
 # Windows Subsystem for Linux Documentation
 
-The Windows Subsystem for Linux lets developers run a GNU/Linux environment -- including most command-line tools, utilities, and applications -- directly on Windows, unmodified, without the overhead of a traditional virtual machine or dual-boot setup.
+Windows Subsystem for Linux (WSL) lets developers run a GNU/Linux environment -- including most command-line tools, utilities, and applications -- directly on Windows, unmodified, without the overhead of a traditional virtual machine or dual-boot setup.
 
 > [!div class="nextstepaction"]
 > [Install WSL](install.md)
 
 ## Learn more
 
-* [What is the Windows Subsystem for Linux?](about.md)
+* [What is the Windows Subsystem for Linux (WSL)?](about.md)
 * [What's new with WSL 2?](compare-versions.md#whats-new-in-wsl-2)
-* [Compare WSL 2 and WSL 1](compare-versions.md)
-* [Read frequently asked questions](faq.yml)
+* [Comparing WSL 1 and WSL 2](compare-versions.md)
+* [Frequently Asked Questions](faq.yml)
 
 ## Get started
 
 * [Install WSL](install.md)
 * [Install Linux on Windows Server](install-on-server.md)
+* [Manual install steps](install-manual.md)
+* [Best practices for setting up a WSL development environment](./setup/environment.md)
 
 ## Try WSL preview features by joining the Windows Insiders Program
 
@@ -40,12 +42,7 @@ To try the most recent features or updates to WSL, join the [Windows Insiders Pr
 * [Command-Line blog](https://blogs.msdn.microsoft.com/commandline/) (Active)
 * [Windows Subsystem for Linux Blog](/archive/blogs/wsl/) (Historical)
 
-## Posts and articles
-
-* [Run Bash on Ubuntu on Windows](https://blogs.windows.com/buildingapps/2016/03/30/run-bash-on-ubuntu-on-windows/)
-* [Developers Can Run Bash And Usermode Ubuntu Linux Binaries On Windows 10](https://www.hanselman.com/blog/DevelopersCanRunBashShellAndUsermodeUbuntuLinuxBinariesOnWindows10.aspx)
-* [Ubuntu on Windows – The Ubuntu Userspace for Windows Developers](https://insights.ubuntu.com/2016/03/30/ubuntu-on-windows-the-ubuntu-userspace-for-windows-developers/)
-
 ## Provide feedback
 
-* [GitHub issue tracker](https://github.com/Microsoft/BashOnWindows/issues)
+* [GitHub issue tracker: WSL](https://github.com/microsoft/WSL/issues)
+* [GitHub issue tracker: WSL documentation](https://github.com/MicrosoftDocs/WSL/issues)

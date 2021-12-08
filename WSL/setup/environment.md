@@ -1,18 +1,18 @@
 ---
-title: Best practices for setting up a WSL 2 development environment
-description: A step-by-step guide to help you set up a WSL 2 development environment using Ubuntu, Visual Studio Code or Visual Studio, Git, Windows Credential Manager, and with recommended tutorials.
-keywords: Best practices, wsl, wsl 2, windows subsystem for linux, set up your dev environment with wsl 2, development environment, set up wsl 2
-ms.date: 09/27/2021
+title: Set up a WSL development environment
+description: Set up a WSL development environment using best practices from this set-by-step guide. Learn how to run Ubuntu, Visual Studio Code or Visual Studio, Git, Windows Credential Manager, MongoDB, MySQL, Docker remote containers and more.
+ms.date: 12/06/2021
 ms.topic: article
 ms.localizationpriority: medium
 no-loc: [Terminal]
+ms.custom: seo-windows-dev
 ---
 
-# Best practices for setting up a WSL development environment
+# Set up a WSL development environment
 
-A step-by-step guide to help you set up a WSL development environment using Ubuntu, Visual Studio Code or Visual Studio, Git, Windows Credential Manager, and with recommended tutorials for everything you might want.
+A step-by-step guide to the best practices for setting up a WSL development environment. Learn how to run the command to install the default Bash shell that uses Ubuntu or can be set to install other Linux distributions, use basic WSL commands, set up Visual Studio Code or Visual Studio, Git, Windows Credential Manager, databases like MongoDB, Postgres, or MySQL, set up GPU acceleration, run GUI apps, and more.
 
-## Install WSL
+## Get started
 
 Windows Subsystem for Linux comes with the Windows operating system, but you must enable it and install a Linux distribution before you can begin using it.
 
@@ -39,7 +39,7 @@ You will need to restart your machine during this installation process.
 
 Check the [troubleshooting installation](../troubleshooting.md) article if you run into any issues.
 
-## Set up your Linux user info
+## Set up your Linux username and password
 
 Once the process of installing your Linux distribution with WSL is complete, open the distribution (Ubuntu by default) using the Start menu. You will be asked to create a **User Name** and **Password** for your Linux distribution.
 
@@ -181,6 +181,10 @@ In addition, many commands are interoperable between Windows and Linux. Here are
 Follow this step-by-step guide to [Get started mounting a Linux disk in WSL 2](../wsl2-mount-disk.md).
 
 ![wsl mount command screenshot](../media/wslmountsimple.png)
+
+## Run Linux GUI apps
+
+Follow this tutorial to learn how to set up and [run Linux GUI apps on WSL](../tutorials/gui-apps.md).
 
 ## Additional resources
 
