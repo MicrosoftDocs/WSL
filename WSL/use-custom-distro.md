@@ -28,7 +28,7 @@ In this example, we'll use Docker inside of a WSL distribution to obtain the tar
 #### Prerequisites
 
 - You must have [WSL enabled with a Linux distribution installed running WSL 2](./install-manual.md).
-- You must have [Docker Desktop for Windows installed with the WSL 2 engine enabled and integration checked](./tutorials/wsl-containers.md#install-docker-desktop) (please see [Docker Desktop's updated license agreement here](https://docs.docker.com/subscription/#docker-desktop-license-agreement) for the distribution you will use in the next steps.
+- You must have [Docker Desktop for Windows installed with the WSL 2 engine enabled and integration checked](./tutorials/wsl-containers.md#install-docker-desktop) See the [Docker Desktop license agreement](https://docs.docker.com/subscription/#docker-desktop-license-agreement) for udpates on the terms of use.
 
 #### Export the tar from a container
 
