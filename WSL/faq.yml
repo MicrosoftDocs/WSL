@@ -192,7 +192,7 @@ sections:
       - question: |
           Can I access the GPU in WSL 2? Are there plans to increase hardware support?
         answer: |
-          We have released support for accessing the GPU inside of WSL 2 distributions! This means you can now use WSL for machine learning, artificial intelligence, and data science scenarios more easily when big data sets are involved. Check out the [get started with GPU support](./tutorials/gpu-compute.md) tutorial. As of right now WSL 2 does not include serial support, or USB device support. We are investigating the best way to add these features.
+          We have released support for accessing the GPU inside of WSL 2 distributions! This means you can now use WSL for machine learning, artificial intelligence, and data science scenarios more easily when big data sets are involved. Check out the [get started with GPU support](./tutorials/gpu-compute.md) tutorial. As of right now WSL 2 does not include serial support, or USB device support. We are investigating the best way to add these features. However, you might be interested in reading [Connect Usb](./connect-usb.md) which offers an alternative while we are working on solving this problem properly.
           
       - question: |
           Will WSL 2 be able to use networking applications?
