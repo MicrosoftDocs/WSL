@@ -3,7 +3,6 @@ title: Windows Subsystem for Linux Documentation
 description: Overview of the Windows Subsystem for Linux documentation.
 ms.topic: overview
 ms.date: 12/06/2021
-ms.localizationpriority: high
 ms.custom: seo-windows-dev
 ---
 

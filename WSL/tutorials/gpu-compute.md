@@ -4,7 +4,6 @@ description: Learn more about WSL 2 support for NVIDIA CUDA, DirectML, Tensorflo
 keywords: wsl, windows, windows subsystem, gpu compute, gpu acceleration, NVIDIA, CUDA, DirectML, Tensorflow, PyTorch, NVIDIA CUDA preview, GPU driver, NVIDIA Container Toolkit, Docker
 ms.date: 09/27/2021
 ms.topic: article
-ms.localizationpriority: medium
 ---
 
 # GPU accelerated machine learning training in the Windows Subsystem for Linux
