@@ -4,7 +4,6 @@ description: Learn how to set up Docker containers on the Windows Subsystem for 
 keywords: wsl, windows, windowssubsystem, windows 10, docker, containers
 ms.date: 09/27/2021
 ms.topic: article
-ms.localizationpriority: medium
 ---
 
 # Get started with Docker remote containers on WSL 2

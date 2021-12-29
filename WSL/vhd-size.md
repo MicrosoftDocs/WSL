@@ -4,7 +4,6 @@ description: Learn how to expand the size of the Virtual Hard Disk (VHD) used wi
 keywords: wsl, vhd, size, resize, virtual hard disk, ext4, file system, expand, increase, storage space, diskpart, resize2fs
 ms.date: 09/27/2021
 ms.topic: article
-ms.localizationpriority: high
 ---
 
 # Expand the size of your WSL 2 Virtual Hard Disk

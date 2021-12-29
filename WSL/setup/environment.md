@@ -3,7 +3,6 @@ title: Set up a WSL development environment
 description: Set up a WSL development environment using best practices from this set-by-step guide. Learn how to run Ubuntu, Visual Studio Code or Visual Studio, Git, Windows Credential Manager, MongoDB, MySQL, Docker remote containers and more.
 ms.date: 12/06/2021
 ms.topic: article
-ms.localizationpriority: medium
 no-loc: [Terminal]
 ms.custom: seo-windows-dev
 ---

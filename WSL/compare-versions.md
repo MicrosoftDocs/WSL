@@ -4,7 +4,6 @@ description: WSL 2 provides the benefits of WSL 1, but uses an actual Linux kern
 ms.date: 11/22/2021
 ms.topic: conceptual
 ms.custom: seo-windows-dev
-ms.localizationpriority: high
 ---
 
 # Comparing WSL 1 and WSL 2

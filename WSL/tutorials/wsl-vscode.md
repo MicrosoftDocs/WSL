@@ -4,7 +4,6 @@ description: Learn how to set up VS Code to author and debug code using the Wind
 keywords: wsl, windows, windowssubsystem, gnu, linux, bash, vs code, remote extension, debug, path, visual studio
 ms.date: 09/27/2021
 ms.topic: article
-ms.localizationpriority: medium
 ---
 
 # Get started using Visual Studio Code with Windows Subsystem for Linux

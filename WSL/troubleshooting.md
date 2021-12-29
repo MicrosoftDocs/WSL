@@ -4,7 +4,6 @@ description: Provides detailed information about common errors and issues people
 keywords: BashOnWindows, bash, wsl, windows, windowssubsystem, ubuntu
 ms.date: 09/27/2021
 ms.topic: article
-ms.localizationpriority: high
 ---
 
 # Troubleshooting Windows Subsystem for Linux
