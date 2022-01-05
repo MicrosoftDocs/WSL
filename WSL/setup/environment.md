@@ -1,7 +1,7 @@
 ---
 title: Set up a WSL development environment
 description: Set up a WSL development environment using best practices from this set-by-step guide. Learn how to run Ubuntu, Visual Studio Code or Visual Studio, Git, Windows Credential Manager, MongoDB, MySQL, Docker remote containers and more.
-ms.date: 12/06/2021
+ms.date: 01/04/2022
 ms.topic: article
 no-loc: [Terminal]
 ms.custom: seo-windows-dev
@@ -97,7 +97,7 @@ We recommend using WSL with Windows Terminal, especially if you plan to work wit
 - Learn how to use [command line arguments](/windows/terminal/command-line-arguments?tabs=windows) like opening a terminal with multiple command lines split into window panes or tabs
 - Learn about the [search feature](/windows/terminal/search)
 - Find [tips and tricks](/windows/terminal/tips-and-tricks), like how to rename or color a tab, use mouse interactions, or enable "Quake mode"
-- Find tutorials on how to set up [Powerline](/windows/terminal/tutorials/powerline-setup), [SSH profiles](/windows/terminal/tutorials/ssh), or [tab titles](/windows/terminal/tutorials/tab-title)
+- Find tutorials on how to set up [a customized command prompt](/windows/terminal/tutorials/custom-prompt-setup), [SSH profiles](/windows/terminal/tutorials/ssh), or [tab titles](/windows/terminal/tutorials/tab-title)
 - Find a [custom terminal gallery](/windows/terminal/custom-terminal-gallery/custom-schemes) and a [troubleshooting guide](/windows/terminal/troubleshooting)
 
 ![Windows Terminal screenshot](../media/terminal.png)
