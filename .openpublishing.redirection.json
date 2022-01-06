@@ -21,6 +21,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "wsl/wsl2-install.md",
+      "redirect_url": "/windows/wsl/install",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "wsl/wsl2-kernel.md",
       "redirect_url": "/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package",
       "redirect_document_id": false
