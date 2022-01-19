@@ -28,7 +28,7 @@ In this example, we'll use Docker inside of a WSL distribution to obtain the tar
 #### Prerequisites
 
 - You must have [WSL enabled with a Linux distribution installed running WSL 2](./install-manual.md).
-- You must have [Docker Desktop for Windows installed with the WSL 2 engine enabled and integration checked](./tutorials/wsl-containers.md#install-docker-desktop) for the distribution you will use in the next steps.
+- You must have [Docker Desktop for Windows installed with the WSL 2 engine enabled and integration checked](./tutorials/wsl-containers.md#install-docker-desktop) See the [Docker Desktop license agreement](https://docs.docker.com/subscription/#docker-desktop-license-agreement) for updates on the terms of use.
 
 #### Export the tar from a container
 
@@ -100,6 +100,9 @@ wsl -d CentOS
 ```
 
 Next, open your CentOS command line. Use this command to install sudo and password setting tools into CentOS, create a user account, and set it as the default user. In this example, the username will be 'caloewen'.
+
+> [!NOTE]
+> You will want to add the username to the sudoers file so that enables the user to use sudo. The command `adduser -G wheel $myUsername >> /etc/wsl.conf` adds the user `myUsername` to the wheel group. Users in the wheel group are automatically granted sudo privileges and can perform tasks requiring elevated permission.
 
 ```bash
 yum update -y && yum install passwd sudo -y

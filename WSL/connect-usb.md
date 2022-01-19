@@ -3,7 +3,6 @@ title: Connect USB devices
 description: Learn how to connect a USB device to your WSL 2 Linux distribution using usbipd-win.
 ms.date: 11/09/2021
 ms.topic: article
-ms.localizationpriority: medium
 ---
 
 # Connect USB devices
@@ -76,7 +75,7 @@ Before attaching your USB device, ensure that a WSL command line is open.  This 
     usbipd wsl list
     ```
 
-2. Select the bus ID of the device you’d like to attach to WSL and run this command. You’ll be prompted by WSL for a password to run a sudo command.
+2. Select the bus ID of the device you’d like to attach to WSL and run this command. You’ll be prompted by WSL for a password to run a sudo command. The Linux distribution to be attached must be your default distribution. (See the [Basic comands for WSL](./basic-commands.md#set-default-linux-distribution) doc to change your default distribution).
 
     ```powershell
     usbipd wsl attach --busid <busid>

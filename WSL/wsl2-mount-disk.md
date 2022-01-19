@@ -3,7 +3,6 @@ title: Get started mounting a Linux disk in WSL 2
 description: Learn how to set up a disk mount in WSL 2 and how to access it.
 ms.date: 11/15/2021
 ms.topic: article
-ms.localizationpriority: medium
 ---
 
 # Mount a Linux disk in WSL 2
@@ -86,7 +85,7 @@ sda      8:0    0  256G  0 disk
 
 If you don't know the type of filesystem of a disk or partition, you can use this command:
 
-```powershell
+```bash
 blkid <BlockDevice>
 ```
 

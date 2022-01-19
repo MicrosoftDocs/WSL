@@ -4,7 +4,6 @@ description: Learn about the considerations and interop commands available when 
 keywords: wsl, Linux, Windows, file systems, interop, across directories, mnt
 ms.date: 09/27/2021
 ms.topic: article
-ms.localizationpriority: high
 ---
 
 # Working across Windows and Linux file systems

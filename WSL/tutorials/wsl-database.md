@@ -4,7 +4,6 @@ description: Learn how to set up MySQL MongoDB, PostgreSQL, SQLite, Microsoft SQ
 keywords: wsl, windows, windowssubsystem, MySQL MongoDB, PostgreSQL, SQLite, Microsoft SQL Server, Redis, windows 10
 ms.date: 09/27/2021
 ms.topic: article
-ms.localizationpriority: medium
 ---
 
 # Get started with databases on Windows Subsystem for Linux

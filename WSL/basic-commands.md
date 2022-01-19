@@ -3,7 +3,6 @@ title: Basic commands for WSL
 description: Reference for the basic commands included with Windows Subsystem for Linux (WSL).
 ms.date: 11/23/2021
 ms.topic: article
-ms.localizationpriority: high
 ---
 
 # Basic commands for WSL
@@ -40,7 +39,7 @@ See a list of the Linux distributions available through the online store. This c
 wsl --list --verbose
 ```
 
-See a list of the Linux distributions installed on your Windows machine, including the state (whether the distribution is running or stopped) and the version of WSL running the distribution (WSL 1 or WSL 2). [Comparing WSL 1 and WSL 2](./compare-versions.md). This command can also be entered as: `wsl -l -v`. Additional options that can be used with the list command include: `--all` to list all distributions, `--running` to list only distributions that are currently running, or `--quite` to only show distribution names.
+See a list of the Linux distributions installed on your Windows machine, including the state (whether the distribution is running or stopped) and the version of WSL running the distribution (WSL 1 or WSL 2). [Comparing WSL 1 and WSL 2](./compare-versions.md). This command can also be entered as: `wsl -l -v`. Additional options that can be used with the list command include: `--all` to list all distributions, `--running` to list only distributions that are currently running, or `--quiet` to only show distribution names.
 
 ## Set WSL version to 1 or 2
 
