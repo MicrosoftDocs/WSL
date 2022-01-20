@@ -98,6 +98,7 @@ Section label: `[network]`
 |:----|:----|:----|:----|
 | generateHosts | boolean | `true` | `true` sets WSL to generate `/etc/hosts`. The `hosts` file contains a static map of hostnames corresponding IP address. |
 | generateResolvConf | boolean | `true` | `true` set WSL to generate `/etc/resolv.conf`. The `resolv.conf` contains a DNS list that are capable of resolving a given hostname to its IP address. |
+| hostname | string | Windows hostname | Sets hostname to be used for WSL distribution. |
 
 ### Interop settings
 
