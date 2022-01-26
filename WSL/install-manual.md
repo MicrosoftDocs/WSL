@@ -113,6 +113,7 @@ There are some scenarios in which you may not be able (or want) to, install WSL 
 
 If the Microsoft Store app is not available, you can download and manually install Linux distributions using these links:
 
+- [Ubuntu](https://aka.ms/wslubuntu)
 - [Ubuntu 20.04](https://aka.ms/wslubuntu2004)
 - [Ubuntu 20.04 ARM](https://aka.ms/wslubuntu2004arm)
 - [Ubuntu 18.04](https://aka.ms/wsl-ubuntu-1804)
