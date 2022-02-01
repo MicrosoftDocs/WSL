@@ -28,6 +28,11 @@ This command will enable the required optional components, download the latest L
 
 The first time you launch a newly installed Linux distribution, a console window will open and you'll be asked to wait for files to de-compress and be stored on your machine. All future launches should take less than a second.
 
+> [!NOTE]
+> The above command only works if WSL is not installed at all. 
+> * If you want to upgrade to WSL 2 follow the steps in [Upgrade version from WSL 1 to WSL 2](#upgrade-version-from-wsl-1-to-wsl-2) then run `wsl --update`.
+> * To install a Linux distribution, use the command: `wsl --install -d <Distribution Name>`. 
+
 ## Change the default Linux distribution installed
 
 By default, the installed Linux distribution will be Ubuntu. This can be changed using the `-d` flag.
