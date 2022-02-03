@@ -23,7 +23,7 @@ The version of WSL that you are running will impact the configuration settings. 
 
 ## wsl.conf
 
-- Stored in the `/etc` directory of the distribution.
+- Stored in the `/etc` directory of the distribution as a unix file.
 - Used to configure settings on a per-distribution basis. Settings configured in this file will only be applied to the specific Linux distribution that contains the directory where this file is stored.
 - Can be used for distributions run by either version, WSL 1 or WSL 2.
 - To get to the `/etc` directory for an installed distribution, use the distribution's command line with `cd /` to access the root directory, then `ls` to list files or `explorer.exe .` to view in Windows File Explorer. The directory path should look something like: `/etc/wsl.conf`.
