@@ -102,7 +102,7 @@ wsl -d CentOS
 Next, open your CentOS command line. Use this command to install sudo and password setting tools into CentOS, create a user account, and set it as the default user. In this example, the username will be 'caloewen'.
 
 > [!NOTE]
-> You will want to add the username to the sudoers file so that enables the user to use sudo. The command `adduser -G wheel $myUsername >> /etc/wsl.conf` adds the user `myUsername` to the wheel group. Users in the wheel group are automatically granted sudo privileges and can perform tasks requiring elevated permission.
+> You will want to add the username to the sudoers file so that enables the user to use sudo. The command `adduser -G wheel $myUsername` adds the user `myUsername` to the wheel group. Users in the wheel group are automatically granted sudo privileges and can perform tasks requiring elevated permission.
 
 ```bash
 yum update -y && yum install passwd sudo -y
