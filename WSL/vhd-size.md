@@ -59,7 +59,7 @@ To expand your maximum VHD size beyond 256GB:
       DISKPART> exit
       ```
 
-5. Launch your WSL distribution (Ubuntu, for example).
+5. Launch your WSL distribution (Ubuntu, for example) and make sure it is running in WSL 2 (WSL 1 is not supported). You can confirm this using the command: `wsl.exe -l -v`. 
 
 6. Make WSL aware that it can expand its file system's size by running these commands from your WSL distribution command line.
 
