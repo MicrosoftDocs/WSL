@@ -81,9 +81,6 @@ You can run the following commands from your Linux terminal to download and inst
 > [!NOTE]
 > Support for GUI apps on WSL does not provide a full desktop experience. It relies on Windows desktop, so installing desktop-focused tools or apps may not be supported. To request additional support, you can file an issue in the [WSLg repo on GitHub](https://github.com/microsoft/wslg/issues).
 
-this looks like a desktop-focused tool, so I'm thinking that you're right that this is just an unsupported app-type. I'll 
-file a request on the WSLg repo to get support for this tool. 
-
 ### Update the packages in your distribution
 
 ```bash
