@@ -78,6 +78,9 @@ If you already have WSL installed on your machine, you can update to the latest 
 
 You can run the following commands from your Linux terminal to download and install these popular Linux applications. If you are using a different distribution than Ubuntu, it may use a different package manager than apt. Once the Linux application is installed, you can find it in your **Start** menu under the distribution name. For example: `Ubuntu -> Microsoft Edge`.
 
+> [!NOTE]
+> Support for GUI apps on WSL does not provide a full desktop experience. It relies on Windows desktop, so installing desktop-focused tools or apps may not be supported. To request additional support, you can file an issue in the [WSLg repo on GitHub](https://github.com/microsoft/wslg/issues).
+
 ### Update the packages in your distribution
 
 ```bash
