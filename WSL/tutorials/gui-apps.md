@@ -8,7 +8,7 @@ ms.topic: article
 
 # Run Linux GUI apps on the Windows Subsystem for Linux (preview)
 
-You can now preview Windows Subsystem for Linux (WSL) support for running Linux GUI applications (X11 and Wayland) on Windows in a fully integrated desktop experience.
+Windows Subsystem for Linux (WSL) now supports running Linux GUI applications (X11 and Wayland) on Windows in a fully integrated desktop experience.
 
 WSL 2 enables Linux GUI applications to feel native and natural to use on Windows.
 
@@ -37,21 +37,17 @@ You can now integrate both Windows and Linux applications into your workflow for
 
 ### Fresh install - No prior WSL installation
 
-If you have not already done so, [install WSL](../install.md) and set up a user name and password for your Linux distribution.
+You can now install everything you need to run Windows Subsystem for Linux (WSL) by entering this command in an administrator PowerShell or Windows Command Prompt and then restarting your machine.
 
-1. Open a command prompt with administrator privileges.
+```powershell
+wsl --install
+```
 
-    *Select **Start**, type **PowerShell**, right-click **Windows PowerShell**, and then select **Run as administrator**.*
-
-2. Run this command and reboot your machine when prompted:
-
-    ```powershell
-    wsl --install -d Ubuntu
-    ```
-
-3. Once your machine has finished rebooting, installation will continue and you will be asked to enter a username and password. This will be your Linux credential for the Ubuntu distribution.
+Once your machine has finished rebooting, installation will continue and you will be asked to enter a username and password. This will be your Linux credential for the Ubuntu distribution.
 
 You're now ready to begin using Linux GUI apps on WSL!
+
+For more info check [install WSL](../install.md).
 
 ### Existing WSL install
 
@@ -166,3 +162,7 @@ To launch, enter: `teams`
 Find information on how to [install the Microsoft Edge browser for Linux using the command line on the Edge Insider site](https://www.microsoftedgeinsider.com/download/?platform=linux-deb). Select **Get instructions** under the Command line installation section of the page.
 
 To launch, enter: `microsoft-edge`
+
+## Troubleshooting
+
+If you have any problem starting GUI applications please check this guide first: [Diagnosing "cannot open display" type issues with WSLg](https://github.com/microsoft/wslg/wiki/Diagnosing-%22cannot-open-display%22-type-issues-with-WSLg)
