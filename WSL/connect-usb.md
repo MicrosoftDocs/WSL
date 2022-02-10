@@ -43,25 +43,14 @@ This will install:
 
 ## Install the USBIP tools and hardware database in Linux
 
-Once the USB/IP project has completed installing, you will need to install the user space tools and a database of USB hardware identifiers.
+Once the USB/IP project has completed installing, you will need to install the user space tools and a database of USB hardware identifiers. These instructions are for Ubuntu — [other distributions may require a different usbip client package](https://github.com/dorssel/usbipd-win/wiki/WSL-support#usbip-client-tools).
 
-1. On Ubuntu (or your preferred Linux distribution), run this command:
+On Ubuntu, run this command:
 
-    ```bash
-    sudo apt install linux-tools-5.4.0-77-generic hwdata
-    ```
-
-2. You will need to edit the `/etc/sudoers` file associated with your Linux distribution. This file controls access permissions and the next steps will allow the root of your command line to access the `usbip` command. Open the `sudoers` file in Nano with the command:
-
-    ```bash
-    sudo visudo
-    ```
-
-3. In the `sudoers` file, you will need to find the `secure_path` section and add the tools path location (`/usr/lib/linux-tools/5.4.0-77-generic`) to the *beginning*, so the line should look like this:
-
-    ```bash
-    Defaults secure_path="/usr/lib/linux-tools/5.4.0-77-generic:/usr/local/sbin:..."
-    ```
+```bash
+sudo apt install linux-tools-5.4.0-77-generic hwdata
+sudo update-alternatives --install /usr/local/bin/usbip usbip /usr/lib/linux-tools/5.4.0-77-generic/usbip 20
+```
 
 At this point a service is running on Windows to share USB devices, and the necessary tools are installed in WSL to attach to shared devices.
 

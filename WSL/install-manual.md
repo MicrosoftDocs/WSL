@@ -113,6 +113,7 @@ There are some scenarios in which you may not be able (or want) to, install WSL 
 
 If the Microsoft Store app is not available, you can download and manually install Linux distributions using these links:
 
+- [Ubuntu](https://aka.ms/wslubuntu)
 - [Ubuntu 20.04](https://aka.ms/wslubuntu2004)
 - [Ubuntu 20.04 ARM](https://aka.ms/wslubuntu2004arm)
 - [Ubuntu 18.04](https://aka.ms/wsl-ubuntu-1804)
@@ -139,7 +140,7 @@ Invoke-WebRequest -Uri https://aka.ms/wslubuntu2004 -OutFile Ubuntu.appx -UseBas
 You also have the option to use the [curl command-line utility](https://curl.se/) for downloading. To download Ubuntu 20.04 with curl:
 
 ```console
-curl.exe -L -o ubuntu-2004.appx https://aka.ms/wsl-ubuntu-2004
+curl.exe -L -o ubuntu-2004.appx https://aka.ms/wslubuntu2004
 ```
 
 In this example, `curl.exe` is executed (not just `curl`) to ensure that, in PowerShell, the real curl executable is invoked, not the PowerShell curl alias for [Invoke-WebRequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest).
