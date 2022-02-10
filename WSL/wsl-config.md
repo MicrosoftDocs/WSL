@@ -64,6 +64,7 @@ Section label: `[automount]`
 |:-----------|:---------|:--------|:------|
 | enabled | boolean | true | `true` causes fixed drives (i.e `C:/` or `D:/`) to be automatically mounted with DrvFs under `/mnt`.  `false` means drives won't be mounted automatically, but you could still mount them manually or via `fstab`.                                                                                                             |
 | mountFsTab | boolean | true | `true` sets `/etc/fstab` to be processed on WSL start. /etc/fstab is a file where you can declare other filesystems, like an SMB share. Thus, you can mount these filesystems automatically in WSL on start up.                                                                                                                |
+| ldconfig | boolean | true |  `true` causes the ` ld.wsl.conf` file in `/etc/ld.so.conf.d/` to be dropped which adds `/usr/lib/wsl/lib` to the search path and  runs `/sbin/ldconfig`. `false` disables this behaviour.
 | root| string | `/mnt/` | Sets the directory where fixed drives will be automatically mounted. By default this is set to `/mnt/`, so your Windows file system C-drive is mounted to `/mnt/c/`. If you change `/mnt/` to `/windir/`, you should expect to see your fixed C-drive mounted to `/windir/c`.|
 | options | comma-separated list of values, such as uid, gid, etc, see automount options below | empty string | The automount option values are listed below and are appended to the default DrvFs mount options string. **Only DrvFs-specific options can be specified.**|
 
