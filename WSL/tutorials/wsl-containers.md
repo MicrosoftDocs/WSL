@@ -12,6 +12,9 @@ This step-by-step guide will help you get started developing with remote contain
 
 Docker Desktop for Windows provides a development environment for building, shipping, and running dockerized apps. By enabling the WSL 2 based engine, you can run both Linux and Windows containers in Docker Desktop on the same machine. (Docker Desktop is free for personal use and small businesses, for info on Pro, Team, or Business pricing, see the [Docker site FAQs](https://www.docker.com/pricing/faq)).
 
+> [!NOTE]
+> We recommend using Docker Desktop due to it's [integration with Windows and Windows Subsystem for Linux](https://docs.docker.com/desktop/windows/wsl/). However, while Docker Desktop supports running both Linux and Windows containers, you can **not** run both simultaneously. To run Linux and Windows containers simultaneously, you would need to install and run a separate Docker instance in WSL. If you need to run simultaneous containers or just prefer to install a container engine directly in your Linux distribution, follow the Linux installation instructions for that container service, such as [Install Docker Engine on Ubuntu](https://docs.docker.com/engine/install/ubuntu/) or [Install Podman for running Linux containers](https://podman.io/getting-started/installation#windows).
+
 ## Overview of Docker containers
 
 Docker is a tool used to create, deploy, and run applications using containers. Containers enable developers to package an app with all of the parts it needs (libraries, frameworks, dependencies, etc) and ship it all out as one package. Using a container ensures that the app will run the same regardless of any customized settings or previously installed libraries on the computer running it that could differ from the machine that was used to write and test the app's code. This permits developers to focus on writing code without worrying about the system that code will be run on.
