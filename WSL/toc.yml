@@ -34,7 +34,7 @@
       href: tutorials/gpu-compute.md
     - name: Run Linux GUI apps
       href: tutorials/gui-apps.md
-    - name: Install NodeJS on WSL 2
+    - name: Install NodeJS on WSL
       href: /windows/dev-environment/javascript/nodejs-on-wsl
 - name: Concepts
   items:
