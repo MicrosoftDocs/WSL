@@ -35,7 +35,7 @@
     - name: Run Linux GUI apps
       href: tutorials/gui-apps.md
     - name: Install NodeJS on WSL 2
-      href: ../../dev-environment/javascript/nodejs-on-wsl
+      href: /windows/dev-environment/javascript/nodejs-on-wsl
 - name: Concepts
   items:
     - name: Working across file systems
