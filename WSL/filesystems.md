@@ -16,7 +16,7 @@ We recommend against working across operating systems with your files, unless yo
 
 For example, when storing your WSL project files:
 
-- Use the Linux file system root directory: `\\wsl$\Ubuntu-18.04\home\<user name>\Project`
+- Use the Linux file system root directory: `\\wsl$\Ubuntu\home\<user name>\Project`
 - Not the Windows file system root directory: `/mnt/c/Users/<user name>/Project$` or  `C:\Users\<user name>\Project`
 
 When you see `/mnt/` in the file path of a WSL command line, it means that you are working from a mounted drive. So the Windows file system C:/ drive (`C:\Users\<user name>\Project`) will look like this when mounted in a WSL command line: `/mnt/c/Users/<user name>/Project$`. It is possible to store your project files on a mounted drive, but your performance speed will improve if you store them directly on the `\\wsl$` drive.
