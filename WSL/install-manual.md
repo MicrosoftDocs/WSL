@@ -14,7 +14,7 @@ For simplicity, we generally recommend using the [`wsl --install`](./install.md)
 
 You must first enable the "Windows Subsystem for Linux" optional feature before installing any Linux distributions on Windows.
 
-Open PowerShell as Administrator (Start menu > PowerShell > right-click > Run as Administrator) and enter this command:
+Open PowerShell **as Administrator (Start menu > PowerShell > right-click > Run as Administrator)** and enter this command:
 
 ```powershell
 dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart

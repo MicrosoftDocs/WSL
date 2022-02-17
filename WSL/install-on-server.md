@@ -13,7 +13,7 @@ The Windows Subsystem for Linux is available for installation on Windows Server 
 
 Before you can run Linux distributions on Windows, you must enable the "Windows Subsystem for Linux" optional feature and reboot.
 
-Open PowerShell as Administrator and run:
+Open PowerShell **as Administrator** and run:
 
 ```powershell
     Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
