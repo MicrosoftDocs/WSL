@@ -35,9 +35,12 @@ Now that you've downloaded a Linux distribution, in order to extract its content
     Expand-Archive .\Ubuntu.zip .\Ubuntu
     ```
 
-2. Run the distribution launcher application in the target folder. The launcher is typically named `<DistributionName>.exe` (for example, `ubuntu.exe`).
+2. Once the distribution has been downloaded, navigate to the folder containing the download and run the following command in that directory, where `app-name` is the name of the Linux distribution .appx file.
 
-    ![Expanded Ubuntu distribution on Windows Server](media/server-appx-expand.png)
+```Powershell
+Add-AppxPackage .\app_name.appx
+```
+
 
 > [!CAUTION]
 > **Installation failed with error 0x8007007e**: If you receive this error, then your system doesn't support WSL. Ensure that you're running Windows build 16215 or later. [Check your build](troubleshooting.md#check-your-build-number). Also check to [confirm that WSL is enabled](troubleshooting.md#confirm-wsl-is-enabled) and your computer was restarted after the feature was enabled.  
