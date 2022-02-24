@@ -128,7 +128,7 @@ If the Microsoft Store app is not available, you can download and manually insta
 - [openSUSE Leap 15.3](https://aka.ms/wsl-opensuseleap15-3)
 - [openSUSE Leap 15.2](https://aka.ms/wsl-opensuseleap15-2)
 - [Oracle Linux 8.5](https://aka.ms/wsl-oraclelinux-8-5)
-- [Oracle Linux 7.9](https://aka.ms/wsl-orcalelinux-7-9)
+- [Oracle Linux 7.9](https://aka.ms/wsl-oraclelinux-7-9)
 - [Fedora Remix for WSL](https://github.com/WhitewaterFoundry/WSLFedoraRemix/releases/)
 
 This will cause the `<distro>.appx` packages to download to a folder of your choosing.
