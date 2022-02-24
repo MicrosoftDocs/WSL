@@ -14,7 +14,7 @@ For simplicity, we generally recommend using the [`wsl --install`](./install.md)
 
 You must first enable the "Windows Subsystem for Linux" optional feature before installing any Linux distributions on Windows.
 
-Open PowerShell as Administrator (Start menu > PowerShell > right-click > Run as Administrator) and enter this command:
+Open PowerShell **as Administrator (Start menu > PowerShell > right-click > Run as Administrator)** and enter this command:
 
 ```powershell
 dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
@@ -123,7 +123,12 @@ If the Microsoft Store app is not available, you can download and manually insta
 - [Kali Linux](https://aka.ms/wsl-kali-linux-new)
 - [SUSE Linux Enterprise Server 12](https://aka.ms/wsl-sles-12)
 - [SUSE Linux Enterprise Server 15 SP2](https://aka.ms/wsl-SUSELinuxEnterpriseServer15SP2)
+- [SUSE Linux Enterprise Server 15 SP3](https://aka.ms/wsl-SUSELinuxEnterpriseServer15SP3)
+- [openSUSE Tumbleweed](https://aka.ms/wsl-opensuse-tumbleweed)
+- [openSUSE Leap 15.3](https://aka.ms/wsl-opensuseleap15-3)
 - [openSUSE Leap 15.2](https://aka.ms/wsl-opensuseleap15-2)
+- [Oracle Linux 8.5](https://aka.ms/wsl-oraclelinux-8-5)
+- [Oracle Linux 7.9](https://aka.ms/wsl-orcalelinux-7-9)
 - [Fedora Remix for WSL](https://github.com/WhitewaterFoundry/WSLFedoraRemix/releases/)
 
 This will cause the `<distro>.appx` packages to download to a folder of your choosing.
