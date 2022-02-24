@@ -4,9 +4,8 @@ metadata:
   description: "Find answers to frequently asked questions (FAQs) about the Windows Subsystem for Linux, such as 'What can I do with WSL?'."
   keywords: BashOnWindows, bash, wsl, windows, windowssubsystem, faq
   ms.date: 09/27/2021
-  ms.topic: article
+  ms.topic: faq
   ms.localizationpriority: high
-    
 title: Frequently Asked Questions about Windows Subsystem for Linux
 summary: |
 
