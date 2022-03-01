@@ -37,7 +37,7 @@ To view all of your available Linux distributions and their root file systems in
 
 ## Filename and directory case sensitivity
 
-Case sensitivity determines whether uppercase (FOO.txt) and lowercase (foo.txt) letters are handled as distinct (case-sensitive) or equivalent (case-insensitive) in a file name or directory. Windows and Linux file systems handle case sensitivity in different ways - Windows is case-insenstive and Linux is case-sensitive. Learn more about how to adjust case sensitivity, particularly when mounting disks with WSL, in the [Adjust case sensitivity](./case-sensitivity.md) how-to article.
+Case sensitivity determines whether uppercase (FOO.txt) and lowercase (foo.txt) letters are handled as distinct (case-sensitive) or equivalent (case-insensitive) in a file name or directory. Windows and Linux file systems handle case sensitivity in different ways - Windows is case-insensitive and Linux is case-sensitive. Learn more about how to adjust case sensitivity, particularly when mounting disks with WSL, in the [Adjust case sensitivity](./case-sensitivity.md) how-to article.
 
 ## Interoperability between Windows and Linux commands
 
