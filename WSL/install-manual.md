@@ -156,6 +156,8 @@ Once the distribution has been downloaded, navigate to the folder containing the
 Add-AppxPackage .\app_name.appx
 ```
 
+Once the Appx package has finished downloading, you can start running the new distribution by double-clicking the appx file. (The command `wsl -l` will not show that the distribution is installed until this step is complete). 
+
 If you are using Windows server, or run into problems running the command above you can find the alternate install instructions on the [Windows Server](install-on-server.md) documentation page to install the `.appx` file by changing it to a zip file.
 
 Once your distribution is installed, follow the instructions to [create a user account and password for your new Linux distribution](./setup/environment.md#set-up-your-linux-username-and-password).
