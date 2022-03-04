@@ -31,7 +31,7 @@ The picture below shows an example of this by connecting to a Node.js server usi
 
 ![Connect to NodeJS server with Edge](media/wsl2-network-w2l.jpg)
 
-The IP address of the Linux host VM does not persist across sessions and across Linux distributions. However using a [Docker container](./tutorials/wsl-containers.md), you can map Linux port 80 to, for example, host port 8080 in order to maintain an IP address that will persist after restarting your machine. 
+The IP address of the Linux host VM does not persist across sessions and across Linux distributions. 
 
 ## Accessing Windows networking apps from Linux (host IP)
 
