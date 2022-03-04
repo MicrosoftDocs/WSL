@@ -14,7 +14,7 @@ There are a few considerations to be aware of when working with networking apps,
 
 If you are building a networking app (for example an app running on a NodeJS or SQL server) in your Linux distribution, you can access it from a Windows app (like your Edge or Chrome internet browser) using `localhost` (just like you normally would).
 
-However, if you are running an older version of Windows (Build 18945 or less), you will need to get the IP address of the Linux host VM (or [update to the latest Windows version](ms-settings:windowsupdate)).
+However, if you are running an older version of Windows (Build 18945 or less), you will need to get the IP address of the Linux host VM (or [update to the latest Windows version](ms-settings:windowsupdate)), this is also true if localhost is already bound.
 
 To find the IP address of the virtual machine powering your Linux distribution:
 
@@ -23,9 +23,15 @@ To find the IP address of the virtual machine powering your Linux distribution:
 - If you have the grep tool installed, find this more easily by filtering the output with the command: `ip addr | grep eth0`
 - Connect to your Linux server using this IP address.
 
+```bash
+ip addr | grep eth0
+```
+
 The picture below shows an example of this by connecting to a Node.js server using the Edge browser.
 
 ![Connect to NodeJS server with Edge](media/wsl2-network-w2l.jpg)
+
+The IP address of the Linux host VM does not persist across sessions and across Linux distributions. However using a [Docker container](./tutorials/wsl-containers.md), you can map Linux port 80 to, for example, host port 8080 in order to maintain an IP address that will persist after restarting your machine. 
 
 ## Accessing Windows networking apps from Linux (host IP)
 
