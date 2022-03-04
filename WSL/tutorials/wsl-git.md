@@ -1,8 +1,7 @@
 ---
 title: Get started using Git on WSL
-description: Learn how to set up Git for version control on the Windows Subsystem for Linux.
-keywords: wsl, windows, windowssubsystem, gnu, linux, bash, git, github, version control
-ms.date: 09/27/2021
+description: Learn how to set up Git for version control on the Windows Subsystem for Linux, along with Git Credential Manager.
+ms.date: 03/03/2022
 ms.topic: article
 ---
 
@@ -64,7 +63,17 @@ We recommend that you [secure your account with two-factor authentication (2FA)]
 
 ## Git Credential Manager setup
 
-[Git Credential Manager (GCM)](https://github.com/GitCredentialManager/git-credential-manager) enables you to authenticate a remote Git server, even if you have a complex authentication pattern like two-factor authentication, Azure Active Directory, or using SSH remote URLs that require an SSH key password for every Git push. GCM integrates into the authentication flow for services like GitHub and, once you're authenticated to your hosting provider, requests a new authentication token. It then stores the token securely in the [Windows Credential Manager](https://support.microsoft.com/help/4026814/windows-accessing-credential-manager). After the first time, you can use Git to talk to your hosting provider without needing to re-authenticate. It will just access the token in the Windows Credential Manager.
+[Git Credential Manager (GCM)](https://github.com/GitCredentialManager/git-credential-manager) is a secure Git credential helper built on [.NET](https://dotnet.microsoft.com/) that can be used with both WSL1 an WSL2. It enables multi-factor authentication support for GitHub repos, [Azure DevOps](https://dev.azure.com/), Azure DevOps Server, and Bitbucket. 
+
+GCM integrates into the authentication flow for services like GitHub and, once you're authenticated to your hosting provider, requests a new authentication token. It then stores the token securely in the [Windows Credential Manager](https://support.microsoft.com/help/4026814/windows-accessing-credential-manager). After the first time, you can use Git to talk to your hosting provider without needing to re-authenticate. It will just access the token in the Windows Credential Manager.
+
+In order to use GCM with WSL you must be on Windows 10 Version 1903 or later. This is the first version of Windows that includes the required `wsl.exe` tool that GCM uses to interoperate with Git in your WSL distributions. 
+
+It is recommended to install the [latest Git for Windows](https://github.com/git-for-windows/git/releases/latest) in order to share credentials & settings between WSL and the Windows host. Git Credential Manager is included with Git for Windows and the latest version is included in each new Git for Windows release. During the installation, you will be asked to select a credential helper, with GCM set as the default.
+
+If you have a reason not to install Git for Windows, you can install GCM as a Linux application directly in your WSL distribution, but note that doing so means GCM is running as a Linux application and cannot utilize the authentication or credential storage features of the host Windows operating system. See the GCM repo for instructions on how to [configure WSL without Git for Windows](https://github.com/GitCredentialManager/git-credential-manager/blob/main/docs/wsl.md#configuring-wsl-without-git-for-windows).
+
+
 
 To set up GCM for use with a WSL distribution, open your distribution and enter this command:
 
@@ -72,7 +81,20 @@ To set up GCM for use with a WSL distribution, open your distribution and enter 
 git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/libexec/git-core/git-credential-manager-core.exe"
 ```
 
-If you intend to work with Azure Repos, some [additional configuration](https://github.com/GitCredentialManager/git-credential-manager/blob/main/docs/configuration.md#credentialusehttppath) is required:
+> [!NOTE]
+> Using GCM as a credential helper for a WSL Git installation means that any configuration set in WSL Git is NOT respected by GCM (by default). This is because GCM is running as a Windows application, and therefore will use the Git for Windows installation to query configuration. This means things like proxy settings for GCM need to be set in Git for Windows as well as WSL Git as they are stored in different files (`%USERPROFILE%\.gitconfig` vs `\\wsl$\distro\home\$USER\.gitconfig`). You can configure WSL so that GCM will use the WSL Git configuration, but this means that proxy settings will be unique to the specific WSL installation and not shared with others or the Windows host.
+
+### Git with SSH
+
+Git Credential Manager only works with HTTP(S) remotes. You can still use Git with SSH:
+
+- [Azure DevOps SSH](https://docs.microsoft.com/azure/devops/repos/git/use-ssh-keys-to-authenticate)
+- [GitHub SSH](https://help.github.com/en/articles/connecting-to-github-with-ssh)
+- [Bitbucket SSH](https://confluence.atlassian.com/bitbucket/ssh-keys-935365775.html)
+
+### Additional configuration for Azure
+
+If you intend to work with [Azure Repos](https://github.com/GitCredentialManager/git-credential-manager/blob/main/docs/configuration.md#credentialprovider) or [Azure DevOps](https://github.com/GitCredentialManager/git-credential-manager/blob/main/docs/wsl.md#configuring-wsl-with-git-for-windows-recommended), some additional configuration is required:
 
 ```Bash
 git config --global credential.https://dev.azure.com.useHttpPath true
@@ -80,7 +102,7 @@ git config --global credential.https://dev.azure.com.useHttpPath true
 
 Now any git operation you perform within your WSL distribution will use GCM. If you already have credentials cached for a host, it will access them from the credential manager. If not, you'll receive a dialog response requesting your credentials, even if you're in a Linux console.
 
-> [!NOTE]
+> [!TIP]
 > If you are using a GPG key for code signing security, you may need to [associate your GPG key with your GitHub email](https://help.github.com/en/github/authenticating-to-github/associating-an-email-with-your-gpg-key).
 
 ## Adding a Git Ignore file
