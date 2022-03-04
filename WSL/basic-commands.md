@@ -1,7 +1,7 @@
 ---
 title: Basic commands for WSL
 description: Reference for the basic commands included with Windows Subsystem for Linux (WSL).
-ms.date: 11/23/2021
+ms.date: 03/04/2022
 ms.topic: article
 ---
 
@@ -126,6 +126,9 @@ For example:
 
 > [!NOTE]
 > If you are having trouble figuring out the name of your distribution, use the command `wsl -l`.
+
+> [!WARNING]
+> This command will not work for imported distributions, because these distributions do not have an executable launcher. You can instead change the default user for imported distributions using the `/etc/wsl.conf` file. See the Automount options in the [Advanced Settings Configuration](./wsl-config.md#user-settings) doc.
 
 ## Shutdown
 
