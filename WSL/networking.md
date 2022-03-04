@@ -14,7 +14,7 @@ There are a few considerations to be aware of when working with networking apps,
 
 If you are building a networking app (for example an app running on a NodeJS or SQL server) in your Linux distribution, you can access it from a Windows app (like your Edge or Chrome internet browser) using `localhost` (just like you normally would).
 
-However, if you are running an older version of Windows (Build 18945 or less), you will need to get the IP address of the Linux host VM (or [update to the latest Windows version](ms-settings:windowsupdate)), this is also true if localhost is already bound.
+However, if you are running an older version of Windows (Build 18945 or less), you will need to get the IP address of the Linux host VM (or [update to the latest Windows version](ms-settings:windowsupdate)).
 
 To find the IP address of the virtual machine powering your Linux distribution:
 
