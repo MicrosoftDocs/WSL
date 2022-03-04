@@ -23,9 +23,15 @@ To find the IP address of the virtual machine powering your Linux distribution:
 - If you have the grep tool installed, find this more easily by filtering the output with the command: `ip addr | grep eth0`
 - Connect to your Linux server using this IP address.
 
+```bash
+ip addr | grep eth0
+```
+
 The picture below shows an example of this by connecting to a Node.js server using the Edge browser.
 
 ![Connect to NodeJS server with Edge](media/wsl2-network-w2l.jpg)
+
+The IP address of the Linux host VM does not persist across sessions and across Linux distributions. 
 
 ## Accessing Windows networking apps from Linux (host IP)
 
