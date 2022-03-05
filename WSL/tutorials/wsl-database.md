@@ -12,7 +12,7 @@ This step-by-step guide will help you get started connecting your project in WSL
 
 ## Prerequisites
 
-- Running Windows 10, [updated to version 2004](ms-settings:windowsupdate), **Build 19041** or higher.
+- Running Windows 10, [updated to version 2004](ms-settings:windowsupdate), **Build 19041** or later.
 - [Install WSL and create a user name and password for the Linux distribution](../install.md).
 - Linux distribution [running in WSL 2 mode](../basic-commands.md#set-wsl-version-to-1-or-2).
 
@@ -234,4 +234,4 @@ Ensure that you are running your Linux distribution in WSL 2 mode. For help swit
 
 ## Additional resources
 
-- [Setting up your development environment on Windows 10](/windows/dev-environment/)
+- [Setting up your development environment on Windows](/windows/dev-environment/)

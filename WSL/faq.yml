@@ -166,9 +166,9 @@ sections:
   - name: WSL 2
     questions:
       - question: |
-          Does WSL 2 use Hyper-V? Will it be available on Windows 10 Home?
+          Does WSL 2 use Hyper-V? Will it be available on Windows 10 Home and Windows 11 Home?
         answer: |
-          WSL 2 is available on all Desktop SKUs where WSL is available, including Windows 10 Home.
+          WSL 2 is available on all Desktop SKUs where WSL is available, including Windows 10 Home and Windows 11 Home.
           
           The newest version of WSL uses Hyper-V architecture to enable its virtualization. This architecture will be available in the 'Virtual Machine Platform' optional component. This optional component will be available on all SKUs. You can expect to see more details about this experience soon as we get closer to the WSL 2 release.
           
@@ -186,7 +186,7 @@ sections:
 
           See the WSL issues repo for more background and discussion on [WSL 2 issues with VirtualBox 6.1](https://github.com/MicrosoftDocs/WSL/issues/798).
 
-          *If you're looking for a Windows 10 virtual machine, VMWare, Hyper-V, VirtualBox, and Parallels VM downloads are [available on the Windows Dev Center](https://developer.microsoft.com/windows/downloads/virtual-machines/).
+          *If you're looking for a Windows virtual machine, VMWare, Hyper-V, VirtualBox, and Parallels VM downloads are [available on the Windows Dev Center](https://developer.microsoft.com/windows/downloads/virtual-machines/).
           
       - question: |
           Can I access the GPU in WSL 2? Are there plans to increase hardware support?

@@ -24,11 +24,14 @@ We recommend now moving on to step #2, updating to WSL 2, but if you wish to onl
 
 ## Step 2 - Check requirements for running WSL 2
 
-To update to WSL 2, you must be running Windows 10.
+To update to WSL 2, you must be running Windows 10...
 
-- For x64 systems: **Version 1903** or higher, with **Build 18362** or higher.
-- For ARM64 systems: **Version 2004** or higher, with **Build 19041** or higher.
-- Builds lower than 18362 do not support WSL 2. Use the [Windows Update Assistant](https://www.microsoft.com/software-download/windows10) to update your version of Windows.
+- For x64 systems: **Version 1903** or later, with **Build 18362** or later.
+- For ARM64 systems: **Version 2004** or later, with **Build 19041** or later.
+
+or Windows 11.
+> [!NOTE]
+> Builds lower than 18362 do not support WSL 2. Use the [Windows Update Assistant](https://www.microsoft.com/software-download/windows10) to update your version of Windows.
 
 To check your version and build number, select **Windows logo key + R**, type **winver**, select **OK**. [Update to the latest Windows version](ms-settings:windowsupdate) in the Settings menu.
 
