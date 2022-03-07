@@ -1,0 +1,14 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Report issues related to WSL
+    url: https://github.com/microsoft/wsl/issues
+    about: WSL product repo (for reporting WSL issues, bugs, or feature requests)
+  - name: Report issues related to WSL GUI apps
+    url: https://github.com/microsoft/wslg/issues
+    about: WSLg repo (for reporting issues related to WSL GUI apps)
+  - name: Report issues related to the Windows Terminal shell
+    url: https://github.com/microsoft/terminal/issues
+    about: Windows Terminal repo (for reporting issues related to the Terminal shell)
+  - name: Report issues related to the Console
+    url: https://github.com/MicrosoftDocs/Console-Docs/issues
+    about: Windows Console repo (For reporting issues with CMD)
