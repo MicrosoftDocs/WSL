@@ -1,7 +1,7 @@
 ---
 name: WSL documentation issue
 description: Report an issue regarding the documentation of WSL
-
+body:
 - type: textarea
   attributes:
     label: Documentation Issue
