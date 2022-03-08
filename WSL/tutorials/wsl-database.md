@@ -1,8 +1,7 @@
 ---
 title: Add or connect a database with WSL
 description: Learn how to set up MySQL MongoDB, PostgreSQL, SQLite, Microsoft SQL Server, or Redis on the Windows Subsystem for Linux.
-keywords: wsl, windows, windowssubsystem, MySQL MongoDB, PostgreSQL, SQLite, Microsoft SQL Server, Redis, windows 10
-ms.date: 09/27/2021
+ms.date: 03/04/2022
 ms.topic: article
 ---
 
@@ -177,6 +176,10 @@ To create a test database, called "example.db", enter: `sqlite3 example.db`
 To see a list of your SQLite databases, enter: `.databases`
 
 To see the status of your database, enter: `.dbinfo ?DB?`
+
+Database will be empty after creation. You can create a new table for your database with `CREATE TABLE empty (kol INTEGER);`.
+
+Now entering the `.dbinfo ?DB?` will show the database you have created.
 
 To exit the SQLite prompt, enter: `.exit`
 

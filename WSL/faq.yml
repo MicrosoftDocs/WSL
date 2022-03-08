@@ -194,9 +194,9 @@ sections:
           We have released support for accessing the GPU inside of WSL 2 distributions! This means you can now use WSL for machine learning, artificial intelligence, and data science scenarios more easily when big data sets are involved. Check out the [get started with GPU support](./tutorials/gpu-compute.md) tutorial. As of right now WSL 2 does not include serial support, or USB device support. We are investigating the best way to add these features. However, USB support is now available through the USBIPD-WIN project. See [Connect USB devices](./connect-usb.md) for steps to set up USB device support.
           
       - question: |
-          Will WSL 2 be able to use networking applications?
+          Can WSL 2 use networking applications?
         answer: |
-          Yes, in general networking applications will be faster and work better since we have full system call compatibility. However, the new architecture uses virtualized networking components. This means that in initial preview builds WSL 2 will behave more similarly to a virtual machine, e.g: WSL 2 will have a different IP address than the host machine. We are committed to making WSL 2 feel the same as WSL 1, and that includes improving our networking story. 
+          Yes, in general networking applications will work better and be faster with WSL 2 since it offers full system call compatibility. However, the WSL 2 architecture uses virtualized networking components, which means that WSL 2 will behave similarly to a virtual machine -- WSL 2 distributions will have a different IP address than the host machine (Windows OS). For more information, see [Accessing network applications with WSL](./networking.md). 
           
       - question: |
           Can I run WSL 2 in a virtual machine?

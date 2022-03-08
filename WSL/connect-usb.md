@@ -14,6 +14,7 @@ Setting up the USB/IP project on your Windows machine will enable common develop
 ## Prerequisites
 
 - Running Windows 11 (Build 22000 or later). *(Windows 10 support is possible, see note below).*
+- A machine with an x64/x86 processor is required. (Arm64 is currently not supported with usbipd-win).
 - Linux distribution installed and [set to WSL 2](./basic-commands.md#set-wsl-version-to-1-or-2).
 - Running [Linux kernel 5.10.60.1 or later](./kernel-release-notes.md).
 

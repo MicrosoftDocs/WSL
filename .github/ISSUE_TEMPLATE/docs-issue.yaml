@@ -1,0 +1,18 @@
+---
+name: WSL documentation issue
+description: Report an issue regarding the documentation of WSL
+body:
+- type: textarea
+  attributes:
+    label: Documentation Issue
+    description: Please list out what errors you're seeing in the WSL documentation
+    placeholder: Links to the relevant docs page and a description of what the problem is with its content.
+  validations:
+    required: true
+
+- type: textarea
+  attributes:
+    label: Suggested Improvements
+    description: Please list what actionable changes you would like to see to the docs to improve this
+  validations:
+    required: false
