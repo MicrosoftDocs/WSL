@@ -88,7 +88,7 @@ git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/libexec
 
 Git Credential Manager only works with HTTP(S) remotes. You can still use Git with SSH:
 
-- [Azure DevOps SSH](https://docs.microsoft.com/azure/devops/repos/git/use-ssh-keys-to-authenticate)
+- [Azure DevOps SSH](/azure/devops/repos/git/use-ssh-keys-to-authenticate)
 - [GitHub SSH](https://help.github.com/en/articles/connecting-to-github-with-ssh)
 - [Bitbucket SSH](https://confluence.atlassian.com/bitbucket/ssh-keys-935365775.html)
 
