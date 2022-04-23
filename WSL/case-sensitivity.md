@@ -68,7 +68,7 @@ A directory must be empty in order to change the case sensitivity flag attribute
 
 ### Case sensitivity inheritance
 
-When creating new directories, those directories will inherit the case sensitivity from it's parent directory.
+When creating new directories, those directories will inherit the case sensitivity from its parent directory.
 
 > [!WARNING]
 > There is an exception to this inheritance policy when running in WSL 1 mode. When a distribution is running in WSL 1 mode, the per-directory case sensitivity flag is not inherited; directories created in a case sensitive directory are not automatically case sensitive themselves. You must explicitly mark each directory as case sensitive
