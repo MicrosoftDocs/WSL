@@ -20,7 +20,7 @@ You must be running Windows 10 version 2004 and higher (Build 19041 and higher) 
 
 If you're running an older build, or just prefer not to use the install command and would like step-by-step directions, see **[WSL manual installation steps for older versions](./install-manual.md)**.
 
-## Install command
+## Install WSL command
 
 You can now install everything you need to run Windows Subsystem for Linux (WSL) by entering this command in an **administrator** PowerShell or Windows Command Prompt and then restarting your machine.
 
