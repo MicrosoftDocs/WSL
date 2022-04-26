@@ -1,7 +1,6 @@
 ---
 title: Troubleshooting Windows Subsystem for Linux
 description: Provides detailed information about common errors and issues people run into while running Linux on the Windows Subsystem for Linux. 
-keywords: BashOnWindows, bash, wsl, windows, windowssubsystem, ubuntu
 ms.date: 09/27/2021
 ms.topic: article
 ---
@@ -205,7 +204,7 @@ If after connecting to a VPN on Windows, bash loses network connectivity, try th
 3. Unlink the current resolv.conf
    `sudo unlink /etc/resolv.conf`
 4. `sudo mv /etc/resolv.conf.new /etc/resolv.conf`
-5. Edit `/etc/wsl.conf` and add this content to the file. ([More info on this set up can be found here](./wsl-config))<br/>
+5. Edit `/etc/wsl.conf` and add this content to the file. (More info on this set up can be found in [Advanced settings configuration](./wsl-config.md))
 ```
 [network]
 generateResolvConf
