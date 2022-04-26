@@ -21,7 +21,7 @@ What is commonly referred to as an "image", is simply a snapshot of your softwar
 
 To begin creating your WSL image, first [install the Windows Subsystem for Linux](./install.md).
 
-Once installed, use The Microsoft Store for Business to download and install the Linux distribution that’s right for you. Create an account with the [Microsoft Store for Business](/microsoft-store/sign-up-microsoft-store-for-business.)
+Once installed, use The Microsoft Store for Business to download and install the Linux distribution that’s right for you. Create an account with the [Microsoft Store for Business](https://businessstore.microsoft.com/).
 
 ### Exporting your WSL image
 
