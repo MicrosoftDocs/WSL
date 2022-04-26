@@ -1,7 +1,6 @@
 ---
 title: Troubleshooting Windows Subsystem for Linux
 description: Provides detailed information about common errors and issues people run into while running Linux on the Windows Subsystem for Linux. 
-keywords: BashOnWindows, bash, wsl, windows, windowssubsystem, ubuntu
 ms.date: 09/27/2021
 ms.topic: article
 ---
@@ -27,8 +26,10 @@ You can also:
 
 - **Installation failed with error 0x80070003**
   - The Windows Subsystem for Linux only runs on your system drive (usually this is your `C:` drive). Make sure that distributions are stored on your system drive:  
-  - Open **Settings** -> **System** --> **Storage** -> **More Storage Settings: Change where new content is saved**
-    ![Picture of system settings to install apps on C: drive](media/appstorage.png)
+  - On Windows 10 open **Settings** -> **System** -> **Storage** -> **More Storage Settings: Change where new content is saved**
+    ![Picture of system settings to install apps on C: drive (Windows 10)](media/appstorage.png)
+  - On Windows 11 open **Settings** -> **System** -> **Storage** -> **Advanced storage settings** -> **Where new content is saved**
+    ![Picture of system settings to install apps on C: drive (Windows 11)](media/appstorage-11.png)  
 
 - **WslRegisterDistribution failed with error 0x8007019e**
   - The Windows Subsystem for Linux optional component is not enabled:
@@ -39,7 +40,7 @@ You can also:
   - WSL2 requires that your CPU supports the Second Level Address Translation (SLAT) feature, which was introduced in Intel Nehalem processors (Intel Core 1st Generation) and AMD Opteron. Older CPUs (such as the Intel Core 2 Duo) will not be able to run WSL2, even if the Virtual Machine Platform is successfully installed. 
 
 - **Error when trying to upgrade: `Invalid command line option: wsl --set-version Ubuntu 2`**
-  - Ensure that you have the Windows Subsystem for Linux enabled, and that you're using Windows Build version 18362 or higher. To enable WSL run this command in a PowerShell prompt with admin privileges: `Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux`.
+  - Ensure that you have the Windows Subsystem for Linux enabled, and that you're using Windows Build version 18362 or later. To enable WSL run this command in a PowerShell prompt with admin privileges: `Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux`.
 
 - **The requested operation could not be completed due to a virtual disk system limitation. Virtual hard disk files must be uncompressed and unencrypted and must not be sparse.**
   - Deselect “Compress contents” (as well as “Encrypt contents” if that’s checked) by opening the profile folder for your Linux distribution. It should be located in a folder on your Windows file system, something like: `%USERPROFILE%\AppData\Local\Packages\CanonicalGroupLimited...`
@@ -203,7 +204,7 @@ If after connecting to a VPN on Windows, bash loses network connectivity, try th
 3. Unlink the current resolv.conf
    `sudo unlink /etc/resolv.conf`
 4. `sudo mv /etc/resolv.conf.new /etc/resolv.conf`
-5. Edit `/etc/wsl.conf` and add this content to the file. ([More info on this set up can be found here](./wsl-config))<br/>
+5. Edit `/etc/wsl.conf` and add this content to the file. (More info on this set up can be found in [Advanced settings configuration](./wsl-config.md))
 ```
 [network]
 generateResolvConf
@@ -404,7 +405,7 @@ This error is related to being in a bad install state. Please complete the follo
 
 - Update your version of Windows by going to Settings, Updates, and clicking 'Check for Updates'
 
-- If both of those fail and you need to access WSL please consider upgrading in place by reinstalling Windows 10 using installation media and selecting 'Keep Everything' to ensure your apps and files are preserved. You can find instructions on how to do so at the [Reinstall Windows 10 page](https://support.microsoft.com/help/4000735/windows-10-reinstall).
+- If both of those fail and you need to access WSL please consider upgrading in place by reinstalling Windows using installation media and selecting 'Keep Everything' to ensure your apps and files are preserved. You can find instructions on how to do so at the [Reinstall Windows 10 page](https://support.microsoft.com/help/4000735/windows-10-reinstall).
 
 ### Correct (SSH related) permission errors
 
