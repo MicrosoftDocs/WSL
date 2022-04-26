@@ -160,6 +160,9 @@ Learn more in the MongoDB docs:
 
 To install SQL Server on WSL (ie. Ubuntu), follow this quickstart: [Install SQL Server and create a database on Ubuntu](/sql/linux/quickstart-install-connect-ubuntu).
 
+> [!NOTE]
+> Although it is possible to install and configure SQL Server on WSL, it is not a supported configuration. Additionally, SQL Server on Linux requires **systemd**, which is not included on WSL.
+
 To work with Microsoft SQL Server databases in VS Code, try the [MSSQL extension](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql).
 
 ## Install SQLite
