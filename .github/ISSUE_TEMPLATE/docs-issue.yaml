@@ -9,6 +9,14 @@ body:
     placeholder: Links to the relevant docs page and a description of what the problem is with its content.
   validations:
     required: true
+    
+- type: textarea
+  attributes:
+    label: Link to documentation page
+    description: Please list out what errors you're seeing in the WSL documentation
+    placeholder: Link to the doc page where you're seeing this error
+  validations:
+    required: true
 
 - type: textarea
   attributes:
