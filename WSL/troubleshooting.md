@@ -207,7 +207,7 @@ If after connecting to a VPN on Windows, bash loses network connectivity, try th
 5. Edit `/etc/wsl.conf` and add this content to the file. (More info on this set up can be found in [Advanced settings configuration](./wsl-config.md))
 ```
 [network]
-generateResolvConf
+generateResolvConf=false
 ```
 6. Open `/etc/resolv.conf` and <br/>
    a. Delete the first line from the file which has a comment describing automatic generation<br/>
