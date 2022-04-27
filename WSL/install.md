@@ -4,9 +4,12 @@ description: Install Windows Subsystem for Linux with the command, wsl --install
 ms.date: 11/22/2021
 ms.topic: article
 adobe-target: true
+ms.custom: seo-windows-dev
 ---
 
-# Install WSL
+# Install Linux on Windows with WSL
+
+This guide will show you how to install a Linux distribution (such as (Ubuntu, OpenSUSE, Kali, Debian, Arch Linux, and more) using the Windows Subsystem for Linux. WSL enables you to use Linux tools, like Bash or Grep, completely integrated with Windows tools, like PowerShell or Visual Studio Code, with no need to dual-boot.
 
 ## Prerequisites
 
@@ -17,7 +20,7 @@ You must be running Windows 10 version 2004 and higher (Build 19041 and higher) 
 
 If you're running an older build, or just prefer not to use the install command and would like step-by-step directions, see **[WSL manual installation steps for older versions](./install-manual.md)**.
 
-## Install
+## Install WSL command
 
 You can now install everything you need to run Windows Subsystem for Linux (WSL) by entering this command in an **administrator** PowerShell or Windows Command Prompt and then restarting your machine.
 
@@ -31,6 +34,7 @@ The first time you launch a newly installed Linux distribution, a console window
 
 > [!NOTE]
 > The above command only works if WSL is not installed at all, if you run `wsl --install` and see the WSL help text, please try running `wsl --list --online` to see a list of available distros and run `wsl --install -d <DistroName>` to install a distro.
+> To uninstall WSL, see [Uninstall legacy version of WSL](/windows/wsl/troubleshooting#uninstall-legacy-version-of-wsl) or [unregister or uninstall a Linux distribution](/windows/wsl/basic-commands#unregister-or-uninstall-a-linux-distribution).
 
 ## Change the default Linux distribution installed
 
@@ -44,6 +48,8 @@ By default, the installed Linux distribution will be Ubuntu. This can be changed
 > If you want to install additional distributions from inside a Linux/Bash command line (rather than from PowerShell or Command Prompt), you must use .exe in the command: `wsl.exe --install -d <Distribution Name>` or to list available distributions: `wsl.exe -l -o`.
 
 If you run into an issue during the install process, check the [installation section of the troubleshooting guide](./troubleshooting.md#installation-issues).
+
+To install a Linux distribution that is not listed as available, you can [import any Linux distribution](/windows/wsl/use-custom-distro) using a TAR file. Or in some cases, [as with Arch Linux](https://wsldl-pg.github.io/ArchW-docs/How-to-Setup/), you can install using an `.appx` file. You can also create your own [custom Linux distribution](/windows/wsl/build-custom-distro) to use with WSL.
 
 ## Set up your Linux user info
 
@@ -67,9 +73,15 @@ Learn more in the guide to [Basic commands for WSL](./basic-commands.md).
 
 ## Upgrade version from WSL 1 to WSL 2
 
-To update from WSL 1 to WSL 2 on previously installed Linux distributions, use the command: `wsl --set-version <distro name> 2` replacing `<distro name>` with the name of the Linux distribution that you want to update. For example, `wsl --set-version Ubuntu-20.04 2` will set your Ubuntu 20.04 distribution to use WSL 2. You may also need to [enable the virtual machine optional component](./install-manual.md#step-3---enable-virtual-machine-feature) used by WSL 2 and [install the kernel package](./install-manual.md#step-4---download-the-linux-kernel-update-package) if you haven't already done so.
+New Linux installations, installed using the `wsl --install` command, will be set to WSL 2 by default.
 
-New Linux installations will be set to WSL 2 by default, but the `wsl --set-version` command can be used to downgrade from WSL 2 to WSL 1 as well. To see whether your Linux distribution is set to WSL 1 or WSL 2, use the command: `wsl -l -v`.
+The `wsl --set-version` command can be used to downgrade from WSL 2 to WSL 1 or to update previously installed Linux distributions from WSL 1 to WSL 2.
+
+To see whether your Linux distribution is set to WSL 1 or WSL 2, use the command: `wsl -l -v`.
+
+To change versions, use the command: `wsl --set-version <distro name> 2` replacing `<distro name>` with the name of the Linux distribution that you want to update. For example, `wsl --set-version Ubuntu-20.04 2` will set your Ubuntu 20.04 distribution to use WSL 2. 
+
+If you manually installed WSL prior to the `wsl --install` command being available, you may also need to [enable the virtual machine optional component](./install-manual.md#step-3---enable-virtual-machine-feature) used by WSL 2 and [install the kernel package](./install-manual.md#step-4---download-the-linux-kernel-update-package) if you haven't already done so.
 
 To learn more, see the [Command reference for WSL](./basic-commands.md) for a list of WSL commands, [Comparing WSL 1 and WSL 2](./compare-versions.md) for guidance on which to use for your work scenario, or [Best practices for setting up a WSL development environment](./setup/environment.md) for general guidance on setting up a good development workflow with WSL.
 

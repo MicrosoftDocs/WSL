@@ -11,7 +11,7 @@ This step-by-step guide will help you get started connecting your project in WSL
 
 ## Prerequisites
 
-- Running Windows 10, [updated to version 2004](ms-settings:windowsupdate), **Build 19041** or higher.
+- Running Windows 10, [updated to version 2004](ms-settings:windowsupdate), **Build 19041** or later.
 - [Install WSL and create a user name and password for the Linux distribution](../install.md).
 - Linux distribution [running in WSL 2 mode](../basic-commands.md#set-wsl-version-to-1-or-2).
 
@@ -160,6 +160,9 @@ Learn more in the MongoDB docs:
 
 To install SQL Server on WSL (ie. Ubuntu), follow this quickstart: [Install SQL Server and create a database on Ubuntu](/sql/linux/quickstart-install-connect-ubuntu).
 
+> [!NOTE]
+> Although it is possible to install and configure SQL Server on WSL, it is not a supported configuration. Additionally, SQL Server on Linux requires **systemd**, which is not included on WSL.
+
 To work with Microsoft SQL Server databases in VS Code, try the [MSSQL extension](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql).
 
 ## Install SQLite
@@ -237,4 +240,4 @@ Ensure that you are running your Linux distribution in WSL 2 mode. For help swit
 
 ## Additional resources
 
-- [Setting up your development environment on Windows 10](/windows/dev-environment/)
+- [Setting up your development environment on Windows](/windows/dev-environment/)

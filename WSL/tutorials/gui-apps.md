@@ -25,7 +25,7 @@ You can now integrate both Windows and Linux applications into your workflow for
 
 ### Prerequisites
 
-- You will need to be on **Windows 11 Build 22000 or higher** to access this feature. You can join the [Windows Insiders Program](https://insider.windows.com/) to get the latest preview builds.
+- You will need to be on **Windows 11 Build 22000 or later** to access this feature. You can join the [Windows Insiders Program](https://insider.windows.com/) to get the latest preview builds.
 
 - **Installed driver for vGPU**
 

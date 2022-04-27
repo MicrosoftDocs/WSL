@@ -1,7 +1,6 @@
 ---
 title: Set up Windows Subsystem for Linux for your company
 description: Resources and instructions on how to best use the Windows Subsystem for Linux in an Enterprise environment.
-keywords: BashOnWindows, bash, wsl, windows, windows subsystem for linux, windowssubsystem, ubuntu, debian, suse, windows 10, enterprise, deployment, offline, packaging, store, distribution, installation, install
 ms.date: 09/27/2021
 ms.topic: article
 ---
@@ -21,7 +20,7 @@ What is commonly referred to as an "image", is simply a snapshot of your softwar
 
 To begin creating your WSL image, first [install the Windows Subsystem for Linux](./install.md).
 
-Once installed, use The Microsoft Store for Business to download and install the Linux distribution that’s right for you. Create an account with the [Microsoft Store for Business](/microsoft-store/sign-up-microsoft-store-for-business.)
+Once installed, use The Microsoft Store for Business to download and install the Linux distribution that’s right for you. Create an account with the [Microsoft Store for Business](https://businessstore.microsoft.com/).
 
 ### Exporting your WSL image
 
