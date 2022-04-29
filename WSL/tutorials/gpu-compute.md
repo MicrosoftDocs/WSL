@@ -10,7 +10,7 @@ ms.topic: article
 
 Machine learning (ML) is becoming a key part of many development workflows. Whether you're a data scientist, ML engineer, or starting your learning journey with ML the Windows Subsystem for Linux (WSL) offers a great environment to run the most common and popular GPU accelerated ML tools.
 
-There are lots of different ways to set up these tools. For example, [NVIDIA CUDA in WSL](https://developer.nvidia.com/cuda/wsl), [TensorFlow-DirectML](https://pypi.org/project/tensorflow-directml/) and [PyTorch-DirectML](https://pypi.org/project/pytorch-directml/) all offer different ways you can use your GPU for ML with WSL and [here's a quick explanation on why you might want to use each](https://docs.microsoft.com/windows/ai/directml/gpu-accelerated-training)!
+There are lots of different ways to set up these tools. For example, [NVIDIA CUDA in WSL](https://developer.nvidia.com/cuda/wsl), [TensorFlow-DirectML](https://pypi.org/project/tensorflow-directml/) and [PyTorch-DirectML](https://pypi.org/project/pytorch-directml/) all offer different ways you can use your GPU for ML with WSL and [here's a quick explanation on why you might want to use each](/windows/ai/directml/gpu-accelerated-training)!
 
 These docs will show how to quickly set up:
 
@@ -20,12 +20,12 @@ These docs will show how to quickly set up:
 ## Prerequisites
 
 * Ensure you are running [Windows 11](https://microsoft.com/software-download/windows11) or [Windows 10, version 21H2](https://microsoft.com/software-download/windows10).
-* [Install WSL and set up a username and password for your Linux distribution](https://docs.microsoft.com/windows/wsl/install).
+* [Install WSL and set up a username and password for your Linux distribution](/windows/wsl/install).
 
 ## Setting up NVIDIA CUDA with Docker
 
 1. [Download and install the latest driver for your NVIDIA GPU](https://www.nvidia.com/Download/index.aspx?lang=en-us)
-2. Install [Docker Desktop](https://docs.microsoft.com/windows/wsl/tutorials/wsl-containers#install-docker-desktop) or install the Docker engine directly in WSL by running the following command
+2. Install [Docker Desktop](/windows/wsl/tutorials/wsl-containers#install-docker-desktop) or install the Docker engine directly in WSL by running the following command
 
     ```bash
     curl https://get.docker.com | sh
@@ -79,7 +79,7 @@ Additional ways to get setup and utilize NVIDIA CUDA can be found in the [NVIDIA
 1. Download and install the latest driver from your GPU vendors website: [AMD](https://www.amd.com/en/support), [Intel](https://www.intel.com/content/www/us/en/download/19344/intel-graphics-windows-dch-drivers.html), or [NVIDIA](https://www.nvidia.com/Download/index.aspx?lang=en-us).
 2. Setup a Python environment  
 
-    We recommend setting up a virtual Python environment. There are many tools you can use to setup a virtual Python environment—for these instructions, we&#39;ll use [Anaconda&#39;s Miniconda](https://docs.conda.io/en/latest/miniconda.html).
+    We recommend setting up a virtual Python environment. There are many tools you can use to setup a virtual Python environment — for these instructions, we'll use [Anaconda's Miniconda](https://docs.conda.io/en/latest/miniconda.html).
 
     ````bash
     wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86\_64.sh
@@ -103,14 +103,14 @@ Additional ways to get setup and utilize NVIDIA CUDA can be found in the [NVIDIA
     pip install pytorch-directml
     ````
 
-4. Run a quick addition sample in an interactive Python session for [TensorFlow-DirectML](https://docs.microsoft.com/windows/ai/directml/gpu-tensorflow-wsl#install-the-tensorflow-with-directml-package) or [PyTorch-DirectML](https://docs.microsoft.com/windows/ai/directml/gpu-pytorch-wsl#install-the-pytorch-with-directml-package) to make sure everything is working!
+4. Run a quick addition sample in an interactive Python session for [TensorFlow-DirectML](/windows/ai/directml/gpu-tensorflow-wsl#install-the-tensorflow-with-directml-package) or [PyTorch-DirectML](/windows/ai/directml/gpu-pytorch-wsl#install-the-pytorch-with-directml-package) to make sure everything is working!
 
 If you have any questions or run into any issues please reach out on the [DirectML GitHub](https://github.com/microsoft/DirectML).
 
 ## Additional Resources
 
 * [Guidance for setting up NVIDIA CUDA in WSL](https://docs.nvidia.com/cuda/wsl-user-guide/index.html)
-* [Guidance for setting up TensorFlow with DirectML in WSL](https://docs.microsoft.com/en-us/windows/ai/directml/gpu-tensorflow-wsl)
+* [Guidance for setting up TensorFlow with DirectML in WSL](/windows/ai/directml/gpu-tensorflow-wsl)
 * [TensorFlow with DirectML Samples](https://github.com/microsoft/DirectML/tree/master/TensorFlow)
-* [Guidance for setting up PyTorch with DirectML in WSL](https://docs.microsoft.com/en-us/windows/ai/directml/gpu-pytorch-wsl)
+* [Guidance for setting up PyTorch with DirectML in WSL](/windows/ai/directml/gpu-pytorch-wsl)
 * [PyTorch with DirectML Samples](https://github.com/microsoft/DirectML/tree/master/PyTorch)
