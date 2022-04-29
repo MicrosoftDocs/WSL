@@ -19,7 +19,7 @@ These docs will show how to quickly set up:
 
 ## Prerequisites
 
-* Ensure you are running [Windows 11](https://microsoft.com/software-download/windows11) or [Windows 10, version 21H2](https://microsoft.com/software-download/windows10).
+* Ensure you are running [Windows 11](https://microsoft.com/software-download/windows11) or [Windows 10, version 21H2](https://microsoft.com/software-download/windows10) or higher.
 * [Install WSL and set up a username and password for your Linux distribution](/windows/wsl/install).
 
 ## Setting up NVIDIA CUDA with Docker
