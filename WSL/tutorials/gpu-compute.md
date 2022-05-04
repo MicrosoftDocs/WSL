@@ -1,8 +1,7 @@
 ---
 title: GPU accelerated ML training in WSL
 description: Learn how to setup the Windows Subsystem for Linux with NVIDIA CUDA, TensorFlow-DirectML, and PyTorch-DirectML. Read about using GPU acceleration with WSL to support machine learning training scenarios.
-keywords: wsl, windows, windows subsystem, gpu compute, gpu acceleration, NVIDIA, CUDA, DirectML, TensorFlow, PyTorch, NVIDIA CUDA preview, GPU driver, NVIDIA Container Toolkit, Docker
-ms.date: 09/27/2021
+ms.date: 05/03/2022
 ms.topic: article
 ---
 
@@ -10,9 +9,9 @@ ms.topic: article
 
 Machine learning (ML) is becoming a key part of many development workflows. Whether you're a data scientist, ML engineer, or starting your learning journey with ML the Windows Subsystem for Linux (WSL) offers a great environment to run the most common and popular GPU accelerated ML tools.
 
-There are lots of different ways to set up these tools. For example, [NVIDIA CUDA in WSL](https://developer.nvidia.com/cuda/wsl), [TensorFlow-DirectML](https://pypi.org/project/tensorflow-directml/) and [PyTorch-DirectML](https://pypi.org/project/pytorch-directml/) all offer different ways you can use your GPU for ML with WSL and [here's a quick explanation on why you might want to use each](/windows/ai/directml/gpu-accelerated-training)!
+There are lots of different ways to set up these tools. For example, [NVIDIA CUDA in WSL](https://developer.nvidia.com/cuda/wsl), [TensorFlow-DirectML](https://pypi.org/project/tensorflow-directml/) and [PyTorch-DirectML](https://pypi.org/project/pytorch-directml/) all offer different ways you can use your GPU for ML with WSL. To learn more about the reasons for choosing one versus another, see [GPU accelerated ML training](/windows/ai/directml/gpu-accelerated-training).
 
-These docs will show how to set up:
+This guide will show how to set up:
 
 * NVIDIA CUDA if you have an NVIDIA graphics card and run a sample ML framework container
 * TensorFlow-DirectML and PyTorch-DirectML on your AMD, Intel, or NVIDIA graphics card
@@ -69,7 +68,7 @@ These docs will show how to set up:
 
     You can run a pre-trained model sample that is built into this container by running the commands:
 
-    ````bash
+    ```bash
     cd nvidia-examples/cnn/
     ```
     
