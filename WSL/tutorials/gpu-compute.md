@@ -12,7 +12,7 @@ Machine learning (ML) is becoming a key part of many development workflows. Whet
 
 There are lots of different ways to set up these tools. For example, [NVIDIA CUDA in WSL](https://developer.nvidia.com/cuda/wsl), [TensorFlow-DirectML](https://pypi.org/project/tensorflow-directml/) and [PyTorch-DirectML](https://pypi.org/project/pytorch-directml/) all offer different ways you can use your GPU for ML with WSL and [here's a quick explanation on why you might want to use each](/windows/ai/directml/gpu-accelerated-training)!
 
-These docs will show how to quickly set up:
+These docs will show how to set up:
 
 * NVIDIA CUDA if you have an NVIDIA graphics card and run a sample ML framework container
 * TensorFlow-DirectML and PyTorch-DirectML on your AMD, Intel, or NVIDIA graphics card
@@ -24,36 +24,42 @@ These docs will show how to quickly set up:
 
 ## Setting up NVIDIA CUDA with Docker
 
-1. [Download and install the latest driver for your NVIDIA GPU](https://www.nvidia.com/Download/index.aspx?lang=en-us)
+1. [Download and install the latest driver for your NVIDIA GPU](https://www.nvidia.com/Download/index.aspx)
 2. Install [Docker Desktop](/windows/wsl/tutorials/wsl-containers#install-docker-desktop) or install the Docker engine directly in WSL by running the following command
 
     ```bash
     curl https://get.docker.com | sh
     ````
 
-3. If you installed the Docker engine directly then [install the NVIDIA Container Toolkit](https://docs.nvidia.com/cuda/wsl-user-guide/index.html#ch04-sub02-install-nvidia-docker) by running the following:  
+3. If you installed the Docker engine directly then [install the NVIDIA Container Toolkit](https://docs.nvidia.com/cuda/wsl-user-guide/index.html#ch04-sub02-install-nvidia-docker) following the steps below.  
     
-    Set up the stable repository for the NVIDIA Container Toolkit by running the following commands
+    Set up the stable repository for the NVIDIA Container Toolkit by running the following commands:
 
     ```bash
     distribution=$(. /etc/os-release;echo $ID$VERSION\_ID)
-
+    ```
+    
+    ```bash
     curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add -
-
+    ```
+    
+    ```bash
     curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list
-    ````
+    ```
 
-    Install the NVIDIA runtime packages and dependencies by running the following commands
+    Install the NVIDIA runtime packages and dependencies by running the commands:
 
     ```bash
     sudo apt-get update
-
-    sudo apt-get install -y nvidia-docker2
-    ````
-
-4. Run a machine learning framework container and sample  
+    ```
     
-    Now you can run a machine learning framework container and start using your GPU with this NVIDIA NGC TensorFlow container by running the following command
+    ```bash
+    sudo apt-get install -y nvidia-docker2
+    ```
+
+4. Run a machine learning framework container and sample.
+    
+    To run a machine learning framework container and start using your GPU with this NVIDIA NGC TensorFlow container, enter the command:
         
     ````bash
     docker run --gpus all -it --shm-size=1g --ulimit memlock=-1 --ulimit stack=67108864 nvcr.io/nvidia/tensorflow:20.03-tf2-py3
@@ -61,13 +67,15 @@ These docs will show how to quickly set up:
 
     ![TensorFlow with CUDA running inside a Docker container](https://user-images.githubusercontent.com/2146704/165866792-0fc1b9f6-a7be-49e2-8eb4-919a9b13a07c.png)
 
-    You can run a pre-trained model sample that is built into this container by running the following commands:
+    You can run a pre-trained model sample that is built into this container by running the commands:
 
     ````bash
     cd nvidia-examples/cnn/
-
+    ```
+    
+    ```bash
     python resnet.py --batch\_size=64
-    ````
+    ```
 
     ![TensorFlow sample model training within Docker container](https://user-images.githubusercontent.com/2146704/165867329-fae2f8ec-e86d-412e-9e2c-dcfec0ec2429.gif)
 
@@ -76,36 +84,49 @@ Additional ways to get setup and utilize NVIDIA CUDA can be found in the [NVIDIA
 
 ## Setting up TensorFlow-DirectML or PyTorch-DirectML
 
-1. Download and install the latest driver from your GPU vendors website: [AMD](https://www.amd.com/en/support), [Intel](https://www.intel.com/content/www/us/en/download/19344/intel-graphics-windows-dch-drivers.html), or [NVIDIA](https://www.nvidia.com/Download/index.aspx?lang=en-us).
-2. Setup a Python environment  
+1. Download and install the latest driver from your GPU vendors website: [AMD](https://www.amd.com/en/support), [Intel](https://www.intel.com/content/www/us/en/download/19344/intel-graphics-windows-dch-drivers.html), or [NVIDIA](https://www.nvidia.com/Download/index.aspx).
+
+2. Setup a Python environment.
 
     We recommend setting up a virtual Python environment. There are many tools you can use to setup a virtual Python environment — for these instructions, we'll use [Anaconda's Miniconda](https://docs.conda.io/en/latest/miniconda.html).
 
-    ````bash
+    ```bash
     wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86\_64.sh
-
+    ```
+    
+    ```bash
     bash Miniconda3-latest-Linux-x86\_64.sh
-
+    ```
+    
+    ```bash
     conda create --name directml python=3.7 -y
-
+    ```
+    
+    ```bash
     conda activate directml
-    ````
+    ```
 
-3. Install the machine learning framework backed by DirectML of your choice  
-    TensorFlow-DirectML
-    ````bash
+3. Install the machine learning framework backed by DirectML of your choice.
+
+    TensorFlow-DirectML:
+    
+    ```bash
     pip install tensorflow-directml
-    ````
+    ```
 
-    PyTorch-DirectML
-    ````bash
+    PyTorch-DirectML:
+
+    ```bash
     sudo apt install libblas3 libomp5 liblapack3
+    ```
+    
+    ```bash
     pip install pytorch-directml
-    ````
+    ```
 
-4. Run a quick addition sample in an interactive Python session for [TensorFlow-DirectML](/windows/ai/directml/gpu-tensorflow-wsl#install-the-tensorflow-with-directml-package) or [PyTorch-DirectML](/windows/ai/directml/gpu-pytorch-wsl#install-the-pytorch-with-directml-package) to make sure everything is working!
+4. Run a quick addition sample in an interactive Python session for [TensorFlow-DirectML](/windows/ai/directml/gpu-tensorflow-wsl#install-the-tensorflow-with-directml-package) or [PyTorch-DirectML](/windows/ai/directml/gpu-pytorch-wsl#install-the-pytorch-with-directml-package) to make sure everything is working.
 
-If you have any questions or run into any issues please reach out on the [DirectML GitHub](https://github.com/microsoft/DirectML).
+If you have questions or run into issues, visit the [DirectML repo on GitHub](https://github.com/microsoft/DirectML#feedback).
 
 ## Additional Resources
 
