@@ -36,7 +36,7 @@ To install Git, see the [Git Download for Linux](https://git-scm.com/download/li
 For the latest stable Git version in Ubuntu/Debian, enter the command:
 
 ```bash
-sudo apt-get install git
+sudo apt install git
 ```
 
 > [!NOTE]
