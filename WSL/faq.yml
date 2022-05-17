@@ -73,7 +73,7 @@ sections:
           
       - question: |
          What processors does WSL support?
-        answer: WSL supports x64 and ARM CPUs.
+        answer: WSL supports x64 and Arm CPUs.
 
       - question: |
           How do I access my C: drive?
