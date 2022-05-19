@@ -1,12 +1,11 @@
 ---
 title: Run Linux GUI apps with WSL 
-description: Learn how WSL support running Linux GUI apps.
-keywords: wsl, windows, windows subsystem for linux, gui apps 
-ms.date: 09/27/2021
+description: Learn how WSL support running Linux GUI apps. 
+ms.date: 05/19/2022
 ms.topic: article
 ---
 
-# Run Linux GUI apps on the Windows Subsystem for Linux (preview)
+# Run Linux GUI apps on the Windows Subsystem for Linux
 
 You can now preview Windows Subsystem for Linux (WSL) support for running Linux GUI applications (X11 and Wayland) on Windows in a fully integrated desktop experience.
 
@@ -25,11 +24,11 @@ You can now integrate both Windows and Linux applications into your workflow for
 
 ### Prerequisites
 
-- You will need to be on **Windows 11 Build 22000 or later** to access this feature. You can join the [Windows Insiders Program](https://insider.windows.com/) to get the latest preview builds.
+- You will need to be on **Windows 11 Build 22000 or later** to access this feature.
 
 - **Installed driver for vGPU**
 
-    To run Linux GUI apps, you should first install the preview driver matching your system below. This will enable you to use a virtual GPU (vGPU) so you can benefit from hardware accelerated OpenGL rendering.
+    To run Linux GUI apps, you should first install the driver matching your system below. This will enable you to use a virtual GPU (vGPU) so you can benefit from hardware accelerated OpenGL rendering.
 
   - [**Intel** GPU driver for WSL](https://www.intel.com/content/www/us/en/download/19344/intel-graphics-windows-10-windows-11-dch-drivers.html)
   - [**AMD** GPU driver for WSL](https://www.amd.com/en/support/kb/release-notes/rn-rad-win-wsl-support)
