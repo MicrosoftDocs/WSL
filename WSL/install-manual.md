@@ -4,6 +4,7 @@ description: Step by step instructions to manually install WSL on older versions
 keywords: wsl, install, BashOnWindows, bash, windows subsystem for linux, install ubuntu on windows, enable WSL2, linux on windows
 ms.date: 11/12/2021
 ms.topic: article
+adobe-target: true
 ---
 
 # Manual installation steps for older versions of WSL
