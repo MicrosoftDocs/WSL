@@ -4,6 +4,7 @@ description: A guide to the wsl.conf and .wslconfig files used for configuring s
 ms.date: 12/02/2021
 ms.topic: article
 ms.custom: seo-windows-dev
+adobe-target: true
 ---
 
 # Advanced settings configuration in WSL
