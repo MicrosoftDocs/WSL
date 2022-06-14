@@ -35,7 +35,7 @@ This guide will show how to set up:
     Set up the stable repository for the NVIDIA Container Toolkit by running the following commands:
 
     ```bash
-    distribution=$(. /etc/os-release;echo $ID$VERSION\_ID)
+    distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
     ```
     
     ```bash
@@ -73,7 +73,7 @@ This guide will show how to set up:
     ```
     
     ```bash
-    python resnet.py --batch\_size=64
+    python resnet.py --batch_size=64
     ```
 
     ![TensorFlow sample model training within Docker container](https://user-images.githubusercontent.com/2146704/165867329-fae2f8ec-e86d-412e-9e2c-dcfec0ec2429.gif)
@@ -90,11 +90,11 @@ Additional ways to get setup and utilize NVIDIA CUDA can be found in the [NVIDIA
     We recommend setting up a virtual Python environment. There are many tools you can use to setup a virtual Python environment — for these instructions, we'll use [Anaconda's Miniconda](https://docs.conda.io/en/latest/miniconda.html).
 
     ```bash
-    wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86\_64.sh
+    wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
     ```
     
     ```bash
-    bash Miniconda3-latest-Linux-x86\_64.sh
+    bash Miniconda3-latest-Linux-x86_64.sh
     ```
     
     ```bash
