@@ -46,6 +46,8 @@ Once the process of installing your Linux distribution with WSL is complete, ope
 
 - Once you create a **User Name** and **Password**, the account will be your default user for the distribution and automatically sign-in on launch.
 
+- Please note that whilst entering the **Password**, nothing will appear on screen. This is called **blind typing**. You won't see what you are typing, this is completly **normal**.
+
 - This account will be considered the Linux administrator, with the ability to run `sudo` (Super User Do) administrative commands.
 
 - Each Linux distribution running on WSL has its own Linux user accounts and passwords.  You will have to configure a Linux user account every time you add a distribution, reinstall, or reset.
