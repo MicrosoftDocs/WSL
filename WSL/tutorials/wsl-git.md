@@ -77,12 +77,12 @@ If you have a reason not to install Git for Windows, you can install GCM as a Li
 
 To set up GCM for use with a WSL distribution, open your distribution and enter this command:
 
+If GIT installed is >= v2.36.1
 ```Bash
 git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/bin/git-credential-manager-core.exe"
 ```
 
-If you have an older installtion of GCM this may be more appropriate:
-
+else if version is < v2.36.1 enter this command: 
 ```Bash
 git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/libexec/git-core/git-credential-manager-core.exe"
 ```
