@@ -12,4 +12,3 @@ The release notes for [WSL inside of the Microsoft Store](https://aka.ms/wslstor
 
 ## Known Issues:
 * Launching Windows Subsystem for Linux from session zero does not currently work (for example from an ssh connection).
-* The Linux icon in Windows Explorer will only appear if you have the Windows Subsystem for Linux Optional Component installed.

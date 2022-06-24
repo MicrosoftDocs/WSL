@@ -84,6 +84,7 @@ wsl --set-default-version 2
 
     - [Ubuntu 18.04 LTS](https://www.microsoft.com/store/apps/9N9TNGVNDL3Q)
     - [Ubuntu 20.04 LTS](https://www.microsoft.com/store/apps/9n6svws3rx71)
+    - [Ubuntu 22.04 LTS](https://www.microsoft.com/store/apps/9PN20MSR04DW)
     - [openSUSE Leap 15.1](https://www.microsoft.com/store/apps/9NJFZK00FGKV)
     - [SUSE Linux Enterprise Server 12 SP5](https://www.microsoft.com/store/apps/9MZ3D1TRP8T1)
     - [SUSE Linux Enterprise Server 15 SP1](https://www.microsoft.com/store/apps/9PN498VPMF3Z)
@@ -118,6 +119,7 @@ There are some scenarios in which you may not be able (or want) to, install WSL 
 If the Microsoft Store app is not available, you can download and manually install Linux distributions using these links:
 
 - [Ubuntu](https://aka.ms/wslubuntu)
+- [Ubuntu 22.04 LTS](https://aka.ms/wslubuntu2204)
 - [Ubuntu 20.04](https://aka.ms/wslubuntu2004)
 - [Ubuntu 20.04 ARM](https://aka.ms/wslubuntu2004arm)
 - [Ubuntu 18.04](https://aka.ms/wsl-ubuntu-1804)
