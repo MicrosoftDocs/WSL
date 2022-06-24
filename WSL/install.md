@@ -9,7 +9,7 @@ ms.custom: seo-windows-dev
 
 # Install Linux on Windows with WSL
 
-This guide will show you how to install a Linux distribution (such as (Ubuntu, OpenSUSE, Kali, Debian, Arch Linux, and more) using the Windows Subsystem for Linux. WSL enables you to use Linux tools, like Bash or Grep, completely integrated with Windows tools, like PowerShell or Visual Studio Code, with no need to dual-boot.
+This guide will show you how to install a Linux distribution (such as Ubuntu, OpenSUSE, Kali, Debian, Arch Linux, and more) using the Windows Subsystem for Linux. WSL enables you to use Linux tools, like Bash or Grep, completely integrated with Windows tools, like PowerShell or Visual Studio Code, with no need to dual-boot.
 
 ## Prerequisites
 
