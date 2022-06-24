@@ -1022,7 +1022,7 @@ For general Windows information on build 16273 visit the [Windows Blog](https://
 Total Tests: 1904<br/>
 Total Skipped Tests: 209<br/>
 Total Failures: 229<br/>
-[LTP Test Run Logs](https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/16273)<br/>
+
 
 ## Build 16257
 
@@ -1083,7 +1083,6 @@ For general Windows information on build 16251 visit the [Windows Blog](https://
 Number of Passing Tests: 768</br>
 Number of Failing Tests: 244</br>
 Number of Skipped Tests: 96</br>
-[LTP Test Run Logs](https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/16251)<br/>
 
 </br>
 
@@ -1309,7 +1308,6 @@ For general Windows information on build 15031 visit the [Windows Blog](https://
 ### LTP Results:
 Number of Passing Test: 737</br>
 Number of non-Passing (failing, skipped, etc…): 255 </br>
-[LTP Test Run Logs](https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/15031)<br/>
 
 <br/>
 
@@ -1339,7 +1337,6 @@ For general Windows information on build 15025 visit the [Windows Blog](https://
 ### LTP Results:
 Number of Passing Test: 732</br>
 Number of non-Passing (failing, skipped, etc…): 255 </br>
-[LTP Test Run Logs](https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/15025)<br/>
 
 <br/>
 
@@ -1361,7 +1358,7 @@ For general Windows information on build 15019 visit the [Windows Blog](https://
 ### LTP Results:
 Number of Passing Test: 714 </br>
 Number of non-Passing (failing, skipped, etc…): 249 </br>
-[LTP Test Run Logs](https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/15019)<br/>
+
 
 <br/>
 
@@ -1385,14 +1382,13 @@ For general Windows information on build 15014 visit the [Windows Blog](https://
 ### LTP Results:
 Number of Passing Test: 709 </br>
 Number of non-Passing (failing, skipped, etc…): 255 </br>
-[LTP Test Run Logs](https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/15014)<br/>
 
 ### Syscall Summary
 Total Syscalls: 384 </br>
 Total Implemented: 235 </br>
 Total Stubbed: 22 </br>
 Total Unimplemented: 127 </br>
-[Detailed Breakdown](https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/15014/Syscalls.txt)<br/>
+
 
 <br/>
 
@@ -1418,7 +1414,6 @@ For general Windows information on build 15007 visit the [Windows Blog]( https:/
 ### LTP Results:
 Number of Passing Test: 709 </br>
 Number of non-Passing (failing, skipped, etc…): 255 </br>
-[LTP Test Run Logs](https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/15007)<br/>
 
 <br/>
 
@@ -1477,7 +1472,6 @@ Two known issues:
 ### LTP Results:
 Number of Passing Test: 690 </br>
 Number of non-Passing (failing, skipped, etc…): 274 </br>
-[LTP Test Run Logs](https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/15002)<br/>
 
 <br/>
 
@@ -1512,7 +1506,6 @@ For general Windows information on build 14986 visit the [Windows Blog](https://
 ### LTP Results:
 Number of Passing Test: 669 </br>
 Number of non-Passing (failing, skipped, etc…): 258 </br>
-[LTP Test Run Logs](https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/14986)<br/>
 
 <br/>
 
@@ -1538,7 +1531,6 @@ For general Windows information on build 14971 visit the [Windows Blog](https://
 Unchanged from 14965 </br>
 Number of Passing Test: 664 </br>
 Number of non-Passing (failing, skipped, etc…): 263 </br>
-[LTP Test Run Logs](https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/14965)<br/>
 
 <br/>
 
@@ -1551,7 +1543,6 @@ For general Windows information on build 14965 visit the [Windows Blog](https://
 
 - Support for Netlink sockets NETLINK_ROUTE protocol's RTM_GETLINK and RTM_GETADDR (GH #468)
   - Enables ifconfig and ip commands for network enumeration
-  - More information can be found in our [WSL Networking blog post](https://blogs.msdn.microsoft.com/wsl/2016/11/08/225/).
 
 - /sbin is now in the user's path by default
 - NT user path now appended to the WSL path by default (i.e. you can now type notepad.exe without adding System32 to the Linux path)
@@ -1576,7 +1567,6 @@ For general Windows information on build 14965 visit the [Windows Blog](https://
 ### LTP Results:
 Number of Passing Test: 664 </br>
 Number of non-Passing (failing, skipped, etc…): 263 </br>
-[LTP Test Run Logs](https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/14965)<br/>
 
 <br/>
 
@@ -1595,7 +1585,6 @@ For general Windows information on build 14959 visit the [Windows Blog](https://
 ### LTP Results:
 Number of Passing Test: 665 </br>
 Number of non-Passing (failing, skipped, etc…): 263 </br>
-[LTP Test Run Logs](https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/14959)<br/>
 
 <br/>
 
@@ -1611,7 +1600,6 @@ For general Windows information on build 14955 visit the [Windows Blog](https://
 ### LTP Results:
 Number of Passing Test: 665 </br>
 Number of non-Passing (failing, skipped, etc…): 263 </br>
-[LTP Test Run Logs](https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/14955)<br/>
 
 <br/>
 
@@ -1648,7 +1636,6 @@ More information can be found at:
 ### LTP Results:
 Number of Passing Test: 665 </br>
 Number of non-Passing (failing, skipped, etc…): 263 </br>
-[LTP Test Run Logs](https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/14951)<br/>
 
 <br/>
 
@@ -1673,7 +1660,6 @@ For general Windows information on build 14946 visit the [Windows Blog](https://
 ### LTP Results:
 Number of Passing Test: 665 </br>
 Number of non-Passing (failing, skipped, etc…): 263 </br>
-[LTP Test Run Logs](https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/14946)<br/>
 
 <br/>
 
@@ -1695,7 +1681,6 @@ For general Windows information on build 14942 visit the [Windows Blog](https://
 ### LTP Results:
 Number of Passing Test: 665 </br>
 Number of non-Passing (failing, skipped, etc…): 263 </br>
-[LTP Test Run Logs](https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/14942)<br/>
 
 ### Syscall Support
 Below are a list of new or enhanced syscalls that have some implementation in WSL. The syscalls on this list are supported in at least one scenario, but may not have all parameters supported at this time.
@@ -1731,7 +1716,6 @@ WSL is experiencing an issue with some socket implementations.  The bugcheck man
 ### LTP Results:
 Number of Passing Test: 664 </br>
 Number of non-Passing (failing, skipped, etc…): 264 </br>
-[LTP Test Run Logs](https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/14936)<br/>
 
 ### Syscall Support
 Below are a list of new or enhanced syscalls that have some implementation in WSL. The syscalls on this list are supported in at least one scenario, but may not have all parameters supported at this time.
@@ -1771,7 +1755,6 @@ For general Windows information on build 14926 visit the [Windows Blog](https://
 ### LTP Results:
 Number of Passing Test: 651 </br>
 Number of non-Passing (failing, skipped, etc…): 258 </br>
-[LTP Test Run Logs](https://github.com/Microsoft/CommandLine-Documentation/tree/live/LTP_Results/14926)<br/>
 
 <br/>
 
@@ -1906,7 +1889,7 @@ For general Windows information on build 14361 visit the [Windows Blog](https://
   - Users may case.txt and CASE.TXT on their /mnt/c drives
   - Case sensitivity is only supported within Bash on Ubuntu on Windows. When outside of Bash NTFS will report the files correctly, but unexpected behavior may occur interacting with the files from Windows.
   - The root of each volume (i.e. /mnt/c) is not case sensitive
-  - More information on handling these files in Windows can be found [here](https://support.microsoft.com/kb/100625).
+  - More information on handling these files in Windows can be found [here](./case-sensitivity.md).
 - Greatly enhanced pty / tty support.  Applications like TMUX now supported (GH #40)
 - Fixed install issue where user accounts not always created
 - Optimized command line arg structure allowing for extremely long argument list. (GH #153)
