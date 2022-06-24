@@ -30,7 +30,7 @@ You can now integrate both Windows and Linux applications into your workflow for
 
     To run Linux GUI apps, you should first install the driver matching your system below. This will enable you to use a virtual GPU (vGPU) so you can benefit from hardware accelerated OpenGL rendering.
 
-  - [**Intel** GPU driver for WSL](https://www.intel.com/content/www/us/en/download/19344/intel-graphics-windows-10-windows-11-dch-drivers.html)
+  - [**Intel** GPU driver for WSL](https://www.intel.com/content/www/us/en/download/19344/intel-graphics-windows-dch-drivers.html)
   - [**AMD** GPU driver for WSL](https://www.amd.com/en/support/kb/release-notes/rn-rad-win-wsl-support)
   - [**NVIDIA** GPU driver for WSL](https://developer.nvidia.com/cuda/wsl)
 
