@@ -1889,7 +1889,7 @@ For general Windows information on build 14361 visit the [Windows Blog](https://
   - Users may case.txt and CASE.TXT on their /mnt/c drives
   - Case sensitivity is only supported within Bash on Ubuntu on Windows. When outside of Bash NTFS will report the files correctly, but unexpected behavior may occur interacting with the files from Windows.
   - The root of each volume (i.e. /mnt/c) is not case sensitive
-  - More information on handling these files in Windows can be found [here](/windows/wsl/case-sensitivity).
+  - More information on handling these files in Windows can be found [here](./case-sensitivity.md).
 - Greatly enhanced pty / tty support.  Applications like TMUX now supported (GH #40)
 - Fixed install issue where user accounts not always created
 - Optimized command line arg structure allowing for extremely long argument list. (GH #153)
