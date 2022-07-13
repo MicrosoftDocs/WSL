@@ -128,7 +128,7 @@ These options are available in Build 18980 and later.
 
 ### Boot settings
 
-The Boot setting is only available on Windows 11.
+The Boot setting is only available on Windows 11 and Server 2022.
 
 Section label: `[boot]`
 
