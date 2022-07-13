@@ -134,7 +134,7 @@ Section label: `[boot]`
 
 | key | value | default | notes|
 |:----|:----|:----|:----|
-| command | string | "" | A string of the command that you would like to run when the WSL instance starts. This command is run as the root user. e.g: `service docker start` Only available for Windows 11.|
+| command | string | "" | A string of the command that you would like to run when the WSL instance starts. This command is run as the root user. e.g: `service docker start`.|
 
 <!-- ## Preview configuration options for wsl.conf
 
