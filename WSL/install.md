@@ -28,7 +28,7 @@ You can now install everything you need to run Windows Subsystem for Linux (WSL)
 wsl --install
 ```
 
-This command will enable the Windows Features which are necessary for WSL, and install the Ubuntu distribution as your default WSL distribution.
+This command will enable the features necessary to run WSL and install the Ubuntu distribution of Linux. ([This default distribution can be changed](./basic-commands.md#install-a-specific-linux-distribution)).
 
 The first time you launch a newly installed Linux distribution, a console window will open and you'll be asked to wait for files to de-compress and be stored on your machine. All future launches should take less than a second.
 
