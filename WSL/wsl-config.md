@@ -128,13 +128,13 @@ These options are available in Build 18980 and later.
 
 ### Boot settings
 
-The Boot setting is only available on Windows 11.
+The Boot setting is only available on Windows 11 and Server 2022.
 
 Section label: `[boot]`
 
 | key | value | default | notes|
 |:----|:----|:----|:----|
-| command | string | "" | A string of the command that you would like to run when the WSL instance starts. This command is run as the root user. e.g: `service docker start` Only available for Windows 11.|
+| command | string | "" | A string of the command that you would like to run when the WSL instance starts. This command is run as the root user. e.g: `service docker start`.|
 
 <!-- ## Preview configuration options for wsl.conf
 
