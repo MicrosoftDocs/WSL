@@ -22,6 +22,8 @@ You can:
 - Install additional software using your own GNU/Linux distribution package manager.
 - Invoke Windows applications using a Unix-like command-line shell.
 - Invoke GNU/Linux applications on Windows.
+- [Run GNU/Linux graphical applications](./tutorials/gui-apps.md) integrated directly to your Windows desktop
+- [Use GPU acceleration](./tutorials/gpu-compute.md) for machine learning, data science scenarios and more
 
 > [!div class="nextstepaction"]
 > [Install WSL](install.md)
