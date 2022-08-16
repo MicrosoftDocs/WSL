@@ -7,6 +7,9 @@ ms.topic: article
 ms.assetid: 3cefe0db-7616-4848-a2b6-9296746a178b
 ---
 
+# WSL Logo
+![WSL logo](../media/WSLLogo.svg)
+
 # What is the Windows Subsystem for Linux?
 
 The Windows Subsystem for Linux lets developers run a GNU/Linux environment -- including most command-line tools, utilities, and applications -- directly on Windows, unmodified, without the overhead of a traditional virtual machine or dualboot setup.
