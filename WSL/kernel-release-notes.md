@@ -16,19 +16,19 @@ We've added support for WSL 2 distributions, [which use a full Linux kernel](htt
 
 [Official Github release link](https://github.com/microsoft/WSL2-Linux-Kernel/releases/tag/linux-msft-wsl-5.15.57.1)
 
--Initial release of the WSL2 kernel based on the v5.15 kernel series
--Release rolling-lts/wsl/5.15.57.1
--Update to stable kernel version v5.15.57
--Enable Retbleed mitigations in x86_64 builds
--Enable nftables and traffic control
--Enable VGEM driver
--Fix 9p filesystem regressions since the last v5.10 WSL2 kernel
--Enable support for the Precision Time Protocol (PTP) clock device
--Enable the Landlock Linux Security Module (LSM)
--https://landlock.io/
--Enable the Miscellaneous Control Group (CGroup)
--https://www.kernel.org/doc/html/v5.15/admin-guide/cgroup-v2.html#misc
--Disable support for the Ceph Distributed File System
+- Initial release of the WSL2 kernel based on the v5.15 kernel series
+- Release rolling-lts/wsl/5.15.57.1
+- Update to stable kernel version v5.15.57
+- Enable Retbleed mitigations in x86_64 builds
+- Enable nftables and traffic control
+- Enable VGEM driver
+- Fix 9p filesystem regressions since the last v5.10 WSL2 kernel
+- Enable support for the Precision Time Protocol (PTP) clock device
+- Enable the Landlock Linux Security Module (LSM)
+  - https://landlock.io/
+- Enable the Miscellaneous Control Group (CGroup)
+  - https://www.kernel.org/doc/html/v5.15/admin-guide/cgroup-v2.html#misc
+- Disable support for the Ceph Distributed File System
 
 ## 5.10.102.1
 
@@ -36,14 +36,14 @@ We've added support for WSL 2 distributions, [which use a full Linux kernel](htt
 
 [Official Github release link](https://github.com/microsoft/WSL2-Linux-Kernel/releases/tag/linux-msft-wsl-5.10.102.1)
 
--Release rolling-lts/wsl/5.10.102.1
--Update to upstream stable kernel release 5.10.102
--Disable unprivileged BPF by default
--It can be re-enabled by setting the kernel.unprivileged_bpf_disabled sysctl to 0
--Update Dxgkrnl Version to 2216
--Fix out of bounds array access for ioctls[]
--Implement wait for sync VM bus messages as “killable” to allow killing a process waiting for a synchronous call to the host
--Flush device for termination when process is destroyed to avoid a deadlock when the guest process is killed
+- Release rolling-lts/wsl/5.10.102.1
+- Update to upstream stable kernel release 5.10.102
+- Disable unprivileged BPF by default
+- It can be re-enabled by setting the kernel.unprivileged_bpf_disabled sysctl to 0
+- Update Dxgkrnl Version to 2216
+- Fix out of bounds array access for ioctls[]
+- Implement wait for sync VM bus messages as “killable” to allow killing a process waiting for a synchronous call to the host
+- Flush device for termination when process is destroyed to avoid a deadlock when the guest process is killed
 
 ## 5.10.93.2
 
@@ -51,14 +51,14 @@ We've added support for WSL 2 distributions, [which use a full Linux kernel](htt
 
 [Official Github release link](https://github.com/microsoft/WSL2-Linux-Kernel/releases/tag/linux-msft-wsl-5.10.93.2)
 
--Release rolling-lts/wsl/5.10.93.2
--Update to upstream stable kernel release 5.10.93
--Enable CH341 and CP210X USB Serial drivers
--Fix README.md build instructions to include dwarves dependency for pahole
--Switched Dxgkrnl Version to 2111
--Removed the limit of existing and total sysmem allocations
--Properly flush the device for termination during process cleanup
--Fixed SPDX-License-Identifier for d3dkmthk.h
+- Release rolling-lts/wsl/5.10.93.2
+- Update to upstream stable kernel release 5.10.93
+- Enable CH341 and CP210X USB Serial drivers
+- Fix README.md build instructions to include dwarves dependency for pahole
+- Switched Dxgkrnl Version to 2111
+- Removed the limit of existing and total sysmem allocations
+- Properly flush the device for termination during process cleanup
+- Fixed SPDX-License-Identifier for d3dkmthk.h
 
 ## 5.10.81.1
 
@@ -66,13 +66,13 @@ We've added support for WSL 2 distributions, [which use a full Linux kernel](htt
 
 [Official Github release link](https://github.com/microsoft/WSL2-Linux-Kernel/releases/tag/linux-msft-wsl-5.10.81.1)
 
--Release rolling-lts/wsl/5.10.81.1 
--Update to upstream stable kernel release 5.10.81
--Unify the kernel configurations by enabling missing options on arm64
--Enable non-arch specific ACPI options
--Enable options related to device-mapper RAID
--Enable Btrfs
--Enable LZO and ZSTD compression
+- Release rolling-lts/wsl/5.10.81.1 
+- Update to upstream stable kernel release 5.10.81
+- Unify the kernel configurations by enabling missing options on arm64
+- Enable non-arch specific ACPI options
+- Enable options related to device-mapper RAID
+- Enable Btrfs
+- Enable LZO and ZSTD compression
 
 ## 5.10.74.3
 
@@ -80,12 +80,12 @@ We've added support for WSL 2 distributions, [which use a full Linux kernel](htt
 
 [Official Github release link](https://github.com/microsoft/WSL2-Linux-Kernel/releases/tag/linux-msft-wsl-5.10.74.3)
 
--Release rolling-lts/wsl/5.10.74.3
--Update to upstream stable kernel release 5.10.74
--Enable BPF Type Format (CONFIG_DEBUG_INFO_BTF) for use by eBPF tools (microsoft/WSL#7437)
--Updated Dxgkrnl version to 2110
--Enable the Buffer Sharing and Sync File Frameworks (CONFIG_DMA_SHARED_BUFFER, CONFIG_SYNC_FILE) for Dxgkrnl usage
--Fix Dxgkrnl build failure with GCC versions older than 8.1 (microsoft/WSL#7558)
+- Release rolling-lts/wsl/5.10.74.3
+- Update to upstream stable kernel release 5.10.74
+- Enable BPF Type Format (CONFIG_DEBUG_INFO_BTF) for use by eBPF tools (microsoft/WSL#7437)
+- Updated Dxgkrnl version to 2110
+- Enable the Buffer Sharing and Sync File Frameworks (CONFIG_DMA_SHARED_BUFFER, CONFIG_SYNC_FILE) for Dxgkrnl usage
+- Fix Dxgkrnl build failure with GCC versions older than 8.1 (microsoft/WSL#7558)
 
 ## 5.10.60.1
 
