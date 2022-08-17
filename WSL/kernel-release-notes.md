@@ -179,4 +179,4 @@ We've added support for WSL 2 distributions, [which use a full Linux kernel](htt
 
 [Official Github release link](https://github.com/microsoft/WSL2-Linux-Kernel/releases/tag/4.19.84-microsoft-standard).
 
-- This is the 4.19.84 stable release 
+- This is the 4.19.84 stable release
