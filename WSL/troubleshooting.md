@@ -194,7 +194,24 @@ Please enable the Virtual Machine Platform Windows feature and ensure virtualiza
 
 Learn more about how to [Configure Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization#configure-nested-virtualization) when running Hyper-V in a Virtual Machine.
 
-### Bash loses network connectivity once connected to a VPN
+### WSL has no network connection on my work machine or in an Enterpise environment
+
+If local rule merging is set to "No" then WSL networking will not work by default, and your administrator will need to add a firewall rule to allow it. 
+
+You can confirm local rule merging's setting by following these steps:
+
+- Open "Windows Defender Firewall with advanced security"
+- Right click on "Windows Defender Firewall with advanced security on Local Computer"
+- Click Properties
+- Select "Public Profile" on the new Window that opens
+- Click "Customize" under the "Settings" section 
+- Check to see if "Rule Merging" is set to "No"
+
+![Firewall rule merging](./media/firewallrulemerging.png)
+
+You can find instructions on how to fix this in the [WSL Enterprise doc](./enterprise.md#configuring-wsl-firewall-rules)
+
+### WSL has no network connectivity once connected to a VPN
 
 If after connecting to a VPN on Windows, bash loses network connectivity, try this workaround from within bash. This workaround will allow you to manually override the DNS resolution through `/etc/resolv.conf`.
 
