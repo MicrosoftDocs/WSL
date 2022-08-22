@@ -185,8 +185,8 @@ You can use pipes and redirect operators in many interesting ways to more effici
 
 ## Recommended content
 
-- [Microsoft Learn: Introduction to Bash](https://docs.microsoft.com/learn/modules/bash-introduction/)
+- [Microsoft Learn: Introduction to Bash](/learn/modules/bash-introduction/)
 
 - [Command Line for Beginners](https://ubuntu.com/tutorials/command-line-for-beginners#1-overview)
 
-- [Microsoft Learn: Get Started with WSL](https://docs.microsoft.com/learn/modules/get-started-with-windows-subsystem-for-linux/)
+- [Microsoft Learn: Get Started with WSL](/learn/modules/get-started-with-windows-subsystem-for-linux/)
