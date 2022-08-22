@@ -26,7 +26,7 @@ sudo apt update && sudo apt upgrade
 ```
 ![upgrade_and_update](https://user-images.githubusercontent.com/98557455/183468063-35b00e76-d11a-4260-aa3c-9f8e0dab2e47.gif)
 
-> [!IMPORTANT]
+> [!TIP]
 > Different distributions of Linux often have different package managers and will require using an install command specific to the associated package manager. For example, the main package manager for Arch Linux is called [pacman](https://wiki.archlinux.org/title/pacman) and the install command would be `sudo pacman -S <app_name>`. The main package manager for OpenSuse is called [Zypper](https://doc.opensuse.org/documentation/leap/archive/42.2/reference/html/book.opensuse.reference/cha.sw_cl.html#sec.zypper) and the install command would be `sudo zypper install <app_name>`. The main package manager for Alpine is called [apk](https://wiki.alpinelinux.org/wiki/Package_management) and the install command would be `sudo apk add <app_name>`. The two main package managers for Red Hat distributions, like CentOS, are [YUM and RPM](https://www.redhat.com/sysadmin/how-manage-packages) and an install command could be `sudo yum install <app_name>` or `sudo rpo -i <app_name>`. Refer to the documentation of the distribution you are working with to find out what tools are available for you to install and update software.
 
 ## Working with files and directories
@@ -78,15 +78,19 @@ To edit your file with your preferred method of editing, simply run the program 
 ```bash
 code hello_world.txt
 ```
+
 ```bash
 notepad.exe hello_world.txt
 ```
 
 To see the contents of a file in the command line, use the ‘cat’ command followed by the file you’d like to read:
+
 ```bash
 cat hello_world.txt 
 ```
+
 ![directory-and-file-commands2](https://user-images.githubusercontent.com/98557455/183481394-25bc0b2f-3d6d-465f-8f0b-aa5393f88727.gif)
+
 ## Using Pipes and Redirect Operators 
 
 A pipe ‘|’ redirects the output from one command as input into another command. For example, lhscmd | rhscmd would direct the output from lhscmd to rhscmd. Pipes can be used in a variety of ways to quickly accomplish tasks through the command line. Below are just a few simple examples of how pipes can be used. 
@@ -181,8 +185,8 @@ You can use pipes and redirect operators in many interesting ways to more effici
 
 ## Recommended content
 
+- [Microsoft Learn: Introduction to Bash](https://docs.microsoft.com/learn/modules/bash-introduction/)
+
 - [Command Line for Beginners](https://ubuntu.com/tutorials/command-line-for-beginners#1-overview)
 
 - [Microsoft Learn: Get Started with WSL](https://docs.microsoft.com/learn/modules/get-started-with-windows-subsystem-for-linux/)
-
-- [Microsoft Learn: Introduction to Bash](https://docs.microsoft.com/learn/modules/bash-introduction/)
