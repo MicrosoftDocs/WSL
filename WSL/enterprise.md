@@ -38,6 +38,18 @@ Using Linux configuration manager tools is strongly recommended for monitoring a
 
 Currently, WSL offers limited control mechanisms in regard to modifying the user experience in an Enterprise scenario. Enterprise features continue in development however, below are the areas of supported and unsupported features. To request a new feature not covered in this list, file an issue in our [GitHub repo](https://github.com/microsoft/WSL/issues?q=is%3Aissue+is%3Aopen+enterprise).
 
+### Configuring WSL firewall rules
+
+Microsoft implements Firewall protocols used by Windows to maintain security and block unauthorized network traffic flowing into or out of a local device. To optimize protection for devices in your network, [configure your Windows Firewall based on best practices](/windows/security/threat-protection/windows-firewall/best-practices-configuring).
+
+In regard to WSL, if the [local policy merge](/openspecs/windows_protocols/ms-gpfas/2c979624-900a-4b6e-b4ef-09b387cd62ab) firewall policy is set to "No" then WSL networking will not work. (For more information, see [Establish local policy merge and application rules](/windows/security/threat-protection/windows-firewall/best-practices-configuring#establish-local-policy-merge-and-application-rules).)
+
+To change this configuration, you can add the following to Windows firewall settings:
+
+- Action allow, direction Inbound, Protocol UDP, LocalPort 53, program: `%Systemroot%\System32\svchost.exe`, service SharedAccess
+
+Also see: [WSL has no network connection on my work machine or in an Enterpise environment](./troubleshooting.md#wsl-has-no-network-connection-on-my-work-machine-or-in-an-enterpise-environment).
+
 ### Supported
 
 * Sharing an approved image internally using `wsl --import` and `wsl --export`
