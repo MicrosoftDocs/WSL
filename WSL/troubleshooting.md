@@ -19,7 +19,7 @@ The [WSL product repo issues](https://github.com/Microsoft/wsl/issues) enables y
 
 You can also:
 
-- **File a documentation issue** using the [WSL docs repo](https://github.com/MicrosoftDocs/wsl/issues). To contribute to the WSL docs, see the [Microsoft Docs contributor guide](/contribute).
+- **File a documentation issue** using the [WSL docs repo](https://github.com/MicrosoftDocs/wsl/issues). To contribute to the WSL docs, see our [contributor guide](/contribute).
 - **File a Windows Terminal** issue using the the [Windows Terminal product repo](https://github.com/microsoft/terminal/issues) if your problem is related more to the Windows Terminal, Windows Console, or the command-line UI.
 
 ## Installation issues
