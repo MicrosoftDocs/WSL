@@ -167,19 +167,19 @@ sections:
       - question: |
          Can I use WSL for production scenarios? 
         answer: |
-          WSL has been designed and built to serve developer inner loop workflows. There are design features in WSL that make it great for this purpose that might make it challenging for production related scenarios compared to other products. Our goal is to make it clear on how WSL differs from a regular VM environment, so you can make the decision on whether it fits your business needs.
+          WSL has been designed and built to use with inner loop development workflows. There are design features in WSL that make it great for this purpose but may make it challenging for production-related scenarios compared to other products. Our goal is to make clear how WSL differs from a regular VM environment, so you can make the decision on whether it fits your business needs.
 
-          The main differences between WSL and a traditional production environment are: 
+          The main differences between WSL and a traditional production environment are:
+
           * WSL has a lightweight utility VM that starts, stops and manages resources automatically.
-          * If you have no open file handles to Windows processes, the WSL VM will automatically be shut down. This means if you are using it as a web server, SSH into it to run your server and then exit, the VM could shut down because it is detecting that users are finished using it and will clean up its resources
-          * WSL users have full access to their Linux instances. The lifetime of the VM, the registered WSL distros, etc., all are accessible by the user and can be modified by the user
+          * If you have no open file handles to Windows processes, the WSL VM will automatically be shut down. This means if you are using it as a web server, SSH into it to run your server and then exit, the VM could shut down because it is detecting that users are finished using it and will clean up its resources.
+          * WSL users have full access to their Linux instances. The lifetime of the VM, the registered WSL distributions, etc., are all accessible by the user and can be modified by the user.
           * WSL automatically gives file access to Windows files.
-          * We append Windows paths to your path by default, which could cause unexpected behaviour for certain Linux applications compared to a traditional Linux environment
-          * Additionally WSL can run Windows executables from Linux, which could also lead to a different environment than a traditional Linux VM
-          * WSL's Linux kernel is updated automatically with WSL
-          * WSL's GPU access is done through a /dev/dxg device which routes GPU calls out to the Windows GPU. This setup is different than a traditional Linux set up
-          * There are other smaller differences compared to bare metal Linux, and we expect there to be more differences in the future as we prioritize the developer inner loop workflow
-
+          * Windows paths are appended to your path by default, which could cause unexpected behavior for certain Linux applications compared to a traditional Linux environment.
+          * WSL can run Windows executables from Linux, which could also lead to a different environment than a traditional Linux VM.
+          * The Linux kernel used by WSL is updated automatically.
+          * GPU access in WSL happens through a `/dev/dxg` device, which routes GPU calls out to the Windows GPU. This setup is different than a traditional Linux set up.
+          * There are other smaller differences compared to bare metal Linux and more differences are expected to arise in the future as the inner loop development workflow is prioritized.
 
 
   - name: WSL 2
