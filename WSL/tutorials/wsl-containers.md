@@ -23,7 +23,7 @@ Docker containers are similar to virtual machines, but don't create an entire vi
 
 Continuous availability, using Docker containers with tools like [Kubernetes](/azure/aks/), is another reason for the popularity of containers. This enables multiple versions of your app container to be created at different times. Rather than needing to take down an entire system for updates or maintenance, each container (and it's specific microservices) can be replaced on the fly. You can prepare a new container with all of your updates, set up the container for production, and just point to the new container once it's ready. You can also archive different versions of your app using containers and keep them running as a safety fallback if needed.
 
-To learn more, checkout the [Introduction to Docker containers](/learn/modules/intro-to-docker-containers/) on Microsoft Learn.
+To learn more, checkout the [Introduction to Docker containers](/training/modules/intro-to-docker-containers/) on Microsoft Learn training.
 
 ## Prerequisites
 
