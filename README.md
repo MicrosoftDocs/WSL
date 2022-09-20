@@ -10,9 +10,9 @@ If you find doc issues / errors or have an improvement you'd like to suggest, pl
 
 ## External Links
 
-[Rendered documentation website](https://docs.microsoft.com/windows/wsl/) 
+[Rendered documentation website](https://learn.microsoft.com/windows/wsl/) 
 
-[Release notes for WSL](https://docs.microsoft.com/windows/wsl/release-notes)
+[Release notes for WSL](https://learn.microsoft.com/windows/wsl/release-notes)
 
 ## Microsoft Open Source Code of Conduct
 
