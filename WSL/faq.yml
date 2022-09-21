@@ -232,7 +232,7 @@ sections:
           WSL 2 supports the same wsl.conf file that WSL 1 uses. This means that any configuration options that you had set in a WSL 1 distro, such as automounting Windows drives, enabling or disabling interop, changing the directory where Windows drives will be mounted, etc. will all work inside of WSL 2. You can learn more about the configuration options in WSL in the [Distribution Management](/windows/wsl/wsl-config) page. Learn more about support for mounting drives, disks, devices, or virtual hard disks (VHDs) in the [Mount a Linux disk in WSL 2](./wsl2-mount-disk.md) article.
           
            [1]: https://www.virtualbox.org/wiki/Changelog-6.0
-           [2]: https://docs.microsoft.com/virtualization/api/
+           [2]: https://learn.microsoft.com/virtualization/api/
            [3]: https://devblogs.microsoft.com/visualstudio/hyper-v-android-emulator-support/
            [4]: https://blogs.vmware.com/workstation/2020/01/vmware-workstation-tech-preview-20h1.html
   

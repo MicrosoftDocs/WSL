@@ -57,6 +57,19 @@ The wsl.conf file configures settings on a per-distribution basis. *(For global 
 
 The wsl.conf file supports four sections: `automount`, `network`, `interop`, and `user`. *(Modeled after .ini file conventions, keys are declared under a section, like .gitconfig files.)* See [wsl.conf](#wslconf) for info on where to store the wsl.conf file.
 
+### systemd support
+
+Many Linux distributions run "systemd" by default (including Ubuntu) and WSL has recently added support for this system/service manager so that WSL is even more similar to using your favorite Linux distributions on a bare metal machine. You will need version 0.67.6+ of WSL to enable systemd. Check your WSL version with command `wsl --version`. If you need to update, you can grab the [latest version of WSL in the Microsoft Store](https://aka.ms/wslstorepage). Learn more in [blog announcement](https://devblogs.microsoft.com/commandline/a-preview-of-wsl-in-the-microsoft-store-is-now-available/).
+
+To enable systemd, open your `wsl.conf` file in a text editor using `sudo` for admin permissions and add these lines to the `/etc/wsl.conf`:
+
+```bash
+[boot]
+systemd=true
+```
+
+You will then need to close your WSL distribution using `wsl.exe --shutdown` from PowerShell to restart your WSL instances. Once your distribution restarts, systemd should be running. You can confirm using the command: `systemctl list-unit-files --type=service`, which will show the status of your services.
+
 ### Automount settings
 
 Section label: `[automount]`
