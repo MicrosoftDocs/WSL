@@ -1,7 +1,7 @@
 ---
 title: Comparing WSL Versions
 description: WSL 2 provides the benefits of WSL 1, but uses an actual Linux kernel, rather than a translation layer like WSL 1, resulting in faster performance.
-ms.date: 11/22/2021
+ms.date: 10/04/2022
 ms.topic: conceptual
 ms.custom: seo-windows-dev
 ---
@@ -34,7 +34,7 @@ WSL 2 is only available in Windows 11 or Windows 10, Version 1903, Build 18362 o
 > [!NOTE]
 > WSL 2 will work with [VMware 15.5.5+](https://blogs.vmware.com/workstation/2020/05/vmware-workstation-now-supports-hyper-v-mode.html) and [VirtualBox 6+](https://www.virtualbox.org/wiki/Changelog-6.0). Learn more in our [FAQs.](./faq.yml#will-i-be-able-to-run-wsl-2-and-other-3rd-party-virtualization-tools-such-as-vmware--or-virtualbox-)
 
-### What's new in WSL 2
+## What's new in WSL 2
 
 WSL 2 is a major overhaul of the underlying architecture and uses virtualization technology and a Linux kernel to enable new features. The primary goals of this update are to increase file system performance and add full system call compatibility.
 
@@ -42,13 +42,13 @@ WSL 2 is a major overhaul of the underlying architecture and uses virtualization
 - [Set your Linux distribution version from WSL 1 to WSL 2](./basic-commands.md#set-wsl-version-to-1-or-2)
 - [Frequently Asked Questions about WSL 2](./faq.yml)
 
-#### WSL 2 architecture
+### WSL 2 architecture
 
 A traditional VM experience can be slow to boot up, is isolated, consumes a lot of resources, and requires your time to manage it. WSL 2 does not have these attributes.
 
 WSL 2 provides the benefits of WSL 1, including seamless integration between Windows and Linux, fast boot times, a small resource footprint, and requires no VM configuration or management. While WSL 2 does use a VM, it is managed and run behind the scenes, leaving you with the same user experience as WSL 1.
 
-#### Full Linux kernel
+### Full Linux kernel
 
 The Linux kernel in WSL 2 is built by Microsoft from the latest stable branch, based on the source available at kernel.org. This kernel has been specially tuned for WSL 2, optimizing for size and performance to provide an amazing Linux experience on Windows. The kernel will be serviced by Windows updates, which means you will get the latest security fixes and kernel improvements without needing to manage it yourself.
 
@@ -56,13 +56,13 @@ The [WSL 2 Linux kernel is open source](https://github.com/microsoft/WSL2-Linux-
 
 Learn more in the [Release Notes for Windows Subsystem for Linux kernel](./kernel-release-notes.md).
 
-#### Increased file IO performance
+### Increased file IO performance
 
 File intensive operations like git clone, npm install, apt update, apt upgrade, and more are all noticeably faster with WSL 2.
 
 The actual speed increase will depend on which app you're running and how it is interacting with the file system. Initial versions of WSL 2 run up to 20x faster compared to WSL 1 when unpacking a zipped tarball, and around 2-5x faster when using git clone, npm install and cmake on various projects.
 
-#### Full system call compatibility
+### Full system call compatibility
 
 Linux binaries use system calls to perform functions such as accessing files, requesting memory, creating processes, and more. Whereas WSL 1 used a translation layer that was built by the WSL team, WSL 2 includes its own Linux kernel with full system call compatibility. Benefits include:
 
@@ -70,7 +70,7 @@ Linux binaries use system calls to perform functions such as accessing files, re
 
 - Any updates to the Linux kernel are immediately ready for use. (You don't have to wait for the WSL team to implement updates and add the changes).
 
-### Exceptions for using WSL 1 rather than WSL 2
+## Exceptions for using WSL 1 rather than WSL 2
 
 We recommend that you use WSL 2 as it offers faster performance and 100% system call compatibility. However, there are a few specific scenarios where you might prefer using WSL 1. Consider using WSL 1 if:
 
