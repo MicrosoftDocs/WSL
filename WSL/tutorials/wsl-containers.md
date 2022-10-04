@@ -71,13 +71,13 @@ To install Docker (after already [installing WSL](../install.md)):
 
 ## Develop in remote containers using VS Code
 
-To get started developing apps using Docker with WSL 2, we recommend using VS Code, along with the Remote-WSL extension and Docker extension.
+To get started developing apps using Docker with WSL 2, we recommend using VS Code, along with the WSL, Dev Containers, and Docker extensions.
 
-- [Install the VS Code Remote-WSL extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl). This extension enables you to open your Linux project running on WSL in VS Code (no need to worry about pathing issues, binary compatibility, or other cross-OS challenges).
+- [Install the VS Code WSL extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl). This extension enables you to open your Linux project running on WSL in VS Code (no need to worry about pathing issues, binary compatibility, or other cross-OS challenges).
 
-- [Install the VS code Remote-Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers). This extension enables you to open your project folder or repo inside of a container, taking advantage of Visual Studio Code's full feature set to do your development work within the container.
+- [Install the VS Code Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers). This extension enables you to open your project folder or repo inside of a container, taking advantage of Visual Studio Code's full feature set to do your development work within the container.
 
-- [Install the VS Code Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker). This extension adds the functionality to build, manage, and deploy containerized applications from  inside VS Code. (You need the Remote-Container extension to actually use the container as your dev environment.)
+- [Install the VS Code Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker). This extension adds the functionality to build, manage, and deploy containerized applications from  inside VS Code. (You need the Dev Containers extension to actually use the container as your dev environment.)
 
 Let's use Docker to create a development container for an existing app project.
 
@@ -92,7 +92,7 @@ Let's use Docker to create a development container for an existing app project.
     cd helloworld-django
     ```
 
-3. Open the project in VS Code running on the local Remote-WSL extension server by entering:
+3. Open the project in VS Code running on the local WSL extension server by entering:
 
     ```bash
     code .
@@ -102,17 +102,17 @@ Let's use Docker to create a development container for an existing app project.
 
     ![VS Code WSL Remote indicator](../media/vscode-remote-indicator.png)
 
-4. From the VS Code command pallette (Ctrl + Shift + P), enter: **Remote-Containers: Open Folder in Container...** If this command doesn't display as you begin to type it, check to ensure that you've installed the Remote Container extension linked above.
+4. From the VS Code command pallette (Ctrl + Shift + P), enter: **Dev Containers: Open Folder in Container...** If this command doesn't display as you begin to type it, check to ensure that you've installed the Dev Containers extension linked above.
 
-    ![VS Code Remote Container command](../media/docker-extension.png)
+    ![VS Code Dev Containers command](../media/docker-extension.png)
 
 5. Select the project folder that you wish to containerize. In my case, this is `\\wsl\Ubuntu-20.04\home\mattwojo\repos\helloworld-django\`
 
-    ![VS Code Remote Container folder](../media/docker-extension2.png)
+    ![VS Code Dev Containers folder](../media/docker-extension2.png)
 
-6. A list of container definitions will appear, since there is no DevContainer configuration in the project folder (repo) yet. The list of container configuration definitions that appears is filtered based on your project type. For my Django project, I'll select Python 3.
+6. A list of container definitions will appear, since there is no dev container configuration in the project folder (repo) yet. The list of container configuration definitions that appears is filtered based on your project type. For my Django project, I'll select Python 3.
 
-    ![VS Code Remote Container config definitions](../media/docker-extension3.png)
+    ![VS Code Dev Containers config definitions](../media/docker-extension3.png)
 
 7. A new instance of VS Code will open, begin building our new image, and once the build completed, will start our container. You will see that a new `.devcontainer` folder has appeared with container configuration information inside a `Dockerfile` and `devcontainer.json` file.  
 
