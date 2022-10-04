@@ -8,21 +8,11 @@ ms.custom: seo-windows-dev
 
 # Comparing WSL Versions
 
-Learn more about different WSL versions 
+Learn more about different WSL versions, including why WSL 2 is now the default and the specific scenarios or exceptions that may warrant switching your installed Linux distribution to the earlier WSL 1 architecture. 
 
 ## Comparing WSL 1 and WSL 2
 
-The primary reasons to [update from WSL 1 to WSL 2](./install.md#upgrade-version-from-wsl-1-to-wsl-2) are to:
-
-- **increase file system performance**,
-- **support full system call compatibility**.
-
-WSL 2 uses the latest and greatest in virtualization technology to run a Linux kernel inside of a lightweight utility virtual machine (VM). However, WSL 2 is not a traditional VM experience.
-
-> [!div class="nextstepaction"]
-> [Install WSL](install.md)
-
-This guide will compare WSL 1 and WSL 2, including [exceptions for using WSL 1 rather than WSL 2](#exceptions-for-using-wsl-1-rather-than-wsl-2). The primary differences between WSL 1 and WSL 2 are the use of an actual Linux kernel inside a managed VM, support for full system call compatibility, and performance across the Linux and Windows operating systems.
+This guide will compare WSL 1 and WSL 2, including [exceptions for using WSL 1 rather than WSL 2](#exceptions-for-using-wsl-1-rather-than-wsl-2). The primary differences between WSL 1 and WSL 2 are the use of an actual Linux kernel inside a managed VM, support for full system call compatibility, and performance across the Linux and Windows operating systems. WSL 2 is the current default version when installing a Linux distribution and uses the latest and greatest in virtualization technology to run a Linux kernel inside of a lightweight utility virtual machine (VM). If your distribution is currently running WSL 1 and you want to update to WSL 2, see [update from WSL 1 to WSL 2](./install.md#upgrade-version-from-wsl-1-to-wsl-2).
 
 ### Comparing features
 
