@@ -213,6 +213,7 @@ Section label: `[wsl2]`
 | processors | number | The same number of processors on Windows | How many processors to assign to the WSL 2 VM. |
 | localhostForwarding | boolean | `true` | Boolean specifying if ports bound to wildcard or localhost in the WSL 2 VM should be connectable from the host via `localhost:port`. |
 | kernelCommandLine | string | Blank | Additional kernel command line arguments. |
+| safeMode | boolean | `false` | Run WSL in "Safe Mode" which disables many features and is intended to be used to recover distributions that are in bad states. |
 | swap | size | 25% of memory size on Windows rounded up to the nearest GB | How much swap space to add to the WSL 2 VM, 0 for no swap file. Swap storage is disk-based RAM used when memory demand exceeds limit on hardware device. |
 | swapFile | string | `%USERPROFILE%\AppData\Local\Temp\swap.vhdx` | An absolute Windows path to the swap virtual hard disk. |
 | pageReporting | boolean | `true` | Default `true` setting enables Windows to reclaim unused memory allocated to WSL 2 virtual machine. |
@@ -253,6 +254,9 @@ kernel=C:\\temp\\myCustomKernel
 
 # Sets additional kernel parameters, in this case enabling older Linux base images such as Centos 6
 kernelCommandLine = vsyscall=emulate
+
+# Run WSL in "Safe Mode" which disables many features and is intended to be used to recover distributions that are in bad states.
+safeMode=true
 
 # Sets amount of swap storage space to 8GB, default is 25% of available RAM
 swap=8GB
