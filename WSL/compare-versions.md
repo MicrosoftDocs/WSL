@@ -90,12 +90,4 @@ We recommend that you use WSL 2 as it offers faster performance and 100% system 
 
 ## WSL in the Microsoft Store and WSL as a Windows component
 
-Originally, WSL was part of the Windows image itself and you would install it as a Windows component. Since then, the WSL team has [created a preview of WSL in the Microsoft Store](https://devblogs.microsoft.com/commandline/a-preview-of-wsl-in-the-microsoft-store-is-now-available/), which you can [find here](https://aka.ms/wslstorepage). The Store version of WSL is the exact same WSL, with the exact same user experience, the only difference is how often it gets serviced. The Store version of WSL gets serviced in the order of months, while the Windows component version of WSL is serviced in the order of years. We recommend all users move to the Store version of WSL, and future updates will be directed to the Store version of WSL.
-
-### How to get the Store version of WSL
-
-For Windows version 22000 or higher:
-
-If you are new to WSL, you can just run `wsl.exe --install` and you will automatically get the Store version. See the [install docs for more info](./install.md)
-
-If you are already using WSL, you can run `wsl.exe --update` and you will be put onto the latest version automatically.
+WSL was originally included in the Windows operating system as an optional component that need to be enabled in order to install a Linux distribution. WSL in the Store has the same user experience, and is the same product, but receives updates and servicing as soon as they're available, rather than needing to wait for an update of your Windows operating system. Beginning in Windows version 22000 or higher, running the `wsl.exe --install` command will install WSL from the Microsoft Store. ([See the blog post announcing this update](https://devblogs.microsoft.com/commandline/a-preview-of-wsl-in-the-microsoft-store-is-now-available/)). If you are already using WSL, you can update to ensure that you're receiving the latest WSL features and servicing from the Store by running `wsl.exe --update`.
