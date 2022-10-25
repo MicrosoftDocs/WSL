@@ -36,6 +36,8 @@
       href: tutorials/gui-apps.md
     - name: Install NodeJS on WSL
       href: /windows/dev-environment/javascript/nodejs-on-wsl
+    - name: Get started with Linux and Bash
+      href: tutorials/linux.md
 - name: Concepts
   items:
     - name: Working across file systems
