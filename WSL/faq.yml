@@ -43,7 +43,7 @@ sections:
       - question: |
          What is Bash?
         answer: |
-          [Bash](https://en.wikipedia.org/wiki/Bash_%28Unix_shell%29) is a popular text-based shell and command-language. It is the default shell included within Ubuntu and other Linux distros, and in macOS. Users type commands into a shell to execute scripts and/or run commands and tools to accomplish many tasks.
+          [Bash](https://en.wikipedia.org/wiki/Bash_%28Unix_shell%29) is a popular text-based shell and command-language. It is the default shell included within Ubuntu and other Linux distros. Users type commands into a shell to execute scripts and/or run commands and tools to accomplish many tasks.
           
       - question: |
          How does this work?
