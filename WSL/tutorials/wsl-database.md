@@ -17,7 +17,7 @@ This step-by-step guide will help you get started connecting your project in WSL
 
 ## Differences between database systems
 
-The most [popular choices](https://insights.stackoverflow.com/survey/2019#technology-_-databases) for a database system include:
+The most [popular choices](https://insights.stackoverflow.com/survey/2021#section-most-popular-technologies-databases) for a database system include:
 
 - [MySQL](https://www.mysql.com/why-mysql/) (SQL)
 - [PostgreSQL](https://www.postgresql.org/about/) (SQL)
