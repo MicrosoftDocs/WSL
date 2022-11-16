@@ -1,7 +1,7 @@
 ---
 title: Basic commands for WSL
 description: Reference for the basic commands included with Windows Subsystem for Linux (WSL).
-ms.date: 03/04/2022
+ms.date: 11/16/2022
 ms.topic: article
 ---
 
@@ -205,7 +205,7 @@ wsl --mount <DiskPath>
 
 Attach and mount a physical disk in all WSL2 distributions by replacing `<DiskPath>` with the directory\file path where the disk is located. See [Mount a Linux disk in WSL 2](./wsl2-mount-disk.md). Options include:
 
-- `--vhd`: Specifies that <Disk> refers to a virtual hard disk.
+- `--vhd`: Specifies that `<Disk>` refers to a virtual hard disk.
 - `--name`: Mount the disk using a custom name for the mountpoint
 - `--bare`: Attach the disk to WSL2, but don't mount it.
 - `--type <Filesystem>`:  Filesystem type to use when mounting a disk, if not specified defaults to ext4. This command can also be entered as: `wsl --mount -t <Filesystem>`.You can detect the filesystem type using the command: `blkid <BlockDevice>`, for example: `blkid <dev/sdb1>`.
