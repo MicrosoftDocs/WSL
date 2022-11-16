@@ -7,7 +7,7 @@ ms.topic: article
 
 # Basic commands for WSL
 
-The WSL commands below are listed in a format supported by PowerShell or Windows Command Prompt. To run these commands from a Bash / Linux distribution command line, you must replace `wsl` with `wsl.exe`. For a full list of commands please run `wsl --help`. 
+The WSL commands below are listed in a format supported by PowerShell or Windows Command Prompt. To run these commands from a Bash / Linux distribution command line, you must replace `wsl` with `wsl.exe`. For a full list of commands, run `wsl --help`. 
 
 ## Install
 
@@ -15,19 +15,19 @@ The WSL commands below are listed in a format supported by PowerShell or Windows
 wsl --install
 ```
 
-Install WSL and the Ubuntu distribution of Linux. [Learn more](./install.md). You can also use this command to install a WSL distro by running `wsl --install <distroName>`, for a valid list of distribution names please run `wsl --list --online`. 
+Install WSL and the default Ubuntu distribution of Linux. [Learn more](./install.md). You can also use this command to install additional Linux distributions by running `wsl --install <Distribution Name>`. For a valid list of distribution names, run `wsl --list --online`. 
 
 Options include: 
 
 - `--distribution`: Specify the Linux distribution to install. You can find available distributions by running `wsl --list --online`. 
 - `--no-launch`: Install the Linux distribution but do not launch it automatically.
-- `--web-download`: Install from the Internet rather than using the Microsoft Store.
+- `--web-download`: Install from GitHub rather than using the Microsoft Store. *(This will result in not receiving as-available updates from the store.)*
 
 When WSL is not installed options include:
 
-- `--inbox`: Installs WSL using the Windows component instead of using the Microsoft Store
-- `--enable-wsl1`: Enables WSL 1 during the install of the Microsoft Store version by also enabling the "Windows Subsystem for Linux" optional component
-- `--no-distribution`: Do not install a distribution when installing WSL
+- `--inbox`: Installs WSL using the Windows component instead of using the Microsoft Store. *(WSL updates will be received via Windows updates, rather than pushed out as-available via the store).*
+- `--enable-wsl1`: Enables WSL 1 during the install of the Microsoft Store version of WSL by also enabling the "Windows Subsystem for Linux" optional component.
+- `--no-distribution`: Do not install a distribution when installing WSL.
 
 ## List available Linux distributions
 
@@ -93,7 +93,7 @@ wsl --update
 
 Update your WSL version to the latest version. Options include: 
 
-- `--web-download`: Download the latest update from the Internet rather than the Microsoft Store.
+- `--web-download`: Download the latest update from the GitHub rather than the Microsoft Store.
 
 ## Check WSL status
 
