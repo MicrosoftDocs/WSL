@@ -4,7 +4,7 @@
   items:
     - name: What is WSL?
       href: about.md
-    - name: Comparing WSL 2 and WSL 1
+    - name: Comparing WSL Versions
       href: compare-versions.md
     - name: Basic wsl commands
       href: basic-commands.md

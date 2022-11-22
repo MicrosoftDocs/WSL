@@ -1,26 +1,20 @@
 ---
-title: Comparing WSL 1 and WSL 2
+title: Comparing WSL Versions
 description: WSL 2 provides the benefits of WSL 1, but uses an actual Linux kernel, rather than a translation layer like WSL 1, resulting in faster performance.
-ms.date: 11/22/2021
+ms.date: 10/04/2022
 ms.topic: conceptual
 ms.custom: seo-windows-dev
 ---
 
-# Comparing WSL 1 and WSL 2
+# Comparing WSL Versions
 
-The primary reasons to [update from WSL 1 to WSL 2](./install.md#upgrade-version-from-wsl-1-to-wsl-2) are to:
+Learn more about different WSL versions, including why WSL 2 is now the default and the specific scenarios or exceptions that may warrant switching your installed Linux distribution to the earlier WSL 1 architecture. 
 
-- **increase file system performance**,
-- **support full system call compatibility**.
+## Comparing WSL 1 and WSL 2
 
-WSL 2 uses the latest and greatest in virtualization technology to run a Linux kernel inside of a lightweight utility virtual machine (VM). However, WSL 2 is not a traditional VM experience.
+This guide will compare WSL 1 and WSL 2, including [exceptions for using WSL 1 rather than WSL 2](#exceptions-for-using-wsl-1-rather-than-wsl-2). The primary differences between WSL 1 and WSL 2 are the use of an actual Linux kernel inside a managed VM, support for full system call compatibility, and performance across the Linux and Windows operating systems. WSL 2 is the current default version when installing a Linux distribution and uses the latest and greatest in virtualization technology to run a Linux kernel inside of a lightweight utility virtual machine (VM). If your distribution is currently running WSL 1 and you want to update to WSL 2, see [update from WSL 1 to WSL 2](./install.md#upgrade-version-from-wsl-1-to-wsl-2).
 
-> [!div class="nextstepaction"]
-> [Install WSL](install.md)
-
-This guide will compare WSL 1 and WSL 2, including [exceptions for using WSL 1 rather than WSL 2](#exceptions-for-using-wsl-1-rather-than-wsl-2). The primary differences between WSL 1 and WSL 2 are the use of an actual Linux kernel inside a managed VM, support for full system call compatibility, and performance across the Linux and Windows operating systems.
-
-## Comparing features
+### Comparing features
 
 Feature | WSL 1 | WSL 2
 --- | --- | ---
@@ -92,4 +86,10 @@ We recommend that you use WSL 2 as it offers faster performance and 100% system 
 - If you rely on a Linux distribution to have an IP address in the same network as your host machine, you may need to set up a workaround in order to run WSL 2. WSL 2 is running as a hyper-v virtual machine. This is a change from the bridged network adapter used in WSL 1, meaning that WSL 2 uses a Network Address Translation (NAT) service for it's virtual network, instead of making it bridged to the host Network Interface Card (NIC) resulting in a unique IP address that will change on restart. To learn more about the issue and workaround that forwards TCP ports of WSL 2 services to the host OS, see [WSL GitHub repository issue 4150, NIC Bridge mode (TCP Workaround)](https://github.com/microsoft/WSL/issues/4150).
 
 > [!NOTE]
-> Consider trying the VS Code [WSL Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) to enable you to store your project files on the Linux file system, using Linux command line tools, but also using VS Code on Windows to author, edit, debug, or run your project in an internet browser without any of the performance slow-downs associated with working across the Linux and Windows file systems. [Learn more](tutorials/wsl-vscode.md).
+> Consider trying the VS Code [Remote WSL Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) to enable you to store your project files on the Linux file system, using Linux command line tools, but also using VS Code on Windows to author, edit, debug, or run your project in an internet browser without any of the performance slow-downs associated with working across the Linux and Windows file systems. [Learn more](tutorials/wsl-vscode.md).
+
+## WSL in the Microsoft Store
+
+WSL has lifted the update functionality out of the Windows OS Image into a package that is available via the Microsoft Store. This means faster updates and servicing as soon as they're available, rather than needing to wait for an update of your Windows operating system.
+
+WSL was originally included in the Windows operating system as an optional component that need to be enabled in order to install a Linux distribution. WSL in the Store has the same user experience, and is the same product, but receives updates and servicing as a store package, rather than as an entire OS update. Beginning in Windows version 22000 or higher, running the `wsl.exe --install` command will install the WSL servicing update from the Microsoft Store. ([See the blog post announcing this update](https://devblogs.microsoft.com/commandline/a-preview-of-wsl-in-the-microsoft-store-is-now-available/)). If you are already using WSL, you can update to ensure that you're receiving the latest WSL features and servicing from the store by running `wsl.exe --update`.
