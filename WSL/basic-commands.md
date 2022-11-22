@@ -21,7 +21,7 @@ Options include:
 
 - `--distribution`: Specify the Linux distribution to install. You can find available distributions by running `wsl --list --online`. 
 - `--no-launch`: Install the Linux distribution but do not launch it automatically.
-- `--web-download`: Install from GitHub rather than using the Microsoft Store. *(This will result in not receiving as-available updates from the store.)*
+- `--web-download`: Install from an online source rather than using the Microsoft Store.
 
 When WSL is not installed options include:
 
