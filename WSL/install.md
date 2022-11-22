@@ -23,7 +23,7 @@ You can now install everything you need to run WSL with a single command. Open P
 wsl --install
 ```
 
-This command will enable the features necessary to run WSL and install the Ubuntu distribution of Linux. ([This default distribution can be changed](./basic-commands.md#install-a-specific-linux-distribution)).
+This command will enable the features necessary to run WSL and install the Ubuntu distribution of Linux. ([This default distribution can be changed](./basic-commands.md#install)).
 
 If you're running an older build, or just prefer not to use the install command and would like step-by-step directions, see **[WSL manual installation steps for older versions](./install-manual.md)**.
 
