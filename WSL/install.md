@@ -13,7 +13,7 @@ Developers can access the power of both Windows and Linux at the same time on a 
 
 ## Prerequisites
 
-You must be running Windows 10 version 2004 and higher (Build 19041 and higher) or Windows 11. [Check for updates](ms-settings:windowsupdate).
+You must be running Windows 10 version 2004 and higher (Build 19041 and higher) or Windows 11 to use the commands below. If you are on earlier versions please see [the manual install page](./install-manual.md)
 
 ## Install WSL command
 
