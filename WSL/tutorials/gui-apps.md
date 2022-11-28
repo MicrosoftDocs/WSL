@@ -1,7 +1,7 @@
 ---
 title: Run Linux GUI apps with WSL 
 description: Learn how WSL support running Linux GUI apps. 
-ms.date: 05/19/2022
+ms.date: 11/28/2022
 ms.topic: article
 ---
 
@@ -24,7 +24,7 @@ You can now integrate both Windows and Linux applications into your workflow for
 
 ### Prerequisites
 
-- You will need to be on **Windows 11 Build 22000 or later** to access this feature.
+- You will need to be on **Windows 10 Build 19044+** or **Windows 11** to access this feature.
 
 - **Installed driver for vGPU**
 
