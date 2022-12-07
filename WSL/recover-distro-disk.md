@@ -22,7 +22,7 @@ $ touch file
 touch: cannot touch 'file': Read-only file system
 ```
 
-Note: 
+Note:
 > [!NOTE]
 > You can run: `sudo mount -o remount,rw /` to make the distribution writable, but all changes will be in-memory (**and so will be lost when the distribution is restarted**).
 >
@@ -63,7 +63,7 @@ Filesystem      Size  Used Avail Use% Mounted on
 /dev/sdc        251G   251G    0 100% /mnt/wslg/distro
 ```
 
-If the disk is full, then follow [vhd-size.md] to expand it.
+If the disk is full, then follow [this tutorial](vhd-size.md) to expand it.
 
 # 3) Mounting the disk with wsl --mount to repair it
 
@@ -81,7 +81,7 @@ Then use the following command to mount the disk in WSL2 (run in an elevated com
 wsl.exe --mount <path-to-ext4.vhdx> --vhd --bare
 ```
 
-Once mounted, use **another WSL2 distribution** to access the disk: 
+Once mounted, use **another WSL2 distribution** to access the disk:
 
 ```bash
 # First use lsblk to get the block device name:
