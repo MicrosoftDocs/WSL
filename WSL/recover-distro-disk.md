@@ -6,6 +6,7 @@ ms.date: 12/07/2022
 ms.topic: article
 ---
 
+# Recovering a distribution disk
 If a WSL distribution encouters an error while mounting its disk, it can be mounted as read-only as a fallback.
 If that happens, the distribution can display the following error during startup:
 
@@ -28,9 +29,9 @@ Note:
 >
 
 
-# 1) Getting the distribution disk path
+## 1) Getting the distribution disk path
 
-To figure out where the disk is stored, run the following command in powershell (replace <distribution-name> with the actual distribution name):
+To figure out where the disk is stored, run the following command in powershell (replace `<distribution-name>` with the actual distribution name):
 
 ```powershell
 (Get-ChildItem -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Lxss | Where-Object { $_.GetValue("DistributionName") -eq '<distribution-name>' }).GetValue("BasePath") + "\ext4.vhdx"
@@ -41,14 +42,14 @@ This will display a path looking like:
 C:\Users\User\AppData\Local\Packages\TheDebianProject.DebianGNULinux_76v4gfsz19hv4\LocalState\ext4.vhdx
 ```
 
-# 2) Recovering the disk
+## 2) Recovering the disk
 
 The first step to recover the distribution is to find out why the disk failed to mount normally. The two most common causes are:
 
 - The disk needs to be repaired (can happen if WSL was terminated improperly)
 - The disk is full
 
-To decide between those, run the following command (replace <distribution-name> with the actual distribution name):
+To decide between those, run the following command (replace `<distribution-name>` with the actual distribution name):
 
 ```powershell
 $ wsl.exe --system -d <distribution-name> df -h /mnt/wslg/distro
@@ -65,7 +66,7 @@ Filesystem      Size  Used Avail Use% Mounted on
 
 If the disk is full, then follow [this tutorial](vhd-size.md) to expand it.
 
-# 3) Mounting the disk with wsl --mount to repair it
+## 3) Mounting the disk with wsl --mount to repair it
 
 This step will repair the disk so it can be mounted properly again.
 
