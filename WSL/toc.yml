@@ -64,6 +64,8 @@
       href: case-sensitivity.md
     - name: Expand virtual hard disk size
       href: vhd-size.md
+    - name: Repair a WSL2 distribution
+      href: recover-distro-disk.md
 - name: Frequently Asked Questions
   href: faq.yml
 - name: Troubleshooting
