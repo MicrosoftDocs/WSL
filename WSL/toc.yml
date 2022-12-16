@@ -64,6 +64,12 @@
       href: case-sensitivity.md
     - name: Expand virtual hard disk size
       href: vhd-size.md
+    - name: Locate VHD file and path
+      href: vhd-path.md
+    - name: Display available disk space
+      href: disk-space.md
+    - name: Repair mount error, Reset, Uninstall
+      href: repair-disk.md
 - name: Frequently Asked Questions
   href: faq.yml
 - name: Troubleshooting
