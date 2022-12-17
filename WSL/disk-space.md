@@ -175,7 +175,7 @@ To repair a disk mount error in WSL, and restore it back to a usable / writeable
     wsl.exe --shutdown
     ```
 
-2. Open PowerShell as administrator (in an elevated command prompt) and enter the mount command, replacing `<path-to-ext4.vhdx>` with the path to the distribution's .vhdx file. For help locating this file, see [Locate VHD file and disk path for your Linux distribution](vhd-path.md).
+2. Open PowerShell as administrator (in an elevated command prompt) and enter the mount command, replacing `<path-to-ext4.vhdx>` with the path to the distribution's .vhdx file. For help locating this file, see [How to locate the VHD file and disk path for your Linux distribution](#how-to-locate-the-vhdx-file-and-disk-path-for-your-linux-distribution).
 
     ```powershell
     wsl.exe --mount <path-to-ext4.vhdx> --vhd --bare
