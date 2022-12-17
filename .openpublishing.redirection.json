@@ -64,6 +64,11 @@
       "source_path": "wsl/user-support.md",
       "redirect_url": "/windows/wsl/setup/environment#set-up-your-linux-username-and-password",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "wsl/vhd-size.md",
+      "redirect_url": "/windows/wsl/disk-space",
+      "redirect_document_id": false
     }
   ]
 }

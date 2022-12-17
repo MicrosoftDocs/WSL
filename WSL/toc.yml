@@ -62,14 +62,14 @@
       href: connect-usb.md
     - name: Adjust case sensitivity
       href: case-sensitivity.md
-    - name: Expand virtual hard disk size
-      href: vhd-size.md
-    - name: Locate VHD file and path
-      href: vhd-path.md
-    - name: Display available disk space
+    - name: Manage available disk space
       href: disk-space.md
-    - name: Repair mount error, Reset, Uninstall
-      href: repair-disk.md
+    - name: Expand virtual hard disk size
+      href: disk-space.md#how-to-expand-the-size-of-your-wsl-2-virtual-hard-disk
+    - name: Repair a VHD error
+      href: disk-space.md#how-to-repair-a-vhd-mounting-error
+    - name: Locate VHD file and path
+      href: disk-space.md#how-to-locate-the-vhdx-file-and-disk-path-for-your-linux-distribution
 - name: Frequently Asked Questions
   href: faq.yml
 - name: Troubleshooting
