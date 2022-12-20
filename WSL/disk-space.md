@@ -14,10 +14,14 @@ This guide covers how to manage the disk space used by Linux distributions insta
 - [How to repair the VHD if an error occurs](#how-to-repair-a-vhd-mounting-error)
 - [How to locate the .vhdx file and disk path for any installed Linux distributions](#how-to-locate-the-vhdx-file-and-disk-path-for-your-linux-distribution)
 
-Windows Subsystem for Linux (WSL 2) uses a virtualization platform to install Linux distributions alongside the host Windows operating system, creating a Virtual Hard Disk (VHD) to store files for each of the Linux distributions that you install. These VHDs use the [ext4 file system type](https://opensource.com/article/17/5/introduction-ext4-filesystem) *(different from the NTFS file system used by Windows)* and are represented on your Windows hard drive as an *ext4.vhdx* file.
+Windows Subsystem for Linux (WSL 2) uses a virtualization platform to install Linux distributions alongside the host Windows operating system, creating a Virtual Hard Disk (VHD) to store files for each of the Linux distributions that you install. These VHDs use the [ext4 file system type](https://opensource.com/article/17/5/introduction-ext4-filesystem) and are represented on your Windows hard drive as an *ext4.vhdx* file.
 
-WSL 2 automatically resizes these VHD files to meet storage needs. By default each VHD file used by WSL 2 is initially allocated a 1TB maximum amount of disk space (prior to [WSL release 0.58.0](https://github.com/microsoft/WSL/releases/tag/0.58.0) this default was set to a 256GB maximum).
+WSL 2 automatically resizes these VHD files to meet storage needs. By default each VHD file used by WSL 2 is initially allocated a 1TB maximum amount of disk space (prior to [WSL release 0.58.0](https://github.com/microsoft/WSL/releases/tag/0.58.0) this default was set to a 512GB max and 256GB max prior to that).
+
 If the storage space required by your Linux files exceeds this maximum size, you will see errors stating that you've run out of disk space. To fix this error, follow the guidance below on [How to expand the size of your WSL 2 Virtual Hard Disk](#how-to-expand-the-size-of-your-wsl-2-virtual-hard-disk).
+
+> [!WARNING]
+> Windows and Linux use two different file system types. Windows uses NTFS and the Linux distributions installed with WSL use the ext4 file system type. This means that tools such as Disk Manager or diskpart installed on Windows NTFS file system will not work on the Linux ext4 file system.
 
 ## How to check your available disk space
 
@@ -41,73 +45,64 @@ The output will include:
 If you see that you are near to reaching the available amount of disk space allocated to your VHD, or have already received an error due to no disk space remaining, see the next section for steps on how to expand the maximum amount of disk space allocated to the VHD associated with your Linux distribution.
 
 > [!NOTE]
-> The size of the VHD represented by the output of the df command represents the size allocated for the Linux file system and will be different than the total size on your device used by the Linux distribution. To view the **Total usage** size of a Linux distribution installed in your `LocalApps` directory, you can use the Settings app on Windows. Go to **Settings > Apps > Installed apps** and search the list of installed apps by entering the name of the Linux distribution you want to view, for example "Ubuntu" or "Debian". By selecting `...`, you can choose **Advanced options** to view the total disk space used, amount of data stored, and version number of your installed distribution. You can also **Uninstall** the distribution.
+> The size of the VHD represented by the output of the df command represents the size allocated for the Linux file system and will be different than the total size on your device used by the Linux distribution. You can view otal disk space used by the distribution by going to **Settings > Apps > Installed apps**, find the Linux distribution name you want to view (ie. "Ubuntu"), select `...` and choose **Advanced options** to view the total disk space used, amount of data stored, and version number of your installed distribution. You can also **Uninstall** the distribution.
 
 ## How to expand the size of your WSL 2 Virtual Hard Disk
 
-To expand the VHD size for a Linux distribution beyond the 1TB maximum amount of allocated disk space (or beyond the 256GB maximum allocated prior to WSL release 0.58.0), follow these steps:
+To expand the VHD size for a Linux distribution beyond the 1TB maximum amount of allocated disk space, follow the steps below. *(For earlier WSL releases that have not yet been updated, this max default may be set to 512GB or 256GB).*
 
 1. Terminate all WSL instances using the command: `wsl --shutdown`
 
-2. Find your distribution installation package name ('PackageFamilyName') by opening PowerShell and entering the following command (replacing `<distribution-name>` with the name of the distribution):
-    - `Get-AppxPackage -Name "*<distribution-name>*" | Select PackageFamilyName`
-    - For example: `Get-AppxPackage -Name "*Ubuntu*" | Select PackageFamilyName`
+2. Copy the directory path to the *ext4.vhdx* file associated with the Linux distribution installed on your machine. For help, see [How to locate the vhdx file and disk path for your Linux distribution](#how-to-locate-the-vhdx-file-and-disk-path-for-your-linux-distribution).
 
-    ![Get-AppxPackage command line screenshot](./media/get-appxpackage.png)
-
-3. Use the resulting `PackageFamilyName` to locate the VHD file `fullpath` used by your WSL 2 installation, this will be your `pathToVHD`. To find the full path:
-   - In your Start menu, enter: "%LOCALAPPDATA%" and select to open the %LOCALAPPDATA% file folder.
-   - Next, open the "Packages" folder and search for the `PackageFamilyName` of your distribution. Open that folder (ie. CanonicalGroupLimited.Ubuntu20.04onWindows_79xxxxx).
-   - Inside the `PackageFamilyName` folder, open the "LocalState" folder and find the `<disk>.vhdx` file.
-   - Copy the path to that file, it should look something like:
-     `%LOCALAPPDATA%\Packages\<PackageFamilyName>\LocalState\<disk>.vhdx`
-   - For example, the `<pathToVHD>` for Ubuntu 20.04 should look something like: `%LOCALAPPDATA%\Packages\CanonicalGroupLimited.Ubuntu20.04onWindows_79xxxx\LocalState\ext4.vhdx`.
-
-4. Resize your WSL 2 VHD by completing the following commands:
-   - Open Windows Command Prompt with admin privileges and enter:
+3. Open Windows Command Prompt with admin privileges and then open the [diskpart](/windows-server/administration/windows-commands/diskpart) command interpreter by entering:
 
       ```cmd
       diskpart
       ```
 
-      ```cmd
-      DISKPART> Select vdisk file="<pathToVHD>"
-      ```
+4. You will now have a `DISKPART>` prompt. Enter the following command, replacing `<pathToVHD>` with the directory path to the `ext4.vhdx` file associated with the Linux distribution (copied in step #2).
 
       ```cmd
-      DISKPART> detail vdisk
+      Select vdisk file="<pathToVHD>"
       ```
 
-   - Examine the output of the **detail** command.  The output will include a value for **Virtual size**. This is the current maximum. Convert this value to megabytes. For example, if the **detail** output shows **Virtual size: 256 GB**, convert this to **256000**.
-   - The new value you enter must be greater than this original value. As an example, to double the virtual size listed above, you could enter the value: **512000**. Once you have determined the number you would like to set for your new size (in megabytes), enter the following command in your Windows Command Prompt **diskpart** prompt:
+5. Display the details associated with this virtual disk, including the **Virtual size**, representing the current maximum size the VHD is allocated:
 
       ```cmd
-      DISKPART> expand vdisk maximum=<sizeInMegaBytes>
+      detail vdisk
       ```
 
-   - Exit **diskpart**
+6. You will need to convert the **Virtual size** to megabytes. For example, if **Virtual size: 1024GB**, convert this to **1024000**. The new value you enter must be greater than this original value. For example, to double the virtual size listed above, you could enter the value: **2048000**.
+
+7. Enter the value for the new maximum size you want to allocate to this Linux distribution using the Windows Command Prompt `DISKPART>` prompt:
 
       ```cmd
-      DISKPART> exit
+      expand vdisk maximum=<sizeInMegaBytes>
       ```
 
-5. Launch your WSL distribution (Ubuntu, for example) and make sure it is running in WSL 2 (WSL 1 is not supported). You can confirm this using the command: `wsl.exe -l -v`. 
+8. Exit the `DISKPART>` prompt:
 
-6. Make WSL aware that it can expand its file system's size by running these commands from your WSL distribution command line.
+      ```cmd
+      exit
+      ```
+
+9. Launch this Linux distribution. *(Ensure it is running in WSL 2. You can confirm this using the command: `wsl.exe -l -v`. WSL 1 is not supported).*
+
+10. Make WSL aware that it can expand the file system size for this distribution by running these commands from your WSL distribution command line. You may see this message in response to the first **mount** command: "/dev: none already mounted on /dev." This message can safely be ignored.
 
    ```bash
       sudo mount -t devtmpfs none /dev
       mount | grep ext4
    ```
 
-   - You may see this message in response to the first **mount** command: "/dev: none already mounted on /dev." This message can safely be ignored.
-   - Copy the name of this entry, which will look like: `/dev/sdX` (with the X representing any other character).  In the following example the value of **X** is **b**:
+11. Copy the name of this entry, which will look like: `/dev/sdX` (with the X representing any other character).  In the following example the value of **X** is **b**:
 
    ```bash
       sudo resize2fs /dev/sdb <sizeInMegabytes>M
    ```
 
-   - Using the example from above, we changed the vhd size to **512000**, so the command would be: `sudo resize2fs /dev/sdb 512000M`.
+   - Using the example from above, we changed the vhd size to **2048000**, so the command would be: `sudo resize2fs /dev/sdb 2048000M`.
 
    > [!NOTE]
    > You may need to install **resize2fs**.  If so, you can use this command to install it:  `sudo apt install resize2fs`.
@@ -121,8 +116,10 @@ To expand the VHD size for a Linux distribution beyond the 1TB maximum amount of
       The filesystem on /dev/sdb is now 78643200 (4k) blocks long.
       ```
 
+The virtual drive (ext4.vhdx) for this Linux distribution has now successfully been expanded to the new size.  
+
 > [!IMPORTANT]
-> We recommend that you do not modify, move, or access the WSL related files located inside of your AppData folder using Windows tools or editors. Doing so could cause your Linux distribution to become corrupted. If you would like to access your Linux files from Windows, that is possible via the path `\\wsl$\<distroName>\`. Open your WSL distribution and enter `explorer.exe .` to view that folder. To learn more, see the blog post: [Accessing Linux files from Windows](https://devblogs.microsoft.com/commandline/whats-new-for-wsl-in-windows-10-version-1903/#accessing-linux-files-from-windows).
+> We recommend that you do not modify, move, or access the WSL related files located inside of your `AppData` folder using Windows tools or editors. Doing so could cause your Linux distribution to become corrupted. If you would like to access your Linux files from Windows, that is possible via the path `\\wsl$\<distribution-name>\`. Open your WSL distribution and enter `explorer.exe .` to view that folder. To learn more, see the blog post: [Accessing Linux files from Windows](https://devblogs.microsoft.com/commandline/whats-new-for-wsl-in-windows-10-version-1903/#accessing-linux-files-from-windows).
 
 ## How to repair a VHD mounting error
 
@@ -147,14 +144,14 @@ Information about the block device includes:
 - **NAME**: The name assigned to the device will be sd[a-z], referring to the SCSI Disk with a letter designation for each disk being used. `sda` is always the system distribution.
 - **MAJ:MIN**: Represents numbers used by the Linux kernel to internally identify the devices with the first number representing the device type (8 is used for Small Computer System Interface/SCSI disks, an alternative to USB).
 - **RM**: Let's us know if the device is removable (1) or not (0).
-- **SIZE**: lets us know how much space the device is using.
+- **SIZE**: Total size of the volume.
 - **RO**: Let's us know if the device is read-only (1) or not (0).
 - **TYPE**: Refers to the device type (disk in this case, could also be something like lvm for a logical volume device).
 - **MOUNTPOINTS**: Refers to the current directory on the files system where the block device is located (SWAP is for preconfigured inactive memory so no mountpoint).
 
 ### Read-only fallback error
 
-If WSL encounters an error while installing (mounting) a Linux distribution, it may mount the distribution as read-only (RO = 1) as a fallback. If that happens, the distribution may display the following error during startup:
+If WSL encounters an error while mounting a Linux distribution, it may mount the distribution as read-only (RO = 1) as a fallback. If that happens, the distribution may display the following error during startup:
 
 ```powershell
 An error occurred mounting the distribution disk, it was mounted read-only as a fallback.
@@ -167,7 +164,7 @@ $ touch file
 touch: cannot touch 'file': Read-only file system
 ```
 
-To repair a disk mount error in WSL, and restore it back to a usable / writeable state again, you can use the `wsl --mount` command to re-mount the disk with the following steps:
+To repair a disk mount error in WSL, and restore it back to a usable / writeable state again, you can use the `wsl.exe --mount` command to re-mount the disk with the following steps:
 
 1. Shutdown all WSL distributions by opening PowerShell and entering the command:
 
@@ -198,20 +195,16 @@ To repair a disk mount error in WSL, and restore it back to a usable / writeable
 
 ## How to locate the .vhdx file and disk path for your Linux distribution
 
-If you are having trouble locating the *.vhdx* file for a Linux distribution, go to the directory path `%LocalAppData%\Packages\`. Each Linux distribution that you have installed includes a subfolder specific to that distribution.
-
-For the default Ubuntu distribution, this directory will look something like `CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc`. Inside that directory will be a `LocalState` folder with the `ext4.vhdx` file that stores your data.
-
-The VHD used by WSL 2 utilizes a ext4 format for the file system, not NTFS, so Windows will not natively read this format outside of the WSL environment. (Tools like Disk Manager or diskpart installed on Windows NTFS file system will not work.)
-
-If you are having trouble locating the disk path where the *.vhdx* file is stored for a particular Linux distribution, you can use PowerShell to help you find it. Replace `<distribution-name>` with the actual distribution name and run the following command:
+To locate the *.vhdx* file and directory path for a Linux distribution, open PowerShell and use the following script, replacing `<distribution-name>` with the actual distribution name:
 
 ```powershell
 (Get-ChildItem -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Lxss | Where-Object { $_.GetValue("DistributionName") -eq '<distribution-name>' }).GetValue("BasePath") + "\ext4.vhdx"
 ```
 
-The result will display a path looking something like:
+The result will display a path looking something like `%LOCALAPPDATA%\Packages\<PackageFamilyName>\LocalState\<disk>.vhdx`. For example:
 
 ```powershell
-C:\Users\User\AppData\Local\Packages\TheDebianProject.DebianGNULinux_76v4gfsz19hv4\LocalState\ext4.vhdx
+C:\Users\User\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc\LocalState\ext4.vhdx
 ```
+
+Copy the directory path to this `ext4.vhdx` file by highlighting it and either right-clicking or selecting Ctrl+C.
