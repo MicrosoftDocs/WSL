@@ -64,12 +64,6 @@
       href: case-sensitivity.md
     - name: Manage available disk space
       href: disk-space.md
-    - name: Expand virtual hard disk size
-      href: disk-space.md#how-to-expand-the-size-of-your-wsl-2-virtual-hard-disk
-    - name: Repair a VHD error
-      href: disk-space.md#how-to-repair-a-vhd-mounting-error
-    - name: Locate VHD file and path
-      href: disk-space.md#how-to-locate-the-vhdx-file-and-disk-path-for-your-linux-distribution
 - name: Frequently Asked Questions
   href: faq.yml
 - name: Troubleshooting

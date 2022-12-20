@@ -91,10 +91,10 @@ To expand the VHD size for a Linux distribution beyond the 1TB maximum amount of
 
 10. Make WSL aware that it can expand the file system size for this distribution by running these commands from your WSL distribution command line. You may see this message in response to the first **mount** command: "/dev: none already mounted on /dev." This message can safely be ignored.
 
-   ```bash
-      sudo mount -t devtmpfs none /dev
-      mount | grep ext4
-   ```
+    ```bash
+    sudo mount -t devtmpfs none /dev
+    mount | grep ext4
+    ```
 
 11. Copy the name of this entry, which will look like: `/dev/sdX` (with the X representing any other character).  In the following example the value of **X** is **b**:
 
@@ -102,19 +102,19 @@ To expand the VHD size for a Linux distribution beyond the 1TB maximum amount of
       sudo resize2fs /dev/sdb <sizeInMegabytes>M
    ```
 
-   - Using the example from above, we changed the vhd size to **2048000**, so the command would be: `sudo resize2fs /dev/sdb 2048000M`.
+   Using the example from above, we changed the vhd size to **2048000**, so the command would be: `sudo resize2fs /dev/sdb 2048000M`.
 
    > [!NOTE]
    > You may need to install **resize2fs**.  If so, you can use this command to install it:  `sudo apt install resize2fs`.
 
-   The output will look similar to the following:
+The output will look similar to the following:
 
-   ```bash
-      resize2fs 1.44.1 (24-Mar-2021)
-      Filesystem at /dev/sdb is mounted on /; on-line resizing required
-      old_desc_blocks = 32, new_desc_blocks = 38
-      The filesystem on /dev/sdb is now 78643200 (4k) blocks long.
-      ```
+```bash
+resize2fs 1.44.1 (24-Mar-2021)
+Filesystem at /dev/sdb is mounted on /; on-line resizing required
+old_desc_blocks = 32, new_desc_blocks = 38
+The filesystem on /dev/sdb is now 78643200 (4k) blocks long.
+```
 
 The virtual drive (ext4.vhdx) for this Linux distribution has now successfully been expanded to the new size.  
 
