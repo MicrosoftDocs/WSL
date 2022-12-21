@@ -44,9 +44,6 @@ The output will include:
 
 If you see that you are near to reaching the available amount of disk space allocated to your VHD, or have already received an error due to no disk space remaining, see the next section for steps on how to expand the maximum amount of disk space allocated to the VHD associated with your Linux distribution.
 
-> [!NOTE]
-> The size of the VHD represented by the output of the df command represents the size allocated for the Linux file system and will be different than the total size on your device used by the Linux distribution. You can view otal disk space used by the distribution by going to **Settings > Apps > Installed apps**, find the Linux distribution name you want to view (ie. "Ubuntu"), select `...` and choose **Advanced options** to view the total disk space used, amount of data stored, and version number of your installed distribution. You can also **Uninstall** the distribution.
-
 ## How to expand the size of your WSL 2 Virtual Hard Disk
 
 To expand the VHD size for a Linux distribution beyond the 1TB maximum amount of allocated disk space, follow the steps below. *(For earlier WSL releases that have not yet been updated, this max default may be set to 512GB or 256GB).*
@@ -142,16 +139,16 @@ sdd    8:48   0     1T  0 disk /mnt/wslg/distro
 Information about the block device includes:
 
 - **NAME**: The name assigned to the device will be sd[a-z], referring to the SCSI Disk with a letter designation for each disk being used. `sda` is always the system distribution.
-- **MAJ:MIN**: Represents numbers used by the Linux kernel to internally identify the devices with the first number representing the device type (8 is used for Small Computer System Interface/SCSI disks, an alternative to USB).
+- **MAJ:MIN**: Represents numbers used by the Linux kernel to internally identify the devices with the first number representing the device type (8 is used for Small Computer System Interface/SCSI disks).
 - **RM**: Let's us know if the device is removable (1) or not (0).
 - **SIZE**: Total size of the volume.
 - **RO**: Let's us know if the device is read-only (1) or not (0).
-- **TYPE**: Refers to the device type (disk in this case, could also be something like lvm for a logical volume device).
+- **TYPE**: Refers to the device type (disk in this case).
 - **MOUNTPOINTS**: Refers to the current directory on the files system where the block device is located (SWAP is for preconfigured inactive memory so no mountpoint).
 
 ### Read-only fallback error
 
-If WSL encounters an error while mounting a Linux distribution, it may mount the distribution as read-only (RO = 1) as a fallback. If that happens, the distribution may display the following error during startup:
+If WSL encounters a "mounting error" when opening a Linux distribution, the distribution may be set as read-only (RO = 1) as a fallback. If that happens, the distribution may display the following error during startup:
 
 ```powershell
 An error occurred mounting the distribution disk, it was mounted read-only as a fallback.
