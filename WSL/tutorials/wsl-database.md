@@ -46,16 +46,22 @@ To install MySQL on WSL (ie. Ubuntu):
 
 1. Open your WSL terminal (ie. Ubuntu).
 2. Update your Ubuntu packages: `sudo apt update`
-3. Once the packages have updated, install MySQL with: `sudo apt install mysql-server`
+3. Once the packages have updated, install MySQL with: `sudo apt install mysql-server mysql-client`
 4. Confirm installation and get the version number: `mysql --version`
+5. Set home directory for new user "mysql": `sudo usermod -d /var/lib/mysql/ mysql`
 
-You may also want to run the included security script. This changes some of the less secure default options for things like remote root logins and sample users. To run the security script:
+To start MySQL service, enter: `sudo service mysql start`
 
-1. Start a MySQL server: `sudo /etc/init.d/mysql start`
+To open the MySQL prompt, enter: `sudo mysql`. In MySQL prompt, enter: `SELECT user, authentication_string, plugin, host FROM mysql.user;`, you will see the authentication plugin for MySQL root user is `auth_socket`. In this situation, you cannot connect to mysql service via username and password. To change authentication plugin into `mysql_native_password`, enter: `ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '<password>';`, `<password>` should be replaced by actual password you want to set. Then enter: `FLUSH PRIVILEGES;` to put the change into effect. Enter `exit` to exit MySQL prompt.
+
+Now you can login MySQL prompt via username and password. To open the MySQL prompt, enter: `sudo mysql -u root -p`, then enter password you set before.
+
+You may also want to run the included security script. This changes some of the less secure default options for things like remote root logins and sample users. This script also includes steps to change password for MySQL root user. To run the security script:
+
+1. Start a MySQL server: `sudo service mysql start`
 2. Start the security script prompts: `sudo mysql_secure_installation`
-3. The first prompt will ask whether you’d like to set up the Validate Password Plugin, which can be used to test the strength of your MySQL password. You will then set a password for the MySQL root user, decide whether or not to remove anonymous users, decide whether to allow the root user to login both locally and remotely, decide whether to remove the test database, and, lastly, decide whether to reload the privilege tables immediately.
-
-To open the MySQL prompt, enter: `sudo mysql`
+3. The first prompt will ask whether you’d like to set up the VALIDATE PASSWORD COMPONENT, which can be used to test the strength of your MySQL password. If you want to set some simple password, you should not set this component.
+4. You will then set/change password for the MySQL root user, decide whether or not to remove anonymous users, decide whether to allow the root user to login both locally and remotely, decide whether to remove the test database, and, lastly, decide whether to reload the privilege tables immediately.
 
 To see what databases you have available, in the MySQL prompt, enter: `SHOW DATABASES;`
 
