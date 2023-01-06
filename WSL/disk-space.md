@@ -148,7 +148,7 @@ Information about the block device includes:
 
 ### Read-only fallback error
 
-If WSL encounters a "mounting error" when opening a Linux distribution, the distribution may be set as read-only (RO = 1) as a fallback. If that happens, the distribution may display the following error during startup:
+If WSL encounters a "mounting error" when opening a Linux distribution, the distribution may be set as read-only as a fallback. If that happens, the distribution may display the following error during startup:
 
 ```powershell
 An error occurred mounting the distribution disk, it was mounted read-only as a fallback.
@@ -204,4 +204,4 @@ The result will display a path looking something like `%LOCALAPPDATA%\Packages\<
 C:\Users\User\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc\LocalState\ext4.vhdx
 ```
 
-Copy the directory path to this `ext4.vhdx` file by highlighting it and either right-clicking or selecting Ctrl+C.
+This is the directory path to the `ext4.vhdx` file associated with the Linux distribution that you listed.
