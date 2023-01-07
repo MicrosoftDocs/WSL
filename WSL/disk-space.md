@@ -52,13 +52,13 @@ To expand the VHD size for a Linux distribution beyond the 1TB maximum amount of
 
 2. Copy path the distribution disk (`ext4.vhdx`).  For help, see [How to locate the vhdx file and disk path for your Linux distribution](#how-to-locate-the-vhdx-file-and-disk-path-for-your-linux-distribution).
 
-3. Open powershell.exe with admin privileges and run [Get-Vhd](https://learn.microsoft.com/en-us/powershell/module/hyper-v/resize-vhd?view=windowsserver2022-ps) to see the disk's current size (in bytes):
+3. Open powershell.exe with admin privileges and run [Get-Vhd](https://learn.microsoft.com/powershell/module/hyper-v/resize-vhd?view=windowsserver2022-ps) to see the disk's current size (in bytes):
 
       ```powershell
       (Get-Vhd <pathToVhd>).Size
       ```
 
-4. Now use [Resize-Vhd](https://learn.microsoft.com/en-us/powershell/module/hyper-v/resize-vhd?view=windowsserver2022-ps) to expand the disk: 
+4. Now use [Resize-Vhd](https://learn.microsoft.com/powershell/module/hyper-v/resize-vhd?view=windowsserver2022-ps) to expand the disk:
 
       ```cmd
      Resize-Vhd <pathToVhd> -SizeBytes <newSize>
