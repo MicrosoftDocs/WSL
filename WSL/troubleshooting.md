@@ -487,3 +487,10 @@ Interoperability command differences:
 ## Uninstall legacy version of WSL
 
 If you originally installed WSL on a version of Windows 10 prior to Creators update (Oct 2017, Build 16299), we recommend that you migrate any necessary files, data, etc. from the older Linux distribution you installed, to a newer distribution installed via the Microsoft Store. To remove the legacy distribution from your machine, run the following from a Command Line or PowerShell instance: `wsl --unregister Legacy`. You also have the option to manually remove the older legacy distribution by deleting the `%localappdata%\lxss\` folder (and all it's sub-contents) using Windows File Explorer or with PowerShell: `rm -Recurse $env:localappdata/lxss/`.
+
+## WSL not responding and waiting forever
+
+If you come across a situation where any wsl command is not responding and hangs or waiting forever, try to do a **Complete Windows shutdown** and start as follows
+ Try to do a full reboot of Windows10, hold Shift, and click “Restart.”
+ (Normal reboot/shutdown action in the start menu will not shutdown Windows 10 fully, for the “fast boot” mechanism saves memory from the last session)
+ By holding the Shift key and click the “Restart” in the start menu, Windows 10 will go into advanced restart mode, choose “Shutdown” from the menu. Then start normally again.
