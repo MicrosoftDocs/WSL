@@ -50,37 +50,56 @@ To expand the VHD size for a Linux distribution beyond the 1TB maximum amount of
 
 1. Terminate all WSL instances using the command: `wsl.exe --shutdown`
 
-2. Copy path the distribution disk (`ext4.vhdx`).  For help, see [How to locate the vhdx file and disk path for your Linux distribution](#how-to-locate-the-vhdx-file-and-disk-path-for-your-linux-distribution).
+2. Copy the directory path to the *ext4.vhdx* file associated with the Linux distribution installed on your machine. For help, see [How to locate the vhdx file and disk path for your Linux distribution](#how-to-locate-the-vhdx-file-and-disk-path-for-your-linux-distribution).
 
-3. Open powershell.exe with admin privileges and run [Get-Vhd](https://learn.microsoft.com/powershell/module/hyper-v/resize-vhd?view=windowsserver2022-ps) to see the disk's current size (in bytes):
-
-      ```powershell
-      (Get-Vhd <pathToVhd>).Size
-      ```
-
-4. Now use [Resize-Vhd](https://learn.microsoft.com/powershell/module/hyper-v/resize-vhd?view=windowsserver2022-ps) to expand the disk:
+3. Open Windows Command Prompt with admin privileges and then open the [diskpart](/windows-server/administration/windows-commands/diskpart) command interpreter by entering:
 
       ```cmd
-     Resize-Vhd <pathToVhd> -SizeBytes <newSize>
+      diskpart
       ```
 
-   > [!NOTE]
-   > The new disk size can be expressed with `KB`, `MB`, `GB` or `TB`. For instance, to resize the disk to `1500GB`, you can use: `Resize-Vhd <pathToVhd> -SizeBytes 1500GB`
+4. You will now have a `DISKPART>` prompt. Enter the following command, replacing `<pathToVHD>` with the directory path to the `ext4.vhdx` file associated with the Linux distribution (copied in step #2).
 
-5. Launch this Linux distribution. *(Ensure it is running in WSL 2. You can confirm this using the command: `wsl.exe -l -v`. WSL 1 is not supported).*
+      ```cmd
+      Select vdisk file="<pathToVHD>"
+      ```
 
-6. Make WSL aware that it can expand the file system size for this distribution by running these commands from your WSL distribution command line. You may see this message in response to the first **mount** command: "/dev: none already mounted on /dev." This message can safely be ignored.
+5. Display the details associated with this virtual disk, including the **Virtual size**, representing the current maximum size the VHD is allocated:
+
+      ```cmd
+      detail vdisk
+      ```
+
+6. You will need to convert the **Virtual size** to megabytes. For example, if **Virtual size: 1024GB**, convert this to **1024000**. The new value you enter must be greater than this original value. For example, to double the virtual size listed above, you could enter the value: **2048000**.
+
+7. Enter the value for the new maximum size you want to allocate to this Linux distribution using the Windows Command Prompt `DISKPART>` prompt:
+
+      ```cmd
+      expand vdisk maximum=<sizeInMegaBytes>
+      ```
+
+8. Exit the `DISKPART>` prompt:
+
+      ```cmd
+      exit
+      ```
+
+9. Launch this Linux distribution. *(Ensure it is running in WSL 2. You can confirm this using the command: `wsl.exe -l -v`. WSL 1 is not supported).*
+
+10. Make WSL aware that it can expand the file system size for this distribution by running these commands from your WSL distribution command line. You may see this message in response to the first **mount** command: "/dev: none already mounted on /dev." This message can safely be ignored.
 
     ```bash
     sudo mount -t devtmpfs none /dev
     mount | grep ext4
     ```
 
-7. Copy the name of this entry, which will look like: `/dev/sdX` (with the X representing any other character):
+11. Copy the name of this entry, which will look like: `/dev/sdX` (with the X representing any other character).  In the following example the value of **X** is **b**:
 
    ```bash
-      sudo resize2fs /dev/sdb
+      sudo resize2fs /dev/sdb <sizeInMegabytes>M
    ```
+
+   Using the example from above, we changed the vhd size to **2048000**, so the command would be: `sudo resize2fs /dev/sdb 2048000M`.
 
    > [!NOTE]
    > You may need to install **resize2fs**.  If so, you can use this command to install it:  `sudo apt install resize2fs`.
@@ -185,4 +204,4 @@ The result will display a path looking something like `%LOCALAPPDATA%\Packages\<
 C:\Users\User\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc\LocalState\ext4.vhdx
 ```
 
-This is path to the `ext4.vhdx` file associated with the Linux distribution that you listed.
+This is the path to the `ext4.vhdx` file associated with the Linux distribution that you listed.
