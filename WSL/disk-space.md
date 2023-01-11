@@ -70,7 +70,7 @@ To expand the VHD size for a Linux distribution beyond the 1TB maximum amount of
       detail vdisk
       ```
 
-6. You will need to convert the **Virtual size** to megabytes. For example, if **Virtual size: 1024GB**, convert this to **1024000**. The new value you enter must be greater than this original value. For example, to double the virtual size listed above, you could enter the value: **2048000**.
+6. You will need to convert the **Virtual size** to megabytes. For example, if **Virtual size: 512 GB**, convert this to **512000**. The new value you enter must be greater than this original value. For example, to double the virtual size of 512 GB to 1024 GB, you would convert to MB and enter the value: **1024000**. Be careful not to enter a value higher than you actually want as the process of reducing a virtual disk size is much more complicated.
 
 7. Enter the value for the new maximum size you want to allocate to this Linux distribution using the Windows Command Prompt `DISKPART>` prompt:
 
