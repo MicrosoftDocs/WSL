@@ -1,7 +1,7 @@
 ---
 title: How to manage WSL disk space
 description: Learn how to check the amount of disk space available, expand the size of the Virtual Hard Disk (VHD), repair a VHD mounting or read-only error, and locate the .vhdx file and disk path for Linux distributions installed with WSL 2.
-ms.date: 12/16/2022
+ms.date: 01/12/2023
 ms.topic: article
 ---
 
@@ -19,9 +19,6 @@ Windows Subsystem for Linux (WSL 2) uses a virtualization platform to install Li
 WSL 2 automatically resizes these VHD files to meet storage needs. By default each VHD file used by WSL 2 is initially allocated a 1TB maximum amount of disk space (prior to [WSL release 0.58.0](https://github.com/microsoft/WSL/releases/tag/0.58.0) this default was set to a 512GB max and 256GB max prior to that).
 
 If the storage space required by your Linux files exceeds this maximum size, you will see errors stating that you've run out of disk space. To fix this error, follow the guidance below on [How to expand the size of your WSL 2 Virtual Hard Disk](#how-to-expand-the-size-of-your-wsl-2-virtual-hard-disk).
-
-> [!WARNING]
-> Windows and Linux use two different file system types. Windows uses NTFS and the Linux distributions installed with WSL use the ext4 file system type. This means that tools such as Disk Manager or diskpart installed on Windows NTFS file system will not work on the Linux ext4 file system.
 
 ## How to check your available disk space
 
@@ -42,11 +39,11 @@ The output will include:
 - **Use%**: Percentage of disk space remaining (Used / Allocated size)
 - **Mounted on**: Directory path where the disk is mounted
 
-If you see that you are near to reaching the available amount of disk space allocated to your VHD, or have already received an error due to no disk space remaining, see the next section for steps on how to expand the maximum amount of disk space allocated to the VHD associated with your Linux distribution.
+If you see that you are near to reaching the available amount of disk space allocated to your VHD, or have already received an error due to no disk space remaining, see the next section for steps on how to expand the maximum amount of disk space allocated to the VHD associated with your Linux distribution. The amount of disk space allocated to your VHD by WSL will always show the default maximum amount (1TB in the most recent version of WSL), even if the amount of disk space on your actual Windows device is less than that. WSL mounts a VHD that will expand in size as you use it, so your Linux distribution sees that it can grow to the allocated maximum size of 1TB. 
 
 ## How to expand the size of your WSL 2 Virtual Hard Disk
 
-To expand the VHD size for a Linux distribution beyond the 1TB maximum amount of allocated disk space, follow the steps below. *(For earlier WSL releases that have not yet been updated, this max default may be set to 512GB or 256GB).*
+To expand the VHD size for a Linux distribution beyond the **default 1TB maximum** amount of allocated disk space, follow the steps below. *(For earlier WSL releases that have not yet been updated, this max default may be set to 512GB or 256GB).*
 
 1. Terminate all WSL instances using the command: `wsl.exe --shutdown`
 
