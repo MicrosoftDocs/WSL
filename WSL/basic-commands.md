@@ -15,7 +15,7 @@ The WSL commands below are listed in a format supported by PowerShell or Windows
 wsl --install
 ```
 
-Install WSL and the default Ubuntu distribution of Linux. [Learn more](./install.md). You can also use this command to install additional Linux distributions by running `wsl --install <Distribution Name>`. For a valid list of distribution names, run `wsl --list --online`. 
+Install WSL and the default Ubuntu distribution of Linux. [Learn more](./install.md). You can also use this command to install additional Linux distributions by running `wsl --install -d <Distribution Name>`. For a valid list of distribution names, run `wsl --list --online`. 
 
 Options include: 
 
