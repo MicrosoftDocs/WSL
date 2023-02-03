@@ -150,7 +150,7 @@ For example:
 wsl --shutdown
 ```
 
-Immediately terminates all running distributions and the WSL 2 lightweight utility virtual machine. This command may be necessary in instances that require you to restart the WSL 2 virtual machine environment, such as [changing memory usage limits](./vhd-size.md) or making a change to your [.wslconfig file](./manage.md#).
+Immediately terminates all running distributions and the WSL 2 lightweight utility virtual machine. This command may be necessary in instances that require you to restart the WSL 2 virtual machine environment, such as [changing memory usage limits](/windows/wsl/disk-space) or making a change to your [.wslconfig file](./manage.md#).
 
 ## Terminate
 
