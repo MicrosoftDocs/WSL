@@ -180,7 +180,16 @@ sections:
           * The Linux kernel used by WSL is updated automatically.
           * GPU access in WSL happens through a `/dev/dxg` device, which routes GPU calls out to the Windows GPU. This setup is different than a traditional Linux set up.
           * There are other smaller differences compared to bare metal Linux and more differences are expected to arise in the future as the inner loop development workflow is prioritized.
-
+      
+      - question: |
+         How can I transfer my WSL files from one machine to another?
+        answer: |
+         There are a few ways you can accomplish this task: 
+          
+          * The easiest way is to use the `wsl --export --vhd` command to export your WSL distribution to a VHD file. You can then copy this file to another machine, and import it using `wsl --import --vhd`. Please see the [commands doc](./basic-commands.md) for more information.
+          * The implementation above requires a lot of disk space. If you don't have a lot of disk space you can use Linux techniques to move your files over:
+             * Use `tar -czf <tarballName> <directory>` to create a tarball of your files. You can then copy these specific files over to your new machine and run `tar -xzf <tarballName>` to extract them.
+             * You can also export a list of installed packages via `apt` with a command like so: `dpkg --get-selections | grep -v deinstall | awk '{print $1}' > package_list.txt` and then reinstall those same packages on another machine with a command like `sudo apt install -y $(cat package_list.txt)` after transferring the file over.
 
   - name: WSL 2
     questions:
