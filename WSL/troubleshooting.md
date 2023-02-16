@@ -194,7 +194,7 @@ Please enable the Virtual Machine Platform Windows feature and ensure virtualiza
 
 Learn more about how to [Configure Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization#configure-nested-virtualization) when running Hyper-V in a Virtual Machine.
 
-### WSL has no network connection on my work machine or in an Enterpise environment
+### WSL has no network connection on my work machine or in an Enterprise environment
 
 Business or Enterprise environments may have [Windows Defender Firewall settings configured](/windows/security/threat-protection/windows-firewall/best-practices-configuring) to block unauthorized network traffic. If [local rule merging](/openspecs/windows_protocols/ms-gpfas/2c979624-900a-4b6e-b4ef-09b387cd62ab) is set to "No" then WSL networking will not work by default, and your administrator will need to add a firewall rule to allow it. 
 
