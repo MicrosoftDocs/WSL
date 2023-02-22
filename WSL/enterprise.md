@@ -48,7 +48,7 @@ To change this configuration, you can add the following to Windows firewall sett
 
 - Action allow, direction Inbound, Protocol UDP, LocalPort 53, program: `%Systemroot%\System32\svchost.exe`, service SharedAccess
 
-Also see: [WSL has no network connection on my work machine or in an Enterpise environment](./troubleshooting.md#wsl-has-no-network-connection-on-my-work-machine-or-in-an-enterpise-environment).
+Also see: [WSL has no network connection on my work machine or in an Enterprise environment](./troubleshooting.md#wsl-has-no-network-connection-on-my-work-machine-or-in-an-enterprise-environment).
 
 ### Supported
 
