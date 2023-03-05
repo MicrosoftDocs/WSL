@@ -49,7 +49,7 @@ Once the USB/IP project has completed installing, you will need to install the u
 On Ubuntu, run this command:
 
 ```bash
-sudo apt install linux-tools-5.4.0-77-generic hwdata
+sudo apt install linux-tools-generic hwdata
 sudo update-alternatives --install /usr/local/bin/usbip usbip /usr/lib/linux-tools/5.4.0-77-generic/usbip 20
 ```
 
