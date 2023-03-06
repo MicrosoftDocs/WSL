@@ -146,16 +146,6 @@ To install the Google Chrome for Linux:
 
 To launch, enter: `google-chrome`
 
-### Install Microsoft Teams for Linux
-
-To install Microsoft Teams for Linux:
-
-1. Change directories into the temp folder: `cd /tmp`
-2. Use curl to download the package: `sudo curl -L -o "./teams.deb" "https://teams.microsoft.com/downloads/desktopurl?env=production&plat=linux&arch=x64&download=true&linuxArchiveType=deb"`
-3. Use apt to install it: `sudo apt install ./teams.deb -y`
-
-To launch, enter: `teams`
-
 ### Install Microsoft Edge browser for Linux
 
 Find information on how to [install the Microsoft Edge browser for Linux using the command line on the Edge Insider site](https://www.microsoftedgeinsider.com/download/?platform=linux-deb). Select **Get instructions** under the Command line installation section of the page.
