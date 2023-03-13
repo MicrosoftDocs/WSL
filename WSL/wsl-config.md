@@ -255,9 +255,6 @@ kernel=C:\\temp\\myCustomKernel
 # Sets additional kernel parameters, in this case enabling older Linux base images such as Centos 6
 kernelCommandLine = vsyscall=emulate
 
-# Run WSL in "Safe Mode" which disables many features and is intended to be used to recover distributions that are in bad states.
-safeMode=true
-
 # Sets amount of swap storage space to 8GB, default is 25% of available RAM
 swap=8GB
 
