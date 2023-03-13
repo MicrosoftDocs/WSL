@@ -29,6 +29,10 @@ This guide will show how to set up:
     ```bash
     curl https://get.docker.com | sh
     ````
+    
+    ```bash
+    sudo service docker start
+    ````
 
 3. If you installed the Docker engine directly then [install the NVIDIA Container Toolkit](https://docs.nvidia.com/cuda/wsl-user-guide/index.html#ch04-sub02-install-nvidia-docker) following the steps below.  
     
