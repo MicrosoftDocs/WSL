@@ -210,7 +210,7 @@ Section label: `[wsl2]`
 |:----|:----|:----|:----|
 | kernel | path | The Microsoft built kernel provided inbox | An absolute Windows path to a custom Linux kernel. |
 | memory | size | 50% of total memory on Windows or 8GB, whichever is less; on builds before 20175: 80% of your total memory on Windows | How much memory to assign to the WSL 2 VM. |
-| processors | number | The same number of processors on Windows | How many processors to assign to the WSL 2 VM. |
+| processors | number | The same number of logical processors on Windows | How many logical processors to assign to the WSL 2 VM. |
 | localhostForwarding | boolean | `true` | Boolean specifying if ports bound to wildcard or localhost in the WSL 2 VM should be connectable from the host via `localhost:port`. |
 | kernelCommandLine | string | Blank | Additional kernel command line arguments. |
 | safeMode | boolean | `false` | Run WSL in "Safe Mode" which disables many features and is intended to be used to recover distributions that are in bad states. Only available for Windows 11 and WSL version 0.66.2+.  |
