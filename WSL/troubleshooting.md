@@ -113,7 +113,7 @@ To check this, you can check the start up logs using: `dmesg |grep 9p`, and this
 [    0.398989] 9pnet: Installing 9P2000 support
 ```
 
-Please see [this Github thread](https://github.com/microsoft/wsl/issues/5307) for further discussion on this issue.
+Please see [this GitHub thread](https://github.com/microsoft/wsl/issues/5307) for further discussion on this issue.
 
 ### Can't start WSL 2 distribution and only see 'WSL 2' in output
 
@@ -458,7 +458,7 @@ Some distributions [available in Microsoft Store](install-manual.md#step-6---ins
 
 ### Unable to boot after installing WSL 2
 
-We are aware of an issue affecting users where they are unable to boot after installing WSL 2. While we fully diagnose those issue, users have reported that [changing the buffer size](https://github.com/microsoft/WSL/issues/4784#issuecomment-639219363) or [installing the right drivers](https://github.com/microsoft/WSL/issues/4784#issuecomment-675702244) can help address this. Please view this [Github issue](https://github.com/microsoft/WSL/issues/4784) to see the latest updates on this issue. 
+We are aware of an issue affecting users where they are unable to boot after installing WSL 2. While we fully diagnose those issue, users have reported that [changing the buffer size](https://github.com/microsoft/WSL/issues/4784#issuecomment-639219363) or [installing the right drivers](https://github.com/microsoft/WSL/issues/4784#issuecomment-675702244) can help address this. Please view this [GitHub issue](https://github.com/microsoft/WSL/issues/4784) to see the latest updates on this issue. 
 
 ### WSL 2 errors when ICS is disabled
 
