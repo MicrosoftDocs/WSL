@@ -43,7 +43,8 @@
       "author": "craigloewen-msft",
       "ms.author": "crloewen",
       "searchScope": ["WSL"],
-      "feedback_product_url": "https://github.com/Microsoft/WSL/issues"
+      "feedback_product_url": "https://github.com/Microsoft/WSL/issues",
+      "adobe-target": true
     },
     "fileMetadata": {},
     "template": [],
