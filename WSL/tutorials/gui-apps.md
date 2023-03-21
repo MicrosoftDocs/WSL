@@ -30,9 +30,9 @@ You can now integrate both Windows and Linux applications into your workflow for
 
     To run Linux GUI apps, you should first install the driver matching your system below. This will enable you to use a virtual GPU (vGPU) so you can benefit from hardware accelerated OpenGL rendering.
 
-  - [**Intel** GPU driver for WSL](https://www.intel.com/content/www/us/en/download/19344/intel-graphics-windows-dch-drivers.html)
-  - [**AMD** GPU driver for WSL](https://www.amd.com/en/support/kb/release-notes/rn-rad-win-wsl-support)
-  - [**NVIDIA** GPU driver for WSL](https://developer.nvidia.com/cuda/wsl)
+  - [**Intel** GPU driver](https://www.intel.com/content/www/us/en/download/19344/intel-graphics-windows-dch-drivers.html)
+  - [**AMD** GPU driver](https://www.amd.com/en/support)
+  - [**NVIDIA** GPU driver](https://www.nvidia.com/Download/index.aspx?lang=en-us)
 
 ### Fresh install - No prior WSL installation
 
@@ -145,16 +145,6 @@ To install the Google Chrome for Linux:
 5. Configure the package: `sudo dpkg -i google-chrome-stable_current_amd64.deb`
 
 To launch, enter: `google-chrome`
-
-### Install Microsoft Teams for Linux
-
-To install Microsoft Teams for Linux:
-
-1. Change directories into the temp folder: `cd /tmp`
-2. Use curl to download the package: `sudo curl -L -o "./teams.deb" "https://teams.microsoft.com/downloads/desktopurl?env=production&plat=linux&arch=x64&download=true&linuxArchiveType=deb"`
-3. Use apt to install it: `sudo apt install ./teams.deb -y`
-
-To launch, enter: `teams`
 
 ### Install Microsoft Edge browser for Linux
 

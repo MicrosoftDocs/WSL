@@ -17,7 +17,7 @@ If you are looking for guidance on how to connect a USB device (flash drive, SD 
 
 ## Prerequisites
 
-You will need to be on Windows 11 Build 22000 or later to access this feature. You can join the [Windows Insiders Program](https://insider.windows.com/) to get the latest preview builds.
+You will need to be on Windows 11 Build 22000 or later, or be running the Microsoft Store version of WSL. You can join the [Windows Insiders Program](https://insider.windows.com/) to get the latest preview builds.
 
 ## Mounting an unpartitioned disk
 

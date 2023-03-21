@@ -113,7 +113,7 @@ To check this, you can check the start up logs using: `dmesg |grep 9p`, and this
 [    0.398989] 9pnet: Installing 9P2000 support
 ```
 
-Please see [this Github thread](https://github.com/microsoft/wsl/issues/5307) for further discussion on this issue.
+Please see [this GitHub thread](https://github.com/microsoft/wsl/issues/5307) for further discussion on this issue.
 
 ### Can't start WSL 2 distribution and only see 'WSL 2' in output
 
@@ -187,14 +187,14 @@ Please enable the Virtual Machine Platform Windows feature and ensure virtualiza
 	If you see `hypervisorlaunchtype    Off`, then the hypervisor is disabled. To enable it run in an elevated powershell:
 
 	```
-	bcdedit /set {current} hypervisorlaunchtype Auto
+	bcdedit /set hypervisorlaunchtype Auto
 	```
 
 6. Additionally, if you have 3rd party hypervisors installed (Such as VMware or VirtualBox) then please ensure you have these on the latest versions which can support HyperV ([VMware 15.5.5+](https://blogs.vmware.com/workstation/2020/05/vmware-workstation-now-supports-hyper-v-mode.html) and [VirtualBox 6+](https://www.virtualbox.org/wiki/Changelog-6.0)) or are turned off.
 
 Learn more about how to [Configure Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization#configure-nested-virtualization) when running Hyper-V in a Virtual Machine.
 
-### WSL has no network connection on my work machine or in an Enterpise environment
+### WSL has no network connection on my work machine or in an Enterprise environment
 
 Business or Enterprise environments may have [Windows Defender Firewall settings configured](/windows/security/threat-protection/windows-firewall/best-practices-configuring) to block unauthorized network traffic. If [local rule merging](/openspecs/windows_protocols/ms-gpfas/2c979624-900a-4b6e-b4ef-09b387cd62ab) is set to "No" then WSL networking will not work by default, and your administrator will need to add a firewall rule to allow it. 
 
@@ -458,7 +458,7 @@ Some distributions [available in Microsoft Store](install-manual.md#step-6---ins
 
 ### Unable to boot after installing WSL 2
 
-We are aware of an issue affecting users where they are unable to boot after installing WSL 2. While we fully diagnose those issue, users have reported that [changing the buffer size](https://github.com/microsoft/WSL/issues/4784#issuecomment-639219363) or [installing the right drivers](https://github.com/microsoft/WSL/issues/4784#issuecomment-675702244) can help address this. Please view this [Github issue](https://github.com/microsoft/WSL/issues/4784) to see the latest updates on this issue. 
+We are aware of an issue affecting users where they are unable to boot after installing WSL 2. While we fully diagnose those issue, users have reported that [changing the buffer size](https://github.com/microsoft/WSL/issues/4784#issuecomment-639219363) or [installing the right drivers](https://github.com/microsoft/WSL/issues/4784#issuecomment-675702244) can help address this. Please view this [GitHub issue](https://github.com/microsoft/WSL/issues/4784) to see the latest updates on this issue. 
 
 ### WSL 2 errors when ICS is disabled
 

@@ -30,6 +30,8 @@ To check available disk space, open a PowerShell command line and enter this com
 wsl.exe --system -d <distribution-name> df -h /mnt/wslg/distro
 ```
 
+If this command does not work for you please upgrade to the Store version of WSL using the `wsl --update` command, or try `wsl df -h /`.
+
 The output will include:
 
 - **Filesystem**: Identifier for the VHD file system

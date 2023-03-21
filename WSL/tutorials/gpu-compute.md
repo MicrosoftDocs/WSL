@@ -29,6 +29,10 @@ This guide will show how to set up:
     ```bash
     curl https://get.docker.com | sh
     ````
+    
+    ```bash
+    sudo service docker start
+    ````
 
 3. If you installed the Docker engine directly then [install the NVIDIA Container Toolkit](https://docs.nvidia.com/cuda/wsl-user-guide/index.html#ch04-sub02-install-nvidia-docker) following the steps below.  
     
@@ -39,11 +43,11 @@ This guide will show how to set up:
     ```
     
     ```bash
-    curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add -
+    curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-docker-keyring.gpg
     ```
     
     ```bash
-    curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list
+    curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | sed 's#deb https://#deb [signed-by=/usr/share/keyrings/nvidia-docker-keyring.gpg] https://#g' | sudo tee /etc/apt/sources.list.d/nvidia-docker.list
     ```
 
     Install the NVIDIA runtime packages and dependencies by running the commands:
@@ -126,6 +130,16 @@ Additional ways to get setup and utilize NVIDIA CUDA can be found in the [NVIDIA
 4. Run a quick addition sample in an interactive Python session for [TensorFlow-DirectML](/windows/ai/directml/gpu-tensorflow-wsl#install-the-tensorflow-with-directml-package) or [PyTorch-DirectML](/windows/ai/directml/gpu-pytorch-wsl#install-the-pytorch-with-directml-package) to make sure everything is working.
 
 If you have questions or run into issues, visit the [DirectML repo on GitHub](https://github.com/microsoft/DirectML#feedback).
+
+## Multiple GPUs
+
+If you have multiple GPUs on your machine you can also access them inside of WSL. However, you will only be able to access one at a time. To choose a specific GPU please set the environment variable below to the name of your GPU as it appears in device manager:
+
+```bash
+export MESA_D3D12_DEFAULT_ADAPTER_NAME="<NameFromDeviceManager>"
+```
+
+This will do a string match, so if you set it to "NVIDIA" it will match the first GPU that starts with "NVIDIA".
 
 ## Additional Resources
 
