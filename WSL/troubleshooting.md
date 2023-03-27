@@ -454,7 +454,7 @@ If you are using openssh-server on windows and tring to access wsl remotely, you
 The file cannot be accessed by the system.
 ```
 
-It's a [known issue](https://learn.microsoft.com/en-us/windows/wsl/store-release-notes#known-issues), and solution to this is to change wsl version to wsl1.
+It's a [known issue](./store-release-notes#known-issues), and solution to this is to change wsl version to wsl1.
 
 
 
