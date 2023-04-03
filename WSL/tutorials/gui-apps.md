@@ -82,15 +82,15 @@ You can run the following commands from your Linux terminal to download and inst
 sudo apt update
 ```
 
-### Install Gedit
+### Install Gnome Text Editor
 
-Gedit is the default text editor of the GNOME desktop environment.
+Gnome Text Editor is the default text editor of the GNOME desktop environment.
 
 ```bash
-sudo apt install gedit -y
+sudo apt install gnome-text-editor -y
 ```
 
-To launch your bashrc file in the editor, enter: `gedit ~/.bashrc`
+To launch your bashrc file in the editor, enter: `gnome-text-editor ~/.bashrc`
 
 ### Install GIMP
 
