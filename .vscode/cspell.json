@@ -197,6 +197,7 @@
     "liblapack",
     "libomp",
     "lighttpd",
+    "linebreak",
     "LINKAT",
     "listenaddress",
     "listenport",
