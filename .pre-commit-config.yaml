@@ -1,5 +1,15 @@
 repos:
-  - repo: https://github.com/streetsidesoftware/cspell-cli
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+    -   id: check-json
+    -   id: check-yaml
+    -   id: destroyed-symlinks
+    -   id: end-of-file-fixer
+    -   id: mixed-line-ending
+    -   id: trailing-whitespace
+        args: [--markdown-linebreak-ext=md]
+-   repo: https://github.com/streetsidesoftware/cspell-cli
     rev: v6.31.0
     hooks:
-      - id: cspell
+    -   id: cspell
