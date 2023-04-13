@@ -84,7 +84,7 @@ Let's use Docker to create a development container for an existing app project.
 1. For this example, I'll use the source code from my [Hello World tutorial for Django](/windows/python/web-frameworks#hello-world-tutorial-for-django) in the Python development environment set up docs. You can skip this step if you prefer to use your own project source code. To download my HelloWorld-Django web app from GitHub, open a WSL terminal (Ubuntu for example) and enter: `git clone https://github.com/mattwojo/helloworld-django.git`
 
     > [!NOTE]
-    > Always store your code in the same file system that you're using tools in. This will result in faster file access performance. In this example, we are using a Linux distro (Ubuntu) and want to store our project files on the WSL file system `\\wsl\`. Storing project files on the Windows file system would significantly slow things down when using Linux tools in WSL to access those files.
+    > Always store your code in the same file system that you're using tools in. This will result in faster file access performance. In this example, we are using a Linux distro (Ubuntu) and want to store our project files on the WSL file system `\\wsl$\`. Storing project files on the Windows file system would significantly slow things down when using Linux tools in WSL to access those files.
 
 2. From your WSL terminal, change directories to the source code folder for this project:
 
@@ -106,7 +106,7 @@ Let's use Docker to create a development container for an existing app project.
 
     ![VS Code Dev Containers command](../media/docker-extension.png)
 
-5. Select the project folder that you wish to containerize. In my case, this is `\\wsl\Ubuntu-20.04\home\mattwojo\repos\helloworld-django\`
+5. Select the project folder that you wish to containerize. In my case, this is `\\wsl$\Ubuntu-20.04\home\mattwojo\repos\helloworld-django\`
 
     ![VS Code Dev Containers folder](../media/docker-extension2.png)
 
@@ -143,10 +143,10 @@ For more on this issue, see [How to set up Docker within Windows System for Linu
 ### Trouble finding docker image storage folder
 
 Docker creates two distro folders to store data:
-- \\wsl$\docker-desktop
-- \\wsl$\docker-desktop-data
+- `\\wsl$\docker-desktop`
+- `\\wsl$\docker-desktop-data`
 
-You can find these folders by opening your WSL Linux distribution and entering: `explorer.exe .` to view the folder in Windows File Explorer. Enter: `\\wsl\<distro name>\mnt\wsl` replacing `<distro name>` with the name of your distribution (ie. Ubuntu-20.04) to see these folders.
+You can find these folders by opening your WSL Linux distribution and entering: `explorer.exe .` to view the folder in Windows File Explorer. Enter: `\\wsl$\<distro name>\mnt\wsl` replacing `<distro name>` with the name of your distribution (ie. Ubuntu-20.04) to see these folders.
 
 Find more on locating docker storage locations in WSL, see this [issue from the WSL repo](https://github.com/microsoft/WSL/issues/4176) or this [StackOverlow post](https://stackoverflow.com/questions/62380124/where-docker-image-is-stored-with-docker-desktop-for-windows).
 
