@@ -11,7 +11,7 @@ This step-by-step guide will help you get started connecting your project in WSL
 
 ## Prerequisites
 
-- Running Windows 10, [updated to version 2004](ms-settings:windowsupdate), **Build 19041** or later.
+- Running Windows 11 or Windows 10, [updated to version 2004](ms-settings:windowsupdate), **Build 19041** or later.
 - [Install WSL and create a user name and password for the Linux distribution](../install.md).
 - Linux distribution [running in WSL 2 mode](../basic-commands.md#set-wsl-version-to-1-or-2).
 
@@ -36,32 +36,22 @@ The most [popular choices](https://insights.stackoverflow.com/survey/2021#sectio
 
 **MongoDB** is an open-source NoSQL document database designed to work with JSON and store schema-free data. It is horizontally scalable, which means multiple smaller machines will do the work for you. It's good for flexibility and unstructured data, and caching real-time analytics.
 
-**Redis** is is an open-source NoSQL in-memory data structure store. It uses key-value pairs for storage instead of documents. Redis is known for its flexibility, performance, and wide language support. It’s flexible enough to be used as a cache or message broker and can use data structures like lists, sets, and hashes.
-
-The sort of database you choose should depend on the type of application you will be using the database with. We recommend that you look up the advantages and disadvantages of structured and unstructured databases and choose based on your use case.
+**Redis** is is an open-source NoSQL in-memory data structure store. It uses key-value pairs for storage instead of documents.
 
 ## Install MySQL
 
-To install MySQL on WSL (ie. Ubuntu):
+To install MySQL on a Linux distribution running on WSL, just follow the [Installing MySQL on Linux](https://dev.mysql.com/doc/mysql-installation-excerpt/5.7/en/linux-installation.html) instructions in the MySQL docs. You will need to first [enable systemd support](/windows/wsl/wsl-config#systemd-support) in your `wsl.conf` configuration file.
 
-1. Open your WSL terminal (ie. Ubuntu).
-2. Update your Ubuntu packages: `sudo apt update`
-3. Once the packages have updated, install MySQL with: `sudo apt install mysql-server`
-4. Confirm installation and get the version number: `mysql --version`
+Example using the Ubuntu distribution:
 
-You may also want to run the included security script. This changes some of the less secure default options for things like remote root logins and sample users. To run the security script:
-
-1. Start a MySQL server: `sudo /etc/init.d/mysql start`
-2. Start the security script prompts: `sudo mysql_secure_installation`
-3. The first prompt will ask whether you’d like to set up the Validate Password Plugin, which can be used to test the strength of your MySQL password. You will then set a password for the MySQL root user, decide whether or not to remove anonymous users, decide whether to allow the root user to login both locally and remotely, decide whether to remove the test database, and, lastly, decide whether to reload the privilege tables immediately.
-
-To open the MySQL prompt, enter: `sudo mysql`
-
-To see what databases you have available, in the MySQL prompt, enter: `SHOW DATABASES;`
-
-To create a new database, enter: `CREATE DATABASE database_name;`
-
-To delete a database, enter: ` DROP DATABASE database_name;`
+1. Open your Ubuntu command line and update the packages available: `sudo apt update`
+2. Once the packages have updated, install MySQL with: `sudo apt install mysql-server`
+3. Confirm installation and get the version number: `mysql --version`
+4. Start MySQL Server / check status: `systemctl status mysql`
+5. To open the MySQL prompt, enter: `sudo mysql`
+6. To see what databases you have available, in the MySQL prompt, enter: `SHOW DATABASES;`
+7. To create a new database, enter: `CREATE DATABASE database_name;`
+8. To delete a database, enter: ` DROP DATABASE database_name;`
 
 For more about working with MySQL databases, see the [MySQL docs](https://dev.mysql.com/doc/mysql-getting-started/en/).
 
