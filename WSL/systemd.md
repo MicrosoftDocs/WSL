@@ -1,7 +1,7 @@
 ---
 title: Use systemd to manage Linux services with WSL
 description: Learn how to use systemd to manage Linux services with Windows Subsystem for Linux.
-ms.date: 06/15/2023
+ms.date: 06/16/2023
 ms.topic: article
 ---
 
@@ -21,7 +21,9 @@ Most major Linux distributions now run systemd, so enabling it on WSL brings the
 
 ## How to enable systemd?
 
-To enable systemd for a Linux distribution running on WSL 2 (changing the default from using the systemv init):
+Systemd is [now the default for the current version of Ubuntu](https://canonical.com/blog/ubuntu-desktop-23-04-release-roundup#:~:text=Systemd%20becomes%20the%20default%20for%20Ubuntu%20on%20WSL) that will be installed using the [`wsl --install` command](./install.md) default.
+
+To enable systemd for any other Linux distributions running on WSL 2 (changing the default from using the systemv init):
 
 1. Ensure that your WSL version is 0.67.6 or newer. (To check, run `wsl --version`. To update, run `wsl --update` or [download the latest version from the Microsoft Store](https://aka.ms/wslstorepage).)
 
