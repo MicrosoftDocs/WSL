@@ -9,7 +9,7 @@ ms.topic: article
 
 Windows Subsystem for Linux (WSL) now supports systemd, an init system and service manager used by many popular Linux distributions such as Ubuntu, Debian, and more. ([What is systemd?](#what-is-systemd-in-linux)).
 
-By default, WSL uses the SystemV, which is also an init system that differs in the way services and processes are managed, with SystemD using unit files and targets and SystemV using traditional init scripts and runlevels. If you prefer to change this default from SystemV to SystemD, see [How to enable systemd](#how-to-enable-systemd).
+The init system default has recently changed from SystemV, with [Systemd now the default for the current version of Ubuntu](https://canonical.com/blog/ubuntu-desktop-23-04-release-roundup#:~:text=Systemd%20becomes%20the%20default%20for%20Ubuntu%20on%20WSL) that will be installed using the [`wsl --install` command](./install.md) default. Linux distributions other than the current version of Ubuntu may be installed with the SystemV init. To change to SystemD, see [How to enable systemd](#how-to-enable-systemd).
 
 ## What is systemd in Linux?
 
