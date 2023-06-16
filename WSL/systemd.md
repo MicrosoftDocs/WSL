@@ -38,7 +38,7 @@ To enable systemd for any other Linux distributions running on WSL 2 (changing t
 
 4. Exit the Nano text editor (Ctrl + X, select Y to save your change). You will then need to close the Linux distribution. You can use the command `wsl.exe --shutdown` in PowerShell to restart all WSL instances.
 
-![Enable systemd on WSL 2](../media/systemd-enable.png)
+![Enable systemd on WSL 2](/WSL/media/systemd-enable.png)
 
 Once your Linux distribution restarts, systemd will be running. You can confirm using the command: `systemctl list-unit-files --type=service`, which will show the status of any services associated with your Linux distribution.
 
