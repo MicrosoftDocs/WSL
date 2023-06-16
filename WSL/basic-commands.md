@@ -30,7 +30,7 @@ When WSL is not installed options include:
 - `--no-distribution`: Do not install a distribution when installing WSL.
 
 > [!NOTE]
-> If you running WSL on Windows 10 or an older version, you may need to include the `-d` flag with the `--install` command to specify a distribution: `wsl --instal -d <distribution name>`.
+> If you running WSL on Windows 10 or an older version, you may need to include the `-d` flag with the `--install` command to specify a distribution: `wsl --install -d <distribution name>`.
 
 ## List available Linux distributions
 
