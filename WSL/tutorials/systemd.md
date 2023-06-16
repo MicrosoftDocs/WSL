@@ -40,6 +40,8 @@ To enable systemd for a Linux distribution running on WSL 2 (changing the defaul
 
 Once your Linux distribution restarts, systemd will be running. You can confirm using the command: `systemctl list-unit-files --type=service`, which will show the status of any services associated with your Linux distribution.
 
+Learn more about [Advanced settings configuration in WSL](../wsl-config.md), including the difference between teh `wsl.conf` (distribution-specific) and `.wslconfig` (global) config files, how to update automount settings, etc.
+
 ## SystemD demo video
 
 Microsoft partnered with Canonical to bring systemd support to WSL. See Craig Loewen (PM for WSL at Microsoft) and Oliver Smith (PM for Ubuntu on WSL at Canonical) announce systemd support and show some demos of what it enables.
