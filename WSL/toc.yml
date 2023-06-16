@@ -48,6 +48,8 @@
       href: file-permissions.md
     - name: Networking considerations
       href: networking.md
+    - name: Use SystemD to manage services
+      href: systemd.md
 - name: How-to
   items:
     - name: Set up WSL for your company
