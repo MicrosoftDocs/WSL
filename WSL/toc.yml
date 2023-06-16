@@ -34,6 +34,8 @@
       href: tutorials/gpu-compute.md
     - name: Run Linux GUI apps
       href: tutorials/gui-apps.md
+    - name: Use SystemD to manage services
+      href: tutorials/systemd.md
     - name: Install NodeJS on WSL
       href: /windows/dev-environment/javascript/nodejs-on-wsl
     - name: Get started with Linux and Bash
