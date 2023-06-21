@@ -39,7 +39,7 @@ Some [popular choices](https://insights.stackoverflow.com/survey/2021#section-mo
 
 ## Install MySQL
 
-To install MySQL on a Linux distribution running on WSL, just follow the [Installing MySQL on Linux](https://dev.mysql.com/doc/mysql-installation-excerpt/5.7/en/linux-installation.html) instructions in the MySQL docs. You may need to first [enable systemd support](/windows/wsl/wsl-config#systemd-support) in your `wsl.conf` configuration file.
+To install MySQL on a Linux distribution running on WSL, just follow the [Installing MySQL on Linux](https://dev.mysql.com/doc/mysql-installation-excerpt/5.7/en/linux-installation.html) instructions in the MySQL docs. You may need to first [enable systemd support](/windows/wsl/systemd#how-to-enable-systemd) in your `wsl.conf` configuration file.
 
 Example using the Ubuntu distribution:
 
@@ -97,43 +97,9 @@ To work with with PostgreSQL databases in VS Code, try the [PostgreSQL extension
 
 ## Install MongoDB
 
-To install MongoDB (version 5.0) on WSL (Ubuntu 20.04):
+To install MongoDB, see the Mongodb docs: [Install MongoDB Community Edition on Linux](https://www.mongodb.com/docs/manual/administration/install-on-linux/)
 
-1. Open your WSL terminal (ie. Ubuntu) and go to your home directory: `cd ~`
-2. Update your Ubuntu packages: `sudo apt update`
-3. Import the public key used by the MongoDB package management system: `wget -qO - https://www.mongodb.org/static/pgp/server-5.0.asc | sudo apt-key add -`
-4. Create a list file for MongoDB: `echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/5.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-5.0.list`
-5. Reload local package database: `sudo apt-get update`
-6. Install MongoDB packages: `sudo apt-get install -y mongodb-org`
-7. Confirm installation and get the version number: `mongod --version`
-8. Make a directory to store data: `mkdir -p ~/data/db`
-9. Run a Mongo instance: `sudo mongod --dbpath ~/data/db`
-10. Check to see that your MongoDB instance is running with: `ps -e | grep 'mongod'`
-11. To exit the MongoDB Shell, use the shortcut keys: Ctrl + C
-
-> [!TIP]
-> Installing MongoDB may require slightly different steps depending on the Linux distribution being used for installation. See the [MongoDB installation tutorials](https://docs.mongodb.com/manual/installation/#mongodb-installation-tutorials). Also note that MongoDB installation may differ depending on the version # that you are aiming to install. Use the version drop-down list in the top-left corner of the MongoDB documentation to select the version that aligns with your goal.
-
-### MongoDB init system differences
-
-In the example above we ran MongoDB directly. Other tutorials may start MongoDB using the operating system's built-in init system. You might see the command `sudo systemctl status mongodb` used in tutorials or articles. Currently WSL does not have support for `systemd` (a service management system in Linux).
-
-You shouldn't notice a difference, but if a tutorial recommends using `sudo systemctl`, instead use: `sudo /etc/init.d/`. For example, `sudo systemctl status docker`, for WSL would be `sudo /etc/init.d/docker status` ...or you can also use `sudo service docker status`.
-
-### Add the init script to start MongoDB as a service
-
-The installation instructions above install a version of MongoDB that doesn't include a script automatically in `/etc/init.d/`. If you would like to use the service commands, you can download the init.d script for mongodb [from this source](https://github.com/mongodb/mongo/blob/master/debian/init.d), place that manually as a file at this path: `/etc/init.d/mongodb` and then you can start Mongo as a service using `sudo service mongodb start`.
-
-1. Download the init.d script for MongoDB: `curl https://raw.githubusercontent.com/mongodb/mongo/master/debian/init.d | sudo tee /etc/init.d/mongodb >/dev/null`
-2. Assign that script executable permissions: `sudo chmod +x /etc/init.d/mongodb`
-3. Now you can use MongoDB service commands:
-    - `sudo service mongodb status` for checking the status of your database. You should see a [Fail] response if no database is running.
-    - `sudo service mongodb start`  to start running your database. You should see a [Ok] response.
-    - `sudo service mongodb stop` to stop running your database.
-4. Verify that you are connected to the database server with the diagnostic command: `mongo --eval 'db.runCommand({ connectionStatus: 1 })'` This will output the current database version, the server address and port, and the output of the status command. A value of `1` for the "ok" field in the response indicates that the server is working.
-
-> [!NOTE]
-> MongoDB has several default parameters, including storing data in /data/db and running on port 27017. Also, `mongod` is the daemon (host process for the database) and `mongo` is the command-line shell that connects to a specific instance of `mongod`.
+Installing MongoDB may require slightly different steps depending on the Linux distribution being used for installation. Also note that MongoDB installation may differ depending on the version # that you are aiming to install. Use the version drop-down list in the top-left corner of the MongoDB documentation to select the version that aligns with your goal. Lastly, you may need to [enable systemd support](/windows/wsl/systemd#how-to-enable-systemd) in the `wsl.conf` configuration file of the Linux distribution that you are using with WSL. The `systemctl` command is a part of the systemd init system and may not work if your distribution is using systemv.
 
 VS Code supports working with MongoDB databases via the [Azure CosmosDB extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb), you can create, manage and query MongoDB databases from within VS Code. To learn more, visit the VS Code docs: [Working with MongoDB](https://code.visualstudio.com/docs/azure/mongodb).
 
@@ -141,18 +107,12 @@ Learn more in the MongoDB docs:
 
 - [Introduction to using MongoDB](https://docs.mongodb.com/manual/introduction/)
 - [Create users](https://docs.mongodb.com/manual/tutorial/create-users/)
-- [Connect to a MongoDB instance on a remote host](https://docs.mongodb.com/manual/mongo/#mongodb-instance-on-a-remote-host)
 - [CRUD: Create, Read, Update, Delete](https://docs.mongodb.com/manual/crud/)
 - [Reference Docs](https://docs.mongodb.com/manual/reference/)
 
 ## Install Microsoft SQL Server
 
-To install SQL Server on WSL (ie. Ubuntu), follow this quickstart: [Install SQL Server and create a database on Ubuntu](/sql/linux/quickstart-install-connect-ubuntu).
-
-> [!NOTE]
-> Although it is possible to install and configure SQL Server on WSL, it is not a supported configuration. Additionally, SQL Server on Linux requires **systemd**, which is not included on WSL.
-
-To work with Microsoft SQL Server databases in VS Code, try the [MSSQL extension](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql).
+To install SQL Server on a Linux distribution run by WSL: [SQL Server on Linux](/sql/linux/sql-server-linux-overview). To work with Microsoft SQL Server databases in VS Code, try the [MSSQL extension](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql).
 
 ## Install SQLite
 
