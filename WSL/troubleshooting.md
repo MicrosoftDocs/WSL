@@ -445,6 +445,21 @@ options = metadata,uid=1000,gid=1000,umask=0022
 
 Please note that adding this command will include metadata and modify the file permissions on the Windows files seen from WSL. Please see the [File System Permissions](./file-permissions.md) for more information.
 
+
+
+### Fails to use wsl remotely by using OpenSSH on windows
+
+If you are using openssh-server on windows and tring to access wsl remotely, you many see this error:
+
+```cmd
+The file cannot be accessed by the system.
+```
+
+It's a [known issue](./store-release-notes.md#known-issues), 
+when using the Store version of WSL. You can work around this today by using WSL 1, or by using the in-Windows version of WSL. See https://aka.ms/wslstoreinfo for more info.
+
+
+
 ### Running Windows commands fails inside a distribution
 
 Some distributions [available in Microsoft Store](install-manual.md#step-6---install-your-linux-distribution-of-choice) are yet not fully compatible to run Windows commands out of the box. If you get an error `-bash: powershell.exe: command not found` running `powershell.exe /c start .` or any other Windows command, you can resolve it following these steps:

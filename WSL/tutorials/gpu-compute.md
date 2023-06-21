@@ -131,6 +131,16 @@ Additional ways to get setup and utilize NVIDIA CUDA can be found in the [NVIDIA
 
 If you have questions or run into issues, visit the [DirectML repo on GitHub](https://github.com/microsoft/DirectML#feedback).
 
+## Multiple GPUs
+
+If you have multiple GPUs on your machine you can also access them inside of WSL. However, you will only be able to access one at a time. To choose a specific GPU please set the environment variable below to the name of your GPU as it appears in device manager:
+
+```bash
+export MESA_D3D12_DEFAULT_ADAPTER_NAME="<NameFromDeviceManager>"
+```
+
+This will do a string match, so if you set it to "NVIDIA" it will match the first GPU that starts with "NVIDIA".
+
 ## Additional Resources
 
 * [Guidance for setting up NVIDIA CUDA in WSL](https://docs.nvidia.com/cuda/wsl-user-guide/index.html)
