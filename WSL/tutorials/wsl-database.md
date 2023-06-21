@@ -12,12 +12,11 @@ This step-by-step guide will help you get started connecting your project in WSL
 ## Prerequisites
 
 - Running Windows 11 or Windows 10, [updated to version 2004](ms-settings:windowsupdate), **Build 19041** or later.
-- [Install WSL and create a user name and password for the Linux distribution](../install.md).
-- Linux distribution [running in WSL 2 mode](../basic-commands.md#set-wsl-version-to-1-or-2).
+- [Install a Linux distribution using WSL and create a Linux user name and password](../install.md).
 
 ## Differences between database systems
 
-The most [popular choices](https://insights.stackoverflow.com/survey/2021#section-most-popular-technologies-databases) for a database system include:
+Some [popular choices](https://insights.stackoverflow.com/survey/2021#section-most-popular-technologies-databases) for a database system include:
 
 - [MySQL](https://www.mysql.com/why-mysql/) (SQL)
 - [PostgreSQL](https://www.postgresql.org/about/) (SQL)
@@ -40,7 +39,7 @@ The most [popular choices](https://insights.stackoverflow.com/survey/2021#sectio
 
 ## Install MySQL
 
-To install MySQL on a Linux distribution running on WSL, just follow the [Installing MySQL on Linux](https://dev.mysql.com/doc/mysql-installation-excerpt/5.7/en/linux-installation.html) instructions in the MySQL docs. You will need to first [enable systemd support](/windows/wsl/wsl-config#systemd-support) in your `wsl.conf` configuration file.
+To install MySQL on a Linux distribution running on WSL, just follow the [Installing MySQL on Linux](https://dev.mysql.com/doc/mysql-installation-excerpt/5.7/en/linux-installation.html) instructions in the MySQL docs. You may need to first [enable systemd support](/windows/wsl/wsl-config#systemd-support) in your `wsl.conf` configuration file.
 
 Example using the Ubuntu distribution:
 
