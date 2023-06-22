@@ -9,7 +9,7 @@ ms.topic: article
 
 If you want to access a Linux disk format that isn't supported by Windows, you can use WSL 2 to mount your disk and access its content. This tutorial will cover the steps to identify the disk and partition to attach to WSL2, how to mount them, and how to access them.
 
-If you are looking for guidance on how to connect a USB device (flash drive, SD card reader, etc), see [Connect USB devices](./connect-usb.md).
+If you are looking for guidance on how to connect a USB device (flash drive, SD card reader, etc), see [Connect USB devices](./connect-usb.md). The `wsl --mount` command does not currently support USB/flash drives ([learn more about this issue](https://github.com/microsoft/WSL/issues/6011)). 
 
 > [!NOTE]
 > Administrator access is required to attach a disk to WSL 2.
