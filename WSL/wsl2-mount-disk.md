@@ -1,7 +1,7 @@
 ---
 title: Get started mounting a Linux disk in WSL 2 
 description: Learn how to set up a disk mount in WSL 2 and how to access it.
-ms.date: 03/04/2022
+ms.date: 06/21/2023
 ms.topic: article
 ---
 
@@ -17,11 +17,21 @@ If you are looking for guidance on how to connect a USB device (flash drive, SD 
 
 ## Prerequisites
 
-You will need to be on Windows 11 Build 22000 or later, or be running the Microsoft Store version of WSL. You can join the [Windows Insiders Program](https://insider.windows.com/) to get the latest preview builds.
+You will need to be on Windows 11 Build 22000 or later, or be running the Microsoft Store version of WSL. To check your WSL and Windows version, use the command: `wsl.exe --version`
+
+## Mount an external disk 
+
+You can mount an external drive by creating a mounted directory (`sudo mkdir /mnt/d`, replacing 'd' with whatever drive letter you'd like to use) and then using the `drfs` file system interop plugin, with the command:
+
+```bash
+sudo mount -t drvfs D: /mnt/d
+```
+
+[Learn more about mounting scenarios](https://superuser.com/questions/1734353/is-there-a-way-to-mount-an-external-drive-when-it-becomes-available-in-wsl).
 
 ## Mounting an unpartitioned disk
 
-In this simplest case, if you have a disk that doesn't have any partitions, you can mount it directly using the `wsl --mount` command. First you need to identify the disk.
+If you have a disk that doesn't have any partitions, you can mount it directly using the `wsl --mount` command. First you need to identify the disk.
 
 1. **Identify the disk** - To list the available disks in Windows, run:
 
