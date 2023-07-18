@@ -91,7 +91,7 @@ Setting different mount options for Windows drives (DrvFs) can control how file 
 |:----|:----|:----|
 |uid| The User ID used for the owner of all files | The default User ID of your WSL distro (on first installation this defaults to 1000)
 |gid| The Group ID used for the owner of all files | The default group ID of your WSL distro (on first installation this defaults to 1000)
-|umask | An octal mask of permissions to exclude for all files and directories | 000
+|umask | An octal mask of permissions to exclude for all files and directories | 022
 |fmask | An octal mask of permissions to exclude for all files | 000
 |dmask | An octal mask of permissions to exclude for all directories | 000
 |metadata | Whether metadata is added to Windows files to support Linux system permissions | disabled
