@@ -1,7 +1,7 @@
 ---
 title: Get started mounting a Linux disk in WSL 2 
 description: Learn how to set up a disk mount in WSL 2 and how to access it.
-ms.date: 06/21/2023
+ms.date: 07/17/2023
 ms.topic: article
 ---
 
@@ -9,7 +9,7 @@ ms.topic: article
 
 If you want to access a Linux disk format that isn't supported by Windows, you can use WSL 2 to mount your disk and access its content. This tutorial will cover the steps to identify the disk and partition to attach to WSL2, how to mount them, and how to access them.
 
-If you are looking for guidance on how to connect a USB device (flash drive, SD card reader, etc), see [Connect USB devices](./connect-usb.md). The `wsl --mount` command does not currently support USB/flash drives ([learn more about this issue](https://github.com/microsoft/WSL/issues/6011)). 
+If you are connecting an external drive and do not have success with these mounting instructions, you may want to try the instructions to [Connect USB devices](./connect-usb.md). The `wsl --mount` command does not currently support USB/flash drives/SD card readers, ([learn more about this issue](https://github.com/microsoft/WSL/issues/6011)).
 
 > [!NOTE]
 > Administrator access is required to attach a disk to WSL 2.
@@ -19,15 +19,19 @@ If you are looking for guidance on how to connect a USB device (flash drive, SD 
 
 You will need to be on Windows 11 Build 22000 or later, or be running the Microsoft Store version of WSL. To check your WSL and Windows version, use the command: `wsl.exe --version`
 
-## Mount an external disk 
+## Differences between mounting an external drive with Windows formatting versus Linux formatting
 
-You can mount an external drive by creating a mounted directory (`sudo mkdir /mnt/d`, replacing 'd' with whatever drive letter you'd like to use) and then using the `drfs` file system interop plugin, with the command:
+External drives formatted for Windows typically use the NTFS file system formatting. External drives formatted for Linux typically use the Ext4 file system formatting.
+
+If you have mounted a NTFS-formatted drive on your Windows file system, you can access that drive from your Linux distribution using WSL by creating a mounted directory (`sudo mkdir /mnt/d`, replacing 'd' with whatever drive letter you'd like to use) and then using the `drfs` file system interop plugin, with the command:
 
 ```bash
 sudo mount -t drvfs D: /mnt/d
 ```
 
 [Learn more about mounting scenarios](https://superuser.com/questions/1734353/is-there-a-way-to-mount-an-external-drive-when-it-becomes-available-in-wsl).
+
+If you have a Ext4-formatted drive, you cannot mount it on your Windows file system. In order to mount an Ext4-formatted drive on your Linux distribution with WSL, you can use the `wsl --mount` command following the instructions below.
 
 ## Mounting an unpartitioned disk
 
@@ -233,4 +237,4 @@ If `Diskpath` is omitted, all attached disks are unmounted and detached.
 
 - Only filesystems that are natively supported in the kernel can be mounted by `wsl --mount`. This means that it's not possible to use installed filesystem drivers (such as ntfs-3g for example) by calling `wsl --mount`.
 
-- Filesystems not directly supported by the kernel can be mounted via a `--bare` attach and then invoking the relevant FUSE driver. 
+- Filesystems not directly supported by the kernel can be mounted via a `--bare` attach and then invoking the relevant FUSE driver.
