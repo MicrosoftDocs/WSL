@@ -1,7 +1,7 @@
 ---
 title: Get started using Git on WSL
 description: Learn how to set up Git for version control on the Windows Subsystem for Linux, along with Git Credential Manager.
-ms.date: 03/03/2022
+ms.date: 06/21/2023
 ms.topic: article
 ---
 
@@ -78,18 +78,21 @@ If you have a reason not to install Git for Windows, you can install GCM as a Li
 To set up GCM for use with a WSL distribution, open your distribution and enter this command:
 
 If GIT installed is >= v2.39.0
-```Bash
+
+```bash
 git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/bin/git-credential-manager.exe"
 ```
 
 else if GIT installed is >= v2.36.1
-```Bash
-git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/bin/git-credential-manager-core.exe"
+
+```bash
+git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/libexec/git-core/git-credential-manager.exe"
 ```
 
 else if version is < v2.36.1 enter this command: 
-```Bash
-git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/libexec/git-core/git-credential-manager.exe"
+
+```bash
+git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/bin/git-credential-manager-core.exe"
 ```
 
 > [!NOTE]

@@ -1,7 +1,7 @@
 ---
 title: Troubleshooting Windows Subsystem for Linux
 description: Provides detailed information about common errors and issues people run into while running Linux on the Windows Subsystem for Linux. 
-ms.date: 09/27/2021
+ms.date: 07/17/2023
 ms.topic: article
 ---
 
@@ -191,6 +191,8 @@ Please enable the Virtual Machine Platform Windows feature and ensure virtualiza
 	```
 
 6. Additionally, if you have 3rd party hypervisors installed (Such as VMware or VirtualBox) then please ensure you have these on the latest versions which can support HyperV ([VMware 15.5.5+](https://blogs.vmware.com/workstation/2020/05/vmware-workstation-now-supports-hyper-v-mode.html) and [VirtualBox 6+](https://www.virtualbox.org/wiki/Changelog-6.0)) or are turned off.
+
+7. If you are receiving this error on an Azure Virtual Machine, check to ensure that [Trusted Launch](/azure/virtual-machines/trusted-launch) is disabled. [Nested Virtualization is not supported on Azure virtual machines](/azure/virtual-machines/trusted-launch#unsupported-features).
 
 Learn more about how to [Configure Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization#configure-nested-virtualization) when running Hyper-V in a Virtual Machine.
 
@@ -444,6 +446,21 @@ options = metadata,uid=1000,gid=1000,umask=0022
 ```
 
 Please note that adding this command will include metadata and modify the file permissions on the Windows files seen from WSL. Please see the [File System Permissions](./file-permissions.md) for more information.
+
+
+
+### Fails to use wsl remotely by using OpenSSH on windows
+
+If you are using openssh-server on windows and tring to access wsl remotely, you many see this error:
+
+```cmd
+The file cannot be accessed by the system.
+```
+
+It's a [known issue](./store-release-notes.md#known-issues), 
+when using the Store version of WSL. You can work around this today by using WSL 1, or by using the in-Windows version of WSL. See https://aka.ms/wslstoreinfo for more info.
+
+
 
 ### Running Windows commands fails inside a distribution
 

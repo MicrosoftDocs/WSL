@@ -1,7 +1,7 @@
 ---
 title: Run Linux GUI apps with WSL 
 description: Learn how WSL support running Linux GUI apps. 
-ms.date: 11/28/2022
+ms.date: 07/17/2023
 ms.topic: article
 ---
 
@@ -91,6 +91,9 @@ sudo apt install gnome-text-editor -y
 ```
 
 To launch your bashrc file in the editor, enter: `gnome-text-editor ~/.bashrc`
+
+> [!NOTE]
+> [GNOME Text Editor](https://en.wikipedia.org/wiki/GNOME_Text_Editor) replaces gedit as GNOME/Ubuntu's default text editor in Ubuntu 22.10. If you're running an older version of Ubuntu and want to use [gedit](https://en.wikipedia.org/wiki/Gedit), the previous default text editor, use `sudo apt install gedit -y`.
 
 ### Install GIMP
 

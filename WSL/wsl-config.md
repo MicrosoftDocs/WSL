@@ -1,7 +1,7 @@
 ---
 title: Advanced settings configuration in WSL
 description: A guide to the wsl.conf and .wslconfig files used for configuring settings when running multiple Linux distributions on Windows Subsystem for Linux.
-ms.date: 12/02/2021
+ms.date: 07/17/2023
 ms.topic: article
 ms.custom: seo-windows-dev
 adobe-target: true
@@ -47,7 +47,7 @@ WSL will detect the existence of these files, read the contents, and automatical
 
 You must wait until the subsystem running your Linux distribution completely stops running and restarts for configuration setting updates to appear. This typically takes about 8 seconds after closing ALL instances of the distribution shell.
 
-If you launch a distribution (ie. Ubuntu), modify the configuration file, close the distribution, and then re-launch it. You might assume that your configuration changes have immediately gone into effect. This is not currently the case as the subsystem could still be running. You must wait for the subsystem to stop before relaunching in order to give enough time for your changes to be picked up. You can check to see whether your Linux distribution (shell) is still running after closing it by using PowerShell with the command: `wsl --list --running`. If no distributions are running, you will receive the response: "There are no running distributions." You can now restart the distribution to see your configuration updates applied.
+If you launch a distribution (e.g. Ubuntu), modify the configuration file, close the distribution, and then re-launch it, you might assume that your configuration changes have immediately gone into effect. This is not currently the case as the subsystem could still be running. You must wait for the subsystem to stop before relaunching in order to give enough time for your changes to be picked up. You can check to see whether your Linux distribution (shell) is still running after closing it by using PowerShell with the command: `wsl --list --running`. If no distributions are running, you will receive the response: "There are no running distributions." You can now restart the distribution to see your configuration updates applied.
 
 The command `wsl --shutdown` is a fast path to restarting WSL 2 distributions, but it will shut down all running distributions, so use wisely.
 
@@ -91,7 +91,7 @@ Setting different mount options for Windows drives (DrvFs) can control how file 
 |:----|:----|:----|
 |uid| The User ID used for the owner of all files | The default User ID of your WSL distro (on first installation this defaults to 1000)
 |gid| The Group ID used for the owner of all files | The default group ID of your WSL distro (on first installation this defaults to 1000)
-|umask | An octal mask of permissions to exclude for all files and directories | 000
+|umask | An octal mask of permissions to exclude for all files and directories | 022
 |fmask | An octal mask of permissions to exclude for all files | 000
 |dmask | An octal mask of permissions to exclude for all directories | 000
 |metadata | Whether metadata is added to Windows files to support Linux system permissions | disabled
