@@ -1,0 +1,102 @@
+id: 
+name: GitOps.PullRequestIssueManagement
+description: GitOps.PullRequestIssueManagement primitive
+owner: 
+resource: repository
+disabled: false
+where: 
+configuration:
+  resourceManagementConfiguration:
+    scheduledSearches:
+    - description: 
+      frequencies:
+      - hourly:
+          hour: 3
+      filters:
+      - isIssue
+      - isOpen
+      - hasLabel:
+          label: needs-author-feedback
+      - noActivitySince:
+          days: 7
+      actions:
+      - closeIssue
+    eventResponderTasks:
+    - if:
+      - payloadType: Issue_Comment
+      - isAction:
+          action: Created
+      - isActivitySender:
+          issueAuthor: True
+      - hasLabel:
+          label: needs-author-feedback
+      then:
+      - removeLabel:
+          label: needs-author-feedback
+      - removeLabel:
+          label: no-recent-activity
+      description: 
+    - if:
+      - payloadType: Issue_Comment
+      - isAction:
+          action: Created
+      - or:
+        - isActivitySender:
+            user: craigloewen-msft
+            issueAuthor: False
+        - isActivitySender:
+            user: therealkenc
+            issueAuthor: False
+        - isActivitySender:
+            user: benhillis
+            issueAuthor: False
+      - hasLabel:
+          label: needs-attention
+      then:
+      - removeLabel:
+          label: needs-attention
+      description: 
+    - if:
+      - payloadType: Issue_Comment
+      - commentContains:
+          pattern: '\/dupe?(\s+of)?\s+\#[\d]+'
+          isRegex: True
+      - or:
+        - activitySenderHasPermission:
+            permission: Admin
+        - activitySenderHasPermission:
+            permission: Write
+      then:
+      - addReply:
+          reply: >-
+            Hi! We've identified this issue as a duplicate of another one that already exists in this repository. This specific instance is being closed in favor of tracking the concern over on the referenced thread.
+
+
+            Thanks for your report!
+      - closeIssue
+      - addLabel:
+          label: duplicate
+      description: 
+    - if:
+      - payloadType: Issue_Comment
+      - commentContains:
+          pattern: '\/product'
+          isRegex: True
+      - or:
+        - activitySenderHasPermission:
+            permission: Admin
+        - activitySenderHasAssociation:
+            association: Member
+        - activitySenderHasPermission:
+            permission: Write
+      then:
+      - addReply:
+          reply: >-
+            Hi! This issue is a technical issue related to WSL. This repo is just for managing issues relating specifically to the WSL docs pages. If you're still experiencing this issue please file it at https://github.com/microsoft/WSL , the relevant info there will help us give you an actionable solution.
+
+
+            Thank you for filing!
+      - closeIssue
+      description: 
+onFailure: 
+onSuccess: 
