@@ -163,6 +163,11 @@ wsl --terminate <Distribution Name>
 
 To terminate the specified distribution, or stop it from running, replace `<Distribution Name>` with the name of the targeted distribution.
 
+## Identify IP address
+
+- `wsl hostname -i` for the IP address of your Linux distribution installed via WSL 2 (the WSL 2 VM address)
+- `cat /etc/resolv.conf` for the IP address of the Windows machine as seen from WSL 2 (the WSL 2 VM)
+
 ## Import and export a distribution
 
 ```powershell
