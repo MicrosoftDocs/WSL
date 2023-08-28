@@ -126,7 +126,7 @@ WSL 2
 
 To resolve this issue, please visit `https://aka.ms/wsl2kernel` and install the kernel manually by following the directions on that doc page. 
 
-### `command not found` when executing windows .exe in linux
+### `command not found` when executing Windows .exe in Linux
 
 Users can run Windows executables like notepad.exe directly from Linux. Sometimes, you may hit "command not found" like below: 
 
@@ -135,8 +135,8 @@ $ notepad.exe
 -bash: notepad.exe: command not found
 ```
 
-If there are no win32 paths in your $PATH, interop isn't going to find the .exe.
-You can verify it by running `echo $PATH` in Linux. It's expected that you will see a win32 path (for example, /mnt/c/Windows) in the output.
+If there are no Win32 paths in your $PATH, interop isn't going to find the .exe.
+You can verify it by running `echo $PATH` in Linux. It's expected that you will see a Win32 path (for example, /mnt/c/Windows) in the output.
 If you can't see any Windows paths then most likely your PATH is being overwritten by your Linux shell. 
 
 Here is a an example that /etc/profile on Debian contributed to the problem:
@@ -292,7 +292,7 @@ The Windows Subsystem for Linux feature may be disabled during a Windows update.
 
 ### Changing the display language
 
-WSL install will try to automatically change the Ubuntu locale to match the locale of your Windows install.  If you do not want this behavior you can run this command to change the Ubuntu locale after install completes.  You will have to relaunch bash.exe for this change to take effect.
+WSL install will try to automatically change the Ubuntu locale to match the locale of your Windows install. If you do not want this behavior you can run this command to change the Ubuntu locale after install completes.  You will have to relaunch bash.exe for this change to take effect.
 
 The below example changes to locale to en-US:
 
@@ -449,9 +449,9 @@ Please note that adding this command will include metadata and modify the file p
 
 
 
-### Fails to use wsl remotely by using OpenSSH on windows
+### Fails to use WSL remotely by using OpenSSH on Windows
 
-If you are using openssh-server on windows and tring to access wsl remotely, you many see this error:
+If you are using openssh-server on Windows and trying to access WSL remotely, you many see this error:
 
 ```cmd
 The file cannot be accessed by the system.
