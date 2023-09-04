@@ -89,7 +89,7 @@ Once you have successfully entered the psql shell, you will see your command lin
 
 To exit postgres=# enter: `\q` or use the shortcut key: Ctrl+D
 
-To see what user accounts have been created on your PostgreSQL installation, use from your WSL terminal: `psql -c "\du"` ...or just `\du` if you have the psql shell open. This command will display columns: Account User Name, List of Roles Attributes, and Member of role group(s). To exit back to the command line, enter: `q`.
+To see what user accounts have been created on your PostgreSQL installation, use from your WSL terminal: `psql --command="\du"` ...or just `\du` if you have the psql shell open. This command will display columns: Account User Name, List of Roles Attributes, and Member of role group(s). To exit back to the command line, enter: `q`.
 
 For more about working with PostgreSQL databases, see the [PostgreSQL docs](https://www.postgresql.org/docs/13/tutorial-createdb.html).
 
