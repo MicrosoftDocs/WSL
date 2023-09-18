@@ -1,7 +1,7 @@
 ---
 title: Basic commands for WSL
 description: Reference for the basic commands included with Windows Subsystem for Linux (WSL).
-ms.date: 11/16/2022
+ms.date: 06/21/2023
 ms.topic: article
 ---
 
@@ -29,6 +29,9 @@ When WSL is not installed options include:
 - `--enable-wsl1`: Enables WSL 1 during the install of the Microsoft Store version of WSL by also enabling the "Windows Subsystem for Linux" optional component.
 - `--no-distribution`: Do not install a distribution when installing WSL.
 
+> [!NOTE]
+> If you running WSL on Windows 10 or an older version, you may need to include the `-d` flag with the `--install` command to specify a distribution: `wsl --install -d <distribution name>`.
+
 ## List available Linux distributions
 
 ```powershell
@@ -51,7 +54,7 @@ See a list of the Linux distributions installed on your Windows machine, includi
 wsl --set-version <distribution name> <versionNumber>
 ```
 
-To designate the version of WSL (1 or 2) that a Linux distribution is running on, replace `<distribution name>` with the name of the distribution and replace `<versionNumber>` with 1 or 2. [Comparing WSL 1 and WSL 2](./compare-versions.md).
+To designate the version of WSL (1 or 2) that a Linux distribution is running on, replace `<distribution name>` with the name of the distribution and replace `<versionNumber>` with 1 or 2. [Comparing WSL 1 and WSL 2](./compare-versions.md). WSL 2 is only available in Windows 11 or Windows 10, Version 1903, Build 18362 or later. 
 
 ## Set default WSL version
 
@@ -59,7 +62,7 @@ To designate the version of WSL (1 or 2) that a Linux distribution is running on
 wsl --set-default-version <Version>
 ```
 
-To set a default version of WSL 1 or WSL 2, replacing `<Version>` with either the number 1 or 2 to represent which version of WSL you would like the installation to default on for new Linux distribution installations. For example, `wsl --set-default-version 2`. [Comparing WSL 1 and WSL 2](./compare-versions.md).
+To set a default version of WSL 1 or WSL 2, replacing `<Version>` with either the number 1 or 2 to represent which version of WSL you would like the installation to default on for new Linux distribution installations. For example, `wsl --set-default-version 2`. [Comparing WSL 1 and WSL 2](./compare-versions.md). WSL 2 is only available in Windows 11 or Windows 10, Version 1903, Build 18362 or later. 
 
 ## Set default Linux distribution
 
@@ -150,7 +153,7 @@ For example:
 wsl --shutdown
 ```
 
-Immediately terminates all running distributions and the WSL 2 lightweight utility virtual machine. This command may be necessary in instances that require you to restart the WSL 2 virtual machine environment, such as [changing memory usage limits](./vhd-size.md) or making a change to your [.wslconfig file](./manage.md#).
+Immediately terminates all running distributions and the WSL 2 lightweight utility virtual machine. This command may be necessary in instances that require you to restart the WSL 2 virtual machine environment, such as [changing memory usage limits](/windows/wsl/disk-space) or making a change to your [.wslconfig file](./manage.md#).
 
 ## Terminate
 
@@ -159,6 +162,11 @@ wsl --terminate <Distribution Name>
 ```
 
 To terminate the specified distribution, or stop it from running, replace `<Distribution Name>` with the name of the targeted distribution.
+
+## Identify IP address
+
+- `wsl hostname -i` for the IP address of your Linux distribution installed via WSL 2 (the WSL 2 VM address)
+- `cat /etc/resolv.conf` for the IP address of the Windows machine as seen from WSL 2 (the WSL 2 VM)
 
 ## Import and export a distribution
 

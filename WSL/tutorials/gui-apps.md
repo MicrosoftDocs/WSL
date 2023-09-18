@@ -1,7 +1,7 @@
 ---
 title: Run Linux GUI apps with WSL 
 description: Learn how WSL support running Linux GUI apps. 
-ms.date: 11/28/2022
+ms.date: 07/17/2023
 ms.topic: article
 ---
 
@@ -30,9 +30,9 @@ You can now integrate both Windows and Linux applications into your workflow for
 
     To run Linux GUI apps, you should first install the driver matching your system below. This will enable you to use a virtual GPU (vGPU) so you can benefit from hardware accelerated OpenGL rendering.
 
-  - [**Intel** GPU driver for WSL](https://www.intel.com/content/www/us/en/download/19344/intel-graphics-windows-dch-drivers.html)
-  - [**AMD** GPU driver for WSL](https://www.amd.com/en/support/kb/release-notes/rn-rad-win-wsl-support)
-  - [**NVIDIA** GPU driver for WSL](https://developer.nvidia.com/cuda/wsl)
+  - [**Intel** GPU driver](https://www.intel.com/content/www/us/en/download/19344/intel-graphics-windows-dch-drivers.html)
+  - [**AMD** GPU driver](https://www.amd.com/en/support)
+  - [**NVIDIA** GPU driver](https://www.nvidia.com/Download/index.aspx?lang=en-us)
 
 ### Fresh install - No prior WSL installation
 
@@ -82,15 +82,18 @@ You can run the following commands from your Linux terminal to download and inst
 sudo apt update
 ```
 
-### Install Gedit
+### Install Gnome Text Editor
 
-Gedit is the default text editor of the GNOME desktop environment.
+Gnome Text Editor is the default text editor of the GNOME desktop environment.
 
 ```bash
-sudo apt install gedit -y
+sudo apt install gnome-text-editor -y
 ```
 
-To launch your bashrc file in the editor, enter: `gedit ~/.bashrc`
+To launch your bashrc file in the editor, enter: `gnome-text-editor ~/.bashrc`
+
+> [!NOTE]
+> [GNOME Text Editor](https://en.wikipedia.org/wiki/GNOME_Text_Editor) replaces gedit as GNOME/Ubuntu's default text editor in Ubuntu 22.10. If you're running an older version of Ubuntu and want to use [gedit](https://en.wikipedia.org/wiki/Gedit), the previous default text editor, use `sudo apt install gedit -y`.
 
 ### Install GIMP
 
@@ -139,22 +142,12 @@ To launch, enter the name of the tool you would like to use. For example:
 To install the Google Chrome for Linux:
 
 1. Change directories into the temp folder: `cd /tmp`
-2. Use wget to download it: `sudo wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb`
+2. Use wget to download it: `wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb`
 3. Get the current stable version: `sudo dpkg -i google-chrome-stable_current_amd64.deb`
 4. Fix the package: `sudo apt install --fix-broken -y`
 5. Configure the package: `sudo dpkg -i google-chrome-stable_current_amd64.deb`
 
 To launch, enter: `google-chrome`
-
-### Install Microsoft Teams for Linux
-
-To install Microsoft Teams for Linux:
-
-1. Change directories into the temp folder: `cd /tmp`
-2. Use curl to download the package: `sudo curl -L -o "./teams.deb" "https://teams.microsoft.com/downloads/desktopurl?env=production&plat=linux&arch=x64&download=true&linuxArchiveType=deb"`
-3. Use apt to install it: `sudo apt install ./teams.deb -y`
-
-To launch, enter: `teams`
 
 ### Install Microsoft Edge browser for Linux
 

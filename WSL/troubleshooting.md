@@ -1,7 +1,7 @@
 ---
 title: Troubleshooting Windows Subsystem for Linux
 description: Provides detailed information about common errors and issues people run into while running Linux on the Windows Subsystem for Linux. 
-ms.date: 09/27/2021
+ms.date: 07/17/2023
 ms.topic: article
 ---
 
@@ -113,7 +113,7 @@ To check this, you can check the start up logs using: `dmesg |grep 9p`, and this
 [    0.398989] 9pnet: Installing 9P2000 support
 ```
 
-Please see [this Github thread](https://github.com/microsoft/wsl/issues/5307) for further discussion on this issue.
+Please see [this GitHub thread](https://github.com/microsoft/wsl/issues/5307) for further discussion on this issue.
 
 ### Can't start WSL 2 distribution and only see 'WSL 2' in output
 
@@ -126,7 +126,7 @@ WSL 2
 
 To resolve this issue, please visit `https://aka.ms/wsl2kernel` and install the kernel manually by following the directions on that doc page. 
 
-### `command not found` when executing windows .exe in linux
+### `command not found` when executing Windows .exe in Linux
 
 Users can run Windows executables like notepad.exe directly from Linux. Sometimes, you may hit "command not found" like below: 
 
@@ -135,8 +135,8 @@ $ notepad.exe
 -bash: notepad.exe: command not found
 ```
 
-If there are no win32 paths in your $PATH, interop isn't going to find the .exe.
-You can verify it by running `echo $PATH` in Linux. It's expected that you will see a win32 path (for example, /mnt/c/Windows) in the output.
+If there are no Win32 paths in your $PATH, interop isn't going to find the .exe.
+You can verify it by running `echo $PATH` in Linux. It's expected that you will see a Win32 path (for example, /mnt/c/Windows) in the output.
 If you can't see any Windows paths then most likely your PATH is being overwritten by your Linux shell. 
 
 Here is a an example that /etc/profile on Debian contributed to the problem:
@@ -187,14 +187,16 @@ Please enable the Virtual Machine Platform Windows feature and ensure virtualiza
 	If you see `hypervisorlaunchtype    Off`, then the hypervisor is disabled. To enable it run in an elevated powershell:
 
 	```
-	bcdedit /set {current} hypervisorlaunchtype Auto
+	bcdedit /set hypervisorlaunchtype Auto
 	```
 
 6. Additionally, if you have 3rd party hypervisors installed (Such as VMware or VirtualBox) then please ensure you have these on the latest versions which can support HyperV ([VMware 15.5.5+](https://blogs.vmware.com/workstation/2020/05/vmware-workstation-now-supports-hyper-v-mode.html) and [VirtualBox 6+](https://www.virtualbox.org/wiki/Changelog-6.0)) or are turned off.
 
+7. If you are receiving this error on an Azure Virtual Machine, check to ensure that [Trusted Launch](/azure/virtual-machines/trusted-launch) is disabled. [Nested Virtualization is not supported on Azure virtual machines](/azure/virtual-machines/trusted-launch#unsupported-features).
+
 Learn more about how to [Configure Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization#configure-nested-virtualization) when running Hyper-V in a Virtual Machine.
 
-### WSL has no network connection on my work machine or in an Enterpise environment
+### WSL has no network connection on my work machine or in an Enterprise environment
 
 Business or Enterprise environments may have [Windows Defender Firewall settings configured](/windows/security/threat-protection/windows-firewall/best-practices-configuring) to block unauthorized network traffic. If [local rule merging](/openspecs/windows_protocols/ms-gpfas/2c979624-900a-4b6e-b4ef-09b387cd62ab) is set to "No" then WSL networking will not work by default, and your administrator will need to add a firewall rule to allow it. 
 
@@ -290,7 +292,7 @@ The Windows Subsystem for Linux feature may be disabled during a Windows update.
 
 ### Changing the display language
 
-WSL install will try to automatically change the Ubuntu locale to match the locale of your Windows install.  If you do not want this behavior you can run this command to change the Ubuntu locale after install completes.  You will have to relaunch bash.exe for this change to take effect.
+WSL install will try to automatically change the Ubuntu locale to match the locale of your Windows install. If you do not want this behavior you can run this command to change the Ubuntu locale after install completes.  You will have to relaunch bash.exe for this change to take effect.
 
 The below example changes to locale to en-US:
 
@@ -445,6 +447,21 @@ options = metadata,uid=1000,gid=1000,umask=0022
 
 Please note that adding this command will include metadata and modify the file permissions on the Windows files seen from WSL. Please see the [File System Permissions](./file-permissions.md) for more information.
 
+
+
+### Fails to use WSL remotely by using OpenSSH on Windows
+
+If you are using openssh-server on Windows and trying to access WSL remotely, you many see this error:
+
+```cmd
+The file cannot be accessed by the system.
+```
+
+It's a [known issue](./store-release-notes.md#known-issues), 
+when using the Store version of WSL. You can work around this today by using WSL 1, or by using the in-Windows version of WSL. See https://aka.ms/wslstoreinfo for more info.
+
+
+
 ### Running Windows commands fails inside a distribution
 
 Some distributions [available in Microsoft Store](install-manual.md#step-6---install-your-linux-distribution-of-choice) are yet not fully compatible to run Windows commands out of the box. If you get an error `-bash: powershell.exe: command not found` running `powershell.exe /c start .` or any other Windows command, you can resolve it following these steps:
@@ -458,7 +475,7 @@ Some distributions [available in Microsoft Store](install-manual.md#step-6---ins
 
 ### Unable to boot after installing WSL 2
 
-We are aware of an issue affecting users where they are unable to boot after installing WSL 2. While we fully diagnose those issue, users have reported that [changing the buffer size](https://github.com/microsoft/WSL/issues/4784#issuecomment-639219363) or [installing the right drivers](https://github.com/microsoft/WSL/issues/4784#issuecomment-675702244) can help address this. Please view this [Github issue](https://github.com/microsoft/WSL/issues/4784) to see the latest updates on this issue. 
+We are aware of an issue affecting users where they are unable to boot after installing WSL 2. While we fully diagnose those issue, users have reported that [changing the buffer size](https://github.com/microsoft/WSL/issues/4784#issuecomment-639219363) or [installing the right drivers](https://github.com/microsoft/WSL/issues/4784#issuecomment-675702244) can help address this. Please view this [GitHub issue](https://github.com/microsoft/WSL/issues/4784) to see the latest updates on this issue. 
 
 ### WSL 2 errors when ICS is disabled
 

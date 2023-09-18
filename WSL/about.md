@@ -15,9 +15,9 @@ You can:
 
 - Choose your favorite GNU/Linux distributions [from the Microsoft Store](https://aka.ms/wslstore).
 - Run common command-line tools such as `grep`, `sed`, `awk`, or other ELF-64 binaries.
-- Run Bash shell scripts and GNU/Linux command-line applications including:  
+- Run Bash scripts and GNU/Linux command-line applications including:  
   - Tools: vim, emacs, tmux
-  - Languages: [NodeJS](/windows/nodejs/setup-on-wsl2), Javascript, [Python](/windows/python/web-frameworks), Ruby, C/C++, C# & F#, Rust, Go, etc.
+  - Languages: [NodeJS](/windows/nodejs/setup-on-wsl2), JavaScript, [Python](/windows/python/web-frameworks), Ruby, C/C++, C# & F#, Rust, Go, etc.
   - Services: SSHD, [MySQL](./tutorials/wsl-database.md), Apache, lighttpd, [MongoDB](./tutorials/wsl-database.md), [PostgreSQL](./tutorials/wsl-database.md).
 - Install additional software using your own GNU/Linux distribution package manager.
 - Invoke Windows applications using a Unix-like command-line shell.

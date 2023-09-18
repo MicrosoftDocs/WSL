@@ -41,8 +41,7 @@ Before you can run Linux distributions on Windows, you must enable the "Windows 
 Open PowerShell **as Administrator** and run:
 
 ```powershell
-    Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
-
+Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
 ```
 
 ### Download a Linux distribution

@@ -2,7 +2,7 @@
 title: Manual installation steps for older versions of WSL
 description: Step by step instructions to manually install WSL on older versions of Windows, rather than using the wsl install command.
 keywords: wsl, install, BashOnWindows, bash, windows subsystem for linux, install ubuntu on windows, enable WSL2, linux on windows
-ms.date: 11/12/2021
+ms.date: 03/22/2023
 ms.topic: article
 adobe-target: true
 ---
@@ -27,12 +27,12 @@ We recommend now moving on to step #2, updating to WSL 2, but if you wish to onl
 
 To update to WSL 2, you must be running Windows 10...
 
-- For x64 systems: **Version 1903** or later, with **Build 18362** or later.
+- For x64 systems: **Version 1903** or later, with **Build 18362.1049** or later.
 - For ARM64 systems: **Version 2004** or later, with **Build 19041** or later.
 
 or Windows 11.
 > [!NOTE]
-> Builds lower than 18362 do not support WSL 2. Use the [Windows Update Assistant](https://www.microsoft.com/software-download/windows10) to update your version of Windows.
+> Builds lower than 18362 do not support WSL 2. Use the [Windows Update Assistant](https://www.microsoft.com/software-download/windows10) to update your version of Windows. The Windows version 1903 support is also only for x64 systems. If you are using an Arm64 version of Windows, you will need to upgrade to Windows 10 version 2004 or later for full access to WSL 2. For more info, see [WSL 2 support coming to Windows 10 Versions 1903 and 1909](https://devblogs.microsoft.com/commandline/wsl-2-support-is-coming-to-windows-10-versions-1903-and-1909).
 
 To check your version and build number, select **Windows logo key + R**, type **winver**, select **OK**. [Update to the latest Windows version](ms-settings:windowsupdate) in the Settings menu.
 
@@ -52,6 +52,8 @@ dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /nores
 **Restart** your machine to complete the WSL install and update to WSL 2.
 
 ## Step 4 - Download the Linux kernel update package
+
+The Linux kernel update package installs the most recent version of the [WSL 2 Linux kernel](https://github.com/microsoft/WSL2-Linux-Kernel) for running WSL inside the Windows operating system image. (To run [WSL from the Microsoft Store](/windows/wsl/compare-versions#wsl-in-the-microsoft-store), with more frequently pushed updates, use `wsl.exe --install` or `wsl.exe --update`.). 
 
 1. Download the latest package:
     - [WSL2 Linux kernel update package for x64 machines](https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi)

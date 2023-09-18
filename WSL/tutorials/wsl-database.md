@@ -1,7 +1,7 @@
 ---
 title: Add or connect a database with WSL
 description: Learn how to set up MySQL MongoDB, PostgreSQL, SQLite, Microsoft SQL Server, or Redis on the Windows Subsystem for Linux.
-ms.date: 03/04/2022
+ms.date: 09/18/2023
 ms.topic: article
 ---
 
@@ -11,13 +11,12 @@ This step-by-step guide will help you get started connecting your project in WSL
 
 ## Prerequisites
 
-- Running Windows 10, [updated to version 2004](ms-settings:windowsupdate), **Build 19041** or later.
-- [Install WSL and create a user name and password for the Linux distribution](../install.md).
-- Linux distribution [running in WSL 2 mode](../basic-commands.md#set-wsl-version-to-1-or-2).
+- Running Windows 11 or Windows 10, [updated to version 2004](ms-settings:windowsupdate), **Build 19041** or later.
+- [Install a Linux distribution using WSL and create a Linux user name and password](../install.md).
 
 ## Differences between database systems
 
-The most [popular choices](https://insights.stackoverflow.com/survey/2021#section-most-popular-technologies-databases) for a database system include:
+Some [popular choices](https://insights.stackoverflow.com/survey/2021#section-most-popular-technologies-databases) for a database system include:
 
 - [MySQL](https://www.mysql.com/why-mysql/) (SQL)
 - [PostgreSQL](https://www.postgresql.org/about/) (SQL)
@@ -36,25 +35,26 @@ The most [popular choices](https://insights.stackoverflow.com/survey/2021#sectio
 
 **MongoDB** is an open-source NoSQL document database designed to work with JSON and store schema-free data. It is horizontally scalable, which means multiple smaller machines will do the work for you. It's good for flexibility and unstructured data, and caching real-time analytics.
 
-**Redis** is is an open-source NoSQL in-memory data structure store. It uses key-value pairs for storage instead of documents. Redis is known for its flexibility, performance, and wide language support. It’s flexible enough to be used as a cache or message broker and can use data structures like lists, sets, and hashes.
-
-The sort of database you choose should depend on the type of application you will be using the database with. We recommend that you look up the advantages and disadvantages of structured and unstructured databases and choose based on your use case.
+**Redis** is is an open-source NoSQL in-memory data structure store. It uses key-value pairs for storage instead of documents.
 
 ## Install MySQL
 
-To install MySQL on WSL (ie. Ubuntu):
+To install MySQL on a Linux distribution running on WSL, just follow the [Installing MySQL on Linux](https://dev.mysql.com/doc/mysql-installation-excerpt/5.7/en/linux-installation.html) instructions in the MySQL docs. You may need to first [enable systemd support](/windows/wsl/systemd#how-to-enable-systemd) in your `wsl.conf` configuration file.
 
-1. Open your WSL terminal (ie. Ubuntu).
-2. Update your Ubuntu packages: `sudo apt update`
-3. Once the packages have updated, install MySQL with: `sudo apt install mysql-server mysql-client`
-4. Confirm installation and get the version number: `mysql --version`
-5. Set home directory for new user "mysql": `sudo usermod -d /var/lib/mysql/ mysql`
+Example using the Ubuntu distribution:
 
-To start MySQL service, enter: `sudo service mysql start`
+1. Open your Ubuntu command line and update the packages available: `sudo apt update`
+2. Once the packages have updated, install MySQL with: `sudo apt install mysql-server`
+3. Confirm installation and get the version number: `mysql --version`
+4. Start MySQL Server / check status: `systemctl status mysql`
+5. To open the MySQL prompt, enter: `sudo mysql`
+6. To see what databases you have available, in the MySQL prompt, enter: `SHOW DATABASES;`
+7. To create a new database, enter: `CREATE DATABASE database_name;`
+8. To delete a database, enter: ` DROP DATABASE database_name;`
 
-To open the MySQL prompt, enter: `sudo mysql`. In MySQL prompt, enter: `SELECT user, authentication_string, plugin, host FROM mysql.user;`, you will see the authentication plugin for MySQL root user is `auth_socket`. In this situation, you cannot connect to mysql service via username and password. To change authentication plugin into `mysql_native_password`, enter: `ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '<password>';`, `<password>` should be replaced by actual password you want to set. Then enter: `FLUSH PRIVILEGES;` to put the change into effect. Enter `exit` to exit MySQL prompt.
+For more about working with MySQL databases, see the [MySQL docs](https://dev.mysql.com/doc/mysql-getting-started/en/).
 
-Now you can login MySQL prompt via username and password. To open the MySQL prompt, enter: `sudo mysql -u root -p`, then enter password you set before.
+To work with with MySQL databases in VS Code, try the [MySQL extension](https://marketplace.visualstudio.com/items?itemName=cweijan.vscode-mysql-client2).
 
 You may also want to run the included security script. This changes some of the less secure default options for things like remote root logins and sample users. This script also includes steps to change password for MySQL root user. To run the security script:
 
@@ -62,16 +62,6 @@ You may also want to run the included security script. This changes some of the 
 2. Start the security script prompts: `sudo mysql_secure_installation`
 3. The first prompt will ask whether you’d like to set up the VALIDATE PASSWORD COMPONENT, which can be used to test the strength of your MySQL password. If you want to set some simple password, you should not set this component.
 4. You will then set/change password for the MySQL root user, decide whether or not to remove anonymous users, decide whether to allow the root user to login both locally and remotely, decide whether to remove the test database, and, lastly, decide whether to reload the privilege tables immediately.
-
-To see what databases you have available, in the MySQL prompt, enter: `SHOW DATABASES;`
-
-To create a new database, enter: `CREATE DATABASE database_name;`
-
-To delete a database, enter: ` DROP DATABASE database_name;`
-
-For more about working with MySQL databases, see the [MySQL docs](https://dev.mysql.com/doc/mysql-getting-started/en/).
-
-To work with with MySQL databases in VS Code, try the [MySQL extension](https://marketplace.visualstudio.com/items?itemName=cweijan.vscode-mysql-client2).
 
 ## Install PostgreSQL
 
@@ -114,43 +104,9 @@ To work with with PostgreSQL databases in VS Code, try the [PostgreSQL extension
 
 ## Install MongoDB
 
-To install MongoDB (version 5.0) on WSL (Ubuntu 20.04):
+To install MongoDB, see the Mongodb docs: [Install MongoDB Community Edition on Linux](https://www.mongodb.com/docs/manual/administration/install-on-linux/)
 
-1. Open your WSL terminal (ie. Ubuntu) and go to your home directory: `cd ~`
-2. Update your Ubuntu packages: `sudo apt update`
-3. Import the public key used by the MongoDB package management system: `wget -qO - https://www.mongodb.org/static/pgp/server-5.0.asc | sudo apt-key add -`
-4. Create a list file for MongoDB: `echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/5.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-5.0.list`
-5. Reload local package database: `sudo apt-get update`
-6. Install MongoDB packages: `sudo apt-get install -y mongodb-org`
-7. Confirm installation and get the version number: `mongod --version`
-8. Make a directory to store data: `mkdir -p ~/data/db`
-9. Run a Mongo instance: `sudo mongod --dbpath ~/data/db`
-10. Check to see that your MongoDB instance is running with: `ps -e | grep 'mongod'`
-11. To exit the MongoDB Shell, use the shortcut keys: Ctrl + C
-
-> [!TIP]
-> Installing MongoDB may require slightly different steps depending on the Linux distribution being used for installation. See the [MongoDB installation tutorials](https://docs.mongodb.com/manual/installation/#mongodb-installation-tutorials). Also note that MongoDB installation may differ depending on the version # that you are aiming to install. Use the version drop-down list in the top-left corner of the MongoDB documentation to select the version that aligns with your goal.
-
-### MongoDB init system differences
-
-In the example above we ran MongoDB directly. Other tutorials may start MongoDB using the operating system's built-in init system. You might see the command `sudo systemctl status mongodb` used in tutorials or articles. Currently WSL does not have support for `systemd` (a service management system in Linux).
-
-You shouldn't notice a difference, but if a tutorial recommends using `sudo systemctl`, instead use: `sudo /etc/init.d/`. For example, `sudo systemctl status docker`, for WSL would be `sudo /etc/init.d/docker status` ...or you can also use `sudo service docker status`.
-
-### Add the init script to start MongoDB as a service
-
-The installation instructions above install a version of MongoDB that doesn't include a script automatically in `/etc/init.d/`. If you would like to use the service commands, you can download the init.d script for mongodb [from this source](https://github.com/mongodb/mongo/blob/master/debian/init.d), place that manually as a file at this path: `/etc/init.d/mongodb` and then you can start Mongo as a service using `sudo service mongodb start`.
-
-1. Download the init.d script for MongoDB: `curl https://raw.githubusercontent.com/mongodb/mongo/master/debian/init.d | sudo tee /etc/init.d/mongodb >/dev/null`
-2. Assign that script executable permissions: `sudo chmod +x /etc/init.d/mongodb`
-3. Now you can use MongoDB service commands:
-    - `sudo service mongodb status` for checking the status of your database. You should see a [Fail] response if no database is running.
-    - `sudo service mongodb start`  to start running your database. You should see a [Ok] response.
-    - `sudo service mongodb stop` to stop running your database.
-4. Verify that you are connected to the database server with the diagnostic command: `mongo --eval 'db.runCommand({ connectionStatus: 1 })'` This will output the current database version, the server address and port, and the output of the status command. A value of `1` for the "ok" field in the response indicates that the server is working.
-
-> [!NOTE]
-> MongoDB has several default parameters, including storing data in /data/db and running on port 27017. Also, `mongod` is the daemon (host process for the database) and `mongo` is the command-line shell that connects to a specific instance of `mongod`.
+Installing MongoDB may require slightly different steps depending on the Linux distribution being used for installation. Also note that MongoDB installation may differ depending on the version # that you are aiming to install. Use the version drop-down list in the top-left corner of the MongoDB documentation to select the version that aligns with your goal. Lastly, you may need to [enable systemd support](/windows/wsl/systemd#how-to-enable-systemd) in the `wsl.conf` configuration file of the Linux distribution that you are using with WSL. The `systemctl` command is a part of the systemd init system and may not work if your distribution is using systemv.
 
 VS Code supports working with MongoDB databases via the [Azure CosmosDB extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb), you can create, manage and query MongoDB databases from within VS Code. To learn more, visit the VS Code docs: [Working with MongoDB](https://code.visualstudio.com/docs/azure/mongodb).
 
@@ -158,18 +114,12 @@ Learn more in the MongoDB docs:
 
 - [Introduction to using MongoDB](https://docs.mongodb.com/manual/introduction/)
 - [Create users](https://docs.mongodb.com/manual/tutorial/create-users/)
-- [Connect to a MongoDB instance on a remote host](https://docs.mongodb.com/manual/mongo/#mongodb-instance-on-a-remote-host)
 - [CRUD: Create, Read, Update, Delete](https://docs.mongodb.com/manual/crud/)
 - [Reference Docs](https://docs.mongodb.com/manual/reference/)
 
 ## Install Microsoft SQL Server
 
-To install SQL Server on WSL (ie. Ubuntu), follow this quickstart: [Install SQL Server and create a database on Ubuntu](/sql/linux/quickstart-install-connect-ubuntu).
-
-> [!NOTE]
-> Although it is possible to install and configure SQL Server on WSL, it is not a supported configuration. Additionally, SQL Server on Linux requires **systemd**, which is not included on WSL.
-
-To work with Microsoft SQL Server databases in VS Code, try the [MSSQL extension](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql).
+To install SQL Server on a Linux distribution run by WSL: [SQL Server on Linux](/sql/linux/sql-server-linux-overview). To work with Microsoft SQL Server databases in VS Code, try the [MSSQL extension](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql).
 
 ## Install SQLite
 
