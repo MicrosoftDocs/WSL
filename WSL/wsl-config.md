@@ -242,12 +242,7 @@ Entries with an * after the value type are only available on Windows 11.
 
 Entries with an ** after the value type are only available on the [Windows Insiders Program](https://www.microsoft.com/en-us/windowsinsider/).
 
-<!-- ## Preview configuration options for .wslconfig
-
-These options are only available in the latest preview builds if you are on the latest builds of the [Windows Insiders program](https://insider.windows.com/getting-started).
-
-| key | value | default | notes|
-|:----|:----|:----|:----| -->
+See the Windows Commdand Line Blog to learn more about [Experimental features included in the WSL September 2023 update](https://devblogs.microsoft.com/commandline/windows-subsystem-for-linux-september-2023-update/) and the [2.0.0 WSL pre-release](https://github.com/microsoft/WSL/releases/tag/2.0.0).
 
 ## Example .wslconfig file
 
