@@ -222,11 +222,25 @@ Section label: `[wsl2]`
 | nestedVirtualization | boolean* | `true` | Boolean to turn on or off nested virtualization, enabling other nested VMs to run inside WSL 2. Only available for Windows 11.|
 | vmIdleTimeout | number* | `60000` | The number of milliseconds that a VM is idle, before it is shut down. Only available for Windows 11.|
 
+Section label: `[experimental]`
+
+| Setting name | Value | Default | Notes |
+|:----|:----|:----|:----|
+|`autoMemoryReclaim`| string | disabled | Automatically releases cached memory after detecting idle CPU usage. Set to `gradual` for slow release, and `drop` for instant release of cached memory. |
+|`sparseVhd`| bool | false | When set to true, any newly created VHD will be set to sparse automatically. |
+|`networkingMode`**| string | NAT | If the value is `mirrored` then this turns on mirrored networking mode. Default or unrecognized strings result in NAT networking. |
+|`firewall`**| bool | false | Setting this to true allows the Windows Firewall rules, as well as rules specific to Hyper-V traffic, to filter WSL network traffic. |
+|`dnsTunneling`**| bool | false | Changes how DNS requests are proxied from WSL to Windows |
+|`autoProxy`*| bool | false | Enforces WSL to use Windows’ HTTP proxy information |
+
+
 Entries with the `path` value must be Windows paths with escaped backslashes, e.g: `C:\\Temp\\myCustomKernel`
 
 Entries with the `size` value must be a size followed by a unit, for example `8GB` or `512MB`.
 
 Entries with an * after the value type are only available on Windows 11.
+
+Entries with an ** after the value type are only available on the [Windows Insiders Program](https://www.microsoft.com/en-us/windowsinsider/).
 
 <!-- ## Preview configuration options for .wslconfig
 
@@ -272,6 +286,10 @@ nestedVirtualization=false
 
 # Turns on output console showing contents of dmesg when opening a WSL 2 distro for debugging
 debugConsole=true
+
+# Enable experiemntal features
+[experimental]
+sparseVhd=true
 ```
 
 ## Additional resources
