@@ -1,7 +1,7 @@
 ---
 title: Advanced settings configuration in WSL
 description: A guide to the wsl.conf and .wslconfig files used for configuring settings when running multiple Linux distributions on Windows Subsystem for Linux.
-ms.date: 07/17/2023
+ms.date: 09/18/2023
 ms.topic: article
 ms.custom: seo-windows-dev
 adobe-target: true
@@ -240,7 +240,7 @@ Entries with the `size` value must be a size followed by a unit, for example `8G
 
 Entries with an * after the value type are only available on Windows 11.
 
-Entries with an ** after the value type are only available on the [Windows Insiders Program](https://www.microsoft.com/en-us/windowsinsider/).
+Entries with an ** after the value type are only available on the [Windows Insiders Program](https://www.microsoft.com/windowsinsider/).
 
 See the Windows Commdand Line Blog to learn more about [Experimental features included in the WSL September 2023 update](https://devblogs.microsoft.com/commandline/windows-subsystem-for-linux-september-2023-update/) and the [2.0.0 WSL pre-release](https://github.com/microsoft/WSL/releases/tag/2.0.0).
 
