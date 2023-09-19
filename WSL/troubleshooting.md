@@ -434,7 +434,7 @@ If you're seeing this error:
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 @         WARNING: UNPROTECTED PRIVATE KEY FILE!          @
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-Permissions 0777 for '/home/artur/.ssh/private-key.pem' are too open.
+Permissions 0777 for '/home/user/.ssh/private-key.pem' are too open.
 ```
 
 To fix this, append the following to the the ```/etc/wsl.conf``` file:
