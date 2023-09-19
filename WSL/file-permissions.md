@@ -53,7 +53,7 @@ The result depends on if the file already has existing metadata.
 
 ##### chmod file does not have metadata (default)
 
-Chmod will only have one effect, if you remove all the write attributes of a file then the 'read only' attribute on the Windows file will be set, since this is the same behaviour as CIFS (Common Internet File System) which is the SMB (Server Message Block) client in Linux.
+Chmod will only have one effect, if you remove all the write attributes of a file then the 'read only' attribute on the Windows file will be set, since this is the same behavior as CIFS (Common Internet File System) which is the SMB (Server Message Block) client in Linux.
 
 ##### chmod file has metadata
 
