@@ -204,6 +204,8 @@ See [.wslconfig](#wslconfig) for info on where to store the .wslconfig file.
 
 This file can contain the following options that affect the VM that powers any WSL 2 distribution:
 
+### Main WSL settings
+
 Section label: `[wsl2]`
 
 | key | value | default | notes|
@@ -222,17 +224,34 @@ Section label: `[wsl2]`
 | nestedVirtualization | boolean* | `true` | Boolean to turn on or off nested virtualization, enabling other nested VMs to run inside WSL 2. Only available for Windows 11.|
 | vmIdleTimeout | number* | `60000` | The number of milliseconds that a VM is idle, before it is shut down. Only available for Windows 11.|
 
+### Experimental settings
+
+These settings are opt-in previews of experimental features that we aim to make default in the future. 
+
 Section label: `[experimental]`
 
 | Setting name | Value | Default | Notes |
 |:----|:----|:----|:----|
-|`autoMemoryReclaim`| string | disabled | Automatically releases cached memory after detecting idle CPU usage. Set to `gradual` for slow release, and `drop` for instant release of cached memory. |
+|`autoMemoryReclaim`| string | disabled | Automatically releases cached memory after detecting idle CPU usage. Set to `gradual` for slow release, and `dropcache` for instant release of cached memory. |
 |`sparseVhd`| bool | false | When set to true, any newly created VHD will be set to sparse automatically. |
 |`networkingMode`**| string | NAT | If the value is `mirrored` then this turns on mirrored networking mode. Default or unrecognized strings result in NAT networking. |
 |`firewall`**| bool | false | Setting this to true allows the Windows Firewall rules, as well as rules specific to Hyper-V traffic, to filter WSL network traffic. |
 |`dnsTunneling`**| bool | false | Changes how DNS requests are proxied from WSL to Windows |
 |`autoProxy`*| bool | false | Enforces WSL to use Windows’ HTTP proxy information |
 
+#### Experimental configuration settings
+
+This group of settings configures aspects of the experimental settings above.
+
+Section label: `[experimental]`
+
+| Setting name | Value | Default | Notes |
+|:----|:----|:----|:----|
+|`useWindowsDnsCache`**| bool | false | Only applicable when `experimental.dnsTunneling` is set to true. When this option is set to True, DNS requests tunneled from Linux will bypass cached names within Windows to always put the requests on the wire. |
+|`bestEffortDnsParsing`**| bool | false | Only applicable when `experimental.dnsTunneling` is set to true. When set to true, Windows will extract the question from the DNS request and attempt to resolve it, ignoring the unknown records. |
+|`initialAutoProxyTimeout`*| string | 1000 | Only applicable when `experimental.autoProxy` is set to true. Configures how long WSL will wait for retrieving HTTP proxy information when starting a WSL container. If proxy settings are resolved after this time, the WSL instance must be restarted to use the retrieved proxy settings. |
+|`ignoredPorts`**| string | null | Only applicable when `experimental.networkingMode` is set to `mirrored`. Specifies which ports Linux applications can bind to, even if that port is used in Windows. This enables applications to listen on a port for traffic purely within Linux, so those application are not blocked even when that port is used for other purposes on Windows. For example, WSL will allow bind to port 53 in Linux for Docker Desktop, as it is listening only to requests from within the Linux container. Should be formatted in a comma seperated list, e.g: `3000,9000,9090` |
+|`hostAddressLoopback`**| bool | false | Only applicable when `experimental.networkingMode` is set to `mirrored`. When set to True, will allow the Container to connect to the Host, or the Host to connect to the Container, by an IP address that's assigned to the Host. Note that the 127.0.0.1 loopback address can always be used - this option allows for all additionally assigned local IP addresses to be used as well. |
 
 Entries with the `path` value must be Windows paths with escaped backslashes, e.g: `C:\\Temp\\myCustomKernel`
 
