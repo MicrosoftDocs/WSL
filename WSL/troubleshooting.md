@@ -296,9 +296,9 @@ Setting Name | Value
   https://sysctl-explorer.net/net/ipv6/accept_ra/ | Disabled (0)
   https://sysctl-explorer.net/net/ipv6/autoconf/ | Disabled (0)
   https://sysctl-explorer.net/net/ipv6/use_tempaddr/ | Disabled (0)
- addr_gen_mode| Disabled (0)
- disable_ipv6| Disabled (0)
- [https://sysctl-explorer.net/net/ipv4/arp_filter/] (https://sysctl-explorer.net/net/ipv4/arp_filter/)| Enabled (1)
+  addr_gen_mode| Disabled (0)
+  disable_ipv6| Disabled (0)
+  https://sysctl-explorer.net/net/ipv4/arp_filter/ | Enabled (1)
  
 ### Docker container issues in WSL2 with Mirrored mode enabled when running under the default networking namespace
 Known issue where Docker Desktop containers with published ports (docker run –publish/-p) will fail to be created. We are working with the Docker Desktop team on addressing this. To work around this, use the host’s networking namespace in the Docker container. This is done by setting the network type via "--network host" option used in the "docker run" command. Another workaround is to list the published port number in the ignoredPorts configuration [(Advanced settings configuration in WSL | Microsoft Learn)](https://learn.microsoft.com/en-us/windows/wsl/wsl-config#experimental-configuration-settings)."
