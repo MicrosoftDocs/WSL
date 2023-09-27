@@ -241,7 +241,7 @@ Once you have disconnected the VPN, you will have to revert the changes to `/etc
 
 ### Cisco Anyconnect VPN issues with WSL2 in NAT mode
 
-The Cisco AnyConnect VPN modifies routes in a way which prevents NAT from working. There are two potential workarounds: Cisco has some explicit documentation for WSL2 - it is likely the same thing that is needed here. [Cisco AnyConnect Secure Mobility Client Administrator Guide, Release 4.10 - Troubleshoot AnyConnect [Cisco AnyConnect Secure Mobility Client] - Cisco](https://www.cisco.com/c/en/us/td/docs/security/vpn_client/anyconnect/anyconnect410/administration/guide/b-anyconnect-admin-guide-4-10/troubleshoot-anyconnect.html#Cisco_Task_in_List_GUI.dita_3a9a8101-f034-4e9b-b24a-486ee47b5e9f)
+The Cisco AnyConnect VPN modifies routes in a way which prevents NAT from working. There is a workaround: Cisco has some explicit documentation for WSL2 - it is likely the same thing that is needed here. [Cisco AnyConnect Secure Mobility Client Administrator Guide, Release 4.10 - Troubleshoot AnyConnect [Cisco AnyConnect Secure Mobility Client] - Cisco](https://www.cisco.com/c/en/us/td/docs/security/vpn_client/anyconnect/anyconnect410/administration/guide/b-anyconnect-admin-guide-4-10/troubleshoot-anyconnect.html#Cisco_Task_in_List_GUI.dita_3a9a8101-f034-4e9b-b24a-486ee47b5e9f)
 
 ### WSL connectivity issues with VPNs when Mirrored mode is on
 VPNs that we tested and confirmed are incompatible with WSL.
