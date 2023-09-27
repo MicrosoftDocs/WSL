@@ -290,12 +290,12 @@ When using the mirrored networking mode, some inbound traffic received by the Wi
 WSL will automatically configure certain Linux networking settings when using the mirrored networking mode. Any user configurations of these settings while using mirrored networking mode is not supported. Here is the list of settings WSL will configure: WSL Linux System Settings for Mirrored Networking Mode –
 Setting Name | Value
 --- | --- 
- [https://sysctl-explorer.net/net/ipv4/accept_local/] (https://sysctl-explorer.net/net/ipv4/accept_local/)| Enabled (1)
- [https://sysctl-explorer.net/net/ipv4/route_localnet/] (https://sysctl-explorer.net/net/ipv4/route_localnet/)| Enabled (1)
- [https://sysctl-explorer.net/net/ipv4/rp_filter/] (https://sysctl-explorer.net/net/ipv4/rp_filter/)| Disabled (0)
- [https://sysctl-explorer.net/net/ipv6/accept_ra/] (https://sysctl-explorer.net/net/ipv6/accept_ra/)| Disabled (0)
- [https://sysctl-explorer.net/net/ipv6/autoconf/] (https://sysctl-explorer.net/net/ipv6/autoconf/)| Disabled (0)
- [https://sysctl-explorer.net/net/ipv6/use_tempaddr/] (https://sysctl-explorer.net/net/ipv6/use_tempaddr/)| Disabled (0)
+  https://sysctl-explorer.net/net/ipv4/accept_local/ | Enabled (1)
+  https://sysctl-explorer.net/net/ipv4/route_localnet/ | Enabled (1)
+  https://sysctl-explorer.net/net/ipv4/rp_filter/ | Disabled (0)
+  https://sysctl-explorer.net/net/ipv6/accept_ra/ | Disabled (0)
+  https://sysctl-explorer.net/net/ipv6/autoconf/ | Disabled (0)
+  https://sysctl-explorer.net/net/ipv6/use_tempaddr/ | Disabled (0)
  addr_gen_mode| Disabled (0)
  disable_ipv6| Disabled (0)
  [https://sysctl-explorer.net/net/ipv4/arp_filter/] (https://sysctl-explorer.net/net/ipv4/arp_filter/)| Enabled (1)
