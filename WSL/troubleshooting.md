@@ -250,7 +250,7 @@ VPNs that we tested and confirmed are incompatible with WSL.
 -	"Mcafee Safe Connect" version 2.16.1.124
 
 ### Setting up HttpProxy Mirroring in WSL
-HTTP/S proxy mirroring is enabled by default. It can be disabled setting “AutoProxy=False” in the .wslconfig file. If the proxy settings are changed, the WSL instance must be restarted for the proxy settings to take effect. Note: A toast will be displayed to the user telling them that the WSL instance must be restarted for the new settings to take effect.
+HTTP/S proxy mirroring is enabled by default. It can be disabled setting “AutoProxy=False” in the .wslconfig file. If the proxy settings are changed, the WSL instance must be restarted for the proxy settings to take effect. Note: A toast will be displayed to the user telling them that the WSL instance must be restarted for the new settings to take effect. In configurations with both VPN and Proxy, it can take seconds for settings to be resolved. There is an additional experimental setting "InitialAutoProxyTimeout". This setting configures the amount of time we wait during the first launch of WSL to resolve proxy settings. If the settings have not resolved in that time, WSL will launch without proxy settings. If the settings are resolved after WSL is launched, the wsl instance must be restarted. The user will be displayed a toast indicating this. This setting is configured in ms and has a default value of 1000.
 - PAC Proxy: WSL will configure the setting in Linux by Setting the “WSL_PAC_URL” environment variable. Linux does not support PAC proxies by default. 
 - Interactions with WSLENV: user defined environment variables take precedence over those specified by this feature.
 What we mean when we 'set' the proxy/proxies in Linux is as follows:
