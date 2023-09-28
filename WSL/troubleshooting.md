@@ -239,17 +239,17 @@ Once you have disconnected the VPN, you will have to revert the changes to `/etc
 2. `sudo mv resolv.conf resolv.conf.new`
 3. `sudo ln -s ../run/resolvconf/resolv.conf resolv.conf`
 
-### Cisco Anyconnect VPN issues with WSL2 in NAT mode
+### Cisco Anyconnect VPN issues with WSL in NAT mode
 
 The Cisco AnyConnect VPN modifies routes in a way which prevents NAT from working. There is a workaround: Cisco has some explicit documentation for WSL2 - it is likely the same thing that is needed here. [Cisco AnyConnect Secure Mobility Client Administrator Guide, Release 4.10 - Troubleshoot AnyConnect [Cisco AnyConnect Secure Mobility Client] - Cisco](https://www.cisco.com/c/en/us/td/docs/security/vpn_client/anyconnect/anyconnect410/administration/guide/b-anyconnect-admin-guide-4-10/troubleshoot-anyconnect.html#Cisco_Task_in_List_GUI.dita_3a9a8101-f034-4e9b-b24a-486ee47b5e9f)
 
 ### WSL connectivity issues with VPNs when Mirrored mode is on
 VPNs that we tested and confirmed are incompatible with WSL.
-1.	Bitdefender VPN – version 26.0.2.1
-2.	OpenVPN – version 2.6.501
-3.	Mcafee Safe Connect – version 2.16.1.124
+-	"Bitdefender" version 26.0.2.1
+-	"OpenVPN" version 2.6.501
+-	"Mcafee Safe Connect" version 2.16.1.124
 
-### Setting up HttpProxy Mirroring in WSL2
+### Setting up HttpProxy Mirroring in WSL
 HTTP/S proxy mirroring is enabled by default. It can be disabled setting “AutoProxy=False” in the .wslconfig file. If the proxy settings are changed, the WSL instance must be restarted for the proxy settings to take effect. Note: A toast will be displayed to the user telling them that the WSL instance must be restarted for the new settings to take effect.
 - PAC Proxy: WSL will configure the setting in Linux by Setting the “WSL_PAC_URL” environment variable. Linux does not support PAC proxies by default. 
 - Interactions with WSLENV: user defined environment variables take precedence over those specified by this feature.
@@ -259,7 +259,7 @@ What we mean when we 'set' the proxy/proxies in Linux is as follows:
 - When enabled, we set the Linux environment variable NO_PROXY to the configured targets we identify when we find targets that should bypass HTTP/S proxies.
 Note: Every environment variable except WSL_PAC_URL is set to both lower case and upper case (for example, HTTP_PROXY and http_proxy).
 
-### Notes connecting WSL with DNS tunneling enabled
+### Connecting WSL with DNS tunneling enabled
 - Native Docker can have connectivity issues in WSL when DNS tunneling is enabled – if the network has a policy to block DNS traffic to 8.8.8.8 
 - If you use a VPN with WSL, we recommend turning on DNS tunneling (one reason is because many VPNs use NRPT policies, which are only applied to WSL DNS queries when DNS tunneling is enabled)
   - Linux /etc/resolv.conf file has a limitation of maximum 3 DNS servers, while Windows may use more than 3 DNS servers. Using DNS tunneling removes this limitation – all Windows DNS servers can now be used by Linux.
@@ -267,8 +267,8 @@ Note: Every environment variable except WSL_PAC_URL is set to both lower case an
   - global DNS suffixes 
   - supplemental DNS suffixes 
   - per-interface DNS suffixes
-If DNS encryption (DoH, DoT) is enabled on Windows, encryption will be applied to DNS queries from WSL. If users want to enable DoH, DoT inside Linux, they need to disable DNS tunneling.
-- DNS queries from Docker containers (either Docker Desktop or native Docker running in WSL) will bypass DNS tunneling - i.e. DNS tunneling cannot be leveraged to apply host DNS settings and policies to Docker DNS traffic
+  - if DNS encryption (DoH, DoT) is enabled on Windows, encryption will be applied to DNS queries from WSL. If users want to enable DoH, DoT inside Linux, they need to disable DNS tunneling.
+- DNS queries from Docker containers (either Docker Desktop or native Docker running in WSL) will bypass DNS tunneling - i.e. DNS tunneling cannot be leveraged to apply host DNS settings and policies to Docker DNS traffic.
 - Docker Desktop has its own way (different from DNS tunneling) of applying host DNS settings and policies to DNS queries from Docker containers.
 
 The following 2 experimental WSL configurations can be used to customize DNS tunneling:
@@ -285,7 +285,7 @@ When using the mirrored networking mode, some inbound traffic received by the Wi
 - TCP port 5004 (RTP)
 - TCP port 3702 (WSD)
 - TCP port 5357 (WSD)
-- TCP port 5358 (WSD)"
+- TCP port 5358 (WSD)
 
 WSL will automatically configure certain Linux networking settings when using the mirrored networking mode. Any user configurations of these settings while using mirrored networking mode is not supported. Here is the list of settings WSL will configure: WSL Linux System Settings for Mirrored Networking Mode –
 Setting Name | Value
