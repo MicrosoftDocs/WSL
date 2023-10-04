@@ -58,6 +58,55 @@ In this example, we'll use Docker inside of a WSL distribution to obtain the tar
     docker export $dockerContainerID > /mnt/c/temp/centos.tar
     ```
 
+#### Packaging the rootfs of a Linux distribution into a tar archive
+
+The Linux distributions such as Debian, Fedora, Gentoo, Arch, OpenSUSE and even Ubuntu, in addition to having a set of distribution installation tools, also have a set of rootfs build tools. We can use the rootfs build tools to generate a rootfs directory without the Linux kernel, and by packaging the entire rootfs directory we will get a tar archive image that conforms to the OCI standard. This compressed package is not only suitable for Linux container engines like Docker/Podman or Containerd, but also suitable as a WSL2 distribution.
+
+Open the command line (Bash) for a Linux distribution that you've already installed from the Microsoft Store (Debian and ArchLinux in this example).
+
+If you are using the Debian distribution, you need to install and use debootstrap to install the root filesystem to a newly created directory and package it. You can choose an open source software mirror repository that is geographically close to you and has the fastest download speed:
+
+    ```bash
+    sudo apt-get update -y && sudo apt-get install debootstrap -y
+    
+    mkdir -p bookworm
+    
+    sudo debootstrap --variant=minbase --arch amd64 --include=apt-transport-https,ca-certificates,systemd,locales bookworm bookworm/ https://mirrors.tuna.tsinghua.edu.cn/debian
+
+    cd bookworm
+
+    sudo tar cJf bookworm-rootfs.tar.xz *
+
+    sudo mv bookworm-rootfs.tar.xz /mnt/c/
+    ```
+
+ - If you are using the ArchLinux distribution, you need to install and use pacstrap:
+
+    ```bash
+    sudo pacman -Syyu && pacman -Syyu --noconfirm arch-install-scripts
+    
+    mkdir -p rootfs
+
+    pacstrap ./rootfs base base-devel systemd
+    
+    echo 'Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch' > ./rootfs/etc/pacman.d/mirrorlist
+    
+    curl -o ./rootfs/etc/pacman.conf https://gitlab.archlinux.org/archlinux/packaging/packages/pacman/-/raw/main/pacman.conf?inline=false
+    
+    cd ./rootfs
+    
+    rm -rf var/cache/pacman/pkg/*
+    
+    tar cJf ../rootfs.tar.xz *
+
+    sudo mv rootfs.tar.xz /mnt/c/
+    ```
+
+ - If you are using the Fedora/RHEL/Rocky distribution, you need to install and use Python3-kiwi:
+
+ > Python3-kiwi: https://osinside.github.io/kiwi/overview.html
+
+
 ![Example of running the commands above](./media/run-any-distro-tarfile.png)
 
 This process exports the CentOS tar file from the Docker container so that we can now import it for use locally with WSL.
