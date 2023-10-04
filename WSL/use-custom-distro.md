@@ -66,41 +66,41 @@ Open the command line (Bash) for a Linux distribution that you've already instal
 
 If you are using the Debian distribution, you need to install and use debootstrap to install the root filesystem to a newly created directory and package it. You can choose an open source software mirror repository that is geographically close to you and has the fastest download speed:
 
-    ```bash
-    sudo apt-get update -y && sudo apt-get install debootstrap -y
-    
-    mkdir -p bookworm
-    
-    sudo debootstrap --variant=minbase --arch amd64 --include=apt-transport-https,ca-certificates,systemd,locales bookworm bookworm/ https://mirrors.tuna.tsinghua.edu.cn/debian
+```bash
+sudo apt-get update -y && sudo apt-get install debootstrap -y
 
-    cd bookworm
+mkdir -p bookworm
 
-    sudo tar cJf bookworm-rootfs.tar.xz *
+sudo debootstrap --variant=minbase --arch amd64 --include=apt-transport-https,ca-certificates,systemd,locales bookworm bookworm/ https://mirrors.tuna.tsinghua.edu.cn/debian
 
-    sudo mv bookworm-rootfs.tar.xz /mnt/c/
-    ```
+cd bookworm
+
+sudo tar cJf bookworm-rootfs.tar.xz *
+
+sudo mv bookworm-rootfs.tar.xz /mnt/c/
+```
 
  - If you are using the ArchLinux distribution, you need to install and use pacstrap:
 
-    ```bash
-    sudo pacman -Syyu && pacman -Syyu --noconfirm arch-install-scripts
-    
-    mkdir -p rootfs
+```bash
+sudo pacman -Syyu && pacman -Syyu --noconfirm arch-install-scripts
 
-    pacstrap ./rootfs base base-devel systemd
-    
-    echo 'Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch' > ./rootfs/etc/pacman.d/mirrorlist
-    
-    curl -o ./rootfs/etc/pacman.conf https://gitlab.archlinux.org/archlinux/packaging/packages/pacman/-/raw/main/pacman.conf?inline=false
-    
-    cd ./rootfs
-    
-    rm -rf var/cache/pacman/pkg/*
-    
-    tar cJf ../rootfs.tar.xz *
+mkdir -p rootfs
 
-    sudo mv rootfs.tar.xz /mnt/c/
-    ```
+pacstrap ./rootfs base base-devel systemd
+
+echo 'Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch' > ./rootfs/etc/pacman.d/mirrorlist
+
+curl -o ./rootfs/etc/pacman.conf https://gitlab.archlinux.org/archlinux/packaging/packages/pacman/-/raw/main/pacman.conf?inline=false
+
+cd ./rootfs
+
+rm -rf var/cache/pacman/pkg/*
+
+tar cJf ../rootfs.tar.xz *
+
+sudo mv rootfs.tar.xz /mnt/c/
+```
 
  - If you are using the Fedora/RHEL/Rocky distribution, you need to install and use Python3-kiwi:
 
