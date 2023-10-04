@@ -63,7 +63,7 @@ We recommend that you [secure your account with two-factor authentication (2FA)]
 
 ## Git Credential Manager setup
 
-[Git Credential Manager (GCM)](https://github.com/GitCredentialManager/git-credential-manager) is a secure Git credential helper built on [.NET](https://dotnet.microsoft.com/) that can be used with both WSL1 an WSL2. It enables multi-factor authentication support for GitHub repos, [Azure DevOps](https://dev.azure.com/), Azure DevOps Server, and Bitbucket. 
+[Git Credential Manager (GCM)](https://github.com/GitCredentialManager/git-credential-manager) is a secure Git credential helper built on [.NET](https://dotnet.microsoft.com/) that can be used with both WSL1 and WSL2. It enables multi-factor authentication support for GitHub repos, [Azure DevOps](https://dev.azure.com/), Azure DevOps Server, and Bitbucket. 
 
 GCM integrates into the authentication flow for services like GitHub and, once you're authenticated to your hosting provider, requests a new authentication token. It then stores the token securely in the [Windows Credential Manager](https://support.microsoft.com/help/4026814/windows-accessing-credential-manager). After the first time, you can use Git to talk to your hosting provider without needing to re-authenticate. It will just access the token in the Windows Credential Manager.
 
