@@ -164,4 +164,4 @@ tar -c --zstd -f wsl-i.j.k.l.tar.zst ../wsl-i.j.k.l/
 
 
 
-[install-inst]: https://docs.microsoft.com/en-us/windows/wsl/wsl-config#configure-global-options-with-wslconfig
+[install-inst]: https://docs.microsoft.com/windows/wsl/wsl-config#configure-global-options-with-wslconfig
