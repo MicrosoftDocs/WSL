@@ -107,9 +107,9 @@ tar cJf ../rootfs.tar.xz *
 sudo mv rootfs.tar.xz /mnt/c/
 ```
 
- - If you are using the Fedora/RHEL/Rocky distribution, you need to install and use Python3-kiwi:
+ - If you are using the Fedora/RHEL/Rocky distribution, you need to install and use KIWI NG:
 
- > Python3-kiwi: https://github.com/OSInside/kiwi
+ > KIWI NG: https://github.com/OSInside/kiwi
 
 
 
