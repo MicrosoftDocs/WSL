@@ -58,6 +58,11 @@ In this example, we'll use Docker inside of a WSL distribution to obtain the tar
     docker export $dockerContainerID > /mnt/c/temp/centos.tar
     ```
 
+![Example of running the commands above](./media/run-any-distro-tarfile.png)
+
+This process exports the CentOS tar file from the Docker container so that we can now import it for use locally with WSL.
+
+
 #### Packaging the rootfs of a Linux distribution into a tar archive
 
 The Linux distributions such as Debian, Fedora, Gentoo, Arch, OpenSUSE and even Ubuntu, in addition to having a set of distribution installation tools, also have a set of rootfs build tools. We can use the rootfs build tools to generate a rootfs directory without the Linux kernel, and by packaging the entire rootfs directory we will get a tar archive image that conforms to the OCI standard. This compressed package is not only suitable for Linux container engines like Docker/Podman or Containerd, but also suitable as a WSL2 distribution.
@@ -104,12 +109,9 @@ sudo mv rootfs.tar.xz /mnt/c/
 
  - If you are using the Fedora/RHEL/Rocky distribution, you need to install and use Python3-kiwi:
 
- > Python3-kiwi: https://osinside.github.io/kiwi/overview.html
+ > Python3-kiwi: https://github.com/OSInside/kiwi
 
 
-![Example of running the commands above](./media/run-any-distro-tarfile.png)
-
-This process exports the CentOS tar file from the Docker container so that we can now import it for use locally with WSL.
 
 ## Import the tar file into WSL
 
