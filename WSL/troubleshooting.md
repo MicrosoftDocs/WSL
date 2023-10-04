@@ -241,45 +241,56 @@ Once you have disconnected the VPN, you will have to revert the changes to `/etc
 
 ### Cisco Anyconnect VPN issues with WSL in NAT mode
 
-The Cisco AnyConnect VPN modifies routes in a way which prevents NAT from working. There is a workaround: Cisco has some explicit documentation for WSL2 - it is likely the same thing that is needed here. [Cisco AnyConnect Secure Mobility Client Administrator Guide, Release 4.10 - Troubleshoot AnyConnect [Cisco AnyConnect Secure Mobility Client] - Cisco](https://www.cisco.com/c/en/us/td/docs/security/vpn_client/anyconnect/anyconnect410/administration/guide/b-anyconnect-admin-guide-4-10/troubleshoot-anyconnect.html#Cisco_Task_in_List_GUI.dita_3a9a8101-f034-4e9b-b24a-486ee47b5e9f)
+The Cisco AnyConnect VPN modifies routes in a way which prevents NAT from working. There is a workaround specific to WSL 2: See [Cisco AnyConnect Secure Mobility Client Administrator Guide, Release 4.10 - Troubleshoot AnyConnect](https://www.cisco.com/c/en/us/td/docs/security/vpn_client/anyconnect/anyconnect410/administration/guide/b-anyconnect-admin-guide-4-10/troubleshoot-anyconnect.html#Cisco_Task_in_List_GUI.dita_3a9a8101-f034-4e9b-b24a-486ee47b5e9f).
 
-### WSL connectivity issues with VPNs when Mirrored mode is on
+### WSL connectivity issues with VPNs when Mirrored networking mode is on
 
-VPNs that we tested and confirmed are incompatible with WSL.
--	"Bitdefender" version 26.0.2.1
--	"OpenVPN" version 2.6.501
--	"Mcafee Safe Connect" version 2.16.1.124
+Mirrored networking mode is currently an [experimental setting in the WSL Configuration](/windows/wsl/wsl-config#experimental-settings). The traditional NAT networking architecture of WSL can be updated to an entirely new networking mode called “Mirrored networking mode”. When the experimental `networkingMode` is set to `mirrored`, the network interfaces that you have on Windows are mirrored into Linux to improve compatibility. Learn more in the Command Line blog: [WSL September 2023 update](https://devblogs.microsoft.com/commandline/windows-subsystem-for-linux-september-2023-update/#new-networking-mode-mirrored).
 
-### HttpProxy Mirroring considerations in WSL
+Some VPNs have been tested and confirmed to be incompatible with WSL, including:
 
-HTTP/S proxy mirroring can be configured via the [.wslconfig setting](./wsl-config.md). Please note these considerations:
+- "Bitdefender" version 26.0.2.1
+- "OpenVPN" version 2.6.501
+- "Mcafee Safe Connect" version 2.16.1.124
 
-- PAC Proxy: WSL will configure the setting in Linux by Setting the "WSL_PAC_URL" environment variable. Linux does not support PAC proxies by default. 
-- Interactions with WSLENV: user defined environment variables take precedence over those specified by this feature.
-What we mean when we 'set' the proxy/proxies in Linux is as follows:
-- When enabled, we set the Linux environment variable HTTP_PROXY to the one or more HTTP proxies we locate when we find HTTP proxies configured in Windows.
-- When enabled, we set the Linux environment variable HTTPS_PROXY to the one or more HTTPS proxies we locate when we find HTTPS proxies installed on Windows.
-- When enabled, we set the Linux environment variable NO_PROXY to the configured targets we identify when we find targets that should bypass HTTP/S proxies.
-Note: Every environment variable except WSL_PAC_URL is set to both lower case and upper case (for example, HTTP_PROXY and http_proxy).
+### Considerations when using autoProxy for HttpProxy Mirroring in WSL
+
+HTTP/S proxy mirroring can be configured using the `autoProxy` setting in the [experimental section of the WSL Configuration file](/windows/wsl/wsl-config#experimental-settings). When applying this setting, note these considerations:
+
+- **PAC Proxy**: WSL will configure the setting in Linux by Setting the "WSL_PAC_URL" environment variable. Linux does not support PAC proxies by default. 
+- **Interactions with WSLENV**: User defined environment variables take precedence over those specified by this feature.
+
+When enabled, the following apply to proxy settings on your Linux distributions:
+
+- The Linux environment variable, `HTTP_PROXY`, is set to the one or more HTTP proxies found installed in the Windows HTTP proxy configuration.
+- The Linux environment variable, `HTTPS_PROXY`, is set to the one or more HTTP**S** proxies found installed in the Windows HTTP proxy configuration.
+- The Linux environment variable, `NO_PROXY`, is set to bypass any HTTP/S proxies found in the Windows configuration targets.
+- Every environment variable, except `WSL_PAC_URL`, is set to both lower case and upper case. For example: `HTTP_PROXY` and `http_proxy`.
+
+Learn more in the Command Line blog: [WSL September 2023 update](https://devblogs.microsoft.com/commandline/windows-subsystem-for-linux-september-2023-update/#autoproxy).
 
 ### Networking considerations with DNS tunneling
 
-Please consider these considerations when using WSL with DNS tunneling enabled:
+When WSL can’t connect to the internet, it might be because the DNS call to the Windows host is blocked. This is because the networking packet for DNS sent by the WSL VM to the Windows host is blocked by the existing networking configuration. DNS tunneling fixes this by using a virtualization feature to communicate with Windows directly, allowing the DNS name to be resolved without sending a networking packet. This feature should improve network compatibility and allow you to get better internet connectivity even if you have a VPN, specific firewall setup, or other networking configurations.
 
-- Native Docker can have connectivity issues in WSL when DNS tunneling is enabled – if the network has a policy to block DNS traffic to 8.8.8.8 
-- If you use a VPN with WSL, we recommend turning on DNS tunneling (one reason is because many VPNs use NRPT policies, which are only applied to WSL DNS queries when DNS tunneling is enabled)
-  - Linux /etc/resolv.conf file has a limitation of maximum 3 DNS servers, while Windows may use more than 3 DNS servers. Using DNS tunneling removes this limitation – all Windows DNS servers can now be used by Linux.
+DNS Tunneling can be configured using the `dnsTunneling` setting in the [experimental section of the WSL Configuration file](/windows/wsl/wsl-config#experimental-settings). When applying this setting, note these considerations:
+
+- Native Docker can have connectivity issues in WSL when DNS tunneling is enabled – if the network has a policy to block DNS traffic to: 8.8.8.8 
+- If you use a VPN with WSL, turn on DNS tunneling. Many VPNs use NRPT policies, which are only applied to WSL DNS queries when DNS tunneling is enabled.
+- The `/etc/resolv.conf` file in your Linux distribution has a 3 DNS servers maximum limitation, while Windows may use more than 3 DNS servers. Using DNS tunneling removes this limitation – all Windows DNS servers can now be used by Linux.
 - WSL will use Windows DNS suffixes in the following order (similar to the order used by the Windows DNS client): 
-  - Global DNS suffixes 
-  - Supplemental DNS suffixes 
-  - Per-interface DNS suffixes
-  - If DNS encryption (DoH, DoT) is enabled on Windows, encryption will be applied to DNS queries from WSL. If users want to enable DoH, DoT inside Linux, they need to disable DNS tunneling.
-- DNS queries from Docker containers (either Docker Desktop or native Docker running in WSL) will bypass DNS tunneling - i.e. DNS tunneling cannot be leveraged to apply host DNS settings and policies to Docker DNS traffic.
+  1. Global DNS suffixes 
+  2. Supplemental DNS suffixes 
+  3. Per-interface DNS suffixes
+  4. If DNS encryption (DoH, DoT) is enabled on Windows, encryption will be applied to DNS queries from WSL. If users want to enable DoH, DoT inside Linux, they need to disable DNS tunneling.
+- DNS queries from Docker containers (either Docker Desktop or native Docker running in WSL) will bypass DNS tunneling. DNS tunneling cannot be leveraged to apply host DNS settings and policies to Docker DNS traffic.
 - Docker Desktop has its own way (different from DNS tunneling) of applying host DNS settings and policies to DNS queries from Docker containers.
 
-### Issues with steering the inbound traffic received by the Windows host to the WSL VM
+Learn more in the Command Line blog: [WSL September 2023 update](https://devblogs.microsoft.com/commandline/windows-subsystem-for-linux-september-2023-update/#dns-tunneling).
 
-When using mirrored networking mode, some inbound traffic received by the Windows host will never be steered to the Linux VM. This traffic is as follows:
+### Issues with steering the inbound traffic received by the Windows host to the WSL Virtual Machine
+
+When using Mirrored networking mode (the experimental `networkingMode` set to `mirrored`), some inbound traffic received by the Windows host will never be steered to the Linux VM. This traffic is as follows:
 
 - UDP port 68 (DHCP)
 - TCP port 135 (DCE endpoint resolution)
@@ -305,13 +316,13 @@ WSL will automatically configure certain Linux networking settings when using mi
 |  disable_ipv6| Disabled (0) |
 |  https://sysctl-explorer.net/net/ipv4/arp_filter/ | Enabled (1) |
  
-### Docker container issues in WSL2 with Mirrored mode enabled when running under the default networking namespace
+### Docker container issues in WSL2 with Mirrored networking mode enabled when running under the default networking namespace
 
-Known issue where Docker Desktop containers with published ports (docker run –publish/-p) will fail to be created. We are working with the Docker Desktop team on addressing this. To work around this, use the host’s networking namespace in the Docker container. This is done by setting the network type via "--network host" option used in the "docker run" command. Another workaround is to list the published port number in the ignoredPorts configuration [(Advanced settings configuration in WSL | Microsoft Learn)](https://learn.microsoft.com/windows/wsl/wsl-config#experimental-configuration-settings)."
+There is a known issue in which Docker Desktop containers with published ports (docker run –publish/-p) will fail to be created. The WSL team is working with the Docker Desktop team to address this issue. To work around the issue, use the host’s networking namespace in the Docker container. Set the network type via the "--network host" option used in the "docker run" command. An alternative workaround is to list the published port number in the `ignoredPorts` setting of the [experimental section in the WSL Configuration file](/windows/wsl/wsl-config#experimental-settings). 
 
 ### Starting WSL or installing a distribution returns an error code
 
-Follow [these instructions](https://github.com/Microsoft/WSL/blob/master/CONTRIBUTING.md#8-detailed-logs) to collect detailed logs and file an issue on our GitHub.
+Follow the instructions to [Collect WSL logs](https://github.com/Microsoft/WSL/blob/master/CONTRIBUTING.md#8-detailed-logs) in the WSL repo on GitHub to collect detailed logs and file an issue on our GitHub.
 
 ### Updating WSL
 
