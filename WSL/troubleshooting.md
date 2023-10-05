@@ -43,8 +43,8 @@ You can also:
   - Ensure that you have the Windows Subsystem for Linux enabled, and that you're using Windows Build version 18362 or later. To enable WSL run this command in a PowerShell prompt with admin privileges: `Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux`.
 
 - **The requested operation could not be completed due to a virtual disk system limitation. Virtual hard disk files must be uncompressed and unencrypted and must not be sparse.**
-  - Deselect “Compress contents” (as well as “Encrypt contents” if that’s checked) by opening the profile folder for your Linux distribution. It should be located in a folder on your Windows file system, something like: `%USERPROFILE%\AppData\Local\Packages\CanonicalGroupLimited...`
-  - In this Linux distro profile, there should be a LocalState folder. Right-click this folder to display a menu of options. Select Properties > Advanced and then ensure that the “Compress contents to save disk space” and “Encrypt contents to secure data” checkboxes are unselected (not checked). If you are asked whether to apply this to just to the current folder or to all subfolders and files, select “just this folder” because you are only clearing the compress flag. After this, the `wsl --set-version` command should work.
+  - Deselect "Compress contents" (as well as "Encrypt contents" if that’s checked) by opening the profile folder for your Linux distribution. It should be located in a folder on your Windows file system, something like: `%USERPROFILE%\AppData\Local\Packages\CanonicalGroupLimited...`
+  - In this Linux distro profile, there should be a LocalState folder. Right-click this folder to display a menu of options. Select Properties > Advanced and then ensure that the "Compress contents to save disk space" and "Encrypt contents to secure data" checkboxes are unselected (not checked). If you are asked whether to apply this to just to the current folder or to all subfolders and files, select "just this folder" because you are only clearing the compress flag. After this, the `wsl --set-version` command should work.
 
 ![Screenshot of WSL distro property settings](media/troubleshooting-virtualdisk-compress.png)
 
@@ -60,7 +60,7 @@ You can also:
   - If you receive this error after you have already installed WSL distributions:
   1. Run the distribution at least once before invoking it from the command line.
   2. Check whether you may be running separate user accounts. Running your primary user account with elevated permissions (in admin mode) should not result in this error, but you should ensure that you aren't accidentally running the built-in Administrator account that comes with Windows. This is a separate user account and will not show any installed WSL distributions by design. For more info, see [Enable and Disable the Built-in Administrator Account](/windows-hardware/manufacture/desktop/enable-and-disable-the-built-in-administrator-account).
-  3. The WSL executable is only installed to the native system directory. When you’re running a 32-bit process on 64-bit Windows (or on ARM64, any non-native combination), the hosted non-native process actually sees a different System32 folder. (The one a 32-bit process sees on x64 Windows is stored on disk at \Windows\SysWOW64.) You can access the “native” system32 from a hosted process by looking in the virtual folder: `\Windows\sysnative`. It won’t actually be present on disk, mind you, but the filesystem path resolver will find it.
+  3. The WSL executable is only installed to the native system directory. When you’re running a 32-bit process on 64-bit Windows (or on ARM64, any non-native combination), the hosted non-native process actually sees a different System32 folder. (The one a 32-bit process sees on x64 Windows is stored on disk at \Windows\SysWOW64.) You can access the "native" system32 from a hosted process by looking in the virtual folder: `\Windows\sysnative`. It won’t actually be present on disk, mind you, but the filesystem path resolver will find it.
 
 - **Error: This update only applies to machines with the Windows Subsystem for Linux.**
   - To install the Linux kernel update MSI package, WSL is required and should be enabled first. If it fails, it you will see the message: `This update only applies to machines with the Windows Subsystem for Linux`.
@@ -239,9 +239,90 @@ Once you have disconnected the VPN, you will have to revert the changes to `/etc
 2. `sudo mv resolv.conf resolv.conf.new`
 3. `sudo ln -s ../run/resolvconf/resolv.conf resolv.conf`
 
+### Cisco Anyconnect VPN issues with WSL in NAT mode
+
+The Cisco AnyConnect VPN modifies routes in a way which prevents NAT from working. There is a workaround specific to WSL 2: See [Cisco AnyConnect Secure Mobility Client Administrator Guide, Release 4.10 - Troubleshoot AnyConnect](https://www.cisco.com/c/en/us/td/docs/security/vpn_client/anyconnect/anyconnect410/administration/guide/b-anyconnect-admin-guide-4-10/troubleshoot-anyconnect.html#Cisco_Task_in_List_GUI.dita_3a9a8101-f034-4e9b-b24a-486ee47b5e9f).
+
+### WSL connectivity issues with VPNs when Mirrored networking mode is on
+
+Mirrored networking mode is currently an [experimental setting in the WSL Configuration](/windows/wsl/wsl-config#experimental-settings). The traditional NAT networking architecture of WSL can be updated to an entirely new networking mode called “Mirrored networking mode”. When the experimental `networkingMode` is set to `mirrored`, the network interfaces that you have on Windows are mirrored into Linux to improve compatibility. Learn more in the Command Line blog: [WSL September 2023 update](https://devblogs.microsoft.com/commandline/windows-subsystem-for-linux-september-2023-update/#new-networking-mode-mirrored).
+
+Some VPNs have been tested and confirmed to be incompatible with WSL, including:
+
+- "Bitdefender" version 26.0.2.1
+- "OpenVPN" version 2.6.501
+- "Mcafee Safe Connect" version 2.16.1.124
+
+### Considerations when using autoProxy for HttpProxy Mirroring in WSL
+
+HTTP/S proxy mirroring can be configured using the `autoProxy` setting in the [experimental section of the WSL Configuration file](/windows/wsl/wsl-config#experimental-settings). When applying this setting, note these considerations:
+
+- **PAC Proxy**: WSL will configure the setting in Linux by Setting the "WSL_PAC_URL" environment variable. Linux does not support PAC proxies by default. 
+- **Interactions with WSLENV**: User defined environment variables take precedence over those specified by this feature.
+
+When enabled, the following apply to proxy settings on your Linux distributions:
+
+- The Linux environment variable, `HTTP_PROXY`, is set to the one or more HTTP proxies found installed in the Windows HTTP proxy configuration.
+- The Linux environment variable, `HTTPS_PROXY`, is set to the one or more HTTP**S** proxies found installed in the Windows HTTP proxy configuration.
+- The Linux environment variable, `NO_PROXY`, is set to bypass any HTTP/S proxies found in the Windows configuration targets.
+- Every environment variable, except `WSL_PAC_URL`, is set to both lower case and upper case. For example: `HTTP_PROXY` and `http_proxy`.
+
+Learn more in the Command Line blog: [WSL September 2023 update](https://devblogs.microsoft.com/commandline/windows-subsystem-for-linux-september-2023-update/#autoproxy).
+
+### Networking considerations with DNS tunneling
+
+When WSL can’t connect to the internet, it might be because the DNS call to the Windows host is blocked. This is because the networking packet for DNS sent by the WSL VM to the Windows host is blocked by the existing networking configuration. DNS tunneling fixes this by using a virtualization feature to communicate with Windows directly, allowing the DNS name to be resolved without sending a networking packet. This feature should improve network compatibility and allow you to get better internet connectivity even if you have a VPN, specific firewall setup, or other networking configurations.
+
+DNS Tunneling can be configured using the `dnsTunneling` setting in the [experimental section of the WSL Configuration file](/windows/wsl/wsl-config#experimental-settings). When applying this setting, note these considerations:
+
+- Native Docker can have connectivity issues in WSL when DNS tunneling is enabled – if the network has a policy to block DNS traffic to: 8.8.8.8 
+- If you use a VPN with WSL, turn on DNS tunneling. Many VPNs use NRPT policies, which are only applied to WSL DNS queries when DNS tunneling is enabled.
+- The `/etc/resolv.conf` file in your Linux distribution has a 3 DNS servers maximum limitation, while Windows may use more than 3 DNS servers. Using DNS tunneling removes this limitation – all Windows DNS servers can now be used by Linux.
+- WSL will use Windows DNS suffixes in the following order (similar to the order used by the Windows DNS client): 
+  1. Global DNS suffixes 
+  2. Supplemental DNS suffixes 
+  3. Per-interface DNS suffixes
+  4. If DNS encryption (DoH, DoT) is enabled on Windows, encryption will be applied to DNS queries from WSL. If users want to enable DoH, DoT inside Linux, they need to disable DNS tunneling.
+- DNS queries from Docker containers (either Docker Desktop or native Docker running in WSL) will bypass DNS tunneling. DNS tunneling cannot be leveraged to apply host DNS settings and policies to Docker DNS traffic.
+- Docker Desktop has its own way (different from DNS tunneling) of applying host DNS settings and policies to DNS queries from Docker containers.
+
+Learn more in the Command Line blog: [WSL September 2023 update](https://devblogs.microsoft.com/commandline/windows-subsystem-for-linux-september-2023-update/#dns-tunneling).
+
+### Issues with steering the inbound traffic received by the Windows host to the WSL Virtual Machine
+
+When using Mirrored networking mode (the experimental `networkingMode` set to `mirrored`), some inbound traffic received by the Windows host will never be steered to the Linux VM. This traffic is as follows:
+
+- UDP port 68 (DHCP)
+- TCP port 135 (DCE endpoint resolution)
+- UDP port 5353 (mDNS)
+- TCP port 1900 (UPnP)
+- TCP port 2869 (SSDP)
+- TCP port 5004 (RTP)
+- TCP port 3702 (WSD)
+- TCP port 5357 (WSD)
+- TCP port 5358 (WSD)
+
+WSL will automatically configure certain Linux networking settings when using mirrored networking mode. Any user configurations of these settings while using mirrored networking mode is not supported. Here is the list of settings WSL will configure:
+
+| Setting Name | Value |
+| --- | --- |
+|  https://sysctl-explorer.net/net/ipv4/accept_local/ | Enabled (1) |
+|  https://sysctl-explorer.net/net/ipv4/route_localnet/ | Enabled (1) |
+|  https://sysctl-explorer.net/net/ipv4/rp_filter/ | Disabled (0) |
+|  https://sysctl-explorer.net/net/ipv6/accept_ra/ | Disabled (0) |
+|  https://sysctl-explorer.net/net/ipv6/autoconf/ | Disabled (0) |
+|  https://sysctl-explorer.net/net/ipv6/use_tempaddr/ | Disabled (0) |
+|  addr_gen_mode| Disabled (0) |
+|  disable_ipv6| Disabled (0) |
+|  https://sysctl-explorer.net/net/ipv4/arp_filter/ | Enabled (1) |
+ 
+### Docker container issues in WSL2 with Mirrored networking mode enabled when running under the default networking namespace
+
+There is a known issue in which Docker Desktop containers with published ports (docker run –publish/-p) will fail to be created. The WSL team is working with the Docker Desktop team to address this issue. To work around the issue, use the host’s networking namespace in the Docker container. Set the network type via the "--network host" option used in the "docker run" command. An alternative workaround is to list the published port number in the `ignoredPorts` setting of the [experimental section in the WSL Configuration file](/windows/wsl/wsl-config#experimental-settings). 
+
 ### Starting WSL or installing a distribution returns an error code
 
-Follow [these instructions](https://github.com/Microsoft/WSL/blob/master/CONTRIBUTING.md#8-detailed-logs) to collect detailed logs and file an issue on our GitHub.
+Follow the instructions to [Collect WSL logs](https://github.com/Microsoft/WSL/blob/master/CONTRIBUTING.md#8-detailed-logs) in the WSL repo on GitHub to collect detailed logs and file an issue on our GitHub.
 
 ### Updating WSL
 
