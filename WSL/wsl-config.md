@@ -301,7 +301,7 @@ nestedVirtualization=false
 # Turns on output console showing contents of dmesg when opening a WSL 2 distro for debugging
 debugConsole=true
 
-# Enable experiemntal features
+# Enable experimental features
 [experimental]
 sparseVhd=true
 ```
