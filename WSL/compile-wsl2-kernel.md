@@ -12,7 +12,7 @@ In some specific scenarios, you may need to compile the kernel for WSL2 yourself
 
 ## Preparation
 
-1. Open the command line (Bash) for a Ubuntu 20.04 Linux distribution that you've already installed from the Microsoft Store.
+1. Open the command line (Bash) for a Ubuntu 20.04 LTS (Focal Fossa) Linux distribution that you've already installed from the Microsoft Store.
 
 2. Some tools need to be installed, such as bc jq cmake clang llvm lldb ninja build-essential wget dwarves
 
