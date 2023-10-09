@@ -14,10 +14,10 @@ In some specific scenarios, you may need to compile the kernel for WSL2 yourself
 
 1. Open the command line (Bash) for a Ubuntu 20.04 LTS (Focal Fossa) Linux distribution that you've already installed from the Microsoft Store.
 
-2. Some tools need to be installed, such as bc jq cmake clang llvm lldb ninja build-essential wget dwarves
+2. Some tools need to be installed, such as bc jq cmake clang llvm lldb ninja build-essential wget dwarves kmod
 
 ```bash
-sudo apt-get update -y && sudo apt-get install bc jq cmake clang llvm lldb ninja build-essential wget dwarves -y
+sudo apt-get update -y && sudo apt-get install bc jq cmake clang llvm lldb ninja build-essential wget dwarves kmod -y
 ```
 
 3. Download the kernel source code from the releases page of the wsl2 kernel repository https://github.com/microsoft/WSL2-Linux-Kernel/releases (use i.j.k.l to represent the version number) and extract it:
