@@ -204,7 +204,7 @@ sections:
          wsl --export --vhd <Distroname, e.g: Ubuntu> <Install Location with filename, e.g: D:\WSLDistros\Ubuntu\ext4.vhdx> 
 
          # Unregister your old distro
-         # Please note this will erase your existing distro's file contents, please ensure the backup you created in the 2nd step is present and usable. 
+         # Please note this will erase your existing distro's file contents, please ensure the backup file you created in the 2nd step is present at the location and that the export operation completed successfully.
          # Please exercise caution when using this command, as it is destructive and could cause data loss.
          wsl --unregister <Distroname>
 
