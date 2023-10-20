@@ -191,6 +191,27 @@ sections:
              * Use `tar -czf <tarballName> <directory>` to create a tarball of your files. You can then copy these specific files over to your new machine and run `tar -xzf <tarballName>` to extract them.
              * You can also export a list of installed packages via `apt` with a command like so: `dpkg --get-selections | grep -v deinstall | awk '{print $1}' > package_list.txt` and then reinstall those same packages on another machine with a command like `sudo apt install -y $(cat package_list.txt)` after transferring the file over.
 
+      - question: |
+         How can I move my WSL distribution to a different drive or location?
+        answer: |
+         You can do this using PowerShell. Below are the necessary commands and explanations for each step. Please open a PowerShell window and adjust the values in between the `<` tags to fit your specific use case:
+
+         ```powershell
+         # Create a folder where you would like to store your distro
+         New-Item -ItemType Directory -Path <Install location, e.g: D:\WSLDistros\Ubuntu>
+
+         # Export your distro to that folder as a VHD
+         wsl --export --vhd <Distroname, e.g: Ubuntu> <Install Location with filename, e.g: D:\WSLDistros\Ubuntu\ext4.vhdx> 
+
+         # Unregister your old distro
+         # Please note this will erase your existing distro's file contents, please ensure the backup you created in the 2nd step is present and usable. 
+         # Please exercise caution when using this command, as it is destructive and could cause data loss.
+         wsl --unregister <Distroname>
+
+         # Import your VHD backup
+         wsl --import-in-place <Distroname> <Install Location with filename>
+
+
   - name: WSL 2
     questions:
       - question: |
