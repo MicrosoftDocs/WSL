@@ -158,7 +158,7 @@ sections:
           For more information, see [Accessing network applications](./networking.md).
           
       - question: |
-         How can I back up my WSL distributions, or move them from one drive to another?
+         How can I back up my WSL distributions?
         answer: |
           The best way to backup or move your distributions is via the [export/import commands](./basic-commands.md) available in Windows Version 1809 and later. You can export your entire distribution to a tarball using the `wsl --export` command. You can then import this distribution back into WSL using the `wsl --import` command, which can name a new drive location for the import, allowing you to backup and save states of (or move) your WSL distributions. 
           
