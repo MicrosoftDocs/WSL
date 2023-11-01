@@ -160,7 +160,7 @@ sections:
       - question: |
          How can I back up my WSL distributions?
         answer: |
-          The best way to backup or move your distributions is via the [export/import commands](./basic-commands.md) available in Windows Version 1809 and later. You can export your entire distribution to a tarball using the `wsl --export` command. You can then import this distribution back into WSL using the `wsl --import` command, which can name a new drive location for the import, allowing you to backup and save states of (or move) your WSL distributions. 
+          The best way to backup or move your distributions is via the [export/import commands](./basic-commands.md#import-and-export-a-distribution) available in Windows Version 1809 and later. You can export your entire distribution to a tarball using the `wsl --export` command. You can then import this distribution back into WSL using the `wsl --import` command, which can name a new drive location for the import, allowing you to backup and save states of (or move) your WSL distributions. 
           
           Please note that traditional backup services that backup files in your AppData folders (like Windows Backup) will not corrupt your Linux files.
 
