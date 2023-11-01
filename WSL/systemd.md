@@ -9,7 +9,7 @@ ms.topic: article
 
 Windows Subsystem for Linux (WSL) now supports systemd, an init system and service manager used by many popular Linux distributions such as Ubuntu, Debian, and more. ([What is systemd?](#what-is-systemd-in-linux)).
 
-The init system default has recently changed from SystemV, with [Systemd now the default for the current version of Ubuntu](https://canonical.com/blog/ubuntu-desktop-23-04-release-roundup#:~:text=Systemd%20becomes%20the%20default%20for%20Ubuntu%20on%20WSL) that will be installed using the [`wsl --install` command](./install.md) default. Linux distributions other than the current version of Ubuntu may still use the WSL init, similar to SystemV init. To change to SystemD, see [How to enable systemd](#how-to-enable-systemd).
+The init system default has recently changed from SystemV, with [systemd now the default for the current version of Ubuntu](https://canonical.com/blog/ubuntu-desktop-23-04-release-roundup#:~:text=Systemd%20becomes%20the%20default%20for%20Ubuntu%20on%20WSL) that will be installed using the [`wsl --install` command](./install.md) default. Linux distributions other than the current version of Ubuntu may still use the WSL init, similar to SystemV init. To change to systemd, see [How to enable systemd](#how-to-enable-systemd).
 
 ## What is systemd in Linux?
 
@@ -44,7 +44,7 @@ Once your Linux distribution restarts, systemd will be running. You can confirm 
 
 Learn more about [Advanced settings configuration in WSL](wsl-config.md), including the difference between the `wsl.conf` (distribution-specific) and `.wslconfig` (global) config files, how to update automount settings, etc.
 
-## SystemD demo video
+## Systemd demo video
 
 Microsoft partnered with Canonical to bring systemd support to WSL. See Craig Loewen (PM for WSL at Microsoft) and Oliver Smith (PM for Ubuntu on WSL at Canonical) announce systemd support and show some demos of what it enables.
 
