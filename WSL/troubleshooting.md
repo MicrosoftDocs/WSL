@@ -244,6 +244,7 @@ Once you have disconnected the VPN, you will have to revert the changes to `/etc
 Depending on the configurations in the .wslconfig file, WSL will have the following behavior wrt DNS suffixes:
 
 **When networkingMode is set to NAT:**
+
 Case 1) By default
 no DNS suffix is configured in Linux
 
@@ -264,6 +265,7 @@ The single DNS suffix configured in Linux is chosen from the per-interface DNS s
 if Windows has multiple interfaces, a heuristic is used to choose the single DNS suffix that will be configured in Linux. For example if there is a VPN interface on Windows, the suffix is chosen from that interface. If no VPN interface is present, the suffix is chosen from the interface that is most likely to give Internet connectivity.
 
 **When networkingMode is set to Mirrorred:**
+
 All Windows DNS suffixes are configured in Linux, in the "search" setting of /etc/resolv.conf
 
 The suffixes are configured in /etc/resolv.conf in the same order as in case 2) from NAT mode
