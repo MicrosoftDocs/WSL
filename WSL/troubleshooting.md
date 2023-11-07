@@ -239,6 +239,40 @@ Once you have disconnected the VPN, you will have to revert the changes to `/etc
 2. `sudo mv resolv.conf resolv.conf.new`
 3. `sudo ln -s ../run/resolvconf/resolv.conf resolv.conf`
 
+### DNS suffixes in WSL
+
+Depending on the configurations in the .wslconfig file, WSL will have the following behavior wrt DNS suffixes:
+
+When networkingMode is set to NAT:
+1. By default
+no DNS suffix is configured in Linux
+
+2. If DNS tunneling is enabled (dnsTunneling is set to true in .wslconfig)
+All Windows DNS suffixes are configured in Linux, in the "search" setting of /etc/resolv.conf
+
+The suffixes are configured in /etc/resolv.conf in the following order, similar to the order in which Windows DNS client tries suffixes when resolving a name: global DNS suffixes first, then supplemental DNS suffixes, then per-interface DNS suffixes.
+
+When there is a change in the Windows DNS suffixes, that change will be automatically reflected in Linux
+
+3. If DNS tunneling is disabled and SharedAccess DNS proxy is disabled (dnsTunneling is set to false and dnsProxy is set to false in .wslconfig)
+A single DNS suffix is configured in Linux, in the "domain" setting of /etc/resolv.conf
+
+When there is a change in the Windows DNS suffixes, that change is not reflected in Linux
+
+The single DNS suffix configured in Linux is chosen from the per-interface DNS suffixes (global and supplemental suffixes are ignored)
+
+if Windows has multiple interfaces, a heuristic is used to choose the single DNS suffix that will be configured in Linux. For example if there is a VPN interface on Windows, the suffix is chosen from that interface. If no VPN interface is present, the suffix is chosen from the interface that is most likely to give Internet connectivity.
+
+When networkingMode is set to Mirrorred:
+All Windows DNS suffixes are configured in Linux, in the "search" setting of /etc/resolv.conf
+
+The suffixes are configured in /etc/resolv.conf in the same order as in case 2) from NAT mode
+
+When there is a change in the Windows DNS suffixes, that change will be automatically reflected in Linux
+
+Note: supplemental DNS suffixes can be configured in Windows using
+SetInterfaceDnsSettings - Win32 apps | Microsoft Learn, with the flag DNS_SETTING_SUPPLEMENTAL_SEARCH_LIST set in the Settings parameter
+
 ### Starting WSL or installing a distribution returns an error code
 
 Follow [these instructions](https://github.com/Microsoft/WSL/blob/master/CONTRIBUTING.md#8-detailed-logs) to collect detailed logs and file an issue on our GitHub.
