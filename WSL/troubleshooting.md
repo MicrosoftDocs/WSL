@@ -360,10 +360,14 @@ Note: supplemental DNS suffixes can be configured in Windows using
 
 The default DNS configuration when WSL starts a container in NAT mode is to have the NAT device on the Windows Host serve as the DNS ‘server’ for the WSL container. When DNS queries are sent from the WSL container to that NAT device on the Windows Host, the DNS packet is forwarded from the NAT device to the shared access service on the Host; the response is sent in the reverse direction back to the WSL container. This packet forwarding process to shared access requires a Firewall rule to allow that inbound DNS packet, which is created by the HNS service when WSL initially asks HNS to create the NAT virtual network for its WSL container.
 Due to this NAT - shared access design, there are a few known configurations which can break name resolution from WSL.
-1.	An Enterprise can push policy that does not allow locally defined Firewall rules, only allowing Enterprise-policy defined rules.
+
+**1.	An Enterprise can push policy that does not allow locally defined Firewall rules, only allowing Enterprise-policy defined rules.**
+
 When this is set by an Enterprise, the HNS-created Firewall rule is ignored, as it’s a locally defined rule.
 For this configuration to work the Enterprise must create a Firewall rule to allow UDP port 53 to the shared access service, or WSL can be set to use DNS Tunneling.
 One can see if this is configured to not allow locally defined Firewall rules by running the following. Note that this will show settings for all 3 profiles: Domain, Private, and Public. If it’s set on any profile, then packets will be blocked if the WSL vNIC is assigned that profile (default is Public). This is only a snippet of the first Firewall profile that is returned in Powershell:
+
+```PowerShell
 PS C:\> Get-NetFirewallProfile -PolicyStore ActiveStore
 Name                            : Domain
 Enabled                         : True
@@ -371,32 +375,47 @@ DefaultInboundAction            : Block
 DefaultOutboundAction           : Allow
 AllowInboundRules               : True
 AllowLocalFirewallRules         : False
+```
 False means the locally defined firewall rules, like that by HNS, will not be applied or used.
 I’ll probably need to work with Matt to help create this correctly.
 It looks something like a FirewallRule to allow [in] packets on all profiles with a ServiceFilter where Service= sharedaccess with a PortFilter where Protocol == UDP and LocalPort == 53.
-2.	And Enterprise can push down Group Policy and MDM policy settings that block all inbound rules.
+
+**2.	And Enterprise can push down Group Policy and MDM policy settings that block all inbound rules.**
+
 These settings override any Allow-Inbound Firewall rule. This setting will thus block the HNS-created UDP Firewall rule, and thus will prevent WSL from resolving names.
-For this configuration to work, WSL must be set to use DNS Tunneling. This setting will always block the NAT DNS proxy.
-From Group Policy:
+For this configuration to work, **WSL must be set to use DNS Tunneling.** This setting will always block the NAT DNS proxy.
+
+**From Group Policy:**
+
 Computer Configuration \\ Administrative Templates \\ Network \\ Network Connections \\ Windows Defender Firewall \\ Domain Profile | Standard Profile
---> "Windows Defender Firewall: Do not allow exceptions" --> Enabled
-From MDM Policy:
+"Windows Defender Firewall: Do not allow exceptions" - Enabled
+
+**From MDM Policy:**
+
 ./Vendor/MSFT/Firewall/MdmStore/PrivateProfile/Shielded
 ./Vendor/MSFT/Firewall/MdmStore/DomainProfile/Shielded
 ./Vendor/MSFT/Firewall/MdmStore/PublicProfile/Shielded
+
 One can see if this is configured to not allow any inbound Firewall rules by running the following (see above caveats on Firewall Profiles). This is only a snippet of the first Firewall profile that is returned in Powershell:
+```powerShell
+
 PS C:\> Get-NetFirewallProfile -PolicyStore ActiveStore
 Name                            : Domain
 Enabled                         : True
 DefaultInboundAction            : Block
 DefaultOutboundAction           : Allow
 AllowInboundRules               : False
+```
+
 False means that no inbound Firewall rules will be applied.
-3.	A user goes through the Windows Security setting apps and checks the control for "Blocks all incoming connections, including those in the list of allowed apps."
+
+**3.	A user goes through the Windows Security setting apps and checks the control for "Blocks all incoming connections, including those in the list of allowed apps."**
+
 Windows supports a user-opt-in for the same setting that can be applied by an Enterprise referenced in #2 above. Users can open the “Windows Security” settings page, selects the “Firewall & network protection” option, selects the Firewall Profile they want to configure (Domain, Private, or Public), and under “Incoming connections” check the control labeled "Blocks all incoming connections, including those in the list of allowed apps."
 If this is set for the Public profile (this is the default profile for the WSL vNIC), the Firewall rule created by HNS to allow the UDP packets to shared access will be blocked.
-This must be unchecked for the NAT DNS proxy configuration to work from WSL, or WSL can be set to use DNS Tunneling.
-4.	The HNS Firewall rule to allow the DNS packets to shared access can become invalid, referencing a previous WSL interface identifier.
+This must be unchecked for the NAT DNS proxy configuration to work from WSL, **or WSL can be set to use DNS Tunneling.**
+
+**4.	The HNS Firewall rule to allow the DNS packets to shared access can become invalid, referencing a previous WSL interface identifier.**
 This is a flaw within HNS which has been fixed with the latest Windows 11 release. On earlier releases, if this occurs, it’s not easily discoverable, but it has a simple work around:
 •	Stop WSL
 o	wsl.exe –shutdown
