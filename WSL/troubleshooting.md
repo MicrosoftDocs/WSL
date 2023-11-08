@@ -378,8 +378,6 @@ AllowInboundRules               : True
 AllowLocalFirewallRules         : False
 ```
 False means the locally defined firewall rules, like that by HNS, will not be applied or used.
-I’ll probably need to work with Matt to help create this correctly.
-It looks something like a FirewallRule to allow [in] packets on all profiles with a ServiceFilter where Service= sharedaccess with a PortFilter where Protocol == UDP and LocalPort == 53.
 
 **2.	And Enterprise can push down Group Policy and MDM policy settings that block all inbound rules.**
 
@@ -389,11 +387,13 @@ For this configuration to work, **WSL must be set to use DNS Tunneling.** This s
 **From Group Policy:**
 
 Computer Configuration \\ Administrative Templates \\ Network \\ Network Connections \\ Windows Defender Firewall \\ Domain Profile | Standard Profile
+
 "Windows Defender Firewall: Do not allow exceptions" - Enabled
 
 **From MDM Policy:**
 
 ./Vendor/MSFT/Firewall/MdmStore/PrivateProfile/Shielded
+
 ./Vendor/MSFT/Firewall/MdmStore/DomainProfile/Shielded
 ./Vendor/MSFT/Firewall/MdmStore/PublicProfile/Shielded
 
@@ -413,20 +413,22 @@ False means that no inbound Firewall rules will be applied.
 **3.	A user goes through the Windows Security setting apps and checks the control for "Blocks all incoming connections, including those in the list of allowed apps."**
 
 Windows supports a user-opt-in for the same setting that can be applied by an Enterprise referenced in #2 above. Users can open the “Windows Security” settings page, selects the “Firewall & network protection” option, selects the Firewall Profile they want to configure (Domain, Private, or Public), and under “Incoming connections” check the control labeled "Blocks all incoming connections, including those in the list of allowed apps."
+
 If this is set for the Public profile (this is the default profile for the WSL vNIC), the Firewall rule created by HNS to allow the UDP packets to shared access will be blocked.
+
 This must be unchecked for the NAT DNS proxy configuration to work from WSL, **or WSL can be set to use DNS Tunneling.**
 
 **4.	The HNS Firewall rule to allow the DNS packets to shared access can become invalid, referencing a previous WSL interface identifier.**
 This is a flaw within HNS which has been fixed with the latest Windows 11 release. On earlier releases, if this occurs, it’s not easily discoverable, but it has a simple work around:
-•	Stop WSL
-o	wsl.exe –shutdown
-•	Delete the old HNS Firewall rule. This Powershell command should work in most cases:
-o	Get-NetFirewallRule -Name "HNS*" | Get-NetFirewallPortFilter | where Protocol -eq UDP | where LocalPort -eq 53 | Remove-NetFirewallRule
-•	Remove all HNS endpoints
-o	Note: if HNS is used to manage other containers, such as MDAG or Windows Sandbox, those should also be stopped.
-o	hnsdiag.exe delete all
-•	Reboot or restart the HNS service
-•	When WSL is restarted, HNS will create new Firewall rules, correctly targeting the WSL interface.
+- Stop WSL
+-- wsl.exe –shutdown
+- Delete the old HNS Firewall rule. This Powershell command should work in most cases:
+-- Get-NetFirewallRule -Name "HNS*" | Get-NetFirewallPortFilter | where Protocol -eq UDP | where LocalPort -eq 53 | Remove-NetFirewallRule
+- Remove all HNS endpoints
+-- Note: if HNS is used to manage other containers, such as MDAG or Windows Sandbox, those should also be stopped.
+-- hnsdiag.exe delete all
+- Reboot or restart the HNS service
+- When WSL is restarted, HNS will create new Firewall rules, correctly targeting the WSL interface.
 
 ### Starting WSL or installing a distribution returns an error code
 
