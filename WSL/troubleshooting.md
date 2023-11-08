@@ -395,6 +395,7 @@ Computer Configuration \\ Administrative Templates \\ Network \\ Network Connect
 ./Vendor/MSFT/Firewall/MdmStore/PrivateProfile/Shielded
 
 ./Vendor/MSFT/Firewall/MdmStore/DomainProfile/Shielded
+
 ./Vendor/MSFT/Firewall/MdmStore/PublicProfile/Shielded
 
 One can see if this is configured to not allow any inbound Firewall rules by running the following (see above caveats on Firewall Profiles). This is only a snippet of the first Firewall profile that is returned in Powershell:
@@ -421,12 +422,12 @@ This must be unchecked for the NAT DNS proxy configuration to work from WSL, **o
 **4.	The HNS Firewall rule to allow the DNS packets to shared access can become invalid, referencing a previous WSL interface identifier.**
 This is a flaw within HNS which has been fixed with the latest Windows 11 release. On earlier releases, if this occurs, it’s not easily discoverable, but it has a simple work around:
 - Stop WSL
--- wsl.exe –shutdown
+  1. wsl.exe –shutdown
 - Delete the old HNS Firewall rule. This Powershell command should work in most cases:
--- Get-NetFirewallRule -Name "HNS*" | Get-NetFirewallPortFilter | where Protocol -eq UDP | where LocalPort -eq 53 | Remove-NetFirewallRule
+  1.Get-NetFirewallRule -Name "HNS*" | Get-NetFirewallPortFilter | where Protocol -eq UDP | where LocalPort -eq 53 | Remove-NetFirewallRule
 - Remove all HNS endpoints
--- Note: if HNS is used to manage other containers, such as MDAG or Windows Sandbox, those should also be stopped.
--- hnsdiag.exe delete all
+  1. Note: if HNS is used to manage other containers, such as MDAG or Windows Sandbox, those should also be stopped.
+  2. hnsdiag.exe delete all
 - Reboot or restart the HNS service
 - When WSL is restarted, HNS will create new Firewall rules, correctly targeting the WSL interface.
 
