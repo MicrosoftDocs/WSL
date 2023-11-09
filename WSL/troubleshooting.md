@@ -377,8 +377,7 @@ DefaultOutboundAction           : Allow
 AllowInboundRules               : True
 AllowLocalFirewallRules         : False
 ```
-
-<mark>AllowLocalFirewallRules:False means the locally defined firewall rules, like that by HNS, will not be applied or used.</mark>
+<span style="background-color: #FFFF00">AllowLocalFirewallRules:False means the locally defined firewall rules, like that by HNS, will not be applied or used.</span>
 
 **2.	And Enterprise can push down Group Policy and MDM policy settings that block all inbound rules.**
 
@@ -409,8 +408,7 @@ DefaultInboundAction            : Block
 DefaultOutboundAction           : Allow
 AllowInboundRules               : False
 ```
-
-<mark>AllowInboundRules: False means that no inbound Firewall rules will be applied.</mark>
+<span style="background-color: #FFFF00">AllowInboundRules: False means that no inbound Firewall rules will be applied.</span>
 
 **3.	A user goes through the Windows Security setting apps and checks the control for "Blocks all incoming connections, including those in the list of allowed apps."**
 
