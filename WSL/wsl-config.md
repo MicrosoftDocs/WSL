@@ -179,7 +179,7 @@ hostname = DemoHost
 generateHosts = false
 generateResolvConf = false
 
-# Set whether WSL supports interop process like launching Windows apps and adding path variables. Setting these to false will block the launch of Windows processes and block adding $PATH environment variables.
+# Set whether WSL supports interop processes like launching Windows apps and adding path variables. Setting these to false will block the launch of Windows processes and block adding $PATH environment variables.
 [interop]
 enabled = false
 appendWindowsPath = false
@@ -200,7 +200,7 @@ The .wslconfig file configures settings globally for all Linux distributions run
 See [.wslconfig](#wslconfig) for info on where to store the .wslconfig file.
 
 > [!NOTE]
-> Global configuration options with `.wslconfig` is only available for distributions running as WSL 2 in Windows Build 19041 and later. Keep in mind you may need to run `wsl --shutdown` to shut down the WSL 2 VM and then restart your WSL instance for these changes to take affect.
+> Global configuration options with `.wslconfig` are only available for distributions running as WSL 2 in Windows Build 19041 and later. Keep in mind you may need to run `wsl --shutdown` to shut down the WSL 2 VM and then restart your WSL instance for these changes to take effect.
 
 This file can contain the following options that affect the VM that powers any WSL 2 distribution:
 
@@ -247,15 +247,15 @@ Section label: `[experimental]`
 
 | Setting name | Value | Default | Notes |
 |:----|:----|:----|:----|
-|`useWindowsDnsCache`**| bool | false | Only applicable when `experimental.dnsTunneling` is set to true. When this option is set to True, DNS requests tunneled from Linux will bypass cached names within Windows to always put the requests on the wire. |
+|`useWindowsDnsCache`**| bool | false | Only applicable when `experimental.dnsTunneling` is set to true. When this option is set to false, DNS requests tunneled from Linux will bypass cached names within Windows to always put the requests on the wire. |
 |`bestEffortDnsParsing`**| bool | false | Only applicable when `experimental.dnsTunneling` is set to true. When set to true, Windows will extract the question from the DNS request and attempt to resolve it, ignoring the unknown records. |
 |`initialAutoProxyTimeout`*| string | 1000 | Only applicable when `experimental.autoProxy` is set to true. Configures how long WSL will wait for retrieving HTTP proxy information when starting a WSL container. If proxy settings are resolved after this time, the WSL instance must be restarted to use the retrieved proxy settings. |
-|`ignoredPorts`**| string | null | Only applicable when `experimental.networkingMode` is set to `mirrored`. Specifies which ports Linux applications can bind to, even if that port is used in Windows. This enables applications to listen on a port for traffic purely within Linux, so those application are not blocked even when that port is used for other purposes on Windows. For example, WSL will allow bind to port 53 in Linux for Docker Desktop, as it is listening only to requests from within the Linux container. Should be formatted in a comma seperated list, e.g: `3000,9000,9090` |
+|`ignoredPorts`**| string | null | Only applicable when `experimental.networkingMode` is set to `mirrored`. Specifies which ports Linux applications can bind to, even if that port is used in Windows. This enables applications to listen on a port for traffic purely within Linux, so those applications are not blocked even when that port is used for other purposes on Windows. For example, WSL will allow binding to port 53 in Linux for Docker Desktop, as it is listening only to requests from within the Linux container. Should be formatted in a comma separated list, e.g: `3000,9000,9090` |
 |`hostAddressLoopback`**| bool | false | Only applicable when `experimental.networkingMode` is set to `mirrored`. When set to True, will allow the Container to connect to the Host, or the Host to connect to the Container, by an IP address that's assigned to the Host. Note that the 127.0.0.1 loopback address can always be used - this option allows for all additionally assigned local IP addresses to be used as well. |
 
 Entries with the `path` value must be Windows paths with escaped backslashes, e.g: `C:\\Temp\\myCustomKernel`
 
-Entries with the `size` value must be a size followed by a unit, for example `8GB` or `512MB`.
+Entries with the `size` value must be a size followed by a unit, for example, `8GB` or `512MB`.
 
 Entries with an * after the value type are only available on Windows 11.
 
