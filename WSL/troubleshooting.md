@@ -375,8 +375,9 @@ Enabled                         : True
 DefaultInboundAction            : Block
 DefaultOutboundAction           : Allow
 AllowInboundRules               : True
-<mark>AllowLocalFirewallRules   : False</mark>
 ```
+==AllowLocalFirewallRules       : False==
+
 False means the locally defined firewall rules, like that by HNS, will not be applied or used.
 
 **2.	And Enterprise can push down Group Policy and MDM policy settings that block all inbound rules.**
