@@ -1,7 +1,7 @@
 ---
 title: Troubleshooting Windows Subsystem for Linux
 description: Provides detailed information about common errors and issues people run into while running Linux on the Windows Subsystem for Linux. 
-ms.date: 07/17/2023
+ms.date: 11/09/2023
 ms.topic: article
 ---
 
@@ -354,7 +354,7 @@ The suffixes are configured in /etc/resolv.conf in the same order as in case 2) 
 When there is a change in the Windows DNS suffixes, that change will be automatically reflected in Linux
 
 Note: supplemental DNS suffixes can be configured in Windows using
-[SetInterfaceDnsSettings - Win32 apps | Microsoft Learn](https://learn.microsoft.com/en-us/windows/win32/api/netioapi/nf-netioapi-setinterfacednssettings), with the flag **DNS_SETTING_SUPPLEMENTAL_SEARCH_LIST set in the Settings parameter**
+[SetInterfaceDnsSettings - Win32 apps | Microsoft Learn](/windows/win32/api/netioapi/nf-netioapi-setinterfacednssettings), with the flag **DNS_SETTING_SUPPLEMENTAL_SEARCH_LIST set in the Settings parameter**
 
 ### Troubleshooting DNS in WSL
 
@@ -487,7 +487,7 @@ The Windows Subsystem for Linux feature may be disabled during a Windows update.
 
 WSL install will try to automatically change the Ubuntu locale to match the locale of your Windows install. If you do not want this behavior you can run this command to change the Ubuntu locale after install completes.  You will have to relaunch bash.exe for this change to take effect.
 
-The below example changes to locale to en-US:
+The below example changes to locale to `en-US`:
 
 ```bash
 sudo update-locale LANG=en_US.UTF8
