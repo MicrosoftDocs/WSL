@@ -375,7 +375,7 @@ Enabled                         : True
 DefaultInboundAction            : Block
 DefaultOutboundAction           : Allow
 AllowInboundRules               : True
-==AllowLocalFirewallRules         : False==
+<mark>AllowLocalFirewallRules   : False</mark>
 ```
 False means the locally defined firewall rules, like that by HNS, will not be applied or used.
 
@@ -406,7 +406,7 @@ Name                            : Domain
 Enabled                         : True
 DefaultInboundAction            : Block
 DefaultOutboundAction           : Allow
-==AllowInboundRules               : False==
+<mark>AllowInboundRules         : False</mark>
 ```
 
 False means that no inbound Firewall rules will be applied.
