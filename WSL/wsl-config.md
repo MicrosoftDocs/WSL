@@ -1,7 +1,7 @@
 ---
 title: Advanced settings configuration in WSL
 description: A guide to the wsl.conf and .wslconfig files used for configuring settings when running multiple Linux distributions on Windows Subsystem for Linux.
-ms.date: 11/09/2023
+ms.date: 11/10/2023
 ms.topic: article
 ms.custom: seo-windows-dev
 adobe-target: true
@@ -15,35 +15,14 @@ The [wsl.conf](#wslconf) and [.wslconfig](#wslconfig) files are used to configur
 
 You can configure the settings for your installed Linux distributions that will automatically be applied every time you launch WSL in two ways, by using:
 
-- **[.wslconfig](#wslconfig)** to configure settings **globally** across all installed distributions running on WSL 2.
-- **[wsl.conf](#wslconf)**  to configure settings **per-distribution** for Linux distros running on WSL 1 or WSL 2.
+- **[.wslconfig](#wslconfig)** to configure **global settings** across all installed distributions running on WSL 2.
+- **[wsl.conf](#wslconf)**  to configure **local settings** per-distribution for each Linux distribution running on WSL 1 or WSL 2.
 
-Both file types are used for configuring WSL settings, but the location where the file is stored, the scope of the configuration, and the version of WSL running your distribution all impact which file type to choose.
+Both file types are used for configuring WSL settings, but the location where the file is stored, the scope of the configuration, the type of options that can be configured, and the version of WSL running your distribution all impact which file type to choose.
 
-The version of WSL that you are running will impact the configuration settings. WSL 2 runs as a lightweight virtual machine (VM), so uses virtualization settings that allow you to control the amount of memory or processors used (which may be familiar if you use Hyper-V or VirtualBox).
+WSL 1 and WSL 2 run with different architecture and will impact the configuration settings. WSL 2 runs as a lightweight virtual machine (VM), so uses virtualization settings that allow you to control the amount of memory or processors used (which may be familiar if you use Hyper-V or VirtualBox). [Check which version of WSL you are running.](./install.md#check-which-version-of-wsl-you-are-running)
 
-## wsl.conf
-
-- Stored in the `/etc` directory of the distribution as a unix file.
-- Used to configure settings on a per-distribution basis. Settings configured in this file will only be applied to the specific Linux distribution that contains the directory where this file is stored.
-- Can be used for distributions run by either version, WSL 1 or WSL 2.
-- To get to the `/etc` directory for an installed distribution, use the distribution's command line with `cd /` to access the root directory, then `ls` to list files or `explorer.exe .` to view in Windows File Explorer. The directory path should look something like: `/etc/wsl.conf`.
-
-## .wslconfig
-
-- Stored in your `%UserProfile%` directory.
-- Used to configure settings globally across all installed Linux distributions running as the WSL 2 version.
-- Can be used **only for distributions run by WSL 2**. Distributions running as WSL 1 will not be affected by this configuration as they are not running as a virtual machine.
-- To get to your `%UserProfile%` directory, in PowerShell, use `cd ~` to access your home directory (which is typically your user profile, `C:\Users\<UserName>`) or you can open Windows File Explorer and enter `%UserProfile%` in the address bar. The directory path should look something like: `C:\Users\<UserName>\.wslconfig`.
-
-WSL will detect the existence of these files, read the contents, and automatically apply the configuration settings every time you launch WSL. If the file is missing or malformed (improper markup formatting), WSL will continue to launch as normal without the configuration settings applied.
-
-[Check which version of WSL you are running.](./install.md#check-which-version-of-wsl-you-are-running)
-
-> [!NOTE]
-> Adjusting per-distribution settings with the wsl.conf file is only available in Windows Build 17093 and later.
-
-### The 8 second rule
+## The 8 second rule for configuration changes
 
 You must wait until the subsystem running your Linux distribution completely stops running and restarts for configuration setting updates to appear. This typically takes about 8 seconds after closing ALL instances of the distribution shell.
 
@@ -51,7 +30,19 @@ If you launch a distribution (e.g. Ubuntu), modify the configuration file, close
 
 The command `wsl --shutdown` is a fast path to restarting WSL 2 distributions, but it will shut down all running distributions, so use wisely.
 
-## Configuration settings for wsl.conf
+## wsl.conf
+
+Configure **local settings** with **wsl.conf** per-distribution for each Linux distribution running on WSL 1 or WSL 2.
+
+- Stored in the `/etc` directory of the distribution as a unix file.
+- Used to configure settings on a per-distribution basis. Settings configured in this file will only be applied to the specific Linux distribution that contains the directory where this file is stored.
+- Can be used for distributions run by either version, WSL 1 or WSL 2.
+- To get to the `/etc` directory for an installed distribution, use the distribution's command line with `cd /` to access the root directory, then `ls` to list files or `explorer.exe .` to view in Windows File Explorer. The directory path should look something like: `/etc/wsl.conf`.
+
+> [!NOTE]
+> Adjusting per-distribution settings with the wsl.conf file is only available in Windows Build 17093 and later.
+
+### Configuration settings for wsl.conf
 
 The wsl.conf file configures settings on a per-distribution basis. *(For global configuration of WSL 2 distributions see [.wslconfig](#wslconfig)).*
 
@@ -72,7 +63,7 @@ You will then need to close your WSL distribution using `wsl.exe --shutdown` fro
 
 ### Automount settings
 
-Section label: `[automount]`
+wsl.conf section label: `[automount]`
 
 | key | value | default | notes |
 |:-----------|:---------|:--------|:------|
@@ -110,7 +101,7 @@ DrvFs is a filesystem plugin to WSL that was designed to support interop between
 
 ### Network settings
 
-Section label: `[network]`
+wsl.conf section label: `[network]`
 
 | key | value | default | notes|
 |:----|:----|:----|:----|
@@ -120,7 +111,7 @@ Section label: `[network]`
 
 ### Interop settings
 
-Section label: `[interop]`
+wsl.conf section label: `[interop]`
 
 These options are available in Insider Build 17713 and later.
 
@@ -131,7 +122,7 @@ These options are available in Insider Build 17713 and later.
 
 ### User settings
 
-Section label: `[user]`
+wsl.conf section label: `[user]`
 
 These options are available in Build 18980 and later.
 
@@ -143,15 +134,11 @@ These options are available in Build 18980 and later.
 
 The Boot setting is only available on Windows 11 and Server 2022.
 
-Section label: `[boot]`
+wsl.conf section label: `[boot]`
 
 | key | value | default | notes|
 |:----|:----|:----|:----|
 | command | string | "" | A string of the command that you would like to run when the WSL instance starts. This command is run as the root user. e.g: `service docker start`.|
-
-<!-- ## Preview configuration options for wsl.conf
-
-These options are only available in the latest preview builds if you are on the latest builds of the [Windows Insiders program](https://insider.windows.com/getting-started). -->
 
 ### Example wsl.conf file
 
@@ -193,20 +180,31 @@ default = DemoUser
 command = service docker start
 ```
 
-## Configuration setting for .wslconfig
+## .wslconfig
+
+Configure **global settings** with **.wslconfig** across all installed distributions running on WSL 2.
+
+- Stored in your `%UserProfile%` directory.
+- Used to configure settings globally across all installed Linux distributions running as the WSL 2 version.
+- Can be used **only for distributions run by WSL 2**. Distributions running as WSL 1 will not be affected by this configuration as they are not running as a virtual machine.
+- To get to your `%UserProfile%` directory, in PowerShell, use `cd ~` to access your home directory (which is typically your user profile, `C:\Users\<UserName>`) or you can open Windows File Explorer and enter `%UserProfile%` in the address bar. The directory path should look something like: `C:\Users\<UserName>\.wslconfig`.
+
+WSL will detect the existence of these files, read the contents, and automatically apply the configuration settings every time you launch WSL. If the file is missing or malformed (improper markup formatting), WSL will continue to launch as normal without the configuration settings applied.
+
+### Configuration settings for .wslconfig
 
 The .wslconfig file configures settings globally for all Linux distributions running with WSL 2. *(For per-distribution configuration see [wsl.conf](#wslconf)).*
 
 See [.wslconfig](#wslconfig) for info on where to store the .wslconfig file.
 
 > [!NOTE]
-> Global configuration options with `.wslconfig` are only available for distributions running as WSL 2 in Windows Build 19041 and later. Keep in mind you may need to run `wsl --shutdown` to shut down the WSL 2 VM and then restart your WSL instance for these changes to take effect.
+> Configuring global settings with `.wslconfig` are only available for distributions running as WSL 2 in Windows Build 19041 and later. Keep in mind you may need to run `wsl --shutdown` to shut down the WSL 2 VM and then restart your WSL instance for these changes to take effect.
 
 This file can contain the following options that affect the VM that powers any WSL 2 distribution:
 
 ### Main WSL settings
 
-Section label: `[wsl2]`
+.wslconfig section label: `[wsl2]`
 
 | key | value | default | notes|
 |:----|:----|:----|:----|
@@ -226,9 +224,9 @@ Section label: `[wsl2]`
 
 ### Experimental settings
 
-These settings are opt-in previews of experimental features that we aim to make default in the future. 
+These settings are opt-in previews of experimental features that we aim to make default in the future.
 
-Section label: `[experimental]`
+.wslconfig section label: `[experimental]`
 
 | Setting name | Value | Default | Notes |
 |:----|:----|:----|:----|
@@ -243,7 +241,7 @@ Section label: `[experimental]`
 
 This group of settings configures aspects of the experimental settings above.
 
-Section label: `[experimental]`
+.wslconfig section label: `[experimental]`
 
 | Setting name | Value | Default | Notes |
 |:----|:----|:----|:----|
