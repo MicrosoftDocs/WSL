@@ -182,9 +182,9 @@ command = service docker start
 
 ## .wslconfig
 
-Configure **global settings** with **.wslconfig** across all installed distributions running on WSL 2.
+Configure **global settings** with **.wslconfig** across all installed distributions running on WSL.
 
-- Stored in your `%UserProfile%` directory.
+- The .wslconfig file does not exist by default. It must be created and stored in your `%UserProfile%` directory to apply these configuration settings.
 - Used to configure settings globally across all installed Linux distributions running as the WSL 2 version.
 - Can be used **only for distributions run by WSL 2**. Distributions running as WSL 1 will not be affected by this configuration as they are not running as a virtual machine.
 - To get to your `%UserProfile%` directory, in PowerShell, use `cd ~` to access your home directory (which is typically your user profile, `C:\Users\<UserName>`) or you can open Windows File Explorer and enter `%UserProfile%` in the address bar. The directory path should look something like: `C:\Users\<UserName>\.wslconfig`.
