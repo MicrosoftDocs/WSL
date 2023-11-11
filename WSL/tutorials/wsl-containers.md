@@ -27,8 +27,9 @@ To learn more, check out [Introduction to Docker containers](/training/modules/i
 
 ## Prerequisites
 
-- Ensure your machine is running Windows 10, [updated to version 2004](ms-settings:windowsupdate), **Build 18362** or later, or Windows 11.
-- WSL version 1.1.2.0 or later.
+- WSL version 1.1.3.0 or later.
+- Windows 11 64-bit: Home or Pro version 21H2 or higher, or Enterprise or Education version 21H2 or higher.
+- Windows 10 64-bit (Recommended): Home or Pro 22H2 (build 19045) or higher, or Enterprise or Education 22H2 (build 19045) or higher. (Minimum): Home or Pro 21H2 (build 19044) or higher, or Enterprise or Education 21H2 (build 19044) or higher. [Update Windows](ms-settings:windowsupdate)
 - 64-bit processor with [Second Level Address Translation (SLAT)](https://en.wikipedia.org/wiki/Second_Level_Address_Translation).
 - 4GB system RAM.
 - Enable hardware virtualization in BIOS.

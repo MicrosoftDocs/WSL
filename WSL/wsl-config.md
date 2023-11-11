@@ -257,7 +257,7 @@ Entries with the `size` value must be a size followed by a unit, for example, `8
 
 Entries with an * after the value type are only available on Windows 11.
 
-Entries with an ** after the value type are only available on the [Windows Insiders Program](https://www.microsoft.com/windowsinsider/).
+Entries with an ** after the value type require [Windows version 22H2](https://blogs.windows.com/windows-insider/2023/09/14/releasing-windows-11-build-22621-2359-to-the-release-preview-channel/) or higher.
 
 See the Windows Command Line Blog to learn more about [Experimental features included in the WSL September 2023 update](https://devblogs.microsoft.com/commandline/windows-subsystem-for-linux-september-2023-update/) and the [2.0.0 WSL pre-release](https://github.com/microsoft/WSL/releases/tag/2.0.0).
 
@@ -290,7 +290,7 @@ swapfile=C:\\temp\\wsl-swap.vhdx
 # Disable page reporting so WSL retains all allocated memory claimed from Windows and releases none back when free
 pageReporting=false
 
-# Turn off default connection to bind WSL 2 localhost to Windows localhost
+# Turn on default connection to bind WSL 2 localhost to Windows localhost
 localhostforwarding=true
 
 # Disables nested virtualization
