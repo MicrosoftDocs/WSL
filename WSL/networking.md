@@ -8,31 +8,34 @@ ms.topic: article
 
 # Accessing network applications with WSL
 
-There are a few considerations to be aware of when working with networking apps, whether you are accessing a Linux networking app from a Windows app or accessing a Windows networking app from a Linux app, you may need to identify the IP address of the virtual machine you are working with, which will be different than the IP address of your local physical machine.
+There are a few considerations to be aware of when working with networking apps and WSL. By default WSL uses a [NAT based architecture](#default-networking-mode-nat), and we recommend trying the new [Mirrored networking mode](#mirrored-mode-networking) to get the latest features and improvements.
 
-## Accessing Linux networking apps from Windows (localhost)
+## Default networking mode: NAT
 
+By default, WSL uses a NAT (Network address translatiintuon) based networking architecture. Keep the following considerations in mind when working with a NAT-based networking architecture:
+
+### Accessing Linux networking apps from Windows(localhost)
+   
 If you are building a networking app (for example an app running on a NodeJS or SQL server) in your Linux distribution, you can access it from a Windows app (like your Edge or Chrome internet browser) using `localhost` (just like you normally would).
 
-## Accessing Windows networking apps from Linux (host IP)
+### Accessing Windows networking apps from Linux (host IP)
 
 If you want to access a networking app running on Windows (for example an app running on a NodeJS or SQL server) from your Linux distribution (ie Ubuntu), then you need to use the IP address of your host machine. While this is not a common scenario, you can follow these steps to make it work.
 
-1. Obtain the IP address of your host machine by running this command from your Linux distribution: `cat /etc/resolv.conf`
-2. Copy the IP address following the term: `nameserver`.
-3. Connect to any Windows server using the copied IP address.
+1. Obtain the IP address of your host machine by running this command from your Linux distribution: ` ip route show | grep -i default | awk '{ print $3}'
+2. Connect to any Windows server using the copied IP address.
 
 The picture below shows an example of this by connecting to a Node.js server running in Windows via curl.
 
 ![Connect to NodeJS server in Windows via Curl](media/wsl2-network-l2w.png)
 
-## Connecting via remote IP addresses
+### Connecting via remote IP addresses
 
 When using remote IP addresses to connect to your applications, they will be treated as connections from the Local Area Network (LAN). This means that you will need to make sure your application can accept LAN connections.
 
 For example, you may need to bind your application to `0.0.0.0` instead of `127.0.0.1`. In the example of a Python app using Flask, this can be done with the command: `app.run(host='0.0.0.0')`. Please keep security in mind when making these changes as this will allow connections from your LAN.
 
-## Accessing a WSL 2 distribution from your local area network (LAN)
+### Accessing a WSL 2 distribution from your local area network (LAN)
 
 When using a WSL 1 distribution, if your computer was set up to be accessed by your LAN, then applications run in WSL could be accessed on your LAN as well.
 
@@ -55,10 +58,38 @@ netsh interface portproxy add v4tov4 listenport=4000 listenaddress=0.0.0.0 conne
 To obtain the IP address, use:
 
 - `wsl hostname -i` for the IP address of your Linux distribution installed via WSL 2 (the WSL 2 VM address)
-- `cat /etc/resolv.conf` for the IP address of the Windows machine as seen from WSL 2 (the WSL 2 VM)
+- `ip route show | grep -i default | awk '{ print $3}'` for the IP address of the Windows machine as seen from WSL 2 (the WSL 2 VM)
 
 Using `listenaddress=0.0.0.0` will listen on all [IPv4 ports](https://stackoverflow.com/questions/9987409/want-to-know-what-is-ipv4-and-ipv6#:~:text=The%20basic%20difference%20is%20the,whereas%20IPv6%20has%20128%20bits.).
 
-## IPv6 access
+## Mirrored mode networking
 
-WSL 2 distributions currently cannot reach IPv6-only addresses. We are working on adding this feature.
+You can [set `networkingMode=mirrored` under `[wsl2]` in the `.wslconfig` file](./wsl-config.md#configuration-setting-for-wslconfig) to enable mirrored mode networking. Enabling this changes WSL to an entirely new networking architecture which has the goal of 'mirroring' the network interfaces that you have on Windows into Linux, to add new networking features and improve compatibility.
+
+Here are the current benefits to enabling this mode:
+
+- IPv6 support
+- Connect to Windows servers from within Linux using the localhost address `127.0.0.1`
+- Connect to WSL directly from your local area network (LAN)
+   - > **__NOTE:__** Please run the following command in PowerShell window with admin privileges to set a [Hyper-V firewall](https://learn.microsoft.com/windows/security/operating-system-security/network-security/windows-firewall/hyper-v-firewall) setting to allow inbound connections: `Set-NetFirewallHyperVVMSetting -Name ‘{40E0AC32-46A5-438A-A0B2-2B479E8F2E90}’ -DefaultInboundConnection Allow` or `New-NetFirewallHyperVRule -Name MyWebServer -DisplayName “My Web Server” -Direction Inbound -VMCreatorId “{40E0AC32-46A5-438A-A0B2-2B479E8F2E90}” -Protocol TCP -LocalPorts 80`
+- Improved networking compatibility for VPNs
+- Multicast support
+
+This new mode addresses many of the networking issues that are seen with NAT that you can see above in this docs page. There are some initial known issues, so as you explore this mode please file feedback on any bugs at the [WSL GitHub repo](http://github.com/microsoft/wsl).
+
+## DNS Tunneling
+
+Setting [`dnsTunneling=true` under `[wsl2]` in the `.wslconfig` file](./wsl-config.md#configuration-setting-for-wslconfig) has WSL use a virtulization feature to answer DNS requests from within WSL, instead of requesting them over a networking packet. This feature is aimed to improve compatibility with VPNs, and other complex networking set ups.
+
+## Auto Proxy
+
+Setting [`autoProxy=true` under `[wsl2]` in the `.wslconfig` file](./wsl-config.md#configuration-setting-for-wslconfig) enforces WSL to use Windows' HTTP proxy information. If you have a proxy already set up in Windows, enabling this feature will make that proxy be set automatically in WSL as well.
+
+## WSL and firewall
+
+On machines running Windows 11 22H2 and higher, with WSL 2.0.9 and higher, the Hyper-V firewall feature will be turned on by default. This will ensure that: 
+
+- Regular [Windows firewall rules and settings](in https://learn.microsoft.com/windows/security/operating-system-security/network-security/windows-firewall/windows-firewall-with-advanced-security) will automatically apply to WSL
+- [Hyper-V firewall](https://learn.microsoft.com/windows/security/operating-system-security/network-security/windows-firewall/hyper-v-firewall) rules and settings can be set to apply specifically to WSL
+
+Please see the [Hyper-V firewall docs page](https://learn.microsoft.com/windows/security/operating-system-security/network-security/windows-firewall/hyper-v-firewall) to learn more about applying these rules and settings both locally and via online tools like Intune. 

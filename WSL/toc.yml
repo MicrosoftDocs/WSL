@@ -52,8 +52,6 @@
       href: systemd.md
 - name: How-to
   items:
-    - name: Set up WSL for your company
-      href: enterprise.md
     - name: Import any Linux distribution
       href: use-custom-distro.md
     - name: Build a custom distribution
@@ -66,6 +64,14 @@
       href: case-sensitivity.md
     - name: Manage available disk space
       href: disk-space.md
+    - name: Create WSL plugins
+      href: wsl-plugins.md
+- name: Enterprise security
+  items:
+    - name: Set up WSL for your company
+      href: enterprise.md
+    - name: Intune settings for WSL
+      href: intune.md
 - name: Frequently Asked Questions
   href: faq.yml
 - name: Troubleshooting
