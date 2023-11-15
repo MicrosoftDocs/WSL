@@ -1,7 +1,7 @@
 ---
 title: Troubleshooting Windows Subsystem for Linux
 description: Provides detailed information about common errors and issues people run into while running Linux on the Windows Subsystem for Linux. 
-ms.date: 11/09/2023
+ms.date: 11/15/2023
 ms.topic: article
 ---
 
@@ -211,7 +211,7 @@ You can confirm local rule merging's setting by following these steps:
 5. Select "Customize" under the "Settings" section 
 6. Check in the "Customize Settings for the Public Profile" window that opens to see if "Rule Merging" is set to "No". This will block access to WSL.
 
-You can find instructions on how to change this Firewall setting in [Enterprise environment: Set up WSL for your company](./enterprise.md#configuring-wsl-firewall-rules).
+You can find instructions on how to change this Firewall setting in [Configure Hyper-V firewall](/windows/security/operating-system-security/network-security/windows-firewall/hyper-v-firewall).
 
 ### WSL has no network connectivity once connected to a VPN
 
