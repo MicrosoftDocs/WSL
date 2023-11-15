@@ -1,7 +1,7 @@
 ---
 title: Set up Windows Subsystem for Linux for your company
 description: Resources and instructions on how to best use the Windows Subsystem for Linux in an Enterprise environment.
-ms.date: 10/14/2023
+ms.date: 11/15/2023
 ms.topic: article
 ---
 
@@ -9,7 +9,7 @@ ms.topic: article
 
 This guidance is intended for IT Administrators or Security Analysts responsible for setting up enterprise work environments with the goal of distributing software across multiple machines and maintaining a consistent level of security settings across those work machines. 
 
-Many companies use [Microsoft Intune]( https://learn.microsoft.com/mem/intune/) and [Microsoft Defender]( https://learn.microsoft.com/microsoft-365/security/defender/)  to manage these security settings. However, setting up WSL and accessing Linux distributions in this context requires some specific setup. This guidance provides what you need to know to enable the secure use of Linux with WSL in an enterprise environment.
+Many companies use [Microsoft Intune](/mem/intune/) and [Microsoft Defender](/microsoft-365/security/defender/) to manage these security settings. However, setting up WSL and accessing Linux distributions in this context requires some specific setup. This guidance provides what you need to know to enable the secure use of Linux with WSL in an enterprise environment.
 
 * [Recommended setup](#enterprise-set-up-recommendations)
    * [Microsoft Defender for Endpoint (MDE) integration](#enable-microsoft-defender-for-endpoint-mde-integration)
@@ -35,21 +35,21 @@ To get started ensure that all enterprise devices have the following minimum ver
 
 ### Enable Microsoft Defender for Endpoint (MDE) integration
 
-[Microsoft Defender for Endpoint](https://learn.microsoft.com/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint) is an enterprise endpoint security platform designed to help enterprise networks prevent, detect, investigate, and respond to advanced threats. MDE now integrates with WSL as a [WSL plugin](./wsl-plugins.md), which allows security teams to see and continuously monitor for security events in all running WSL distributions with Defender for Endpoint while minimally impacting performance on developer workloads. 
+[Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint) is an enterprise endpoint security platform designed to help enterprise networks prevent, detect, investigate, and respond to advanced threats. MDE now integrates with WSL as a [WSL plugin](./wsl-plugins.md), which allows security teams to see and continuously monitor for security events in all running WSL distributions with Defender for Endpoint while minimally impacting performance on developer workloads. 
 
-Please visit [the MDE plugin for WSL docs page](https://aka.ms/mdeplugindocs) to learn more on how to get started.
+See [Microsoft Defender for Endpoint plug-in for WSL](/microsoft-365/security/defender-endpoint/mde-plugin-wsl) to learn more about how to get started.
 
 ### Configure recommended settings with Intune
 
-[Microsoft Intune](https://learn.microsoft.com/mem/intune/fundamentals/what-is-intune) is a cloud-based endpoint management solution. It manages user access to organizational resources and simplifies app and device management across your many devices, including mobile devices, desktop computers, and virtual endpoints. You can use Microsoft Intune to manage devices inside of your organization, which now also includes managing access to WSL and its key security settings. 
+[Microsoft Intune](/mem/intune/fundamentals/what-is-intune) is a cloud-based endpoint management solution. It manages user access to organizational resources and simplifies app and device management across your many devices, including mobile devices, desktop computers, and virtual endpoints. You can use Microsoft Intune to manage devices inside of your organization, which now also includes managing access to WSL and its key security settings. 
 
-Please visit [the WSL Intune docs page](./intune.md) to see how you can get started with enabling these, and the recommended settings. 
+See [Intune settings for WSL](./intune.md) for guidance on using InTune to manage WSL as a Windows component and the recommended settings. 
 
 ### Use advanced networking features and controls
 
-Starting from Windows 11 22H2 and WSL 2.0.9 or later, Windows firewall rules will automatically apply to WSL. This ensures that the firewall rules set on the Windows host will automatically apply to all WSL distros by default. To customize the firewall settings for WSL, please visit [the Hyper-V firewall docs](https://learn.microsoft.com/windows/security/operating-system-security/network-security/windows-firewall/hyper-v-firewall).
+Starting from Windows 11 22H2 and WSL 2.0.9 or later, Windows firewall rules will automatically apply to WSL. This ensures that the firewall rules set on the Windows host will automatically apply to all WSL distributions by default. For guidance on customizing the firewall settings for WSL, visit [Configure Hyper-V firewall](/windows/security/operating-system-security/network-security/windows-firewall/hyper-v-firewall).
 
-Additionally, there are user configurable settings that we recommend users enable in Enterprise scenarios by setting [these settings under `[wsl2]` in the `.wslconfig` file](./wsl-config.md#configuration-setting-for-wslconfig).
+Additionally, we recommend configuring [settings under `[wsl2]` in the `.wslconfig` file](/windows/wsl/wsl-config#configuration-setting-for-wslconfig) to suite your specific Enterprise scenario.
 
 #### Mirrored mode networking
 
@@ -81,7 +81,7 @@ Distribute the WSL image from a share or storage device by running wsl --import 
 
 ## Update and patch Linux distributions and packages
 
-Using Linux configuration manager tools is strongly recommended for monitoring and managing Linux user space. There are a host of Linux configuration managers to choose from. Check out this [blog post](http://www.craigloewen.com/blog/2019/12/04/running-puppet-quickly-in-wsl2/) on how to install Puppet in WSL 2.
+Using Linux configuration manager tools is strongly recommended for monitoring and managing Linux user space. There are a host of Linux configuration managers to choose from. See this blog post on [Running Puppet quickly in WSL 2](http://www.craigloewen.com/blog/2019/12/04/running-puppet-quickly-in-wsl2/).
 
 ## Windows file system access
 
