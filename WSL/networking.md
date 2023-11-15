@@ -12,9 +12,9 @@ There are a few considerations to be aware of when working with networking apps 
 
 ## Default networking mode: NAT
 
-By default, WSL uses a NAT (Network address translatiintuon) based networking architecture. Keep the following considerations in mind when working with a NAT-based networking architecture:
+By default, WSL uses a NAT (Network Address Translation) based architecture for networking. Keep the following considerations in mind when working with a NAT-based networking architecture:
 
-### Accessing Linux networking apps from Windows(localhost)
+### Accessing Linux networking apps from Windows (localhost)
    
 If you are building a networking app (for example an app running on a NodeJS or SQL server) in your Linux distribution, you can access it from a Windows app (like your Edge or Chrome internet browser) using `localhost` (just like you normally would).
 
@@ -33,7 +33,7 @@ The picture below shows an example of this by connecting to a Node.js server run
 
 When using remote IP addresses to connect to your applications, they will be treated as connections from the Local Area Network (LAN). This means that you will need to make sure your application can accept LAN connections.
 
-For example, you may need to bind your application to `0.0.0.0` instead of `127.0.0.1`. In the example of a Python app using Flask, this can be done with the command: `app.run(host='0.0.0.0')`. Please keep security in mind when making these changes as this will allow connections from your LAN.
+For example, you may need to bind your application to `0.0.0.0` instead of `127.0.0.1`. In the example of a Python app using Flask, this can be done with the command: `app.run(host='0.0.0.0')`. Keep security in mind when making these changes as this will allow connections from your LAN.
 
 ### Accessing a WSL 2 distribution from your local area network (LAN)
 
@@ -80,12 +80,14 @@ Here are the current benefits to enabling this mode:
 
 - IPv6 support
 - Connect to Windows servers from within Linux using the localhost address `127.0.0.1`
-- Connect to WSL directly from your local area network (LAN)
-   - > **__NOTE:__** Please run the following command in PowerShell window with admin privileges to set a [Hyper-V firewall](https://learn.microsoft.com/windows/security/operating-system-security/network-security/windows-firewall/hyper-v-firewall) setting to allow inbound connections: `Set-NetFirewallHyperVVMSetting -Name ‘{40E0AC32-46A5-438A-A0B2-2B479E8F2E90}’ -DefaultInboundConnection Allow` or `New-NetFirewallHyperVRule -Name MyWebServer -DisplayName “My Web Server” -Direction Inbound -VMCreatorId “{40E0AC32-46A5-438A-A0B2-2B479E8F2E90}” -Protocol TCP -LocalPorts 80`
 - Improved networking compatibility for VPNs
 - Multicast support
+- Connect to WSL directly from your local area network (LAN)
 
-This new mode addresses many of the networking issues that are seen with NAT that you can see above in this docs page. There are some initial known issues, so as you explore this mode please file feedback on any bugs at the [WSL GitHub repo](http://github.com/microsoft/wsl).
+> [!NOTE]
+> Run the following command in PowerShell window with admin privileges to [Configure Hyper-V firewall](/windows/security/operating-system-security/network-security/windows-firewall/hyper-v-firewall) settings to allow inbound connections: `Set-NetFirewallHyperVVMSetting -Name ‘{40E0AC32-46A5-438A-A0B2-2B479E8F2E90}’ -DefaultInboundConnection Allow` or `New-NetFirewallHyperVRule -Name MyWebServer -DisplayName “My Web Server” -Direction Inbound -VMCreatorId “{40E0AC32-46A5-438A-A0B2-2B479E8F2E90}” -Protocol TCP -LocalPorts 80`.
+
+This new mode addresses networking issues seen with using a NAT (Network Address Translation) based architecture. Find known issues or file feedback on any bugs identified in the [WSL product repo on GitHub](https://github.com/microsoft/wsl).
 
 ## DNS Tunneling
 
