@@ -27,12 +27,21 @@ To learn more, check out [Introduction to Docker containers](/training/modules/i
 
 ## Prerequisites
 
-- Ensure your machine is running Windows 10, [updated to version 2004](ms-settings:windowsupdate), **Build 18362** or later.
+- WSL version 1.1.3.0 or later.
+- Windows 11 64-bit: Home or Pro version 21H2 or higher, or Enterprise or Education version 21H2 or higher.
+- Windows 10 64-bit (Recommended): Home or Pro 22H2 (build 19045) or higher, or Enterprise or Education 22H2 (build 19045) or higher. (Minimum): Home or Pro 21H2 (build 19044) or higher, or Enterprise or Education 21H2 (build 19044) or higher. [Update Windows](ms-settings:windowsupdate)
+- 64-bit processor with [Second Level Address Translation (SLAT)](https://en.wikipedia.org/wiki/Second_Level_Address_Translation).
+- 4GB system RAM.
+- Enable hardware virtualization in BIOS.
 - [Install WSL and set up a user name and password for your Linux distribution running in WSL 2](../install.md).
 - [Install Visual Studio Code](https://code.visualstudio.com/download) *(optional)*. This will provide the best experience, including the ability to code and debug inside a remote Docker container and connected to your Linux distribution.
 - [Install Windows Terminal](/windows/terminal/get-started) *(optional)*. This will provide the best experience, including the ability to customize and open multiple terminals in the same interface (including Ubuntu, Debian, PowerShell, Azure CLI, or whatever you prefer to use).
 - [Sign up for a Docker ID at Docker Hub](https://hub.docker.com/signup) *(optional)*.
 - See the [Docker Desktop license agreement](https://docs.docker.com/subscription/#docker-desktop-license-agreement) for updates on the terms of use.
+
+For more information, see the [Docker docs System requirements to Install Docker Desktop on Windows](https://docs.docker.com/desktop/install/windows-install/).
+
+To learn how to install Docker on Windows Server, see [Get started: Prep Windows for containers](/virtualization/windowscontainers/quick-start/set-up-environment).
 
 > [!NOTE]
 > WSL can run distributions in both WSL version 1 or WSL 2 mode. You can check this by opening PowerShell and entering: `wsl -l -v`. Ensure that the your distribution is set to use WSL 2 by entering: `wsl --set-version  <distro> 2`. Replace `<distro>` with the distro name (e.g. Ubuntu 18.04).

@@ -2,7 +2,7 @@
 title: Accessing network applications with WSL
 description: Learn about the considerations for accessing network applications when using Windows Subsystem for Linux (WSL).
 keywords: wsl, Linux, Windows, networking, ip address, ip addr, host IP, server, network, localhost, local area network, lan, ipv6, remote
-ms.date: 09/27/2021
+ms.date: 11/15/2023
 ms.topic: article
 ---
 
@@ -12,9 +12,9 @@ There are a few considerations to be aware of when working with networking apps 
 
 ## Default networking mode: NAT
 
-By default, WSL uses a NAT (Network address translatiintuon) based networking architecture. Keep the following considerations in mind when working with a NAT-based networking architecture:
+By default, WSL uses a NAT (Network Address Translation) based architecture for networking. Keep the following considerations in mind when working with a NAT-based networking architecture:
 
-### Accessing Linux networking apps from Windows(localhost)
+### Accessing Linux networking apps from Windows (localhost)
    
 If you are building a networking app (for example an app running on a NodeJS or SQL server) in your Linux distribution, you can access it from a Windows app (like your Edge or Chrome internet browser) using `localhost` (just like you normally would).
 
@@ -33,7 +33,7 @@ The picture below shows an example of this by connecting to a Node.js server run
 
 When using remote IP addresses to connect to your applications, they will be treated as connections from the Local Area Network (LAN). This means that you will need to make sure your application can accept LAN connections.
 
-For example, you may need to bind your application to `0.0.0.0` instead of `127.0.0.1`. In the example of a Python app using Flask, this can be done with the command: `app.run(host='0.0.0.0')`. Please keep security in mind when making these changes as this will allow connections from your LAN.
+For example, you may need to bind your application to `0.0.0.0` instead of `127.0.0.1`. In the example of a Python app using Flask, this can be done with the command: `app.run(host='0.0.0.0')`. Keep security in mind when making these changes as this will allow connections from your LAN.
 
 ### Accessing a WSL 2 distribution from your local area network (LAN)
 
@@ -47,7 +47,7 @@ Here's an example of using the [Netsh interface portproxy](/windows-server/netwo
 netsh interface portproxy add v4tov4 listenport=<yourPortToForward> listenaddress=0.0.0.0 connectport=<yourPortToConnectToInWSL> connectaddress=(wsl hostname -I)
 ```
 
-In this example, you will need to update `<yourPortToForward>` to a port number, for example `listenport=4000`. `listenaddress=0.0.0.0` means that incoming requests will be accepted from ANY IP address. The Listen Address specifies the IPv4 address for which to listen and can be changed to values that include: IP address, computer NetBIOS name, or computer DNS name. If an address isn't specified, the default is the local computer. You need to update the `<yourPortToConnectToInWSL>` value to a port number where you want WSL to connect, for example `connectport=4000`. Lastly, the `connectaddress` value needs to be the IP address of your Linux distribution installed via WSL 2 (the WSL 2 VM address), which can be found by entering the command: `wsl.exe hostname -i`.
+In this example, you will need to update `<yourPortToForward>` to a port number, for example `listenport=4000`. `listenaddress=0.0.0.0` means that incoming requests will be accepted from ANY IP address. The Listen Address specifies the IPv4 address for which to listen and can be changed to values that include: IP address, computer NetBIOS name, or computer DNS name. If an address isn't specified, the default is the local computer. You need to update the `<yourPortToConnectToInWSL>` value to a port number where you want WSL to connect, for example `connectport=4000`. Lastly, the `connectaddress` value needs to be the IP address of your Linux distribution installed via WSL 2 (the WSL 2 VM address), which can be found by entering the command: `wsl.exe hostname -I`.
 
 So this command may look something like: 
 
@@ -56,6 +56,16 @@ netsh interface portproxy add v4tov4 listenport=4000 listenaddress=0.0.0.0 conne
 ```
 
 To obtain the IP address, use:
+
+- `wsl hostname -I` for the IP address of your Linux distribution installed via WSL 2 (the WSL 2 VM address)
+- `cat /etc/resolv.conf` for the IP address of the Windows machine as seen from WSL 2 (the WSL 2 VM)
+
+Using `listenaddress=0.0.0.0` will listen on all [IPv4 ports](https://stackoverflow.com/questions/9987409/want-to-know-what-is-ipv4-and-ipv6#:~:text=The%20basic%20difference%20is%20the,whereas%20IPv6%20has%20128%20bits.).
+
+> [!NOTE]
+> Using a lowercase "i" with the hostname command will generate a different result than using an uppercase "I". `wsl hostname -i` is your local machine (127.0.1.1 is a placeholder diagnostic address), whereas `wsl hostname -I` will return your local machine's IP address as seen by other machines and should be used to identify the `connectaddress` of your Linux distribution running via WSL 2.
+
+## IPv6 access
 
 - `wsl hostname -i` for the IP address of your Linux distribution installed via WSL 2 (the WSL 2 VM address)
 - `ip route show | grep -i default | awk '{ print $3}'` for the IP address of the Windows machine as seen from WSL 2 (the WSL 2 VM)
@@ -70,12 +80,14 @@ Here are the current benefits to enabling this mode:
 
 - IPv6 support
 - Connect to Windows servers from within Linux using the localhost address `127.0.0.1`
-- Connect to WSL directly from your local area network (LAN)
-   - > **__NOTE:__** Please run the following command in PowerShell window with admin privileges to set a [Hyper-V firewall](https://learn.microsoft.com/windows/security/operating-system-security/network-security/windows-firewall/hyper-v-firewall) setting to allow inbound connections: `Set-NetFirewallHyperVVMSetting -Name ‘{40E0AC32-46A5-438A-A0B2-2B479E8F2E90}’ -DefaultInboundConnection Allow` or `New-NetFirewallHyperVRule -Name MyWebServer -DisplayName “My Web Server” -Direction Inbound -VMCreatorId “{40E0AC32-46A5-438A-A0B2-2B479E8F2E90}” -Protocol TCP -LocalPorts 80`
 - Improved networking compatibility for VPNs
 - Multicast support
+- Connect to WSL directly from your local area network (LAN)
 
-This new mode addresses many of the networking issues that are seen with NAT that you can see above in this docs page. There are some initial known issues, so as you explore this mode please file feedback on any bugs at the [WSL GitHub repo](http://github.com/microsoft/wsl).
+> [!NOTE]
+> Run the following command in PowerShell window with admin privileges to [Configure Hyper-V firewall](/windows/security/operating-system-security/network-security/windows-firewall/hyper-v-firewall) settings to allow inbound connections: `Set-NetFirewallHyperVVMSetting -Name ‘{40E0AC32-46A5-438A-A0B2-2B479E8F2E90}’ -DefaultInboundConnection Allow` or `New-NetFirewallHyperVRule -Name MyWebServer -DisplayName “My Web Server” -Direction Inbound -VMCreatorId “{40E0AC32-46A5-438A-A0B2-2B479E8F2E90}” -Protocol TCP -LocalPorts 80`.
+
+This new mode addresses networking issues seen with using a NAT (Network Address Translation) based architecture. Find known issues or file feedback on any bugs identified in the [WSL product repo on GitHub](https://github.com/microsoft/wsl).
 
 ## DNS Tunneling
 
@@ -89,7 +101,5 @@ Setting [`autoProxy=true` under `[wsl2]` in the `.wslconfig` file](./wsl-config.
 
 On machines running Windows 11 22H2 and higher, with WSL 2.0.9 and higher, the Hyper-V firewall feature will be turned on by default. This will ensure that: 
 
-- Regular [Windows firewall rules and settings in](https://learn.microsoft.com/windows/security/operating-system-security/network-security/windows-firewall/windows-firewall-with-advanced-security) will automatically apply to WSL
-- [Hyper-V firewall](https://learn.microsoft.com/windows/security/operating-system-security/network-security/windows-firewall/hyper-v-firewall) rules and settings can be set to apply specifically to WSL
-
-Please see the [Hyper-V firewall docs page](https://learn.microsoft.com/windows/security/operating-system-security/network-security/windows-firewall/hyper-v-firewall) to learn more about applying these rules and settings both locally and via online tools like Intune. 
+- See [Windows Defender Firewall with Advanced Security](/windows/security/operating-system-security/network-security/windows-firewall/windows-firewall-with-advanced-security) to learn more about Windows security features that will automatically apply to WSL.
+- See [Configure Hyper-V firewall](/windows/security/operating-system-security/network-security/windows-firewall/hyper-v-firewall) to learn more about applying these rules and settings both locally and via online tools like Intune. 
