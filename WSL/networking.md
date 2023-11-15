@@ -89,7 +89,7 @@ Setting [`autoProxy=true` under `[wsl2]` in the `.wslconfig` file](./wsl-config.
 
 On machines running Windows 11 22H2 and higher, with WSL 2.0.9 and higher, the Hyper-V firewall feature will be turned on by default. This will ensure that: 
 
-- Regular [Windows firewall rules and settings](in https://learn.microsoft.com/windows/security/operating-system-security/network-security/windows-firewall/windows-firewall-with-advanced-security) will automatically apply to WSL
+- Regular [Windows firewall rules and settings in](https://learn.microsoft.com/windows/security/operating-system-security/network-security/windows-firewall/windows-firewall-with-advanced-security) will automatically apply to WSL
 - [Hyper-V firewall](https://learn.microsoft.com/windows/security/operating-system-security/network-security/windows-firewall/hyper-v-firewall) rules and settings can be set to apply specifically to WSL
 
 Please see the [Hyper-V firewall docs page](https://learn.microsoft.com/windows/security/operating-system-security/network-security/windows-firewall/hyper-v-firewall) to learn more about applying these rules and settings both locally and via online tools like Intune. 
