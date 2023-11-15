@@ -23,7 +23,7 @@ You will need to be on Windows 11 Build 22000 or later, or be running the Micros
 
 External drives formatted for Windows typically use the NTFS file system formatting. External drives formatted for Linux typically use the Ext4 file system formatting.
 
-If you have mounted a NTFS-formatted drive on your Windows file system, you can access that drive from your Linux distribution using WSL by creating a mounted directory (`sudo mkdir /mnt/d`, replacing 'd' with whatever drive letter you'd like to use) and then using the `drfs` file system interop plugin, with the command:
+If you have mounted a NTFS-formatted drive on your Windows file system, you can access that drive from your Linux distribution using WSL by creating a mounted directory (`sudo mkdir /mnt/d`, replacing 'd' with whatever drive letter you'd like to use) and then using the `drvfs` file system interop plugin, with the command:
 
 ```bash
 sudo mount -t drvfs D: /mnt/d
