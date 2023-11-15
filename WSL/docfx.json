@@ -33,7 +33,6 @@
     "externalReference": [],
     "globalMetadata": {
       "breadcrumb_path": "/windows/wsl/breadcrumb/toc.json",
-      "extendBreadcrumb": true,
       "uhfHeaderId": "MSDocsHeader-Windows",
       "recommendations" : true,
       "feedback_system": "GitHub",

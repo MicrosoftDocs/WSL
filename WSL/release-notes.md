@@ -13,7 +13,7 @@ ms.topic: article
 
 For general Windows information on build 21364 visit the [Windows blog](https://blogs.windows.com/windows-insider/2021/04/21/announcing-windows-10-insider-preview-build-21364/).
 
-- GUI apps are now available! For more information see [this blog post](https://devblogs.microsoft.com/commandline/the-initial-preview-of-gui-app-support-is-now-available-for-the-windows-subsystem-for-linux).
+- GUI apps are now available! For more information see [this blog post](https://devblogs.microsoft.com/commandline/the-initial-preview-of-gui-app-support-is-now-available-for-the-windows-subsystem-for-linux-2/).
 - Resolve error when accessing files via \\\\wsl.localhost\\.
 - Fix potential deadlock in LxssManager service.
 

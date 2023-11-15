@@ -1,18 +1,67 @@
 ---
 title: Set up Windows Subsystem for Linux for your company
 description: Resources and instructions on how to best use the Windows Subsystem for Linux in an Enterprise environment.
-ms.date: 09/27/2021
+ms.date: 10/14/2023
 ms.topic: article
 ---
 
 # Enterprise environment: Set up Windows Subsystem for Linux for your company
 
-As an administrator or manager, you may require all developers to use the same approved software. This consistency helps to create a well-defined work environment. The Windows Subsystem for Linux aids in this consistency by allowing you to import and export custom WSL images from one machine to the next. Read the guide below to learn more about:
+This guidance is intended for IT Administrators or Security Analysts responsible for setting up enterprise work environments with the goal of distributing software across multiple machines and maintaining a consistent level of security settings across those work machines. 
 
+Many companies use [Microsoft Intune]( https://learn.microsoft.com/mem/intune/) and [Microsoft Defender]( https://learn.microsoft.com/microsoft-365/security/defender/)  to manage these security settings. However, setting up WSL and accessing Linux distributions in this context requires some specific setup. This guidance provides what you need to know to enable the secure use of Linux with WSL in an enterprise environment.
+
+* [Recommended setup](#enterprise-set-up-recommendations)
+   * [Microsoft Defender for Endpoint (MDE) integration](#enable-microsoft-defender-for-endpoint-mde-integration)
+   * [Configure settings with Intune](#configure-recommended-settings-with-intune)
+   * [Advanced networking controls](#use-advanced-networking-features-and-controls)
 * [Creating a custom WSL image](#creating-a-custom-wsl-image)
 * [Distributing a WSL image](#distributing-your-wsl-image)
 * [Update and patch Linux distributions and packages](#update-and-patch-linux-distributions-and-packages)
-* [Enterprise security and control options](#enterprise-security-and-control-options)
+* [Windows file system access](#windows-file-system-access)
+
+## Enterprise set up recommendations
+
+There are a variety of ways to set up a secure enterprise environment, but we recommend the following for setting up a secure environment that utilizes WSL.
+
+### Pre-requisites
+
+To get started ensure that all enterprise devices have the following minimum versions installed:
+
+* Windows 10 22H2 or higher, or Windows 11 22H2 or higher
+    * Advanced networking features are only available on Windows 11 22H2 or higher.
+* [WSL version 2.0.9](https://github.com/microsoft/WSL/releases) or higher
+    - You can check the WSL version by running `wsl --version`.
+
+### Enable Microsoft Defender for Endpoint (MDE) integration
+
+[Microsoft Defender for Endpoint](https://learn.microsoft.com/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint) is an enterprise endpoint security platform designed to help enterprise networks prevent, detect, investigate, and respond to advanced threats. MDE now integrates with WSL as a [WSL plugin](./wsl-plugins.md), which allows security teams to see and continuously monitor for security events in all running WSL distributions with Defender for Endpoint while minimally impacting performance on developer workloads. 
+
+Please visit [the MDE plugin for WSL docs page](https://aka.ms/mdeplugindocs) to learn more on how to get started.
+
+### Configure recommended settings with Intune
+
+[Microsoft Intune](https://learn.microsoft.com/mem/intune/fundamentals/what-is-intune) is a cloud-based endpoint management solution. It manages user access to organizational resources and simplifies app and device management across your many devices, including mobile devices, desktop computers, and virtual endpoints. You can use Microsoft Intune to manage devices inside of your organization, which now also includes managing access to WSL and its key security settings. 
+
+Please visit [the WSL Intune docs page](./intune.md) to see how you can get started with enabling these, and the recommended settings. 
+
+### Use advanced networking features and controls
+
+Starting from Windows 11 22H2 and WSL 2.0.9 or later, Windows firewall rules will automatically apply to WSL. This ensures that the firewall rules set on the Windows host will automatically apply to all WSL distros by default. To customize the firewall settings for WSL, please visit [the Hyper-V firewall docs](https://learn.microsoft.com/windows/security/operating-system-security/network-security/windows-firewall/hyper-v-firewall).
+
+Additionally, there are user configurable settings that we recommend users enable in Enterprise scenarios by setting [these settings under `[wsl2]` in the `.wslconfig` file](./wsl-config.md#configuration-setting-for-wslconfig).
+
+#### Mirrored mode networking
+
+`networkingMode=mirrored` enables mirrored mode networking. This new networking mode improves compatibility with complex networking environments, especially VPNs and more, as well as adding support for new networking features unavailable in the default NAT mode like IPv6.
+
+#### DNS Tunneling
+
+`dnsTunneling=true` changes how WSL obtains DNS information. This setting improves compatibility in different networking environments, and makes use of virtualization features to obtain DNS information rather than a networking packet. It's recommended to turn this on if experiencing any connectivity issues, and can be especially helpful when using VPNs, advanced firewall settings, and more. 
+
+#### Auto proxy
+
+`autoProxy=true` enforces WSL to use Windows' HTTP proxy information. We recommend turning this setting on when using a proxy on Windows, as it will make that proxy automatically apply to your WSL distributions.
 
 ## Creating a custom WSL image
 
@@ -24,7 +73,7 @@ Once installed, use The Microsoft Store for Business to download and install the
 
 ### Exporting your WSL image
 
-Export your custom WSL image by running wsl --export `<Distro> <FileName>`, which will wrap your image in a tar file and make it ready for distribution on to other machines.
+Export your custom WSL image by running wsl --export `<Distro> <FileName>`, which will wrap your image in a tar file and make it ready for distribution on to other machines. You can [create custom distributions including CentOS, RedHat and more using the custom distro guide](./use-custom-distro.md).
 
 ## Distributing your WSL image
 
@@ -34,26 +83,17 @@ Distribute the WSL image from a share or storage device by running wsl --import 
 
 Using Linux configuration manager tools is strongly recommended for monitoring and managing Linux user space. There are a host of Linux configuration managers to choose from. Check out this [blog post](http://www.craigloewen.com/blog/2019/12/04/running-puppet-quickly-in-wsl2/) on how to install Puppet in WSL 2.
 
-## Enterprise security and control options
+## Windows file system access
 
-Currently, WSL offers limited control mechanisms in regard to modifying the user experience in an Enterprise scenario. Enterprise features continue in development however, below are the areas of supported and unsupported features. To request a new feature not covered in this list, file an issue in our [GitHub repo](https://github.com/microsoft/WSL/issues?q=is%3Aissue+is%3Aopen+enterprise).
-
-### Configuring WSL firewall rules
-
-Microsoft implements Firewall protocols used by Windows to maintain security and block unauthorized network traffic flowing into or out of a local device. To optimize protection for devices in your network, [configure your Windows Firewall based on best practices](/windows/security/threat-protection/windows-firewall/best-practices-configuring).
-
-In regard to WSL, if the [local policy merge](/openspecs/windows_protocols/ms-gpfas/2c979624-900a-4b6e-b4ef-09b387cd62ab) firewall policy is set to "No" then WSL networking will not work. (For more information, see [Establish local policy merge and application rules](/windows/security/threat-protection/windows-firewall/best-practices-configuring#establish-local-policy-merge-and-application-rules).)
-
-To change this configuration, you can add the following to Windows firewall settings:
-
-- Action allow, direction Inbound, Protocol UDP, LocalPort 53, program: `%Systemroot%\System32\svchost.exe`, service SharedAccess
-
-Also see: [WSL has no network connection on my work machine or in an Enterprise environment](./troubleshooting.md#wsl-has-no-network-connection-on-my-work-machine-or-in-an-enterprise-environment).
+When a Linux binary inside of WSL accesses a Windows file, it does so with the user permissions of the Windows user that ran `wsl.exe`. So even though a Linux user has root access inside of WSL, they cannot do Windows administrator level operations on Windows if the Windows user does not have those permission. With regards to Windows file and Windows executable access from WSL, running a shell like `bash` has the same security level permissions as running `powershell` from Windows as that user. 
 
 ### Supported
 
 * Sharing an approved image internally using `wsl --import` and `wsl --export`
 * Creating your own WSL distro for your Enterprise using the [WSL Distro Launcher repo](https://github.com/microsoft/WSL-DistroLauncher)
+* Monitor security events inside of WSL distros using Microsoft Defender for Endpoint (MDE)
+* Use firewall settings to control networking in WSL (Includes syncing Windows firewall settings to WSL)
+* Control access to WSL and its key security settings with Intune or group policy
 
 Here's a list of features for which we don't yet have support for, but are investigating.
 
@@ -61,10 +101,7 @@ Here's a list of features for which we don't yet have support for, but are inves
 
 Below is a list of commonly asked features that are currently unsupported within WSL. These requests are on our backlog and we are investigating ways to add them. 
 
-* Synchronizing the user inside WSL with the Windows user on the host machine
 * Managing updates and patching of the Linux distributions and packages using Windows tools
 * Having Windows update also update WSL distro contents
 * Controlling which distributions users in your Enterprise can access
-* Running mandatory services (logging or monitoring) inside of WSL
-* Monitoring Linux instances using Windows configuration manager tools such as SCCM or Intune
-* McAfee support
+* Controlling root access for users

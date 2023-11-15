@@ -1,7 +1,7 @@
 ---
 title: Troubleshooting Windows Subsystem for Linux
 description: Provides detailed information about common errors and issues people run into while running Linux on the Windows Subsystem for Linux. 
-ms.date: 07/17/2023
+ms.date: 11/09/2023
 ms.topic: article
 ---
 
@@ -320,6 +320,118 @@ WSL will automatically configure certain Linux networking settings when using mi
 
 There is a known issue in which Docker Desktop containers with published ports (docker run –publish/-p) will fail to be created. The WSL team is working with the Docker Desktop team to address this issue. To work around the issue, use the host’s networking namespace in the Docker container. Set the network type via the "--network host" option used in the "docker run" command. An alternative workaround is to list the published port number in the `ignoredPorts` setting of the [experimental section in the WSL Configuration file](/windows/wsl/wsl-config#experimental-settings). 
 
+### DNS suffixes in WSL
+
+Depending on the configurations in the .wslconfig file, WSL will have the following behavior wrt DNS suffixes:
+
+**When networkingMode is set to NAT:**
+
+Case 1) By default
+no DNS suffix is configured in Linux
+
+Case 2) If DNS tunneling is enabled (dnsTunneling is set to true in .wslconfig)
+All Windows DNS suffixes are configured in Linux, in the "search" setting of /etc/resolv.conf
+
+The suffixes are configured in /etc/resolv.conf in the following order, similar to the order in which Windows DNS client tries suffixes when resolving a name: global DNS suffixes first, then supplemental DNS suffixes, then per-interface DNS suffixes.
+
+When there is a change in the Windows DNS suffixes, that change will be automatically reflected in Linux
+
+Case 3) If DNS tunneling is disabled and SharedAccess DNS proxy is disabled (dnsTunneling is set to false and dnsProxy is set to false in .wslconfig)
+A single DNS suffix is configured in Linux, in the "domain" setting of /etc/resolv.conf
+
+When there is a change in the Windows DNS suffixes, that change is not reflected in Linux
+
+The single DNS suffix configured in Linux is chosen from the per-interface DNS suffixes (global and supplemental suffixes are ignored)
+
+if Windows has multiple interfaces, a heuristic is used to choose the single DNS suffix that will be configured in Linux. For example if there is a VPN interface on Windows, the suffix is chosen from that interface. If no VPN interface is present, the suffix is chosen from the interface that is most likely to give Internet connectivity.
+
+**When networkingMode is set to Mirrorred:**
+
+All Windows DNS suffixes are configured in Linux, in the "search" setting of /etc/resolv.conf
+
+The suffixes are configured in /etc/resolv.conf in the same order as in case 2) from NAT mode
+
+When there is a change in the Windows DNS suffixes, that change will be automatically reflected in Linux
+
+Note: supplemental DNS suffixes can be configured in Windows using
+[SetInterfaceDnsSettings - Win32 apps | Microsoft Learn](/windows/win32/api/netioapi/nf-netioapi-setinterfacednssettings), with the flag **DNS_SETTING_SUPPLEMENTAL_SEARCH_LIST set in the Settings parameter**
+
+### Troubleshooting DNS in WSL
+
+The default DNS configuration when WSL starts a container in NAT mode is to have the NAT device on the Windows Host serve as the DNS ‘server’ for the WSL container. When DNS queries are sent from the WSL container to that NAT device on the Windows Host, the DNS packet is forwarded from the NAT device to the shared access service on the Host; the response is sent in the reverse direction back to the WSL container. This packet forwarding process to shared access requires a Firewall rule to allow that inbound DNS packet, which is created by the HNS service when WSL initially asks HNS to create the NAT virtual network for its WSL container.
+
+Due to this NAT - shared access design, there are a few known configurations which can break name resolution from WSL.
+
+**1.	An Enterprise can push policy that does not allow locally defined Firewall rules, only allowing Enterprise-policy defined rules.**
+
+When this is set by an Enterprise, the HNS-created Firewall rule is ignored, as it’s a locally defined rule.
+For this configuration to work the Enterprise must create a Firewall rule to allow UDP port 53 to the shared access service, or WSL can be set to use DNS Tunneling.
+One can see if this is configured to not allow locally defined Firewall rules by running the following. Note that this will show settings for all 3 profiles: Domain, Private, and Public. If it’s set on any profile, then packets will be blocked if the WSL vNIC is assigned that profile (default is Public). This is only a snippet of the first Firewall profile that is returned in Powershell:
+
+```PowerShell
+PS C:\> Get-NetFirewallProfile -PolicyStore ActiveStore
+Name                            : Domain
+Enabled                         : True
+DefaultInboundAction            : Block
+DefaultOutboundAction           : Allow
+AllowInboundRules               : True
+AllowLocalFirewallRules         : False
+```
+
+```AllowLocalFirewallRules:False means the locally defined firewall rules, like that by HNS, will not be applied or used.```
+
+**2.	And Enterprise can push down Group Policy and MDM policy settings that block all inbound rules.**
+
+These settings override any Allow-Inbound Firewall rule. This setting will thus block the HNS-created UDP Firewall rule, and thus will prevent WSL from resolving names.
+For this configuration to work, **WSL must be set to use DNS Tunneling.** This setting will always block the NAT DNS proxy.
+
+**From Group Policy:**
+
+Computer Configuration \\ Administrative Templates \\ Network \\ Network Connections \\ Windows Defender Firewall \\ Domain Profile | Standard Profile
+
+"Windows Defender Firewall: Do not allow exceptions" - Enabled
+
+**From MDM Policy:**
+
+./Vendor/MSFT/Firewall/MdmStore/PrivateProfile/Shielded
+
+./Vendor/MSFT/Firewall/MdmStore/DomainProfile/Shielded
+
+./Vendor/MSFT/Firewall/MdmStore/PublicProfile/Shielded
+
+One can see if this is configured to not allow any inbound Firewall rules by running the following (see above caveats on Firewall Profiles). This is only a snippet of the first Firewall profile that is returned in Powershell:
+```powerShell
+
+PS C:\> Get-NetFirewallProfile -PolicyStore ActiveStore
+Name                            : Domain
+Enabled                         : True
+DefaultInboundAction            : Block
+DefaultOutboundAction           : Allow
+AllowInboundRules               : False
+```
+
+```AllowInboundRules: False means that no inbound Firewall rules will be applied.```
+
+**3.	A user goes through the Windows Security setting apps and checks the control for "Blocks all incoming connections, including those in the list of allowed apps."**
+
+Windows supports a user-opt-in for the same setting that can be applied by an Enterprise referenced in #2 above. Users can open the “Windows Security” settings page, selects the “Firewall & network protection” option, selects the Firewall Profile they want to configure (Domain, Private, or Public), and under “Incoming connections” check the control labeled "Blocks all incoming connections, including those in the list of allowed apps."
+
+If this is set for the Public profile (this is the default profile for the WSL vNIC), the Firewall rule created by HNS to allow the UDP packets to shared access will be blocked.
+
+This must be unchecked for the NAT DNS proxy configuration to work from WSL, **or WSL can be set to use DNS Tunneling.**
+
+**4.	The HNS Firewall rule to allow the DNS packets to shared access can become invalid, referencing a previous WSL interface identifier.**
+This is a flaw within HNS which has been fixed with the latest Windows 11 release. On earlier releases, if this occurs, it’s not easily discoverable, but it has a simple work around:
+- Stop WSL
+  1. ```wsl.exe –shutdown```
+- Delete the old HNS Firewall rule. This Powershell command should work in most cases:
+  1.```Get-NetFirewallRule -Name "HNS*" | Get-NetFirewallPortFilter | where Protocol -eq UDP | where LocalPort -eq 53 | Remove-NetFirewallRule```
+- Remove all HNS endpoints
+  1. Note: if HNS is used to manage other containers, such as MDAG or Windows Sandbox, those should also be stopped.
+  2. ```hnsdiag.exe delete all```
+- Reboot or restart the HNS service
+- When WSL is restarted, HNS will create new Firewall rules, correctly targeting the WSL interface.
+
 ### Starting WSL or installing a distribution returns an error code
 
 Follow the instructions to [Collect WSL logs](https://github.com/Microsoft/WSL/blob/master/CONTRIBUTING.md#8-detailed-logs) in the WSL repo on GitHub to collect detailed logs and file an issue on our GitHub.
@@ -375,7 +487,7 @@ The Windows Subsystem for Linux feature may be disabled during a Windows update.
 
 WSL install will try to automatically change the Ubuntu locale to match the locale of your Windows install. If you do not want this behavior you can run this command to change the Ubuntu locale after install completes.  You will have to relaunch bash.exe for this change to take effect.
 
-The below example changes to locale to en-US:
+The below example changes to locale to `en-US`:
 
 ```bash
 sudo update-locale LANG=en_US.UTF8
