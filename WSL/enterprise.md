@@ -9,16 +9,16 @@ ms.topic: article
 
 This guidance is intended for IT Administrators or Security Analysts responsible for setting up enterprise work environments with the goal of distributing software across multiple machines and maintaining a consistent level of security settings across those work machines. 
 
-Many companies use [Microsoft Intune]( https://learn.microsoft.com/mem/intune/) and [Microsoft Defender]( https://learn.microsoft.com/microsoft-365/security/defender/?view=o365-worldwide)  to manage these security settings. However, setting up WSL and accessing Linux distributions in this context requires some specific setup. This guidance provides what you need to know to enable the secure use of Linux with WSL in an enterprise environment.
+Many companies use [Microsoft Intune]( https://learn.microsoft.com/mem/intune/) and [Microsoft Defender]( https://learn.microsoft.com/microsoft-365/security/defender/)  to manage these security settings. However, setting up WSL and accessing Linux distributions in this context requires some specific setup. This guidance provides what you need to know to enable the secure use of Linux with WSL in an enterprise environment.
 
-* [Recommended setup](#recommended-setup)
+* [Recommended setup](#enterprise-set-up-recommendations)
    * [Microsoft Defender for Endpoint (MDE) integration](#enable-microsoft-defender-for-endpoint-mde-integration)
    * [Configure settings with Intune](#configure-recommended-settings-with-intune)
    * [Advanced networking controls](#use-advanced-networking-features-and-controls)
 * [Creating a custom WSL image](#creating-a-custom-wsl-image)
 * [Distributing a WSL image](#distributing-your-wsl-image)
 * [Update and patch Linux distributions and packages](#update-and-patch-linux-distributions-and-packages)
-* [Enterprise security and control options](#enterprise-security-and-control-options)
+* [Windows file system access](#windows-file-system-access)
 
 ## Enterprise set up recommendations
 
