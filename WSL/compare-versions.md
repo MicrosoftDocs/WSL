@@ -1,7 +1,7 @@
 ---
 title: Comparing WSL Versions
 description: WSL 2 provides the benefits of WSL 1, but uses an actual Linux kernel, rather than a translation layer like WSL 1, resulting in faster performance.
-ms.date: 10/04/2022
+ms.date: 11/10/2023
 ms.topic: conceptual
 ms.custom: seo-windows-dev
 ---
@@ -26,10 +26,14 @@ Feature | WSL 1 | WSL 2
  Full Linux Kernel| ❌ |✅
  Full system call compatibility| ❌ | ✅
  Performance across OS file systems| ✅ | ❌
+ systemd support| ❌ | ✅
+ IPv6 support| ❌ | ✅
 
 As you can tell from the comparison table above, the WSL 2 architecture outperforms WSL 1 in several ways, with the exception of performance across OS file systems, which can be addressed by storing your project files on the same operating system as the tools you are running to work on the project.
 
 WSL 2 is only available in Windows 11 or Windows 10, Version 1903, Build 18362 or later. Check your Windows version by selecting the **Windows logo key + R**, type **winver**, select **OK**. (Or enter the `ver` command in Windows Command Prompt). You may need to [update to the latest Windows version](ms-settings:windowsupdate). For builds lower than 14393, WSL is not supported at all.
+
+For more info on the latest WSL 2 updates, see the [Windows Command Line blog](https://devblogs.microsoft.com/commandline/), including [Systemd support is now available in WSL](https://devblogs.microsoft.com/commandline/systemd-support-is-now-available-in-wsl/) and [WSL September 2023 update](https://devblogs.microsoft.com/commandline/windows-subsystem-for-linux-september-2023-update/) for more info on IPv6 support.
 
 > [!NOTE]
 > WSL 2 will work with [VMware 15.5.5+](https://blogs.vmware.com/workstation/2020/05/vmware-workstation-now-supports-hyper-v-mode.html) and [VirtualBox 6+](https://www.virtualbox.org/wiki/Changelog-6.0). Learn more in our [FAQs.](./faq.yml#will-i-be-able-to-run-wsl-2-and-other-3rd-party-virtualization-tools-such-as-vmware--or-virtualbox-)

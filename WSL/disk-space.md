@@ -1,7 +1,7 @@
 ---
 title: How to manage WSL disk space
 description: Learn how to check the amount of disk space available, expand the size of the Virtual Hard Disk (VHD), repair a VHD mounting or read-only error, and locate the .vhdx file and disk path for Linux distributions installed with WSL 2.
-ms.date: 01/12/2023
+ms.date: 11/10/2023
 ms.topic: article
 ---
 
@@ -69,7 +69,7 @@ To expand the VHD size for a Linux distribution beyond the **default 1TB maximum
       detail vdisk
       ```
 
-6. You will need to convert the **Virtual size** to megabytes. For example, if **Virtual size: 512 GB**, convert this to **512000**. The new value you enter must be greater than this original value. For example, to double the virtual size of 512 GB to 1024 GB, you would convert to MB and enter the value: **1024000**. Be careful not to enter a value higher than you actually want as the process of reducing a virtual disk size is much more complicated.
+6. You will need to convert the **Virtual size** to megabytes. For example, if **Virtual size: 512 GB**, this is equal to **512000 MB**. The new value you enter must be greater than this original value. To double the virtual size of 512 GB to 1024 GB, you would enter the value in MB as: **1024000**. Be careful not to enter a value higher than you actually want as the process of reducing a virtual disk size is much more complicated.
 
 7. Enter the value for the new maximum size you want to allocate to this Linux distribution using the Windows Command Prompt `DISKPART>` prompt:
 

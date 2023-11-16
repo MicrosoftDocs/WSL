@@ -1,7 +1,7 @@
 ---
 title: Intune settings
 description: Available settings in Intune for the Windows Subsystem for Linux (WSL)
-ms.date: 10/14/2023
+ms.date: 11/15/2023
 ms.topic: article
 ---
 
@@ -36,11 +36,11 @@ This will allow you to configure WSL to ensure that users are only using the lat
 
 ## Control WSL commands
 
-`AllowDebugShell` and `AllowDiskMount` control whether users can run the `wsl --debug-shell` and `wsl --mount` commands. You can [learn more about mounting disks in WSL with the mount command here](./wsl2-mount-disk.md).
+`AllowDebugShell` and `AllowDiskMount` control whether users can run the `wsl --debug-shell` and `wsl --mount` commands. Learn more about how to [Mount a disk in WSL 2](./wsl2-mount-disk.md) using the `wsl --mount` command.
 
 ## Control access to WSL settings in `.wslconfig`
 
-The last group of settings that end with `*UserSettingConfigurable` control access to WSL advanced settings in `.wslconfig`. When these are set to disabled then users will only be able to use the default value for that setting, and not able to configure it to custom values. To [learn more about these settings please see the advanced settings doc page](./wsl-config.md#configuration-setting-for-wslconfig).
+The last group of settings that end with `*UserSettingConfigurable` control access to WSL advanced settings in `.wslconfig`. When these are set to disabled then users will only be able to use the default value for that setting, and not able to configure it to custom values. Learn more about [Configuration setting for .wslconfig](./wsl-config.md#configuration-setting-for-wslconfig), including a list of settings that can be configured globally for all Linux distributions running with WSL 2.
 
 ## Full list of available settings
 
