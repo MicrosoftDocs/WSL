@@ -1,7 +1,7 @@
 ---
 title: Basic commands for WSL
 description: Reference for the basic commands included with Windows Subsystem for Linux (WSL).
-ms.date: 06/21/2023
+ms.date: 11/20/2023
 ms.topic: article
 ---
 
@@ -180,7 +180,7 @@ wsl --import <Distribution Name> <InstallLocation> <FileName>
 
 Imports and exports the specified tar file as a new distribution. The filename can be - for standard input. Options include:
 
-- `--vhd`: Specifies the import/export distribution should be a .vhdx file instead of a tar file
+- `--vhd`: Specifies the import/export distribution should be a .vhdx file instead of a tar file (this is only supported using WSL 2)
 - `--version`: For import only, specifies whether to import the distribution as a WSL 1 or WSL 2 distribution
 
 ## Import a distribution in place
