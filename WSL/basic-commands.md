@@ -56,6 +56,9 @@ wsl --set-version <distribution name> <versionNumber>
 
 To designate the version of WSL (1 or 2) that a Linux distribution is running on, replace `<distribution name>` with the name of the distribution and replace `<versionNumber>` with 1 or 2. [Comparing WSL 1 and WSL 2](./compare-versions.md). WSL 2 is only available in Windows 11 or Windows 10, Version 1903, Build 18362 or later. 
 
+> [!WARNING]
+> Switching between WSL 1 and WSL 2 can be time-consuming and result in failures due to the differences between the two architectures. For distributions with large projects, we recommend backing up files before attempting a conversion.
+
 ## Set default WSL version
 
 ```powershell
