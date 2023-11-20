@@ -1,7 +1,7 @@
 ---
 title: Connect USB devices
 description: Learn how to connect a USB device to your WSL 2 Linux distribution using usbipd-win.
-ms.date: 11/09/2021
+ms.date: 11/20/2023
 ms.topic: article
 ---
 
@@ -23,7 +23,7 @@ Setting up the USB/IP project on your Windows machine will enable common develop
 > To check your Linux kernel version, open your Linux distribution and enter the command: `uname -a`. To manually update to the latest kernel, open PowerShell and enter the command: 'wsl --update`.
 
 > [!IMPORTANT]
-> Windows 11 is recommended for connecting USB devices to a Linux distribution running on WSL 2. However, Windows 10 can be used to connect USB devices by building your own USBIP enabled WSL 2 kernel following the [instructions in the USBIPD-WIN project repo](https://github.com/dorssel/usbipd-win/wiki/WSL-support).
+> WSL now supports both Windows 10 and Windows 11 via the Microsoft Store, meaning that Windows 10 users now have access to the latest kernel versions without needing to compile from source. See [WSL in the Microsoft Store is now generally available on Windows 10 and 11](https://devblogs.microsoft.com/commandline/the-windows-subsystem-for-linux-in-the-microsoft-store-is-now-generally-available-on-windows-10-and-11/) for info on how to update to the Store-supported version of WSL. If you are unable to update to the Store-supported version of WSL and automatically receive kernel updates, see the [USBIPD-WIN project repo](https://github.com/dorssel/usbipd-win/wiki/WSL-support) for instructions on connecting USB devices to a Linux distribution running on WSL 2 by building your own USBIP enabled WSL 2 kernel.
 
 ## Install the USBIPD-WIN project
 
