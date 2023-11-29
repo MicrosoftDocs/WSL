@@ -138,6 +138,6 @@ Since Windows and Linux use different default line endings, Git may report a lar
 ## Additional resources
 
 * [WSL & VS Code](./wsl-vscode.md)
-* [GitHub Learning Lab: Online courses](https://lab.github.com/)
+* [GitHub Learning Lab: Online courses](https://github.com/apps/github-learning-lab)
 * [Git Visualization Tool](http://git-school.github.io/visualizing-git/)
 * [Git Tools - Credential Storage](https://git-scm.com/book/it/v2/Git-Tools-Credential-Storage)

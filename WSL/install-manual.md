@@ -2,7 +2,7 @@
 title: Manual installation steps for older versions of WSL
 description: Step by step instructions to manually install WSL on older versions of Windows, rather than using the wsl install command.
 keywords: wsl, install, BashOnWindows, bash, windows subsystem for linux, install ubuntu on windows, enable WSL2, linux on windows
-ms.date: 03/22/2023
+ms.date: 11/20/2023
 ms.topic: article
 adobe-target: true
 ---
@@ -97,6 +97,7 @@ wsl --set-default-version 2
     - [Pengwin Enterprise](https://www.microsoft.com/store/apps/9N8LP0X93VCP)
     - [Alpine WSL](https://www.microsoft.com/store/apps/9p804crf0395)
     - [Raft(Free Trial)](https://www.microsoft.com/store/apps/9msmjqd017x7)
+    - [Alma Linux](https://apps.microsoft.com/search?query=alma+linux)
 
 2. From the distribution's page, select "Get".
 
