@@ -3,7 +3,7 @@ metadata:
   title: FAQ's about Windows Subsystem for Linux
   description: "Find answers to frequently asked questions (FAQs) about the Windows Subsystem for Linux, such as 'What can I do with WSL?'."
   keywords: BashOnWindows, bash, wsl, windows, windowssubsystem, faq
-  ms.date: 09/27/2021
+  ms.date: 11/20/2023
   ms.topic: faq
   ms.localizationpriority: high
 title: Frequently Asked Questions about Windows Subsystem for Linux
@@ -158,11 +158,11 @@ sections:
           For more information, see [Accessing network applications](./networking.md).
           
       - question: |
-         How can I back up my WSL distributions, or move them from one drive to another?
+         How can I back up my WSL distributions?
         answer: |
-          The best way to backup or move your distributions is via the [export/import commands](./basic-commands.md) available in Windows Version 1809 and later. You can export your entire distribution to a tarball using the `wsl --export` command. You can then import this distribution back into WSL using the `wsl --import` command, which can name a new drive location for the import, allowing you to backup and save states of (or move) your WSL distributions. 
+          The best way to backup or move your distributions is via the [export/import commands](./basic-commands.md#import-and-export-a-distribution) available in Windows Version 1809 and later. You can export your entire distribution to a tarball using the `wsl --export` command. You can then import this distribution back into WSL using the `wsl --import` command, which can name a new drive location for the import, allowing you to backup and save states of (or move) your WSL distributions. To learn more about moving your WSL distributions, see [How can I transfer my WSL files from one machine to another?](#how-can-i-transfer-my-wsl-files-from-one-machine-to-another-). 
           
-          Please note that traditional backup services that backup files in your AppData folders (like Windows Backup) will not corrupt your Linux files.
+          Traditional backup services that backup files in your AppData folders (like Windows Backup) will not corrupt your Linux files.
 
       - question: |
          Can I use WSL for production scenarios? 
@@ -186,10 +186,31 @@ sections:
         answer: |
          There are a few ways you can accomplish this task: 
           
-          * The easiest way is to use the `wsl --export --vhd` command to export your WSL distribution to a VHD file. You can then copy this file to another machine, and import it using `wsl --import --vhd`. Please see the [commands doc](./basic-commands.md) for more information.
+          * The easiest way is to use the `wsl --export --vhd` command to export your WSL distribution to a VHD file. You can then copy this file to another machine, and import it using `wsl --import --vhd`. See the [Import and Export distributions in the WSL basic commands](./basic-commands.md#import-and-export-a-distribution) doc for more information.
           * The implementation above requires a lot of disk space. If you don't have a lot of disk space you can use Linux techniques to move your files over:
              * Use `tar -czf <tarballName> <directory>` to create a tarball of your files. You can then copy these specific files over to your new machine and run `tar -xzf <tarballName>` to extract them.
              * You can also export a list of installed packages via `apt` with a command like so: `dpkg --get-selections | grep -v deinstall | awk '{print $1}' > package_list.txt` and then reinstall those same packages on another machine with a command like `sudo apt install -y $(cat package_list.txt)` after transferring the file over.
+
+      - question: |
+         How can I move my WSL distribution to a different drive or location?
+        answer: |
+         You can do this using PowerShell. Below are the necessary commands and explanations for each step. Please open a PowerShell window and adjust the values in between the `<` tags to fit your specific use case:
+
+         ```powershell
+         # Create a folder where you would like to store your distro
+         New-Item -ItemType Directory -Path <Install location, e.g: D:\WSLDistros\Ubuntu>
+
+         # Export your distro to that folder as a VHD
+         wsl --export --vhd <Distroname, e.g: Ubuntu> <Install Location with filename, e.g: D:\WSLDistros\Ubuntu\ext4.vhdx> 
+
+         # Unregister your old distro
+         # Please note this will erase your existing distro's file contents, please ensure the backup file you created in the 2nd step is present at the location and that the export operation completed successfully.
+         # Please exercise caution when using this command, as it is destructive and could cause data loss.
+         wsl --unregister <Distroname>
+
+         # Import your VHD backup
+         wsl --import-in-place <Distroname> <Install Location with filename>
+
 
   - name: WSL 2
     questions:
@@ -208,7 +229,7 @@ sections:
       - question: |
           Will I be able to run WSL 2 and other 3rd party virtualization tools such as VMware, or VirtualBox?
         answer: |
-          Some 3rd party applications cannot work when Hyper-V is in use, which means they will not be able to run when WSL 2 is enabled, such as VMware and VirtualBox. However, recently both VirtualBox and VMware have released versions that support Hyper-V and WSL2. Learn more about [VirtualBox's changes here](https://www.virtualbox.org/wiki/Changelog-6.0) and [VMware's changes here](https://blogs.vmware.com/workstation/2020/01/vmware-workstation-tech-preview-20h1.html). For troubleshooting issues, take a look at the [VirtualBox issue discussions in the WSL repo on GitHub](https://github.com/MicrosoftDocs/WSL/issues?q=is%3Aissue+virtualbox+sort%3Acomments-desc).
+          Some 3rd party applications cannot work when Hyper-V is in use, which means they will not be able to run when WSL 2 is enabled, such as VMware and VirtualBox. However, recently both VirtualBox and VMware have released versions that support Hyper-V and WSL2. Learn more about [VirtualBox's changes here](https://www.virtualbox.org/wiki/Changelog-6.0) and [VMware's changes here](https://blogs.vmware.com/workstation/2020/01/vmware-workstation-tech-preview-20h1.html). For troubleshooting issues, take a look at the [VirtualBox issue discussions in the WSL repo on GitHub](https://github.com/MicrosoftDocs/WSL/issues?q=is%3Aissue+virtualbox+sort%3Acomments-desc). StackOverflow also offers a helpful tip: [How to get VirtualBox 6.0 and WSL working at the same time](https://stackoverflow.com/questions/58031941/how-to-get-virtualbox-6-0-and-wsl-working-at-the-same-time).
           
           We are consistently working on solutions to support third-party integration of Hyper-V. For example, we expose a set of APIs called [Hypervisor Platform](/virtualization/api/) that third-party virtualization providers can use to make their software compatible with Hyper-V. This lets applications use the Hyper-V architecture for their emulation such as [the Google Android Emulator](https://devblogs.microsoft.com/visualstudio/hyper-v-android-emulator-support/), and VirtualBox 6 and above which are both now compatible with Hyper-V.
 

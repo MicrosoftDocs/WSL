@@ -1,11 +1,7 @@
 - name: Windows
   tocHref: /windows/
-  topicHref: /windows/
+  topicHref: /windows/index
   items:
-    - name: Development environment
-      tocHref: /windows/dev-environment/overview
-      topicHref: /windows/dev-environment/overview
-      items:
-        - name: WSL
-          tocHref: /windows/wsl/
-          topicHref: /windows/wsl/
+  - name: WSL
+    tocHref: /windows/wsl/
+    topicHref: /windows/wsl/index

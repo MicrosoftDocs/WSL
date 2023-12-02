@@ -1,7 +1,7 @@
 ---
 title: Troubleshooting Windows Subsystem for Linux
 description: Provides detailed information about common errors and issues people run into while running Linux on the Windows Subsystem for Linux. 
-ms.date: 07/17/2023
+ms.date: 11/15/2023
 ms.topic: article
 ---
 
@@ -43,8 +43,8 @@ You can also:
   - Ensure that you have the Windows Subsystem for Linux enabled, and that you're using Windows Build version 18362 or later. To enable WSL run this command in a PowerShell prompt with admin privileges: `Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux`.
 
 - **The requested operation could not be completed due to a virtual disk system limitation. Virtual hard disk files must be uncompressed and unencrypted and must not be sparse.**
-  - Deselect “Compress contents” (as well as “Encrypt contents” if that’s checked) by opening the profile folder for your Linux distribution. It should be located in a folder on your Windows file system, something like: `%USERPROFILE%\AppData\Local\Packages\CanonicalGroupLimited...`
-  - In this Linux distro profile, there should be a LocalState folder. Right-click this folder to display a menu of options. Select Properties > Advanced and then ensure that the “Compress contents to save disk space” and “Encrypt contents to secure data” checkboxes are unselected (not checked). If you are asked whether to apply this to just to the current folder or to all subfolders and files, select “just this folder” because you are only clearing the compress flag. After this, the `wsl --set-version` command should work.
+  - Deselect "Compress contents" (as well as "Encrypt contents" if that’s checked) by opening the profile folder for your Linux distribution. It should be located in a folder on your Windows file system, something like: `%USERPROFILE%\AppData\Local\Packages\CanonicalGroupLimited...`
+  - In this Linux distro profile, there should be a LocalState folder. Right-click this folder to display a menu of options. Select Properties > Advanced and then ensure that the "Compress contents to save disk space" and "Encrypt contents to secure data" checkboxes are unselected (not checked). If you are asked whether to apply this to just to the current folder or to all subfolders and files, select "just this folder" because you are only clearing the compress flag. After this, the `wsl --set-version` command should work.
 
 ![Screenshot of WSL distro property settings](media/troubleshooting-virtualdisk-compress.png)
 
@@ -60,7 +60,7 @@ You can also:
   - If you receive this error after you have already installed WSL distributions:
   1. Run the distribution at least once before invoking it from the command line.
   2. Check whether you may be running separate user accounts. Running your primary user account with elevated permissions (in admin mode) should not result in this error, but you should ensure that you aren't accidentally running the built-in Administrator account that comes with Windows. This is a separate user account and will not show any installed WSL distributions by design. For more info, see [Enable and Disable the Built-in Administrator Account](/windows-hardware/manufacture/desktop/enable-and-disable-the-built-in-administrator-account).
-  3. The WSL executable is only installed to the native system directory. When you’re running a 32-bit process on 64-bit Windows (or on ARM64, any non-native combination), the hosted non-native process actually sees a different System32 folder. (The one a 32-bit process sees on x64 Windows is stored on disk at \Windows\SysWOW64.) You can access the “native” system32 from a hosted process by looking in the virtual folder: `\Windows\sysnative`. It won’t actually be present on disk, mind you, but the filesystem path resolver will find it.
+  3. The WSL executable is only installed to the native system directory. When you’re running a 32-bit process on 64-bit Windows (or on ARM64, any non-native combination), the hosted non-native process actually sees a different System32 folder. (The one a 32-bit process sees on x64 Windows is stored on disk at \Windows\SysWOW64.) You can access the "native" system32 from a hosted process by looking in the virtual folder: `\Windows\sysnative`. It won’t actually be present on disk, mind you, but the filesystem path resolver will find it.
 
 - **Error: This update only applies to machines with the Windows Subsystem for Linux.**
   - To install the Linux kernel update MSI package, WSL is required and should be enabled first. If it fails, it you will see the message: `This update only applies to machines with the Windows Subsystem for Linux`.
@@ -168,7 +168,7 @@ Please enable the Virtual Machine Platform Windows feature and ensure virtualiza
 
 1. Check the [Hyper-V system requirements](/windows-server/virtualization/hyper-v/system-requirements-for-hyper-v-on-windows#:~:text=on%20Windows%20Server.-,General%20requirements,the%20processor%20must%20have%20SLAT.)
 
-2. If your machine is a VM, please enable [nested virtualization](./faq.yml#can-i-run-wsl-2-in-a-virtual-machine-) manually. Launch powershell with admin, and run:
+2. If your machine is a VM, enable [nested virtualization](./faq.yml#can-i-run-wsl-2-in-a-virtual-machine-) manually. Launch powershell with admin, and run the following command, replacing `<VMName>` with the name of the virtual machine on your host system (you can find the name in your Hyper-V Manager):
 
     ```powershell
     Set-VMProcessor -VMName <VMName> -ExposeVirtualizationExtensions $true
@@ -211,7 +211,7 @@ You can confirm local rule merging's setting by following these steps:
 5. Select "Customize" under the "Settings" section 
 6. Check in the "Customize Settings for the Public Profile" window that opens to see if "Rule Merging" is set to "No". This will block access to WSL.
 
-You can find instructions on how to change this Firewall setting in [Enterprise environment: Set up WSL for your company](./enterprise.md#configuring-wsl-firewall-rules).
+You can find instructions on how to change this Firewall setting in [Configure Hyper-V firewall](/windows/security/operating-system-security/network-security/windows-firewall/hyper-v-firewall).
 
 ### WSL has no network connectivity once connected to a VPN
 
@@ -239,9 +239,202 @@ Once you have disconnected the VPN, you will have to revert the changes to `/etc
 2. `sudo mv resolv.conf resolv.conf.new`
 3. `sudo ln -s ../run/resolvconf/resolv.conf resolv.conf`
 
+### Cisco Anyconnect VPN issues with WSL in NAT mode
+
+The Cisco AnyConnect VPN modifies routes in a way which prevents NAT from working. There is a workaround specific to WSL 2: See [Cisco AnyConnect Secure Mobility Client Administrator Guide, Release 4.10 - Troubleshoot AnyConnect](https://www.cisco.com/c/en/us/td/docs/security/vpn_client/anyconnect/anyconnect410/administration/guide/b-anyconnect-admin-guide-4-10/troubleshoot-anyconnect.html#Cisco_Task_in_List_GUI.dita_3a9a8101-f034-4e9b-b24a-486ee47b5e9f).
+
+### WSL connectivity issues with VPNs when Mirrored networking mode is on
+
+Mirrored networking mode is currently an [experimental setting in the WSL Configuration](/windows/wsl/wsl-config#experimental-settings). The traditional NAT networking architecture of WSL can be updated to an entirely new networking mode called “Mirrored networking mode”. When the experimental `networkingMode` is set to `mirrored`, the network interfaces that you have on Windows are mirrored into Linux to improve compatibility. Learn more in the Command Line blog: [WSL September 2023 update](https://devblogs.microsoft.com/commandline/windows-subsystem-for-linux-september-2023-update/#new-networking-mode-mirrored).
+
+Some VPNs have been tested and confirmed to be incompatible with WSL, including:
+
+- "Bitdefender" version 26.0.2.1
+- "OpenVPN" version 2.6.501
+- "Mcafee Safe Connect" version 2.16.1.124
+
+### Considerations when using autoProxy for HttpProxy Mirroring in WSL
+
+HTTP/S proxy mirroring can be configured using the `autoProxy` setting in the [experimental section of the WSL Configuration file](/windows/wsl/wsl-config#experimental-settings). When applying this setting, note these considerations:
+
+- **PAC Proxy**: WSL will configure the setting in Linux by Setting the "WSL_PAC_URL" environment variable. Linux does not support PAC proxies by default. 
+- **Interactions with WSLENV**: User defined environment variables take precedence over those specified by this feature.
+
+When enabled, the following apply to proxy settings on your Linux distributions:
+
+- The Linux environment variable, `HTTP_PROXY`, is set to the one or more HTTP proxies found installed in the Windows HTTP proxy configuration.
+- The Linux environment variable, `HTTPS_PROXY`, is set to the one or more HTTP**S** proxies found installed in the Windows HTTP proxy configuration.
+- The Linux environment variable, `NO_PROXY`, is set to bypass any HTTP/S proxies found in the Windows configuration targets.
+- Every environment variable, except `WSL_PAC_URL`, is set to both lower case and upper case. For example: `HTTP_PROXY` and `http_proxy`.
+
+Learn more in the Command Line blog: [WSL September 2023 update](https://devblogs.microsoft.com/commandline/windows-subsystem-for-linux-september-2023-update/#autoproxy).
+
+### Networking considerations with DNS tunneling
+
+When WSL can’t connect to the internet, it might be because the DNS call to the Windows host is blocked. This is because the networking packet for DNS sent by the WSL VM to the Windows host is blocked by the existing networking configuration. DNS tunneling fixes this by using a virtualization feature to communicate with Windows directly, allowing the DNS name to be resolved without sending a networking packet. This feature should improve network compatibility and allow you to get better internet connectivity even if you have a VPN, specific firewall setup, or other networking configurations.
+
+DNS Tunneling can be configured using the `dnsTunneling` setting in the [experimental section of the WSL Configuration file](/windows/wsl/wsl-config#experimental-settings). When applying this setting, note these considerations:
+
+- Native Docker can have connectivity issues in WSL when DNS tunneling is enabled – if the network has a policy to block DNS traffic to: 8.8.8.8 
+- If you use a VPN with WSL, turn on DNS tunneling. Many VPNs use NRPT policies, which are only applied to WSL DNS queries when DNS tunneling is enabled.
+- The `/etc/resolv.conf` file in your Linux distribution has a 3 DNS servers maximum limitation, while Windows may use more than 3 DNS servers. Using DNS tunneling removes this limitation – all Windows DNS servers can now be used by Linux.
+- WSL will use Windows DNS suffixes in the following order (similar to the order used by the Windows DNS client): 
+  1. Global DNS suffixes 
+  2. Supplemental DNS suffixes 
+  3. Per-interface DNS suffixes
+  4. If DNS encryption (DoH, DoT) is enabled on Windows, encryption will be applied to DNS queries from WSL. If users want to enable DoH, DoT inside Linux, they need to disable DNS tunneling.
+- DNS queries from Docker containers (either Docker Desktop or native Docker running in WSL) will bypass DNS tunneling. DNS tunneling cannot be leveraged to apply host DNS settings and policies to Docker DNS traffic.
+- Docker Desktop has its own way (different from DNS tunneling) of applying host DNS settings and policies to DNS queries from Docker containers.
+
+Learn more in the Command Line blog: [WSL September 2023 update](https://devblogs.microsoft.com/commandline/windows-subsystem-for-linux-september-2023-update/#dns-tunneling).
+
+### Issues with steering the inbound traffic received by the Windows host to the WSL Virtual Machine
+
+When using Mirrored networking mode (the experimental `networkingMode` set to `mirrored`), some inbound traffic received by the Windows host will never be steered to the Linux VM. This traffic is as follows:
+
+- UDP port 68 (DHCP)
+- TCP port 135 (DCE endpoint resolution)
+- UDP port 5353 (mDNS)
+- TCP port 1900 (UPnP)
+- TCP port 2869 (SSDP)
+- TCP port 5004 (RTP)
+- TCP port 3702 (WSD)
+- TCP port 5357 (WSD)
+- TCP port 5358 (WSD)
+
+WSL will automatically configure certain Linux networking settings when using mirrored networking mode. Any user configurations of these settings while using mirrored networking mode is not supported. Here is the list of settings WSL will configure:
+
+| Setting Name | Value |
+| --- | --- |
+|  https://sysctl-explorer.net/net/ipv4/accept_local/ | Enabled (1) |
+|  https://sysctl-explorer.net/net/ipv4/route_localnet/ | Enabled (1) |
+|  https://sysctl-explorer.net/net/ipv4/rp_filter/ | Disabled (0) |
+|  https://sysctl-explorer.net/net/ipv6/accept_ra/ | Disabled (0) |
+|  https://sysctl-explorer.net/net/ipv6/autoconf/ | Disabled (0) |
+|  https://sysctl-explorer.net/net/ipv6/use_tempaddr/ | Disabled (0) |
+|  addr_gen_mode| Disabled (0) |
+|  disable_ipv6| Disabled (0) |
+|  https://sysctl-explorer.net/net/ipv4/arp_filter/ | Enabled (1) |
+ 
+### Docker container issues in WSL2 with Mirrored networking mode enabled when running under the default networking namespace
+
+There is a known issue in which Docker Desktop containers with published ports (docker run –publish/-p) will fail to be created. The WSL team is working with the Docker Desktop team to address this issue. To work around the issue, use the host’s networking namespace in the Docker container. Set the network type via the "--network host" option used in the "docker run" command. An alternative workaround is to list the published port number in the `ignoredPorts` setting of the [experimental section in the WSL Configuration file](/windows/wsl/wsl-config#experimental-settings). 
+
+### DNS suffixes in WSL
+
+Depending on the configurations in the .wslconfig file, WSL will have the following behavior wrt DNS suffixes:
+
+**When networkingMode is set to NAT:**
+
+Case 1) By default
+no DNS suffix is configured in Linux
+
+Case 2) If DNS tunneling is enabled (dnsTunneling is set to true in .wslconfig)
+All Windows DNS suffixes are configured in Linux, in the "search" setting of /etc/resolv.conf
+
+The suffixes are configured in /etc/resolv.conf in the following order, similar to the order in which Windows DNS client tries suffixes when resolving a name: global DNS suffixes first, then supplemental DNS suffixes, then per-interface DNS suffixes.
+
+When there is a change in the Windows DNS suffixes, that change will be automatically reflected in Linux
+
+Case 3) If DNS tunneling is disabled and SharedAccess DNS proxy is disabled (dnsTunneling is set to false and dnsProxy is set to false in .wslconfig)
+A single DNS suffix is configured in Linux, in the "domain" setting of /etc/resolv.conf
+
+When there is a change in the Windows DNS suffixes, that change is not reflected in Linux
+
+The single DNS suffix configured in Linux is chosen from the per-interface DNS suffixes (global and supplemental suffixes are ignored)
+
+if Windows has multiple interfaces, a heuristic is used to choose the single DNS suffix that will be configured in Linux. For example if there is a VPN interface on Windows, the suffix is chosen from that interface. If no VPN interface is present, the suffix is chosen from the interface that is most likely to give Internet connectivity.
+
+**When networkingMode is set to Mirrorred:**
+
+All Windows DNS suffixes are configured in Linux, in the "search" setting of /etc/resolv.conf
+
+The suffixes are configured in /etc/resolv.conf in the same order as in case 2) from NAT mode
+
+When there is a change in the Windows DNS suffixes, that change will be automatically reflected in Linux
+
+Note: supplemental DNS suffixes can be configured in Windows using
+[SetInterfaceDnsSettings - Win32 apps | Microsoft Learn](/windows/win32/api/netioapi/nf-netioapi-setinterfacednssettings), with the flag **DNS_SETTING_SUPPLEMENTAL_SEARCH_LIST set in the Settings parameter**
+
+### Troubleshooting DNS in WSL
+
+The default DNS configuration when WSL starts a container in NAT mode is to have the NAT device on the Windows Host serve as the DNS ‘server’ for the WSL container. When DNS queries are sent from the WSL container to that NAT device on the Windows Host, the DNS packet is forwarded from the NAT device to the shared access service on the Host; the response is sent in the reverse direction back to the WSL container. This packet forwarding process to shared access requires a Firewall rule to allow that inbound DNS packet, which is created by the HNS service when WSL initially asks HNS to create the NAT virtual network for its WSL container.
+
+Due to this NAT - shared access design, there are a few known configurations which can break name resolution from WSL.
+
+**1.	An Enterprise can push policy that does not allow locally defined Firewall rules, only allowing Enterprise-policy defined rules.**
+
+When this is set by an Enterprise, the HNS-created Firewall rule is ignored, as it’s a locally defined rule.
+For this configuration to work the Enterprise must create a Firewall rule to allow UDP port 53 to the shared access service, or WSL can be set to use DNS Tunneling.
+One can see if this is configured to not allow locally defined Firewall rules by running the following. Note that this will show settings for all 3 profiles: Domain, Private, and Public. If it’s set on any profile, then packets will be blocked if the WSL vNIC is assigned that profile (default is Public). This is only a snippet of the first Firewall profile that is returned in Powershell:
+
+```PowerShell
+PS C:\> Get-NetFirewallProfile -PolicyStore ActiveStore
+Name                            : Domain
+Enabled                         : True
+DefaultInboundAction            : Block
+DefaultOutboundAction           : Allow
+AllowInboundRules               : True
+AllowLocalFirewallRules         : False
+```
+
+```AllowLocalFirewallRules:False means the locally defined firewall rules, like that by HNS, will not be applied or used.```
+
+**2.	And Enterprise can push down Group Policy and MDM policy settings that block all inbound rules.**
+
+These settings override any Allow-Inbound Firewall rule. This setting will thus block the HNS-created UDP Firewall rule, and thus will prevent WSL from resolving names.
+For this configuration to work, **WSL must be set to use DNS Tunneling.** This setting will always block the NAT DNS proxy.
+
+**From Group Policy:**
+
+Computer Configuration \\ Administrative Templates \\ Network \\ Network Connections \\ Windows Defender Firewall \\ Domain Profile | Standard Profile
+
+"Windows Defender Firewall: Do not allow exceptions" - Enabled
+
+**From MDM Policy:**
+
+./Vendor/MSFT/Firewall/MdmStore/PrivateProfile/Shielded
+
+./Vendor/MSFT/Firewall/MdmStore/DomainProfile/Shielded
+
+./Vendor/MSFT/Firewall/MdmStore/PublicProfile/Shielded
+
+One can see if this is configured to not allow any inbound Firewall rules by running the following (see above caveats on Firewall Profiles). This is only a snippet of the first Firewall profile that is returned in Powershell:
+```powerShell
+
+PS C:\> Get-NetFirewallProfile -PolicyStore ActiveStore
+Name                            : Domain
+Enabled                         : True
+DefaultInboundAction            : Block
+DefaultOutboundAction           : Allow
+AllowInboundRules               : False
+```
+
+```AllowInboundRules: False means that no inbound Firewall rules will be applied.```
+
+**3.	A user goes through the Windows Security setting apps and checks the control for "Blocks all incoming connections, including those in the list of allowed apps."**
+
+Windows supports a user-opt-in for the same setting that can be applied by an Enterprise referenced in #2 above. Users can open the “Windows Security” settings page, selects the “Firewall & network protection” option, selects the Firewall Profile they want to configure (Domain, Private, or Public), and under “Incoming connections” check the control labeled "Blocks all incoming connections, including those in the list of allowed apps."
+
+If this is set for the Public profile (this is the default profile for the WSL vNIC), the Firewall rule created by HNS to allow the UDP packets to shared access will be blocked.
+
+This must be unchecked for the NAT DNS proxy configuration to work from WSL, **or WSL can be set to use DNS Tunneling.**
+
+**4.	The HNS Firewall rule to allow the DNS packets to shared access can become invalid, referencing a previous WSL interface identifier.**
+This is a flaw within HNS which has been fixed with the latest Windows 11 release. On earlier releases, if this occurs, it’s not easily discoverable, but it has a simple work around:
+- Stop WSL
+  1. ```wsl.exe –shutdown```
+- Delete the old HNS Firewall rule. This Powershell command should work in most cases:
+  1.```Get-NetFirewallRule -Name "HNS*" | Get-NetFirewallPortFilter | where Protocol -eq UDP | where LocalPort -eq 53 | Remove-NetFirewallRule```
+- Remove all HNS endpoints
+  1. Note: if HNS is used to manage other containers, such as MDAG or Windows Sandbox, those should also be stopped.
+  2. ```hnsdiag.exe delete all```
+- Reboot or restart the HNS service
+- When WSL is restarted, HNS will create new Firewall rules, correctly targeting the WSL interface.
+
 ### Starting WSL or installing a distribution returns an error code
 
-Follow [these instructions](https://github.com/Microsoft/WSL/blob/master/CONTRIBUTING.md#8-detailed-logs) to collect detailed logs and file an issue on our GitHub.
+Follow the instructions to [Collect WSL logs](https://github.com/Microsoft/WSL/blob/master/CONTRIBUTING.md#8-detailed-logs) in the WSL repo on GitHub to collect detailed logs and file an issue on our GitHub.
 
 ### Updating WSL
 
@@ -294,7 +487,7 @@ The Windows Subsystem for Linux feature may be disabled during a Windows update.
 
 WSL install will try to automatically change the Ubuntu locale to match the locale of your Windows install. If you do not want this behavior you can run this command to change the Ubuntu locale after install completes.  You will have to relaunch bash.exe for this change to take effect.
 
-The below example changes to locale to en-US:
+The below example changes to locale to `en-US`:
 
 ```bash
 sudo update-locale LANG=en_US.UTF8

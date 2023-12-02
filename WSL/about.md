@@ -1,20 +1,18 @@
 ---
 title: What is Windows Subsystem for Linux 
-description: Learn about the Windows Subsystem for Linux, including the different versions and ways you can use them.
-keywords: BashOnWindows, bash, wsl, windows, windowssubsystem, gnu, linux
-ms.date: 09/27/2021
+description: Learn about the Windows Subsystem for Linux, including the different versions and ways you can use them. Microsoft Loves Linux.
+ms.date: 11/20/2023
 ms.topic: article
-ms.assetid: 3cefe0db-7616-4848-a2b6-9296746a178b
 ---
 
 # What is the Windows Subsystem for Linux?
 
-The Windows Subsystem for Linux lets developers run a GNU/Linux environment -- including most command-line tools, utilities, and applications -- directly on Windows, unmodified, without the overhead of a traditional virtual machine or dualboot setup.
+Windows Subsystem for Linux (WSL) is a feature of Windows that allows you to run a Linux environment on your Windows machine, without the need for a separate virtual machine or dual booting.  WSL is designed to provide a seamless and productive experience for developers who want to use both Windows and Linux at the same time.
 
-You can:
-
-- Choose your favorite GNU/Linux distributions [from the Microsoft Store](https://aka.ms/wslstore).
-- Run common command-line tools such as `grep`, `sed`, `awk`, or other ELF-64 binaries.
+- Use WSL to install and run various Linux distributions, such as Ubuntu, Debian, Kali, and more. [Install Linux distributions](./install.md) and receive automatic updates from the [Microsoft Store](./compare-versions.md#wsl-in-the-microsoft-store), [import Linux distributions not available in the Microsoft Store](./use-custom-distro.md), or [build your own customer Linux distribution](./build-custom-distro.md).
+- Store files in an isolated Linux file system, specific to the installed distribution.
+- Run command-line tools, such as BASH.
+- Run common BASH command-line tools such as `grep`, `sed`, `awk`, or other ELF-64 binaries.
 - Run Bash scripts and GNU/Linux command-line applications including:  
   - Tools: vim, emacs, tmux
   - Languages: [NodeJS](/windows/nodejs/setup-on-wsl2), JavaScript, [Python](/windows/python/web-frameworks), Ruby, C/C++, C# & F#, Rust, Go, etc.
@@ -23,7 +21,7 @@ You can:
 - Invoke Windows applications using a Unix-like command-line shell.
 - Invoke GNU/Linux applications on Windows.
 - [Run GNU/Linux graphical applications](./tutorials/gui-apps.md) integrated directly to your Windows desktop
-- [Use GPU acceleration](./tutorials/gpu-compute.md) for machine learning, data science scenarios and more
+- Use your device [GPU to accelerate Machine Learning workloads running on Linux.](./tutorials/gpu-compute.md)
 
 > [!div class="nextstepaction"]
 > [Install WSL](install.md)
@@ -34,12 +32,14 @@ You can:
 
 ## What is WSL 2?
 
-WSL 2 is a new version of the Windows Subsystem for Linux architecture that powers the Windows Subsystem for Linux to run ELF64 Linux binaries on Windows. Its primary goals are to **increase file system performance**, as well as adding **full system call compatibility**.
+WSL 2 is the default distro type when installing a Linux distribution. WSL 2 uses virtualization technology to run a Linux kernel inside of a lightweight utility virtual machine (VM). Linux distributions run as isolated containers inside of the WSL 2 managed VM. Linux distributions running via WSL 2 will share the same network namespace, device tree (other than `/dev/pts`), CPU/Kernel/Memory/Swap, `/init` binary, but have their own PID namespace, Mount namespace, User namespace, Cgroup namespace, and `init` process. 
 
-This new architecture changes how these Linux binaries interact with Windows and your computer's hardware, but still provides the same user experience as in WSL 1 (the current widely available version).
+WSL 2 **increases file system performance** and adds **full system call compatibility** in comparison to the WSL 1 architecture. Learn more about how [WSL 1 and WSL 2 compare](./compare-versions.md). 
 
-Individual Linux distributions can be run with either the WSL 1 or WSL 2 architecture. Each distribution can be upgraded or downgraded at any time and you can run WSL 1 and WSL 2 distributions side by side. WSL 2 uses an entirely new architecture that benefits from running a real Linux kernel.
-
-<br>
+Individual Linux distributions can be run with either the WSL 1 or WSL 2 architecture. Each distribution can be upgraded or downgraded at any time and you can run WSL 1 and WSL 2 distributions side by side. See the [Set WSL version command](/windows/wsl/basic-commands#set-default-wsl-version).
 
 > [!VIDEO https://www.youtube.com/embed/MrZolfGm8Zk]
+
+## Microsoft Loves Linux
+
+Learn more about [Linux resources at Microsoft](/linux), including Microsoft tools that run on Linux, Linux training courses, Cloud Solution Architecture for Linux, and Microsoft + Linux news, events, and partnerships. **Microsoft Loves Linux!**

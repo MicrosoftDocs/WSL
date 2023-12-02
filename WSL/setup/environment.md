@@ -1,7 +1,7 @@
 ---
 title: Set up a WSL development environment
 description: Set up a WSL development environment using best practices from this set-by-step guide. Learn how to run Ubuntu, Visual Studio Code or Visual Studio, Git, Windows Credential Manager, MongoDB, MySQL, Docker remote containers and more.
-ms.date: 01/04/2022
+ms.date: 11/20/2023
 ms.topic: article
 no-loc: [Terminal]
 ms.custom: seo-windows-dev
@@ -174,7 +174,7 @@ In addition, many commands are interoperable between Windows and Linux. Here are
 - [Run a Windows tool directly from the WSL command line](../filesystems.md#run-windows-tools-from-linux): `<tool-name>.exe`
     For example, to open your .bashrc file (the shell script that runs whenever your Linux command line is started), enter: `notepad.exe .bashrc`
 
-- [Run the Windows ipconfig.exe tool with the Linux Grep tool](../filesystems.md#run-windows-tools-from-linux): `ipconfig.exe | grep IPv4 | cut -d: -f2`
+- [Run the Windows ipconfig.exe tool with the Linux Grep tool](../filesystems.md#run-windows-tools-from-linux): From Bash enter the command `ipconfig.exe | grep IPv4 | cut -d: -f2` or from PowerShell enter `ipconfig.exe | wsl grep IPv4 | wsl cut -d: -f2`
     This example demonstrates the ipconfig tool on the Windows file system being used to display the current TCP/IP network configuration values and then being filtered to only the IPv4 result with grep, a Linux tool.
 
 ## Mount an external drive or USB

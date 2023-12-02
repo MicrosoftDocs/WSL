@@ -1,13 +1,13 @@
 ---
 title: Basic commands for WSL
 description: Reference for the basic commands included with Windows Subsystem for Linux (WSL).
-ms.date: 06/21/2023
+ms.date: 11/28/2023
 ms.topic: article
 ---
 
 # Basic commands for WSL
 
-The WSL commands below are listed in a format supported by PowerShell or Windows Command Prompt. To run these commands from a Bash / Linux distribution command line, you must replace `wsl` with `wsl.exe`. For a full list of commands, run `wsl --help`. 
+The WSL commands below are listed in a format supported by PowerShell or Windows Command Prompt. To run these commands from a Bash / Linux distribution command line, you must replace `wsl` with `wsl.exe`. For a full list of commands, run `wsl --help`. If you have not yet done so, we recommend [updating to the version of WSL installed from Microsoft Store](https://apps.microsoft.com/detail/9P9TQF7MRM4R) in order to receive WSL updates as soon as they are available. ([Learn more about installing WSL via Microsoft Store.](https://devblogs.microsoft.com/commandline/the-windows-subsystem-for-linux-in-the-microsoft-store-is-now-generally-available-on-windows-10-and-11/)).
 
 ## Install
 
@@ -55,6 +55,9 @@ wsl --set-version <distribution name> <versionNumber>
 ```
 
 To designate the version of WSL (1 or 2) that a Linux distribution is running on, replace `<distribution name>` with the name of the distribution and replace `<versionNumber>` with 1 or 2. [Comparing WSL 1 and WSL 2](./compare-versions.md). WSL 2 is only available in Windows 11 or Windows 10, Version 1903, Build 18362 or later. 
+
+> [!WARNING]
+> Switching between WSL 1 and WSL 2 can be time-consuming and result in failures due to the differences between the two architectures. For distributions with large projects, we recommend backing up files before attempting a conversion.
 
 ## Set default WSL version
 
@@ -180,7 +183,7 @@ wsl --import <Distribution Name> <InstallLocation> <FileName>
 
 Imports and exports the specified tar file as a new distribution. The filename can be - for standard input. Options include:
 
-- `--vhd`: Specifies the import/export distribution should be a .vhdx file instead of a tar file
+- `--vhd`: Specifies the import/export distribution should be a .vhdx file instead of a tar file (this is only supported using WSL 2)
 - `--version`: For import only, specifies whether to import the distribution as a WSL 1 or WSL 2 distribution
 
 ## Import a distribution in place

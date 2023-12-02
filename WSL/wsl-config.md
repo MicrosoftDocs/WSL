@@ -1,7 +1,7 @@
 ---
 title: Advanced settings configuration in WSL
 description: A guide to the wsl.conf and .wslconfig files used for configuring settings when running multiple Linux distributions on Windows Subsystem for Linux.
-ms.date: 09/18/2023
+ms.date: 11/10/2023
 ms.topic: article
 ms.custom: seo-windows-dev
 adobe-target: true
@@ -15,43 +15,34 @@ The [wsl.conf](#wslconf) and [.wslconfig](#wslconfig) files are used to configur
 
 You can configure the settings for your installed Linux distributions that will automatically be applied every time you launch WSL in two ways, by using:
 
-- **[.wslconfig](#wslconfig)** to configure settings **globally** across all installed distributions running on WSL 2.
-- **[wsl.conf](#wslconf)**  to configure settings **per-distribution** for Linux distros running on WSL 1 or WSL 2.
+- **[.wslconfig](#wslconfig)** to configure **global settings** across all installed distributions running on WSL 2.
+- **[wsl.conf](#wslconf)**  to configure **local settings** per-distribution for each Linux distribution running on WSL 1 or WSL 2.
 
-Both file types are used for configuring WSL settings, but the location where the file is stored, the scope of the configuration, and the version of WSL running your distribution all impact which file type to choose.
+Both file types are used for configuring WSL settings, but the location where the file is stored, the scope of the configuration, the type of options that can be configured, and the version of WSL running your distribution all impact which file type to choose.
 
-The version of WSL that you are running will impact the configuration settings. WSL 2 runs as a lightweight virtual machine (VM), so uses virtualization settings that allow you to control the amount of memory or processors used (which may be familiar if you use Hyper-V or VirtualBox).
+WSL 1 and WSL 2 run with different architecture and will impact the configuration settings. WSL 2 runs as a lightweight virtual machine (VM), so uses virtualization settings that allow you to control the amount of memory or processors used (which may be familiar if you use Hyper-V or VirtualBox). [Check which version of WSL you are running.](./install.md#check-which-version-of-wsl-you-are-running)
+
+## The 8 second rule for configuration changes
+
+You must wait until the subsystem running your Linux distribution completely stops running and restarts for configuration setting updates to appear. This typically takes about 8 seconds after closing ALL instances of the distribution shell.
+
+If you launch a distribution (e.g. Ubuntu), modify the configuration file, close the distribution, and then re-launch it, you might assume that your configuration changes have immediately gone into effect. This is not currently the case as the subsystem could still be running. You must wait for the subsystem to stop before relaunching in order to give enough time for your changes to be picked up. You can check to see whether your Linux distribution (shell) is still running after closing it by using PowerShell with the command: `wsl --list --running`. If no distributions are running, you will receive the response: "There are no running distributions." You can now restart the distribution to see your configuration updates applied.
+
+The command `wsl --shutdown` is a fast path to restarting WSL 2 distributions, but it will shut down all running distributions, so use wisely. You can also use `wsl --terminate <distroName>` to terminate a a specific distribution that's running instantly.
 
 ## wsl.conf
+
+Configure **local settings** with **wsl.conf** per-distribution for each Linux distribution running on WSL 1 or WSL 2.
 
 - Stored in the `/etc` directory of the distribution as a unix file.
 - Used to configure settings on a per-distribution basis. Settings configured in this file will only be applied to the specific Linux distribution that contains the directory where this file is stored.
 - Can be used for distributions run by either version, WSL 1 or WSL 2.
 - To get to the `/etc` directory for an installed distribution, use the distribution's command line with `cd /` to access the root directory, then `ls` to list files or `explorer.exe .` to view in Windows File Explorer. The directory path should look something like: `/etc/wsl.conf`.
 
-## .wslconfig
-
-- Stored in your `%UserProfile%` directory.
-- Used to configure settings globally across all installed Linux distributions running as the WSL 2 version.
-- Can be used **only for distributions run by WSL 2**. Distributions running as WSL 1 will not be affected by this configuration as they are not running as a virtual machine.
-- To get to your `%UserProfile%` directory, in PowerShell, use `cd ~` to access your home directory (which is typically your user profile, `C:\Users\<UserName>`) or you can open Windows File Explorer and enter `%UserProfile%` in the address bar. The directory path should look something like: `C:\Users\<UserName>\.wslconfig`.
-
-WSL will detect the existence of these files, read the contents, and automatically apply the configuration settings every time you launch WSL. If the file is missing or malformed (improper markup formatting), WSL will continue to launch as normal without the configuration settings applied.
-
-[Check which version of WSL you are running.](./install.md#check-which-version-of-wsl-you-are-running)
-
 > [!NOTE]
 > Adjusting per-distribution settings with the wsl.conf file is only available in Windows Build 17093 and later.
 
-### The 8 second rule
-
-You must wait until the subsystem running your Linux distribution completely stops running and restarts for configuration setting updates to appear. This typically takes about 8 seconds after closing ALL instances of the distribution shell.
-
-If you launch a distribution (e.g. Ubuntu), modify the configuration file, close the distribution, and then re-launch it, you might assume that your configuration changes have immediately gone into effect. This is not currently the case as the subsystem could still be running. You must wait for the subsystem to stop before relaunching in order to give enough time for your changes to be picked up. You can check to see whether your Linux distribution (shell) is still running after closing it by using PowerShell with the command: `wsl --list --running`. If no distributions are running, you will receive the response: "There are no running distributions." You can now restart the distribution to see your configuration updates applied.
-
-The command `wsl --shutdown` is a fast path to restarting WSL 2 distributions, but it will shut down all running distributions, so use wisely.
-
-## Configuration settings for wsl.conf
+### Configuration settings for wsl.conf
 
 The wsl.conf file configures settings on a per-distribution basis. *(For global configuration of WSL 2 distributions see [.wslconfig](#wslconfig)).*
 
@@ -72,7 +63,7 @@ You will then need to close your WSL distribution using `wsl.exe --shutdown` fro
 
 ### Automount settings
 
-Section label: `[automount]`
+wsl.conf section label: `[automount]`
 
 | key | value | default | notes |
 |:-----------|:---------|:--------|:------|
@@ -110,7 +101,7 @@ DrvFs is a filesystem plugin to WSL that was designed to support interop between
 
 ### Network settings
 
-Section label: `[network]`
+wsl.conf section label: `[network]`
 
 | key | value | default | notes|
 |:----|:----|:----|:----|
@@ -120,7 +111,7 @@ Section label: `[network]`
 
 ### Interop settings
 
-Section label: `[interop]`
+wsl.conf section label: `[interop]`
 
 These options are available in Insider Build 17713 and later.
 
@@ -131,7 +122,7 @@ These options are available in Insider Build 17713 and later.
 
 ### User settings
 
-Section label: `[user]`
+wsl.conf section label: `[user]`
 
 These options are available in Build 18980 and later.
 
@@ -143,15 +134,11 @@ These options are available in Build 18980 and later.
 
 The Boot setting is only available on Windows 11 and Server 2022.
 
-Section label: `[boot]`
+wsl.conf section label: `[boot]`
 
 | key | value | default | notes|
 |:----|:----|:----|:----|
 | command | string | "" | A string of the command that you would like to run when the WSL instance starts. This command is run as the root user. e.g: `service docker start`.|
-
-<!-- ## Preview configuration options for wsl.conf
-
-These options are only available in the latest preview builds if you are on the latest builds of the [Windows Insiders program](https://insider.windows.com/getting-started). -->
 
 ### Example wsl.conf file
 
@@ -179,7 +166,7 @@ hostname = DemoHost
 generateHosts = false
 generateResolvConf = false
 
-# Set whether WSL supports interop process like launching Windows apps and adding path variables. Setting these to false will block the launch of Windows processes and block adding $PATH environment variables.
+# Set whether WSL supports interop processes like launching Windows apps and adding path variables. Setting these to false will block the launch of Windows processes and block adding $PATH environment variables.
 [interop]
 enabled = false
 appendWindowsPath = false
@@ -193,20 +180,31 @@ default = DemoUser
 command = service docker start
 ```
 
-## Configuration setting for .wslconfig
+## .wslconfig
+
+Configure **global settings** with **.wslconfig** across all installed distributions running on WSL.
+
+- The .wslconfig file does not exist by default. It must be created and stored in your `%UserProfile%` directory to apply these configuration settings.
+- Used to configure settings globally across all installed Linux distributions running as the WSL 2 version.
+- Can be used **only for distributions run by WSL 2**. Distributions running as WSL 1 will not be affected by this configuration as they are not running as a virtual machine.
+- To get to your `%UserProfile%` directory, in PowerShell, use `cd ~` to access your home directory (which is typically your user profile, `C:\Users\<UserName>`) or you can open Windows File Explorer and enter `%UserProfile%` in the address bar. The directory path should look something like: `C:\Users\<UserName>\.wslconfig`.
+
+WSL will detect the existence of these files, read the contents, and automatically apply the configuration settings every time you launch WSL. If the file is missing or malformed (improper markup formatting), WSL will continue to launch as normal without the configuration settings applied.
+
+### Configuration settings for .wslconfig
 
 The .wslconfig file configures settings globally for all Linux distributions running with WSL 2. *(For per-distribution configuration see [wsl.conf](#wslconf)).*
 
 See [.wslconfig](#wslconfig) for info on where to store the .wslconfig file.
 
 > [!NOTE]
-> Global configuration options with `.wslconfig` is only available for distributions running as WSL 2 in Windows Build 19041 and later. Keep in mind you may need to run `wsl --shutdown` to shut down the WSL 2 VM and then restart your WSL instance for these changes to take affect.
+> Configuring global settings with `.wslconfig` are only available for distributions running as WSL 2 in Windows Build 19041 and later. Keep in mind you may need to run `wsl --shutdown` to shut down the WSL 2 VM and then restart your WSL instance for these changes to take effect.
 
 This file can contain the following options that affect the VM that powers any WSL 2 distribution:
 
 ### Main WSL settings
 
-Section label: `[wsl2]`
+.wslconfig section label: `[wsl2]`
 
 | key | value | default | notes|
 |:----|:----|:----|:----|
@@ -226,9 +224,9 @@ Section label: `[wsl2]`
 
 ### Experimental settings
 
-These settings are opt-in previews of experimental features that we aim to make default in the future. 
+These settings are opt-in previews of experimental features that we aim to make default in the future.
 
-Section label: `[experimental]`
+.wslconfig section label: `[experimental]`
 
 | Setting name | Value | Default | Notes |
 |:----|:----|:----|:----|
@@ -243,23 +241,23 @@ Section label: `[experimental]`
 
 This group of settings configures aspects of the experimental settings above.
 
-Section label: `[experimental]`
+.wslconfig section label: `[experimental]`
 
 | Setting name | Value | Default | Notes |
 |:----|:----|:----|:----|
-|`useWindowsDnsCache`**| bool | false | Only applicable when `experimental.dnsTunneling` is set to true. When this option is set to True, DNS requests tunneled from Linux will bypass cached names within Windows to always put the requests on the wire. |
+|`useWindowsDnsCache`**| bool | false | Only applicable when `experimental.dnsTunneling` is set to true. When this option is set to false, DNS requests tunneled from Linux will bypass cached names within Windows to always put the requests on the wire. |
 |`bestEffortDnsParsing`**| bool | false | Only applicable when `experimental.dnsTunneling` is set to true. When set to true, Windows will extract the question from the DNS request and attempt to resolve it, ignoring the unknown records. |
-|`initialAutoProxyTimeout`*| string | 1000 | Only applicable when `experimental.autoProxy` is set to true. Configures how long WSL will wait for retrieving HTTP proxy information when starting a WSL container. If proxy settings are resolved after this time, the WSL instance must be restarted to use the retrieved proxy settings. |
-|`ignoredPorts`**| string | null | Only applicable when `experimental.networkingMode` is set to `mirrored`. Specifies which ports Linux applications can bind to, even if that port is used in Windows. This enables applications to listen on a port for traffic purely within Linux, so those application are not blocked even when that port is used for other purposes on Windows. For example, WSL will allow bind to port 53 in Linux for Docker Desktop, as it is listening only to requests from within the Linux container. Should be formatted in a comma seperated list, e.g: `3000,9000,9090` |
+|`initialAutoProxyTimeout`*| string | 1000 | Only applicable when `experimental.autoProxy` is set to true. Configures how long (in milliseconds) WSL will wait for retrieving HTTP proxy information when starting a WSL container. If proxy settings are resolved after this time, the WSL instance must be restarted to use the retrieved proxy settings. |
+|`ignoredPorts`**| string | null | Only applicable when `experimental.networkingMode` is set to `mirrored`. Specifies which ports Linux applications can bind to, even if that port is used in Windows. This enables applications to listen on a port for traffic purely within Linux, so those applications are not blocked even when that port is used for other purposes on Windows. For example, WSL will allow binding to port 53 in Linux for Docker Desktop, as it is listening only to requests from within the Linux container. Should be formatted in a comma separated list, e.g: `3000,9000,9090` |
 |`hostAddressLoopback`**| bool | false | Only applicable when `experimental.networkingMode` is set to `mirrored`. When set to True, will allow the Container to connect to the Host, or the Host to connect to the Container, by an IP address that's assigned to the Host. Note that the 127.0.0.1 loopback address can always be used - this option allows for all additionally assigned local IP addresses to be used as well. |
 
 Entries with the `path` value must be Windows paths with escaped backslashes, e.g: `C:\\Temp\\myCustomKernel`
 
-Entries with the `size` value must be a size followed by a unit, for example `8GB` or `512MB`.
+Entries with the `size` value must be a size followed by a unit, for example, `8GB` or `512MB`.
 
 Entries with an * after the value type are only available on Windows 11.
 
-Entries with an ** after the value type are only available on the [Windows Insiders Program](https://www.microsoft.com/windowsinsider/).
+Entries with an ** after the value type require [Windows version 22H2](https://blogs.windows.com/windows-insider/2023/09/14/releasing-windows-11-build-22621-2359-to-the-release-preview-channel/) or higher.
 
 See the Windows Command Line Blog to learn more about [Experimental features included in the WSL September 2023 update](https://devblogs.microsoft.com/commandline/windows-subsystem-for-linux-september-2023-update/) and the [2.0.0 WSL pre-release](https://github.com/microsoft/WSL/releases/tag/2.0.0).
 
@@ -292,7 +290,7 @@ swapfile=C:\\temp\\wsl-swap.vhdx
 # Disable page reporting so WSL retains all allocated memory claimed from Windows and releases none back when free
 pageReporting=false
 
-# Turn off default connection to bind WSL 2 localhost to Windows localhost
+# Turn on default connection to bind WSL 2 localhost to Windows localhost
 localhostforwarding=true
 
 # Disables nested virtualization
@@ -301,7 +299,7 @@ nestedVirtualization=false
 # Turns on output console showing contents of dmesg when opening a WSL 2 distro for debugging
 debugConsole=true
 
-# Enable experiemntal features
+# Enable experimental features
 [experimental]
 sparseVhd=true
 ```
