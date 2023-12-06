@@ -106,7 +106,7 @@ wsl.conf section label: `[network]`
 | key | value | default | notes|
 |:----|:----|:----|:----|
 | generateHosts | boolean | `true` | `true` sets WSL to generate `/etc/hosts`. The `hosts` file contains a static map of hostnames corresponding IP address. |
-| generateResolvConf | boolean | `true` | `true` set WSL to generate `/etc/resolv.conf`. The `resolv.conf` contains a DNS list that are capable of resolving a given hostname to its IP address. |
+| generateResolvConf | boolean | `true` | `true` sets WSL to generate `/etc/resolv.conf`. The `resolv.conf` contains a DNS list that are capable of resolving a given hostname to its IP address. |
 | hostname | string | Windows hostname | Sets hostname to be used for WSL distribution. |
 
 ### Interop settings
@@ -233,7 +233,7 @@ These settings are opt-in previews of experimental features that we aim to make 
 |`autoMemoryReclaim`| string | disabled | Automatically releases cached memory after detecting idle CPU usage. Set to `gradual` for slow release, and `dropcache` for instant release of cached memory. |
 |`sparseVhd`| bool | false | When set to true, any newly created VHD will be set to sparse automatically. |
 |`networkingMode`**| string | NAT | If the value is `mirrored` then this turns on mirrored networking mode. Default or unrecognized strings result in NAT networking. |
-|`firewall`**| bool | false | Setting this to true allows the Windows Firewall rules, as well as rules specific to Hyper-V traffic, to filter WSL network traffic. |
+|`firewall`**| bool | true | Setting this to true allows the Windows Firewall rules, as well as rules specific to Hyper-V traffic, to filter WSL network traffic. |
 |`dnsTunneling`**| bool | false | Changes how DNS requests are proxied from WSL to Windows |
 |`autoProxy`*| bool | false | Enforces WSL to use Windows’ HTTP proxy information |
 
