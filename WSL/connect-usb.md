@@ -15,8 +15,8 @@ Setting up the USB/IP project on your Windows machine will enable common develop
 
 - Running Windows 11 (Build 22000 or later). *(Windows 10 support is possible, see note below).*
 - A machine with an x64/x86 processor is required. (Arm64 is currently not supported with usbipd-win).
+- WSL is [installed and set up with the latest version](./install.md).
 - Linux distribution installed and [set to WSL 2](./basic-commands.md#set-wsl-version-to-1-or-2).
-- Running [Linux kernel 5.10.60.1 or later](./kernel-release-notes.md).
 
 > [!NOTE]
 > To check your Windows version and build number, select **Windows logo key + R**, type **winver**, select **OK**. You can update to the latest Windows version by selecting **Start** > **Settings** > **Windows Update** > **[Check for updates](ms-settings:windowsupdate)**.
@@ -42,33 +42,23 @@ This will install:
 - A command line tool `usbipd`. The location of this tool will be added to the PATH environment variable.
 - A firewall rule called `usbipd` to allow all local subnets to connect to the service. You can modify this firewall rule to fine tune access control.
 
-## Install the USBIP tools and hardware database in Linux
-
-Once the USB/IP project has completed installing, you will need to install the user space tools and a database of USB hardware identifiers. These instructions are for Ubuntu — [other distributions may require a different usbip client package](https://github.com/dorssel/usbipd-win/wiki/WSL-support#usbip-client-tools).
-
-On Ubuntu, run this command:
-
-```bash
-sudo apt install linux-tools-generic hwdata
-sudo update-alternatives --install /usr/local/bin/usbip usbip /usr/lib/linux-tools/*-generic/usbip 20
-```
-
-At this point a service is running on Windows to share USB devices, and the necessary tools are installed in WSL to attach to shared devices.
-
 ## Attach a USB device
 
 Before attaching your USB device, ensure that a WSL command line is open.  This will keep the WSL 2 lightweight VM active.
 
+> [!NOTE]
+> This doc assumes that you have [`usbipd-win 4.0.0` or higher installed](https://github.com/dorssel/usbipd-win/releases/tag/v4.0.0)
+
 1. List all of the USB devices connected to Windows by opening PowerShell in *administrator* mode and entering the command:
 
     ```powershell
-    usbipd wsl list
+    usbipd list
     ```
 
 2. Select the bus ID of the device you’d like to attach to WSL and run this command. You’ll be prompted by WSL for a password to run a sudo command. The Linux distribution to be attached must be your default distribution. (See the [Basic commands for WSL](./basic-commands.md#set-default-linux-distribution) doc to change your default distribution).
 
     ```powershell
-    usbipd wsl attach --busid <busid>
+    usbipd attach --wsl --busid <busid>
     ```
 
 3. Open Ubuntu (or your preferred WSL command line) and list the attached USB devices using the command:
@@ -82,7 +72,7 @@ Before attaching your USB device, ensure that a WSL command line is open.  This 
 4. Once you are done using the device in WSL, you can either physically disconnect the USB device or run this command from PowerShell in *administrator* mode:
 
     ```powershell
-    usbipd wsl detach --busid <busid>
+    usbipd detach --busid <busid>
     ```
 
 To learn more about how this works, see the [Windows Command Line Blog](https://devblogs.microsoft.com/commandline/connecting-usb-devices-to-wsl/#how-it-works) and the [usbipd-win repo on GitHub](https://devblogs.microsoft.com/commandline/connecting-usb-devices-to-wsl/#how-it-works).
