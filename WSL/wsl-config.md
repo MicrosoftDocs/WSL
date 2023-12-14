@@ -106,7 +106,7 @@ wsl.conf section label: `[network]`
 | key | value | default | notes|
 |:----|:----|:----|:----|
 | generateHosts | boolean | `true` | `true` sets WSL to generate `/etc/hosts`. The `hosts` file contains a static map of hostnames corresponding IP address. |
-| generateResolvConf | boolean | `true` | `true` set WSL to generate `/etc/resolv.conf`. The `resolv.conf` contains a DNS list that are capable of resolving a given hostname to its IP address. |
+| generateResolvConf | boolean | `true` | `true` sets WSL to generate `/etc/resolv.conf`. The `resolv.conf` contains a DNS list that are capable of resolving a given hostname to its IP address. |
 | hostname | string | Windows hostname | Sets hostname to be used for WSL distribution. |
 
 ### Interop settings
@@ -221,30 +221,10 @@ This file can contain the following options that affect the VM that powers any W
 | debugConsole | boolean* | `false` | Boolean to turn on an output console Window that shows the contents of `dmesg` upon start of a WSL 2 distro instance. Only available for Windows 11.|
 | nestedVirtualization | boolean* | `true` | Boolean to turn on or off nested virtualization, enabling other nested VMs to run inside WSL 2. Only available for Windows 11.|
 | vmIdleTimeout | number* | `60000` | The number of milliseconds that a VM is idle, before it is shut down. Only available for Windows 11.|
-
-### Experimental settings
-
-These settings are opt-in previews of experimental features that we aim to make default in the future.
-
-.wslconfig section label: `[experimental]`
-
-| Setting name | Value | Default | Notes |
-|:----|:----|:----|:----|
-|`autoMemoryReclaim`| string | disabled | Automatically releases cached memory after detecting idle CPU usage. Set to `gradual` for slow release, and `dropcache` for instant release of cached memory. |
-|`sparseVhd`| bool | false | When set to true, any newly created VHD will be set to sparse automatically. |
 |`networkingMode`**| string | NAT | If the value is `mirrored` then this turns on mirrored networking mode. Default or unrecognized strings result in NAT networking. |
-|`firewall`**| bool | false | Setting this to true allows the Windows Firewall rules, as well as rules specific to Hyper-V traffic, to filter WSL network traffic. |
+|`firewall`**| bool | true | Setting this to true allows the Windows Firewall rules, as well as rules specific to Hyper-V traffic, to filter WSL network traffic. |
 |`dnsTunneling`**| bool | false | Changes how DNS requests are proxied from WSL to Windows |
 |`autoProxy`*| bool | false | Enforces WSL to use Windows’ HTTP proxy information |
-
-#### Experimental configuration settings
-
-This group of settings configures aspects of the experimental settings above.
-
-.wslconfig section label: `[experimental]`
-
-| Setting name | Value | Default | Notes |
-|:----|:----|:----|:----|
 |`useWindowsDnsCache`**| bool | false | Only applicable when `experimental.dnsTunneling` is set to true. When this option is set to false, DNS requests tunneled from Linux will bypass cached names within Windows to always put the requests on the wire. |
 |`bestEffortDnsParsing`**| bool | false | Only applicable when `experimental.dnsTunneling` is set to true. When set to true, Windows will extract the question from the DNS request and attempt to resolve it, ignoring the unknown records. |
 |`initialAutoProxyTimeout`*| string | 1000 | Only applicable when `experimental.autoProxy` is set to true. Configures how long (in milliseconds) WSL will wait for retrieving HTTP proxy information when starting a WSL container. If proxy settings are resolved after this time, the WSL instance must be restarted to use the retrieved proxy settings. |
@@ -259,7 +239,16 @@ Entries with an * after the value type are only available on Windows 11.
 
 Entries with an ** after the value type require [Windows version 22H2](https://blogs.windows.com/windows-insider/2023/09/14/releasing-windows-11-build-22621-2359-to-the-release-preview-channel/) or higher.
 
-See the Windows Command Line Blog to learn more about [Experimental features included in the WSL September 2023 update](https://devblogs.microsoft.com/commandline/windows-subsystem-for-linux-september-2023-update/) and the [2.0.0 WSL pre-release](https://github.com/microsoft/WSL/releases/tag/2.0.0).
+### Experimental settings
+
+These settings are opt-in previews of experimental features that we aim to make default in the future.
+
+.wslconfig section label: `[experimental]`
+
+| Setting name | Value | Default | Notes |
+|:----|:----|:----|:----|
+|`autoMemoryReclaim`| string | disabled | Automatically releases cached memory after detecting idle CPU usage. Set to `gradual` for slow release, and `dropcache` for instant release of cached memory. |
+|`sparseVhd`| bool | false | When set to true, any newly created VHD will be set to sparse automatically. |
 
 ## Example .wslconfig file
 
