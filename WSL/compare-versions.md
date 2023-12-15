@@ -21,7 +21,7 @@ Feature | WSL 1 | WSL 2
  Integration between Windows and Linux| ✅|✅
  Fast boot times| ✅ | ✅
  Small resource foot print compared to traditional Virtual Machines| ✅ |✅
- Runs with current versions of VMware and VirtualBox| ✅ | ✅
+ Runs with current versions of VMware and VirtualBox| ✅ | ❌
  Managed VM| ❌ | ✅
  Full Linux Kernel| ❌ |✅
  Full system call compatibility| ❌ | ✅
@@ -36,7 +36,7 @@ WSL 2 is only available in Windows 11 or Windows 10, Version 1903, Build 18362 o
 For more info on the latest WSL 2 updates, see the [Windows Command Line blog](https://devblogs.microsoft.com/commandline/), including [Systemd support is now available in WSL](https://devblogs.microsoft.com/commandline/systemd-support-is-now-available-in-wsl/) and [WSL September 2023 update](https://devblogs.microsoft.com/commandline/windows-subsystem-for-linux-september-2023-update/) for more info on IPv6 support.
 
 > [!NOTE]
-> WSL 2 will work with [VMware 15.5.5+](https://blogs.vmware.com/workstation/2020/05/vmware-workstation-now-supports-hyper-v-mode.html) and [VirtualBox 6+](https://www.virtualbox.org/wiki/Changelog-6.0). Learn more in our [FAQs.](./faq.yml#will-i-be-able-to-run-wsl-2-and-other-3rd-party-virtualization-tools-such-as-vmware--or-virtualbox-)
+> WSL 2 will work with [VMware 15.5.5+](https://blogs.vmware.com/workstation/2020/05/vmware-workstation-now-supports-hyper-v-mode.html) and although [VirtualBox 6+](https://www.virtualbox.org/wiki/Changelog-6.0) states that there is WSL support, there are still significant challenges that make it unsupported. Learn more in our [FAQs.](./faq.yml#will-i-be-able-to-run-wsl-2-and-other-3rd-party-virtualization-tools-such-as-vmware--or-virtualbox-)
 
 ## What's new in WSL 2
 
