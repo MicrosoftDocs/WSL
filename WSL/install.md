@@ -31,7 +31,7 @@ If you're running an older build, or just prefer not to use the install command 
 The first time you launch a newly installed Linux distribution, a console window will open and you'll be asked to wait for files to de-compress and be stored on your machine. All future launches should take less than a second.
 
 > [!NOTE]
-> The above command only works if WSL is not installed at all, if you run `wsl --install` and see the WSL help text, please try running `wsl --list --online` to see a list of available distros and run `wsl --install -d <DistroName>` to install a distro.
+> The above command only works if WSL is not installed at all. If you run `wsl --install` and see the WSL help text, please try running `wsl --list --online` to see a list of available distros and run `wsl --install -d <DistroName>` to install a distro.
 > To uninstall WSL, see [Uninstall legacy version of WSL](/windows/wsl/troubleshooting#uninstall-legacy-version-of-wsl) or [unregister or uninstall a Linux distribution](/windows/wsl/basic-commands#unregister-or-uninstall-a-linux-distribution).
 
 ## Change the default Linux distribution installed
