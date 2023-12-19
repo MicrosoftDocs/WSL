@@ -26,7 +26,7 @@ To maximize security in an enterprise environment, we recommend that you specify
 | Allow custom networking configuration | Disabled | When set to disabled, this policy disables custom networking configuration via .wslconfig (wsl2.networkingmode). This policy only applies to Store WSL. |
 | Allow user setting firewall configuration | Disabled | When set to disabled, this policy disables firewall configuration via .wslconfig (wsl2.firewall). This policy only applies to Store WSL. |
 | Allow nested virtualization | Disabled | When set to disabled, this policy disables nested virtualization configuration via .wslconfig (wsl2.nestedVirtualization). This policy only applies to Store WSL. |
-| Allow kernel debugging | Disabled | When set to disabled, this policy disables kernel kernel debugging configuration via .wslconfig (wsl2.kernelDebugPort). This policy only applies to Store WSL. |
+| Allow kernel debugging | Disabled | When set to disabled, this policy disables kernel debugging configuration via .wslconfig (wsl2.kernelDebugPort). This policy only applies to Store WSL. |
 
 ## Control access to WSL 
 

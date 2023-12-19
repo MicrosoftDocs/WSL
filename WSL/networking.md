@@ -91,7 +91,7 @@ This new mode addresses networking issues seen with using a NAT (Network Address
 
 ## DNS Tunneling
 
-Setting [`dnsTunneling=true` under `[wsl2]` in the `.wslconfig` file](./wsl-config.md#configuration-setting-for-wslconfig) has WSL use a virtulization feature to answer DNS requests from within WSL, instead of requesting them over a networking packet. This feature is aimed to improve compatibility with VPNs, and other complex networking set ups.
+Setting [`dnsTunneling=true` under `[wsl2]` in the `.wslconfig` file](./wsl-config.md#configuration-setting-for-wslconfig) has WSL use a virtualization feature to answer DNS requests from within WSL, instead of requesting them over a networking packet. This feature is aimed to improve compatibility with VPNs, and other complex networking set ups.
 
 ## Auto Proxy
 
