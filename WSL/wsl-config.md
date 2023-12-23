@@ -296,4 +296,4 @@ sparseVhd=true
 ## Additional resources
 
 - [Windows Command Line Blog: Automatically Configuring WSL](https://devblogs.microsoft.com/commandline/automatically-configuring-wsl/)
-- [Windows Command Line Blog: Chmod/Chown, DrvFs, file metadata](https://devblogs.microsoft.com/commandline/chmod-chown-wsl-improvements/)
+- [Windows Command Line Blog: Chmod/Chown WSL Improvements](https://devblogs.microsoft.com/commandline/chmod-chown-wsl-improvements/)
