@@ -40,7 +40,7 @@ This will allow you to configure WSL to ensure that users are only using the lat
 
 ## Control access to WSL settings in `.wslconfig`
 
-The last group of settings that end with `*UserSettingConfigurable` control access to WSL advanced settings in `.wslconfig`. When these are set to disabled then users will only be able to use the default value for that setting, and not able to configure it to custom values. Learn more about [Configuration setting for .wslconfig](./wsl-config.md#configuration-setting-for-wslconfig), including a list of settings that can be configured globally for all Linux distributions running with WSL 2.
+The last group of settings that end with `*UserSettingConfigurable` control access to WSL advanced settings in `.wslconfig`. When these are set to disabled then users will only be able to use the default value for that setting, and not able to configure it to custom values. Learn more about [Configuration setting for .wslconfig](./wsl-config.md#configuration-settings-for-wslconfig), including a list of settings that can be configured globally for all Linux distributions running with WSL 2.
 
 ## Full list of available settings
 
