@@ -111,7 +111,7 @@ Let's use Docker to create a development container for an existing app project.
 
     ![VS Code WSL Remote indicator](../media/vscode-remote-indicator.png)
 
-4. From the VS Code command pallette (Ctrl + Shift + P), enter: **Dev Containers: Open Folder in Container...** If this command doesn't display as you begin to type it, check to ensure that you've installed the Dev Containers extension linked above.
+4. From the VS Code command pallette (Ctrl + Shift + P), enter: **Dev Containers: Reopen in Container** as we are using a folder already opened using the WSL extension. Alternativly use **Dev Containers: Open Folder in Container...** to choose a WSL folder using the local \\wsl$ share (from the Windows side) (see [here](https://code.visualstudio.com/docs/devcontainers/containers#_quick-start-open-an-existing-folder-in-a-container) for more details). If these commands don't display as you begin to type, check to ensure that you've installed the Dev Containers extension linked above. 
 
     ![VS Code Dev Containers command](../media/docker-extension.png)
 
