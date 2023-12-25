@@ -128,7 +128,7 @@ See a list of options and commands available with WSL.
 ## Run as a specific user
 
 ```powershell
-wsl -u <Username>`, `wsl --user <Username>
+wsl --user <Username>
 ```
 
 To run WSL as a specified user, replace `<Username>` with the name of a user that exists in the WSL distribution.
