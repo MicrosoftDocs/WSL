@@ -15,17 +15,17 @@ The WSL commands below are listed in a format supported by PowerShell or Windows
 wsl --install
 ```
 
-Install WSL and the default Ubuntu distribution of Linux. [Learn more](./install.md). You can also use this command to install additional Linux distributions by running `wsl --install <Distribution Name>`. For a valid list of distribution names, run `wsl --list --online`. 
+Install WSL and the default Ubuntu distribution of Linux. [Learn more](./install.md). You can also use this command to install additional Linux distributions by running `wsl --install <Distribution Name>`. For a valid list of distribution names, run `wsl --list --online`.
 
-Options include: 
+Options include:
 
-- `--distribution`: Specify the Linux distribution to install. You can find available distributions by running `wsl --list --online`. 
+- `--distribution`: Specify the Linux distribution to install. You can find available distributions by running `wsl --list --online`.
 - `--no-launch`: Install the Linux distribution but do not launch it automatically.
 - `--web-download`: Install from an online source rather than using the Microsoft Store.
 
 When WSL is not installed options include:
 
-- `--inbox`: Installs WSL using the Windows component instead of using the Microsoft Store. *(WSL updates will be received via Windows updates, rather than pushed out as-available via the store).*
+- `--inbox`: Installs WSL using the Windows component instead of using the Microsoft Store. _(WSL updates will be received via Windows updates, rather than pushed out as-available via the store)._
 - `--enable-wsl1`: Enables WSL 1 during the install of the Microsoft Store version of WSL by also enabling the "Windows Subsystem for Linux" optional component.
 - `--no-distribution`: Do not install a distribution when installing WSL.
 
@@ -54,7 +54,7 @@ See a list of the Linux distributions installed on your Windows machine, includi
 wsl --set-version <distribution name> <versionNumber>
 ```
 
-To designate the version of WSL (1 or 2) that a Linux distribution is running on, replace `<distribution name>` with the name of the distribution and replace `<versionNumber>` with 1 or 2. [Comparing WSL 1 and WSL 2](./compare-versions.md). WSL 2 is only available in Windows 11 or Windows 10, Version 1903, Build 18362 or later. 
+To designate the version of WSL (1 or 2) that a Linux distribution is running on, replace `<distribution name>` with the name of the distribution and replace `<versionNumber>` with 1 or 2. [Comparing WSL 1 and WSL 2](./compare-versions.md). WSL 2 is only available in Windows 11 or Windows 10, Version 1903, Build 18362 or later.
 
 > [!WARNING]
 > Switching between WSL 1 and WSL 2 can be time-consuming and result in failures due to the differences between the two architectures. For distributions with large projects, we recommend backing up files before attempting a conversion.
@@ -65,7 +65,7 @@ To designate the version of WSL (1 or 2) that a Linux distribution is running on
 wsl --set-default-version <Version>
 ```
 
-To set a default version of WSL 1 or WSL 2, replacing `<Version>` with either the number 1 or 2 to represent which version of WSL you would like the installation to default on for new Linux distribution installations. For example, `wsl --set-default-version 2`. [Comparing WSL 1 and WSL 2](./compare-versions.md). WSL 2 is only available in Windows 11 or Windows 10, Version 1903, Build 18362 or later. 
+To set a default version of WSL 1 or WSL 2, replacing `<Version>` with either the number 1 or 2 to represent which version of WSL you would like the installation to default on for new Linux distribution installations. For example, `wsl --set-default-version 2`. [Comparing WSL 1 and WSL 2](./compare-versions.md). WSL 2 is only available in Windows 11 or Windows 10, Version 1903, Build 18362 or later.
 
 ## Set default Linux distribution
 
@@ -97,7 +97,7 @@ To run a specific Linux distribution with a specific user, replace `<Distributio
 wsl --update
 ```
 
-Update your WSL version to the latest version. Options include: 
+Update your WSL version to the latest version. Options include:
 
 - `--web-download`: Download the latest update from the GitHub rather than the Microsoft Store.
 
@@ -109,13 +109,13 @@ wsl --status
 
 See general information about your WSL configuration, such as default distribution type, default distribution, and kernel version.
 
-## Check WSL version 
+## Check WSL version
 
 ```powershell
 wsl --version
 ```
 
-Check the version information about WSL and its components. 
+Check the version information about WSL and its components.
 
 ## Help command
 
@@ -204,7 +204,7 @@ To unregister and uninstall a WSL distribution:
 wsl --unregister <DistributionName>
 ```
 
-Replacing `<DistributionName>` with the name of your targeted Linux distribution will unregister that distribution from WSL so it can be reinstalled or cleaned up. **Caution:** Once unregistered, all data, settings, and software associated with that distribution will be permanently lost.  Reinstalling from the store will install a clean copy of the distribution. For example, `wsl --unregister Ubuntu` would remove Ubuntu from the distributions available in WSL.  Running `wsl --list` will reveal that it is no longer listed.
+Replacing `<DistributionName>` with the name of your targeted Linux distribution will unregister that distribution from WSL so it can be reinstalled or cleaned up. **Caution:** Once unregistered, all data, settings, and software associated with that distribution will be permanently lost. Reinstalling from the store will install a clean copy of the distribution. For example, `wsl --unregister Ubuntu` would remove Ubuntu from the distributions available in WSL. Running `wsl --list` will reveal that it is no longer listed.
 
 You can also uninstall the Linux distribution app on your Windows machine just like any other store application. To reinstall, find the distribution in the Microsoft Store and select "Launch".
 
@@ -219,7 +219,7 @@ Attach and mount a physical disk in all WSL2 distributions by replacing `<DiskPa
 - `--vhd`: Specifies that `<Disk>` refers to a virtual hard disk.
 - `--name`: Mount the disk using a custom name for the mountpoint
 - `--bare`: Attach the disk to WSL2, but don't mount it.
-- `--type <Filesystem>`:  Filesystem type to use when mounting a disk, if not specified defaults to ext4. This command can also be entered as: `wsl --mount -t <Filesystem>`.You can detect the filesystem type using the command: `blkid <BlockDevice>`, for example: `blkid <dev/sdb1>`.
+- `--type <Filesystem>`: Filesystem type to use when mounting a disk, if not specified defaults to ext4. This command can also be entered as: `wsl --mount -t <Filesystem>`.You can detect the filesystem type using the command: `blkid <BlockDevice>`, for example: `blkid <dev/sdb1>`.
 - `--partition <Partition Number>`: Index number of the partition to mount, if not specified defaults to the whole disk.
 - `--options <MountOptions>`: There are some filesystem-specific options that can be included when mounting a disk. For example, [ext4 mount options](https://www.kernel.org/doc/Documentation/filesystems/ext4.txt) like: `wsl --mount -o "data-ordered"` or `wsl --mount -o "data=writeback`. However, only filesystem-specific options are supported at this time. Generic options, such as `ro`, `rw`, or `noatime`, are not supported.
 
@@ -232,7 +232,7 @@ Attach and mount a physical disk in all WSL2 distributions by replacing `<DiskPa
 wsl --unmount <DiskPath>
 ```
 
-Unmount a disk given at the disk path, if no disk path is given then this command will unmount and detach ALL mounted disks.  
+Unmount a disk given at the disk path, if no disk path is given then this command will unmount and detach ALL mounted disks.
 
 ## Deprecated WSL commands
 
