@@ -35,7 +35,7 @@ Some [popular choices](https://insights.stackoverflow.com/survey/2021#section-mo
 
 **MongoDB** is an open-source NoSQL document database designed to work with JSON and store schema-free data. It is horizontally scalable, which means multiple smaller machines will do the work for you. It's good for flexibility and unstructured data, and caching real-time analytics.
 
-**Redis** is is an open-source NoSQL in-memory data structure store. It uses key-value pairs for storage instead of documents.
+**Redis** is an open-source NoSQL in-memory data structure store. It uses key-value pairs for storage instead of documents.
 
 ## Install MySQL
 
@@ -54,7 +54,7 @@ Example using the Ubuntu distribution:
 
 For more about working with MySQL databases, see the [MySQL docs](https://dev.mysql.com/doc/mysql-getting-started/en/).
 
-To work with with MySQL databases in VS Code, try the [MySQL extension](https://marketplace.visualstudio.com/items?itemName=cweijan.vscode-mysql-client2).
+To work with MySQL databases in VS Code, try the [MySQL extension](https://marketplace.visualstudio.com/items?itemName=cweijan.vscode-mysql-client2).
 
 You may also want to run the included security script. This changes some of the less secure default options for things like remote root logins and sample users. This script also includes steps to change password for MySQL root user. To run the security script:
 

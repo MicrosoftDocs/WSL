@@ -20,7 +20,7 @@ The [WSL product repo issues](https://github.com/Microsoft/wsl/issues) enables y
 You can also:
 
 - **File a documentation issue** using the [WSL docs repo](https://github.com/MicrosoftDocs/wsl/issues). To contribute to the WSL docs, see the [Microsoft Docs contributor guide](/contribute).
-- **File a Windows Terminal** issue using the the [Windows Terminal product repo](https://github.com/microsoft/terminal/issues) if your problem is related more to the Windows Terminal, Windows Console, or the command-line UI.
+- **File a Windows Terminal** issue using the [Windows Terminal product repo](https://github.com/microsoft/terminal/issues) if your problem is related more to the Windows Terminal, Windows Console, or the command-line UI.
 
 ## Installation issues
 
@@ -139,7 +139,7 @@ If there are no Win32 paths in your $PATH, interop isn't going to find the .exe.
 You can verify it by running `echo $PATH` in Linux. It's expected that you will see a Win32 path (for example, /mnt/c/Windows) in the output.
 If you can't see any Windows paths then most likely your PATH is being overwritten by your Linux shell. 
 
-Here is a an example that /etc/profile on Debian contributed to the problem:
+Here is an example that /etc/profile on Debian contributed to the problem:
 
 ```Bash
 if [ "`id -u`" -eq 0 ]; then

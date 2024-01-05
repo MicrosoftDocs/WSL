@@ -41,7 +41,7 @@ The result depends on if the file already has existing metadata.
 
 ##### DrvFS file does not have metadata (default)
 
-If the file has no metadata associated with it then we translate the effective permissions of the Windows user to read/write/execute bits and set them to the this as the same value for user, group, and other. For example, if your Windows user account has read and execute access but not write access to the file then this will be shown as `r-x` for user, group and other. If the file has the 'Read Only' attribute set in Windows then we do not grant write access in Linux.
+If the file has no metadata associated with it then we translate the effective permissions of the Windows user to read/write/execute bits and set them to this as the same value for user, group, and other. For example, if your Windows user account has read and execute access but not write access to the file then this will be shown as `r-x` for user, group and other. If the file has the 'Read Only' attribute set in Windows then we do not grant write access in Linux.
 
 ##### The file has metadata
 
