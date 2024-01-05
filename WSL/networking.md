@@ -22,7 +22,7 @@ If you are building a networking app (for example an app running on a NodeJS or 
 
 If you want to access a networking app running on Windows (for example an app running on a NodeJS or SQL server) from your Linux distribution (ie Ubuntu), then you need to use the IP address of your host machine. While this is not a common scenario, you can follow these steps to make it work.
 
-1. Obtain the IP address of your host machine by running this command from your Linux distribution: ` ip route show | grep -i default | awk '{ print $3}'
+1. Obtain the IP address of your host machine by running this command from your Linux distribution: `ip route show | grep -i default | awk '{ print $3}'`
 2. Connect to any Windows server using the copied IP address.
 
 The picture below shows an example of this by connecting to a Node.js server running in Windows via curl.
@@ -74,7 +74,7 @@ Using `listenaddress=0.0.0.0` will listen on all [IPv4 ports](https://stackoverf
 
 ## Mirrored mode networking
 
-You can [set `networkingMode=mirrored` under `[wsl2]` in the `.wslconfig` file](./wsl-config.md#configuration-setting-for-wslconfig) to enable mirrored mode networking. Enabling this changes WSL to an entirely new networking architecture which has the goal of 'mirroring' the network interfaces that you have on Windows into Linux, to add new networking features and improve compatibility.
+You can [set `networkingMode=mirrored` under `[wsl2]` in the `.wslconfig` file](./wsl-config.md#configuration-settings-for-wslconfig) to enable mirrored mode networking. Enabling this changes WSL to an entirely new networking architecture which has the goal of 'mirroring' the network interfaces that you have on Windows into Linux, to add new networking features and improve compatibility.
 
 Here are the current benefits to enabling this mode:
 
@@ -91,11 +91,11 @@ This new mode addresses networking issues seen with using a NAT (Network Address
 
 ## DNS Tunneling
 
-Setting [`dnsTunneling=true` under `[wsl2]` in the `.wslconfig` file](./wsl-config.md#configuration-setting-for-wslconfig) has WSL use a virtulization feature to answer DNS requests from within WSL, instead of requesting them over a networking packet. This feature is aimed to improve compatibility with VPNs, and other complex networking set ups.
+Setting [`dnsTunneling=true` under `[wsl2]` in the `.wslconfig` file](./wsl-config.md#configuration-settings-for-wslconfig) has WSL use a virtulization feature to answer DNS requests from within WSL, instead of requesting them over a networking packet. This feature is aimed to improve compatibility with VPNs, and other complex networking set ups.
 
 ## Auto Proxy
 
-Setting [`autoProxy=true` under `[wsl2]` in the `.wslconfig` file](./wsl-config.md#configuration-setting-for-wslconfig) enforces WSL to use Windows' HTTP proxy information. If you have a proxy already set up in Windows, enabling this feature will make that proxy be set automatically in WSL as well.
+Setting [`autoProxy=true` under `[wsl2]` in the `.wslconfig` file](./wsl-config.md#configuration-settings-for-wslconfig) enforces WSL to use Windows' HTTP proxy information. If you have a proxy already set up in Windows, enabling this feature will make that proxy be set automatically in WSL as well.
 
 ## WSL and firewall
 
