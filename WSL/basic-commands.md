@@ -30,7 +30,7 @@ When WSL is not installed options include:
 - `--no-distribution`: Do not install a distribution when installing WSL.
 
 > [!NOTE]
-> If you running WSL on Windows 10 or an older version, you may need to include the `-d` flag with the `--install` command to specify a distribution: `wsl --install -d <distribution name>`.
+> If you run WSL on Windows 10 or an older version, you may need to include the `-d` flag with the `--install` command to specify a distribution: `wsl --install -d <distribution name>`.
 
 ## List available Linux distributions
 
@@ -65,7 +65,7 @@ To designate the version of WSL (1 or 2) that a Linux distribution is running on
 wsl --set-default-version <Version>
 ```
 
-To set a default version of WSL 1 or WSL 2, replacing `<Version>` with either the number 1 or 2 to represent which version of WSL you would like the installation to default on for new Linux distribution installations. For example, `wsl --set-default-version 2`. [Comparing WSL 1 and WSL 2](./compare-versions.md). WSL 2 is only available in Windows 11 or Windows 10, Version 1903, Build 18362 or later. 
+To set a default version of WSL 1 or WSL 2, replace `<Version>` with either the number 1 or 2. For example, `wsl --set-default-version 2`. The number represents the version of WSL to default to for new Linux distribution installations. [Comparing WSL 1 and WSL 2](./compare-versions.md). WSL 2 is only available in Windows 11 or Windows 10, Version 1903, Build 18362 or later. 
 
 ## Set default Linux distribution
 
@@ -128,7 +128,7 @@ See a list of options and commands available with WSL.
 ## Run as a specific user
 
 ```powershell
-wsl -u <Username>`, `wsl --user <Username>
+wsl --user <Username>
 ```
 
 To run WSL as a specified user, replace `<Username>` with the name of a user that exists in the WSL distribution.
