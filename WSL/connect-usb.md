@@ -47,7 +47,7 @@ This will install:
 Before attaching your USB device, ensure that a WSL command line is open.  This will keep the WSL 2 lightweight VM active.
 
 > [!NOTE]
-> This doc assumes that you have [`usbipd-win 4.0.0` or higher installed](https://github.com/dorssel/usbipd-win/releases/tag/v4.0.0)
+> This doc assumes that you have [`usbipd-win 4.0.0` or higher installed](https://github.com/dorssel/usbipd-win/releases/latest)
 
 1. List all of the USB devices connected to Windows by opening PowerShell in *administrator* mode and entering the command:
 
