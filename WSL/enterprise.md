@@ -40,7 +40,7 @@ See [Intune settings for WSL](./intune.md) for guidance on using InTune to manag
 
 Starting from Windows 11 22H2 and WSL 2.0.9 or later, Windows firewall rules will automatically apply to WSL. This ensures that the firewall rules set on the Windows host will automatically apply to all WSL distributions by default. For guidance on customizing the firewall settings for WSL, visit [Configure Hyper-V firewall](/windows/security/operating-system-security/network-security/windows-firewall/hyper-v-firewall).
 
-Additionally, we recommend configuring [settings under `[wsl2]` in the `.wslconfig` file](/windows/wsl/wsl-config#configuration-setting-for-wslconfig) to suite your specific Enterprise scenario.
+Additionally, we recommend configuring [settings under `[wsl2]` in the `.wslconfig` file](/windows/wsl/wsl-config#configuration-setting-for-wslconfig) to suit your specific Enterprise scenario.
 
 #### Mirrored mode networking
 
