@@ -1,7 +1,7 @@
 ---
 title: Run Linux GUI apps with WSL 
 description: Learn how WSL support running Linux GUI apps. 
-ms.date: 07/17/2023
+ms.date: 01/04/2024
 ms.topic: article
 ---
 
@@ -144,6 +144,8 @@ To install the Google Chrome for Linux:
 1. Change directories into the temp folder: `cd /tmp`
 2. Use wget to download it: `wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb`
 3. Install the package: `sudo apt install --fix-missing ./google-chrome-stable_current_amd64.deb`
+
+*The `--fix-missing` option is used to fix missing dependencies that may arise during the installation process. The `./` in the command specifies the current directory where the .deb file is located. If the .deb file is located in a different directory, you will need to specify the path to the file in the command.
 
 To launch, enter: `google-chrome`
 
