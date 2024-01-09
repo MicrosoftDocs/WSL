@@ -237,7 +237,7 @@ Entries with the `size` value must be a size followed by a unit, for example, `8
 
 Entries with an * after the value type are only available on Windows 11.
 
-Entries with an ** after the value type require [Windows version 22H2](https://blogs.windows.com/windows-insider/2023/09/14/releasing-windows-11-build-22621-2359-to-the-release-preview-channel/) or higher.
+Entries with an ** after the value type require [Windows 11 version 22H2](https://blogs.windows.com/windows-insider/2023/09/14/releasing-windows-11-build-22621-2359-to-the-release-preview-channel/) or higher.
 
 ### Experimental settings
 
