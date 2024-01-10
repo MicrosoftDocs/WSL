@@ -2,7 +2,7 @@
 title: Get started with Docker containers on WSL
 description: Learn how to set up Docker containers on the Windows Subsystem for Linux.
 keywords: wsl, windows, windowssubsystem, windows 10, docker, containers
-ms.date: 09/27/2021
+ms.date: 01/04/2024
 ms.topic: article
 ---
 
@@ -111,7 +111,7 @@ Let's use Docker to create a development container for an existing app project.
 
     ![VS Code WSL Remote indicator](../media/vscode-remote-indicator.png)
 
-4. From the VS Code command pallette (Ctrl + Shift + P), enter: **Dev Containers: Open Folder in Container...** If this command doesn't display as you begin to type it, check to ensure that you've installed the Dev Containers extension linked above.
+4. From the VS Code command pallette (Ctrl + Shift + P), enter: **Dev Containers: Reopen in Container** as we are using a folder already opened using the WSL extension. Alternativly use **Dev Containers: Open Folder in Container...** to choose a WSL folder using the local `\\wsl$` share (from the Windows side). See the Visual Studio Code [Quick start: Open an existing folder in a container](https://code.visualstudio.com/docs/devcontainers/containers#_quick-start-open-an-existing-folder-in-a-container) for more details. If these commands don't display as you begin to type, check to ensure that you've installed the Dev Containers extension linked above. 
 
     ![VS Code Dev Containers command](../media/docker-extension.png)
 

@@ -20,7 +20,7 @@ The [WSL product repo issues](https://github.com/Microsoft/wsl/issues) enables y
 You can also:
 
 - **File a documentation issue** using the [WSL docs repo](https://github.com/MicrosoftDocs/wsl/issues). To contribute to the WSL docs, see the [Microsoft Docs contributor guide](/contribute).
-- **File a Windows Terminal** issue using the the [Windows Terminal product repo](https://github.com/microsoft/terminal/issues) if your problem is related more to the Windows Terminal, Windows Console, or the command-line UI.
+- **File a Windows Terminal** issue using the [Windows Terminal product repo](https://github.com/microsoft/terminal/issues) if your problem is related more to the Windows Terminal, Windows Console, or the command-line UI.
 
 ## Installation issues
 
@@ -139,7 +139,7 @@ If there are no Win32 paths in your $PATH, interop isn't going to find the .exe.
 You can verify it by running `echo $PATH` in Linux. It's expected that you will see a Win32 path (for example, /mnt/c/Windows) in the output.
 If you can't see any Windows paths then most likely your PATH is being overwritten by your Linux shell. 
 
-Here is a an example that /etc/profile on Debian contributed to the problem:
+Here is an example that /etc/profile on Debian contributed to the problem:
 
 ```Bash
 if [ "`id -u`" -eq 0 ]; then
@@ -423,13 +423,17 @@ This must be unchecked for the NAT DNS proxy configuration to work from WSL, **o
 **4.	The HNS Firewall rule to allow the DNS packets to shared access can become invalid, referencing a previous WSL interface identifier.**
 This is a flaw within HNS which has been fixed with the latest Windows 11 release. On earlier releases, if this occurs, it’s not easily discoverable, but it has a simple work around:
 - Stop WSL
-  1. ```wsl.exe –shutdown```
+  
+  ```wsl.exe –shutdown```
 - Delete the old HNS Firewall rule. This Powershell command should work in most cases:
-  1.```Get-NetFirewallRule -Name "HNS*" | Get-NetFirewallPortFilter | where Protocol -eq UDP | where LocalPort -eq 53 | Remove-NetFirewallRule```
-- Remove all HNS endpoints
-  1. Note: if HNS is used to manage other containers, such as MDAG or Windows Sandbox, those should also be stopped.
-  2. ```hnsdiag.exe delete all```
+
+  ```Get-NetFirewallRule -Name "HNS*" | Get-NetFirewallPortFilter | where Protocol -eq UDP | where LocalPort -eq 53 | Remove-NetFirewallRule```
+- Remove all HNS endpoints. Note: if HNS is used to manage other containers, such as MDAG or Windows Sandbox, those should also be stopped.
+
+  ```hnsdiag.exe delete all```
 - Reboot or restart the HNS service
+
+  ```Restart-Service hns```
 - When WSL is restarted, HNS will create new Firewall rules, correctly targeting the WSL interface.
 
 ### Starting WSL or installing a distribution returns an error code

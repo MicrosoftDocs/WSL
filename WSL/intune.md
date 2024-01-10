@@ -1,7 +1,7 @@
 ---
 title: Intune settings
 description: Available settings in Intune for the Windows Subsystem for Linux (WSL)
-ms.date: 11/15/2023
+ms.date: 01/10/2024
 ms.topic: article
 ---
 
@@ -26,7 +26,7 @@ To maximize security in an enterprise environment, we recommend that you specify
 | Allow custom networking configuration | Disabled | When set to disabled, this policy disables custom networking configuration via .wslconfig (wsl2.networkingmode). This policy only applies to Store WSL. |
 | Allow user setting firewall configuration | Disabled | When set to disabled, this policy disables firewall configuration via .wslconfig (wsl2.firewall). This policy only applies to Store WSL. |
 | Allow nested virtualization | Disabled | When set to disabled, this policy disables nested virtualization configuration via .wslconfig (wsl2.nestedVirtualization). This policy only applies to Store WSL. |
-| Allow kernel debugging | Disabled | When set to disabled, this policy disables kernel kernel debugging configuration via .wslconfig (wsl2.kernelDebugPort). This policy only applies to Store WSL. |
+| Allow kernel debugging | Disabled | When set to disabled, this policy disables kernel debugging configuration via .wslconfig (wsl2.kernelDebugPort). This policy only applies to Store WSL. |
 
 ## Control access to WSL 
 
@@ -40,7 +40,7 @@ This will allow you to configure WSL to ensure that users are only using the lat
 
 ## Control access to WSL settings in `.wslconfig`
 
-The last group of settings that end with `*UserSettingConfigurable` control access to WSL advanced settings in `.wslconfig`. When these are set to disabled then users will only be able to use the default value for that setting, and not able to configure it to custom values. Learn more about [Configuration setting for .wslconfig](./wsl-config.md#configuration-setting-for-wslconfig), including a list of settings that can be configured globally for all Linux distributions running with WSL 2.
+The last group of settings that end with `*UserSettingConfigurable` control access to WSL advanced settings in `.wslconfig`. When these are set to disabled then users will only be able to use the default value for that setting, and not able to configure it to custom values. Learn more about [Configuration setting for .wslconfig](./wsl-config.md#configuration-settings-for-wslconfig), including a list of settings that can be configured globally for all Linux distributions running with WSL 2.
 
 ## Full list of available settings
 
