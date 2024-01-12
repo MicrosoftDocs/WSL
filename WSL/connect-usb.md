@@ -62,16 +62,21 @@ Before attaching your USB device, ensure that a WSL command line is open.  This 
 1. List all of the USB devices connected to Windows by opening PowerShell in *administrator* mode and entering the command:
 
     ```powershell
-    usbipd wsl list
+    usbipd list
     ```
-
-2. Select the bus ID of the device you’d like to attach to WSL and run this command. You’ll be prompted by WSL for a password to run a sudo command. The Linux distribution to be attached must be your default distribution. (See the [Basic commands for WSL](./basic-commands.md#set-default-linux-distribution) doc to change your default distribution).
+    or
 
     ```powershell
-    usbipd wsl attach --busid <busid>
+    usbipd list -u
     ```
 
-3. Open Ubuntu (or your preferred WSL command line) and list the attached USB devices using the command:
+3. Select the bus ID of the device you’d like to attach to WSL and run this command. You’ll be prompted by WSL for a password to run a sudo command. The Linux distribution to be attached must be your default distribution. (See the [Basic commands for WSL](./basic-commands.md#set-default-linux-distribution) doc to change your default distribution).
+
+    ```powershell
+    usbipd attach --wsl --busid=<busid>
+    ```
+
+4. Open Ubuntu (or your preferred WSL command line) and list the attached USB devices using the command:
 
     ```bash
     lsusb
@@ -79,10 +84,10 @@ Before attaching your USB device, ensure that a WSL command line is open.  This 
 
     You should see the device you just attached and be able to interact with it using normal Linux tools. Depending on your application, you may need to configure udev rules to allow non-root users to access the device.
 
-4. Once you are done using the device in WSL, you can either physically disconnect the USB device or run this command from PowerShell in *administrator* mode:
+5. Once you are done using the device in WSL, you can either physically disconnect the USB device or run this command from PowerShell in *administrator* mode:
 
     ```powershell
-    usbipd wsl detach --busid <busid>
+    usbipd detach --wsl --busid=<busid>
     ```
 
 To learn more about how this works, see the [Windows Command Line Blog](https://devblogs.microsoft.com/commandline/connecting-usb-devices-to-wsl/#how-it-works) and the [usbipd-win repo on GitHub](https://devblogs.microsoft.com/commandline/connecting-usb-devices-to-wsl/#how-it-works).
