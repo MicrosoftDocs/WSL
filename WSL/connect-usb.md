@@ -75,7 +75,7 @@ Before attaching your USB device, ensure that a WSL command line is open.  This 
 
     You should see the device you just attached and be able to interact with it using normal Linux tools. Depending on your application, you may need to configure udev rules to allow non-root users to access the device.
 
-4. Once you are done using the device in WSL, you can either physically disconnect the USB device or run this command from PowerShell in *administrator* mode:
+4. Once you are done using the device in WSL, you can either physically disconnect the USB device or run this command from PowerShell:
 
     ```powershell
     usbipd detach --busid <busid>
