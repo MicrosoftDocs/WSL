@@ -1,7 +1,7 @@
 ---
 title: Advanced settings configuration in WSL
 description: A guide to the wsl.conf and .wslconfig files used for configuring settings when running multiple Linux distributions on Windows Subsystem for Linux.
-ms.date: 11/10/2023
+ms.date: 01/17/2024
 ms.topic: article
 ms.custom: seo-windows-dev
 adobe-target: true
@@ -244,11 +244,11 @@ These settings are opt-in previews of experimental features that we aim to make 
 |:----|:----|:----|:----|
 |`autoMemoryReclaim`| string | disabled | Automatically releases cached memory after detecting idle CPU usage. Set to `gradual` for slow release, and `dropcache` for instant release of cached memory. |
 |`sparseVhd`| bool | false | When set to true, any newly created VHD will be set to sparse automatically. |
-|useWindowsDnsCache**| bool | false | Only applicable when `experimental.dnsTunneling` is set to true. When this option is set to false, DNS requests tunneled from Linux will bypass cached names within Windows to always put the requests on the wire. |
-|bestEffortDnsParsing**| bool | false | Only applicable when `experimental.dnsTunneling` is set to true. When set to true, Windows will extract the question from the DNS request and attempt to resolve it, ignoring the unknown records. |
-|initialAutoProxyTimeout*| string | 1000 | Only applicable when `experimental.autoProxy` is set to true. Configures how long (in milliseconds) WSL will wait for retrieving HTTP proxy information when starting a WSL container. If proxy settings are resolved after this time, the WSL instance must be restarted to use the retrieved proxy settings. |
-|ignoredPorts**| string | null | Only applicable when `experimental.networkingMode` is set to `mirrored`. Specifies which ports Linux applications can bind to, even if that port is used in Windows. This enables applications to listen on a port for traffic purely within Linux, so those applications are not blocked even when that port is used for other purposes on Windows. For example, WSL will allow binding to port 53 in Linux for Docker Desktop, as it is listening only to requests from within the Linux container. Should be formatted in a comma separated list, e.g: `3000,9000,9090` |
-|hostAddressLoopback**| bool | false | Only applicable when `experimental.networkingMode` is set to `mirrored`. When set to True, will allow the Container to connect to the Host, or the Host to connect to the Container, by an IP address that's assigned to the Host. Note that the 127.0.0.1 loopback address can always be used - this option allows for all additionally assigned local IP addresses to be used as well. |
+|`useWindowsDnsCache`**| bool | false | Only applicable when `experimental.dnsTunneling` is set to true. When this option is set to false, DNS requests tunneled from Linux will bypass cached names within Windows to always put the requests on the wire. |
+|`bestEffortDnsParsing`**| bool | false | Only applicable when `experimental.dnsTunneling` is set to true. When set to true, Windows will extract the question from the DNS request and attempt to resolve it, ignoring the unknown records. |
+|`initialAutoProxyTimeout`*| string | 1000 | Only applicable when `experimental.autoProxy` is set to true. Configures how long (in milliseconds) WSL will wait for retrieving HTTP proxy information when starting a WSL container. If proxy settings are resolved after this time, the WSL instance must be restarted to use the retrieved proxy settings. |
+|`ignoredPorts`**| string | null | Only applicable when `experimental.networkingMode` is set to `mirrored`. Specifies which ports Linux applications can bind to, even if that port is used in Windows. This enables applications to listen on a port for traffic purely within Linux, so those applications are not blocked even when that port is used for other purposes on Windows. For example, WSL will allow binding to port 53 in Linux for Docker Desktop, as it is listening only to requests from within the Linux container. Should be formatted in a comma separated list, e.g: `3000,9000,9090` |
+|`hostAddressLoopback`**| bool | false | Only applicable when `experimental.networkingMode` is set to `mirrored`. When set to True, will allow the Container to connect to the Host, or the Host to connect to the Container, by an IP address that's assigned to the Host. Note that the 127.0.0.1 loopback address can always be used - this option allows for all additionally assigned local IP addresses to be used as well. |
 
 Entries with an * after the value type are only available on Windows 11.
 
