@@ -177,7 +177,7 @@ To terminate the specified distribution, or stop it from running, replace `<Dist
 wsl --export <Distribution Name> <FileName>
 ```
 
-Exports the specified tar file as a new distribution. The filename can be - for standard input. Options include:
+Exports a snapshot of the specified distribution as a new distribution file. Defaults to tar format. The filename can be `-` for standard input. Options include:
 
 - `--vhd`: Specifies the export distribution should be a .vhdx file instead of a tar file (this is only supported using WSL 2)
 
@@ -187,7 +187,7 @@ Exports the specified tar file as a new distribution. The filename can be - for 
 wsl --import <Distribution Name> <InstallLocation> <FileName>
 ```
 
-Imports the specified tar file as a new distribution. The filename can be - for standard input. Options include:
+Imports the specified tar file as a new distribution. The filename can be `-` for standard input. Options include:
 
 - `--vhd`: Specifies the import distribution should be a .vhdx file instead of a tar file (this is only supported using WSL 2)
 - `--version <1/2>`: Specifies whether to import the distribution as a WSL 1 or WSL 2 distribution
