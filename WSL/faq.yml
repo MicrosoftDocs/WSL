@@ -219,7 +219,7 @@ sections:
         answer: |
           Yes. WSL 2 is available on all Desktop SKUs where WSL is available, including Windows 10 Home and Windows 11 Home.
           
-          WSL2 requires two features: 
+          Specifically, WSL2 requires two features to be enabled: 
           1. "Virtual Machine Platform" (a subset of Hyper-V)
           2. "Windows Subsystem for Linux"
           
