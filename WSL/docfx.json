@@ -40,7 +40,7 @@
       "open_source_feedback_contributorGuideUrl": "https://learn.microsoft.com/contribute/content/how-to-write-quick-edits",
       "open_source_feedback_issueTitle": "",
       "open_source_feedback_issueLabels": "needs-triage",
-      "open_source_feedback_issueUrl": "https://github.com/MicrosoftDocs/wsl/issues/new?template=doc-issues.yml",
+      "open_source_feedback_issueUrl": "https://github.com/MicrosoftDocs/wsl/issues/new?template=doc-issue.yml",
       "open_source_feedback_productLogoLightUrl": "https://learn.microsoft.com/windows/wsl/media/wsl-icon.svg",
       "open_source_feedback_productLogoDarkUrl": "https://learn.microsoft.com/windows/wsl/media/wsl-icon.svg",
       "open_source_feedback_productName": "Windows Subsystem for Linux",  
