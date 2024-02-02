@@ -1,6 +1,7 @@
 name: Post a documentation issue
 title: Contribute Feedback
-description: If you want to post a Windows Subsystem for Linux issue, bug, or feature request not specific to documentation, see https://github.com/microsoft/terminal/issues. To post an issue specific to WSL documentation, continue here.
+description: >-
+  Post an issue specific to WSL documentation.
 labels:
   - "needs-triage"
 body:
