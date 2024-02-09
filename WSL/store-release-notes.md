@@ -8,7 +8,7 @@ ms.topic: article
 
 # Release Notes for Windows Subsystem for Linux in the Microsoft Store
 
-The release notes for [WSL inside of the Microsoft Store](https://aka.ms/wslstorepage) can be found on the [Microsoft/WSL Github repository releases page](https://github.com/microsoft/WSL/releases). Please see that list for latest updates.
+The release notes for [WSL inside of the Microsoft Store](https://aka.ms/wslstorepage) can be found on the [Microsoft/WSL GitHub repository releases page](https://github.com/microsoft/WSL/releases). Please see that list for latest updates.
 
 ## Known Issues:
 * Launching Windows Subsystem for Linux from session zero does not currently work (for example from an ssh connection).
