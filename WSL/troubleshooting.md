@@ -436,6 +436,17 @@ This is a flaw within HNS which has been fixed with the latest Windows 11 releas
   ```Restart-Service hns```
 - When WSL is restarted, HNS will create new Firewall rules, correctly targeting the WSL interface.
 
+### Manual way to delete phantom adapters
+
+To find and delete Phantom PnP devices, follow the manual steps below if you see ghost adapters when running WSL in a VM. Microsoft is working on an automated solution that is supported and does not need manual intervention. More information will be coming soon.
+- **Open device manager**
+- **View > Show hidden devices**
+![Picture of device manager to manually delete phantom adapters](media/ghost_adapter_3.png)
+- **Open Network adapters**
+![Picture of device manager to manually delete phantom adapters](media/ghost_adapter_2.png)
+- **Right click over the Ghosted network adapter and select Uninstall Device**
+![Picture of device manager to manually delete phantom adapters](media/ghost_adapter_1.png)
+
 ### Starting WSL or installing a distribution returns an error code
 
 Follow the instructions to [Collect WSL logs](https://github.com/Microsoft/WSL/blob/master/CONTRIBUTING.md#8-detailed-logs) in the WSL repo on GitHub to collect detailed logs and file an issue on our GitHub.
