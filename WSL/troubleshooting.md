@@ -443,9 +443,11 @@ To find and delete Phantom PnP devices, follow the manual steps below if you see
 2. View > Show hidden devices
 
 ![Picture of device manager to manually delete phantom adapters](media/ghost_adapter_1.png)
+
 3. Open Network adapters
 
 ![Picture of device manager to manually delete phantom adapters](media/ghost_adapter_2.png)
+
 4. Right click over the Ghosted network adapter and select Uninstall Device
 
 ![Picture of device manager to manually delete phantom adapters](media/ghost_adapter_3.png)
