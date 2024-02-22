@@ -1,7 +1,7 @@
 ---
 title: Troubleshooting Windows Subsystem for Linux
 description: Provides detailed information about common errors and issues people run into while running Linux on the Windows Subsystem for Linux. 
-ms.date: 11/15/2023
+ms.date: 02/22/2024
 ms.topic: article
 ---
 
@@ -438,8 +438,9 @@ This is a flaw within HNS which has been fixed with the latest Windows 11 releas
 
 ### Manual way to delete phantom adapters
 
-To find and delete Phantom PnP devices, follow the manual steps below if you see ghost adapters when running WSL in a VM. Microsoft is working on an automated solution that is supported and does not need manual intervention. More information will be coming soon.
-1. Open device manager
+*Ghost adapters*, or phantom Plug and Play (PnP) devices, refer to hardware components that appear in your system but are not physically connected. These “ghost” devices can cause confusion and clutter in your system settings. If you see ghost adapters when running WSL in a Virtual Machine (VM), follow these manual steps to find and delete these Phantom PnP devices. Microsoft is working on an automated solution that will not require manual intervention. More information will be coming soon.
+
+1. Open Device Manager
 2. View > Show hidden devices
 
 ![Picture of device manager to manually delete phantom adapters](media/ghost_adapter_1.png)
@@ -448,7 +449,7 @@ To find and delete Phantom PnP devices, follow the manual steps below if you see
 
 ![Picture of device manager to manually delete phantom adapters](media/ghost_adapter_2.png)
 
-4. Right click over the Ghosted network adapter and select Uninstall Device
+4. Right-click over the Ghosted network adapter and select **Uninstall Device**
 
 ![Picture of device manager to manually delete phantom adapters](media/ghost_adapter_3.png)
 
