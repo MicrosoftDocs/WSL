@@ -215,12 +215,19 @@ sections:
   - name: WSL 2
     questions:
       - question: |
-          Does WSL 2 use Hyper-V? Will it be available on Windows 10 Home and Windows 11 Home?
+          Is WSL 2 available on Windows 10 Home and Windows 11 Home?
         answer: |
-          WSL 2 is available on all Desktop SKUs where WSL is available, including Windows 10 Home and Windows 11 Home.
+          Yes. WSL 2 is available on all Desktop SKUs where WSL is available, including Windows 10 Home and Windows 11 Home.
           
-          The newest version of WSL uses Hyper-V architecture to enable its virtualization. This architecture will be available in the 'Virtual Machine Platform' optional component. This optional component will be available on all SKUs. You can expect to see more details about this experience soon as we get closer to the WSL 2 release.
+          Specifically, WSL2 requires two features to be enabled: 
+          1. "Virtual Machine Platform" (a subset of Hyper-V)
+          2. "Windows Subsystem for Linux"
           
+      - question: |
+          Does WSL 2 use Hyper-V?
+        answer: |
+          The newest version of WSL uses a *subset* of Hyper-V architecture to enable its virtualization. This subset is provided as an optional component named "Virtual Machine Platform," available on all Desktop SKUs. 
+                  
       - question: |
           What will happen to WSL 1? Will it be abandoned?
         answer: |
