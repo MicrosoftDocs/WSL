@@ -160,7 +160,7 @@ sections:
       - question: |
          How can I back up my WSL distributions?
         answer: |
-          The best way to backup or move your distributions is via the [export/import commands](./basic-commands.md#import-and-export-a-distribution) available in Windows Version 1809 and later. You can export your entire distribution to a tarball using the `wsl --export` command. You can then import this distribution back into WSL using the `wsl --import` command, which can name a new drive location for the import, allowing you to backup and save states of (or move) your WSL distributions. To learn more about moving your WSL distributions, see [How can I transfer my WSL files from one machine to another?](#how-can-i-transfer-my-wsl-files-from-one-machine-to-another-). 
+          The best way to backup or move your distributions is via the [export](./basic-commands.md#export-a-distribution)/[import](./basic-commands.md#import-a-distribution) commands available in Windows Version 1809 and later. You can export your entire distribution to a tarball using the `wsl --export` command. You can then import this distribution back into WSL using the `wsl --import` command, which can name a new drive location for the import, allowing you to backup and save states of (or move) your WSL distributions. To learn more about moving your WSL distributions, see [How can I transfer my WSL files from one machine to another?](#how-can-i-transfer-my-wsl-files-from-one-machine-to-another-). 
           
           Traditional backup services that backup files in your AppData folders (like Windows Backup) will not corrupt your Linux files.
 
@@ -186,7 +186,7 @@ sections:
         answer: |
          There are a few ways you can accomplish this task: 
           
-          * The easiest way is to use the `wsl --export --vhd` command to export your WSL distribution to a VHD file. You can then copy this file to another machine, and import it using `wsl --import --vhd`. See the [Import and Export distributions in the WSL basic commands](./basic-commands.md#import-and-export-a-distribution) doc for more information.
+          * The easiest way is to use the `wsl --export --vhd` command to export your WSL distribution to a VHD file. You can then copy this file to another machine, and import it using `wsl --import --vhd`. See the [import](./basic-commands.md#import-a-distribution) and [export](./basic-commands.md#export-a-distribution) commands in [the WSL basic commands](./basic-commands.md) doc for more information.
           * The implementation above requires a lot of disk space. If you don't have a lot of disk space you can use Linux techniques to move your files over:
              * Use `tar -czf <tarballName> <directory>` to create a tarball of your files. You can then copy these specific files over to your new machine and run `tar -xzf <tarballName>` to extract them.
              * You can also export a list of installed packages via `apt` with a command like so: `dpkg --get-selections | grep -v deinstall | awk '{print $1}' > package_list.txt` and then reinstall those same packages on another machine with a command like `sudo apt install -y $(cat package_list.txt)` after transferring the file over.
@@ -215,12 +215,19 @@ sections:
   - name: WSL 2
     questions:
       - question: |
-          Does WSL 2 use Hyper-V? Will it be available on Windows 10 Home and Windows 11 Home?
+          Is WSL 2 available on Windows 10 Home and Windows 11 Home?
         answer: |
-          WSL 2 is available on all Desktop SKUs where WSL is available, including Windows 10 Home and Windows 11 Home.
+          Yes. WSL 2 is available on all Desktop SKUs where WSL is available, including Windows 10 Home and Windows 11 Home.
           
-          The newest version of WSL uses Hyper-V architecture to enable its virtualization. This architecture will be available in the 'Virtual Machine Platform' optional component. This optional component will be available on all SKUs. You can expect to see more details about this experience soon as we get closer to the WSL 2 release.
+          Specifically, WSL2 requires two features to be enabled: 
+          1. "Virtual Machine Platform" (a subset of Hyper-V)
+          2. "Windows Subsystem for Linux"
           
+      - question: |
+          Does WSL 2 use Hyper-V?
+        answer: |
+          The newest version of WSL uses a *subset* of Hyper-V architecture to enable its virtualization. This subset is provided as an optional component named "Virtual Machine Platform," available on all Desktop SKUs. 
+                  
       - question: |
           What will happen to WSL 1? Will it be abandoned?
         answer: |

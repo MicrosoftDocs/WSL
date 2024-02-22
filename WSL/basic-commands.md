@@ -171,20 +171,26 @@ To terminate the specified distribution, or stop it from running, replace `<Dist
 - `wsl hostname -i` for the IP address of your Linux distribution installed via WSL 2 (the WSL 2 VM address)
 - `cat /etc/resolv.conf` for the IP address of the Windows machine as seen from WSL 2 (the WSL 2 VM)
 
-## Import and export a distribution
+## Export a distribution
 
 ```powershell
 wsl --export <Distribution Name> <FileName>
 ```
 
+Exports a snapshot of the specified distribution as a new distribution file. Defaults to tar format. The filename can be `-` for standard input. Options include:
+
+- `--vhd`: Specifies the export distribution should be a .vhdx file instead of a tar file (this is only supported using WSL 2)
+
+## Import a distribution
+
 ```powershell
 wsl --import <Distribution Name> <InstallLocation> <FileName>
 ```
 
-Imports and exports the specified tar file as a new distribution. The filename can be - for standard input. Options include:
+Imports the specified tar file as a new distribution. The filename can be `-` for standard input. Options include:
 
-- `--vhd`: Specifies the import/export distribution should be a .vhdx file instead of a tar file (this is only supported using WSL 2)
-- `--version`: For import only, specifies whether to import the distribution as a WSL 1 or WSL 2 distribution
+- `--vhd`: Specifies the import distribution should be a .vhdx file instead of a tar file (this is only supported using WSL 2)
+- `--version <1/2>`: Specifies whether to import the distribution as a WSL 1 or WSL 2 distribution
 
 ## Import a distribution in place
 

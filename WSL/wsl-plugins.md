@@ -34,11 +34,11 @@ You can then press the “Build” tab and build your project, which will output
 
 ### Testing your Plugin
 
-WSL plugins will only run if they are [digitally signed]( https://learn.microsoft.com/windows-hardware/drivers/install/digital-signatures). To test this you will need to enable test signing on your machine. 
+WSL plugins will only run if they are [digitally signed](/windows-hardware/drivers/install/digital-signatures). To test this you will need to enable test signing on your machine. 
 
 #### Enabling test signing and creating a test certification
 
-Open an elevated PowerShell Window and [enable test signing]( https://learn.microsoft.com/windows-hardware/drivers/install/the-testsigning-boot-configuration-option#enable-or-disable-use-of-test-signed-code) by running this command:
+Open an elevated PowerShell Window and [enable test signing](/windows-hardware/drivers/install/the-testsigning-boot-configuration-option#enable-or-disable-use-of-test-signed-code) by running this command:
 ```powershell
 ## If this command results in "The value is protected by Secure Boot policy and cannot be modified or deleted"
 ## Then reboot the PC, go into BIOS settings, and disable Secure Boot. BitLocker may also affect your ability to modify this setting.
@@ -65,7 +65,7 @@ Last import the certificate to the Trusted Root Certification Authority:
 certutil -addstore "Root" ".\$certname.cer"
 ```
 
-See the [how to create a self signed certificate]( https://learn.microsoft.com/entra/identity-platform/howto-create-self-signed-certificate) docs page for more info.
+See the [how to create a self signed certificate](/entra/identity-platform/howto-create-self-signed-certificate) docs page for more info.
 
 #### Install the plugin
 
@@ -97,7 +97,7 @@ Common error codes:
 
 - Wsl/Service/CreateInstance/CreateVm/Plugin/ERROR_MOD_NOT_FOUND -> The plugin DLL could not be loaded. Check that the plugin registration path is correct
 - Wsl/Service/CreateInstance/CreateVm/Plugin/TRUST_E_NOSIGNATURE -> The plugin DLL is not signed, or its signature is not trusted by the computer
-   - Please [enable test signing]( https://learn.microsoft.com/windows-hardware/drivers/install/the-testsigning-boot-configuration-option#enable-or-disable-use-of-test-signed-code) and see [the signing section above on how to set up a test certificate](#enabling-test-signing-and-creating-a-test-certification).
+   - Please [enable test signing](/windows-hardware/drivers/install/the-testsigning-boot-configuration-option#enable-or-disable-use-of-test-signed-code) and see [the signing section above on how to set up a test certificate](#enabling-test-signing-and-creating-a-test-certification).
 - Wsl/Service/CreateInstance/CreateVm/Plugin/* -> The plugin DLL returned an error in WSLPLUGINAPI_ENTRYPOINTV1 or OnVmStarted()
 - Wsl/Service/CreateInstance/Plugin/* -> The plugin DLL returned an error in OnDistributionStarted()
 
