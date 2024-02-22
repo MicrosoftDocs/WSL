@@ -443,15 +443,15 @@ This is a flaw within HNS which has been fixed with the latest Windows 11 releas
 1. Open Device Manager
 2. View > Show hidden devices
 
-![Picture of device manager to manually delete phantom adapters](media/ghost_adapter_1.png)
+![Screenshot of Device Manager show hidden devices menu](media/ghost_adapter_1.png)
 
 3. Open Network adapters
 
-![Picture of device manager to manually delete phantom adapters](media/ghost_adapter_2.png)
+![Screenshot of Network adapters list](media/ghost_adapter_2.png)
 
 4. Right-click over the Ghosted network adapter and select **Uninstall Device**
 
-![Picture of device manager to manually delete phantom adapters](media/ghost_adapter_3.png)
+![Screenshot of right-clicking a phantom pnp from the network list and selecting uninstall device](media/ghost_adapter_3.png)
 
 ### Starting WSL or installing a distribution returns an error code
 
