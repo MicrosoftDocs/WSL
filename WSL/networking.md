@@ -79,7 +79,7 @@ You can [set `networkingMode=mirrored` under `[wsl2]` in the `.wslconfig` file](
 Here are the current benefits to enabling this mode:
 
 - IPv6 support
-- Connect to Windows servers from within Linux using the localhost address `127.0.0.1`
+- Connect to Windows servers from within Linux using the localhost address `127.0.0.1`. Note: IPv6 localhost address ::1 is not supported
 - Improved networking compatibility for VPNs
 - Multicast support
 - Connect to WSL directly from your local area network (LAN)
