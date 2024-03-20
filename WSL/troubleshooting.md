@@ -436,6 +436,10 @@ This is a flaw within HNS which has been fixed with the latest Windows 11 releas
   ```Restart-Service hns```
 - When WSL is restarted, HNS will create new Firewall rules, correctly targeting the WSL interface.
 
+### Troubleshooting Network Access Issues on Windows
+
+If you have no network access, it might be due to a misconfiguration. Please see if the FSE driver is running: ‘sc queryex FSE’. If that does not show FSE running, please check if the PortTrackerEnabledMode registry value exits under this registry key: reg query HKLM\System\CurrentControlSet\Services\Tcpip\Parameters. If FSE is not running or installed, and PortTrackerEnabledMode exists, please delete that registry value and reboot
+
 ### Manual way to delete phantom adapters
 
 *Ghost adapters*, or phantom Plug and Play (PnP) devices, refer to hardware components that appear in your system but are not physically connected. These “ghost” devices can cause confusion and clutter in your system settings. If you see ghost adapters when running WSL in a Virtual Machine (VM), follow these manual steps to find and delete these Phantom PnP devices. Microsoft is working on an automated solution that will not require manual intervention. More information will be coming soon.
