@@ -27,7 +27,7 @@ Feature | WSL 1 | WSL 2
  Full system call compatibility| ❌ | ✅
  Performance across OS file systems| ✅ | ❌
  systemd support| ❌ | ✅
- IPv6 support| ❌ | ✅
+ IPv6 support| ✅ | ✅
 
 As you can tell from the comparison table above, the WSL 2 architecture outperforms WSL 1 in several ways, with the exception of performance across OS file systems, which can be addressed by storing your project files on the same operating system as the tools you are running to work on the project.
 
