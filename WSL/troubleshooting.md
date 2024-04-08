@@ -322,8 +322,8 @@ There is a known issue in which Docker Desktop containers with published ports (
 
 ### Docker container issues when its Network Manager is running
 
-There is a known issue with Docker containers which have the Network Manager service running. Sympoms include failures when trying to make loopback connections to the host.
-It's recommended to stop the Network Manager service for WSL networking to be configured properly:
+There is a known issue with Docker containers which have the Network Manager service running. Symptoms include failures when trying to make loopback connections to the host.
+It is recommended to stop the Network Manager service for WSL networking to be configured properly.
 
 ```Bash
 sudo systemctl disable network-manager.service
