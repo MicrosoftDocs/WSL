@@ -320,6 +320,15 @@ WSL will automatically configure certain Linux networking settings when using mi
 
 There is a known issue in which Docker Desktop containers with published ports (docker run –publish/-p) will fail to be created. The WSL team is working with the Docker Desktop team to address this issue. To work around the issue, use the host’s networking namespace in the Docker container. Set the network type via the "--network host" option used in the "docker run" command. An alternative workaround is to list the published port number in the `ignoredPorts` setting of the [experimental section in the WSL Configuration file](/windows/wsl/wsl-config#experimental-settings). 
 
+### Docker container issues when its Network Manager is running
+
+There is a known issue with Docker containers which have the Network Manager service running. Symptoms include failures when trying to make loopback connections to the host.
+It is recommended to stop the Network Manager service for WSL networking to be configured properly.
+
+```Bash
+sudo systemctl disable network-manager.service
+```
+
 ### DNS suffixes in WSL
 
 Depending on the configurations in the .wslconfig file, WSL will have the following behavior wrt DNS suffixes:
@@ -345,7 +354,7 @@ The single DNS suffix configured in Linux is chosen from the per-interface DNS s
 
 if Windows has multiple interfaces, a heuristic is used to choose the single DNS suffix that will be configured in Linux. For example if there is a VPN interface on Windows, the suffix is chosen from that interface. If no VPN interface is present, the suffix is chosen from the interface that is most likely to give Internet connectivity.
 
-**When networkingMode is set to Mirrorred:**
+**When networkingMode is set to Mirrored:**
 
 All Windows DNS suffixes are configured in Linux, in the "search" setting of /etc/resolv.conf
 
@@ -655,7 +664,7 @@ If you're seeing this error:
 Permissions 0777 for '/home/user/.ssh/private-key.pem' are too open.
 ```
 
-To fix this, append the following to the the ```/etc/wsl.conf``` file:
+To fix this, append the following to the ```/etc/wsl.conf``` file:
 
 ```bash
 [automount]

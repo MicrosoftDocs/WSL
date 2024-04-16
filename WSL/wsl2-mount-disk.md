@@ -31,7 +31,7 @@ sudo mount -t drvfs D: /mnt/d
 
 [Learn more about mounting scenarios](https://superuser.com/questions/1734353/is-there-a-way-to-mount-an-external-drive-when-it-becomes-available-in-wsl).
 
-If you have a Ext4-formatted drive, you cannot mount it on your Windows file system. In order to mount an Ext4-formatted drive on your Linux distribution with WSL, you can use the `wsl --mount` command following the instructions below.
+If you have an Ext4-formatted drive, you cannot mount it on your Windows file system. In order to mount an Ext4-formatted drive on your Linux distribution with WSL, you can use the `wsl --mount` command following the instructions below.
 
 ## Mounting an unpartitioned disk
 

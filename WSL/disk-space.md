@@ -181,7 +181,7 @@ To repair a disk mount error in WSL, and restore it back to a usable / writeable
     ```
 
 > [!NOTE]
-> If you only have a single Linux distribution installed, you may encounter a "ext file in use" error and will need to [install](./basic-commands.md#install) an additional distribution in order to run `wsl.exe lsblk`. You can [uninstall](./basic-commands.md#unregister-or-uninstall-a-linux-distribution) the distribution once the repair is complete.
+> If you only have a single Linux distribution installed, you may encounter an "ext file in use" error and will need to [install](./basic-commands.md#install) an additional distribution in order to run `wsl.exe lsblk`. You can [uninstall](./basic-commands.md#unregister-or-uninstall-a-linux-distribution) the distribution once the repair is complete.
 
 4. Once the repair is complete, unmount the disk in PowerShell by entering:
 

@@ -85,13 +85,13 @@ Here are the current benefits to enabling this mode:
 - Connect to WSL directly from your local area network (LAN)
 
 > [!NOTE]
-> Run the following command in PowerShell window with admin privileges to [Configure Hyper-V firewall](/windows/security/operating-system-security/network-security/windows-firewall/hyper-v-firewall) settings to allow inbound connections: `Set-NetFirewallHyperVVMSetting -Name ‘{40E0AC32-46A5-438A-A0B2-2B479E8F2E90}’ -DefaultInboundAction Allow` or `New-NetFirewallHyperVRule -Name MyWebServer -DisplayName “My Web Server” -Direction Inbound -VMCreatorId “{40E0AC32-46A5-438A-A0B2-2B479E8F2E90}” -Protocol TCP -LocalPorts 80`.
+> Run the following command in PowerShell window with admin privileges to [Configure Hyper-V firewall](/windows/security/operating-system-security/network-security/windows-firewall/hyper-v-firewall) settings to allow inbound connections: `Set-NetFirewallHyperVVMSetting -Name '{40E0AC32-46A5-438A-A0B2-2B479E8F2E90}' -DefaultInboundAction Allow` or `New-NetFirewallHyperVRule -Name "MyWebServer" -DisplayName "My Web Server" -Direction Inbound -VMCreatorId '{40E0AC32-46A5-438A-A0B2-2B479E8F2E90}' -Protocol TCP -LocalPorts 80`.
 
 This new mode addresses networking issues seen with using a NAT (Network Address Translation) based architecture. Find known issues or file feedback on any bugs identified in the [WSL product repo on GitHub](https://github.com/microsoft/wsl).
 
 ## DNS Tunneling
 
-Setting [`dnsTunneling=true` under `[wsl2]` in the `.wslconfig` file](./wsl-config.md#configuration-settings-for-wslconfig) has WSL use a virtulization feature to answer DNS requests from within WSL, instead of requesting them over a networking packet. This feature is aimed to improve compatibility with VPNs, and other complex networking set ups.
+Setting [`dnsTunneling=true` under `[wsl2]` in the `.wslconfig` file](./wsl-config.md#configuration-settings-for-wslconfig) has WSL use a virtualization feature to answer DNS requests from within WSL, instead of requesting them over a networking packet. This feature is aimed to improve compatibility with VPNs, and other complex networking set ups.
 
 ## Auto Proxy
 
