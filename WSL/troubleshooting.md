@@ -354,7 +354,7 @@ The single DNS suffix configured in Linux is chosen from the per-interface DNS s
 
 if Windows has multiple interfaces, a heuristic is used to choose the single DNS suffix that will be configured in Linux. For example if there is a VPN interface on Windows, the suffix is chosen from that interface. If no VPN interface is present, the suffix is chosen from the interface that is most likely to give Internet connectivity.
 
-**When networkingMode is set to Mirrorred:**
+**When networkingMode is set to Mirrored:**
 
 All Windows DNS suffixes are configured in Linux, in the "search" setting of /etc/resolv.conf
 
@@ -664,7 +664,7 @@ If you're seeing this error:
 Permissions 0777 for '/home/user/.ssh/private-key.pem' are too open.
 ```
 
-To fix this, append the following to the the ```/etc/wsl.conf``` file:
+To fix this, append the following to the ```/etc/wsl.conf``` file:
 
 ```bash
 [automount]

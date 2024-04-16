@@ -111,7 +111,7 @@ Let's use Docker to create a development container for an existing app project.
 
     ![VS Code WSL Remote indicator](../media/vscode-remote-indicator.png)
 
-4. From the VS Code command pallette (Ctrl + Shift + P), enter: **Dev Containers: Reopen in Container** as we are using a folder already opened using the WSL extension. Alternativly use **Dev Containers: Open Folder in Container...** to choose a WSL folder using the local `\\wsl$` share (from the Windows side). See the Visual Studio Code [Quick start: Open an existing folder in a container](https://code.visualstudio.com/docs/devcontainers/containers#_quick-start-open-an-existing-folder-in-a-container) for more details. If these commands don't display as you begin to type, check to ensure that you've installed the Dev Containers extension linked above. 
+4. From the VS Code command palette (Ctrl + Shift + P), enter: **Dev Containers: Reopen in Container** as we are using a folder already opened using the WSL extension. Alternatively, use **Dev Containers: Open Folder in Container...** to choose a WSL folder using the local `\\wsl$` share (from the Windows side). See the Visual Studio Code [Quick start: Open an existing folder in a container](https://code.visualstudio.com/docs/devcontainers/containers#_quick-start-open-an-existing-folder-in-a-container) for more details. If these commands don't display as you begin to type, check to ensure that you've installed the Dev Containers extension linked above. 
 
     ![VS Code Dev Containers command](../media/docker-extension.png)
 
@@ -129,7 +129,7 @@ Let's use Docker to create a development container for an existing app project.
 
 8. To confirm that your project is still connected to both WSL and within a container, open the VS Code integrated terminal (Ctrl + Shift + ~). Check the operating system by entering: `uname` and the Python version with: `python3 --version`. You can see that the uname came back as "Linux", so you are still connected to the WSL 2 engine, and Python version number will be based on the container config that may differ from the Python version installed on your WSL distribution.
 
-9. To run and debug your app inside of the container using Visual Studio Code, first open the **Run** menu (Ctrl+Shift+D or select the tab on the far left menu bar). Then select **Run and Debug** to select a debug configuration and choose the configuration that best suites your project (in my example, this will be "Django"). This will create a `launch.json` file in the `.vscode` folder of your project with instructions on how to run your app.
+9. To run and debug your app inside of the container using Visual Studio Code, first open the **Run** menu (Ctrl+Shift+D or select the tab on the far left menu bar). Then select **Run and Debug** to select a debug configuration and choose the configuration that best suits your project (in my example, this will be "Django"). This will create a `launch.json` file in the `.vscode` folder of your project with instructions on how to run your app.
 
     ![VS Code run debug configuration](../media/vscode-run-config.png)
 
