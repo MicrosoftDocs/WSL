@@ -209,7 +209,7 @@ This file can contain the following options that affect the VM that powers any W
 | key | value | default | notes|
 |:----|:----|:----|:----|
 | kernel | path | The Microsoft built kernel provided inbox | An absolute Windows path to a custom Linux kernel. |
-| memory | size | 50% of total memory on Windows; on builds before 20175: 80% of your total memory on Windows | How much memory to assign to the WSL 2 VM. |
+| memory | size | 50% of total memory on Windows | How much memory to assign to the WSL 2 VM. |
 | processors | number | The same number of logical processors on Windows | How many logical processors to assign to the WSL 2 VM. |
 | localhostForwarding | boolean | `true` | Boolean specifying if ports bound to wildcard or localhost in the WSL 2 VM should be connectable from the host via `localhost:port`. |
 | kernelCommandLine | string | Blank | Additional kernel command line arguments. |
