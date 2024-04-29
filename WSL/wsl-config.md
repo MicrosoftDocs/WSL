@@ -226,7 +226,7 @@ This file can contain the following options that affect the VM that powers any W
 | firewall** | bool | true | Setting this to true allows the Windows Firewall rules, as well as rules specific to Hyper-V traffic, to filter WSL network traffic. |
 | dnsTunneling** | bool | false | Changes how DNS requests are proxied from WSL to Windows |
 | autoProxy* | bool | false | Enforces WSL to use Windows’ HTTP proxy information |
-| defaultVhdSize | size | `1TB` | How large to make the VHD that stores the distribution file system. |
+| defaultVhdSize | size | `1TB` | Set the Virtual Hard Disk (VHD) size that stores the Linux distribution (for example, Ubuntu) file system. |
 
 Entries with the `path` value must be Windows paths with escaped backslashes, e.g: `C:\\Temp\\myCustomKernel`
 
