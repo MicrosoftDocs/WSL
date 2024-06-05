@@ -43,7 +43,7 @@ In this example, we'll use Docker inside of a WSL distribution to obtain the tar
 3. Run the CentOS container inside Docker:
 
     ```bash
-    docker run -t centos bash ls /
+    docker run -t centos ls /
     ```
 
 4. Grab the CentOS container ID using grep and awk:
