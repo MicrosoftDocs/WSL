@@ -267,6 +267,8 @@ When enabled, the following apply to proxy settings on your Linux distributions:
 - The Linux environment variable, `NO_PROXY`, is set to bypass any HTTP/S proxies found in the Windows configuration targets.
 - Every environment variable, except `WSL_PAC_URL`, is set to both lower case and upper case. For example: `HTTP_PROXY` and `http_proxy`.
 
+There is a known issue caused by ZScaler configurations, where ZScaler repeatedly enables and disables Windows proxy configurations, leading to WSL repeatedly showing the "An Http proxy change has been detected on the host" notification.
+
 Learn more in the Command Line blog: [WSL September 2023 update](https://devblogs.microsoft.com/commandline/windows-subsystem-for-linux-september-2023-update/#autoproxy).
 
 ### Networking considerations with DNS tunneling
@@ -275,7 +277,6 @@ When WSL can’t connect to the internet, it might be because the DNS call to th
 
 DNS Tunneling can be configured using the `dnsTunneling` setting in the [experimental section of the WSL Configuration file](/windows/wsl/wsl-config#experimental-settings). When applying this setting, note these considerations:
 
-- Native Docker can have connectivity issues in WSL when DNS tunneling is enabled – if the network has a policy to block DNS traffic to: 8.8.8.8 
 - If you use a VPN with WSL, turn on DNS tunneling. Many VPNs use NRPT policies, which are only applied to WSL DNS queries when DNS tunneling is enabled.
 - The `/etc/resolv.conf` file in your Linux distribution has a 3 DNS servers maximum limitation, while Windows may use more than 3 DNS servers. Using DNS tunneling removes this limitation – all Windows DNS servers can now be used by Linux.
 - WSL will use Windows DNS suffixes in the following order (similar to the order used by the Windows DNS client): 
@@ -283,8 +284,10 @@ DNS Tunneling can be configured using the `dnsTunneling` setting in the [experim
   2. Supplemental DNS suffixes 
   3. Per-interface DNS suffixes
   4. If DNS encryption (DoH, DoT) is enabled on Windows, encryption will be applied to DNS queries from WSL. If users want to enable DoH, DoT inside Linux, they need to disable DNS tunneling.
-- DNS queries from Docker containers (either Docker Desktop or native Docker running in WSL) will bypass DNS tunneling. DNS tunneling cannot be leveraged to apply host DNS settings and policies to Docker DNS traffic.
+- DNS queries from Docker containers managed by Docker Desktop will bypass DNS tunneling. DNS tunneling cannot be leveraged to apply host DNS settings and policies to those Docker containers.
 - Docker Desktop has its own way (different from DNS tunneling) of applying host DNS settings and policies to DNS queries from Docker containers.
+- In order for DNS tunneling to be succesfully enabled, the generateResolvConf option in the wsl.conf file should not be disabled.
+- When DNS tunneling is enabled, the Windows DNS hosts file is not copied in the Linux /etc/hosts file. The policies in the Windows hosts file will be applied to DNS queries from Linux, without the need for the file to be copied in Linux.
 
 Learn more in the Command Line blog: [WSL September 2023 update](https://devblogs.microsoft.com/commandline/windows-subsystem-for-linux-september-2023-update/#dns-tunneling).
 
