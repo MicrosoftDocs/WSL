@@ -73,7 +73,7 @@ Learn more in the guide to [Basic commands for WSL](./basic-commands.md).
 
 New Linux installations, installed using the `wsl --install` command, will be set to WSL 2 by default.
 
-The `wsl --set-version` command can be used to downgrade from WSL 2 to WSL 1 or to update previously installed Linux distributions from WSL 1 to WSL 2.
+The `wsl --set-version` command can be used to downgrade from WSL 2 to WSL 1 or to update previously installed Linux distributions from WSL 1 to WSL 2. The `wsl --update` command may need to be ran prior to using the `wsl --set-version` command for the first time.
 
 To see whether your Linux distribution is set to WSL 1 or WSL 2, use the command: `wsl -l -v`.
 
