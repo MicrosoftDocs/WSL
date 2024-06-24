@@ -284,7 +284,7 @@ DNS Tunneling can be configured using the `dnsTunneling` setting in the [experim
   2. Supplemental DNS suffixes 
   3. Per-interface DNS suffixes
   4. If DNS encryption (DoH, DoT) is enabled on Windows, encryption will be applied to DNS queries from WSL. If users want to enable DoH, DoT inside Linux, they need to disable DNS tunneling.
-- DNS queries from Docker containers managed by Docker Desktop will bypass DNS tunneling. DNS tunneling cannot be leveraged to apply host DNS settings and policies to those Docker containers. Docker Desktop has its own way (different from DNS tunneling) of applying host DNS settings and policies to DNS queries from Docker containers.
+- DNS queries from Docker containers managed by Docker Desktop will bypass DNS tunneling. Docker Desktop has its own way (different from DNS tunneling) of applying host DNS settings and policies to DNS queries from Docker containers.
 - In order for DNS tunneling to be succesfully enabled, the generateResolvConf option in the wsl.conf file should not be disabled.
 - When DNS tunneling is enabled, the generateHosts option in the wsl.conf file is ignored (the Windows DNS hosts file is not copied in the Linux /etc/hosts file). The policies in the Windows hosts file will be applied to DNS queries from Linux, without the need for the file to be copied in Linux.
 
