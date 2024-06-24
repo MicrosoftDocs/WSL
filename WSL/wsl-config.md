@@ -224,8 +224,8 @@ This file can contain the following options that affect the VM that powers any W
 | dnsProxy | bool | true | Only applicable to networkingMode = NAT. Boolean to inform WSL to configure the DNS Server in Linux to the NAT on the host. Setting to false will mirror DNS servers from Windows to Linux. |
 | networkingMode** | string | NAT | If the value is `mirrored` then this turns on mirrored networking mode. Default or unrecognized strings result in NAT networking. |
 | firewall** | bool | true | Setting this to true allows the Windows Firewall rules, as well as rules specific to Hyper-V traffic, to filter WSL network traffic. |
-| dnsTunneling** | bool | false | Changes how DNS requests are proxied from WSL to Windows |
-| autoProxy* | bool | false | Enforces WSL to use Windows’ HTTP proxy information |
+| dnsTunneling** | bool | true | Changes how DNS requests are proxied from WSL to Windows |
+| autoProxy* | bool | true | Enforces WSL to use Windows’ HTTP proxy information |
 
 Entries with the `path` value must be Windows paths with escaped backslashes, e.g: `C:\\Temp\\myCustomKernel`
 
@@ -247,6 +247,7 @@ These settings are opt-in previews of experimental features that we aim to make 
 |`sparseVhd`| bool | false | When set to true, any newly created VHD will be set to sparse automatically. |
 |`useWindowsDnsCache`**| bool | false | Only applicable when `wsl2.dnsTunneling` is set to true. When this option is set to false, DNS requests tunneled from Linux will bypass cached names within Windows to always put the requests on the wire. |
 |`bestEffortDnsParsing`**| bool | false | Only applicable when `wsl2.dnsTunneling` is set to true. When set to true, Windows will extract the question from the DNS request and attempt to resolve it, ignoring the unknown records. |
+|`dnsTunnelingIpAddress`**| string | 10.255.255.254 | Only applicable when `wsl2.dnsTunneling` is set to true. Specifies the nameserver that will be configured in the Linux resolv.conf file when DNS tunneling is enabled. |
 |`initialAutoProxyTimeout`*| string | 1000 | Only applicable when `wsl2.autoProxy` is set to true. Configures how long (in milliseconds) WSL will wait for retrieving HTTP proxy information when starting a WSL container. If proxy settings are resolved after this time, the WSL instance must be restarted to use the retrieved proxy settings. |
 |`ignoredPorts`**| string | null | Only applicable when `wsl2.networkingMode` is set to `mirrored`. Specifies which ports Linux applications can bind to, even if that port is used in Windows. This enables applications to listen on a port for traffic purely within Linux, so those applications are not blocked even when that port is used for other purposes on Windows. For example, WSL will allow binding to port 53 in Linux for Docker Desktop, as it is listening only to requests from within the Linux container. Should be formatted in a comma separated list, e.g: `3000,9000,9090` |
 |`hostAddressLoopback`**| bool | false | Only applicable when `wsl2.networkingMode` is set to `mirrored`. When set to `True`, will allow the Container to connect to the Host, or the Host to connect to the Container, by an IP address that's assigned to the Host. The `127.0.0.1` loopback address can always be used,this option allows for all additionally assigned local IP addresses to be used as well. Only IPv4 addresses assigned to the host are supported. |
