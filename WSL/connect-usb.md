@@ -1,7 +1,7 @@
 ---
 title: Connect USB devices
 description: Learn how to connect a USB device to your WSL 2 Linux distribution using usbipd-win.
-ms.date: 01/04/2024
+ms.date: 04/16/2024
 ms.topic: article
 ---
 
@@ -20,7 +20,7 @@ Setting up the USB/IP project on your Windows machine will enable common develop
 
 > [!NOTE]
 > To check your Windows version and build number, select **Windows logo key + R**, type **winver**, select **OK**. You can update to the latest Windows version by selecting **Start** > **Settings** > **Windows Update** > **[Check for updates](ms-settings:windowsupdate)**.
-> To check your Linux kernel version, open your Linux distribution and enter the command: `uname -a`. To manually update to the latest kernel, open PowerShell and enter the command: 'wsl --update`.
+> To check your Linux kernel version, open your Linux distribution and enter the command: `uname -a`. To manually update to the latest kernel, open PowerShell and enter the command: `wsl --update`.
 
 > [!IMPORTANT]
 > WSL now supports both Windows 10 and Windows 11 via the Microsoft Store, meaning that Windows 10 users now have access to the latest kernel versions without needing to compile from source. See [WSL in the Microsoft Store is now generally available on Windows 10 and 11](https://devblogs.microsoft.com/commandline/the-windows-subsystem-for-linux-in-the-microsoft-store-is-now-generally-available-on-windows-10-and-11/) for info on how to update to the Store-supported version of WSL. If you are unable to update to the Store-supported version of WSL and automatically receive kernel updates, see the [USBIPD-WIN project repo](https://github.com/dorssel/usbipd-win/wiki/WSL-support) for instructions on connecting USB devices to a Linux distribution running on WSL 2 by building your own USBIP enabled WSL 2 kernel.
@@ -28,6 +28,12 @@ Setting up the USB/IP project on your Windows machine will enable common develop
 ## Install the USBIPD-WIN project
 
 Support for connecting USB devices is not natively available in WSL, so you will need to install the open-source usbipd-win project.
+
+**Kernel requirements**
+
+To use USBIPD with Windows Subsystem for Linux (WSL), you need to have a [Linux kernel version of 5.10.60.1 or higher](https://github.com/dorssel/usbipd-win/wiki/WSL-support/6befeedd4c8e2a49468e4b03532c9a20478f8677). If the installed kernel version is older than 5.10.60.1, then it can be updated by first shutting down any running instances of WSL with `wsl --shutdown`, then running the command: `wsl --update`.
+
+**Install USBIPD on WSL**
 
 1. Go to the [latest release page for the usbipd-win project](https://github.com/dorssel/usbipd-win/releases).
 2. Select the .msi file, which will download the installer. (You may get a warning asking you to confirm that you trust this download).
