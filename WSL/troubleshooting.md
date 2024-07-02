@@ -267,7 +267,7 @@ When enabled, the following apply to proxy settings on your Linux distributions:
 - The Linux environment variable, `NO_PROXY`, is set to bypass any HTTP/S proxies found in the Windows configuration targets.
 - Every environment variable, except `WSL_PAC_URL`, is set to both lower case and upper case. For example: `HTTP_PROXY` and `http_proxy`.
 
-There is a known issue caused by ZScaler configurations, where ZScaler repeatedly enables and disables Windows proxy configurations, leading to WSL repeatedly showing the "An Http proxy change has been detected on the host" notification.
+There is a [known issue caused by ZScaler configurations](https://github.com/microsoft/WSL/issues/11523), where ZScaler repeatedly enables and disables Windows proxy configurations, leading to WSL repeatedly showing the "An Http proxy change has been detected on the host" notification.
 
 Learn more in the Command Line blog: [WSL September 2023 update](https://devblogs.microsoft.com/commandline/windows-subsystem-for-linux-september-2023-update/#autoproxy).
 
