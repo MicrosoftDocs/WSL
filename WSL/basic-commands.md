@@ -171,7 +171,7 @@ To terminate the specified distribution, or stop it from running, replace `<Dist
 - `wsl hostname -I`: Returns the IP address of your Linux distribution installed via WSL 2 (the WSL 2 VM address)
 - `ip route show | grep -i default | awk '{ print $3}'`: Returns teh IP address of the Windows machine as seen from WSL 2 (the WSL 2 VM)
 
-For a more detailed explanation, see [Accessing network applications with WSL: Identify IP Address](./networking.md##identify-ip-address).
+For a more detailed explanation, see [Accessing network applications with WSL: Identify IP Address](./networking.md#identify-ip-address).
 
 ## Export a distribution
 
