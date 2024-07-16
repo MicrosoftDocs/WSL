@@ -2,8 +2,7 @@
 metadata:
   title: FAQ's about Windows Subsystem for Linux
   description: "Find answers to frequently asked questions (FAQs) about the Windows Subsystem for Linux, such as 'What can I do with WSL?'."
-  keywords: BashOnWindows, bash, wsl, windows, windowssubsystem, faq
-  ms.date: 11/20/2023
+  ms.date: 07/16/2024
   ms.topic: faq
   ms.localizationpriority: high
 title: Frequently Asked Questions about Windows Subsystem for Linux
@@ -209,10 +208,12 @@ sections:
          wsl --unregister <Distroname>
 
          # Import your VHD backup
+         
          wsl --import-in-place <Distroname> <Install Location with filename>
 
          # Set your default user account
-         You can set up your default user account by [setting a wsl.conf value of user.default=<name>](https://learn.microsoft.com/windows/wsl/wsl-config#user-settings)
+         
+         You can set up your default user account by [setting a wsl.conf value of user.default=<name>](/windows/wsl/wsl-config#user-settings)
 
 
   - name: WSL 2
