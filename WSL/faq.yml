@@ -211,6 +211,9 @@ sections:
          # Import your VHD backup
          wsl --import-in-place <Distroname> <Install Location with filename>
 
+         # Set your default user account
+         You can set up your default user account by [setting a wsl.conf value of user.default=<name>](https://learn.microsoft.com/windows/wsl/wsl-config#user-settings)
+
 
   - name: WSL 2
     questions:
