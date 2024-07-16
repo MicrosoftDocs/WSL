@@ -221,9 +221,9 @@ This file can contain the following options that affect the VM that powers any W
 | debugConsole* | boolean | `false` | Boolean to turn on an output console Window that shows the contents of `dmesg` upon start of a WSL 2 distro instance. Only available for Windows 11.|
 | nestedVirtualization* | boolean | `true` | Boolean to turn on or off nested virtualization, enabling other nested VMs to run inside WSL 2. Only available for Windows 11.|
 | vmIdleTimeout* | number | `60000` | The number of milliseconds that a VM is idle, before it is shut down. Only available for Windows 11.|
-| dnsProxy | bool | true | Only applicable to networkingMode = NAT. Boolean to inform WSL to configure the DNS Server in Linux to the NAT on the host. Setting to false will mirror DNS servers from Windows to Linux. |
+| dnsProxy | boolean | true | Only applicable to networkingMode = NAT. Boolean to inform WSL to configure the DNS Server in Linux to the NAT on the host. Setting to false will mirror DNS servers from Windows to Linux. |
 | networkingMode** | string | NAT | If the value is `mirrored` then this turns on mirrored networking mode. Default or unrecognized strings result in NAT networking. |
-| firewall** | bool | true | Setting this to true allows the Windows Firewall rules, as well as rules specific to Hyper-V traffic, to filter WSL network traffic. |
+| firewall** | boolean | true | Setting this to true allows the Windows Firewall rules, as well as rules specific to Hyper-V traffic, to filter WSL network traffic. |
 | dnsTunneling** | boolean | true | Changes how DNS requests are proxied from WSL to Windows |
 | autoProxy* | boolean | true | Enforces WSL to use Windows’ HTTP proxy information |
 | defaultVhdSize | size | `1TB` | Set the Virtual Hard Disk (VHD) size that stores the Linux distribution (for example, Ubuntu) file system. Can be used to limit the maximum size that a distribution file system is allowed to take up. |
