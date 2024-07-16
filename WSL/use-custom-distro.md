@@ -34,29 +34,25 @@ In this example, we'll use Docker inside of a WSL distribution to obtain the tar
 
 1. Open the command line (Bash) for a Linux distribution that you've already installed from the Microsoft Store (Ubuntu in this example).
 
-2. Start the Docker service:
-
-    ```bash
-    sudo service docker start
-    ```
+2. Ensure you have Docker Desktop running (Or if you have Docker installed in the WSL distro start the service with `sudo service docker start` )
 
 3. Run the CentOS container inside Docker:
 
     ```bash
-    docker run -t centos ls /
+    docker run -t --name wsl_export centos ls /
     ```
 
-4. Grab the CentOS container ID using grep and awk:
+4. Export the container ID to a tar file on your mounted c-drive:
 
     ```bash
-    dockerContainerID=$(docker container ls -a | grep -i centos | awk '{print $1}')
+    docker export wsl_export > /mnt/c/temp/centos.tar
     ```
 
-5. Export the container ID to a tar file on your mounted c-drive:
+5. Clean up the container
 
-    ```bash
-    docker export $dockerContainerID > /mnt/c/temp/centos.tar
-    ```
+   ```bash
+   docker rm wsl_export
+   ```
 
 ![Example of running the commands above](./media/run-any-distro-tarfile.png)
 
