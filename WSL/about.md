@@ -9,7 +9,7 @@ ms.topic: article
 
 Windows Subsystem for Linux (WSL) is a feature of Windows that allows you to run a Linux environment on your Windows machine, without the need for a separate virtual machine or dual booting.  WSL is designed to provide a seamless and productive experience for developers who want to use both Windows and Linux at the same time.
 
-- Use WSL to install and run various Linux distributions, such as Ubuntu, Debian, Kali, and more. [Install Linux distributions](./install.md) and receive automatic updates from the [Microsoft Store](./compare-versions.md#wsl-in-the-microsoft-store), [import Linux distributions not available in the Microsoft Store](./use-custom-distro.md), or [build your own customer Linux distribution](./build-custom-distro.md).
+- Use WSL to install and run various Linux distributions, such as Ubuntu, Debian, Kali, and more. [Install Linux distributions](./install.md) and receive automatic updates from the [Microsoft Store](./compare-versions.md#wsl-in-the-microsoft-store), [import Linux distributions not available in the Microsoft Store](./use-custom-distro.md), or [build your own custom Linux distribution](./build-custom-distro.md).
 - Store files in an isolated Linux file system, specific to the installed distribution.
 - Run command-line tools, such as BASH.
 - Run common BASH command-line tools such as `grep`, `sed`, `awk`, or other ELF-64 binaries.
