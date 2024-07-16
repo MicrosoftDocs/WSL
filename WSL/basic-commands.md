@@ -156,7 +156,7 @@ For example:
 wsl --shutdown
 ```
 
-Immediately terminates all running distributions and the WSL 2 lightweight utility virtual machine. This command may be necessary in instances that require you to restart the WSL 2 virtual machine environment, such as [changing memory usage limits](/windows/wsl/disk-space) or making a change to your [.wslconfig file](./manage.md#).
+Immediately terminates all running distributions and the WSL 2 lightweight utility virtual machine. This command may be necessary in instances that require you to restart the WSL 2 virtual machine environment, such as [changing memory usage limits](/windows/wsl/disk-space) or making a change to your [.wslconfig file](./manage.md).
 
 ## Terminate
 
@@ -168,8 +168,10 @@ To terminate the specified distribution, or stop it from running, replace `<Dist
 
 ## Identify IP address
 
-- `wsl hostname -i` for the IP address of your Linux distribution installed via WSL 2 (the WSL 2 VM address)
-- `cat /etc/resolv.conf` for the IP address of the Windows machine as seen from WSL 2 (the WSL 2 VM)
+- `wsl hostname -I`: Returns the IP address of your Linux distribution installed via WSL 2 (the WSL 2 VM address)
+- `ip route show | grep -i default | awk '{ print $3}'`: Returns teh IP address of the Windows machine as seen from WSL 2 (the WSL 2 VM)
+
+For a more detailed explanation, see [Accessing network applications with WSL: Identify IP Address](./networking.md#identify-ip-address).
 
 ## Export a distribution
 
