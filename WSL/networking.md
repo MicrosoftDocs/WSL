@@ -2,13 +2,55 @@
 title: Accessing network applications with WSL
 description: Learn about the considerations for accessing network applications when using Windows Subsystem for Linux (WSL).
 keywords: wsl, Linux, Windows, networking, ip address, ip addr, host IP, server, network, localhost, local area network, lan, ipv6, remote
-ms.date: 11/15/2023
+ms.date: 07/16/2024
 ms.topic: article
 ---
 
 # Accessing network applications with WSL
 
 There are a few considerations to be aware of when working with networking apps and WSL. By default WSL uses a [NAT based architecture](#default-networking-mode-nat), and we recommend trying the new [Mirrored networking mode](#mirrored-mode-networking) to get the latest features and improvements.
+
+### Identify IP address
+
+There are two scenarios to consider when identifying the IP address used for a Linux distribution running via WSL:
+
+**Scenario One:** From the perspective of the Windows host, you want to query a Linux distribution's IP address running via WSL2, so that a program on Windows host can connect to a server program running inside the distribution (instance). 
+
+The Windows host can use command:
+
+```
+wsl -d <DistributionName> hostname -I
+```
+
+If querying the default distribution, this part of the command designating the distribution can be omitted: `-d <DistributionName>`. Be sure to use a capital `-I` flag and not a lower-case `-i`.
+
+Under the hood, host command `wsl.exe` launches the target instance and executes Linux command `hostname -I`. This command then prints the IP address of the WSL instance to `STDOUT`. The `STDOUT` text content is then relayed back to wsl.exe. Finally, wsl.exe displays that output to the command line. 
+
+A typical output might be:
+
+```powershell
+172.30.98.229
+```
+
+**Scenario Two:** A program running inside a Linux distribution via WSL2 (instance) wants to know the Windows host's IP address, so that a Linux program can connect to a Windows host server program. 
+
+The WSL2 Linux user can use command:
+
+```bash
+ip route show | grep -i default | awk '{ print $3}'
+```
+
+A typical output might be:
+
+```
+172.30.96.1
+```
+
+So the `172.30.96.1` is the host IP address for Windows, in this example.
+
+> [!NOTE]
+> These above IP address querying action is typically required when WSL2 is running with the default [NAT network mode](#default-networking-mode-nat). 
+> When the WSL2 is running with the new [mirrored mode](#mirrored-mode-networking), the Windows host and WSL2 VM can connect to each other using `localhost` (127.0.0.1) as the destination address, so the trick of using a query peer's IP address is not required.
 
 ## Default networking mode: NAT
 
