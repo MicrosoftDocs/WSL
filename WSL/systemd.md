@@ -1,7 +1,7 @@
 ---
 title: Use systemd to manage Linux services with WSL
 description: Learn how to use systemd to manage Linux services with Windows Subsystem for Linux.
-ms.date: 06/16/2023
+ms.date: 07/17/2024
 ms.topic: article
 ---
 
@@ -60,7 +60,7 @@ Microsoft partnered with Canonical to bring systemd support to WSL. See Craig Lo
 
 A few examples of Linux applications that depend on systemd are:
 
-- [snap](https://snapcraft.io/): a software packaging and deployment system developed by Canonical for operating systems that use the Linux kernel and the systemd init system. The packages are called "snaps", the command line tool for building snaps is called "Snapcraft", the central repository where snaps can be downloaded/installed is called the "Snap Store", and the daemon required to run snaps (download from the store, mount into place, confine, and run apps out of them) is called "snapd". The entire system is sometimes referred to as "snappy." Try running the command: `snap install spotify` or `snap install postman`.
+- [snap](https://snapcraft.io/): a software packaging and deployment system developed by Canonical for operating systems that use the Linux kernel and the systemd init system. The packages are called "snaps", the command line tool for building snaps is called "Snapcraft", the central repository where snaps can be downloaded/installed is called the "Snap Store", and the daemon required to run snaps (download from the store, mount into place, confine, and run apps out of them) is called "snapd". The entire system is sometimes referred to as "snappy." Try running the command: `snap install spotify`.
 
 - [microk8s](https://microk8s.io/): an open-source, low-ops, minimal production Kubernetes that automates deployment, scaling, and management of containerized apps. Follow the instructions to [Install MicroK8s on WSL2](https://microk8s.io/docs/install-wsl2), check out the [Get Started Tutorial](https://microk8s.io/docs/getting-started), or watch the video on [Kubernetes on Windows with MicroK8s and WSL 2](https://ubuntu.com/blog/kubernetes-on-windows-with-microk8s-and-wsl-2).
 
