@@ -294,3 +294,9 @@ sections:
           
             - Our [command-line team blog](https://devblogs.microsoft.com/commandline/)
             - Twitter. Please follow [@craigaloewen](https://twitter.com/craigaloewen) on Twitter to learn of news, updates, etc.
+      
+      - question: |
+          How to resolve `Error: 0x800704ec This program is blocked by group policy. For more information, contact your system administrator.`?
+        answer: |
+          This error is likely caused by a group policy that is blocking the inbox version of WSL. To resolve this please try running `wsl --update` to update to the latest Store version. If that doesn't resolve the issue please contact your administrator. You can learn more about the difference between the inbox WSL and Store version of WSL [here](https://learn.microsoft.com/windows/wsl/compare-versions#wsl-in-the-microsoft-store)
+
