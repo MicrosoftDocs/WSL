@@ -140,7 +140,8 @@ default via 172.28.240.1 dev eth0 proto kernel
 
 The "default" line, column 3, shows the default gateway IP, so it is the right server IP we need.
 
-> [!NOTE] The WinHost server program should listen on IP address `0.0.0.0` (instead of `127.0.0.1` or `localhost`) in order to accept connection from WSL, because in the eye of WinHost, WSL instance L1 and LAN client R1 are both considered remote clients.
+> [!NOTE]
+> The WinHost server program should listen on IP address `0.0.0.0` (instead of `127.0.0.1` or `localhost`) in order to accept connection from WSL, because in the eye of WinHost, WSL instance L1 and LAN client R1 are both considered remote clients.
 
 
 ### NAT mode: WSL as server, WinHost as client
@@ -153,7 +154,8 @@ But, WSL engine provides a facility feature for this scenario. If a WSL server p
 
 For example, L3 has a TCP server program listening on `0.0.0.0:4000` or even on `localhost:4000`, then, WinHost can connect to `localhost:4000` to reach the server. This "proxy listening port" feature makes it as if the WSL server program is listening on WinHost itself.
 
-> [!NOTE] The "proxy listening port" feature works only for TCP, not for UDP. (Microsoft staff please confirm this.)
+> [!NOTE]
+> The "proxy listening port" feature works only for TCP, not for UDP. (Microsoft staff please confirm this.)
 
 
 ### NAT mode: WSL as server, physical LAN machines as client
