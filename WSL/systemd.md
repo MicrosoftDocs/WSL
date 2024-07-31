@@ -44,6 +44,12 @@ Once your Linux distribution restarts, systemd will be running. You can confirm 
 
 Learn more about [Advanced settings configuration in WSL](wsl-config.md), including the difference between the `wsl.conf` (distribution-specific) and `.wslconfig` (global) config files, how to update automount settings, etc.
 
+> Notice: If your Linux distribution is Debian/Ubuntu/Kali Rolling, you should not only have installed the systemd package, but also make sure the systemd-sysv package is installed.
+
+```bash
+sudo apt-get update -y && sudo apt-get install systemd systemd-sysv -y
+```
+
 ## Systemd demo video
 
 Microsoft partnered with Canonical to bring systemd support to WSL. See Craig Loewen (PM for WSL at Microsoft) and Oliver Smith (PM for Ubuntu on WSL at Canonical) announce systemd support and show some demos of what it enables.
