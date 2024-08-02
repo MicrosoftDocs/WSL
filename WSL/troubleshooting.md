@@ -294,7 +294,6 @@ When using Mirrored networking mode (the experimental `networkingMode` set to `m
 
 - UDP port 68 (DHCP)
 - TCP port 135 (DCE endpoint resolution)
-- UDP port 5353 (mDNS)
 - TCP port 1900 (UPnP)
 - TCP port 2869 (SSDP)
 - TCP port 5004 (RTP)
@@ -327,6 +326,49 @@ It is recommended to stop the Network Manager service for WSL networking to be c
 
 ```Bash
 sudo systemctl disable network-manager.service
+```
+
+### Resolving .local names in WSL
+
+**When networkingMode is set to NAT:**
+
+At the moment this is not supported when DNS tunneling is enabled. DNS tunneling needs to be disabled in order to be able to resolve .local names
+
+**When networkingMode is set to Mirrored:**
+
+Because mirrored mode supports multicast traffic, the mDNS protocol can be used to resolve .local names.
+Linux needs to be configured to support mDNS, as it does not support it by default. One way to configure it is using the following 2 steps:
+
+1) Install the "libnss-mdns" package
+
+```Bash
+sudo apt-get install libnss-mdns
+```
+
+2) Configure the /etc/nsswitch.conf file to enable the "mdns_minimal" setting in the "hosts" section. Example content of the file:
+
+```Bash
+cat /etc/nsswitch.conf
+# /etc/nsswitch.conf
+#
+# Example configuration of GNU Name Service Switch functionality.
+# If you have the `glibc-doc-reference' and `info' packages installed, try:
+# `info libc "Name Service Switch"' for information about this file.
+
+passwd:         compat systemd
+group:          compat systemd
+shadow:         compat
+gshadow:        files
+
+hosts:          files mdns_minimal dns
+networks:       files
+
+protocols:      db files
+services:       db files
+ethers:         db files
+rpc:            db files
+
+netgroup:       nis
 ```
 
 ### DNS suffixes in WSL
