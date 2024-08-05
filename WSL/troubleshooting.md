@@ -360,7 +360,7 @@ group:          compat systemd
 shadow:         compat
 gshadow:        files
 
-hosts:          files mdns_minimal dns
+hosts:          files mdns_minimal [NOTFOUND=return] dns
 networks:       files
 
 protocols:      db files
