@@ -332,7 +332,9 @@ sudo systemctl disable network-manager.service
 
 **When networkingMode is set to NAT:**
 
-At the moment this is not supported when DNS tunneling is enabled. DNS tunneling needs to be disabled in order to be able to resolve .local names
+At the moment this is not supported when DNS tunneling is enabled. To enable resolution of .local names we recommend one of the following solutions:
+1) Disabling DNS tunneling
+2) Using mirrored networking mode. Please find more details in the section below
 
 **When networkingMode is set to Mirrored:**
 
