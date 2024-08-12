@@ -1,7 +1,7 @@
 ---
 title: Troubleshooting Windows Subsystem for Linux
 description: Provides detailed information about common errors and issues people run into while running Linux on the Windows Subsystem for Linux. 
-ms.date: 02/22/2024
+ms.date: 08/08/2024
 ms.topic: article
 ---
 
@@ -296,7 +296,6 @@ When using Mirrored networking mode (the experimental `networkingMode` set to `m
 
 - UDP port 68 (DHCP)
 - TCP port 135 (DCE endpoint resolution)
-- UDP port 5353 (mDNS)
 - TCP port 1900 (UPnP)
 - TCP port 2869 (SSDP)
 - TCP port 5004 (RTP)
@@ -329,6 +328,57 @@ It is recommended to stop the Network Manager service for WSL networking to be c
 
 ```Bash
 sudo systemctl disable network-manager.service
+```
+
+### Resolve .local names in WSL
+
+To resolve hostnames to IP addresses within a local network without the need for a conventional DNS server, .local names are often used. This is achieved through the mDNS (Multicast DNS) protocol, which relies on multicast traffic to function.
+
+**networkingMode set to NAT:**
+
+Currently, this feature is not supported when DNS tunneling is enabled. To enable the resolution of .local names, we recommend the following solutions:
+
+- Disable DNS tunneling.
+- Use mirrored networking mode.
+
+**networkingMode set to Mirrored:**
+
+Note: You need to be on WSL build 2.3.17 or higher in order to have the functionality below.
+
+Since Mirrored mode supports multicast traffic, the mDNS (Multicast DNS) protocol can be used to resolve .local names. Linux must be configured to support mDNS, as it does not do so by default. One way to configure it is using the following these two steps:
+
+1) Install the "libnss-mdns" package 
+
+```Bash
+sudo apt-get install libnss-mdns
+```
+
+*The "libnss-mdns" package is a plugin for the GNU Name Service Switch (NSS) functionality of the GNU C Library (glibc) that provides hostname resolution via Multicast DNS (mDNS). This package effectively allows common Unix/Linux programs to resolve names in the ad-hoc mDNS domain .local.
+
+2) Configure the `/etc/nsswitch.conf` file to enable the "mdns_minimal" setting in the "hosts" section. Example content of the file:
+
+```Bash
+cat /etc/nsswitch.conf
+# /etc/nsswitch.conf
+#
+# Example configuration of GNU Name Service Switch functionality.
+# If you have the `glibc-doc-reference' and `info' packages installed, try:
+# `info libc "Name Service Switch"' for information about this file.
+
+passwd:         compat systemd
+group:          compat systemd
+shadow:         compat
+gshadow:        files
+
+hosts:          files mdns_minimal [NOTFOUND=return] dns
+networks:       files
+
+protocols:      db files
+services:       db files
+ethers:         db files
+rpc:            db files
+
+netgroup:       nis
 ```
 
 ### DNS suffixes in WSL
