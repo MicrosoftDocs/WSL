@@ -341,6 +341,8 @@ Currently, this feature is not supported when DNS tunneling is enabled. To enabl
 
 **networkingMode set to Mirrored:**
 
+Note: You need to be on WSL build 2.3.17 or higher in order to have the functionality below.
+
 Since Mirrored mode supports multicast traffic, the mDNS (Multicast DNS) protocol can be used to resolve .local names. Linux must be configured to support mDNS, as it does not do so by default. One way to configure it is using the following these two steps:
 
 1) Install the "libnss-mdns" package 
