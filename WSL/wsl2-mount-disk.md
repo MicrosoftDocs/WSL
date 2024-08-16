@@ -122,7 +122,7 @@ wsl --mount <DiskPath> --partition <PartitionNumber> --type <Filesystem>
 
 Once mounted, the disk can be accessed under the path pointed to by the config value: `automount.root`. The default value is `/mnt/wsl`.
 
-From Windows, the disk can be accessed from File Explorer by navigating to: `\\wsl$\\<Distro>\\<Mountpoint>` (pick any Linux distribution).
+From Windows, the disk can be accessed from File Explorer by navigating to: `\\wsl$\<Distro>\<Mountpoint>` (pick any Linux distribution).
 
 ## Unmount the disk
 
