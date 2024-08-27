@@ -1,7 +1,7 @@
 ---
 title: Set up Windows Subsystem for Linux for your company
 description: Resources and instructions on how to best use the Windows Subsystem for Linux in an Enterprise environment.
-ms.date: 11/15/2023
+ms.date: 08/16/2024
 ms.topic: article
 ---
 
@@ -60,7 +60,7 @@ What is commonly referred to as an "image", is simply a snapshot of your softwar
 
 To begin creating your WSL image, first [install the Windows Subsystem for Linux](./install.md).
 
-Once installed, use The Microsoft Store for Business to download and install the Linux distribution that’s right for you. Create an account with the [Microsoft Store for Business](https://businessstore.microsoft.com/).
+Once installed, use the [Microsoft Store](https://apps.microsoft.com/search?query=wsl&hl) to download and install the Linux distribution that’s right for you.
 
 ### Exporting your WSL image
 
