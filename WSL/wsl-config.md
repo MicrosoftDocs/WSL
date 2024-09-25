@@ -1,7 +1,7 @@
 ---
 title: Advanced settings configuration in WSL
 description: A guide to the wsl.conf and .wslconfig files used for configuring settings when running multiple Linux distributions on Windows Subsystem for Linux.
-ms.date: 07/16/2024
+ms.date: 09/25/2024
 ms.topic: article
 ms.custom: seo-windows-dev
 adobe-target: true
@@ -246,7 +246,6 @@ These settings are opt-in previews of experimental features that we aim to make 
 |:----|:----|:----|:----|
 |`autoMemoryReclaim`| string | `disabled` | Automatically releases cached memory after detecting idle CPU usage. Set to `gradual` for slow release, and `dropcache` for instant release of cached memory. |
 |`sparseVhd`| bool | `false` | When set to true, any newly created VHD will be set to sparse automatically. |
-|`useWindowsDnsCache`**| bool | `false` | Only applicable when `wsl2.dnsTunneling` is set to true. When this option is set to false, DNS requests tunneled from Linux will bypass cached names within Windows to always put the requests on the wire. |
 |`bestEffortDnsParsing`**| bool | `false` | Only applicable when `wsl2.dnsTunneling` is set to true. When set to true, Windows will extract the question from the DNS request and attempt to resolve it, ignoring the unknown records. |
 |`dnsTunnelingIpAddress`**| string | `10.255.255.254` | Only applicable when `wsl2.dnsTunneling` is set to true. Specifies the nameserver that will be configured in the Linux resolv.conf file when DNS tunneling is enabled. |
 |`initialAutoProxyTimeout`*| string | `1000` | Only applicable when `wsl2.autoProxy` is set to true. Configures how long (in milliseconds) WSL will wait for retrieving HTTP proxy information when starting a WSL container. If proxy settings are resolved after this time, the WSL instance must be restarted to use the retrieved proxy settings. |
