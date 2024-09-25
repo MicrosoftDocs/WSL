@@ -1,7 +1,7 @@
 ---
 title: Advanced settings configuration in WSL
 description: A guide to the wsl.conf and .wslconfig files used for configuring settings when running multiple Linux distributions on Windows Subsystem for Linux.
-ms.date: 07/16/2024
+ms.date: 09/25/2024
 ms.topic: article
 ms.custom: seo-windows-dev
 adobe-target: true
