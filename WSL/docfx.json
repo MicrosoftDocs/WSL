@@ -51,7 +51,6 @@
       "ms.author": "mattwoj",
       "ms.reviewer": "crloewen",
       "searchScope": ["WSL"],
-      "feedback_product_url": "https://github.com/Microsoft/WSL/issues",
       "adobe-target": true
     },
     "fileMetadata": {},
