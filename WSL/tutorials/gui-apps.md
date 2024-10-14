@@ -87,7 +87,7 @@ sudo apt update
 Gnome Text Editor is the default text editor of the GNOME desktop environment.
 
 ```bash
-sudo apt install gnome-text-editor -y
+sudo snap install gnome-text-editor
 ```
 
 To launch your bashrc file in the editor, enter: `gnome-text-editor ~/.bashrc`
