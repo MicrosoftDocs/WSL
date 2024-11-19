@@ -63,7 +63,7 @@ WSL distribution file configuration options:
 | `oobe.defaultUid` | integer | `<none>` | The default UID that the distribution starts with. This is useful when the `oobe.command` script creates a new user. |
 | `oobe.defaultName`| string | `<none>` | The default name that the distribution is registered under. This default name can be replaced with the command: `wsl.exe --install <distro> --name <name>` |
 | `shortcut.icon` | string | The default WSL icon | The icon in the start menu shortcut for the distribution. Must be in `.ico` format with a maximum size of `10MB` |
-| ‘windowsterminal.profileTemplate` | string | Path to a terminal template file | The JSON template to generate a Windows Terminal profile for this distribution. | 
+| `windowsterminal.profileTemplate` | string | Path to a terminal template file | The JSON template to generate a Windows Terminal profile for this distribution. | 
 
 You need to create an out of box experience (OOBE) first run experience for the distribution. Below is a sample bash script that you can use. This script assumes that `oobe.defaultUid` is set to `1000`: 
 
