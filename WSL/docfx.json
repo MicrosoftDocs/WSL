@@ -53,6 +53,9 @@
       "searchScope": ["WSL"],
       "adobe-target": true
     },
+    "contributors_to_exclude": [
+      "VSC-Service-Account"
+    ],
     "fileMetadata": {},
     "template": [],
     "dest": "wsl",
