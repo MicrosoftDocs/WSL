@@ -1,7 +1,7 @@
 ---
 title: Build a Custom Linux Distro for WSL - Windows
 description: Learn how to create a custom Linux distribution for Windows Subsystem for Linux.
-ms.date: 11/18/2024
+ms.date: 11/19/2024
 ms.topic: article
 ---
 
@@ -14,8 +14,7 @@ WSL distributions have two parts:
 1) A root filesystem (distributed as a tar file)
 2) A manifest entry (which contains the distribution metadata)
 
-> [!NOTE]
-> This guide only applies to [WSL release 2.4.4]( https://github.com/microsoft/WSL/releases) and higher.
+This guide only applies to [WSL release 2.4.4]( https://github.com/microsoft/WSL/releases) and higher.
 
 > [!NOTE]
 > See [this repository](https://github.com/microsoft/WSL-DistroLauncher) for the previous appx based distribution packaging instructions. 
@@ -69,7 +68,7 @@ WSL distribution file configuration options:
 You need to create an out of box experience (OOBE) first run experience for the distribution. Below is a sample bash script that you can use. This script assumes that `oobe.defaultUid` is set to `1000`: 
 
 ```bash
-#! /bin/bash
+#!/bin/bash
 
 set -ue
 
@@ -95,7 +94,7 @@ while true; do
     if /usr/sbin/usermod "$username" -aG "$DEFAULT_GROUPS"; then
       break
     else
-      /usr/bin/deluser "$username"
+      /usr/sbin/deluser "$username"
     fi
   fi
 done
@@ -156,15 +155,15 @@ systemd=true|false
 
 The distribution author determines whether systemd is enabled by default by setting the `boot.systemd` value to `true` (enabled) or `false` (not enabled). 
 
-See the [best practices section](#systemd) if you chose to enable systemd by default.
+See the [Systemd recommendations](#systemd-recommendations) if you chose to enable systemd by default.
 
 See [Advanced settings configuration in WSL](./wsl-config#wslconf) for all supported settings in `/etc/wsl.conf`.
 
 ### Create the tar file
 
-Once the distribution and configuration files are in place, the root filesystem can be captured in tar. 
+Once the distribution and configuration files are in place, the root filesystem can be captured in the tar file. 
 
-Below is the recommended way of creating the tar:
+The recommended way of creating the tar file:
 
 ```
 $ cd /path/to/rootfs
@@ -175,27 +174,27 @@ The root of the tar should be the root of the filesystem (not a directory contai
 
 The recommended compression format is gzip. Other compression formats run the risk of breaking compatibility with older WSL versions.
 
-See the [best practices section](#configuration-files) for files that should, or shouldn't be included
+See the [Configuration file recommendations](#configuration-file-recommendations) for a list of files that should and shouldn't be included in the configuration.
 
-To obtain a TAR file of an existing Linux distribution, find guidance on how to export a docker container in [Import any Linux distribution to use with WSL](./use-custom-distro.md).
+To obtain a tar file of an existing Linux distribution, find guidance on how to export a docker container in [Import any Linux distribution to use with WSL](./use-custom-distro.md).
 
 Once the tar file archive is ready, see [Overriding the distribution manifest](#adding-your-distro-to-wsl---install-for-your-enterprise-or-group) to try it out locally.
 
 ## Create a .wsl file extension
 
-The final step, once you have create a TAR file to represent your custom Linux distribution, is to change the `.tar` file file extension to a `.wsl` file extension by renaming it. Renaming this file extension will mark it as a WSL distribution. Once the TAR has be renamed from `.tar` to `.wsl`, the file will install correctly on Windows when opened (double-clicked) in File Explorer. A `oobe.defaultName` entry is required in the `/etc/wsl-distribution.conf` file for this double-click experience to function properly
+The final step, once you have create a tar file to represent your custom Linux distribution, is to change the `.tar` file extension to a `.wsl` file extension by renaming it. Renaming this file extension will mark it as a WSL distribution. Once the tar has be renamed from `.tar` to `.wsl`, the file will install correctly on Windows when opened (double-clicked) in File Explorer. A `oobe.defaultName` entry is required in the `/etc/wsl-distribution.conf` file for this double-click experience to function properly.
 
 ## Distribute your WSL distribution
 
-WSL users can view available distributions by running `wsl --list --online` and can install them directly with `wsl --install <distroName>` (replacing <distroName> with the actual name of the Linux distribution. This process is controlled by a distribution manifest file. You can add this manifest file to your customer Linux distribution for it to be included in the `wsl --install` command options.
+WSL users can view available distributions by running `wsl --list --online` and can install them directly with `wsl --install <distroName>` (replacing `<distroName>` with the actual name of the Linux distribution. This process is controlled by a distribution manifest file. You can add this manifest file to your customer Linux distribution for it to be included in the `wsl --install` command options.
 
-The custom Linux distribution TAR that you’ve created and renamed with a `.wsl` file extension can be distributed however you please. Once downloaded a user can install it directly from the command line with `wsl --install --from-file <fileLocation>` (replacing <fileLocation> with the actual location of the file). Alternatively, the `.wsl` file for your custom WSL distribution can be opened by double-clicking it.
+The custom Linux distribution tar that you’ve created and renamed with a `.wsl` file extension can be distributed however you please. Once downloaded a user can install it directly from the command line with `wsl --install --from-file <fileLocation>` (replacing `<fileLocation>` with the actual location of the file). Alternatively, the `.wsl` file for your custom WSL distribution can be opened by double-clicking it.
 
 ## Distribution manifest details
 
 The [distribution manifest](https://github.com/microsoft/WSL/blob/master/distributions/DistributionInfo.json) contains metadata about the distributions that are available for installation via `wsl --install <distribution>`.
 
-TAR based distributions are listed under `ModernDistribution`, with the below format: 
+Linux distributions that are tar-based are listed under `ModernDistribution`, with the below format: 
 
 ```
 "ModernDistributions": {
@@ -251,15 +250,15 @@ $ wsl --install my-distro-v3 # Installs 'my-distro-v3' explicitly
 $ wsl --install my-distro-v2 # Installs 'my-distro-v2' explicitly
 ```
 
-## Adding your distro to `wsl --install` for all WSL users
+## Adding your distribution to `wsl --install` for all WSL users
 
-To make your WSL distro available to all users, please open a pull request on the [WSL GitHub repository](github.com/microsoft/wsl) that modifies the [DistributionInfo.json](https://github.com/microsoft/WSL/blob/master/distributions/DistributionInfo.json) file to include your distro information. 
+To make your WSL distribution available to all users, open a pull request on the [WSL GitHub repository](github.com/microsoft/wsl) that modifies the [DistributionInfo.json](https://github.com/microsoft/WSL/blob/master/distributions/DistributionInfo.json) file to include your distribution information. 
 
 This pull request will be reviewed by the WSL team.
 
-## Adding your distro to `wsl --install` for your enterprise or group
+## Adding your distribution to `wsl --install` for your enterprise or business group
 
-You can also make your distro available in `wsl --install` only to a select group by editing registry keys on chosen machines. 
+You can also make your distribution available in `wsl --install` only to a select group by editing registry keys on the chosen Windows devices.
 
 The WSL distribution manifest can be overridden by creating registry values in `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Lxss`. 
 
@@ -267,7 +266,8 @@ The WSL distribution manifest can be overridden by creating registry values in `
 - `DistributionListUrlAppend`: Add distributions from that manifest URL to the list of installable distributions
 
 Both registry values are strings (REG_SZ) and are expected to be in URL format. 
-Starting with WSL 2.4.4, the `file://` protocol is supported to make local testing easier. The expected format is: `file:///C:/path/to/file`
+
+Starting with WSL release 2.4.4, the `file://` protocol is supported to make local testing easier. The expected format is: `file:///C:/path/to/file`.
 
 ### Testing a local distribution
 
@@ -311,13 +311,13 @@ $manifest | ConvertTo-Json -Depth 5 | Out-File -encoding ascii $manifestFile
 Set-ItemProperty -Path "HKLM:SOFTWARE\Microsoft\Windows\CurrentVersion\Lxss" -Name DistributionListUrl -Value "file://$manifestFile" -Type String -Force 
 ```
 
-Then configure the local manifest by running the following command in an elevated powershell:
+Then configure the local manifest by running the following command in an elevated Powershell:
 
 ```powershell
 .\override-manifest.ps1 -TarPath /path/to/tar
 ```
 
-Once completed, you should see the following output from `wsl.exe --list --online`
+Once completed, you should see the following output from `wsl.exe --list --online`:
 
 ```powershell
 $ wsl --list --online
@@ -332,22 +332,22 @@ You can then run `wsl.exe --install test-distro-v1` to try the installation of t
 
 When you're done, you can delete `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Lxss\DistributionListUrl` to revert to the official manifest.
 
-## Best practices
+## WSL custom Linux distribution recommendations
 
-### Configuration files
+### Configuration file recommendations
 
-- `/etc/wsl.conf` and `/etc/wsl-distribution.conf` should be included. They should be owned by `root:root` and their permissions should be `0644`
-- If `oobe.command` is used to create a new user, its uid should be `1000`, and should `oobe.defaultUid` should be set to that value.
-- `oobe.defaultName` and `shortcut.icon` should be specified in `/etc/wsl-distribution.conf`
-- `/etc/resolv.conf` should NOT be included in the root filesystem
-- There should be a root user in `/etc/passwd` and its uid should be `0`
-- There should be no password hashes in `/etc/shadow`
-- The archive should not contain a kernel or an initramfs
+- Ensure that your custom distribution includes both the `/etc/wsl.conf` and `/etc/wsl-distribution.conf` configuration files. Both files should be owned by `root:root` and their permissions should be `0644`.
+- If the `oobe.command` setting is used to create a new user, both `uid` and `oobe.defaultUid` should be set to `1000`.
+- Ensure that you set both `oobe.defaultName` and `shortcut.icon` in the distribution configuration file: `/etc/wsl-distribution.conf`
+- Do not include the file `/etc/resolv.conf` in the root filesystem.
+- Do include a root user in `/etc/passwd`. The `uid` for this root user should be `0`.
+- There should be no password hashes in `/etc/shadow`.
+- The archive should not contain a kernel or an initramfs.
 
-### Systemd 
+### Systemd recommendations
 
 If systemd is enabled, units that can cause issues with WSL should be disabled or masked. 
-The below units that are known to cause issues in WSL distributions (applies to both system and user units):
+The below units are known to cause issues in WSL distributions (applies to both system and user units):
 
 - systemd-resolved.service
 - systemd-networkd.service
