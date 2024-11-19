@@ -105,6 +105,8 @@ Try the most recent features or updates to WSL by joining the [Windows Insiders 
 - Beta channel: Ideal for early adopters, more reliable builds than the Dev channel.
 - Release Preview channel: Preview fixes and key features on the next version of Windows just before its available to the general public.
 
+If you prefer not switching your Windows installation to a preview channel, you can still test the latest preview of WSL by issuing the command: `wsl --update --pre-release`. For more information check the [WSL Releases page on GitHub](https://github.com/Microsoft/WSL/releases).
+
 ## Additional resources
 
 - [Windows Command Line Blog: Install WSL with a single command now available in Windows 10 version 2004 and higher](https://devblogs.microsoft.com/commandline/install-wsl-with-a-single-command-now-available-in-windows-10-version-2004-and-higher/)
