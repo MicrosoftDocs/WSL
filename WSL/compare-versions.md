@@ -1,7 +1,7 @@
 ---
 title: Comparing WSL Versions
 description: WSL 2 provides the benefits of WSL 1, but uses an actual Linux kernel, rather than a translation layer like WSL 1, resulting in faster performance.
-ms.date: 11/20/2023
+ms.date: 11/19/2024
 ms.topic: conceptual
 ms.custom: seo-windows-dev
 ---
@@ -99,4 +99,4 @@ WSL has lifted the update functionality out of the Windows OS Image into a packa
 WSL was originally included in the Windows operating system as an optional component that need to be enabled in order to install a Linux distribution. WSL in the Store has the same user experience, and is the same product, but receives updates and servicing as a store package, rather than as an entire OS update. Beginning in Windows version 19044 or higher, running the `wsl.exe --install` command will install the WSL servicing update from the Microsoft Store. ([See the blog post announcing this update](https://devblogs.microsoft.com/commandline/the-windows-subsystem-for-linux-in-the-microsoft-store-is-now-generally-available-on-windows-10-and-11/)). If you are already using WSL, you can update to ensure that you're receiving the latest WSL features and servicing from the store by running `wsl.exe --update`.
 
 > [!NOTE]
-> If the Microsoft Store is inaccessible within your organization, you can still utilize this WSL version by appending `--web-download` to the `--update` command, such as `wsl --update --web-download`. Nonetheless, you will have to manually update it every time a new release is available.
+> If the Microsoft Store is inaccessible within your organization, you can still utilize this WSL version by appending `--web-download` to the `--update` command, such as `wsl --update --web-download`. You need to manually update WSL every time a new release becomes available using this method.
