@@ -1,7 +1,7 @@
 ---
 title: How to manage WSL disk space
 description: Learn how to check the amount of disk space available, expand the size of the Virtual Hard Disk (VHD), repair a VHD mounting or read-only error, and locate the .vhdx file and disk path for Linux distributions installed with WSL 2.
-ms.date: 11/10/2023
+ms.date: 11/19/2024
 ms.topic: article
 ---
 
@@ -162,13 +162,13 @@ touch: cannot touch 'file': Read-only file system
 
 To repair a disk mount error in WSL, and restore it back to a usable / writeable state again, you can use the `wsl.exe --mount` command to re-mount the disk with the following steps:
 
-1. Shutdown all WSL distributions by opening PowerShell and entering the command:
+1. Shutdown all WSL distributions by opening PowerShell as administrator (in an elevated command prompt) and entering the command:
 
     ```powershell
     wsl.exe --shutdown
     ```
 
-2. Open PowerShell as administrator (in an elevated command prompt) and enter the mount command, replacing `<path-to-ext4.vhdx>` with the path to the distribution's .vhdx file. For help locating this file, see [How to locate the VHD file and disk path for your Linux distribution](#how-to-locate-the-vhdx-file-and-disk-path-for-your-linux-distribution).
+2.  Enter the mount command and replace `<path-to-ext4.vhdx>` with the path to the distribution's .vhdx file. For help locating this file, see [How to locate the VHD file and disk path for your Linux distribution](#how-to-locate-the-vhdx-file-and-disk-path-for-your-linux-distribution).
 
     ```powershell
     wsl.exe --mount <path-to-ext4.vhdx> --vhd --bare
@@ -181,7 +181,7 @@ To repair a disk mount error in WSL, and restore it back to a usable / writeable
     ```
 
 > [!NOTE]
-> If you only have a single Linux distribution installed, you may encounter an "ext file in use" error and will need to [install](./basic-commands.md#install) an additional distribution in order to run `wsl.exe lsblk`. You can [uninstall](./basic-commands.md#unregister-or-uninstall-a-linux-distribution) the distribution once the repair is complete.
+> If you only have a single Linux distribution installed, you may encounter an "ext file in use" error and will need to [install](./basic-commands.md#install) an additional distribution in order to run `wsl.exe lsblk`. You can [uninstall](./basic-commands.md#unregister-or-uninstall-a-linux-distribution) the distribution once the repair is complete. Additionally, you may need to close Docker Desktop on Windows to avoid the error `Wsl/Service/CreateInstance/MountVhd/HCS/ERROR_SHARING_VIOLATION` while running the command `wsl.exe sudo e2fsck -f /dev/sdc`.
 
 4. Once the repair is complete, unmount the disk in PowerShell by entering:
 
