@@ -2,7 +2,7 @@ name: GitGudSimilarIssues comments
 
 on:
   issues:
-    types: [opened]
+    types = []
 
 jobs:
   getsimilarissues:
