@@ -244,7 +244,7 @@ These settings are opt-in previews of experimental features that we aim to make 
 
 | Setting name | Value | Default | Notes |
 |:----|:----|:----|:----|
-|`autoMemoryReclaim`| string | `disabled` | Automatically releases cached memory after detecting idle CPU usage. Set to `gradual` for slow release, and `dropcache` for instant release of cached memory. |
+|`autoMemoryReclaim`| string | `dropCache` | Automatically releases cached memory after detecting idle CPU usage. Set to `gradual` for slow release, and `dropCache` for instant release of cached memory. |
 |`sparseVhd`| bool | `false` | When set to true, any newly created VHD will be set to sparse automatically. |
 |`bestEffortDnsParsing`**| bool | `false` | Only applicable when `wsl2.dnsTunneling` is set to true. When set to true, Windows will extract the question from the DNS request and attempt to resolve it, ignoring the unknown records. |
 |`dnsTunnelingIpAddress`**| string | `10.255.255.254` | Only applicable when `wsl2.dnsTunneling` is set to true. Specifies the nameserver that will be configured in the Linux resolv.conf file when DNS tunneling is enabled. |
