@@ -68,7 +68,7 @@ If you want to access a networking app running on Windows (for example an app ru
 ```bash
 ip route show | grep -i default | awk '{ print $3}'`
 ```
-3. Connect to any Windows server using the copied IP address.
+2. Connect to any Windows server using the copied IP address.
 
 The picture below shows an example of this by connecting to a Node.js server running in Windows via curl.
 
