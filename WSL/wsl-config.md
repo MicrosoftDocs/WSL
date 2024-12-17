@@ -79,7 +79,7 @@ Setting different mount options for Windows drives (DrvFs) can control how file 
 |:----|:----|:----|
 | `uid` | The User ID used for the owner of all files | The default User ID of your WSL distro (on first installation this defaults to 1000)
 | `gid` | The Group ID used for the owner of all files | The default group ID of your WSL distro (on first installation this defaults to 1000)
-| `umask` | An octal mask of permissions to exclude for all files and directories | `022`
+| `umask` | An octal mask of permissions to exclude for all files and directories | `000`
 | `fmask` | An octal mask of permissions to exclude for all files | `000`
 | `dmask` | An octal mask of permissions to exclude for all directories | `000`
 | `metadata` | Whether metadata is added to Windows files to support Linux system permissions | `disabled`
@@ -87,7 +87,7 @@ Setting different mount options for Windows drives (DrvFs) can control how file 
 
 By default, WSL sets the uid and gid to the value of the default user. For example, in Ubuntu, the default user is uid=1000, gid=1000. If this value is used to specify a different gid or uid option, the default user value will be overwritten. Otherwise, the default value will always be appended.
 
-User file-creation mode mask (umask) sets permission for newly created files. The default is 022, only you can write data but anyone can read data. Values can be changed to reflect different permission settings. For example, `umask=077` changes permission to be completely private, no other user can read or write data. To further specify permission, fmask (files) and dmask (directories) can also be used.
+User file-creation mode mask (umask) sets permission for newly created files. The default is `000`, meaning anyone can read, write, or execute files. Values can be changed to reflect different permission settings. For example, `umask=077` changes permission to be completely private, no other user can read or write data. To further specify permission, fmask (files) and dmask (directories) can also be used.
 
 > [!NOTE]
 > The permission masks are put through a logical OR operation before being applied to files or directories.
