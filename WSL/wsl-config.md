@@ -1,7 +1,7 @@
 ---
 title: Advanced settings configuration in WSL
 description: A guide to the wsl.conf and .wslconfig files used for configuring settings when running multiple Linux distributions on Windows Subsystem for Linux.
-ms.date: 07/16/2024
+ms.date: 12/16/2024
 ms.topic: article
 ms.custom: seo-windows-dev
 adobe-target: true
@@ -9,16 +9,15 @@ adobe-target: true
 
 # Advanced settings configuration in WSL
 
-The [`wsl.conf`](#wslconf) and [`.wslconfig`](#wslconfig) files are used to configure advanced settings in WSL that will be applied [every time WSL is (re)launched](#the-8-second-rule-for-configuration-changes). They differ in scope, what they configure, whether they are available for the WSL version you are running and where they are stored.
+The [`wsl.conf`](#wslconf) and [`.wslconfig`](#wslconfig) files are used to configure advanced settings in WSL that will be applied [on start up of the WSL VM](#the-8-second-rule-for-configuration-changes). `wsl.conf` is used to apply settings on a per WSL distro basis, and `.wslconfig` is used to apply global settings to WSL. You can read more about the differences below.
 
 | Aspect | `.wslconfig` | `wsl.conf` |
 |:---|:---|:---|
-| Scope | Global (affects all installed WSL distributions) | Local (affects a distribution only) |
-| Configures | The virtual machine powering WSL 2 (RAM, kernel to boot, number of CPUs, etc.) | Distributions in WSL (boot options, DrvFs automounts, networking, interoperability with the Windows system, what user to run as) |
-| Available for | Only WSL 2 | Both WSL 1 and 2 |
+| Scope | General settings that apply to all of WSL | Settings for WSL distributions only |
+| Configures | Feature enablement in WSL, settings for the virtual machine powering WSL 2 (RAM, kernel to boot, number of CPUs, etc.) | Distribution settings in WSL such as boot options, DrvFs automounts, networking, interoperability with the Windows system, systemd usage, and default user |
 | Location | `%UserProfile%\.wslconfig`, outside of a WSL distribution | `/etc/wsl.conf`, while inside a WSL distribution |
 
-If you are unsure of which version of WSL you running, refer to [Check which version of WSL you are running](./install.md#check-which-version-of-wsl-you-are-running).
+Currently, all `.wslconfig` settings apply only to WSL 2 distributions. Learn [how to check which version of WSL you are running](./install.md#check-which-version-of-wsl-you-are-running).
 
 ## The 8 second rule for configuration changes
 
