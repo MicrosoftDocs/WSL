@@ -1,7 +1,7 @@
 ---
 title: Advanced settings configuration in WSL
 description: A guide to the wsl.conf and .wslconfig files used for configuring settings when running multiple Linux distributions on Windows Subsystem for Linux.
-ms.date: 09/25/2024
+ms.date: 12/16/2024
 ms.topic: article
 ms.custom: seo-windows-dev
 adobe-target: true
@@ -9,18 +9,15 @@ adobe-target: true
 
 # Advanced settings configuration in WSL
 
-The [wsl.conf](#wslconf) and [.wslconfig](#wslconfig) files are used to configure advanced settings options, on a per-distribution basis (`wsl.conf`) and globally across all WSL 2 distributions (`.wslconfig`). This guide will cover each of the settings options, when to use each file type, where to store the file, sample settings files and tips.
+The [`wsl.conf`](#wslconf) and [`.wslconfig`](#wslconfig) files are used to configure advanced settings in WSL that will be applied [on start up of the WSL VM](#the-8-second-rule-for-configuration-changes). `wsl.conf` is used to apply settings on a per WSL distro basis, and `.wslconfig` is used to apply global settings to WSL. You can read more about the differences below.
 
-## What is the difference between wsl.conf and .wslconfig?
+| Aspect | `.wslconfig` | `wsl.conf` |
+|:---|:---|:---|
+| Scope | General settings that apply to all of WSL | Settings for WSL distributions only |
+| Configures | Feature enablement in WSL, settings for the virtual machine powering WSL 2 (RAM, kernel to boot, number of CPUs, etc.) | Distribution settings in WSL such as boot options, DrvFs automounts, networking, interoperability with the Windows system, systemd usage, and default user |
+| Location | `%UserProfile%\.wslconfig`, outside of a WSL distribution | `/etc/wsl.conf`, while inside a WSL distribution |
 
-You can configure the settings for your installed Linux distributions that will automatically be applied every time you launch WSL in two ways, by using:
-
-- **[.wslconfig](#wslconfig)** to configure **global settings** across all installed distributions running on WSL 2.
-- **[wsl.conf](#wslconf)**  to configure **local settings** per-distribution for each Linux distribution running on WSL 1 or WSL 2.
-
-Both file types are used for configuring WSL settings, but the location where the file is stored, the scope of the configuration, the type of options that can be configured, and the version of WSL running your distribution all impact which file type to choose.
-
-WSL 1 and WSL 2 run with different architecture and will impact the configuration settings. WSL 2 runs as a lightweight virtual machine (VM), so uses virtualization settings that allow you to control the amount of memory or processors used (which may be familiar if you use Hyper-V or VirtualBox). [Check which version of WSL you are running.](./install.md#check-which-version-of-wsl-you-are-running)
+Currently, all `.wslconfig` settings apply only to WSL 2 distributions. Learn [how to check which version of WSL you are running](./install.md#check-which-version-of-wsl-you-are-running).
 
 ## The 8 second rule for configuration changes
 
