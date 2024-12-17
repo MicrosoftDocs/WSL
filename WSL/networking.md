@@ -19,12 +19,12 @@ There are two scenarios to consider when identifying the IP address used for a L
 The Windows host can use command:
 
 ```
-wsl -d <DistributionName> hostname -I
+wsl -d <DistributionName> hostname -i
 ```
 
-If querying the default distribution, this part of the command designating the distribution can be omitted: `-d <DistributionName>`. Be sure to use a capital `-I` flag and not a lower-case `-i`.
+If querying the default distribution, this part of the command designating the distribution can be omitted: `-d <DistributionName>`. Be sure to use a lower-case `-i` flag.
 
-Under the hood, host command `wsl.exe` launches the target instance and executes Linux command `hostname -I`. This command then prints the IP address of the WSL instance to `STDOUT`. The `STDOUT` text content is then relayed back to wsl.exe. Finally, wsl.exe displays that output to the command line. 
+Under the hood, host command `wsl.exe` launches the target instance and executes Linux command `hostname --ip-addresses`. This command then prints the IP address of the WSL instance to `STDOUT`. The `STDOUT` text content is then relayed back to wsl.exe. Finally, wsl.exe displays that output to the command line. 
 
 A typical output might be:
 
@@ -64,7 +64,10 @@ If you are building a networking app (for example an app running on a NodeJS or 
 
 If you want to access a networking app running on Windows (for example an app running on a NodeJS or SQL server) from your Linux distribution (ie Ubuntu), then you need to use the IP address of your host machine. While this is not a common scenario, you can follow these steps to make it work.
 
-1. Obtain the IP address of your host machine by running this command from your Linux distribution: `ip route show | grep -i default | awk '{ print $3}'`
+1. Obtain the IP address of your host machine by running this command from your Linux distribution: 
+```bash
+ip route show | grep -i default | awk '{ print $3}'`
+```
 2. Connect to any Windows server using the copied IP address.
 
 The picture below shows an example of this by connecting to a Node.js server running in Windows via curl.
