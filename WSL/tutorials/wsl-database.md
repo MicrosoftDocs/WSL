@@ -119,7 +119,7 @@ Learn more in the MongoDB docs:
 
 ## Install Microsoft SQL Server
 
-To install SQL Server on a Linux distribution run by WSL: [SQL Server on Linux](/sql/linux/sql-server-linux-overview). To work with Microsoft SQL Server databases in VS Code, try the [MSSQL extension](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql).
+[Quickstart: Install SQL Server and create a database on Windows Subsystem for Linux (WSL 2)](/sql/linux/quickstart-install-connect-wsl-2).
 
 ## Install SQLite
 
