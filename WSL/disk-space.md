@@ -1,7 +1,7 @@
 ---
 title: How to manage WSL disk space
 description: Learn how to check the amount of disk space available, expand the size of the Virtual Hard Disk (VHD), repair a VHD mounting or read-only error, and locate the .vhdx file and disk path for Linux distributions installed with WSL 2.
-ms.date: 11/19/2024
+ms.date: 02/05/2025
 ms.topic: article
 ---
 
@@ -45,17 +45,20 @@ If you see that you are near to reaching the available amount of disk space allo
 
 ## How to expand the size of your WSL 2 Virtual Hard Disk
 
-### Expansion using `wsl --manage`
+To expand the VHD size for a Linux distribution beyond the default 1TB maximum amount of allocated disk space, you can use the `wsl --manage` command or follow the manual steps below. (Earlier WSL releases max default may be set to 512GB or 256GB).
 
-These instructions only apply to WSL releases 2.5 and higher.
+### Expand VHD size using `wsl --manage`
 
-To expand the VHD size for a Linux distribution beyond the **default 1TB maximum** amount of allocated disk space, WSL provides the `wsl --manage` command with resize functionality. To resize your disk, follow the steps below.
+The `wsl --manage` command is only available to WSL releases 2.5 and higher.
+
+To resize the allocated space on your virtual disk:
 
 1. Terminate all WSL instances using the command `wsl.exe --shutdown`
 
 2. Run `wsl --manage <distribution name> --resize <memory string>`. Supported memory strings are of the form `<Memory Value>B/M/MB/G/GB/T/TB`. Decimal values are currently unsupported (e.g. `2.5TB`).
 
-The output should look similar to the following:
+Output should look similar to the following:
+
 ```bash
 e2fsck 1.46.5 (30-Dec-2021)
 Pass 1: Checking inodes, blocks, and sizes
@@ -67,7 +70,7 @@ The virtual drive (ext4.vhdx) for this Linux distribution has now successfully b
 
 ### Manual expansion
 
-To expand the VHD size for a Linux distribution beyond the **default 1TB maximum** amount of allocated disk space, follow the steps below. *(For earlier WSL releases that have not yet been updated, this max default may be set to 512GB or 256GB).*
+To expand the VHD size for a Linux distribution using manual steps:
 
 1. Terminate all WSL instances using the command: `wsl.exe --shutdown`
 
