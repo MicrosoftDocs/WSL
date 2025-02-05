@@ -25,23 +25,27 @@ Systemd is [now the default for the current version of Ubuntu](https://canonical
 
 To enable systemd for any other Linux distributions running on WSL 2 (changing the default from using the systemv init):
 
-1. Ensure that your WSL version is 0.67.6 or newer:  
-    -  to check, run `wsl --version`; if the command throws `Invalid command line option: --version` error, you must update WSL;
-    -  to update, run `wsl --update` or [download the latest version from the Microsoft Store](https://aka.ms/wslstorepage).
+1. Ensure that your WSL version is 0.67.6 or newer:
 
-3. Open a command line for your Linux distribution and enter `cd /` to access the root directory, then `ls` to list the files. You will see a directory named "etc" that contains the WSL configuration file for the distribution. Open this file so that you can make an update with the Nano text editor by entering: `nano /etc/wsl.conf`.
+    - to check, run `wsl --version`; if the command throws `Invalid command line option: --version` error, you must update WSL;
+    - to update, run `wsl --update` or [download the latest version from the Microsoft Store](https://aka.ms/wslstorepage).
 
-4. Add these lines in the `wsl.conf` file that you now have open to change the init used to systemd:
+2. Open a command line for your Linux distribution and enter `cd /` to access the root directory, then `ls` to list the files. You will see a directory named "etc" that contains the WSL configuration file for the distribution. Open this file so that you can make an update with the Nano text editor by entering: `nano /etc/wsl.conf`.
+
+3. Add these lines in the `wsl.conf` file that you now have open to change the init used to systemd:
 
     ```bash
     [boot]
     systemd=true
     ```
-![Enable systemd on WSL 2](media/systemd-enable.png)
 
-5. Exit the Nano text editor (Ctrl + X, type Y to save your change and confirm with the `enter` key).
-6. You will then need to close the Linux distribution. You can use the command `wsl.exe --shutdown` in PowerShell to restart all WSL instances.
-7. Once you restart the Linux distribution, systemd will be running. You can verify it by using the command `systemctl status` to show the _running_ state and the command `systemctl list-unit-files --type=service`, which will show the status of any services associated with your Linux distribution. 
+    ![Enable systemd on WSL 2](media/systemd-enable.png)
+
+4. Exit the Nano text editor (Ctrl + X, type Y to save your change and confirm with the `enter` key).
+
+5. You will then need to close the Linux distribution. You can use the command `wsl.exe --shutdown` in PowerShell to restart all WSL instances.
+
+6. Once you restart the Linux distribution, systemd will be running. You can verify it by using the command `systemctl status` to show the _running_ state and the command `systemctl list-unit-files --type=service`, which will show the status of any services associated with your Linux distribution. 
 
 If your Linux distribution is Debian/Ubuntu/Kali Rolling, you should not only have installed the systemd package, but also make sure the systemd-sysv package is installed.
 
