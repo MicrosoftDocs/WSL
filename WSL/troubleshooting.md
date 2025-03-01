@@ -226,7 +226,7 @@ Business or Enterprise environments may have [Windows Defender Firewall settings
 
 You can confirm local rule merging's setting by following these steps:
 
-![Windows Firewall settings screenshot](./media/windows-defender-firewall-settings.png)
+![Windows Firewall settings screenshot](./media/firewallrulemerging.png)
 
 1. Open "Windows Defender Firewall with advanced security" *(this is different than "Windows Defender Firewall" in the Control Panel)*
 2. Right-click on the "Windows Defender Firewall with advanced security on Local Computer" tab
