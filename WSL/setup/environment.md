@@ -25,7 +25,7 @@ Open PowerShell (or Windows Command Prompt) and enter:
 wsl --install
 ```
 
-The --install command performs the following actions:
+The `--install` command performs the following actions:
 
 - Enables the optional WSL and Virtual Machine Platform components
 - Downloads and installs the latest Linux kernel
@@ -33,8 +33,6 @@ The --install command performs the following actions:
 - Downloads and installs the Ubuntu Linux distribution (reboot may be required)
 
 You will need to restart your machine during this installation process.
-
-![PowerShell command line running wsl --install](../media/wsl-install.png)
 
 Check the [troubleshooting installation](../troubleshooting.md) article if you run into any issues.
 
@@ -63,7 +61,7 @@ If you forgot the password for your Linux distribution:
 
 1. Open PowerShell and enter the root of your default WSL distribution using the command: `wsl -u root`
 
-    > If you need to update the forgotten password on a distribution that is not your default, use the command: `wsl -d Debian -u root`, replacing `Debian` with the name of your targeted distribution.
+    > If you need to update the forgotten password on a distribution that is not your default, use the command: `wsl -d <DistroName> -u root`, replacing `<DistroName>` with the name of your targeted distribution.
 
 2. Once your WSL distribution has been opened at the root level inside PowerShell, you can use this command to update your password: `passwd <username>` where `<username>` is the username of the account in the distribution whose password you've forgotten.
 
@@ -81,7 +79,7 @@ Windows does not automatically update or upgrade your Linux distribution(s). Thi
 
 ## Add additional distributions
 
-To add additional Linux distributions, you can install via the [Microsoft Store](https://aka.ms/wslstore), via the [--import command](../use-custom-distro.md), or by [sideloading your own custom distribution](../build-custom-distro.md). You may also want to [set up custom WSL images for distribution across your enterprise company](../enterprise.md).
+To add additional Linux distributions, you can install via the [Microsoft Store](ms-windows-store://collection?CollectionId=LinuxDistros), via the [--import command](../use-custom-distro.md), or by [sideloading your own custom distribution](../build-custom-distro.md). You may also want to [set up custom WSL images for distribution across your enterprise company](../enterprise.md).
 
 ## Set up Windows Terminal
 
@@ -106,9 +104,17 @@ We recommend using WSL with Windows Terminal, especially if you plan to work wit
 
 ## File storage
 
-- To open your WSL project in Windows File Explorer, enter: `explorer.exe .` <br> *Be sure to add the period at the end of the command to open the current directory.*
+- To open your WSL project in Windows File Explorer, enter:
 
-- [Store your project files on the same operating system as the tools you plan to use](../filesystems.md#file-storage-and-performance-across-file-systems). <br>For the fastest performance speed, store your files in the WSL file system if you are working on them with Linux tools in a Linux command line (Ubuntu, OpenSUSE, etc). If you're working in a Windows command line (PowerShell, Command Prompt) with Windows tools, store your files in the Windows file system. Files can be accessed across the operating systems, but it may significantly slow down performance.
+  ```bash
+  explorer.exe .
+  ```
+
+  *Be sure to add the period at the end of the command to open the current directory.*
+
+- [Store your project files on the same operating system as the tools you plan to use](../filesystems.md#file-storage-and-performance-across-file-systems).
+
+  For the fastest performance speed, store your files in the WSL file system if you are working on them with Linux tools in a Linux command line (Ubuntu, OpenSUSE, etc). If you're working in a Windows command line (PowerShell, Command Prompt) with Windows tools, store your files in the Windows file system. Files can be accessed across the operating systems, but it may significantly slow down performance.
 
 For example, when storing your WSL project files:
 
@@ -119,13 +125,17 @@ For example, when storing your WSL project files:
 
 ## Set up your favorite code editor
 
-We recommend using Visual Studio Code or Visual Studio, as they directly support remote development and debugging with WSL. Visual Studio Code allows you to use WSL as a full-featured development environment. Visual Studio offers native WSL support for C++ cross-platform development. 
+We recommend using Visual Studio Code or Visual Studio, as they directly support remote development and debugging with WSL. Visual Studio Code allows you to use WSL as a full-featured development environment. Visual Studio offers native WSL support for C++ cross-platform development.
 
 ### Use Visual Studio Code
 
 Follow this step-by-step guide to [Get started using Visual Studio Code with WSL](../tutorials/wsl-vscode.md), which includes installing the [Remote Development extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack). This extension enables you to run WSL, SSH, or a development container for editing and debugging with the full set of Visual Studio Code features. Quickly swap between different, separate development environments and make updates without worrying about impacting your local machine.
 
-Once VS Code is installed and set up, you can open your WSL project with a VS Code remote server by entering: `code .`
+Once VS Code is installed and set up, you can open your WSL project with a VS Code remote server by entering:
+
+```bash
+code .
+```
 
 *Be sure to add the period at the end of the command to open the current directory.*
 
@@ -133,7 +143,7 @@ Once VS Code is installed and set up, you can open your WSL project with a VS Co
 
 ### Use Visual Studio
 
-Follow this step-by-step guide to [Get started using Visual Studio with WSL for C++ cross-platform development](/cpp/build/walkthrough-build-debug-wsl2). Visual Studio 2022 enables you to build and debug CMake projects on Windows, WSL distributions, and SSH connections from the same instance of Visual Studio. 
+Follow this step-by-step guide to [Get started using Visual Studio with WSL for C++ cross-platform development](/cpp/build/walkthrough-build-debug-wsl2). Visual Studio 2022 enables you to build and debug CMake projects on Windows, WSL distributions, and SSH connections from the same instance of Visual Studio.
 
 ![Select a target system in Visual Studio 2022](../media/vs-target-system.png)
 

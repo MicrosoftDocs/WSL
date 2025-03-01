@@ -17,11 +17,11 @@ Visual Studio Code, along with the WSL extension, enables you to use WSL as your
 * take advantage of VS Code features like [Intellisense code completion](https://code.visualstudio.com/docs/editor/intellisense), [linting](https://code.visualstudio.com/docs/python/linting), [debug support](https://code.visualstudio.com/docs/nodejs/nodejs-debugging), [code snippets](https://code.visualstudio.com/docs/editor/userdefinedsnippets), and [unit testing](https://code.visualstudio.com/docs/python/testing)
 * easily manage your version control with VS Code's built-in [Git support](https://code.visualstudio.com/docs/editor/versioncontrol#_git-support)
 * run commands and VS Code extensions directly on your WSL projects
-* edit files in your Linux or mounted Windows filesystem (for example /mnt/c) without worrying about pathing issues, binary compatibility, or other cross-OS challenges
+* edit files in your Linux or mounted Windows filesystem (for example `/mnt/c`) without worrying about pathing issues, binary compatibility, or other cross-OS challenges
 
 ## Install VS Code and the WSL extension
 
-* Visit the [VS Code install page](https://code.visualstudio.com/download) and select the 32 or 64 bit installer. Install Visual Studio Code on Windows (not in your WSL file system).
+* Visit the [VS Code install page](https://code.visualstudio.com/download) and select the **Windows installer** for your current system architecture.. Install Visual Studio Code on Windows (not in your WSL file system).
 
 * When prompted to **Select Additional Tasks** during installation, be sure to check the **Add to PATH** option so you can easily open a folder in WSL using the code command.
 
@@ -56,7 +56,7 @@ To open a project from your WSL distribution, open the distribution's command li
 
 ### From VS Code
 
-You can also access more VS Code WSL options by using the shortcut: `CTRL+SHIFT+P` in VS Code to bring up the command palette. If you then type `WSL` you will see a list of the options available, allowing you to reopen the folder in a WSL session, specify which distribution you want to open in, and more.
+You can also access more VS Code WSL options by using the shortcut: **Ctrl+Shift+P** in VS Code to bring up the command palette. If you then type `WSL` you will see a list of the options available, allowing you to reopen the folder in a WSL session, specify which distribution you want to open in, and more.
 
 ![VS Code's command palette](../media/vscode-remote-command-palette.png)
 
@@ -80,7 +80,7 @@ For further information, see the VS Code docs:
 
 ## Install Git (optional)
 
-If you plan to collaborate with others, or host your project on an open-source site (like GitHub), VS Code supports [version control with Git](https://code.visualstudio.com/docs/editor/versioncontrol#_git-support). The Source Control tab in VS Code tracks all of your changes and has common Git commands (add, commit, push, pull) built right into the UI.
+If you plan to collaborate with others, or host your project on an open-source site (like GitHub), VS Code supports [version control with Git](https://code.visualstudio.com/docs/sourcecontrol/overview). The Source Control tab in VS Code tracks all of your changes and has common Git commands (add, commit, push, pull) built right into the UI.
 
 To install Git, see [set up Git to work with Windows Subsystem for Linux](./wsl-git.md).
 
@@ -88,7 +88,7 @@ To install Git, see [set up Git to work with Windows Subsystem for Linux](./wsl-
 
 The new Windows Terminal enables multiple tabs (quickly switch between Command Prompt, PowerShell, or multiple Linux distributions), custom key bindings (create your own shortcut keys for opening or closing tabs, copy+paste, etc.), emojis ☺, and custom themes (color schemes, font styles and sizes, background image/blur/transparency). Learn more in the [Windows Terminal docs](/windows/terminal).
 
-1. Get [Windows Terminal in the Microsoft Store](https://www.microsoft.com/store/apps/9n0dx20hk701): By installing via the store, updates are handled automatically.
+1. Get [Windows Terminal in the Microsoft Store](https://apps.microsoft.com/detail/9N0DX20HK701): By installing via the store, updates are handled automatically.
 
 2. Once installed, open Windows Terminal and select **Settings** to customize your terminal using the `profile.json` file.
 

@@ -8,7 +8,7 @@ ms.topic: article
 
 # Import any Linux distribution to use with WSL
 
-You can use any Linux distribution inside of the Windows Subsystem for Linux (WSL), even if it is not available in the [Microsoft Store](https://www.microsoft.com/en-us/search/shop/apps?q=linux), by importing it with a tar file. 
+You can use any Linux distribution inside of the Windows Subsystem for Linux (WSL), even if it is not available in the [Microsoft Store](ms-windows-store://collection?CollectionId=LinuxDistros), by importing it with a tar file.
 
 This article shows how to import the Linux distribution, [CentOS](https://www.centos.org/), for use with WSL by obtaining its tar file using a Docker container. This process can be applied to import any Linux distribution.
 
@@ -18,7 +18,7 @@ First you'll need to obtain a tar file that contains all the Linux binaries for 
 
 You can obtain a tar file in a variety of ways, two of which include:
 
-- Download a provided tar file. You can find an example for Alpine in the "Mini Root Filesystem" section of the [Alpine Linux downloads](https://alpinelinux.org/downloads/) site.
+- Download a provided tar file. You can find an example for Alpine in the "**:::no-loc text="Mini Root Filesystem":::**" section of the [Alpine Linux downloads](https://alpinelinux.org/downloads/) site.
 - Find a Linux distribution container and export an instance as a tar file. The example below will show this process using the [CentOS container](https://hub.docker.com/_/centos).
 
 ### Obtaining a tar file for CentOS example
@@ -48,19 +48,26 @@ In this example, we'll use Docker inside of a WSL distribution to obtain the tar
     docker export wsl_export > /mnt/c/temp/centos.tar
     ```
 
+    ![Example of running the commands above](./media/run-any-distro-tarfile.png)
+
 5. Clean up the container
 
    ```bash
    docker rm wsl_export
    ```
 
-![Example of running the commands above](./media/run-any-distro-tarfile.png)
-
 This process exports the CentOS tar file from the Docker container so that we can now import it for use locally with WSL.
 
 ## Import the tar file into WSL
 
-Once you have a tar file ready, you can import it using the command: `wsl --import <Distro> <InstallLocation> <FileName>`.
+Once you have a tar file ready, you can import it using the command:
+
+```powershell
+wsl.exe --import <Distro> <InstallLocation> <FileName> [Options]
+Options:
+    --version <Version>
+    --vhd
+```
 
 ### Importing CentOS example
 
@@ -73,7 +80,7 @@ To import the CentOS distribution tar file into WSL:
     mkdir E:\wslDistroStorage\CentOS
     ```
 
-2. Use the command `wsl --import <DistroName> <InstallLocation> <InstallTarFile>` to import the tar file. 
+2. Use the command `wsl --import <Distro> <InstallLocation> <FileName>` to import the tar file.
 
     ```PowerShell
     wsl --import CentOS E:\wslDistroStorage\CentOS .\centos.tar
@@ -81,13 +88,13 @@ To import the CentOS distribution tar file into WSL:
 
 3. Use the command `wsl -l -v` to check which distributions you have installed.
 
-    ![Example of the above commands running in WSL](./media/run-any-distro-import.png)
-
 4. Finally, use the command `wsl -d CentOS` to run your newly imported CentOS Linux distribution.
+
+    ![Example of the above commands running in WSL](./media/run-any-distro-import.png)
 
 ## Add WSL specific components like a default user
 
-By default when using --import, you are always started as the root user. You can set up your own user account, but note that the set up process will vary slightly based on each different Linux distribution.
+By default when using `--import`, you are always started as the root user. You can set up your own user account, but note that the set up process will vary slightly based on each different Linux distribution.
 
 To set up user account with the CentOS distribution we just imported, first open PowerShell and boot into CentOS, using the command:
 
@@ -119,7 +126,7 @@ You will now see `[caloewen@loewen-dev]$` as the output based on this example.
 
 ![Example of the code above running in WSL](./media/run-any-distro-customuser.png)
 
-To learn more about configuring WSL settings, see [Configure settings with .wslconfig and wsl.conf](/windows/wsl/wsl-config#configure-settings-with-wslconfig-and-wslconf).
+To learn more about configuring WSL settings, see [Configure settings with .wslconfig and wsl.conf](./wsl-config.md).
 
 ## Use a custom Linux distribution
 

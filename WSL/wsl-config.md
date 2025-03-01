@@ -1,7 +1,7 @@
 ---
 title: Advanced settings configuration in WSL
 description: A guide to the wsl.conf and .wslconfig files used for configuring settings when running multiple Linux distributions on Windows Subsystem for Linux.
-ms.date: 12/16/2024
+ms.date: 02/13/2025
 ms.topic: article
 ms.custom: seo-windows-dev
 adobe-target: true
@@ -63,11 +63,11 @@ You will then need to close your WSL distribution using `wsl.exe --shutdown` fro
 wsl.conf section label: `[automount]`
 
 | key | value | default | notes |
-|:-----------|:---------|:--------|:------|
+|:----|:----|:----|:----|
 | `enabled` | boolean | `true` | `true` causes fixed drives (i.e `C:/` or `D:/`) to be automatically mounted with DrvFs under `/mnt`.  `false` means drives won't be mounted automatically, but you could still mount them manually or via `fstab`.                                                                                                             |
-| `mountFsTab` | boolean | `true` | `true` sets `/etc/fstab` to be processed on WSL start. /etc/fstab is a file where you can declare other filesystems, like an SMB share. Thus, you can mount these filesystems automatically in WSL on start up.                                                                                                                |
-| `root`| string | `/mnt/` | Sets the directory where fixed drives will be automatically mounted. By default this is set to `/mnt/`, so your Windows file system C-drive is mounted to `/mnt/c/`. If you change `/mnt/` to `/windir/`, you should expect to see your fixed C-drive mounted to `/windir/c`.|
-| `options` | comma-separated list of values, such as uid, gid, etc, see automount options below | empty string | The automount option values are listed below and are appended to the default DrvFs mount options string. **Only DrvFs-specific options can be specified.**|
+| `mountFsTab` | boolean | `true` | `true` sets `/etc/fstab` to be processed on WSL start. `/etc/fstab` is a file where you can declare other filesystems, like an SMB share. Thus, you can mount these filesystems automatically in WSL on start up.                                                                                                                |
+| `root`| string | `/mnt/` | Sets the directory where fixed drives will be automatically mounted. By default this is set to `/mnt/`, so your Windows file system `C:\` is mounted to `/mnt/c/`. If you change `/mnt/` to `/windir/`, you should expect to see your fixed `C:\` mounted to `/windir/c`.|
+| `options` | comma-separated list of values, such as uid, gid, etc, see automount options below | Null | The automount option values are listed below and are appended to the default DrvFs mount options string. **Only DrvFs-specific options can be specified.**|
 
 The automount options are applied as the mount options for all automatically mounted drives. To change the options for a specific drive only, use the `/etc/fstab` file instead. Options that the mount binary would normally parse into a flag are not supported. If you want to explicitly specify those options, you must include every drive for which you want to do so in `/etc/fstab`.
 
@@ -77,17 +77,17 @@ Setting different mount options for Windows drives (DrvFs) can control how file 
 
 | Key | Description | Default |
 |:----|:----|:----|
-| `uid` | The User ID used for the owner of all files | The default User ID of your WSL distro (on first installation this defaults to 1000)
-| `gid` | The Group ID used for the owner of all files | The default group ID of your WSL distro (on first installation this defaults to 1000)
-| `umask` | An octal mask of permissions to exclude for all files and directories | `022`
-| `fmask` | An octal mask of permissions to exclude for all files | `000`
-| `dmask` | An octal mask of permissions to exclude for all directories | `000`
-| `metadata` | Whether metadata is added to Windows files to support Linux system permissions | `disabled`
-| `case` | Determines directories treated as case sensitive and whether new directories created with WSL will have the flag set. See [case sensitivity](./case-sensitivity.md) for a detailed explanation of the options. Options include `off`, `dir`, or `force`. | `off`
+| `uid` | The User ID used for the owner of all files | The default User ID of your WSL distro (on first installation this defaults to `1000`) |
+| `gid` | The Group ID used for the owner of all files | The default group ID of your WSL distro (on first installation this defaults to `1000`) |
+| `umask` | An octal mask of permissions to exclude for all files and directories | `022` |
+| `fmask` | An octal mask of permissions to exclude for all files | `000` |
+| `dmask` | An octal mask of permissions to exclude for all directories | `000` |
+| `metadata` | Whether metadata is added to Windows files to support Linux system permissions | `disabled` |
+| `case` | Determines directories treated as case sensitive and whether new directories created with WSL will have the flag set. See [case sensitivity](./case-sensitivity.md) for a detailed explanation of the options. Options include `off`, `dir`, or `force`. | `off` |
 
-By default, WSL sets the uid and gid to the value of the default user. For example, in Ubuntu, the default user is uid=1000, gid=1000. If this value is used to specify a different gid or uid option, the default user value will be overwritten. Otherwise, the default value will always be appended.
+By default, WSL sets the `uid` and `gid` to the value of the default user. For example, in Ubuntu, the default user is `uid=1000`, `gid=1000`. If this value is used to specify a different `gid` or `uid` option, the default user value will be overwritten. Otherwise, the default value will always be appended.
 
-User file-creation mode mask (umask) sets permission for newly created files. The default is 022, only you can write data but anyone can read data. Values can be changed to reflect different permission settings. For example, `umask=077` changes permission to be completely private, no other user can read or write data. To further specify permission, fmask (files) and dmask (directories) can also be used.
+User file-creation mode mask (umask) sets permission for newly created files. The default is `022`, only you can write data but anyone can read data. Values can be changed to reflect different permission settings. For example, `umask=077` changes permission to be completely private, no other user can read or write data. To further specify permission, `fmask` (files) and `dmask` (directories) can also be used.
 
 > [!NOTE]
 > The permission masks are put through a logical OR operation before being applied to files or directories.
@@ -115,7 +115,7 @@ These options are available in Insider Build 17713 and later.
 | key | value | default | notes|
 |:----|:----|:----|:----|
 | `enabled` | boolean | `true` | Setting this key will determine whether WSL will support launching Windows processes. |
-| `appendWindowsPath` | boolean | `true` | Setting this key will determine whether WSL will add Windows path elements to the $PATH environment variable. |
+| `appendWindowsPath` | boolean | `true` | Setting this key will determine whether WSL will add Windows path elements to the `$PATH` environment variable. |
 
 ### User settings
 
@@ -135,7 +135,7 @@ wsl.conf section label: `[boot]`
 
 | key | value | default | notes|
 |:----|:----|:----|:----|
-| `command` | string | "" | A string of the command that you would like to run when the WSL instance starts. This command is run as the root user. e.g: `service docker start`.|
+| `command` | string | Null | A string of the command that you would like to run when the WSL instance starts. This command is run as the root user. e.g: `service docker start`.|
 
 ### Example wsl.conf file
 
@@ -148,10 +148,10 @@ The `wsl.conf` sample file below demonstrates some of the configuration options 
 # Set to true will automount fixed drives (C:/ or D:/) with DrvFs under the root directory set above. Set to false means drives won't be mounted automatically, but need to be mounted manually or with fstab.
 enabled = true
 
-# Sets the directory where fixed drives will be automatically mounted. This example changes the mount location, so your C-drive would be /c, rather than the default /mnt/c. 
+# Sets the directory where fixed drives will be automatically mounted. This example changes the mount location, so your C-drive would be /c, rather than the default /mnt/c.
 root = /
 
-# DrvFs-specific options can be specified.  
+# DrvFs-specific options can be specified.
 options = "metadata,uid=1003,gid=1003,umask=077,fmask=11,case=off"
 
 # Sets the `/etc/fstab` file to be processed when a WSL distribution is launched.
@@ -196,6 +196,12 @@ See [.wslconfig](#wslconfig) for info on where to store the .wslconfig file.
 
 > [!NOTE]
 > Configuring global settings with `.wslconfig` are only available for distributions running as WSL 2 in Windows Build 19041 and later. Keep in mind you may need to run `wsl --shutdown` to shut down the WSL 2 VM and then restart your WSL instance for these changes to take effect.
+>
+> [!TIP]
+> You can now find WSL settings in the Start Menu to open the WSL settings interface for configuring .wslconfig.
+> ![Windows Subsystem for Linux Settings](./media/wsl-settings.png)
+
+<!-- Starting from WSL version 2.X.X, you can find WSL settings in the Start Menu to open the WSL settings interface to configure .wslconfig. -->
 
 This file can contain the following options that affect the VM that powers any WSL 2 distribution:
 
@@ -209,29 +215,29 @@ This file can contain the following options that affect the VM that powers any W
 | `memory` | size | 50% of total memory on Windows | How much memory to assign to the WSL 2 VM. |
 | `processors` | number | The same number of logical processors on Windows | How many logical processors to assign to the WSL 2 VM. |
 | `localhostForwarding` | boolean | `true` | Boolean specifying if ports bound to wildcard or localhost in the WSL 2 VM should be connectable from the host via `localhost:port`. |
-| `kernelCommandLine` | string | Blank | Additional kernel command line arguments. |
+| `kernelCommandLine` | string | None | Additional kernel command line arguments. |
 | `safeMode` | boolean | `false` | Run WSL in "Safe Mode" which disables many features and is intended to be used to recover distributions that are in bad states. Only available for Windows 11 and WSL version 0.66.2+.  |
 | `swap` | size | 25% of memory size on Windows rounded up to the nearest GB | How much swap space to add to the WSL 2 VM, 0 for no swap file. Swap storage is disk-based RAM used when memory demand exceeds limit on hardware device. |
-| `swapFile` | path | `%USERPROFILE%\AppData\Local\Temp\swap.vhdx` | An absolute Windows path to the swap virtual hard disk. |
-| `pageReporting` | boolean | `true` | Default `true` setting enables Windows to reclaim unused memory allocated to WSL 2 virtual machine. |
+| `swapFile` | path | `%Temp%\swap.vhdx` | An absolute Windows path to the swap virtual hard disk. |
+| `pageReporting` | boolean | `true` | Setting enables Windows to reclaim unused memory allocated to WSL 2 virtual machine. |
 | `guiApplications` | boolean | `true` | Boolean to turn on or off support for GUI applications ([WSLg](https://github.com/microsoft/wslg)) in WSL.|
-| `debugConsole`* | boolean | `false` | Boolean to turn on an output console Window that shows the contents of `dmesg` upon start of a WSL 2 distro instance. Only available for Windows 11.|
-| `nestedVirtualization`* | boolean | `true` | Boolean to turn on or off nested virtualization, enabling other nested VMs to run inside WSL 2. Only available for Windows 11.|
-| `vmIdleTimeout`* | number | `60000` | The number of milliseconds that a VM is idle, before it is shut down. Only available for Windows 11.|
-| `dnsProxy` | boolean | `true` | Only applicable to networkingMode = NAT. Boolean to inform WSL to configure the DNS Server in Linux to the NAT on the host. Setting to false will mirror DNS servers from Windows to Linux. |
-| `networkingMode`** | string | `NAT` | If the value is `mirrored` then this turns on mirrored networking mode. Default or unrecognized strings result in NAT networking. |
-| `firewall`** | boolean | `true` | Setting this to true allows the Windows Firewall rules, as well as rules specific to Hyper-V traffic, to filter WSL network traffic. |
-| `dnsTunneling`** | boolean | `true` | Changes how DNS requests are proxied from WSL to Windows |
-| `autoProxy`* | boolean | `true` | Enforces WSL to use Windows’ HTTP proxy information |
-| `defaultVhdSize` | size | `1099511627776` (1TB) | Set the Virtual Hard Disk (VHD) size that stores the Linux distribution (for example, Ubuntu) file system. Can be used to limit the maximum size that a distribution file system is allowed to take up. |
+| `debugConsole`¹ | boolean | `false` | Boolean to turn on an output console Window that shows the contents of `dmesg` upon start of a WSL 2 distro instance.|
+| `nestedVirtualization`¹ | boolean | `true` | Boolean to turn on or off nested virtualization, enabling other nested VMs to run inside WSL 2.|
+| `vmIdleTimeout`¹ | number | `60000` | The number of milliseconds that a VM is idle, before it is shut down.|
+| `dnsProxy` | boolean | `true` | Only applicable to `networkingMode = NAT`. Boolean to inform WSL to configure the DNS Server in Linux to the NAT on the host. Setting to `false` will mirror DNS servers from Windows to Linux. |
+| `networkingMode`¹² | string | `NAT` | Available values are: `none`, `net`, `bridged` (deprecated), `mirrored`, and `virtioproxy`. If the value is `none`, the WSL network is disconnected. If the value is `net` or an unknown value, NAT network mode is used (starting from WSL 2.3.25, if NAT network mode fails, it falls back to using VirtioProxy network mode). If the value is `bridged`, the bridged network mode is used (this mode has been marked as deprecated since WSL 2.4.5). If the value is `mirrored`, the mirrored network mode is used. If the value is `virtioproxy`, the VirtioProxy network mode is used. |
+| `firewall`¹² | boolean | `true` | Setting this to true allows the Windows Firewall rules, as well as rules specific to Hyper-V traffic, to filter WSL network traffic. |
+| `dnsTunneling`¹² | boolean | `true` | Changes how DNS requests are proxied from WSL to Windows |
+| `autoProxy`¹ | boolean | `true` | Enforces WSL to use Windows’ HTTP proxy information |
+| `defaultVhdSize` | size | `1099511627776`B (1TB) | Set the Virtual Hard Disk (VHD) size that stores the Linux distribution (for example, Ubuntu) file system. Can be used to limit the maximum size that a distribution file system is allowed to take up. |
 
-Entries with the `path` value must be Windows paths with escaped backslashes, e.g: `C:\\Temp\\myCustomKernel`
+Entries with the "**path**" value must be Windows paths with escaped backslashes, e.g: `C:\\Temp\\myCustomKernel`
 
-Entries with the `size` value must be a size followed by a unit, for example, `8GB` or `512MB`.
+Entries with the "**size**" value have the default unit of B. To use other units, the unit of size must be appended, e.g: `8GB` or `512MB`.
 
-Entries with an * after the value type are only available on Windows 11.
+¹: Only available on Windows 11.
 
-Entries with an ** after the value type require [Windows 11 version 22H2](https://blogs.windows.com/windows-insider/2023/09/14/releasing-windows-11-build-22621-2359-to-the-release-preview-channel/) or higher.
+²: Require [Windows 11 version 22H2](https://blogs.windows.com/windows-insider/2023/09/14/releasing-windows-11-build-22621-2359-to-the-release-preview-channel/) or higher.
 
 ### Experimental settings
 
@@ -241,28 +247,28 @@ These settings are opt-in previews of experimental features that we aim to make 
 
 | Setting name | Value | Default | Notes |
 |:----|:----|:----|:----|
-|`autoMemoryReclaim`| string | `dropCache` | Automatically releases cached memory after detecting idle CPU usage. Set to `gradual` for slow release, and `dropCache` for instant release of cached memory. |
-|`sparseVhd`| bool | `false` | When set to true, any newly created VHD will be set to sparse automatically. |
-|`bestEffortDnsParsing`**| bool | `false` | Only applicable when `wsl2.dnsTunneling` is set to true. When set to true, Windows will extract the question from the DNS request and attempt to resolve it, ignoring the unknown records. |
-|`dnsTunnelingIpAddress`**| string | `10.255.255.254` | Only applicable when `wsl2.dnsTunneling` is set to true. Specifies the nameserver that will be configured in the Linux resolv.conf file when DNS tunneling is enabled. |
-|`initialAutoProxyTimeout`*| string | `1000` | Only applicable when `wsl2.autoProxy` is set to true. Configures how long (in milliseconds) WSL will wait for retrieving HTTP proxy information when starting a WSL container. If proxy settings are resolved after this time, the WSL instance must be restarted to use the retrieved proxy settings. |
-|`ignoredPorts`**| string | null | Only applicable when `wsl2.networkingMode` is set to `mirrored`. Specifies which ports Linux applications can bind to, even if that port is used in Windows. This enables applications to listen on a port for traffic purely within Linux, so those applications are not blocked even when that port is used for other purposes on Windows. For example, WSL will allow binding to port 53 in Linux for Docker Desktop, as it is listening only to requests from within the Linux container. Should be formatted in a comma separated list, e.g: `3000,9000,9090` |
-|`hostAddressLoopback`**| bool | `false` | Only applicable when `wsl2.networkingMode` is set to `mirrored`. When set to `True`, will allow the Container to connect to the Host, or the Host to connect to the Container, by an IP address that's assigned to the Host. The `127.0.0.1` loopback address can always be used,this option allows for all additionally assigned local IP addresses to be used as well. Only IPv4 addresses assigned to the host are supported. |
+|`autoMemoryReclaim`| string | `dropCache` | Available values are: `disabled`, `gradual`, and `dropCache`. If the value is `disabled`, WSL automatic memory reclamation will be disabled. If the value is `gradual`, cached memory will be reclaimed slowly and automatically. If the value is `dropCache` or an unknown value, cached memory will be reclaimed immediately. |
+|`sparseVhd`| bool | `false` | When set to `true`, any newly created VHD will be set to sparse automatically. |
+|`bestEffortDnsParsing`¹²| bool | `false` | Only applicable when `wsl2.dnsTunneling` is set to `true`. When set to `true`, Windows will extract the question from the DNS request and attempt to resolve it, ignoring the unknown records. |
+|`dnsTunnelingIpAddress`¹²| string | `10.255.255.254` | Only applicable when `wsl2.dnsTunneling` is set to `true`. Specifies the nameserver that will be configured in the Linux `resolv.conf` file when DNS tunneling is enabled. |
+|`initialAutoProxyTimeout`¹| string | `1000` | Only applicable when `wsl2.autoProxy` is set to `true`. Configures how long (in milliseconds) WSL will wait for retrieving HTTP proxy information when starting a WSL container. If proxy settings are resolved after this time, the WSL instance must be restarted to use the retrieved proxy settings. |
+|`ignoredPorts`¹²| string | Null | Only applicable when `wsl2.networkingMode` is set to `mirrored`. Specifies which ports Linux applications can bind to, even if that port is used in Windows. This enables applications to listen on a port for traffic purely within Linux, so those applications are not blocked even when that port is used for other purposes on Windows. For example, WSL will allow binding to port 53 in Linux for Docker Desktop, as it is listening only to requests from within the Linux container. Should be formatted in a comma separated list, e.g: `3000,9000,9090` |
+|`hostAddressLoopback`¹²| bool | `false` | Only applicable when `wsl2.networkingMode` is set to `mirrored`. When set to `true`, will allow the Container to connect to the Host, or the Host to connect to the Container, by an IP address that's assigned to the Host. The `127.0.0.1` loopback address can always be used,this option allows for all additionally assigned local IP addresses to be used as well. Only IPv4 addresses assigned to the host are supported. |
 
-Entries with an * after the value type are only available on Windows 11.
+¹: Only available on Windows 11.
 
-Entries with an ** after the value type require [Windows version 22H2](https://blogs.windows.com/windows-insider/2023/09/14/releasing-windows-11-build-22621-2359-to-the-release-preview-channel/) or higher.
+²: Require [Windows 11 version 22H2](https://blogs.windows.com/windows-insider/2023/09/14/releasing-windows-11-build-22621-2359-to-the-release-preview-channel/) or higher.
 
 ## Example .wslconfig file
 
-The `.wslconfig` sample file below demonstrates some of the configuration options available. In this example, the file path is `C:\Users\<UserName>\.wslconfig`.
+The `.wslconfig` sample file below demonstrates some of the configuration options available. In this example, the file path is `%UserProfile%\.wslconfig`.
 
 ```bash
 # Settings apply across all Linux distros running on WSL 2
 [wsl2]
 
 # Limits VM memory to use no more than 4 GB, this can be set as whole numbers using GB or MB
-memory=4GB 
+memory=4GB
 
 # Sets the VM to use two virtual processors
 processors=2
@@ -276,7 +282,7 @@ kernelCommandLine = vsyscall=emulate
 # Sets amount of swap storage space to 8GB, default is 25% of available RAM
 swap=8GB
 
-# Sets swapfile path location, default is %USERPROFILE%\AppData\Local\Temp\swap.vhdx
+# Sets swapfile path location, default is %UserProfile%\AppData\Local\Temp\swap.vhdx
 swapfile=C:\\temp\\wsl-swap.vhdx
 
 # Disable page reporting so WSL retains all allocated memory claimed from Windows and releases none back when free

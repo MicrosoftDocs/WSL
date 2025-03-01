@@ -1,5 +1,5 @@
 ---
-title: Release Notes for WSL 
+title: Release Notes for WSL
 description: Read release notes for the Windows Subsystem for Linux. These release notes include fixed issues and are updated weekly.
 keywords: release notes, wsl, windows, windows subsystem for linux, windowssubsystem, ubuntu
 author: benhillis
@@ -64,7 +64,7 @@ For general Windows information on build 20190 visit the [Windows blog](https://
 
 - Fix bug preventing WSL1 instances from launching. [GH 5633]
 - Fix hang when redirecting Windows process output. [GH 5648]
-- Add %userprofile%\\.wslconfig option to control the VM idle timeout (wsl2.vmIdleTimeout=<time_in_ms>).
+- Add %UserProfile%\\.wslconfig option to control the VM idle timeout (wsl2.vmIdleTimeout=<time_in_ms>).
 - Support launching app execution aliases from WSL.
 - Added support for installing the WSL2 kernel and distributions to wsl.exe --install.
 
@@ -74,7 +74,7 @@ For general Windows information on build 20175 visit the [Windows blog](https://
 
 - Adjust default memory assignment of WSL2 VM to be 50% of host memory or 8GB, whichever is less [GH 4166].
 - Change \\\\wsl$ prefix to \\\\wsl to support URI parsing. The old \\\\wsl$ path is still supported.
-- Enable nested virtualization for WSL2 by default on amd64. You can disable this via %userprofile%\\.wslconfig ([wsl2] nestedVirtualization=false).
+- Enable nested virtualization for WSL2 by default on amd64. You can disable this via %UserProfile%\\.wslconfig ([wsl2] nestedVirtualization=false).
 - Make wsl.exe --update demand start Microsoft Update.
 - Support renaming over a read-only file in DrvFs.
 - Ensure error messages are always printed in the correct codepage.
@@ -85,7 +85,7 @@ For general Windows information on build 20150 visit the [Windows blog](https://
 
 - WSL2 GPU compute see [Windows blog](https://blogs.windows.com/windowsexperience/2020/06/17/announcing-windows-10-insider-preview-build-20150/) for more information.
 - Introduce wsl.exe --install command line option to easily set up WSL.
-- Introduce wsl.exe --update command line option to manage updates to the WSL2 kernel. 
+- Introduce wsl.exe --update command line option to manage updates to the WSL2 kernel.
 - Set WSL2 as the default.
 - Increase WSL2 vm graceful shutdown timeout.
 - Fix virtio-9p race condition when mapping device memory.
@@ -226,7 +226,7 @@ For general Windows information on build 18945 visit the [Windows blog](https://
 
 ### WSL
 * [WSL2] Allow listening tcp sockets in WSL2 to be accessible from the host by using localhost:port
-* [WSL2] Fixes for install / conversion failures and additional diagnostics to track down future issues [GH 4105] 
+* [WSL2] Fixes for install / conversion failures and additional diagnostics to track down future issues [GH 4105]
 * [WSL2] Improve diagnosability of WSL2 network issues
 * [WSL2] Update kernel version to 4.19.55
 * [WSL2] Update kernel with config options required for docker [GH 4165]
@@ -297,7 +297,7 @@ For general Windows information on build 18334 visit the [Windows blog](https://
 ### WSL
 * Redesign the way that Windows time zone is mapped to a  Linux time zone [GH 3747]
 * Fix memory leaks and add new string translation functions [GH 3746]
-* SIGCONT on a threadgroup with no threads is a no-op [GH 3741] 
+* SIGCONT on a threadgroup with no threads is a no-op [GH 3741]
 * Correctly display socket and epoll file descriptors in /proc/self/fd
 
 ## Build 18305
@@ -1646,7 +1646,7 @@ For general Windows information on build 14946 visit the [Windows Blog](https://
 
 ### Fixed
 
-- Fixed an issue that prevented creating WSL user accounts for users with NT usernames that contain spaces or quotes. 
+- Fixed an issue that prevented creating WSL user accounts for users with NT usernames that contain spaces or quotes.
 - Change VolFs and DrvFs to return 0 for directory's link count in stat
 - Support IPV6_MULTICAST_HOPS socket option.
 - Limit to a single console I/O loop per tty. Example: the following command is possible:

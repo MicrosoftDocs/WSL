@@ -6,7 +6,7 @@
       href: about.md
     - name: Comparing WSL Versions
       href: compare-versions.md
-    - name: Basic wsl commands
+    - name: Basic WSL commands
       href: basic-commands.md
 - name: Install
   items:
@@ -17,7 +17,7 @@
     - name: Install on Windows Server
       href: install-on-server.md
 - name: Tutorials
-  items: 
+  items:
     - name: Best practices for set up
       href: setup/environment.md
     - name: Get started with VS Code
@@ -76,7 +76,7 @@
   href: faq.yml
 - name: Troubleshooting
   href: troubleshooting.md
-- name : Release Notes
+- name: Release Notes
   items:
     - name: General Release Notes
       href: release-notes.md

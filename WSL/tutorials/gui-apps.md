@@ -1,7 +1,7 @@
 ---
-title: Run Linux GUI apps with WSL 
-description: Learn how WSL support running Linux GUI apps. 
-ms.date: 01/04/2024
+title: Run Linux GUI apps with WSL
+description: Learn how WSL support running Linux GUI apps.
+ms.date: 02/11/2024
 ms.topic: article
 ---
 
@@ -30,13 +30,13 @@ You can now integrate both Windows and Linux applications into your workflow for
 
     To run Linux GUI apps, you should first install the driver matching your system below. This will enable you to use a virtual GPU (vGPU) so you can benefit from hardware accelerated OpenGL rendering.
 
-  - [**Intel** GPU driver](https://www.intel.com/content/www/us/en/download/19344/intel-graphics-windows-dch-drivers.html)
-  - [**AMD** GPU driver](https://www.amd.com/en/support)
-  - [**NVIDIA** GPU driver](https://www.nvidia.com/Download/index.aspx?lang=en-us)
+  - [**Intel** GPU driver](https://downloadcenter.intel.com)
+  - [**AMD** GPU driver](https://www.amd.com/support/download/drivers.html)
+  - [**NVIDIA** GPU driver](https://www.nvidia.com/drivers)
 
 ### Fresh install - No prior WSL installation
 
-You can now install everything you need to run Windows Subsystem for Linux (WSL) by entering this command in an administrator PowerShell or Windows Command Prompt and then restarting your machine.
+You can now install everything you need to run Windows Subsystem for Linux (WSL) by entering this command in an administrator PowerShell and then restarting your machine.
 
 ```powershell
 wsl --install
@@ -71,7 +71,7 @@ If you already have WSL installed on your machine, you can update to the latest 
 
 ## Run Linux GUI apps
 
-You can run the following commands from your Linux terminal to download and install these popular Linux applications. If you are using a different distribution than Ubuntu, it may use a different package manager than apt. Once the Linux application is installed, you can find it in your **Start** menu under the distribution name. For example: `Ubuntu -> Microsoft Edge`.
+You can run the following commands from your Linux terminal to download and install these popular Linux applications. If you are using a different distribution than Ubuntu, it may use a different package manager than apt. Once the Linux application is installed, you can find it in your **Start** menu under the distribution name. For example: Ubuntu -> Microsoft Edge.
 
 > [!NOTE]
 > Support for GUI apps on WSL does not provide a full desktop experience. It relies on Windows desktop, so installing desktop-focused tools or apps may not be supported. To request additional support, you can file an issue in the [WSLg repo on GitHub](https://github.com/microsoft/wslg/issues).
@@ -93,7 +93,7 @@ sudo apt install gnome-text-editor -y
 To launch your bashrc file in the editor, enter: `gnome-text-editor ~/.bashrc`
 
 > [!NOTE]
-> [GNOME Text Editor](https://en.wikipedia.org/wiki/GNOME_Text_Editor) replaces gedit as GNOME/Ubuntu's default text editor in Ubuntu 22.10. If you're running an older version of Ubuntu and want to use [gedit](https://en.wikipedia.org/wiki/Gedit), the previous default text editor, use `sudo apt install gedit -y`.
+> [GNOME Text Editor](https://en.wikipedia.org/wiki/GNOME_Text_Editor) replaces gedit as GNOME/Ubuntu's default text editor in Ubuntu 22.10. If you're running an older version of Ubuntu and want to use [gedit](https://en.wikipedia.org/wiki/Gedit), the previous default text editor, use: `sudo apt install gedit -y`.
 
 ### Install GIMP
 
@@ -141,9 +141,23 @@ To launch, enter the name of the tool you would like to use. For example:
 
 To install the Google Chrome for Linux:
 
-1. Change directories into the temp folder: `cd /tmp`
-2. Use wget to download it: `wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb`
-3. Install the package: `sudo apt install --fix-missing ./google-chrome-stable_current_amd64.deb`
+1. Change directories into the temp folder:
+
+    ```bash
+    cd /tmp
+    ```
+
+1. Use wget to download it:
+
+    ```bash
+    wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+    ```
+
+1. Install the package:
+
+    ```bash
+    sudo apt install --fix-missing ./google-chrome-stable_current_amd64.deb
+    ```
 
 *The `--fix-missing` option is used to fix missing dependencies that may arise during the installation process. The `./` in the command specifies the current directory where the .deb file is located. If the .deb file is located in a different directory, you will need to specify the path to the file in the command.
 
@@ -151,7 +165,7 @@ To launch, enter: `google-chrome`
 
 ### Install Microsoft Edge browser for Linux
 
-Find information on how to [install the Microsoft Edge browser for Linux using the command line on the Edge Insider site](https://www.microsoftedgeinsider.com/download/?platform=linux-deb). Select **Get instructions** under the Command line installation section of the page.
+Find information on how to install the Edge for Linux using the command line on the page for [becoming a Edge Insider](https://www.microsoft.com/edge/download/insider?platform=linux#linux-command). Select **Command line installation** under the Command line installation section of the page.
 
 To launch, enter: `microsoft-edge`
 
