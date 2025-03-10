@@ -208,7 +208,10 @@ sections:
          wsl --import-in-place <Distro, e.g: Ubuntu> <FileName, e.g: D:\WSLDistros\Ubuntu\ext4.vhdx>
          ```
 
-         You can set up your default user account by [setting a wsl.conf value of user.default=<name>](./wsl-config.md#user-settings)
+      - question: |
+         How to set your default user account
+        answer: |
+         You can set up your default user account by [setting a `wsl.conf` value of `user.default=<name>`](./wsl-config.md#user-settings)
 
 
   - name: WSL 2

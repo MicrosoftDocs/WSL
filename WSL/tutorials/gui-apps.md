@@ -156,10 +156,10 @@ To install the Google Chrome for Linux:
 1. Install the package:
 
     ```bash
-    sudo apt install --fix-missing ./google-chrome-stable_current_amd64.deb
+    sudo apt install -f ./google-chrome-stable_current_amd64.deb
     ```
 
-*The `--fix-missing` option is used to fix missing dependencies that may arise during the installation process. The `./` in the command specifies the current directory where the .deb file is located. If the .deb file is located in a different directory, you will need to specify the path to the file in the command.
+*The `-f` option is used to fix broken dependencies that may arise during the installation process. The `./` in the command specifies the current directory where the .deb file is located. If the .deb file is located in a different directory, you will need to specify the path to the file in the command.
 
 To launch, enter: `google-chrome`
 
