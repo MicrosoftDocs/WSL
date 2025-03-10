@@ -13,11 +13,11 @@ The Windows Subsystem for Linux (WSL) is available for installation on Windows S
 
 [Windows Server 2022](/windows-server/get-started/whats-new-in-windows-server-2022) now supports a simple WSL installation using the command:
 
-```bash
-wsl --install
+```powershell
+wsl.exe --install
 ```
 
-You can now install everything you need to run WSL on Windows Server 2022 by entering this command in an **administrator** PowerShell or Windows Command Prompt and then restarting your machine.
+You can now install everything you need to run WSL on Windows Server 2022 by entering this command in an **administrator** PowerShell and then restarting your machine.
 
 This command will enable the required optional components, download the latest Linux kernel, set WSL 2 as your default, and install a Linux distribution for you *(Ubuntu by default)*.
 
@@ -46,7 +46,7 @@ Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-L
 
 ### Download a Linux distribution
 
-See the [Downloading distributions](install-manual.md#downloading-distributions) section of the manual installation page for instructions and links to download your preferred Linux distribution.
+See the [Downloading distributions](./install-manual.md#downloading-distributions) section of the manual installation page for instructions and links to download your preferred Linux distribution.
 
 ### Extract and install a Linux distribution
 
@@ -65,8 +65,8 @@ Now that you've downloaded a Linux distribution, in order to extract its content
     Add-AppxPackage .\app_name.appx
     ```
 
-    > [!CAUTION]
-    > **Installation failed with error 0x8007007e**: If you receive this error, then your system doesn't support WSL. Ensure that you're running Windows build 16215 or later. [Check your build](troubleshooting.md#check-your-build-number). Also check to [confirm that WSL is enabled](troubleshooting.md#confirm-wsl-is-enabled) and your computer was restarted after the feature was enabled.  
+   > [!CAUTION]
+   > **Installation failed with error 0x8007007e**: If you receive this error, then your system doesn't support WSL. Ensure that you're running Windows build 16215 or later. [Check your build](troubleshooting.md#check-your-build-number). Also check to [confirm that WSL is enabled](troubleshooting.md#confirm-wsl-is-enabled) and your computer was restarted after the feature was enabled.
 
 3. Add your Linux distribution path to the Windows environment PATH (`C:\Users\Administrator\Ubuntu` in this example), using PowerShell:
 

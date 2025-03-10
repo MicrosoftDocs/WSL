@@ -48,7 +48,7 @@ To try the most recent features or updates to WSL, join the [Windows Insiders Pr
 
 ## Related videos
 
-**WSL BASICS**
+### WSL BASICS
 
 1. [What is the Windows Subsystem for Linux (WSL)?](https://www.youtube.com/watch?v=NYGMY9c90Oo) | One Dev Question (0:40)
 1. [I'm a Windows developer. Why should I use WSL? |](https://www.youtube.com/watch?v=sqdHy1rC2t4) One Dev Question (0:58)
@@ -64,7 +64,7 @@ To try the most recent features or updates to WSL, join the [Windows Insiders Pr
 1. [Why would I want to use Linux tools on Windows?](https://www.youtube.com/watch?v=OeomwrHLAR4) | One Dev Question (1:20)
 1. [In WSL, can I use distros other than the ones in the Microsoft Store?](https://www.youtube.com/watch?v=AfhDwVASD2c) | One Dev Question (1:03)
 
-**WSL DEMOS**
+### WSL DEMOS
 
 1. [WSL2: Code faster on the Windows Subsystem for Linux!](https://www.youtube.com/watch?v=MrZolfGm8Zk&t=3s) | Tabs vs Spaces (13:42)
 1. [WSL: Run Linux GUI Apps](https://www.youtube.com/watch?v=kC3eWRPzeWw) | Tabs vs Spaces (17:16)
@@ -76,7 +76,7 @@ To try the most recent features or updates to WSL, join the [Windows Insiders Pr
 1. [New memory reclaim feature in WSL 2](https://www.youtube.com/watch?v=K9GPOHrZgr4) | Demo (6:01)
 1. [Web development on Windows (in 2019)](https://www.youtube.com/watch?v=UxWN1BBr1bM) | Demo (10:39)
 
-**WSL DEEP DIVES**
+### WSL DEEP DIVES
 
 1. [WSL on Windows 11 - Demos with Craig Loewen and Scott Hanselman](https://www.youtube.com/watch?v=pNwatyeXplY)| Windows Wednesday (35:48)
 1. [WSL and Linux Distributions – Hayden Barnes and Kayla Cinnamon](https://www.youtube.com/watch?v=kCB3gO32SPs) | Windows Wednesday (37:00)

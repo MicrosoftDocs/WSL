@@ -15,11 +15,11 @@ The WSL commands below are listed in a format supported by PowerShell or Windows
 wsl --install
 ```
 
-Install WSL and the default Ubuntu distribution of Linux. [Learn more](./install.md). You can also use this command to install additional Linux distributions by running `wsl --install <Distribution Name>`. For a valid list of distribution names, run `wsl --list --online`. 
+Install WSL and the default Ubuntu distribution of Linux. [Learn more](./install.md). You can also use this command to install additional Linux distributions by running `wsl --install <Distribution Name>`. For a valid list of distribution names, run `wsl --list --online`.
 
-Options include: 
+Options include:
 
-- `--distribution`: Specify the Linux distribution to install. You can find available distributions by running `wsl --list --online`. 
+- `--distribution`: Specify the Linux distribution to install. You can find available distributions by running `wsl --list --online`.
 - `--no-launch`: Install the Linux distribution but do not launch it automatically.
 - `--web-download`: Install from an online source rather than using the Microsoft Store.
 
@@ -54,7 +54,7 @@ See a list of the Linux distributions installed on your Windows machine, includi
 wsl --set-version <distribution name> <versionNumber>
 ```
 
-To designate the version of WSL (1 or 2) that a Linux distribution is running on, replace `<distribution name>` with the name of the distribution and replace `<versionNumber>` with 1 or 2. [Comparing WSL 1 and WSL 2](./compare-versions.md). WSL 2 is only available in Windows 11 or Windows 10, Version 1903, Build 18362 or later. 
+To designate the version of WSL (1 or 2) that a Linux distribution is running on, replace `<distribution name>` with the name of the distribution and replace `<versionNumber>` with 1 or 2. [Comparing WSL 1 and WSL 2](./compare-versions.md). WSL 2 is only available in Windows 11 or Windows 10, Version 1903, Build 18362 or later.
 
 > [!WARNING]
 > Switching between WSL 1 and WSL 2 can be time-consuming and result in failures due to the differences between the two architectures. For distributions with large projects, we recommend backing up files before attempting a conversion.
@@ -65,7 +65,7 @@ To designate the version of WSL (1 or 2) that a Linux distribution is running on
 wsl --set-default-version <Version>
 ```
 
-To set a default version of WSL 1 or WSL 2, replace `<Version>` with either the number 1 or 2. For example, `wsl --set-default-version 2`. The number represents the version of WSL to default to for new Linux distribution installations. [Comparing WSL 1 and WSL 2](./compare-versions.md). WSL 2 is only available in Windows 11 or Windows 10, Version 1903, Build 18362 or later. 
+To set a default version of WSL 1 or WSL 2, replace `<Version>` with either the number 1 or 2. For example, `wsl --set-default-version 2`. The number represents the version of WSL to default to for new Linux distribution installations. [Comparing WSL 1 and WSL 2](./compare-versions.md). WSL 2 is only available in Windows 11 or Windows 10, Version 1903, Build 18362 or later.
 
 ## Set default Linux distribution
 
@@ -97,7 +97,7 @@ To run a specific Linux distribution with a specific user, replace `<Distributio
 wsl --update
 ```
 
-Update your WSL version to the latest version. Options include: 
+Update your WSL version to the latest version. Options include:
 
 - `--web-download`: Download the latest update from the GitHub rather than the Microsoft Store.
 
@@ -109,13 +109,13 @@ wsl --status
 
 See general information about your WSL configuration, such as default distribution type, default distribution, and kernel version.
 
-## Check WSL version 
+## Check WSL version
 
 ```powershell
 wsl --version
 ```
 
-Check the version information about WSL and its components. 
+Check the version information about WSL and its components.
 
 ## Help command
 
@@ -156,7 +156,7 @@ For example:
 wsl --shutdown
 ```
 
-Immediately terminates all running distributions and the WSL 2 lightweight utility virtual machine. This command may be necessary in instances that require you to restart the WSL 2 virtual machine environment, such as [changing memory usage limits](/windows/wsl/disk-space) or making a change to your [.wslconfig file](./manage.md).
+Immediately terminates all running distributions and the WSL 2 lightweight utility virtual machine. This command may be necessary in instances that require you to restart the WSL 2 virtual machine environment, such as [changing memory usage limits](./disk-space.md) or making a change to your [.wslconfig file](./manage.md).
 
 ## Terminate
 
@@ -240,7 +240,7 @@ Attach and mount a physical disk in all WSL2 distributions by replacing `<DiskPa
 wsl --unmount <DiskPath>
 ```
 
-Unmount a disk given at the disk path, if no disk path is given then this command will unmount and detach ALL mounted disks.  
+Unmount a disk given at the disk path, if no disk path is given then this command will unmount and detach ALL mounted disks.
 
 ## Deprecated WSL commands
 

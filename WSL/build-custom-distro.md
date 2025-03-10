@@ -9,7 +9,7 @@ ms.topic: article
 
 This guide will walk through the steps to create and distribute a WSL distribution, which is a `.wsl` file.
 
-WSL distributions have two parts: 
+WSL distributions have two parts:
 
 1) A root filesystem (distributed as a tar file)
 2) A manifest entry (which contains the distribution metadata)
@@ -17,11 +17,11 @@ WSL distributions have two parts:
 This guide only applies to [WSL release 2.4.4]( https://github.com/microsoft/WSL/releases) and higher.
 
 > [!NOTE]
-> See [this repository](https://github.com/microsoft/WSL-DistroLauncher) for the previous appx based distribution packaging instructions. 
+> See [this repository](https://github.com/microsoft/WSL-DistroLauncher) for the previous appx based distribution packaging instructions.
 
 ## What are WSL root filesystem tar files?
 
-WSL distributions are defined by a tar file with a `.wsl` file extension on Windows. 
+WSL distributions are defined by a tar file with a `.wsl` file extension on Windows.
 
 A TAR file (short for Tape Archive) is a type of archive file used to store multiple files together in a single file for easier distribution or backup. The TAR file contains the root file system of a Linux distribution (all the distribution files), as well as the WSL configuration files. WSL configuration files tell the WIndows operating system how to install and launch the distribution.
 
@@ -32,7 +32,7 @@ Once you have a Linux system that you'd like to make into a WSL distribution, fo
 There are two configuration files that the distribution should include:
 
 1. `/etc/wsl-distribution.conf`: A file created by the distribution maintainer responsible for controlling how the Linux distribution should be configured when first launched with WSL.
-2. `/etc/wsl.conf`: A file containing global system settings that are specific to the user and control how the distribution is launched. [Learn more about WSL configuration files.](/windows/wsl/wsl-config#what-is-the-difference-between-wslconf-and-wslconfig).
+2. `/etc/wsl.conf`: A file containing global system settings that are specific to the user and control how the distribution is launched. [Learn more about WSL configuration files.](./wsl-config.md).
 
 ### Add the WSL distribution configuration file
 
@@ -57,20 +57,20 @@ enabled = true
 ProfileTemplate = /usr/lib/wsl/terminal-profile.json
 ```
 
-WSL distribution file configuration options: 
+WSL distribution file configuration options:
 
 | key | value | default | notes |
-|:-----------|:---------|:--------|:------|
-| `oobe.command` | string | `<none>` | OOBE stands for out of box experience. This command runs the first time the user opens an interactive shell in the distribution. If that command returns non zero, it is considered unsuccessful, and the user won't be able to open a shell.   |
-| `oobe.defaultUid` | integer | `<none>` | The default UID that the distribution starts with. This is useful when the `oobe.command` script creates a new user. |
-| `oobe.defaultName`| string | `<none>` | The default name that the distribution is registered under. This default name can be replaced with the command: `wsl.exe --install <distro> --name <name>` |
+|:---|:---|:---|:---|
+| `oobe.command` | string | None | OOBE stands for out of box experience. This command runs the first time the user opens an interactive shell in the distribution. If that command returns non zero, it is considered unsuccessful, and the user won't be able to open a shell.   |
+| `oobe.defaultUid` | integer | None | The default UID that the distribution starts with. This is useful when the `oobe.command` script creates a new user. |
+| `oobe.defaultName`| string | None | The default name that the distribution is registered under. This default name can be replaced with the command: `wsl.exe --install <distro> --name <name>` |
 | `shortcut.icon` | string | The default WSL icon | The icon in the start menu shortcut for the distribution. Must be in `.ico` format with a maximum size of `10MB` |
 | `shortcut.enabled` | boolean | true | Whether a start menu shortcut should be created when the distribution is installed. |
-| `windowsterminal.profileTemplate` | string | `<none>` | The JSON template to generate a Windows Terminal profile for this distribution. |
-| `windowsterminal.enabled` | boolean | true | Whether a terminal profile should be created when the distribution is installed. If `profileTemplate` is not set, a default profile will be generated. | 
-| `windowsterminal.profileTemplate` | string | Path to a terminal template file | The JSON template to generate a Windows Terminal profile for this distribution. | 
+| `windowsterminal.profileTemplate` | string | None | The JSON template to generate a Windows Terminal profile for this distribution. |
+| `windowsterminal.enabled` | boolean | true | Whether a terminal profile should be created when the distribution is installed. If `profileTemplate` is not set, a default profile will be generated. |
+| `windowsterminal.profileTemplate` | string | Path to a terminal template file | The JSON template to generate a Windows Terminal profile for this distribution. |
 
-You need to create an out of box experience (OOBE) first run experience for the distribution. Below is a sample bash script that you can use. This script assumes that `oobe.defaultUid` is set to `1000`: 
+You need to create an out of box experience (OOBE) first run experience for the distribution. Below is a sample bash script that you can use. This script assumes that `oobe.defaultUid` is set to `1000`:
 
 ```bash
 #!/bin/bash
@@ -107,12 +107,11 @@ done
 
 ## Generate a Windows Terminal profile
 
-WSL automatically generates a Windows Terminal profile when a distribution is installed. Distribution maintainers can customize the generated profile generated by setting ` windowsterminal.profileTemplate` in the WSL configuration file, `/etc/wsl-distribution.conf`. 
+WSL automatically generates a Windows Terminal profile when a distribution is installed. Distribution maintainers can customize the generated profile generated by setting `windowsterminal.profileTemplate` in the WSL configuration file, `/etc/wsl-distribution.conf`.
 
-The json file follows [the terminal profile json format](/windows/terminal/json-fragment-extensions#structure-of-the-json-files).  Here’s an example profile: 
+The json file follows [the terminal profile json format](/windows/terminal/json-fragment-extensions#structure-of-the-json-files).  Here’s an example profile:
 
-```
-
+```json
 {
   "profiles": [
     {
@@ -143,22 +142,22 @@ The json file follows [the terminal profile json format](/windows/terminal/json-
     }
   ]
 }
-``` 
+```
 
 This file doesn’t need to specify the profile `name`, or `commandLine`. Those are automatically added by WSL when generating the terminal profile.
 
 ### Add a WSL configuration for local settings on a per-distribution basis
 
-In the context of a distribution root filesystem, we recommend that you configure systemd settings, including whether systemd starts by default, in the `/etc/wsl.conf` local settings on a per-distribution basis.  See the example below. 
+In the context of a distribution root filesystem, we recommend that you configure systemd settings, including whether systemd starts by default, in the `/etc/wsl.conf` local settings on a per-distribution basis.  See the example below.
 
-```
+```bash
 # /etc/wsl.conf
 
 [boot]
 systemd=true|false
 ```
 
-The distribution author determines whether systemd is enabled by default by setting the `boot.systemd` value to `true` (enabled) or `false` (not enabled). 
+The distribution author determines whether systemd is enabled by default by setting the `boot.systemd` value to `true` (enabled) or `false` (not enabled).
 
 See the [Systemd recommendations](#systemd-recommendations) if you chose to enable systemd by default.
 
@@ -166,16 +165,16 @@ See [Advanced settings configuration in WSL](./wsl-config.md) for all supported 
 
 ### Create the tar file
 
-Once the distribution and configuration files are in place, the root filesystem can be captured in the tar file. 
+Once the distribution and configuration files are in place, the root filesystem can be captured in the tar file.
 
 The recommended way of creating the tar file:
 
-```
-$ cd /path/to/rootfs
-$ tar --numeric-owner --absolute-names -c  * | gzip --best > ../install.tar.gz
+```bash
+cd /path/to/rootfs
+tar --numeric-owner --absolute-names -c  * | gzip --best > ../install.tar.gz
 ```
 
-The root of the tar should be the root of the filesystem (not a directory containing the root filesystem). 
+The root of the tar should be the root of the filesystem (not a directory containing the root filesystem).
 
 The recommended compression format is gzip. Other compression formats run the risk of breaking compatibility with older WSL versions.
 
@@ -199,65 +198,72 @@ The custom Linux distribution tar that you’ve created and renamed with a `.wsl
 
 The [distribution manifest](https://github.com/microsoft/WSL/blob/master/distributions/DistributionInfo.json) contains metadata about the distributions that are available for installation via `wsl --install <distribution>`.
 
-Linux distributions that are tar-based are listed under `ModernDistribution`, with the below format: 
+Linux distributions that are tar-based are listed under `ModernDistribution`, with the below format:
 
-```
-"ModernDistributions": {
-
-"<flavor>": [
-    
-    {
-    "Name": "<version name>",
-    "FriendlyName": "<friendly name>",
-    "Default": true | false,
-    "Amd64Url": {
-        "Url": "<tar url>",
-        "Sha256": "<tar sha265 hash>"
-        },
-    "Arm64Url": {
-        "Url": "<tar url>",
-        "Sha256": "<tar sha265 hash>"
-        }
+```json
+{
+    "ModernDistributions": {
+        "<flavor>": [
+            {
+                "Name": "<version name>",
+                "FriendlyName": "<friendly name>",
+                "Default": true | false,
+                "Amd64Url": {
+                    "Url": "<tar url>",
+                    "Sha256": "<tar sha256 hash>"
+                },
+                "Arm64Url": {
+                    "Url": "<tar url>",
+                    "Sha256": "<tar sha256 hash>"
+                }
+            },
+            {
+                ...
+            }
+        ],
+        "<flavor>": [
+            ...
+        ]
     }
 }
-
 ```
 
 Each `flavor` entry contains a list of installable distributions. Distributions can be installed either via the flavor name (in which case the default entry is installed), or the version name.
 
-See how `wsl --install` commands work with the below manifest: 
+See how `wsl --install` commands work with the below manifest:
 
-```
+```json
 {
     "ModernDistributions": {
         "my-distro": [
             {
-                "Name": "my-distro-v3", 
+                "Name": "my-distro-v3",
                 "Default": true,
                 "FriendlyName": "My distribution version 3 (latest)"
-                 [...]
+                [...]
             },
             {
-                "Name": "my-distro-v2", 
+                "Name": "my-distro-v2",
                 "Default": false,
                 "FriendlyName": "My distribution version 2"
-                 [...]
+                [...]
             }
-    }        
+        ]
+    }
 }
 ```
 
-Sample install commands: 
+Sample install commands:
 
-```
-$ wsl --install my-distro # Installs 'my-distro-v3' since it's the default for 'my-distro' flavor
-$ wsl --install my-distro-v3 # Installs 'my-distro-v3' explicitly
-$ wsl --install my-distro-v2 # Installs 'my-distro-v2' explicitly
+```powershell
+wsl --install my-distro # Installs 'my-distro-v3' since it's the default for 'my-distro' flavor
+wsl --install my-distro-v3 # Installs 'my-distro-v3' explicitly
+wsl --install my-distro-v2 # Installs 'my-distro-v2' explicitly
 ```
 
 ## Adding your distribution to `wsl --install` for all WSL users
 
-To make your WSL distribution available to all users, open a pull request on the [WSL GitHub repository](https://github.com/microsoft/wsl) that modifies the [DistributionInfo.json](https://github.com/microsoft/WSL/blob/master/distributions/DistributionInfo.json) file to include your distribution information. 
+To make your WSL distribution available to all users, open a pull request on the [WSL GitHub repository](https://github.com/microsoft/WSL) that modifies the [DistributionInfo.json](https://github.com/microsoft/WSL/blob/master/distributions/DistributionInfo.json) file to include your distribution information.
 
 This pull request will be reviewed by the WSL team.
 
@@ -265,12 +271,12 @@ This pull request will be reviewed by the WSL team.
 
 You can also make your distribution available in `wsl --install` only to a select group by editing registry keys on the chosen Windows devices.
 
-The WSL distribution manifest can be overridden by creating registry values in `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Lxss`. 
+The WSL distribution manifest can be overridden by creating registry values in `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Lxss`.
 
 - `DistributionListUrl`: Overrides the distribution manifest URL
 - `DistributionListUrlAppend`: Add distributions from that manifest URL to the list of installable distributions
 
-Both registry values are strings (REG_SZ) and are expected to be in URL format. 
+Both registry values are strings (REG_SZ) and are expected to be in URL format.
 
 Starting with WSL release 2.4.4, the `file://` protocol is supported to make local testing easier. The expected format is: `file:///C:/path/to/file`.
 
@@ -313,7 +319,7 @@ $manifestFile = "$PSScriptRoot/manifest.json"
 $manifest | ConvertTo-Json -Depth 5 | Out-File -encoding ascii $manifestFile
 
 
-Set-ItemProperty -Path "HKLM:SOFTWARE\Microsoft\Windows\CurrentVersion\Lxss" -Name DistributionListUrl -Value "file://$manifestFile" -Type String -Force 
+Set-ItemProperty -Path "HKLM:SOFTWARE\Microsoft\Windows\CurrentVersion\Lxss" -Name DistributionListUrl -Value "file://$manifestFile" -Type String -Force
 ```
 
 Then configure the local manifest by running the following command in an elevated Powershell:
@@ -351,7 +357,7 @@ When you're done, you can delete `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\
 
 ### Systemd recommendations
 
-If systemd is enabled, units that can cause issues with WSL should be disabled or masked. 
+If systemd is enabled, units that can cause issues with WSL should be disabled or masked.
 The below units are known to cause issues in WSL distributions (applies to both system and user units):
 
 - systemd-resolved.service
