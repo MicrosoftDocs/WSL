@@ -193,25 +193,19 @@ sections:
       - question: |
          How can I move my WSL distribution to a different drive or location?
         answer: |
-         You can do this using PowerShell. Below are the necessary commands and explanations for each step. Please open a PowerShell window and adjust the values in between the `<` tags to fit your specific use case:
+         You can do this using PowerShell. Below are the necessary commands and explanations for each step. Please open a PowerShell window and adjust the values in between the `<>` tags to fit your specific use case:
 
          ```powershell
-         # Create a folder where you would like to store your distro
-         New-Item -ItemType Directory -Path <Install location, e.g: D:\WSLDistros\Ubuntu>
-
          # Export your distro to that folder as a VHD
          wsl --export <Distro, e.g: Ubuntu> <FileName, e.g: D:\WSLDistros\Ubuntu\ext4.vhdx> --format vhd
 
          # Unregister your old distro
          # Please note this will erase your existing distro's file contents, please ensure the backup file you created in the 2nd step is present at the location and that the export operation completed successfully.
          # Please exercise caution when using this command, as it is destructive and could cause data loss.
-         wsl --unregister <Distro>
+         wsl --unregister <Distro, e.g: Ubuntu>
 
          # Import your VHD backup
-
-         wsl --import-in-place <Distro> <FileName>
-
-         # Set your default user account
+         wsl --import-in-place <Distro, e.g: Ubuntu> <FileName, e.g: D:\WSLDistros\Ubuntu\ext4.vhdx>
          ```
 
          You can set up your default user account by [setting a wsl.conf value of user.default=<name>](./wsl-config.md#user-settings)

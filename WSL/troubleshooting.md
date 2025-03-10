@@ -237,33 +237,32 @@ You can confirm local rule merging's setting by following these steps:
 
 You can find instructions on how to change this Firewall setting in [Configure Hyper-V firewall](/windows/security/operating-system-security/network-security/windows-firewall/hyper-v-firewall).
 
-<!--Critical error-->
 ### WSL has no network connectivity once connected to a VPN
 
 If after connecting to a VPN on Windows, bash loses network connectivity, try this workaround from within bash. This workaround will allow you to manually override the DNS resolution through `/etc/resolv.conf`.
 
-1. Take a note of the DNS server of the VPN from doing
+1. Take a note of the DNS server of the VPN from doing:
 
     ```powershell
     ipconfig.exe /all
     ```
 
-1. Make a copy of the existing resolv.conf
+1. Make a copy of the existing `resolv.conf`:
 
     ```bash
-    sudo cp /etc/resolv.conf /etc/resolv.conf.new
+    sudo cp /etc/resolv.conf /etc/resolv.conf.bak
     ```
 
-1. Unlink the current resolv.conf
+1. Unlink the current `resolv.conf`:
 
     ```bash
     sudo unlink /etc/resolv.conf
     ```
 
-1. Run
+1. Run:
 
     ```bash
-    sudo mv /etc/resolv.conf.new /etc/resolv.conf
+    sudo mv /etc/resolv.conf.bak /etc/resolv.conf
     ```
 
 1. Edit `/etc/wsl.conf` and add this content to the file. (More info on this set up can be found in [Advanced settings configuration](./wsl-config.md))
@@ -273,18 +272,21 @@ If after connecting to a VPN on Windows, bash loses network connectivity, try th
     generateResolvConf=false
     ```
 
-1. Open `/etc/resolv.conf` and
-    1. Delete the first line from the file which has a comment describing automatic generation
-    1. Add the DNS entry from (1) above as the very first entry in the list of DNS servers.
-    1. Close the file.
+1. Edit the `/etc/resolv.conf` file, adding the DNS address recorded in step 1 to the top of the file in the format `nameserver <DNS>`, for example:
+
+    ```bash
+    nameserver 127.0.0.1
+    nameserver 10.255.255.254
+    ```
 
 Once you have disconnected the VPN, you will have to revert the changes to `/etc/resolv.conf`. To do this, do:
 
 ```bash
-cd /etc
-sudo mv resolv.conf resolv.conf.new
-sudo ln -s ../run/resolvconf/resolv.conf resolv.conf
+sudo mv /etc/resolv.conf /etc/resolv.conf.bak
+sudo ln -s /run/resolvconf/resolv.conf /etc/resolv.conf
 ```
+
+For subsequent uses in the same environment, only steps 3 and 4 of the configuration procedure need to be executed.
 
 ### Cisco Anyconnect VPN issues with WSL in NAT mode
 

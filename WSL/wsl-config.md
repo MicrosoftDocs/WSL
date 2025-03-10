@@ -62,7 +62,7 @@ You will then need to close your WSL distribution using `wsl.exe --shutdown` fro
 
 wsl.conf section label: `[automount]`
 
-| key | value | default | notes |
+| Key | Value | Default | Notes |
 |:----|:----|:----|:----|
 | `enabled` | boolean | `true` | `true` causes fixed drives (i.e `C:/` or `D:/`) to be automatically mounted with DrvFs under `/mnt`.  `false` means drives won't be mounted automatically, but you could still mount them manually or via `fstab`.                                                                                                             |
 | `mountFsTab` | boolean | `true` | `true` sets `/etc/fstab` to be processed on WSL start. `/etc/fstab` is a file where you can declare other filesystems, like an SMB share. Thus, you can mount these filesystems automatically in WSL on start up.                                                                                                                |
@@ -100,7 +100,7 @@ DrvFs is a filesystem plugin to WSL that was designed to support interop between
 
 wsl.conf section label: `[network]`
 
-| key | value | default | notes|
+| Key | Value | Default | Notes|
 |:----|:----|:----|:----|
 | `generateHosts` | boolean | `true` | `true` sets WSL to generate `/etc/hosts`. The `hosts` file contains a static map of hostnames corresponding IP address. |
 | `generateResolvConf` | boolean | `true` | `true` sets WSL to generate `/etc/resolv.conf`. The `resolv.conf` contains a DNS list that are capable of resolving a given hostname to its IP address. |
@@ -112,7 +112,7 @@ wsl.conf section label: `[interop]`
 
 These options are available in Insider Build 17713 and later.
 
-| key | value | default | notes|
+| Key | Value | Default | Notes|
 |:----|:----|:----|:----|
 | `enabled` | boolean | `true` | Setting this key will determine whether WSL will support launching Windows processes. |
 | `appendWindowsPath` | boolean | `true` | Setting this key will determine whether WSL will add Windows path elements to the `$PATH` environment variable. |
@@ -123,7 +123,7 @@ wsl.conf section label: `[user]`
 
 These options are available in Build 18980 and later.
 
-| key | value | default | notes|
+| Key | Value | Default | Notes|
 |:----|:----|:----|:----|
 | `default` | string | The initial username created on first run | Setting this key specifies which user to run as when first starting a WSL session. |
 
@@ -133,7 +133,7 @@ The Boot setting is only available on Windows 11 and Server 2022.
 
 wsl.conf section label: `[boot]`
 
-| key | value | default | notes|
+| Key | Value | Default | Notes|
 |:----|:----|:----|:----|
 | `command` | string | Null | A string of the command that you would like to run when the WSL instance starts. This command is run as the root user. e.g: `service docker start`.|
 
@@ -209,7 +209,7 @@ This file can contain the following options that affect the VM that powers any W
 
 .wslconfig section label: `[wsl2]`
 
-| key | value | default | notes|
+| Key | Value | Default | Notes|
 |:----|:----|:----|:----|
 | `kernel` | path | The Microsoft built kernel provided inbox | An absolute Windows path to a custom Linux kernel. |
 | `memory` | size | 50% of total memory on Windows | How much memory to assign to the WSL 2 VM. |
