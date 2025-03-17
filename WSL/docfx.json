@@ -51,7 +51,10 @@
       "ms.author": "mattwoj",
       "ms.reviewer": "crloewen",
       "searchScope": ["WSL"],
-      "adobe-target": true
+      "adobe-target": true,
+      "contributors_to_exclude": [
+      "VSC-Service-Account"
+      ]
     },
     "contributors_to_exclude": [
       "VSC-Service-Account"

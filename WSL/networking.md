@@ -64,7 +64,10 @@ If you are building a networking app (for example an app running on a NodeJS or 
 
 If you want to access a networking app running on Windows (for example an app running on a NodeJS or SQL server) from your Linux distribution (ie Ubuntu), then you need to use the IP address of your host machine. While this is not a common scenario, you can follow these steps to make it work.
 
-1. Obtain the IP address of your host machine by running this command from your Linux distribution: `ip route show | grep -i default | awk '{ print $3}'`
+1. Obtain the IP address of your host machine by running this command from your Linux distribution: 
+```bash
+ip route show | grep -i default | awk '{ print $3}'`
+```
 2. Connect to any Windows server using the copied IP address.
 
 The picture below shows an example of this by connecting to a Node.js server running in Windows via curl.
