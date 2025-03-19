@@ -24,7 +24,7 @@ wsl -d <DistributionName> hostname -i
 
 If querying the default distribution, this part of the command designating the distribution can be omitted: `-d <DistributionName>`. Be sure to use a lower-case `-i` flag.
 
-Under the hood, host command `wsl.exe` launches the target instance and executes Linux command `hostname --ip-addresses`. This command then prints the IP address of the WSL instance to `STDOUT`. The `STDOUT` text content is then relayed back to wsl.exe. Finally, wsl.exe displays that output to the command line. 
+Under the hood, host command `wsl.exe` launches the target instance and executes Linux command `hostname --all-ip-addresses`. This command then prints the IP address of the WSL instance to `STDOUT`. The `STDOUT` text content is then relayed back to wsl.exe. Finally, wsl.exe displays that output to the command line. 
 
 A typical output might be:
 
