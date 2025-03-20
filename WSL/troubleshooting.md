@@ -239,6 +239,14 @@ Once you have disconnected the VPN, you will have to revert the changes to `/etc
 2. `sudo mv resolv.conf resolv.conf.new`
 3. `sudo ln -s ../run/resolvconf/resolv.conf resolv.conf`
 
+### Global Secure Access Client issues with WSL
+
+The Global Secure Access Client (https://learn.microsoft.com/en-us/entra/global-secure-access/how-to-install-windows-client) can affect WSL connectivity as it has a feature to return a temporary address when resolving a name.
+Then the address is swapped to the actual address when a network connection is made.
+This can break WSL as the WSL traffic is forwarded below much of the GSA client hooks.
+
+We recommend disabling DNS Tunneling (`dnsTunneling=false`) or disabling Mirrored Mode (`networkingMode=nat`).
+
 ### Cisco Anyconnect VPN issues with WSL in NAT mode
 
 The Cisco AnyConnect VPN modifies routes in a way which prevents NAT from working. There is a workaround specific to WSL 2: See [Cisco AnyConnect Secure Mobility Client Administrator Guide, Release 4.10 - Troubleshoot AnyConnect](https://www.cisco.com/c/en/us/td/docs/security/vpn_client/anyconnect/anyconnect410/administration/guide/b-anyconnect-admin-guide-4-10/troubleshoot-anyconnect.html#Cisco_Task_in_List_GUI.dita_3a9a8101-f034-4e9b-b24a-486ee47b5e9f).
