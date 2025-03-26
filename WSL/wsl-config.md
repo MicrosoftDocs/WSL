@@ -19,13 +19,21 @@ The [`wsl.conf`](#wslconf) and [`.wslconfig`](#wslconfig) files are used to conf
 
 Currently, all `.wslconfig` settings apply only to WSL 2 distributions. Learn [how to check which version of WSL you are running](./install.md#check-which-version-of-wsl-you-are-running).
 
-## The 8 second rule for configuration changes
+## Applying Configuration Changes
 
-You must wait until the subsystem running your Linux distribution completely stops running and restarts for configuration setting updates to appear. This typically takes about 8 seconds after closing ALL instances of the distribution shell.
+### For `/etc/wsl.conf` Changes
+To apply distribution-specific settings made in `wsl.conf`, you can terminate the specific distribution using the following command:
+```
+wsl.exe --terminate <distroName>
+```
 
-If you launch a distribution (e.g. Ubuntu), modify the configuration file, close the distribution, and then re-launch it, you might assume that your configuration changes have immediately gone into effect. This is not currently the case as the subsystem could still be running. You must wait for the subsystem to stop before relaunching in order to give enough time for your changes to be picked up. You can check to see whether your Linux distribution (shell) is still running after closing it by using PowerShell with the command: `wsl --list --running`. If no distributions are running, you will receive the response: "There are no running distributions." You can now restart the distribution to see your configuration updates applied.
-
-The command `wsl --shutdown` is a fast path to restarting WSL 2 distributions, but it will shut down all running distributions, so use wisely. You can also use `wsl --terminate <distroName>` to terminate a specific distribution that's running instantly.
+### For `%UserProfile%\.wslconfig` Changes
+To apply global settings made in `.wslconfig`, you must shut down WSL by running:
+```
+wsl.exe --shutdown
+```
+> [!NOTE]
+> This command will terminate all running WSL distributions. Ensure you save your work before executing it.
 
 ## wsl.conf
 
