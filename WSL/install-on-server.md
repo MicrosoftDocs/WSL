@@ -9,11 +9,11 @@ ms.topic: article
 
 The Windows Subsystem for Linux (WSL) is available for installation on Windows Server 2019 (version 1709) and later. This guide will walk through the steps of enabling WSL on your machine.
 
-## Install WSL on Windows Server 2022
+## Install WSL on Windows Server 2022 and 2025 Desktop Experience
 
 [Windows Server 2022](/windows-server/get-started/whats-new-in-windows-server-2022) now supports a simple WSL installation using the command:
 
-```bash
+```cmd
 wsl --install
 ```
 
@@ -30,9 +30,9 @@ See the standard WSL docs for more information on how to:
 - [Add additional distributions](./setup/environment.md#add-additional-distributions).
 - [Use Git with WSL](./tutorials/wsl-git.md).
 
-## Install WSL on previous versions of Windows Server
+## Install WSL on previous versions of Windows Server and Server Core
 
-To install WSL on Windows Server 2019 (version 1709+), you can follow the manual install steps below.
+To install WSL on Windows Server 2019 (version 1709+), as well as Server Core for 2019 and later you can follow the manual install steps below.
 
 ### Enable the Windows Subsystem for Linux
 
@@ -41,7 +41,16 @@ Before you can run Linux distributions on Windows, you must enable the "Windows 
 Open PowerShell **as Administrator** and run:
 
 ```powershell
-Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
+Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux, VirtualMachinePlatform
+```
+
+### Install the WSL Kernel update for WSL 2
+
+This is not necessary for server core 2025.
+
+```powershell
+Invoke-WebRequest -Uri "https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi" -OutFile ".\wsl_update_x64.msi"
+Start-Process "msiexec.exe" -ArgumentList "/i .\wsl_update_x64.msi /quiet" -NoNewWindow -Wait
 ```
 
 ### Download a Linux distribution
@@ -50,31 +59,35 @@ See the [Downloading distributions](install-manual.md#downloading-distributions)
 
 ### Extract and install a Linux distribution
 
-Now that you've downloaded a Linux distribution, in order to extract its contents and manually install, follow these steps:
+Now that you've downloaded a Linux distribution, in order to extract its contents and manually install, follow these steps. Not that you will be downloading an appx file that contains several appx files. In this example we will use debian.
 
-1. Extract the `<DistributionName>.appx` package's contents, using PowerShell:
+1. List the contents of the appx using tar.exe:
+
+    ```cmd
+    > tar -tf .\debian.appx
+    DistroLauncher-Appx_1.12.2.0_ARM64.appx
+    DistroLauncher-Appx_1.12.2.0_scale-100.appx
+    DistroLauncher-Appx_1.12.2.0_scale-125.appx
+    DistroLauncher-Appx_1.12.2.0_scale-150.appx
+    DistroLauncher-Appx_1.12.2.0_scale-400.appx
+    DistroLauncher-Appx_1.12.2.0_x64.appx
+    ```
+    In our example we have a x64 bit server so we want to install `DistroLauncher-Appx_1.12.2.0_x64.appx`.
+
+2. Unzip the contents to a new folder called `\%USERPROFILE%\AppData\Local\DebianWSL\`.
 
     ```powershell
-    Rename-Item .\Ubuntu.appx .\Ubuntu.zip
-    Expand-Archive .\Ubuntu.zip .\Ubuntu
-    ```
+     mkdir "$env:USERPROFILE\AppData\Local\DebianWSL" | Out-Null
+    tar -xf .\DistroLauncher-Appx_1.12.2.0_x64.appx -C $"env:USERPROFILE\AppData\Local\DebianWSL"
+    ```    
 
-2. Once the distribution has been downloaded, navigate to the folder containing the download and run the following command in that directory, where `app-name` is the name of the Linux distribution .appx file.
-
-    ```Powershell
-    Add-AppxPackage .\app_name.appx
-    ```
-
-    > [!CAUTION]
-    > **Installation failed with error 0x8007007e**: If you receive this error, then your system doesn't support WSL. Ensure that you're running Windows build 16215 or later. [Check your build](troubleshooting.md#check-your-build-number). Also check to [confirm that WSL is enabled](troubleshooting.md#confirm-wsl-is-enabled) and your computer was restarted after the feature was enabled.  
-
-3. Add your Linux distribution path to the Windows environment PATH (`C:\Users\Administrator\Ubuntu` in this example), using PowerShell:
+4. Add your Linux distribution path to the Windows environment PATH (`C:\Users\Administrator\Ubuntu` in this example), using PowerShell:
 
     ```powershell
     $userenv = [System.Environment]::GetEnvironmentVariable("Path", "User")
-    [System.Environment]::SetEnvironmentVariable("PATH", $userenv + ";C:\Users\Administrator\Ubuntu", "User")
+    [System.Environment]::SetEnvironmentVariable("PATH", $userenv + ";$env:USERPROFILE\AppData\Local\DebianWSL", "User")
     ```
 
-You can now launch your distribution from any path by typing `<DistributionName>.exe`. For example: `ubuntu.exe`.
+You can now launch your distribution from any path by typing `<DistributionName>.exe`. For example: `ubuntu.exe`. Note that you will need to launch a new powershell instance from the start menu or log off and log on again in the case of Server core to refresh your path
 
 Once installation is complete, you can [create a user account and password for your new Linux distribution](./setup/environment.md#set-up-your-linux-username-and-password).
