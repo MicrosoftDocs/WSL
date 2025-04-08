@@ -90,7 +90,7 @@ Setting different mount options for Windows drives (DrvFs) can control how file 
 
 By default, WSL sets the uid and gid to the value of the default user. For example, in Ubuntu, the default user is uid=1000, gid=1000. If this value is used to specify a different gid or uid option, the default user value will be overwritten. Otherwise, the default value will always be appended.
 
-User file-creation mode mask (umask) sets permission for newly created files. The default is `000`, meaning anyone can read, write, or execute files. Values can be changed to reflect different permission settings. For example, `umask=077` changes permission to be completely private, no other user can read or write data. To further specify permission, fmask (files) and dmask (directories) can also be used.
+The above umask, fmask, etc. options will only apply when the Windows drive is mounted with metadata. By default metadata is not enabled. You can [find more info about this here](./file-permissions). User file-creation mode mask (umask) sets permission for newly created files. The default is `000`, meaning anyone can read, write, or execute files. Values can be changed to reflect different permission settings. For example, `umask=077` changes permission to be completely private, no other user can read or write data. To further specify permission, fmask (files) and dmask (directories) can also be used.
 
 > [!NOTE]
 > The permission masks are put through a logical OR operation before being applied to files or directories.
