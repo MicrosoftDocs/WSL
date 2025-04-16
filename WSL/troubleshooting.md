@@ -1,7 +1,7 @@
 ---
 title: Troubleshooting Windows Subsystem for Linux
 description: Provides detailed information about common errors and issues people run into while running Linux on the Windows Subsystem for Linux. 
-ms.date: 02/22/2024
+ms.date: 08/08/2024
 ms.topic: article
 ---
 
@@ -63,7 +63,7 @@ You can also:
   3. The WSL executable is only installed to the native system directory. When you’re running a 32-bit process on 64-bit Windows (or on ARM64, any non-native combination), the hosted non-native process actually sees a different System32 folder. (The one a 32-bit process sees on x64 Windows is stored on disk at \Windows\SysWOW64.) You can access the "native" system32 from a hosted process by looking in the virtual folder: `\Windows\sysnative`. It won’t actually be present on disk, mind you, but the filesystem path resolver will find it.
 
 - **Error: This update only applies to machines with the Windows Subsystem for Linux.**
-  - To install the Linux kernel update MSI package, WSL is required and should be enabled first. If it fails, it you will see the message: `This update only applies to machines with the Windows Subsystem for Linux`.
+  - To install the Linux kernel update MSI package, WSL is required and should be enabled first. If it fails, you will see the message: `This update only applies to machines with the Windows Subsystem for Linux`.
   - There are three possible reason you see this message:
 
   1. You are still in old version of Windows which doesn't support WSL 2. See step #2 for version requirements and links to update.
@@ -192,7 +192,7 @@ Please enable the Virtual Machine Platform Windows feature and ensure virtualiza
 
 6. Additionally, if you have 3rd party hypervisors installed (Such as VMware or VirtualBox) then please ensure you have these on the latest versions which can support HyperV ([VMware 15.5.5+](https://blogs.vmware.com/workstation/2020/05/vmware-workstation-now-supports-hyper-v-mode.html) and [VirtualBox 6+](https://www.virtualbox.org/wiki/Changelog-6.0)) or are turned off.
 
-7. If you are receiving this error on an Azure Virtual Machine, check to ensure that [Trusted Launch](/azure/virtual-machines/trusted-launch) is disabled. [Nested Virtualization is not supported on Azure virtual machines](/azure/virtual-machines/trusted-launch#unsupported-features).
+7. If you are receiving this error on an Azure Virtual Machine, check to ensure that [Trusted Launch](/azure/virtual-machines/trusted-launch) is disabled. [Nested Virtualization is not supported on Azure virtual machines with Trusted Launch](/azure/virtual-machines/trusted-launch#unsupported-features).
 
 Learn more about how to [Configure Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization#configure-nested-virtualization) when running Hyper-V in a Virtual Machine.
 
@@ -238,6 +238,14 @@ Once you have disconnected the VPN, you will have to revert the changes to `/etc
 1. `cd /etc`
 2. `sudo mv resolv.conf resolv.conf.new`
 3. `sudo ln -s ../run/resolvconf/resolv.conf resolv.conf`
+
+### Global Secure Access Client issues with WSL
+
+The Global Secure Access Client (https://learn.microsoft.com/en-us/entra/global-secure-access/how-to-install-windows-client) can affect WSL connectivity as it has a feature to return a temporary address when resolving a name.
+Then the address is swapped to the actual address when a network connection is made.
+This can break WSL as the WSL traffic is forwarded below much of the GSA client hooks.
+
+We recommend disabling DNS Tunneling (`dnsTunneling=false`) or disabling Mirrored Mode (`networkingMode=nat`).
 
 ### Cisco Anyconnect VPN issues with WSL in NAT mode
 
@@ -296,7 +304,6 @@ When using Mirrored networking mode (the experimental `networkingMode` set to `m
 
 - UDP port 68 (DHCP)
 - TCP port 135 (DCE endpoint resolution)
-- UDP port 5353 (mDNS)
 - TCP port 1900 (UPnP)
 - TCP port 2869 (SSDP)
 - TCP port 5004 (RTP)
@@ -329,6 +336,57 @@ It is recommended to stop the Network Manager service for WSL networking to be c
 
 ```Bash
 sudo systemctl disable network-manager.service
+```
+
+### Resolve .local names in WSL
+
+To resolve hostnames to IP addresses within a local network without the need for a conventional DNS server, .local names are often used. This is achieved through the mDNS (Multicast DNS) protocol, which relies on multicast traffic to function.
+
+**networkingMode set to NAT:**
+
+Currently, this feature is not supported when DNS tunneling is enabled. To enable the resolution of .local names, we recommend the following solutions:
+
+- Disable DNS tunneling.
+- Use mirrored networking mode.
+
+**networkingMode set to Mirrored:**
+
+Note: You need to be on WSL build 2.3.17 or higher in order to have the functionality below.
+
+Since Mirrored mode supports multicast traffic, the mDNS (Multicast DNS) protocol can be used to resolve .local names. Linux must be configured to support mDNS, as it does not do so by default. One way to configure it is using the following these two steps:
+
+1) Install the "libnss-mdns" package 
+
+```Bash
+sudo apt-get install libnss-mdns
+```
+
+*The "libnss-mdns" package is a plugin for the GNU Name Service Switch (NSS) functionality of the GNU C Library (glibc) that provides hostname resolution via Multicast DNS (mDNS). This package effectively allows common Unix/Linux programs to resolve names in the ad-hoc mDNS domain .local.
+
+2) Configure the `/etc/nsswitch.conf` file to enable the "mdns_minimal" setting in the "hosts" section. Example content of the file:
+
+```Bash
+cat /etc/nsswitch.conf
+# /etc/nsswitch.conf
+#
+# Example configuration of GNU Name Service Switch functionality.
+# If you have the `glibc-doc-reference' and `info' packages installed, try:
+# `info libc "Name Service Switch"' for information about this file.
+
+passwd:         compat systemd
+group:          compat systemd
+shadow:         compat
+gshadow:        files
+
+hosts:          files mdns_minimal [NOTFOUND=return] dns
+networks:       files
+
+protocols:      db files
+services:       db files
+ethers:         db files
+rpc:            db files
+
+netgroup:       nis
 ```
 
 ### DNS suffixes in WSL

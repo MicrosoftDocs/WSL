@@ -1,7 +1,7 @@
 ---
 title: Use systemd to manage Linux services with WSL
 description: Learn how to use systemd to manage Linux services with Windows Subsystem for Linux.
-ms.date: 07/17/2024
+ms.date: 01/13/2025
 ms.topic: article
 ---
 
@@ -25,7 +25,10 @@ Systemd is [now the default for the current version of Ubuntu](https://canonical
 
 To enable systemd for any other Linux distributions running on WSL 2 (changing the default from using the systemv init):
 
-1. Ensure that your WSL version is 0.67.6 or newer. (To check, run `wsl --version`. To update, run `wsl --update` or [download the latest version from the Microsoft Store](https://aka.ms/wslstorepage).)
+1. Ensure that your WSL version is 0.67.6 or newer:
+
+    - to check, run `wsl --version`; if the command throws `Invalid command line option: --version` error, you must update WSL;
+    - to update, run `wsl --update` or [download the latest version from the Microsoft Store](https://aka.ms/wslstorepage).
 
 2. Open a command line for your Linux distribution and enter `cd /` to access the root directory, then `ls` to list the files. You will see a directory named "etc" that contains the WSL configuration file for the distribution. Open this file so that you can make an update with the Nano text editor by entering: `nano /etc/wsl.conf`.
 
@@ -36,11 +39,19 @@ To enable systemd for any other Linux distributions running on WSL 2 (changing t
     systemd=true
     ```
 
-4. Exit the Nano text editor (Ctrl + X, select Y to save your change). You will then need to close the Linux distribution. You can use the command `wsl.exe --shutdown` in PowerShell to restart all WSL instances.
+    ![Enable systemd on WSL 2](media/systemd-enable.png)
 
-![Enable systemd on WSL 2](media/systemd-enable.png)
+4. Exit the Nano text editor (Ctrl + X, type Y to save your change and confirm with the `enter` key).
 
-Once your Linux distribution restarts, systemd will be running. You can confirm using the command: `systemctl list-unit-files --type=service`, which will show the status of any services associated with your Linux distribution.
+5. You will then need to close the Linux distribution. You can use the command `wsl.exe --shutdown` in PowerShell to restart all WSL instances.
+
+6. Once you restart the Linux distribution, systemd will be running. You can verify it by using the command `systemctl status` to show the _running_ state and the command `systemctl list-unit-files --type=service`, which will show the status of any services associated with your Linux distribution. 
+
+If your Linux distribution is Debian/Ubuntu/Kali Rolling, you should not only have installed the systemd package, but also make sure the systemd-sysv package is installed.
+
+```bash
+sudo apt-get update -y && sudo apt-get install systemd systemd-sysv -y
+```
 
 Learn more about [Advanced settings configuration in WSL](wsl-config.md), including the difference between the `wsl.conf` (distribution-specific) and `.wslconfig` (global) config files, how to update automount settings, etc.
 

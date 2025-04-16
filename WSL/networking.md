@@ -86,6 +86,8 @@ For a WSL2 instance, you run query command `wslinfo --networking-mode` inside th
 
 ### How to enable WSL2 mirrored mode?
 
+Under the hood, host command `wsl.exe` launches the target instance and executes Linux command `hostname -I` (short notation for `--all-ip-addresses`). This command then prints the IP address of the WSL instance to `STDOUT`. The `STDOUT` text content is then relayed back to wsl.exe. Finally, wsl.exe displays that output to the command line. 
+
 WSL2 mirrored mode is a relatively new feature which requires at least Windows 11 22H2, and, `wsl --update` should be run to update WSL engine to the latest version.
 
 Besides, you should enable WSL mode explicitly, by editing `%UserProfile%\.wslconfig`. Add an extra line to `[wsl2]` section, like this:
@@ -153,6 +155,12 @@ A WinHost client program can reach a WSL server program(L3 for example), by assi
 But, WSL engine provides a facility feature for this scenario. If a WSL server program listens on TCP port N, then, WinHost client program can connect to `localhost` port N to reach it. 
 
 For example, L3 has a TCP server program listening on `0.0.0.0:4000` or even on `localhost:4000`, then, WinHost can connect to `localhost:4000` to reach the server. This "proxy listening port" feature makes it as if the WSL server program is listening on WinHost itself.
+=======
+1. Obtain the IP address of your host machine by running this command from your Linux distribution: 
+```bash
+ip route show | grep -i default | awk '{ print $3}'`
+```
+2. Connect to any Windows server using the copied IP address.
 
 > [!NOTE]
 > The "proxy listening port" feature works only for TCP, not for UDP. (Microsoft staff please confirm this.)
