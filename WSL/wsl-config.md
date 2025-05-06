@@ -134,6 +134,23 @@ wsl.conf section label: `[boot]`
 | Key | Value | Default | Notes |
 |:----|:----|:----|:----|
 | `command` | string | `""` | A string of the command that you would like to run when the WSL instance starts. This command is run as the root user. e.g: `service docker start`. |
+| `protectBinfmt` | boolean | `true` | Prevents WSL from generating systemd units when systemd is enabled  |
+
+### GPU settings
+
+wsl.conf section label: `[gpu]`
+
+| Key | Value | Default | Notes |
+|:----|:----|:----|:----|
+| `enabled` | boolean | `true` | Allow Linux applications to access the Windows GPU via para-virtualization. |
+
+### Time settings
+
+wsl.conf section label: `[time]`
+
+| Key | Value | Default | Notes |
+|:----|:----|:----|:----|
+| `useWindowsTimezone` | boolean | `true` | Setting this key will make WSL use and sync to the timezone set in Windows. |
 
 ### Example wsl.conf file
 
