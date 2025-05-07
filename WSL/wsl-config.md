@@ -1,7 +1,7 @@
 ---
 title: Advanced settings configuration in WSL
 description: A guide to the wsl.conf and .wslconfig files used for configuring settings when running multiple Linux distributions on Windows Subsystem for Linux.
-ms.date: 12/16/2024
+ms.date: 05/07/2025
 ms.topic: article
 ms.custom: seo-windows-dev
 adobe-target: true
@@ -144,7 +144,7 @@ wsl.conf section label: `[boot]`
 | Key | Value | Default | Notes |
 |:----|:----|:----|:----|
 | `command` | string | `""` | A string of the command that you would like to run when the WSL instance starts. This command is run as the root user. e.g: `service docker start`. |
-| `protectBinfmt` | boolean | `true` | Prevents WSL from generating systemd units when systemd is enabled  |
+| `protectBinfmt` | boolean | `true` | Prevents WSL from generating systemd units when systemd is enabled.  |
 
 ### GPU settings
 
