@@ -134,7 +134,7 @@ wsl.conf section label: `[boot]`
 | Key | Value | Default | Notes |
 |:----|:----|:----|:----|
 | `command` | string | `""` | A string of the command that you would like to run when the WSL instance starts. This command is run as the root user. e.g: `service docker start`. |
-| `protectBinfmt` | boolean | `true` | Prevents WSL from generating systemd units when systemd is enabled  |
+| `protectBinfmt` | boolean | `true` | Prevents WSL from generating systemd units when systemd is enabled.  |
 
 ### GPU settings
 
