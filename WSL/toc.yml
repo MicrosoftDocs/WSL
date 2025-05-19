@@ -8,6 +8,8 @@
       href: compare-versions.md
     - name: Basic wsl commands
       href: basic-commands.md
+    - name: WSL Open Source code
+      href: opensource.md
 - name: Install
   items:
     - name: Install WSL
