@@ -1,7 +1,7 @@
 ---
 title: Troubleshooting Windows Subsystem for Linux
 description: Provides detailed information about common errors and issues people run into while running Linux on the Windows Subsystem for Linux. 
-ms.date: 08/08/2024
+ms.date: 05/20/2025
 ms.topic: article
 ---
 
@@ -241,7 +241,7 @@ Once you have disconnected the VPN, you will have to revert the changes to `/etc
 
 ### Global Secure Access Client issues with WSL
 
-The Global Secure Access Client (https://learn.microsoft.com/en-us/entra/global-secure-access/how-to-install-windows-client) can affect WSL connectivity as it has a feature to return a temporary address when resolving a name.
+The Global Secure Access Client (/entra/global-secure-access/how-to-install-windows-client) can affect WSL connectivity as it has a feature to return a temporary address when resolving a name.
 Then the address is swapped to the actual address when a network connection is made.
 This can break WSL as the WSL traffic is forwarded below much of the GSA client hooks.
 
