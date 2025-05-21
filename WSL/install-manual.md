@@ -9,7 +9,7 @@ adobe-target: true
 
 # Manual installation steps for older versions of WSL
 
-For simplicity, we generally recommend using the [`wsl --install`](./install.md) to install Windows Subsystem for Linux, but if you're running an older build of Windows, that may not be supported. We have included the manual installation steps below. If you run into an issue during the install process, check the [installation section of the troubleshooting guide](./troubleshooting.md#installation-issues).
+For simplicity, we generally recommend using the [`wsl --install`](./install.md) to install Windows Subsystem for Linux, but if you're running an older build of Windows, or Windows Server Core, that may not be supported. We have included the manual installation steps below. If you run into an issue during the install process, check the [installation section of the troubleshooting guide](./troubleshooting.md#installation-issues).
 
 ## Step 1 - Enable the Windows Subsystem for Linux
 
@@ -159,6 +159,10 @@ curl.exe -L -o ubuntu-2004.appx https://aka.ms/wslubuntu2004
 ```
 
 In this example, `curl.exe` is executed (not just `curl`) to ensure that, in PowerShell, the real curl executable is invoked, not the PowerShell curl alias for [Invoke-WebRequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest).
+
+### Installing the Appx package with Add-AppxPackage
+
+**Note** The following command won't work on Server Core installations
 
 Once the distribution has been downloaded, navigate to the folder containing the download and run the following command in that directory, where `app-name` is the name of the Linux distribution .appx file.
 

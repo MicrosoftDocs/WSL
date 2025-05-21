@@ -75,7 +75,7 @@ wsl --set-default <Distribution Name>
 
 To set the default Linux distribution that WSL commands will use to run, replace `<Distribution Name>` with the name of your preferred Linux distribution.
 
-## Change directory to home
+## Start WSL in user's home
 
 ```powershell
 wsl ~
