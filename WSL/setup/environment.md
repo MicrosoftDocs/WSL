@@ -34,8 +34,6 @@ The --install command performs the following actions:
 
 You will need to restart your machine during this installation process.
 
-![PowerShell command line running wsl --install](../media/wsl-install.png)
-
 Check the [troubleshooting installation](../troubleshooting.md) article if you run into any issues.
 
 ## Set up your Linux username and password
@@ -119,7 +117,7 @@ For example, when storing your WSL project files:
 
 ## Set up your favorite code editor
 
-We recommend using Visual Studio Code or Visual Studio, as they directly support remote development and debugging with WSL. Visual Studio Code allows you to use WSL as a full-featured development environment. Visual Studio offers native WSL support for C++ cross-platform development. 
+We recommend using Visual Studio Code or Visual Studio, as they directly support remote development and debugging with WSL. Visual Studio Code allows you to use WSL as a full-featured development environment. Visual Studio offers native WSL support for C++ cross-platform development.
 
 ### Use Visual Studio Code
 
@@ -133,7 +131,7 @@ Once VS Code is installed and set up, you can open your WSL project with a VS Co
 
 ### Use Visual Studio
 
-Follow this step-by-step guide to [Get started using Visual Studio with WSL for C++ cross-platform development](/cpp/build/walkthrough-build-debug-wsl2). Visual Studio 2022 enables you to build and debug CMake projects on Windows, WSL distributions, and SSH connections from the same instance of Visual Studio. 
+Follow this step-by-step guide to [Get started using Visual Studio with WSL for C++ cross-platform development](/cpp/build/walkthrough-build-debug-wsl2). Visual Studio 2022 enables you to build and debug CMake projects on Windows, WSL distributions, and SSH connections from the same instance of Visual Studio.
 
 ![Select a target system in Visual Studio 2022](../media/vs-target-system.png)
 
