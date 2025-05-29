@@ -85,7 +85,7 @@ Setting different mount options for Windows drives (DrvFs) can control how file 
 
 By default, WSL sets the uid and gid to the value of the default user. For example, in Ubuntu, the default user is uid=1000, gid=1000. If this value is used to specify a different gid or uid option, the default user value will be overwritten. Otherwise, the default value will always be appended.
 
-The above umask, fmask, etc. options will only apply when the Windows drive is mounted with metadata. By default metadata is not enabled. You can [find more info about this here](./file-permissions.md). 
+The above umask, fmask, etc. options will only apply when the Windows drive is mounted with metadata. By default metadata is not enabled. You can [find more info about this here](./file-permissions.md).
 
 > [!NOTE]
 > The permission masks are put through a logical OR operation before being applied to files or directories.
@@ -163,10 +163,10 @@ The `wsl.conf` sample file below demonstrates some of the configuration options 
 # Set to true will automount fixed drives (C:/ or D:/) with DrvFs under the root directory set above. Set to false means drives won't be mounted automatically, but need to be mounted manually or with fstab.
 enabled = true
 
-# Sets the directory where fixed drives will be automatically mounted. This example changes the mount location, so your C-drive would be /c, rather than the default /mnt/c. 
+# Sets the directory where fixed drives will be automatically mounted. This example changes the mount location, so your C-drive would be /c, rather than the default /mnt/c.
 root = /
 
-# DrvFs-specific options can be specified.  
+# DrvFs-specific options can be specified.
 options = "metadata,uid=1003,gid=1003,umask=077,fmask=11,case=off"
 
 # Sets the `/etc/fstab` file to be processed when a WSL distribution is launched.
@@ -211,6 +211,10 @@ See [.wslconfig](#wslconfig) for info on where to store the .wslconfig file.
 
 > [!NOTE]
 > Configuring global settings with `.wslconfig` are only available for distributions running as WSL 2 in Windows Build 19041 and later. Keep in mind you may need to run `wsl --shutdown` to shut down the WSL 2 VM and then restart your WSL instance for these changes to take effect.
+>
+> [!TIP]
+> It is recommended to modify WSL configurations directly in WSL Settings, rather than manually editing the .wslconfig file. WSL Settings can be found in the Start menu.
+> ![Windows Subsystem for Linux Settings](./media/wsl-settings.png)
 
 This file can contain the following options that affect the VM that powers any WSL 2 distribution:
 
@@ -278,7 +282,7 @@ The `.wslconfig` sample file below demonstrates some of the configuration option
 [wsl2]
 
 # Limits VM memory to use no more than 4 GB, this can be set as whole numbers using GB or MB
-memory=4GB 
+memory=4GB
 
 # Sets the VM to use two virtual processors
 processors=2
