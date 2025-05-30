@@ -1,7 +1,7 @@
 ---
 title: How to manage WSL disk space
 description: Learn how to check the amount of disk space available, expand the size of the Virtual Hard Disk (VHD), repair a VHD mounting or read-only error, and locate the .vhdx file and disk path for Linux distributions installed with WSL 2.
-ms.date: 01/12/2023
+ms.date: 02/05/2025
 ms.topic: article
 ---
 
@@ -45,7 +45,32 @@ If you see that you are near to reaching the available amount of disk space allo
 
 ## How to expand the size of your WSL 2 Virtual Hard Disk
 
-To expand the VHD size for a Linux distribution beyond the **default 1TB maximum** amount of allocated disk space, follow the steps below. *(For earlier WSL releases that have not yet been updated, this max default may be set to 512GB or 256GB).*
+To expand the VHD size for a Linux distribution beyond the default 1TB maximum amount of allocated disk space, you can use the `wsl --manage` command or follow the manual steps below. (Earlier WSL releases max default may be set to 512GB or 256GB).
+
+### Expand VHD size using `wsl --manage`
+
+The `wsl --manage` command is only available to WSL releases 2.5 and higher.
+
+To resize the allocated space on your virtual disk:
+
+1. Terminate all WSL instances using the command `wsl.exe --shutdown`
+
+2. Run `wsl --manage <distribution name> --resize <memory string>`. Supported memory strings are of the form `<Memory Value>B/M/MB/G/GB/T/TB`. Decimal values are currently unsupported (e.g. `2.5TB`).
+
+Output should look similar to the following:
+
+```bash
+e2fsck 1.46.5 (30-Dec-2021)
+Pass 1: Checking inodes, blocks, and sizes
+resize2fs 1.46.5 (30-Dec-2021)
+The operation completed successfully.
+```
+
+The virtual drive (ext4.vhdx) for this Linux distribution has now successfully been expanded to the new size.
+
+### Manual expansion
+
+To expand the VHD size for a Linux distribution using manual steps:
 
 1. Terminate all WSL instances using the command: `wsl.exe --shutdown`
 
@@ -69,7 +94,7 @@ To expand the VHD size for a Linux distribution beyond the **default 1TB maximum
       detail vdisk
       ```
 
-6. You will need to convert the **Virtual size** to megabytes. For example, if **Virtual size: 512 GB**, convert this to **512000**. The new value you enter must be greater than this original value. For example, to double the virtual size of 512 GB to 1024 GB, you would convert to MB and enter the value: **1024000**. Be careful not to enter a value higher than you actually want as the process of reducing a virtual disk size is much more complicated.
+6. You will need to convert the **Virtual size** to megabytes. For example, if **Virtual size: 512 GB**, this is equal to **512000 MB**. The new value you enter must be greater than this original value. To double the virtual size of 512 GB to 1024 GB, you would enter the value in MB as: **1024000**. Be careful not to enter a value higher than you actually want as the process of reducing a virtual disk size is much more complicated.
 
 7. Enter the value for the new maximum size you want to allocate to this Linux distribution using the Windows Command Prompt `DISKPART>` prompt:
 
@@ -112,7 +137,7 @@ old_desc_blocks = 32, new_desc_blocks = 38
 The filesystem on /dev/sdb is now 78643200 (4k) blocks long.
 ```
 
-The virtual drive (ext4.vhdx) for this Linux distribution has now successfully been expanded to the new size.  
+The virtual drive (ext4.vhdx) for this Linux distribution has now successfully been expanded to the new size.
 
 > [!IMPORTANT]
 > We recommend that you do not modify, move, or access the WSL related files located inside of your `AppData` folder using Windows tools or editors. Doing so could cause your Linux distribution to become corrupted. If you would like to access your Linux files from Windows, that is possible via the path `\\wsl$\<distribution-name>\`. Open your WSL distribution and enter `explorer.exe .` to view that folder. To learn more, see the blog post: [Accessing Linux files from Windows](https://devblogs.microsoft.com/commandline/whats-new-for-wsl-in-windows-10-version-1903/#accessing-linux-files-from-windows).
@@ -162,13 +187,13 @@ touch: cannot touch 'file': Read-only file system
 
 To repair a disk mount error in WSL, and restore it back to a usable / writeable state again, you can use the `wsl.exe --mount` command to re-mount the disk with the following steps:
 
-1. Shutdown all WSL distributions by opening PowerShell and entering the command:
+1. Shutdown all WSL distributions by opening PowerShell as administrator (in an elevated command prompt) and entering the command:
 
     ```powershell
     wsl.exe --shutdown
     ```
 
-2. Open PowerShell as administrator (in an elevated command prompt) and enter the mount command, replacing `<path-to-ext4.vhdx>` with the path to the distribution's .vhdx file. For help locating this file, see [How to locate the VHD file and disk path for your Linux distribution](#how-to-locate-the-vhdx-file-and-disk-path-for-your-linux-distribution).
+2.  Enter the mount command and replace `<path-to-ext4.vhdx>` with the path to the distribution's .vhdx file. For help locating this file, see [How to locate the VHD file and disk path for your Linux distribution](#how-to-locate-the-vhdx-file-and-disk-path-for-your-linux-distribution).
 
     ```powershell
     wsl.exe --mount <path-to-ext4.vhdx> --vhd --bare
@@ -179,6 +204,9 @@ To repair a disk mount error in WSL, and restore it back to a usable / writeable
     ```powershell
     wsl.exe sudo e2fsck -f /dev/<device>
     ```
+
+> [!NOTE]
+> If you only have a single Linux distribution installed, you may encounter an "ext file in use" error and will need to [install](./basic-commands.md#install) an additional distribution in order to run `wsl.exe lsblk`. You can [uninstall](./basic-commands.md#unregister-or-uninstall-a-linux-distribution) the distribution once the repair is complete. Additionally, you may need to close Docker Desktop on Windows to avoid the error `Wsl/Service/CreateInstance/MountVhd/HCS/ERROR_SHARING_VIOLATION` while running the command `wsl.exe sudo e2fsck -f /dev/sdc`.
 
 4. Once the repair is complete, unmount the disk in PowerShell by entering:
 

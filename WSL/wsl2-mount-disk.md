@@ -1,7 +1,7 @@
 ---
 title: Get started mounting a Linux disk in WSL 2 
 description: Learn how to set up a disk mount in WSL 2 and how to access it.
-ms.date: 03/04/2022
+ms.date: 07/17/2023
 ms.topic: article
 ---
 
@@ -9,7 +9,7 @@ ms.topic: article
 
 If you want to access a Linux disk format that isn't supported by Windows, you can use WSL 2 to mount your disk and access its content. This tutorial will cover the steps to identify the disk and partition to attach to WSL2, how to mount them, and how to access them.
 
-If you are looking for guidance on how to connect a USB device (flash drive, SD card reader, etc), see [Connect USB devices](./connect-usb.md).
+If you are connecting an external drive and do not have success with these mounting instructions, you may want to try the instructions to [Connect USB devices](./connect-usb.md). The `wsl --mount` command does not currently support USB/flash drives/SD card readers, ([learn more about this issue](https://github.com/microsoft/WSL/issues/6011)).
 
 > [!NOTE]
 > Administrator access is required to attach a disk to WSL 2.
@@ -17,11 +17,25 @@ If you are looking for guidance on how to connect a USB device (flash drive, SD 
 
 ## Prerequisites
 
-You will need to be on Windows 11 Build 22000 or later, or be running the Microsoft Store version of WSL. You can join the [Windows Insiders Program](https://insider.windows.com/) to get the latest preview builds.
+You will need to be on Windows 11 Build 22000 or later, or be running the Microsoft Store version of WSL. To check your WSL and Windows version, use the command: `wsl.exe --version`
+
+## Differences between mounting an external drive with Windows formatting versus Linux formatting
+
+External drives formatted for Windows typically use the NTFS file system formatting. External drives formatted for Linux typically use the Ext4 file system formatting.
+
+If you have mounted an NTFS-formatted drive on your Windows file system, you can access that drive from your Linux distribution using WSL by creating a mounted directory (`sudo mkdir /mnt/d`, replacing 'd' with whatever drive letter you'd like to use) and then using the `drvfs` file system interop plugin, with the command:
+
+```bash
+sudo mount -t drvfs D: /mnt/d
+```
+
+[Learn more about mounting scenarios](https://superuser.com/questions/1734353/is-there-a-way-to-mount-an-external-drive-when-it-becomes-available-in-wsl).
+
+If you have an Ext4-formatted drive, you cannot mount it on your Windows file system. In order to mount an Ext4-formatted drive on your Linux distribution with WSL, you can use the `wsl --mount` command following the instructions below.
 
 ## Mounting an unpartitioned disk
 
-In this simplest case, if you have a disk that doesn't have any partitions, you can mount it directly using the `wsl --mount` command. First you need to identify the disk.
+If you have a disk that doesn't have any partitions, you can mount it directly using the `wsl --mount` command. First you need to identify the disk.
 
 1. **Identify the disk** - To list the available disks in Windows, run:
 
@@ -108,7 +122,7 @@ wsl --mount <DiskPath> --partition <PartitionNumber> --type <Filesystem>
 
 Once mounted, the disk can be accessed under the path pointed to by the config value: `automount.root`. The default value is `/mnt/wsl`.
 
-From Windows, the disk can be accessed from File Explorer by navigating to: `\\wsl$\\<Distro>\\<Mountpoint>` (pick any Linux distribution).
+From Windows, the disk can be accessed from File Explorer by navigating to: `\\wsl$\<Distro>\<Mountpoint>` (pick any Linux distribution).
 
 ## Unmount the disk
 
@@ -198,7 +212,7 @@ This will make the block device available inside WSL 2 so it can be mounted manu
 > [!NOTE]
 > This option is only available with [WSL from the Microsoft Store](https://devblogs.microsoft.com/commandline/a-preview-of-wsl-in-the-microsoft-store-is-now-available/)
 
-By default the mountpoint name is generated based on the physical disk or VHD name. This can be overriden with `--name`. Example: 
+By default the mountpoint name is generated based on the physical disk or VHD name. This can be overridden with `--name`. Example: 
 
 ```powershell
 wsl --mount <DiskPath> --name myDisk
@@ -223,4 +237,4 @@ If `Diskpath` is omitted, all attached disks are unmounted and detached.
 
 - Only filesystems that are natively supported in the kernel can be mounted by `wsl --mount`. This means that it's not possible to use installed filesystem drivers (such as ntfs-3g for example) by calling `wsl --mount`.
 
-- Filesystems not directly supported by the kernel can be mounted via a `--bare` attach and then invoking the relevant FUSE driver. 
+- Filesystems not directly supported by the kernel can be mounted via a `--bare` attach and then invoking the relevant FUSE driver.

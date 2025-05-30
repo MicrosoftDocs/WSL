@@ -2,7 +2,7 @@
 title: Get started with Docker containers on WSL
 description: Learn how to set up Docker containers on the Windows Subsystem for Linux.
 keywords: wsl, windows, windowssubsystem, windows 10, docker, containers
-ms.date: 09/27/2021
+ms.date: 01/04/2024
 ms.topic: article
 ---
 
@@ -27,12 +27,21 @@ To learn more, check out [Introduction to Docker containers](/training/modules/i
 
 ## Prerequisites
 
-- Ensure your machine is running Windows 10, [updated to version 2004](ms-settings:windowsupdate), **Build 18362** or later.
+- WSL version 1.1.3.0 or later.
+- Windows 11 64-bit: Home or Pro version 21H2 or higher, or Enterprise or Education version 21H2 or higher.
+- Windows 10 64-bit (Recommended): Home or Pro 22H2 (build 19045) or higher, or Enterprise or Education 22H2 (build 19045) or higher. (Minimum): Home or Pro 21H2 (build 19044) or higher, or Enterprise or Education 21H2 (build 19044) or higher. [Update Windows](ms-settings:windowsupdate)
+- 64-bit processor with [Second Level Address Translation (SLAT)](https://en.wikipedia.org/wiki/Second_Level_Address_Translation).
+- 4GB system RAM.
+- Enable hardware virtualization in BIOS.
 - [Install WSL and set up a user name and password for your Linux distribution running in WSL 2](../install.md).
 - [Install Visual Studio Code](https://code.visualstudio.com/download) *(optional)*. This will provide the best experience, including the ability to code and debug inside a remote Docker container and connected to your Linux distribution.
 - [Install Windows Terminal](/windows/terminal/get-started) *(optional)*. This will provide the best experience, including the ability to customize and open multiple terminals in the same interface (including Ubuntu, Debian, PowerShell, Azure CLI, or whatever you prefer to use).
 - [Sign up for a Docker ID at Docker Hub](https://hub.docker.com/signup) *(optional)*.
 - See the [Docker Desktop license agreement](https://docs.docker.com/subscription/#docker-desktop-license-agreement) for updates on the terms of use.
+
+For more information, see the [Docker docs System requirements to Install Docker Desktop on Windows](https://docs.docker.com/desktop/install/windows-install/).
+
+To learn how to install Docker on Windows Server, see [Get started: Prep Windows for containers](/virtualization/windowscontainers/quick-start/set-up-environment).
 
 > [!NOTE]
 > WSL can run distributions in both WSL version 1 or WSL 2 mode. You can check this by opening PowerShell and entering: `wsl -l -v`. Ensure that the your distribution is set to use WSL 2 by entering: `wsl --set-version  <distro> 2`. Replace `<distro>` with the distro name (e.g. Ubuntu 18.04).
@@ -102,7 +111,7 @@ Let's use Docker to create a development container for an existing app project.
 
     ![VS Code WSL Remote indicator](../media/vscode-remote-indicator.png)
 
-4. From the VS Code command pallette (Ctrl + Shift + P), enter: **Dev Containers: Open Folder in Container...** If this command doesn't display as you begin to type it, check to ensure that you've installed the Dev Containers extension linked above.
+4. From the VS Code command palette (Ctrl + Shift + P), enter: **Dev Containers: Reopen in Container** as we are using a folder already opened using the WSL extension. Alternatively, use **Dev Containers: Open Folder in Container...** to choose a WSL folder using the local `\\wsl$` share (from the Windows side). See the Visual Studio Code [Quick start: Open an existing folder in a container](https://code.visualstudio.com/docs/devcontainers/containers#_quick-start-open-an-existing-folder-in-a-container) for more details. If these commands don't display as you begin to type, check to ensure that you've installed the Dev Containers extension linked above. 
 
     ![VS Code Dev Containers command](../media/docker-extension.png)
 
@@ -120,7 +129,7 @@ Let's use Docker to create a development container for an existing app project.
 
 8. To confirm that your project is still connected to both WSL and within a container, open the VS Code integrated terminal (Ctrl + Shift + ~). Check the operating system by entering: `uname` and the Python version with: `python3 --version`. You can see that the uname came back as "Linux", so you are still connected to the WSL 2 engine, and Python version number will be based on the container config that may differ from the Python version installed on your WSL distribution.
 
-9. To run and debug your app inside of the container using Visual Studio Code, first open the **Run** menu (Ctrl+Shift+D or select the tab on the far left menu bar). Then select **Run and Debug** to select a debug configuration and choose the configuration that best suites your project (in my example, this will be "Django"). This will create a `launch.json` file in the `.vscode` folder of your project with instructions on how to run your app.
+9. To run and debug your app inside of the container using Visual Studio Code, first open the **Run** menu (Ctrl+Shift+D or select the tab on the far left menu bar). Then select **Run and Debug** to select a debug configuration and choose the configuration that best suits your project (in my example, this will be "Django"). This will create a `launch.json` file in the `.vscode` folder of your project with instructions on how to run your app.
 
     ![VS Code run debug configuration](../media/vscode-run-config.png)
 
@@ -148,7 +157,7 @@ Docker creates two distro folders to store data:
 
 You can find these folders by opening your WSL Linux distribution and entering: `explorer.exe .` to view the folder in Windows File Explorer. Enter: `\\wsl\<distro name>\mnt\wsl` replacing `<distro name>` with the name of your distribution (ie. Ubuntu-20.04) to see these folders.
 
-Find more on locating docker storage locations in WSL, see this [issue from the WSL repo](https://github.com/microsoft/WSL/issues/4176) or this [StackOverlow post](https://stackoverflow.com/questions/62380124/where-docker-image-is-stored-with-docker-desktop-for-windows).
+Find more on locating docker storage locations in WSL, see this [issue from the WSL repo](https://github.com/microsoft/WSL/issues/4176) or this [StackOverflow post](https://stackoverflow.com/questions/62380124/where-docker-image-is-stored-with-docker-desktop-for-windows).
 
 For more help with general troubleshooting issues in WSL, see the [Troubleshooting](../troubleshooting.md) doc.
 

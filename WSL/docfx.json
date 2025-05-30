@@ -21,7 +21,8 @@
         "files": [
           "**/*.png",
           "**/*.gif",
-          "**/*.jpg"
+          "**/*.jpg",
+          "**/*.svg"
         ],
         "exclude": [
           "**/obj/**",
@@ -33,19 +34,31 @@
     "externalReference": [],
     "globalMetadata": {
       "breadcrumb_path": "/windows/wsl/breadcrumb/toc.json",
-      "extendBreadcrumb": true,
       "uhfHeaderId": "MSDocsHeader-Windows",
       "recommendations" : true,
-      "feedback_system": "GitHub",
-      "feedback_github_repo": "MicrosoftDocs/WSL",
-      "ms.prod": "dev-environment",
-      "ms.technology": "windows-subsystem-for-linux",
-      "author": "craigloewen-msft",
-      "ms.author": "crloewen",
+      "feedback_product_url": "https://github.com/Microsoft/wsl/issues",
+      "feedback_system": "OpenSource",
+      "open_source_feedback_contributorGuideUrl": "https://learn.microsoft.com/contribute/content/how-to-write-quick-edits",
+      "open_source_feedback_issueTitle": "",
+      "open_source_feedback_issueLabels": "needs-triage",
+      "open_source_feedback_issueUrl": "https://github.com/MicrosoftDocs/wsl/issues/new?template=doc-issue.yml",
+      "open_source_feedback_productLogoLightUrl": "https://learn.microsoft.com/windows/wsl/media/wsl-icon.svg",
+      "open_source_feedback_productLogoDarkUrl": "https://learn.microsoft.com/windows/wsl/media/wsl-icon.svg",
+      "open_source_feedback_productName": "Windows Subsystem for Linux",  
+      "ms.service": "dev-environment",
+      "ms.subservice": "windows-subsystem-for-linux",
+      "author": "mattwojo",
+      "ms.author": "mattwoj",
+      "ms.reviewer": "crloewen",
       "searchScope": ["WSL"],
-      "feedback_product_url": "https://github.com/Microsoft/WSL/issues",
-      "adobe-target": true
+      "adobe-target": true,
+      "contributors_to_exclude": [
+      "VSC-Service-Account"
+      ]
     },
+    "contributors_to_exclude": [
+      "VSC-Service-Account"
+    ],
     "fileMetadata": {},
     "template": [],
     "dest": "wsl",

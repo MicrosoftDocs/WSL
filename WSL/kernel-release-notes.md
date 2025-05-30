@@ -14,7 +14,7 @@ We've added support for WSL 2 distributions, [which use a full Linux kernel](htt
 
 *Release Date*: Prerelease 2022/08/02
 
-[Official Github release link](https://github.com/microsoft/WSL2-Linux-Kernel/releases/tag/linux-msft-wsl-5.15.57.1)
+[Official GitHub release link](https://github.com/microsoft/WSL2-Linux-Kernel/releases/tag/linux-msft-wsl-5.15.57.1)
 
 - Initial release of the WSL2 kernel based on the v5.15 kernel series
 - Release rolling-lts/wsl/5.15.57.1

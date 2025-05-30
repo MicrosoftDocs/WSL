@@ -13,7 +13,7 @@ ms.topic: article
 
 For general Windows information on build 21364 visit the [Windows blog](https://blogs.windows.com/windows-insider/2021/04/21/announcing-windows-10-insider-preview-build-21364/).
 
-- GUI apps are now available! For more information see [this blog post](https://devblogs.microsoft.com/commandline/the-initial-preview-of-gui-app-support-is-now-available-for-the-windows-subsystem-for-linux).
+- GUI apps are now available! For more information see [this blog post](https://devblogs.microsoft.com/commandline/the-initial-preview-of-gui-app-support-is-now-available-for-the-windows-subsystem-for-linux-2/).
 - Resolve error when accessing files via \\\\wsl.localhost\\.
 - Fix potential deadlock in LxssManager service.
 
@@ -491,7 +491,7 @@ For general Windows information on build 17728 visit the [Windows Blog](https://
 For general Windows information on build 18204 visit the [Windows Blog](https://blogs.windows.com/windowsexperience/2018/07/25/announcing-windows-10-insider-preview-build-17723-and-build-18204/).
 
 ### WSL
-* Pipe filesystem inadvertenly clearing edge-triggered epoll event [GH 3276]
+* Pipe filesystem inadvertently clearing edge-triggered epoll event [GH 3276]
 * Win32 executable launched via NTFS symlink doesn't respect symlink name [GH 2909]
 
 ## Build 17723 (Fast)
@@ -502,7 +502,7 @@ For general Windows information on build 17723 visit the [Windows Blog](https://
 * Add /proc/sys/fs/file-max stub file [GH 2893]
 * More accurate IPV6 scope information.
 * PR_SET_PTRACER support [GH 3053]
-* Pipe filesystem inadvertenly clearing edge-triggered epoll event [GH 3276]
+* Pipe filesystem inadvertently clearing edge-triggered epoll event [GH 3276]
 * Win32 executable launched via NTFS symlink doesn't respect symlink name [GH 2909]
 
 ## Build 17713
@@ -1010,7 +1010,7 @@ For general Windows information on build 16273 visit the [Windows Blog](https://
 - Add /proc/sys/kernel /shmmax /shmmni & /threads-max [GH 1753]
 - Add partial support for ioprio_set system call [GH 498]
 - Stub SO_REUSEPORT & adding support for SO_PASSCRED for netlink sockets [GH 69]
-- Return different error codes from RegisterDistribuiton if a distribution is currently being installed or uninstalled.
+- Return different error codes from RegisterDistribution if a distribution is currently being installed or uninstalled.
 - Allow unregistration of partially installed WSL distributions via wslconfig.exe
 - Fix python socket test hang from udp::msg_peek
 - Additional improvements and bug fixes
@@ -1037,7 +1037,7 @@ For general Windows information on build 16257 visit the [Windows Blog](https://
 - Fix invalid AT_EXECFN auxiliary vector behavior [GH 2133]
 - Fix copy/paste behavior for console/tty, and add better full buffer handling [GH 2204, 2131]
 - Set AT_SECURE in auxiliary vector for set-user-ID and set-group-ID programs [GH 2031]
-- Psuedo-terminal master endpoint not handling TIOCPGRP [GH 1063]
+- Pseudo-terminal master endpoint not handling TIOCPGRP [GH 1063]
 - Fix lseek does to rewind directories in LxFs [GH 2310]
 - /dev/ptmx locks up after heavy usage [GH 1882]
 - Additional improvements and bug fixes
@@ -1106,7 +1106,7 @@ For general Windows information on build 16241 visit the [Windows Blog](https://
 - Reflow resize interacts strangely with resizing a bash window when stuff is on the edit/command line [GH ConEmu 1123]
 - Ctrl-L leaves the screen dirty [GH 1978]
 - Console rendering bug when displaying VT on HDPI [GH 1907]
-- Japansese characters look strange with Unicode Character U+30FB [GH 2146]
+- Japanese characters look strange with Unicode Character U+30FB [GH 2146]
 - Additional improvements and bug fixes
 
 </br>
@@ -1148,7 +1148,7 @@ For general Windows information on build 16226 visit the [Windows Blog](https://
 
 ### Fixed
 - xattr related syscalls support (getxattr, setxattr, listxattr, removexattr).
-- security.capablity xattr support.
+- security.capability xattr support.
 - Improved compatibility with certain file systems and filters, including non-MS SMB servers. [GH #1952]
 - Improved support for OneDrive placeholders, GVFS placeholders, and Compact OS compressed files.
 - Additional improvements and bug fixes
@@ -1329,7 +1329,7 @@ For general Windows information on build 15025 visit the [Windows Blog](https://
 - Tee syscall now returns failure if both file descriptors refer to the same pipe
 - Implemented correct behavior for SO_PEERCRED for Unix sockets
 - Fixed tkill syscall invalid parameter handling
-- Changes to increase the preformace of drvfs
+- Changes to increase the performance of drvfs
 - Minor fix for Ruby IO blocking
 - Fixed recvmsg() returning EINVAL for the MSG_DONTWAIT flag for inet sockets [GH 1296]
 - Additional fixes and improvements
@@ -1349,7 +1349,7 @@ For general Windows information on build 15019 visit the [Windows Blog](https://
 
 - Fixed bug that incorrectly reported CPU usage in procfs for tools like htop (GH 823, 945, 971)
 - When calling open() with O_TRUNC on an existing file inotify now generates IN_MODIFY before IN_OPEN
-- Fixes to unix socket getsockopt SO_ERROR to enable postgress [GH 61, 1354]
+- Fixes to unix socket getsockopt SO_ERROR to enable postgres [GH 61, 1354]
 - Implement /proc/sys/net/core/somaxconn for the GO language
 - Apt-get package update background task now runs hidden from view
 - Clear scope for ipv6 localhost (Spring-Framework(Java) failure).
@@ -1558,7 +1558,7 @@ For general Windows information on build 14965 visit the [Windows Blog](https://
 - sched_setaffinity should return number of affinity bits mask
 - Fix ELF validation logic which incorrectly assumes interpreter paths must be less than 64 characters long. (GH #743)
 - Open file descriptors can keep console window open (GH #1187)
-- Fixeed error where rename() failed with trailing slash on target name (GH #1008)
+- Fixed error where rename() failed with trailing slash on target name (GH #1008)
 - Implement /proc/net/dev file
 - Fixed 0.000ms pings due to timer resolution.
 - Implemented /proc/self/environ (GH #730)
@@ -1671,7 +1671,7 @@ For general Windows information on build 14942 visit the [Windows Blog](https://
 ### Fixed
 
 - A number of bugchecks addressed, including the "ATTEMPTED EXECUTE OF NOEXECUTE MEMORY" networking crash which was blocking SSH
-- inotifiy support for notifications generated from Windows applications on DrvFs is now in
+- inotify support for notifications generated from Windows applications on DrvFs is now in
 - Implement TCP_KEEPIDLE and TCP_KEEPINTVL for mongod. (GH #695)
 - Implement the pivot_root system call
 - Implement socket option for SO_DONTROUTE

@@ -8,6 +8,8 @@
       href: compare-versions.md
     - name: Basic wsl commands
       href: basic-commands.md
+    - name: WSL Open Source code
+      href: opensource.md
 - name: Install
   items:
     - name: Install WSL
@@ -48,12 +50,10 @@
       href: file-permissions.md
     - name: Networking considerations
       href: networking.md
-    - name: Use SystemD to manage services
+    - name: Use systemd to manage services
       href: systemd.md
 - name: How-to
   items:
-    - name: Set up WSL for your company
-      href: enterprise.md
     - name: Import any Linux distribution
       href: use-custom-distro.md
     - name: Build a custom distribution
@@ -66,6 +66,14 @@
       href: case-sensitivity.md
     - name: Manage available disk space
       href: disk-space.md
+    - name: Create WSL plugins
+      href: wsl-plugins.md
+- name: Enterprise security
+  items:
+    - name: Set up WSL for your company
+      href: enterprise.md
+    - name: Intune settings for WSL
+      href: intune.md
 - name: Frequently Asked Questions
   href: faq.yml
 - name: Troubleshooting

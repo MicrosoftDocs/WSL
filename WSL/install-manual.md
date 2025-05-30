@@ -2,14 +2,14 @@
 title: Manual installation steps for older versions of WSL
 description: Step by step instructions to manually install WSL on older versions of Windows, rather than using the wsl install command.
 keywords: wsl, install, BashOnWindows, bash, windows subsystem for linux, install ubuntu on windows, enable WSL2, linux on windows
-ms.date: 03/22/2023
+ms.date: 11/20/2023
 ms.topic: article
 adobe-target: true
 ---
 
 # Manual installation steps for older versions of WSL
 
-For simplicity, we generally recommend using the [`wsl --install`](./install.md) to install Windows Subsystem for Linux, but if you're running an older build of Windows, that may not be supported. We have included the manual installation steps below. If you run into an issue during the install process, check the [installation section of the troubleshooting guide](./troubleshooting.md#installation-issues).
+For simplicity, we generally recommend using the [`wsl --install`](./install.md) to install Windows Subsystem for Linux, but if you're running an older build of Windows, or Windows Server Core, that may not be supported. We have included the manual installation steps below. If you run into an issue during the install process, check the [installation section of the troubleshooting guide](./troubleshooting.md#installation-issues).
 
 ## Step 1 - Enable the Windows Subsystem for Linux
 
@@ -53,6 +53,8 @@ dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /nores
 
 ## Step 4 - Download the Linux kernel update package
 
+The Linux kernel update package installs the most recent version of the [WSL 2 Linux kernel](https://github.com/microsoft/WSL2-Linux-Kernel) for running WSL inside the Windows operating system image. (To run [WSL from the Microsoft Store](/windows/wsl/compare-versions#wsl-in-the-microsoft-store), with more frequently pushed updates, use `wsl.exe --install` or `wsl.exe --update`.). 
+
 1. Download the latest package:
     - [WSL2 Linux kernel update package for x64 machines](https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi)
 
@@ -95,6 +97,7 @@ wsl --set-default-version 2
     - [Pengwin Enterprise](https://www.microsoft.com/store/apps/9N8LP0X93VCP)
     - [Alpine WSL](https://www.microsoft.com/store/apps/9p804crf0395)
     - [Raft(Free Trial)](https://www.microsoft.com/store/apps/9msmjqd017x7)
+    - [Alma Linux](https://apps.microsoft.com/search?query=alma+linux)
 
 2. From the distribution's page, select "Get".
 
@@ -119,6 +122,7 @@ There are some scenarios in which you may not be able (or want) to, install WSL 
 If the Microsoft Store app is not available, you can download and manually install Linux distributions using these links:
 
 - [Ubuntu](https://aka.ms/wslubuntu)
+- [Ubuntu 24.04](https://wslstorestorage.blob.core.windows.net/wslblob/Ubuntu2404-240425.AppxBundle)
 - [Ubuntu 22.04 LTS](https://aka.ms/wslubuntu2204)
 - [Ubuntu 20.04](https://aka.ms/wslubuntu2004)
 - [Ubuntu 20.04 ARM](https://aka.ms/wslubuntu2004arm)
@@ -155,6 +159,10 @@ curl.exe -L -o ubuntu-2004.appx https://aka.ms/wslubuntu2004
 ```
 
 In this example, `curl.exe` is executed (not just `curl`) to ensure that, in PowerShell, the real curl executable is invoked, not the PowerShell curl alias for [Invoke-WebRequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest).
+
+### Installing the Appx package with Add-AppxPackage
+
+**Note** The following command won't work on Server Core installations
 
 Once the distribution has been downloaded, navigate to the folder containing the download and run the following command in that directory, where `app-name` is the name of the Linux distribution .appx file.
 

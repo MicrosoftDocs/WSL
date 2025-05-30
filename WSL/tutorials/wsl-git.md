@@ -1,7 +1,7 @@
 ---
 title: Get started using Git on WSL
 description: Learn how to set up Git for version control on the Windows Subsystem for Linux, along with Git Credential Manager.
-ms.date: 03/03/2022
+ms.date: 06/21/2023
 ms.topic: article
 ---
 
@@ -63,7 +63,7 @@ We recommend that you [secure your account with two-factor authentication (2FA)]
 
 ## Git Credential Manager setup
 
-[Git Credential Manager (GCM)](https://github.com/GitCredentialManager/git-credential-manager) is a secure Git credential helper built on [.NET](https://dotnet.microsoft.com/) that can be used with both WSL1 an WSL2. It enables multi-factor authentication support for GitHub repos, [Azure DevOps](https://dev.azure.com/), Azure DevOps Server, and Bitbucket. 
+[Git Credential Manager (GCM)](https://github.com/GitCredentialManager/git-credential-manager) is a secure Git credential helper built on [.NET](https://dotnet.microsoft.com/) that can be used with both WSL1 and WSL2. It enables multi-factor authentication support for GitHub repos, [Azure DevOps](https://dev.azure.com/), Azure DevOps Server, and Bitbucket. 
 
 GCM integrates into the authentication flow for services like GitHub and, once you're authenticated to your hosting provider, requests a new authentication token. It then stores the token securely in the [Windows Credential Manager](https://support.microsoft.com/help/4026814/windows-accessing-credential-manager). After the first time, you can use Git to talk to your hosting provider without needing to re-authenticate. It will just access the token in the Windows Credential Manager.
 
@@ -78,18 +78,21 @@ If you have a reason not to install Git for Windows, you can install GCM as a Li
 To set up GCM for use with a WSL distribution, open your distribution and enter this command:
 
 If GIT installed is >= v2.39.0
-```Bash
+
+```bash
 git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/bin/git-credential-manager.exe"
 ```
 
 else if GIT installed is >= v2.36.1
-```Bash
-git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/bin/git-credential-manager-core.exe"
+
+```bash
+git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/libexec/git-core/git-credential-manager.exe"
 ```
 
 else if version is < v2.36.1 enter this command: 
-```Bash
-git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/libexec/git-core/git-credential-manager.exe"
+
+```bash
+git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/bin/git-credential-manager-core.exe"
 ```
 
 > [!NOTE]
@@ -130,11 +133,11 @@ Visual Studio Code comes with built-in support for Git, including a source contr
 
 If you are working with the same repository folder between Windows, WSL, or a container, be sure to set up consistent line endings.
 
-Since Windows and Linux use different default line endings, Git may report a large number of modified files that have no differences aside from their line endings. To prevent this from happening, you can disable line ending conversion using a `.gitattributes` file or globally on the Windows side. See this [VS Code doc about resolving Git line ending issues](https://code.visualstudio.com/docs/remote/troubleshooting#_resolving-git-line-ending-issues-in-containers-resulting-in-many-modified-files).
+Since Windows and Linux use different default line endings, Git may report a large number of modified files that have no differences aside from their line endings. To prevent this from happening, you can disable line ending conversion using a `.gitattributes` file or globally on the Windows side. See this [VS Code doc about resolving Git line ending issues](https://code.visualstudio.com/docs/remote/troubleshooting#_resolving-git-line-ending-issues-in-wsl-resulting-in-many-modified-files).
 
 ## Additional resources
 
 * [WSL & VS Code](./wsl-vscode.md)
-* [GitHub Learning Lab: Online courses](https://lab.github.com/)
+* [GitHub Learning Lab: Online courses](https://github.com/apps/github-learning-lab)
 * [Git Visualization Tool](http://git-school.github.io/visualizing-git/)
 * [Git Tools - Credential Storage](https://git-scm.com/book/it/v2/Git-Tools-Credential-Storage)

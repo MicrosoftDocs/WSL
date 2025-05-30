@@ -1,7 +1,7 @@
 ---
 title: Run Linux GUI apps with WSL 
 description: Learn how WSL support running Linux GUI apps. 
-ms.date: 11/28/2022
+ms.date: 01/04/2024
 ms.topic: article
 ---
 
@@ -92,6 +92,9 @@ sudo apt install gnome-text-editor -y
 
 To launch your bashrc file in the editor, enter: `gnome-text-editor ~/.bashrc`
 
+> [!NOTE]
+> [GNOME Text Editor](https://en.wikipedia.org/wiki/GNOME_Text_Editor) replaces gedit as GNOME/Ubuntu's default text editor in Ubuntu 22.10. If you're running an older version of Ubuntu and want to use [gedit](https://en.wikipedia.org/wiki/Gedit), the previous default text editor, use `sudo apt install gedit -y`.
+
 ### Install GIMP
 
 GIMP is a free and open-source raster graphics editor used for image manipulation and image editing, free-form drawing, transcoding between different image file formats, and more specialized tasks.
@@ -139,10 +142,10 @@ To launch, enter the name of the tool you would like to use. For example:
 To install the Google Chrome for Linux:
 
 1. Change directories into the temp folder: `cd /tmp`
-2. Use wget to download it: `sudo wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb`
-3. Get the current stable version: `sudo dpkg -i google-chrome-stable_current_amd64.deb`
-4. Fix the package: `sudo apt install --fix-broken -y`
-5. Configure the package: `sudo dpkg -i google-chrome-stable_current_amd64.deb`
+2. Use wget to download it: `wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb`
+3. Install the package: `sudo apt install --fix-missing ./google-chrome-stable_current_amd64.deb`
+
+*The `--fix-missing` option is used to fix missing dependencies that may arise during the installation process. The `./` in the command specifies the current directory where the .deb file is located. If the .deb file is located in a different directory, you will need to specify the path to the file in the command.
 
 To launch, enter: `google-chrome`
 

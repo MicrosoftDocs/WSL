@@ -1,13 +1,13 @@
 ---
 title: Basic commands for WSL
 description: Reference for the basic commands included with Windows Subsystem for Linux (WSL).
-ms.date: 11/16/2022
+ms.date: 11/28/2023
 ms.topic: article
 ---
 
 # Basic commands for WSL
 
-The WSL commands below are listed in a format supported by PowerShell or Windows Command Prompt. To run these commands from a Bash / Linux distribution command line, you must replace `wsl` with `wsl.exe`. For a full list of commands, run `wsl --help`. 
+The WSL commands below are listed in a format supported by PowerShell or Windows Command Prompt. To run these commands from a Bash / Linux distribution command line, you must replace `wsl` with `wsl.exe`. For a full list of commands, run `wsl --help`. If you have not yet done so, we recommend [updating to the version of WSL installed from Microsoft Store](https://apps.microsoft.com/detail/9P9TQF7MRM4R) in order to receive WSL updates as soon as they are available. ([Learn more about installing WSL via Microsoft Store.](https://devblogs.microsoft.com/commandline/the-windows-subsystem-for-linux-in-the-microsoft-store-is-now-generally-available-on-windows-10-and-11/)).
 
 ## Install
 
@@ -30,7 +30,7 @@ When WSL is not installed options include:
 - `--no-distribution`: Do not install a distribution when installing WSL.
 
 > [!NOTE]
-> If you running WSL on Windows 10 or an older version, you may need to include the `-d` flag with the `--install` command to specify a distribution: `wsl --install -d <distribution name>`.
+> If you run WSL on Windows 10 or an older version, you may need to include the `-d` flag with the `--install` command to specify a distribution: `wsl --install -d <distribution name>`.
 
 ## List available Linux distributions
 
@@ -54,7 +54,10 @@ See a list of the Linux distributions installed on your Windows machine, includi
 wsl --set-version <distribution name> <versionNumber>
 ```
 
-To designate the version of WSL (1 or 2) that a Linux distribution is running on, replace `<distribution name>` with the name of the distribution and replace `<versionNumber>` with 1 or 2. [Comparing WSL 1 and WSL 2](./compare-versions.md).
+To designate the version of WSL (1 or 2) that a Linux distribution is running on, replace `<distribution name>` with the name of the distribution and replace `<versionNumber>` with 1 or 2. [Comparing WSL 1 and WSL 2](./compare-versions.md). WSL 2 is only available in Windows 11 or Windows 10, Version 1903, Build 18362 or later. 
+
+> [!WARNING]
+> Switching between WSL 1 and WSL 2 can be time-consuming and result in failures due to the differences between the two architectures. For distributions with large projects, we recommend backing up files before attempting a conversion.
 
 ## Set default WSL version
 
@@ -62,7 +65,7 @@ To designate the version of WSL (1 or 2) that a Linux distribution is running on
 wsl --set-default-version <Version>
 ```
 
-To set a default version of WSL 1 or WSL 2, replacing `<Version>` with either the number 1 or 2 to represent which version of WSL you would like the installation to default on for new Linux distribution installations. For example, `wsl --set-default-version 2`. [Comparing WSL 1 and WSL 2](./compare-versions.md).
+To set a default version of WSL 1 or WSL 2, replace `<Version>` with either the number 1 or 2. For example, `wsl --set-default-version 2`. The number represents the version of WSL to default to for new Linux distribution installations. [Comparing WSL 1 and WSL 2](./compare-versions.md). WSL 2 is only available in Windows 11 or Windows 10, Version 1903, Build 18362 or later. 
 
 ## Set default Linux distribution
 
@@ -72,7 +75,7 @@ wsl --set-default <Distribution Name>
 
 To set the default Linux distribution that WSL commands will use to run, replace `<Distribution Name>` with the name of your preferred Linux distribution.
 
-## Change directory to home
+## Start WSL in user's home
 
 ```powershell
 wsl ~
@@ -125,7 +128,7 @@ See a list of options and commands available with WSL.
 ## Run as a specific user
 
 ```powershell
-wsl -u <Username>`, `wsl --user <Username>
+wsl --user <Username>
 ```
 
 To run WSL as a specified user, replace `<Username>` with the name of a user that exists in the WSL distribution.
@@ -153,7 +156,7 @@ For example:
 wsl --shutdown
 ```
 
-Immediately terminates all running distributions and the WSL 2 lightweight utility virtual machine. This command may be necessary in instances that require you to restart the WSL 2 virtual machine environment, such as [changing memory usage limits](/windows/wsl/disk-space) or making a change to your [.wslconfig file](./manage.md#).
+Immediately terminates all running distributions and the WSL 2 lightweight utility virtual machine. This command may be necessary in instances that require you to restart the WSL 2 virtual machine environment, such as [changing memory usage limits](/windows/wsl/disk-space) or making a change to your [.wslconfig file](./manage.md).
 
 ## Terminate
 
@@ -163,20 +166,33 @@ wsl --terminate <Distribution Name>
 
 To terminate the specified distribution, or stop it from running, replace `<Distribution Name>` with the name of the targeted distribution.
 
-## Import and export a distribution
+## Identify IP address
+
+- `wsl hostname -I`: Returns the IP address of your Linux distribution installed via WSL 2 (the WSL 2 VM address)
+- `ip route show | grep -i default | awk '{ print $3}'`: Returns the IP address of the Windows machine as seen from WSL 2 (the WSL 2 VM)
+
+For a more detailed explanation, see [Accessing network applications with WSL: Identify IP Address](./networking.md#identify-ip-address).
+
+## Export a distribution
 
 ```powershell
 wsl --export <Distribution Name> <FileName>
 ```
 
+Exports a snapshot of the specified distribution as a new distribution file. Defaults to tar format. The filename can be `-` for standard input. Options include:
+
+- `--vhd`: Specifies the export distribution should be a .vhdx file instead of a tar file (this is only supported using WSL 2)
+
+## Import a distribution
+
 ```powershell
 wsl --import <Distribution Name> <InstallLocation> <FileName>
 ```
 
-Imports and exports the specified tar file as a new distribution. The filename can be - for standard input. Options include:
+Imports the specified tar file as a new distribution. The filename can be `-` for standard input. Options include:
 
-- `--vhd`: Specifies the import/export distribution should be a .vhdx file instead of a tar file
-- `--version`: For import only, specifies whether to import the distribution as a WSL 1 or WSL 2 distribution
+- `--vhd`: Specifies the import distribution should be a .vhdx file instead of a tar file (this is only supported using WSL 2)
+- `--version <1/2>`: Specifies whether to import the distribution as a WSL 1 or WSL 2 distribution
 
 ## Import a distribution in place
 

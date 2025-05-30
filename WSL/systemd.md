@@ -1,7 +1,7 @@
 ---
 title: Use systemd to manage Linux services with WSL
 description: Learn how to use systemd to manage Linux services with Windows Subsystem for Linux.
-ms.date: 06/16/2023
+ms.date: 01/13/2025
 ms.topic: article
 ---
 
@@ -9,7 +9,7 @@ ms.topic: article
 
 Windows Subsystem for Linux (WSL) now supports systemd, an init system and service manager used by many popular Linux distributions such as Ubuntu, Debian, and more. ([What is systemd?](#what-is-systemd-in-linux)).
 
-The init system default has recently changed from SystemV, with [Systemd now the default for the current version of Ubuntu](https://canonical.com/blog/ubuntu-desktop-23-04-release-roundup#:~:text=Systemd%20becomes%20the%20default%20for%20Ubuntu%20on%20WSL) that will be installed using the [`wsl --install` command](./install.md) default. Linux distributions other than the current version of Ubuntu may still use the WSL init, similar to SystemV init. To change to SystemD, see [How to enable systemd](#how-to-enable-systemd).
+The init system default has recently changed from SystemV, with [systemd now the default for the current version of Ubuntu](https://canonical.com/blog/ubuntu-desktop-23-04-release-roundup#:~:text=Systemd%20becomes%20the%20default%20for%20Ubuntu%20on%20WSL) that will be installed using the [`wsl --install` command](./install.md) default. Linux distributions other than the current version of Ubuntu may still use the WSL init, similar to SystemV init. To change to systemd, see [How to enable systemd](#how-to-enable-systemd).
 
 ## What is systemd in Linux?
 
@@ -25,7 +25,10 @@ Systemd is [now the default for the current version of Ubuntu](https://canonical
 
 To enable systemd for any other Linux distributions running on WSL 2 (changing the default from using the systemv init):
 
-1. Ensure that your WSL version is 0.67.6 or newer. (To check, run `wsl --version`. To update, run `wsl --update` or [download the latest version from the Microsoft Store](https://aka.ms/wslstorepage).)
+1. Ensure that your WSL version is 0.67.6 or newer:
+
+    - to check, run `wsl --version`; if the command throws `Invalid command line option: --version` error, you must update WSL;
+    - to update, run `wsl --update` or [download the latest version from the Microsoft Store](https://aka.ms/wslstorepage).
 
 2. Open a command line for your Linux distribution and enter `cd /` to access the root directory, then `ls` to list the files. You will see a directory named "etc" that contains the WSL configuration file for the distribution. Open this file so that you can make an update with the Nano text editor by entering: `nano /etc/wsl.conf`.
 
@@ -36,15 +39,23 @@ To enable systemd for any other Linux distributions running on WSL 2 (changing t
     systemd=true
     ```
 
-4. Exit the Nano text editor (Ctrl + X, select Y to save your change). You will then need to close the Linux distribution. You can use the command `wsl.exe --shutdown` in PowerShell to restart all WSL instances.
+    ![Enable systemd on WSL 2](media/systemd-enable.png)
 
-![Enable systemd on WSL 2](media/systemd-enable.png)
+4. Exit the Nano text editor (Ctrl + X, type Y to save your change and confirm with the `enter` key).
 
-Once your Linux distribution restarts, systemd will be running. You can confirm using the command: `systemctl list-unit-files --type=service`, which will show the status of any services associated with your Linux distribution.
+5. You will then need to close the Linux distribution. You can use the command `wsl.exe --shutdown` in PowerShell to restart all WSL instances.
 
-Learn more about [Advanced settings configuration in WSL](wsl-config.md), including the difference between teh `wsl.conf` (distribution-specific) and `.wslconfig` (global) config files, how to update automount settings, etc.
+6. Once you restart the Linux distribution, systemd will be running. You can verify it by using the command `systemctl status` to show the _running_ state and the command `systemctl list-unit-files --type=service`, which will show the status of any services associated with your Linux distribution. 
 
-## SystemD demo video
+If your Linux distribution is Debian/Ubuntu/Kali Rolling, you should not only have installed the systemd package, but also make sure the systemd-sysv package is installed.
+
+```bash
+sudo apt-get update -y && sudo apt-get install systemd systemd-sysv -y
+```
+
+Learn more about [Advanced settings configuration in WSL](wsl-config.md), including the difference between the `wsl.conf` (distribution-specific) and `.wslconfig` (global) config files, how to update automount settings, etc.
+
+## Systemd demo video
 
 Microsoft partnered with Canonical to bring systemd support to WSL. See Craig Loewen (PM for WSL at Microsoft) and Oliver Smith (PM for Ubuntu on WSL at Canonical) announce systemd support and show some demos of what it enables.
 
@@ -60,7 +71,7 @@ Microsoft partnered with Canonical to bring systemd support to WSL. See Craig Lo
 
 A few examples of Linux applications that depend on systemd are:
 
-- [snap](https://snapcraft.io/): a software packaging and deployment system developed by Canonical for operating systems that use the Linux kernel and the systemd init system. The packages are called "snaps", the command line tool for building snaps is called "Snapcraft", the central repository where snaps can be downloaded/installed is called the "Snap Store", and the daemon required to run snaps (download from the store, mount into place, confine, and run apps out of them) is called "snapd". The entire system is sometimes referred to as "snappy." Try running the command: `snap install spotify` or `snap install postman`.
+- [snap](https://snapcraft.io/): a software packaging and deployment system developed by Canonical for operating systems that use the Linux kernel and the systemd init system. The packages are called "snaps", the command line tool for building snaps is called "Snapcraft", the central repository where snaps can be downloaded/installed is called the "Snap Store", and the daemon required to run snaps (download from the store, mount into place, confine, and run apps out of them) is called "snapd". The entire system is sometimes referred to as "snappy." Try running the command: `snap install spotify`.
 
 - [microk8s](https://microk8s.io/): an open-source, low-ops, minimal production Kubernetes that automates deployment, scaling, and management of containerized apps. Follow the instructions to [Install MicroK8s on WSL2](https://microk8s.io/docs/install-wsl2), check out the [Get Started Tutorial](https://microk8s.io/docs/getting-started), or watch the video on [Kubernetes on Windows with MicroK8s and WSL 2](https://ubuntu.com/blog/kubernetes-on-windows-with-microk8s-and-wsl-2).
 
@@ -78,4 +89,4 @@ A few related tutorials demonstrating ways to use systemd:
 
 Enabling support for systemd required changes to the WSL architecture. As systemd requires PID 1, the WSL init process started within the Linux distribution becomes a child process of the systemd. Because the WSL init process is responsible for providing the infrastructure for communication between the Linux and Windows components, changing this hierarchy required rethinking some of the assumptions made with the WSL init process. Additional modifications had to be made to ensure a clean shutdown (as that shutdown is controlled by systemd now) and to have compatibility with [WSLg](tutorials/gui-apps.md), the component of WSL that runs Linux Graphical User Interfaces (GUIs), or the Linux apps that display in windows rather than the command line.
 
-It is also important to note that with these change, systemd services will NOT keep your WSL instance alive. Your WSL instance will stay alive in the same way it did previous to this update, which you can read more about in this [Background Task Support blog post from 2017](https://devblogs.microsoft.com/commandline/background-task-support-in-wsl/).
+It is also important to note that with these changes, systemd services will NOT keep your WSL instance alive. Your WSL instance will stay alive in the same way it did previous to this update, which you can read more about in this [Background Task Support blog post from 2017](https://devblogs.microsoft.com/commandline/background-task-support-in-wsl/).

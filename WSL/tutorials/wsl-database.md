@@ -1,7 +1,7 @@
 ---
 title: Add or connect a database with WSL
 description: Learn how to set up MySQL MongoDB, PostgreSQL, SQLite, Microsoft SQL Server, or Redis on the Windows Subsystem for Linux.
-ms.date: 06/21/2023
+ms.date: 09/18/2023
 ms.topic: article
 ---
 
@@ -35,7 +35,7 @@ Some [popular choices](https://insights.stackoverflow.com/survey/2021#section-mo
 
 **MongoDB** is an open-source NoSQL document database designed to work with JSON and store schema-free data. It is horizontally scalable, which means multiple smaller machines will do the work for you. It's good for flexibility and unstructured data, and caching real-time analytics.
 
-**Redis** is is an open-source NoSQL in-memory data structure store. It uses key-value pairs for storage instead of documents.
+**Redis** is an open-source NoSQL in-memory data structure store. It uses key-value pairs for storage instead of documents.
 
 ## Install MySQL
 
@@ -54,7 +54,14 @@ Example using the Ubuntu distribution:
 
 For more about working with MySQL databases, see the [MySQL docs](https://dev.mysql.com/doc/mysql-getting-started/en/).
 
-To work with with MySQL databases in VS Code, try the [MySQL extension](https://marketplace.visualstudio.com/items?itemName=cweijan.vscode-mysql-client2).
+To work with MySQL databases in VS Code, try the [MySQL extension](https://marketplace.visualstudio.com/items?itemName=cweijan.vscode-mysql-client2).
+
+You may also want to run the included security script. This changes some of the less secure default options for things like remote root logins and sample users. This script also includes steps to change password for MySQL root user. To run the security script:
+
+1. Start a MySQL server: `sudo service mysql start`
+2. Start the security script prompts: `sudo mysql_secure_installation`
+3. The first prompt will ask whether you’d like to set up the VALIDATE PASSWORD COMPONENT, which can be used to test the strength of your MySQL password. If you want to set some simple password, you should not set this component.
+4. You will then set/change password for the MySQL root user, decide whether or not to remove anonymous users, decide whether to allow the root user to login both locally and remotely, decide whether to remove the test database, and, lastly, decide whether to reload the privilege tables immediately.
 
 ## Install PostgreSQL
 
@@ -89,11 +96,11 @@ Once you have successfully entered the psql shell, you will see your command lin
 
 To exit postgres=# enter: `\q` or use the shortcut key: Ctrl+D
 
-To see what user accounts have been created on your PostgreSQL installation, use from your WSL terminal: `psql -c "\du"` ...or just `\du` if you have the psql shell open. This command will display columns: Account User Name, List of Roles Attributes, and Member of role group(s). To exit back to the command line, enter: `q`.
+To see what user accounts have been created on your PostgreSQL installation, use from your WSL terminal: `psql --command="\du"` ...or just `\du` if you have the psql shell open. This command will display columns: Account User Name, List of Roles Attributes, and Member of role group(s). To exit back to the command line, enter: `q`.
 
 For more about working with PostgreSQL databases, see the [PostgreSQL docs](https://www.postgresql.org/docs/13/tutorial-createdb.html).
 
-To work with with PostgreSQL databases in VS Code, try the [PostgreSQL extension](https://marketplace.visualstudio.com/items?itemName=ms-ossdata.vscode-postgresql).
+To work with PostgreSQL databases in VS Code, try the [PostgreSQL extension](https://marketplace.visualstudio.com/items?itemName=ms-ossdata.vscode-postgresql).
 
 ## Install MongoDB
 
@@ -112,7 +119,7 @@ Learn more in the MongoDB docs:
 
 ## Install Microsoft SQL Server
 
-To install SQL Server on a Linux distribution run by WSL: [SQL Server on Linux](/sql/linux/sql-server-linux-overview). To work with Microsoft SQL Server databases in VS Code, try the [MSSQL extension](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql).
+[Quickstart: Install SQL Server and create a database on Windows Subsystem for Linux (WSL 2)](/sql/linux/quickstart-install-connect-wsl-2).
 
 ## Install SQLite
 

@@ -2,8 +2,7 @@
 metadata:
   title: FAQ's about Windows Subsystem for Linux
   description: "Find answers to frequently asked questions (FAQs) about the Windows Subsystem for Linux, such as 'What can I do with WSL?'."
-  keywords: BashOnWindows, bash, wsl, windows, windowssubsystem, faq
-  ms.date: 09/27/2021
+  ms.date: 07/16/2024
   ms.topic: faq
   ms.localizationpriority: high
 title: Frequently Asked Questions about Windows Subsystem for Linux
@@ -22,7 +21,7 @@ sections:
       - question: |
          Who is WSL for?
         answer: |
-         This is primarily a tool for developers, especially web developers, those working on open source projects, or deploying to Linux server environments. WSL is for anyone who likes using Bash, common Linux tools (`sed`, `awk`, etc.) and Linux-first frameworks (Ruby, Python, etc.) but also enjoys using Windows productivity tools
+         This is primarily a tool for developers, especially web developers, those working on open source projects, or deploying to Linux server environments. WSL is for anyone who likes using Bash, common Linux tools (`sed`, `awk`, etc.) and Linux-first frameworks (Ruby, Python, etc.) but also enjoys using Windows productivity tools.
 
       - question: |
          What can I do with WSL?
@@ -38,7 +37,7 @@ sections:
       - question: |
          Could you describe a typical development workflow that incorporates WSL?
         answer: |
-         WSL targets a developer audience with the intent to be used as part of an inner development loop. Let's say that Sam is creating a CI/CD pipeline (Continuous Integration & Continuous Delivery) and wants to test it first on a local machine (laptop) before deploying it to the cloud. Sam can enable WSL (& WSL 2 to improve speed and performance), and then use a genuine Linux Ubuntu instance locally (on the laptop) with whatever Bash commands and tools they prefer. Once the development pipeline is verified locally, Sam can then push that CI/CD pipeline up to the cloud (ie Azure) by making it into a Docker container and pushing the container to a cloud instance where it runs on a production-ready Ubuntu VM.
+         WSL targets a developer audience with the intent to be used as part of an inner development loop. Let's say that Sam is creating a CI/CD pipeline (Continuous Integration & Continuous Delivery) and wants to test it first on a local machine (laptop) before deploying it to the cloud. Sam can enable WSL (& WSL 2 to improve speed and performance), and then use a genuine Linux Ubuntu instance locally (on the laptop) with whatever Bash commands and tools they prefer. Once the development pipeline is verified locally, Sam can then push that CI/CD pipeline up to the cloud (i.e. Azure) by making it into a Docker container and pushing the container to a cloud instance where it runs on a production-ready Ubuntu VM.
 
       - question: |
          What is Bash?
@@ -94,9 +93,9 @@ sections:
         answer: |
           One of the benefits of WSL is being able to access your files via both Windows and Linux apps or tools. 
           
-          WSL mounts your machine's fixed drives under the `/mnt/<drive>` folder in your Linux distros. For example, your `C:` drive is mounted under `/mnt/c/`
+          WSL mounts your machine's fixed drives under the `/mnt/<drive>` folder in your Linux distros. For example, your `C:` drive is mounted under `/mnt/c/`.
           
-          Using your mounted drives, you can edit code in, for example, `C:\dev\myproj\` using [Visual Studio](https://visualstudio.microsoft.com/vs/) / or [VS Code](https://code.visualstudio.com/), and build/test that code in Linux by accessing the same files via `/mnt/c/dev/myproj`.
+          Using your mounted drives, you can edit code in, for example, `C:\dev\myproj\` using [Visual Studio](https://visualstudio.microsoft.com/vs/) or [VS Code](https://code.visualstudio.com/), and build/test that code in Linux by accessing the same files via `/mnt/c/dev/myproj`.
           
           Learn more in [Working across Windows and Linux file systems](./filesystems.md) article.
           
@@ -106,7 +105,7 @@ sections:
           1. Files under the Linux root (i.e. `/`) are controlled by WSL which aligns with Linux behavior, including but not limited to:
              * Files which contain invalid Windows filename characters
              * Symlinks created for non-admin users
-             * Changing file attributes through chmod and chown
+             * Changing file attributes through `chmod` and `chown`
              * File/folder case sensitivity
           
           2. Files in mounted drives are controlled by Windows and have the following behaviors:
@@ -125,14 +124,14 @@ sections:
       - question: |
          How do I run an OpenSSH server?
         answer: |
-         OpenSSH ships with Windows as an optional feature. See the [Install OpenSSH](/windows-server/administration/openssh/openssh_install_firstuse) doc. Administrator privileges in Windows are required to run OpenSSH in WSL. To run an OpenSSH server, run your WSL distribution (ie Ubuntu) or Windows Terminal as an administrator. There are several resources out there covering SSH scenarios with WSL. Check out Scott Hanselman's blog articles: [How to SSH into a Windows 10 Machine from Linux OR Windows OR anywhere](https://www.hanselman.com/blog/how-to-ssh-into-a-windows-10-machine-from-linux-or-windows-or-anywhere), [How to SSH into WSL2 on Windows 10 from an external machine](https://www.hanselman.com/blog/how-to-ssh-into-wsl2-on-windows-10-from-an-external-machine), [THE EASY WAY how to SSH into Bash and WSL2 on Windows 10 from an external machine](https://www.hanselman.com/blog/the-easy-way-how-to-ssh-into-bash-and-wsl2-on-windows-10-from-an-external-machine), and [How to use Windows 10's built-in OpenSSH to automatically SSH into a remote Linux machine](https://www.hanselman.com/blog/how-to-use-windows-10s-builtin-openssh-to-automatically-ssh-into-a-remote-linux-machine). 
+         OpenSSH ships with Windows as an optional feature. See the [Install OpenSSH](/windows-server/administration/openssh/openssh_install_firstuse) doc. Administrator privileges in Windows are required to run OpenSSH in WSL. To run an OpenSSH server, run your WSL distribution (i.e. Ubuntu) or Windows Terminal as an administrator. There are several resources out there covering SSH scenarios with WSL. Check out Scott Hanselman's blog articles: [How to SSH into a Windows 10 Machine from Linux OR Windows OR anywhere](https://www.hanselman.com/blog/how-to-ssh-into-a-windows-10-machine-from-linux-or-windows-or-anywhere), [How to SSH into WSL2 on Windows 10 from an external machine](https://www.hanselman.com/blog/how-to-ssh-into-wsl2-on-windows-10-from-an-external-machine), [THE EASY WAY how to SSH into Bash and WSL2 on Windows 10 from an external machine](https://www.hanselman.com/blog/the-easy-way-how-to-ssh-into-bash-and-wsl2-on-windows-10-from-an-external-machine), and [How to use Windows 10's built-in OpenSSH to automatically SSH into a remote Linux machine](https://www.hanselman.com/blog/how-to-use-windows-10s-builtin-openssh-to-automatically-ssh-into-a-remote-linux-machine). 
 
       - question: |
          How do I change the display language of WSL?
         answer: |
           WSL install will try to automatically change the Ubuntu locale to match the locale of your Windows install. If you do not want this behavior you can run this command to change the Ubuntu locale after install completes. You will have to relaunch your WSL distribution for this change to take effect.
           
-          The below example changes to locale to en-US:
+          The below example changes the locale to en-US:
           
           ```bash
           sudo update-locale LANG=en_US.UTF8
@@ -158,16 +157,16 @@ sections:
           For more information, see [Accessing network applications](./networking.md).
           
       - question: |
-         How can I back up my WSL distributions, or move them from one drive to another?
+         How can I back up my WSL distributions?
         answer: |
-          The best way to backup or move your distributions is via the [export/import commands](./basic-commands.md) available in Windows Version 1809 and later. You can export your entire distribution to a tarball using the `wsl --export` command. You can then import this distribution back into WSL using the `wsl --import` command, which can name a new drive location for the import, allowing you to backup and save states of (or move) your WSL distributions. 
+          The best way to backup or move your distributions is via the [export](./basic-commands.md#export-a-distribution)/[import](./basic-commands.md#import-a-distribution) commands available in Windows Version 1809 and later. You can export your entire distribution to a tarball using the `wsl --export` command. You can then import this distribution back into WSL using the `wsl --import` command, which can name a new drive location for the import, allowing you to backup and save states of (or move) your WSL distributions. To learn more about moving your WSL distributions, see [How can I transfer my WSL files from one machine to another?](#how-can-i-transfer-my-wsl-files-from-one-machine-to-another-). 
           
-          Please note that traditional backup services that backup files in your AppData folders (like Windows Backup) will not corrupt your Linux files.
+          Traditional backup services that backup files in your AppData folders (like Windows Backup) will not corrupt your Linux files.
 
       - question: |
          Can I use WSL for production scenarios? 
         answer: |
-          WSL has been designed and built to use with inner loop development workflows. There are design features in WSL that make it great for this purpose but may make it challenging for production-related scenarios compared to other products. Our goal is to make clear how WSL differs from a regular VM environment, so you can make the decision on whether it fits your business needs.
+          Yes, however WSL has been designed and built to use with inner loop development workflows. There are design features in WSL that make it great for this purpose but may make it challenging for production-related scenarios compared to other products. Our goal is to make clear how WSL differs from a regular VM environment, so you can make the decision on whether it fits your business needs.
 
           The main differences between WSL and a traditional production environment are:
 
@@ -186,20 +185,53 @@ sections:
         answer: |
          There are a few ways you can accomplish this task: 
           
-          * The easiest way is to use the `wsl --export --vhd` command to export your WSL distribution to a VHD file. You can then copy this file to another machine, and import it using `wsl --import --vhd`. Please see the [commands doc](./basic-commands.md) for more information.
+          * The easiest way is to use the `wsl --export --vhd` command to export your WSL distribution to a VHD file. You can then copy this file to another machine, and import it using `wsl --import --vhd`. See the [import](./basic-commands.md#import-a-distribution) and [export](./basic-commands.md#export-a-distribution) commands in [the WSL basic commands](./basic-commands.md) doc for more information.
           * The implementation above requires a lot of disk space. If you don't have a lot of disk space you can use Linux techniques to move your files over:
              * Use `tar -czf <tarballName> <directory>` to create a tarball of your files. You can then copy these specific files over to your new machine and run `tar -xzf <tarballName>` to extract them.
              * You can also export a list of installed packages via `apt` with a command like so: `dpkg --get-selections | grep -v deinstall | awk '{print $1}' > package_list.txt` and then reinstall those same packages on another machine with a command like `sudo apt install -y $(cat package_list.txt)` after transferring the file over.
 
+      - question: |
+         How can I move my WSL distribution to a different drive or location?
+        answer: |
+         You can do this using PowerShell. Below are the necessary commands and explanations for each step. Please open a PowerShell window and adjust the values in between the `<` tags to fit your specific use case:
+
+         ```powershell
+         # Create a folder where you would like to store your distro
+         New-Item -ItemType Directory -Path <Install location, e.g: D:\WSLDistros\Ubuntu>
+
+         # Export your distro to that folder as a VHD
+         wsl --export --vhd <Distroname, e.g: Ubuntu> <Install Location with filename, e.g: D:\WSLDistros\Ubuntu\ext4.vhdx> 
+
+         # Unregister your old distro
+         # Please note this will erase your existing distro's file contents, please ensure the backup file you created in the 2nd step is present at the location and that the export operation completed successfully.
+         # Please exercise caution when using this command, as it is destructive and could cause data loss.
+         wsl --unregister <Distroname>
+
+         # Import your VHD backup
+         
+         wsl --import-in-place <Distroname> <Install Location with filename>
+
+         # Set your default user account
+         
+         You can set up your default user account by [setting a wsl.conf value of user.default=<name>](/windows/wsl/wsl-config#user-settings)
+
+
   - name: WSL 2
     questions:
       - question: |
-          Does WSL 2 use Hyper-V? Will it be available on Windows 10 Home and Windows 11 Home?
+          Is WSL 2 available on Windows 10 Home and Windows 11 Home?
         answer: |
-          WSL 2 is available on all Desktop SKUs where WSL is available, including Windows 10 Home and Windows 11 Home.
+          Yes. WSL 2 is available on all Desktop SKUs where WSL is available, including Windows 10 Home and Windows 11 Home.
           
-          The newest version of WSL uses Hyper-V architecture to enable its virtualization. This architecture will be available in the 'Virtual Machine Platform' optional component. This optional component will be available on all SKUs. You can expect to see more details about this experience soon as we get closer to the WSL 2 release.
+          Specifically, WSL2 requires two features to be enabled: 
+          1. "Virtual Machine Platform" (a subset of Hyper-V)
+          2. "Windows Subsystem for Linux"
           
+      - question: |
+          Does WSL 2 use Hyper-V?
+        answer: |
+          The newest version of WSL uses a *subset* of Hyper-V architecture to enable its virtualization. This subset is provided as an optional component named "Virtual Machine Platform," available on all Desktop SKUs. 
+                  
       - question: |
           What will happen to WSL 1? Will it be abandoned?
         answer: |
@@ -208,7 +240,7 @@ sections:
       - question: |
           Will I be able to run WSL 2 and other 3rd party virtualization tools such as VMware, or VirtualBox?
         answer: |
-          Some 3rd party applications cannot work when Hyper-V is in use, which means they will not be able to run when WSL 2 is enabled, such as VMware and VirtualBox. However, recently both VirtualBox and VMware have released versions that support Hyper-V and WSL2. Learn more about [VirtualBox's changes here](https://www.virtualbox.org/wiki/Changelog-6.0) and [VMware's changes here](https://blogs.vmware.com/workstation/2020/01/vmware-workstation-tech-preview-20h1.html). For troubleshooting issues, take a look at the [VirtualBox issue discussions in the WSL repo on GitHub](https://github.com/MicrosoftDocs/WSL/issues?q=is%3Aissue+virtualbox+sort%3Acomments-desc).
+          Some 3rd party applications cannot work when Hyper-V is in use, which means they will not be able to run when WSL 2 is enabled, such as VMware and VirtualBox. However, recently both VirtualBox and VMware have released versions that support Hyper-V and WSL2. Learn more about [VirtualBox's changes here](https://www.virtualbox.org/wiki/Changelog-6.0) and [VMware's changes here](https://blogs.vmware.com/workstation/2020/01/vmware-workstation-tech-preview-20h1.html). For troubleshooting issues, take a look at the [VirtualBox issue discussions in the WSL repo on GitHub](https://github.com/MicrosoftDocs/WSL/issues?q=is%3Aissue+virtualbox+sort%3Acomments-desc). StackOverflow also offers a helpful tip: [How to get VirtualBox 6.0 and WSL working at the same time](https://stackoverflow.com/questions/58031941/how-to-get-virtualbox-6-0-and-wsl-working-at-the-same-time).
           
           We are consistently working on solutions to support third-party integration of Hyper-V. For example, we expose a set of APIs called [Hypervisor Platform](/virtualization/api/) that third-party virtualization providers can use to make their software compatible with Hyper-V. This lets applications use the Hyper-V architecture for their emulation such as [the Google Android Emulator](https://devblogs.microsoft.com/visualstudio/hyper-v-android-emulator-support/), and VirtualBox 6 and above which are both now compatible with Hyper-V.
 
@@ -244,7 +276,15 @@ sections:
            [2]: https://learn.microsoft.com/virtualization/api/
            [3]: https://devblogs.microsoft.com/visualstudio/hyper-v-android-emulator-support/
            [4]: https://blogs.vmware.com/workstation/2020/01/vmware-workstation-tech-preview-20h1.html
-  
+
+      - question: |
+         How do I increase or restrict the amount of memory available for WSL 2 to use?
+        answer: See the [Configure settings with .wslconfig and wsl.conf](./wsl-config.md#configure-settings-with-wslconfig-and-wslconf) documentation.
+
+      - question: |
+         How do I restrict the amount of processing power available for WSL 2 to use?
+        answer: See the [Configure settings with .wslconfig and wsl.conf](./wsl-config.md#configure-settings-with-wslconfig-and-wslconf) documentation.
+
       - question: |
          Where can I provide feedback?
         answer: |
@@ -262,3 +302,9 @@ sections:
           
             - Our [command-line team blog](https://devblogs.microsoft.com/commandline/)
             - Twitter. Please follow [@craigaloewen](https://twitter.com/craigaloewen) on Twitter to learn of news, updates, etc.
+      
+      - question: |
+          How to resolve `Error: 0x800704ec This program is blocked by group policy. For more information, contact your system administrator.`?
+        answer: |
+          This error is caused by a group policy blocking WSL. To resolve, first run the command `wsl --update` to update to the latest Store version. If that doesn't resolve the issue, contact your administrator. Learn more about the difference between the inbox WSL and Store version of WSL: [WSL in the Microsoft Store](/windows/wsl/compare-versions#wsl-in-the-microsoft-store).
+
