@@ -1,5 +1,5 @@
 ---
-title: Get started mounting a Linux disk in WSL 2 
+title: Get started mounting a Linux disk in WSL 2
 description: Learn how to set up a disk mount in WSL 2 and how to access it.
 ms.date: 07/17/2023
 ms.topic: article
@@ -13,17 +13,17 @@ If you are connecting an external drive and do not have success with these mount
 
 > [!NOTE]
 > Administrator access is required to attach a disk to WSL 2.
-> The WSL 2 `mount` command does not support mounting a disk (or partitions that belong to the disk) that is currently in use. `wsl --mount` always attaches the entire disk even if only a partition is requested. You can't mount the Windows installation disk.
+> The WSL 2 `wsl --mount` command does not support mounting a disk (or partitions that belong to the disk) that is currently in use. `wsl --mount` always attaches the entire disk even if only a partition is requested. You can't mount the Windows installation disk.
 
 ## Prerequisites
 
-You will need to be on Windows 11 Build 22000 or later, or be running the Microsoft Store version of WSL. To check your WSL and Windows version, use the command: `wsl.exe --version`
+You will need to be on Windows 11, or be running the Microsoft Store version of WSL. To check your WSL and Windows version, use the command: `wsl.exe --version`
 
 ## Differences between mounting an external drive with Windows formatting versus Linux formatting
 
 External drives formatted for Windows typically use the NTFS file system formatting. External drives formatted for Linux typically use the Ext4 file system formatting.
 
-If you have mounted an NTFS-formatted drive on your Windows file system, you can access that drive from your Linux distribution using WSL by creating a mounted directory (`sudo mkdir /mnt/d`, replacing 'd' with whatever drive letter you'd like to use) and then using the `drvfs` file system interop plugin, with the command:
+If you have mounted an NTFS-formatted drive on your Windows file system, you can access that drive from your Linux distribution using WSL by creating a mounted directory (`sudo mkdir /mnt/d`, replacing `d` with whatever drive letter you'd like to use) and then using the `drvfs` file system interop plugin, with the command:
 
 ```bash
 sudo mount -t drvfs D: /mnt/d
@@ -40,15 +40,15 @@ If you have a disk that doesn't have any partitions, you can mount it directly u
 1. **Identify the disk** - To list the available disks in Windows, run:
 
     ```powershell
-    GET-CimInstance -query "SELECT * from Win32_DiskDrive"
+    Get-CimInstance -Query "SELECT * from Win32_DiskDrive"
     ```
 
-    The disks paths are available under the 'DeviceID' columns. Usually under the `\\.\PHYSICALDRIVE*` format.
+    The disks paths are available under the "**DeviceID**" columns. Usually under the `\\.\PHYSICALDRIVE*` format.
 
 2. **Mount the disk** - Using PowerShell, you can mount the disk using the Disk path discovered above, run:
 
     ```powershell
-    wsl --mount <DiskPath>
+    wsl.exe --mount <Disk>
     ```
 
     ![Mounting a drive in WSL](./media/wslmountsimple.png)
@@ -60,18 +60,18 @@ If you have a disk that you aren't sure what file format it is in, or what parti
 1. **Identify the disk** - To list the available disks in Windows, run:
 
     ```powershell
-    GET-CimInstance -query "SELECT * from Win32_DiskDrive"
+    Get-CimInstance -Query "SELECT * from Win32_DiskDrive"
     ```
 
-    The disks paths are listed after 'DeviceID', usually in the `\\.\PHYSICALDRIVE*` format.
+    The disks paths are available under the "**DeviceID**" columns. Usually under the `\\.\PHYSICALDRIVE*` format.
 
 2. **List and select the partitions to mount in WSL 2** - Once the disk is identified, run:
 
     ```powershell
-    wsl --mount <DiskPath> --bare
+    wsl.exe --mount <Disk> --bare
     ```
 
-    This will make the disk available in WSL 2. (In the case of our example, the `<DiskPath>` is `\\.\PHYSICALDRIVE*`.
+    This will make the disk available in WSL 2. (In the case of our example, the `<Disk>` is `\\.\PHYSICALDRIVE*`.
 
 3. Once attached, the partition can be listed by running the following command inside WSL 2:
 
@@ -81,7 +81,7 @@ If you have a disk that you aren't sure what file format it is in, or what parti
 
     This will display the available block devices and their partitions.
 
-Inside Linux, a block device is identified as  `/dev/<Device><Partition>`. For example, /dev/sdb3, is the partition number 3 of disk `sdb`.
+Inside Linux, a block device is identified as  `/dev/<Device><Partition>`. For example, `/dev/sdb3`, is the partition number `3` of disk `sdb`.
 
 Example output:
 
@@ -110,13 +110,13 @@ This will output the detected filesystem type (under the `TYPE="<Filesystem>"` f
 Once you have identified the partitions you want to mount, run this command on each partition:
 
 ```powershell
-wsl --mount <DiskPath> --partition <PartitionNumber> --type <Filesystem>
+wsl.exe --mount <Disk> --partition <Index> --type <Type>
 ```
 
 > [!NOTE]
 > If you wish to mount the entire disk as a single volume (i.e. if the disk isn't partitioned), `--partition` can be omitted.
 >
-> If omitted, the default filesystem type is "ext4".
+> If `--type` is omitted, the default file system type is 'ext4'.
 
 ### Access the disk content
 
@@ -129,7 +129,7 @@ From Windows, the disk can be accessed from File Explorer by navigating to: `\\w
 If you want to unmount and detach the disk from WSL 2, run:
 
 ```powershell
-wsl --unmount <DiskPath>
+wsl.exe --unmount [DiskPath]
 ```
 
 ## Mount a VHD in WSL
@@ -138,7 +138,7 @@ wsl --unmount <DiskPath>
 > [WSL from the Microsoft Store](https://devblogs.microsoft.com/commandline/a-preview-of-wsl-in-the-microsoft-store-is-now-available/) introduces a new argument to directly mount a VHD: `wsl --mount --vhd <pathToVHD>`
 >
 
-You can also mount virtual hard disk files (VHD) into WSL using `wsl --mount`. To do this, you first need to mount the VHD into Windows using the [`Mount-VHD`](/powershell/module/hyper-v/mount-vhd) command in Windows. Be sure to run this command with administrator privileges. Below is an example where we use this command, and also output the disk path. Be sure to replace `<pathToVHD>` with your actual VHD path. 
+You can also mount virtual hard disk files (VHD) into WSL using `wsl --mount`. To do this, you first need to mount the VHD into Windows using the [`Mount-VHD`](/powershell/module/hyper-v/mount-vhd) command in Windows. Be sure to run this command with administrator privileges. Below is an example where we use this command, and also output the disk path. Be sure to replace `<pathToVHD>` with your actual VHD path.
 
 ```powershell
 Write-Output "\\.\PhysicalDrive$((Mount-VHD -Path <pathToVHD> -PassThru | Get-Disk).Number)"
@@ -146,7 +146,7 @@ Write-Output "\\.\PhysicalDrive$((Mount-VHD -Path <pathToVHD> -PassThru | Get-Di
 
 You can use the output above to obtain the disk path for this VHD and mount that into WSL following the instructions in the previous section.
 
-You can also use this technique to mount and interact with the virtual hard disks of other WSL distros, as each WSL 2 distro is stored via a virtual hard disk file called: `ext4.vhdx`. By default the VHDs for WSL 2 distros are stored in this path: `C:\Users\[user]\AppData\Local\Packages\[distro]\LocalState\[distroPackageName]`, please exercise caution accessing these system files, this is a power user workflow. Make sure to run `wsl --shutdown` before interacting with this disk to ensure the disk is not in use. 
+You can also use this technique to mount and interact with the virtual hard disks of other WSL distros, as each WSL 2 distro is stored via a virtual hard disk file called: `ext4.vhdx`. By default the VHDs for WSL 2 distros are stored in this path: `%LocalAppData%\Packages\[distro]\LocalState\[distroPackageName]`, please exercise caution accessing these system files, this is a power user workflow. Make sure to run `wsl --shutdown` before interacting with this disk to ensure the disk is not in use.
 
 ![Mounting WSL VHD](./media/wslmountvhd.png)
 
@@ -157,25 +157,30 @@ You can also use this technique to mount and interact with the virtual hard disk
 By default, WSL 2 will attempt to mount the device as ext4. To specify another filesystem, run:
 
 ```powershell
-wsl --mount <DiskPath> -t <FileSystem>
+wsl.exe --mount <Disk> --type <Type>
 ```
 
-For example, to mount a disk as fat, run:
+For example, to mount a disk as FAT, run:
 
-```
-wsl --mount <Diskpath> -t vfat
+```powershell
+wsl.exe --mount <Disk> --type vfat
 ```
 
 > [!NOTE]
-> To list the available filesystems in WSL2, run: `cat /proc/filesystems` <br>
+> To list the available filesystems in WSL2, run:
+>
+> ```bash
+> cat /proc/filesystems
+> ```
+>
 > When a disk has been mounted via WSL2 (Linux file system), it is no longer available to mount via an ext4 driver on the Windows file system.
 
 ### Mounting a specific partition
 
 By default, WSL 2 attempts to mount the entire disk. To mount a specific partition, run:
 
-```
-wsl --mount <Diskpath> -p <PartitionIndex>
+```powershell
+wsl.exe --mount <Disk> --partition <Index>
 ```
 
 This only works if the disk is either MBR (Master Boot Record) or GPT (GUID Partition Table). [Read about partition styles - MBR and GPT](/windows-server/storage/disk-management/initialize-new-disks#about-partition-styles---gpt-and-mbr).
@@ -185,24 +190,24 @@ This only works if the disk is either MBR (Master Boot Record) or GPT (GUID Part
 To specify mount options, run:
 
 ```powershell
-wsl --mount <DiskPath> -o <MountOptions>
+wsl.exe --mount <Disk> --options <Options>
 ```
 
 Example:
 
 ```powershell
-wsl --mount <DiskPath> -o "data=ordered"
+wsl.exe --mount <Disk> --options "data=ordered"
 ```
 
 > [!NOTE]
-> Only filesystem specific options are supported at this time. Generic options such as `ro, rw, noatime, ...` are not supported.
+> Only filesystem specific options are supported at this time. Generic options such as `ro`, `rw`, `noatime`,... are not supported.
 
 ### Attaching the disk without mounting it
 
 If the disk scheme isn't supported by any of the above options, you can attach the disk to WSL 2 without mounting it by running:
 
 ```powershell
-wsl --mount <DiskPath> --bare
+wsl.exe --mount <Disk> --bare
 ```
 
 This will make the block device available inside WSL 2 so it can be mounted manually from there. Use `lsblk` to list the available block devices inside WSL 2.
@@ -212,10 +217,16 @@ This will make the block device available inside WSL 2 so it can be mounted manu
 > [!NOTE]
 > This option is only available with [WSL from the Microsoft Store](https://devblogs.microsoft.com/commandline/a-preview-of-wsl-in-the-microsoft-store-is-now-available/)
 
-By default the mountpoint name is generated based on the physical disk or VHD name. This can be overridden with `--name`. Example: 
+By default the mountpoint name is generated based on the physical disk or VHD name. This can be overridden with `--name`.
 
 ```powershell
-wsl --mount <DiskPath> --name myDisk
+wsl.exe --mount <Disk> --name <Name>
+```
+
+Example:
+
+```powershell
+wsl.exe --mount <Disk> --name myDisk
 ```
 
 ### Detaching a disk
@@ -223,7 +234,7 @@ wsl --mount <DiskPath> --name myDisk
 To detach a disk from WSL 2, run:
 
 ```powershell
-wsl --unmount [DiskPath]
+wsl.exe --unmount [DiskPath]
 ```
 
 If `Diskpath` is omitted, all attached disks are unmounted and detached.
