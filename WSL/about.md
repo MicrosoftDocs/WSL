@@ -2,7 +2,7 @@
 title: What is Windows Subsystem for Linux 
 description: Learn about the Windows Subsystem for Linux, including the different versions and ways you can use them. Microsoft Loves Linux.
 ms.date: 05/19/2025
-ms.topic: article
+ms.topic: concept-article
 ---
 
 # What is the Windows Subsystem for Linux?

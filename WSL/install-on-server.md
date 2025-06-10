@@ -2,7 +2,7 @@
 title: Install Linux Subsystem on Windows Server
 description: Learn how to install the Linux Subsystem on Windows Server. WSL is available for installation on Windows Server 2019 (version 1709) and later.
 ms.date: 06/14/2022
-ms.topic: article
+ms.topic: install-set-up-deploy
 ---
 
 # Windows Server Installation Guide
