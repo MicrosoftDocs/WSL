@@ -2,7 +2,7 @@
 title: Run Linux GUI apps with WSL 
 description: Learn how WSL support running Linux GUI apps. 
 ms.date: 01/04/2024
-ms.topic: article
+ms.topic: how-to
 ---
 
 # Run Linux GUI apps on the Windows Subsystem for Linux

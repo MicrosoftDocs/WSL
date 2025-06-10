@@ -2,7 +2,7 @@
 title: Get started with Linux using WSL
 description: Learn some basics for working with Linux and a Bash command line using WSL.
 ms.date: 08/05/2022
-ms.topic: article
+ms.topic: get-started
 ---
 
 # Getting started with Linux and Bash
