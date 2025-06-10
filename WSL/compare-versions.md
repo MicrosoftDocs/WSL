@@ -2,7 +2,7 @@
 title: Comparing WSL Versions
 description: WSL 2 provides the benefits of WSL 1, but uses an actual Linux kernel, rather than a translation layer like WSL 1, resulting in faster performance.
 ms.date: 11/19/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom: seo-windows-dev
 ---
 

@@ -2,7 +2,7 @@
 title: Troubleshooting Windows Subsystem for Linux
 description: Provides detailed information about common errors and issues people run into while running Linux on the Windows Subsystem for Linux. 
 ms.date: 05/20/2025
-ms.topic: article
+ms.topic: troubleshooting-general
 ---
 
 # Troubleshooting Windows Subsystem for Linux
