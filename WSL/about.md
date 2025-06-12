@@ -1,8 +1,8 @@
 ---
 title: What is Windows Subsystem for Linux 
 description: Learn about the Windows Subsystem for Linux, including the different versions and ways you can use them. Microsoft Loves Linux.
-ms.date: 11/20/2023
-ms.topic: article
+ms.date: 05/19/2025
+ms.topic: concept-article
 ---
 
 # What is the Windows Subsystem for Linux?
@@ -22,6 +22,14 @@ Windows Subsystem for Linux (WSL) is a feature of Windows that allows you to run
 - Invoke GNU/Linux applications on Windows.
 - [Run GNU/Linux graphical applications](./tutorials/gui-apps.md) integrated directly to your Windows desktop
 - Use your device [GPU to accelerate Machine Learning workloads running on Linux.](./tutorials/gpu-compute.md)
+
+WSL is an Open Source tool with source code available for download and contributions:
+
+- [Learn more about WSL open source components](opensource.md)
+- WSL Open Source docs site: [wsl.dev](https://wsl.dev)
+- WSL repository on GitHub: [github.com/Microsoft/wsl](https://github.com/microsoft/WSL)
+
+Get started using WSL:
 
 > [!div class="nextstepaction"]
 > [Install WSL](install.md)

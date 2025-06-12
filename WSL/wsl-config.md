@@ -1,10 +1,8 @@
 ---
 title: Advanced settings configuration in WSL
 description: A guide to the wsl.conf and .wslconfig files used for configuring settings when running multiple Linux distributions on Windows Subsystem for Linux.
-ms.date: 12/16/2024
+ms.date: 05/19/2025
 ms.topic: article
-ms.custom: seo-windows-dev
-adobe-target: true
 ---
 
 # Advanced settings configuration in WSL
@@ -19,21 +17,13 @@ The [`wsl.conf`](#wslconf) and [`.wslconfig`](#wslconfig) files are used to conf
 
 Currently, all `.wslconfig` settings apply only to WSL 2 distributions. Learn [how to check which version of WSL you are running](./install.md#check-which-version-of-wsl-you-are-running).
 
-## Applying Configuration Changes
+## The 8 second rule for configuration changes
 
-### For `/etc/wsl.conf` Changes
-To apply distribution-specific settings made in `wsl.conf`, you can terminate the specific distribution using the following command:
-```
-wsl.exe --terminate <distroName>
-```
+You must wait until the subsystem running your Linux distribution completely stops running and restarts for configuration setting updates to appear. This typically takes about 8 seconds after closing ALL instances of the distribution shell.
 
-### For `%UserProfile%\.wslconfig` Changes
-To apply global settings made in `.wslconfig`, you must shut down WSL by running:
-```
-wsl.exe --shutdown
-```
-> [!NOTE]
-> This command will terminate all running WSL distributions. Ensure you save your work before executing it.
+If you launch a distribution (e.g. Ubuntu), modify the configuration file, close the distribution, and then re-launch it, you might assume that your configuration changes have immediately gone into effect. This is not currently the case as the subsystem could still be running. You must wait for the subsystem to stop before relaunching in order to give enough time for your changes to be picked up. You can check to see whether your Linux distribution (shell) is still running after closing it by using PowerShell with the command: `wsl --list --running`. If no distributions are running, you will receive the response: "There are no running distributions." You can now restart the distribution to see your configuration updates applied.
+
+The command `wsl --shutdown` is a fast path to restarting WSL 2 distributions, but it will shut down all running distributions, so use wisely. You can also use `wsl --terminate <distroName>` to terminate a specific distribution that's running instantly.
 
 ## wsl.conf
 
@@ -95,7 +85,7 @@ Setting different mount options for Windows drives (DrvFs) can control how file 
 
 By default, WSL sets the uid and gid to the value of the default user. For example, in Ubuntu, the default user is uid=1000, gid=1000. If this value is used to specify a different gid or uid option, the default user value will be overwritten. Otherwise, the default value will always be appended.
 
-The above umask, fmask, etc. options will only apply when the Windows drive is mounted with metadata. By default metadata is not enabled. You can [find more info about this here](./file-permissions). 
+The above umask, fmask, etc. options will only apply when the Windows drive is mounted with metadata. By default metadata is not enabled. You can [find more info about this here](./file-permissions.md). 
 
 > [!NOTE]
 > The permission masks are put through a logical OR operation before being applied to files or directories.
@@ -144,6 +134,23 @@ wsl.conf section label: `[boot]`
 | Key | Value | Default | Notes |
 |:----|:----|:----|:----|
 | `command` | string | `""` | A string of the command that you would like to run when the WSL instance starts. This command is run as the root user. e.g: `service docker start`. |
+| `protectBinfmt` | boolean | `true` | Prevents WSL from generating systemd units when systemd is enabled.  |
+
+### GPU settings
+
+wsl.conf section label: `[gpu]`
+
+| Key | Value | Default | Notes |
+|:----|:----|:----|:----|
+| `enabled` | boolean | `true` | Allow Linux applications to access the Windows GPU via para-virtualization. |
+
+### Time settings
+
+wsl.conf section label: `[time]`
+
+| Key | Value | Default | Notes |
+|:----|:----|:----|:----|
+| `useWindowsTimezone` | boolean | `true` | Setting this key will make WSL use and sync to the timezone set in Windows. |
 
 ### Example wsl.conf file
 
@@ -214,7 +221,7 @@ This file can contain the following options that affect the VM that powers any W
 | Key | Value | Default | Notes |
 |:----|:----|:----|:----|
 | `kernel` | path | The Microsoft built kernel provided inbox | An absolute Windows path to a custom Linux kernel. |
-| `kernelModules` | path | The Microsoft built kernel modules provided inbox | An absolute Windows path to a custom Linux kernel modules VHD. |
+| `kernelModules` | path | An absolute Windows path to a custom Linux kernel modules VHD. |
 | `memory` | size | 50% of total memory on Windows | How much memory to assign to the WSL 2 VM. |
 | `processors` | number | The same number of logical processors on Windows | How many logical processors to assign to the WSL 2 VM. |
 | `localhostForwarding` | boolean | `true` | Boolean specifying if ports bound to wildcard or localhost in the WSL 2 VM should be connectable from the host via `localhost:port`. |
@@ -250,13 +257,13 @@ These settings are opt-in previews of experimental features that we aim to make 
 
 | Key | Value | Default | Notes |
 |:----|:----|:----|:----|
-| `autoMemoryReclaim` | string | `dropCache` | Automatically releases cached memory after detecting idle CPU usage. Set to `gradual` for slow release, and `dropCache` for instant release of cached memory. |
-| `sparseVhd` | boolean | `false` | When set to `true`, any newly created VHD will be set to sparse automatically. |
-| `bestEffortDnsParsing`** | boolean | `false` | Only applicable when `wsl2.dnsTunneling` is set to `true`. When set to `true`, Windows will extract the question from the DNS request and attempt to resolve it, ignoring the unknown records. |
-| `dnsTunnelingIpAddress`** | string | `10.255.255.254` | Only applicable when `wsl2.dnsTunneling` is set to `true`. Specifies the nameserver that will be configured in the Linux resolv.conf file when DNS tunneling is enabled. |
-| `initialAutoProxyTimeout`* | string | `1000` | Only applicable when `wsl2.autoProxy` is set to true. Configures how long (in milliseconds) WSL will wait for retrieving HTTP proxy information when starting a WSL container. If proxy settings are resolved after this time, the WSL instance must be restarted to use the retrieved proxy settings. |
-| `ignoredPorts`** | string | `""` | Only applicable when `wsl2.networkingMode` is set to `mirrored`. Specifies which ports Linux applications can bind to, even if that port is used in Windows. This enables applications to listen on a port for traffic purely within Linux, so those applications are not blocked even when that port is used for other purposes on Windows. For example, WSL will allow binding to port 53 in Linux for Docker Desktop, as it is listening only to requests from within the Linux container. Should be formatted in a comma separated list, e.g: `3000,9000,9090` |
-| `hostAddressLoopback`** | boolean | `false` | Only applicable when `wsl2.networkingMode` is set to `mirrored`. When set to `true`, will allow the Container to connect to the Host, or the Host to connect to the Container, by an IP address that's assigned to the Host. The `127.0.0.1` loopback address can always be used,this option allows for all additionally assigned local IP addresses to be used as well. Only IPv4 addresses assigned to the host are supported. |
+|`autoMemoryReclaim`| string | `dropCache` | Automatically releases cached memory after detecting idle CPU usage. Set to `gradual` for slow release, and `dropCache` for instant release of cached memory. |
+|`sparseVhd`| bool | `false` | When set to true, any newly created VHD will be set to sparse automatically. |
+|`bestEffortDnsParsing`**| bool | `false` | Only applicable when `wsl2.dnsTunneling` is set to true. When set to true, Windows will extract the question from the DNS request and attempt to resolve it, ignoring the unknown records. |
+|`dnsTunnelingIpAddress`**| string | `10.255.255.254` | Only applicable when `wsl2.dnsTunneling` is set to true. Specifies the nameserver that will be configured in the Linux resolv.conf file when DNS tunneling is enabled. |
+|`initialAutoProxyTimeout`*| string | `1000` | Only applicable when `wsl2.autoProxy` is set to true. Configures how long (in milliseconds) WSL will wait for retrieving HTTP proxy information when starting a WSL container. If proxy settings are resolved after this time, the WSL instance must be restarted to use the retrieved proxy settings. |
+|`ignoredPorts`**| string | null | Only applicable when `wsl2.networkingMode` is set to `mirrored`. Specifies which ports Linux applications can bind to, even if that port is used in Windows. This enables applications to listen on a port for traffic purely within Linux, so those applications are not blocked even when that port is used for other purposes on Windows. For example, WSL will allow binding to port 53 in Linux for Docker Desktop, as it is listening only to requests from within the Linux container. Should be formatted in a comma separated list, e.g: `3000,9000,9090` |
+|`hostAddressLoopback`**| bool | `false` | Only applicable when `wsl2.networkingMode` is set to `mirrored`. When set to `True`, will allow the Container to connect to the Host, or the Host to connect to the Container, by an IP address that's assigned to the Host. The `127.0.0.1` loopback address can always be used,this option allows for all additionally assigned local IP addresses to be used as well. Only IPv4 addresses assigned to the host are supported. |
 
 Entries with an * after the value type are only available on Windows 11.
 
