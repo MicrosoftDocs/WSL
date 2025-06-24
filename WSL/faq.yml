@@ -300,3 +300,7 @@ sections:
         answer: |
           This error is caused by a group policy blocking WSL. To resolve, first run the command `wsl --update` to update to the latest Store version. If that doesn't resolve the issue, contact your administrator. Learn more about the difference between the inbox WSL and Store version of WSL: [WSL in the Microsoft Store](/windows/wsl/compare-versions#wsl-in-the-microsoft-store).
 
+      - question: |
+          Was LxssManager replaced by WSLService?
+        answer: |
+          Yes, LxssManager was replaced by WSLService when WSL transitioned from an inbox component to instead being serviced by the Microsoft Store.
