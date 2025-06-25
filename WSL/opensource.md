@@ -43,4 +43,4 @@ The following components are still part of the Windows image and are not open so
 
 For more about the history and community behind open sourcing WSL, see the blog announcement from Microsoft Build 2025: [The Windows Subsystem for Linux is now open source by Pierre Boulay](https://blogs.windows.com/windowsdeveloper/2025/05/19/the-windows-subsystem-for-linux-is-now-open-source/)
 
-Visit the WSL repo on GitHub to contribute: [github.com/WSL]](https://github.com/microsoft/WSL/).
+Visit the WSL repo on GitHub to contribute: [microsoft/WSL](https://github.com/microsoft/WSL/).
