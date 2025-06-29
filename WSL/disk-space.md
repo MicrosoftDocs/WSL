@@ -41,7 +41,7 @@ The output will include:
 - **Use%**: Percentage of disk space remaining (Used / Allocated size)
 - **Mounted on**: Directory path where the disk is mounted
 
-If you see that you are near to reaching the available amount of disk space allocated to your VHD, or have already received an error due to no disk space remaining, see the next section for steps on how to expand the maximum amount of disk space allocated to the VHD associated with your Linux distribution. The amount of disk space allocated to your VHD by WSL will always show the default maximum amount (1TB in the most recent version of WSL), even if the amount of disk space on your actual Windows device is less than that. WSL mounts a VHD that will expand in size as you use it, so your Linux distribution sees that it can grow to the allocated maximum size of 1TB. 
+If you see that you are near to reaching the available amount of disk space allocated to your VHD, or have already received an error due to no disk space remaining, see the next section for steps on how to expand the maximum amount of disk space allocated to the VHD associated with your Linux distribution. The amount of disk space allocated to your VHD by WSL will always show the default maximum amount (1TB in the most recent version of WSL), even if the amount of disk space on your actual Windows device is less than that. WSL mounts a VHD that will expand in size as you use it, so your Linux distribution sees that it can grow to the allocated maximum size of 1TB.
 
 ## How to expand the size of your WSL 2 Virtual Hard Disk
 
@@ -95,7 +95,6 @@ To expand the VHD size for a Linux distribution using manual steps:
       ```
 
 6. You will need to convert the **Virtual size** to megabytes. For example, if **Virtual size: 512 GB**, this is equal to **512000 MB**. The new value you enter must be greater than this original value. To double the virtual size of 512 GB to 1024 GB, you would enter the value in MB as: **1024000**. Be careful not to enter a value higher than you actually want as the process of reducing a virtual disk size is much more complicated.
-
 7. Enter the value for the new maximum size you want to allocate to this Linux distribution using the Windows Command Prompt `DISKPART>` prompt:
 
       ```cmd
@@ -109,7 +108,6 @@ To expand the VHD size for a Linux distribution using manual steps:
       ```
 
 9. Launch this Linux distribution. *(Ensure it is running in WSL 2. You can confirm this using the command: `wsl.exe -l -v`. WSL 1 is not supported).*
-
 10. Make WSL aware that it can expand the file system size for this distribution by running these commands from your WSL distribution command line. You may see this message in response to the first **mount** command: "/dev: none already mounted on /dev." This message can safely be ignored.
 
     ```bash
@@ -119,23 +117,23 @@ To expand the VHD size for a Linux distribution using manual steps:
 
 11. Copy the name of this entry, which will look like: `/dev/sdX` (with the X representing any other character).  In the following example the value of **X** is **b**:
 
-   ```bash
-      sudo resize2fs /dev/sdb <sizeInMegabytes>M
-   ```
+    ```bash
+    sudo resize2fs /dev/sdb <sizeInMegabytes>M
+    ```
 
-   Using the example from above, we changed the vhd size to **2048000**, so the command would be: `sudo resize2fs /dev/sdb 2048000M`.
+    Using the example from above, we changed the vhd size to **2048000**, so the command would be: `sudo resize2fs /dev/sdb 2048000M`.
 
-   > [!NOTE]
-   > You may need to install **resize2fs**.  If so, you can use this command to install it:  `sudo apt install resize2fs`.
+    > [!NOTE]
+    > You may need to install **resize2fs**.  If so, you can use this command to install it:  `sudo apt install resize2fs`.
 
-The output will look similar to the following:
+    The output will look similar to the following:
 
-```bash
-resize2fs 1.44.1 (24-Mar-2021)
-Filesystem at /dev/sdb is mounted on /; on-line resizing required
-old_desc_blocks = 32, new_desc_blocks = 38
-The filesystem on /dev/sdb is now 78643200 (4k) blocks long.
-```
+    ```bash
+    resize2fs 1.44.1 (24-Mar-2021)
+    Filesystem at /dev/sdb is mounted on /; on-line resizing required
+    old_desc_blocks = 32, new_desc_blocks = 38
+    The filesystem on /dev/sdb is now 78643200 (4k) blocks long.
+    ```
 
 The virtual drive (ext4.vhdx) for this Linux distribution has now successfully been expanded to the new size.
 
@@ -193,7 +191,7 @@ To repair a disk mount error in WSL, and restore it back to a usable / writeable
     wsl.exe --shutdown
     ```
 
-2.  Enter the mount command and replace `<path-to-ext4.vhdx>` with the path to the distribution's .vhdx file. For help locating this file, see [How to locate the VHD file and disk path for your Linux distribution](#how-to-locate-the-vhdx-file-and-disk-path-for-your-linux-distribution).
+2. Enter the mount command and replace `<path-to-ext4.vhdx>` with the path to the distribution's .vhdx file. For help locating this file, see [How to locate the VHD file and disk path for your Linux distribution](#how-to-locate-the-vhdx-file-and-disk-path-for-your-linux-distribution).
 
     ```powershell
     wsl.exe --mount <path-to-ext4.vhdx> --vhd --bare
@@ -205,8 +203,8 @@ To repair a disk mount error in WSL, and restore it back to a usable / writeable
     wsl.exe sudo e2fsck -f /dev/<device>
     ```
 
-> [!NOTE]
-> If you only have a single Linux distribution installed, you may encounter an "ext file in use" error and will need to [install](./basic-commands.md#install) an additional distribution in order to run `wsl.exe lsblk`. You can [uninstall](./basic-commands.md#unregister-or-uninstall-a-linux-distribution) the distribution once the repair is complete. Additionally, you may need to close Docker Desktop on Windows to avoid the error `Wsl/Service/CreateInstance/MountVhd/HCS/ERROR_SHARING_VIOLATION` while running the command `wsl.exe sudo e2fsck -f /dev/sdc`.
+    > [!NOTE]
+    > If you only have a single Linux distribution installed, you may encounter an "ext file in use" error and will need to [install](./basic-commands.md#install) an additional distribution in order to run `wsl.exe lsblk`. You can [uninstall](./basic-commands.md#unregister-or-uninstall-a-linux-distribution) the distribution once the repair is complete. Additionally, you may need to close Docker Desktop on Windows to avoid the error `Wsl/Service/CreateInstance/MountVhd/HCS/ERROR_SHARING_VIOLATION` while running the command `wsl.exe sudo e2fsck -f /dev/sdc`.
 
 4. Once the repair is complete, unmount the disk in PowerShell by entering:
 

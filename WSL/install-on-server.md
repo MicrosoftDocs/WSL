@@ -13,11 +13,11 @@ The Windows Subsystem for Linux (WSL) is available for installation on Windows S
 
 [Windows Server 2022](/windows-server/get-started/whats-new-in-windows-server-2022) now supports a simple WSL installation using the command:
 
-```cmd
-wsl --install
+```powershell
+wsl.exe --install
 ```
 
-You can now install everything you need to run WSL on Windows Server 2022 by entering this command in an **administrator** PowerShell or Windows Command Prompt and then restarting your machine.
+You can now install everything you need to run WSL on Windows Server 2022 by entering this command in an **administrator** PowerShell and then restarting your machine.
 
 This command will enable the required optional components, download the latest Linux kernel, set WSL 2 as your default, and install a Linux distribution for you *(Ubuntu by default)*.
 
@@ -55,7 +55,7 @@ Start-Process "msiexec.exe" -ArgumentList "/i .\wsl_update_x64.msi /quiet" -NoNe
 
 ### Download a Linux distribution
 
-See the [Downloading distributions](install-manual.md#downloading-distributions) section of the manual installation page for instructions and links to download your preferred Linux distribution.
+See the [Downloading distributions](./install-manual.md#downloading-distributions) section of the manual installation page for instructions and links to download your preferred Linux distribution.
 
 ### Extract and install a Linux distribution
 
@@ -72,16 +72,18 @@ Now that you've downloaded a Linux distribution, in order to extract its content
     DistroLauncher-Appx_1.12.2.0_scale-400.appx
     DistroLauncher-Appx_1.12.2.0_x64.appx
     ```
+
     In our example we have a x64 bit server so we want to install `DistroLauncher-Appx_1.12.2.0_x64.appx`.
 
-2. Unzip the contents to a new folder called `\%USERPROFILE%\AppData\Local\DebianWSL\`.
+1. Unzip the contents to a new folder called `\%USERPROFILE%\AppData\Local\DebianWSL\`.
 
     ```powershell
-     mkdir "$env:USERPROFILE\AppData\Local\DebianWSL" | Out-Null
-    tar -xf .\DistroLauncher-Appx_1.12.2.0_x64.appx -C $"env:USERPROFILE\AppData\Local\DebianWSL"
-    ```    
+    $debianWSLPath = Join-Path -Path $env:UserProfile -ChildPath "AppData\Local\DebianWSL"
+    New-Item -Path $debianWSLPath -ItemType Directory | Out-Null
+    Expand-Archive -Path ".\DistroLauncher-Appx_1.12.2.0_x64.appx" -DestinationPath $debianWSLPath
+    ```
 
-4. Add your Linux distribution path to the Windows environment PATH (`C:\Users\Administrator\Ubuntu` in this example), using PowerShell:
+1. Add your Linux distribution path to the Windows environment PATH (`C:\Users\Administrator\Ubuntu` in this example), using PowerShell:
 
     ```powershell
     $userenv = [System.Environment]::GetEnvironmentVariable("Path", "User")
