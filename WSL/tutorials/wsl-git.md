@@ -2,7 +2,7 @@
 title: Get started using Git on WSL
 description: Learn how to set up Git for version control on the Windows Subsystem for Linux, along with Git Credential Manager.
 ms.date: 06/21/2023
-ms.topic: article
+ms.topic: get-started
 ---
 
 # Get started using Git on Windows Subsystem for Linux

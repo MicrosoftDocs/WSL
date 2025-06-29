@@ -2,7 +2,7 @@
 title: Build a Custom Linux Distro for WSL - Windows
 description: Learn how to create a custom Linux distribution for Windows Subsystem for Linux.
 ms.date: 02/05/2025
-ms.topic: article
+ms.topic: how-to
 ---
 
 # Build a Custom Linux Distribution for WSL

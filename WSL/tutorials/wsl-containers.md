@@ -3,7 +3,7 @@ title: Get started with Docker containers on WSL
 description: Learn how to set up Docker containers on the Windows Subsystem for Linux.
 keywords: wsl, windows, windowssubsystem, windows 10, docker, containers
 ms.date: 01/04/2024
-ms.topic: article
+ms.topic: get-started
 ---
 
 # Get started with Docker remote containers on WSL 2

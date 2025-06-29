@@ -2,7 +2,7 @@
 title: How to manage WSL disk space
 description: Learn how to check the amount of disk space available, expand the size of the Virtual Hard Disk (VHD), repair a VHD mounting or read-only error, and locate the .vhdx file and disk path for Linux distributions installed with WSL 2.
 ms.date: 02/05/2025
-ms.topic: article
+ms.topic: how-to
 ---
 
 # How to manage WSL disk space

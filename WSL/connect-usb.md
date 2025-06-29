@@ -2,7 +2,7 @@
 title: Connect USB devices
 description: Learn how to connect a USB device to your WSL 2 Linux distribution using usbipd-win.
 ms.date: 04/16/2024
-ms.topic: article
+ms.topic: how-to
 ---
 
 # Connect USB devices
