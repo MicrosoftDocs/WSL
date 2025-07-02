@@ -13,7 +13,9 @@ Developers can access the power of both Windows and Linux at the same time on a 
 
 ## Prerequisites
 
-You must be running Windows 10 version 2004 and higher (Build 19041 and higher) or Windows 11 to use the commands below. If you are on earlier versions please see [the manual install page](./install-manual.md).
+1. You must be running Windows 10 version 2004 and higher (Build 19041 and higher) or Windows 11 to use the commands below. If you are on earlier versions please see [the manual install page](./install-manual.md).
+2. You need to enable the Windows features "Virtual Machine Platform" (which is a subset of Hyper-V) and "Windows Subsystem for Linux" via the "Turn Windows features on or off" control panel. Note that the "Hyper-V" feature itself does not need to be installed.
+3. "Virtualization Technology" has to be enabled in your system’s BIOS. If it is not enabled, or if your system does not support virtualization, you will receive the error message: "WSL requires virtualization to be enabled."
 
 ## Install WSL command
 
