@@ -447,7 +447,7 @@ AllowInboundRules               : True
 AllowLocalFirewallRules         : False
 ```
 
-```AllowLocalFirewallRules:False means the locally defined firewall rules, like that by HNS, will not be applied or used.```
+`AllowLocalFirewallRules:False` means the locally defined firewall rules, like that by HNS, will not be applied or used.
 
 **2.	And Enterprise can push down Group Policy and MDM policy settings that block all inbound rules.**
 
