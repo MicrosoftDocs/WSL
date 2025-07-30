@@ -58,3 +58,9 @@ The last group of settings that end with `*UserSettingConfigurable` control acce
 | Allow user setting firewall configuration | When set to disabled, this policy disables firewall configuration via .wslconfig (wsl2.firewall). This policy only applies to Store WSL. |
 | Allow nested virtualization | When set to disabled, this policy disables nested virtualization configuration via .wslconfig (wsl2.nestedVirtualization). This policy only applies to Store WSL. |
 | Allow kernel debugging | When set to disabled, this policy disables kernel debugging configuration via .wslconfig (wsl2.kernelDebugPort). This policy only applies to Store WSL. |
+
+## Set up with group policy
+
+WSL policies are defined by a [WSL ADMX file](https://github.com/microsoft/WSL/blob/master/intune/WSL.admx) which can be downloaded from our GitHub. 
+
+ADMX files can be imported manually and used to manage group policy locally on the machine, please [see the ADMX doc page](https://learn.microsoft.com/windows/client-management/understanding-admx-backed-policies) to learn more about that process.
