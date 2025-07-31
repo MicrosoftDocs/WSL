@@ -157,4 +157,56 @@ To launch, enter: `microsoft-edge`
 
 ## Troubleshooting
 
-If you have any problem starting GUI applications please check this guide first: [Diagnosing "cannot open display" type issues with WSLg](https://github.com/microsoft/wslg/wiki/Diagnosing-%22cannot-open-display%22-type-issues-with-WSLg)
+### Check if WSL GUI support is working
+
+Before filing an issue, you can run these diagnostic commands to check if WSL GUI support is properly configured:
+
+1. **Check WSLg version information:**
+   ```bash
+   cat /mnt/wslg/versions.txt
+   ```
+   
+   Expected output should show version information for WSLg components:
+   ```
+   WSLg ( x86_64 ): 1.0.xx
+   Mariner: VERSION="1.0.xxxxxxxx"
+   FreeRDP: [commit hash]
+   weston: [commit hash]
+   pulseaudio: [commit hash] 
+   mesa: [commit hash]
+   ```
+
+2. **Verify DISPLAY environment variable:**
+   ```bash
+   echo $DISPLAY
+   ```
+   
+   Expected output: `:0`
+
+3. **Check X11 socket connection:**
+   ```bash
+   ls -la /tmp/.X11-unix
+   ```
+   
+   Expected output should show a symbolic link to `/mnt/wslg/.X11-unix`
+
+4. **Test with a simple GUI application:**
+   ```bash
+   # Install and test with xcalc (simple calculator)
+   sudo apt update && sudo apt install x11-apps -y
+   xcalc
+   ```
+
+### Common issues and solutions
+
+- **"cannot open display" errors:** Your WSL distribution may not be using WSL 2. Check with `wsl -l -v` in PowerShell and upgrade if needed using `wsl --set-version <DistroName> 2`.
+
+- **GUI apps don't appear:** Ensure you have installed the appropriate GPU drivers as mentioned in the [prerequisites](#prerequisites) section.
+
+- **Black screen or crashes:** Try updating WSL with `wsl --update` in PowerShell, then restart with `wsl --shutdown`.
+
+- **Performance issues:** Install the latest GPU drivers for your system to enable hardware acceleration.
+
+### Advanced troubleshooting
+
+If basic troubleshooting doesn't resolve your issue, please check this comprehensive guide: [Diagnosing "cannot open display" type issues with WSLg](https://github.com/microsoft/wslg/wiki/Diagnosing-%22cannot-open-display%22-type-issues-with-WSLg)
