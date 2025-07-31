@@ -85,7 +85,7 @@ Setting different mount options for Windows drives (DrvFs) can control how file 
 
 By default, WSL sets the uid and gid to the value of the default user. For example, in Ubuntu, the default user is uid=1000, gid=1000. If this value is used to specify a different gid or uid option, the default user value will be overwritten. Otherwise, the default value will always be appended.
 
-The above umask, fmask, etc. options will only apply when the Windows drive is mounted with metadata. By default metadata is not enabled. You can [find more info about this here](./file-permissions). 
+The above umask, fmask, etc. options will only apply when the Windows drive is mounted with metadata. By default metadata is not enabled. You can [find more info about this here](./file-permissions.md). 
 
 > [!NOTE]
 > The permission masks are put through a logical OR operation before being applied to files or directories.
@@ -134,6 +134,23 @@ wsl.conf section label: `[boot]`
 | Key | Value | Default | Notes |
 |:----|:----|:----|:----|
 | `command` | string | `""` | A string of the command that you would like to run when the WSL instance starts. This command is run as the root user. e.g: `service docker start`. |
+| `protectBinfmt` | boolean | `true` | Prevents WSL from generating systemd units when systemd is enabled.  |
+
+### GPU settings
+
+wsl.conf section label: `[gpu]`
+
+| Key | Value | Default | Notes |
+|:----|:----|:----|:----|
+| `enabled` | boolean | `true` | Allow Linux applications to access the Windows GPU via para-virtualization. |
+
+### Time settings
+
+wsl.conf section label: `[time]`
+
+| Key | Value | Default | Notes |
+|:----|:----|:----|:----|
+| `useWindowsTimezone` | boolean | `true` | Setting this key will make WSL use and sync to the timezone set in Windows. |
 
 ### Example wsl.conf file
 

@@ -3,7 +3,8 @@ title: Accessing network applications with WSL
 description: Learn about the considerations for accessing network applications when using Windows Subsystem for Linux (WSL).
 keywords: wsl, Linux, Windows, networking, ip address, ip addr, host IP, server, network, localhost, local area network, lan, ipv6, remote
 ms.date: 07/16/2024
-ms.topic: article
+ms.topic: how-to
+ms.custom: sfi-image-nochange
 ---
 
 # Accessing network applications with WSL
@@ -66,7 +67,7 @@ If you want to access a networking app running on Windows (for example an app ru
 
 1. Obtain the IP address of your host machine by running this command from your Linux distribution: 
 ```bash
-ip route show | grep -i default | awk '{ print $3}'`
+ip route show | grep -i default | awk '{ print $3}'
 ```
 2. Connect to any Windows server using the copied IP address.
 
