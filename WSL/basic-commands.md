@@ -1,7 +1,7 @@
 ---
 title: Basic commands for WSL
 description: Reference for the basic commands included with Windows Subsystem for Linux (WSL).
-ms.date: 11/28/2023
+ms.date: 07/31/2025
 ms.topic: article
 ---
 

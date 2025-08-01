@@ -1,7 +1,7 @@
 ---
 title: Get started using Git on WSL
 description: Learn how to set up Git for version control on the Windows Subsystem for Linux, along with Git Credential Manager.
-ms.date: 06/21/2023
+ms.date: 07/31/2025
 ms.topic: get-started
 ---
 
@@ -73,7 +73,13 @@ It is recommended to install the [latest Git for Windows](https://github.com/git
 
 If you have a reason not to install Git for Windows, you can install GCM as a Linux application directly in your WSL distribution, but note that doing so means GCM is running as a Linux application and cannot utilize the authentication or credential storage features of the host Windows operating system. See the GCM repo for instructions on how to [configure WSL without Git for Windows](https://github.com/GitCredentialManager/git-credential-manager/blob/main/docs/wsl.md#configuring-wsl-without-git-for-windows).
 
+### Commands to check and set up GCM for WSL
 
+If you have installed Git for Windows, GCM is already installed and configured. You can verify this by running the following command in a WSL distribution:
+
+```powershell
+git --version; git credential-manager --version
+```
 
 To set up GCM for use with a WSL distribution, open your distribution and enter this command:
 
@@ -97,6 +103,9 @@ git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/bin/git
 
 > [!NOTE]
 > Using GCM as a credential helper for a WSL Git installation means that any configuration set in WSL Git is NOT respected by GCM (by default). This is because GCM is running as a Windows application, and therefore will use the Git for Windows installation to query configuration. This means things like proxy settings for GCM need to be set in Git for Windows as well as WSL Git as they are stored in different files (`%USERPROFILE%\.gitconfig` vs `\\wsl$\distro\home\$USER\.gitconfig`). You can configure WSL so that GCM will use the WSL Git configuration, but this means that proxy settings will be unique to the specific WSL installation and not shared with others or the Windows host.
+
+> [!WARNING]
+> There is currently an [issue with using keyring in the GitHub CLI](https://github.com/cli/cli/issues/8954).
 
 ### Git with SSH
 
