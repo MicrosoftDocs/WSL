@@ -104,6 +104,22 @@ wsl.conf section label: `[network]`
 | `generateResolvConf` | boolean | `true` | `true` sets WSL to generate `/etc/resolv.conf`. The `resolv.conf` contains a DNS list that are capable of resolving a given hostname to its IP address. |
 | `hostname` | string | Windows hostname | Sets hostname to be used for WSL distribution. |
 
+#### Port forwarding and networking in dual-stack environments
+
+When working with dual-stack IPv4/IPv6 networks, understanding how WSL handles port forwarding is important:
+
+- **Localhost addresses**: `127.0.0.1` (IPv4) and `[::1]` (IPv6) are loopback addresses that refer to the local machine
+- **Wildcard addresses**: `0.0.0.0` (IPv4) and `[::]` (IPv6) bind to all available network interfaces
+- **Port forwarding**: The `localhostForwarding` setting in `.wslconfig` controls whether ports bound in WSL are accessible from Windows
+- **Bridge configuration**: For advanced networking scenarios requiring bridged connections between WSL and physical network interfaces, consider using WSL 2's mirrored networking mode with `networkingMode=mirrored` in `.wslconfig`
+
+Examples of binding applications in WSL:
+- Bind to IPv4 localhost only: `127.0.0.1:8080`
+- Bind to IPv6 localhost only: `[::1]:8080`  
+- Bind to all IPv4 interfaces: `0.0.0.0:8080`
+- Bind to all IPv6 interfaces: `[::]:8080`
+- Bind to all interfaces (dual-stack): Use both `0.0.0.0:8080` and `[::]:8080` or configure your application for dual-stack binding
+
 ### Interop settings
 
 wsl.conf section label: `[interop]`
@@ -224,7 +240,7 @@ This file can contain the following options that affect the VM that powers any W
 | `kernelModules` | path | An absolute Windows path to a custom Linux kernel modules VHD. |
 | `memory` | size | 50% of total memory on Windows | How much memory to assign to the WSL 2 VM. |
 | `processors` | number | The same number of logical processors on Windows | How many logical processors to assign to the WSL 2 VM. |
-| `localhostForwarding` | boolean | `true` | Boolean specifying if ports bound to wildcard or localhost in the WSL 2 VM should be connectable from the host via `localhost:port`. |
+| `localhostForwarding` | boolean | `true` | Boolean specifying if ports bound to wildcard or localhost in the WSL 2 VM should be connectable from the host via `localhost:port`. When `true`, ports bound to localhost (127.0.0.1 for IPv4, [::1] for IPv6) or wildcard addresses (0.0.0.0 for IPv4, [::] for IPv6) in WSL 2 can be accessed from Windows using `localhost:port` or `127.0.0.1:port`. This enables seamless port forwarding in dual-stack IPv4/IPv6 environments. |
 | `kernelCommandLine` | string | `""` | Additional kernel command line arguments. |
 | `safeMode`* | boolean | `false` | Run WSL in "Safe Mode" which disables many features and is intended to be used to recover distributions that are in bad states. Only available for Windows 11 and WSL version 0.66.2+. |
 | `swap` | size | 25% of memory size on Windows rounded up to the nearest GB | How much swap space to add to the WSL 2 VM, `0` for no swap file. Swap storage is disk-based RAM used when memory demand exceeds limit on hardware device. |
@@ -263,7 +279,7 @@ These settings are opt-in previews of experimental features that we aim to make 
 |`dnsTunnelingIpAddress`**| string | `10.255.255.254` | Only applicable when `wsl2.dnsTunneling` is set to true. Specifies the nameserver that will be configured in the Linux resolv.conf file when DNS tunneling is enabled. |
 |`initialAutoProxyTimeout`*| string | `1000` | Only applicable when `wsl2.autoProxy` is set to true. Configures how long (in milliseconds) WSL will wait for retrieving HTTP proxy information when starting a WSL container. If proxy settings are resolved after this time, the WSL instance must be restarted to use the retrieved proxy settings. |
 |`ignoredPorts`**| string | null | Only applicable when `wsl2.networkingMode` is set to `mirrored`. Specifies which ports Linux applications can bind to, even if that port is used in Windows. This enables applications to listen on a port for traffic purely within Linux, so those applications are not blocked even when that port is used for other purposes on Windows. For example, WSL will allow binding to port 53 in Linux for Docker Desktop, as it is listening only to requests from within the Linux container. Should be formatted in a comma separated list, e.g: `3000,9000,9090` |
-|`hostAddressLoopback`**| bool | `false` | Only applicable when `wsl2.networkingMode` is set to `mirrored`. When set to `True`, will allow the Container to connect to the Host, or the Host to connect to the Container, by an IP address that's assigned to the Host. The `127.0.0.1` loopback address can always be used,this option allows for all additionally assigned local IP addresses to be used as well. Only IPv4 addresses assigned to the host are supported. |
+|`hostAddressLoopback`**| bool | `false` | Only applicable when `wsl2.networkingMode` is set to `mirrored`. When set to `True`, will allow the Container to connect to the Host, or the Host to connect to the Container, by an IP address that's assigned to the Host. The `127.0.0.1` loopback address (IPv4) and `[::1]` loopback address (IPv6) can always be used, this option allows for all additionally assigned local IP addresses to be used as well. Note that IPv6 support may be limited depending on the host configuration. |
 
 Entries with an * after the value type are only available on Windows 11.
 
