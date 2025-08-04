@@ -78,7 +78,7 @@ Now that you've downloaded a Linux distribution, in order to extract its content
 
     ```powershell
      mkdir "$env:USERPROFILE\AppData\Local\DebianWSL" | Out-Null
-    tar -xf .\DistroLauncher-Appx_1.12.2.0_x64.appx -C $"env:USERPROFILE\AppData\Local\DebianWSL"
+    tar -xf .\DistroLauncher-Appx_1.12.2.0_x64.appx -C "$env:USERPROFILE\AppData\Local\DebianWSL"
     ```    
 
 4. Add your Linux distribution path to the Windows environment PATH (`C:\Users\Administrator\Ubuntu` in this example), using PowerShell:
