@@ -161,35 +161,35 @@ The `wsl.conf` sample file below demonstrates some of the configuration options 
 [automount]
 
 # Set to true will automount fixed drives (C:/ or D:/) with DrvFs under the root directory set above. Set to false means drives won't be mounted automatically, but need to be mounted manually or with fstab.
-enabled = true
+enabled=true
 
 # Sets the directory where fixed drives will be automatically mounted. This example changes the mount location, so your C-drive would be /c, rather than the default /mnt/c. 
-root = /
+root=/
 
 # DrvFs-specific options can be specified.  
-options = "metadata,uid=1003,gid=1003,umask=077,fmask=11,case=off"
+options="metadata,uid=1003,gid=1003,umask=077,fmask=11,case=off"
 
 # Sets the `/etc/fstab` file to be processed when a WSL distribution is launched.
-mountFsTab = true
+mountFsTab=true
 
 # Network host settings that enable the DNS server used by WSL 2. This example changes the hostname, sets generateHosts to false, preventing WSL from the default behavior of auto-generating /etc/hosts, and sets generateResolvConf to false, preventing WSL from auto-generating /etc/resolv.conf, so that you can create your own (ie. nameserver 1.1.1.1).
 [network]
-hostname = DemoHost
-generateHosts = false
-generateResolvConf = false
+hostname=DemoHost
+generateHosts=false
+generateResolvConf=false
 
 # Set whether WSL supports interop processes like launching Windows apps and adding path variables. Setting these to false will block the launch of Windows processes and block adding $PATH environment variables.
 [interop]
-enabled = false
-appendWindowsPath = false
+enabled=false
+appendWindowsPath=false
 
 # Set the user when launching a distribution with WSL.
 [user]
-default = DemoUser
+default=DemoUser
 
 # Set a command to run when a new WSL instance launches. This example starts the Docker container service.
 [boot]
-command = service docker start
+command=service docker start
 ```
 
 ## .wslconfig
