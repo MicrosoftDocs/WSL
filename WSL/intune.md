@@ -1,7 +1,7 @@
 ---
 title: Intune settings
 description: Available settings in Intune for the Windows Subsystem for Linux (WSL)
-ms.date: 01/10/2024
+ms.date: 08/04/2025
 ms.topic: article
 ---
 
@@ -9,7 +9,7 @@ ms.topic: article
 
 You can now use management tools like Intune to manage WSL as a Windows component. 
 
-To access these settings please navigate to your Microsoft Intune admin center portal, and then select: `Devices -> Configuration Profiles -> Create -> New Policy -> Windows 10 and later -> Settings catalog`, create a name for the new profile and search for "Windows Subsystem for Linux" to see and add the full list of available settings. 
+To access these settings navigate to your Microsoft Intune admin center portal, and then select: `Devices -> Configuration Profiles -> Create -> New Policy -> Windows 10 and later -> Settings catalog`, create a name for the new profile and search for "Windows Subsystem for Linux" to see and add the full list of available settings. 
 
 ## Recommended settings
 
@@ -58,3 +58,9 @@ The last group of settings that end with `*UserSettingConfigurable` control acce
 | Allow user setting firewall configuration | When set to disabled, this policy disables firewall configuration via .wslconfig (wsl2.firewall). This policy only applies to Store WSL. |
 | Allow nested virtualization | When set to disabled, this policy disables nested virtualization configuration via .wslconfig (wsl2.nestedVirtualization). This policy only applies to Store WSL. |
 | Allow kernel debugging | When set to disabled, this policy disables kernel debugging configuration via .wslconfig (wsl2.kernelDebugPort). This policy only applies to Store WSL. |
+
+## Set up with group policy
+
+WSL policies are defined by a [WSL ADMX file](https://github.com/microsoft/WSL/blob/master/intune/WSL.admx) which can be downloaded from our GitHub. 
+
+ADMX files can be imported manually and used to manage group policy locally on the machine, [see the ADMX doc page](https://learn.microsoft.com/windows/client-management/understanding-admx-backed-policies) to learn more about that process.
