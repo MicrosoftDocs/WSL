@@ -3,7 +3,7 @@ title: Release Notes for WSL in the Microsoft Store
 description: Release notes for the Windows Subsystem for Linux
 keywords: release notes, wsl, windows, windows subsystem for linux, windowssubsystem, ubuntu, kernel
 ms.date: 10/11/2021
-ms.topic: article
+ms.topic: release-notes
 ---
 
 # Release Notes for Windows Subsystem for Linux in the Microsoft Store

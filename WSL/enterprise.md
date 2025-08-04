@@ -34,7 +34,7 @@ See [Microsoft Defender for Endpoint plug-in for WSL](/microsoft-365/security/de
 
 [Microsoft Intune](/mem/intune/fundamentals/what-is-intune) is a cloud-based endpoint management solution. It manages user access to organizational resources and simplifies app and device management across your many devices, including mobile devices, desktop computers, and virtual endpoints. You can use Microsoft Intune to manage devices inside of your organization, which now also includes managing access to WSL and its key security settings. 
 
-See [Intune settings for WSL](./intune.md) for guidance on using InTune to manage WSL as a Windows component and the recommended settings. 
+See [Intune settings for WSL](./intune.md) for guidance on using Intune to manage WSL as a Windows component and the recommended settings. 
 
 ### Use advanced networking features and controls
 

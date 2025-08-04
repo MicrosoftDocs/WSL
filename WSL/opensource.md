@@ -33,7 +33,7 @@ Learn more about each component at the WSL Open Source docs site: [wsl.dev](http
 
 The WSL source code is supported by these additional open sourced components:
 
-- [microsoft/wslg: Enabling the Windows Subsystem for Linux to include support for Wayland and X server related scenarios](https://github.com/microsoft/wslg): The Graphical User Interface (GUI) to run Linus apps with a UI (not just in the command line).
+- [microsoft/wslg: Enabling the Windows Subsystem for Linux to include support for Wayland and X server related scenarios](https://github.com/microsoft/wslg): The Graphical User Interface (GUI) to run Linux apps with a UI (not just in the command line).
 - [microsoft/WSL2-Linux-Kernel: The source for the Linux kernel used in Windows Subsystem for Linux 2 (WSL2)](https://github.com/microsoft/WSL2-Linux-Kernel): The WSL2 Linux kernel.
 
 The following components are still part of the Windows image and are not open sourced at this time:
@@ -43,4 +43,4 @@ The following components are still part of the Windows image and are not open so
 
 For more about the history and community behind open sourcing WSL, see the blog announcement from Microsoft Build 2025: [The Windows Subsystem for Linux is now open source by Pierre Boulay](https://blogs.windows.com/windowsdeveloper/2025/05/19/the-windows-subsystem-for-linux-is-now-open-source/)
 
-Visit the WSL repo on GitHub to contribute: [github.com/WSL]](https://github.com/microsoft/WSL/).
+Visit the WSL repo on GitHub to contribute: [microsoft/WSL](https://github.com/microsoft/WSL/).

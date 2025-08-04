@@ -1,8 +1,8 @@
 ---
 title: Troubleshooting Windows Subsystem for Linux
-description: Provides detailed information about common errors and issues people run into while running Linux on the Windows Subsystem for Linux.
-ms.date: 05/20/2025
-ms.topic: article
+description: Provides detailed information about common errors and issues people run into while running Linux on the Windows Subsystem for Linux. 
+ms.date: 07/16/2025
+ms.topic: troubleshooting-general
 ---
 
 # Troubleshooting Windows Subsystem for Linux
@@ -447,7 +447,7 @@ AllowInboundRules               : True
 AllowLocalFirewallRules         : False
 ```
 
-```AllowLocalFirewallRules:False means the locally defined firewall rules, like that by HNS, will not be applied or used.```
+`AllowLocalFirewallRules:False` means the locally defined firewall rules, like that by HNS, will not be applied or used.
 
 **2.	And Enterprise can push down Group Policy and MDM policy settings that block all inbound rules.**
 
@@ -791,3 +791,15 @@ Interoperability command differences:
 ## Uninstall legacy version of WSL
 
 If you originally installed WSL on a version of Windows 10 prior to Creators update (Oct 2017, Build 16299), we recommend that you migrate any necessary files, data, etc. from the older Linux distribution you installed, to a newer distribution installed via the Microsoft Store. To remove the legacy distribution from your machine, run the following from a Command Line or PowerShell instance: `wsl --unregister Legacy`. You also have the option to manually remove the older legacy distribution by deleting the `%localappdata%\lxss\` folder (and all it's sub-contents) using Windows File Explorer or with PowerShell: `rm -Recurse $env:localappdata/lxss/`.
+
+## Error code 0x8000FFFF unexpected failure
+
+This error code typically means there has been an unexpected, or "catastrophic", failure during the system operations when attempting to install or use a Linux distrubution (such as Ubuntu) with WSL. There are many reasons that can lead to this failure. Begin by checking the following:
+
+- Is this a permissions issue? Check to see that you are logged in as the expected user on your command line and have the necessary Admin privileges when installing a Linux distrubution with WSL. (Right-click your Terminal or Command Line taskbar icon to select "Run as Administrator.")
+- Have you updated WSL to the most recent version? Use the command: `wsl --update` to update to the most recent version. You may also want to [update to the latest version of Windows](ms-settings:windowsupdate).
+- Ensure that you are using the [`wsl --install`](./install.md) command correctly and specifying the Linux distrubution that you aim to install.
+- Try shutting down and restarting WSL, using the command: `wsl --shutdown`.
+- If you are using Windows Server, ensure that your version is up to date and follow the [Windows Server Installation Guide](./install-on-server.md).
+- If you suspect this may be related to missing or corrupted system files, from an elevated command prompt (Run as Admin), you can scan and repair system files and/or repair the Windows operating system image. To scan for and repair corrupted or missing Windows system files, use the command: `SFC /SCANNOW`. To repair the Windows image itself, use the command: `DISM /Online /Cleanup-Image /RestoreHealth`.
+- See related [WSL product repo issue 9420](https://github.com/microsoft/WSL/issues/9420).
