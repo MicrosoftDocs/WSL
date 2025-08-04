@@ -1,7 +1,7 @@
 ---
 title: Advanced settings configuration in WSL
 description: A guide to the wsl.conf and .wslconfig files used for configuring settings when running multiple Linux distributions on Windows Subsystem for Linux.
-ms.date: 05/19/2025
+ms.date: 07/31/2025
 ms.topic: article
 ---
 
@@ -231,6 +231,7 @@ This file can contain the following options that affect the VM that powers any W
 | `swapFile` | path | `%USERPROFILE%\AppData\Local\Temp\swap.vhdx` | An absolute Windows path to the swap virtual hard disk. |
 | `guiApplications` | boolean | `true` | Boolean to turn on or off support for GUI applications ([WSLg](https://github.com/microsoft/wslg)) in WSL. |
 | `debugConsole`* | boolean | `false` | Boolean to turn on an output console Window that shows the contents of `dmesg` upon start of a WSL 2 distro instance. Only available for Windows 11. |
+| `maxCrashDumpCount` | number | `10` | Set the maximum number of crash dump files that will be retained for debugging purposes. The default number retained by WSL is 10. When this limit is exceeded, older crash dumps will be automatically deleted to make room for new ones. Setting a max can help with reducing the amount of disk space used by these crash files. |
 | `nestedVirtualization`* | boolean | `true` | Boolean to turn on or off nested virtualization, enabling other nested VMs to run inside WSL 2. Only available for Windows 11. |
 | `vmIdleTimeout`* | number | `60000` | The number of milliseconds that a VM is idle, before it is shut down. Only available for Windows 11. |
 | `dnsProxy` | boolean | `true` | Only applicable to networkingMode = NAT. Boolean to inform WSL to configure the DNS Server in Linux to the NAT on the host. Setting to false will mirror DNS servers from Windows to Linux. |
@@ -308,6 +309,9 @@ nestedVirtualization=false
 
 # Turns on output console showing contents of dmesg when opening a WSL 2 distro for debugging
 debugConsole=true
+
+# Sets the maximum number of crash dump files to retain (default is 5)
+maxCrashDumpCount=10
 
 # Enable experimental features
 [experimental]
