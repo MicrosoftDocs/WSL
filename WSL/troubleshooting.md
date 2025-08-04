@@ -25,11 +25,11 @@ You can also:
 ## Installation issues
 
 - **Installation failed with error 0x80070003**
-  - The Windows Subsystem for Linux only runs on your system drive (usually this is your `C:` drive). Make sure that distributions are stored on your system drive:  
+  - The Windows Subsystem for Linux only runs on your system drive (usually this is your `C:` drive). Make sure that distributions are stored on your system drive:
   - On Windows 10 open **Settings** -> **System** -> **Storage** -> **More Storage Settings: Change where new content is saved**
     ![Picture of system settings to install apps on C: drive (Windows 10)](media/appstorage.png)
   - On Windows 11 open **Settings** -> **System** -> **Storage** -> **Advanced storage settings** -> **Where new content is saved**
-    ![Picture of system settings to install apps on C: drive (Windows 11)](media/appstorage-11.png)  
+    ![Picture of system settings to install apps on C: drive (Windows 11)](media/appstorage-11.png)
 
 - **WslRegisterDistribution failed with error 0x8007019e**
   - The Windows Subsystem for Linux optional component is not enabled:
@@ -37,7 +37,7 @@ You can also:
 
 - **Installation failed with error 0x80070003 or error 0x80370102**
   - Please make sure that virtualization is enabled inside of your computer's BIOS. The instructions on how to do this will vary from computer to computer, and will most likely be under CPU related options.
-  - WSL2 requires that your CPU supports the Second Level Address Translation (SLAT) feature, which was introduced in Intel Nehalem processors (Intel Core 1st Generation) and AMD Opteron. Older CPUs (such as the Intel Core 2 Duo) will not be able to run WSL2, even if the Virtual Machine Platform is successfully installed. 
+  - WSL2 requires that your CPU supports the Second Level Address Translation (SLAT) feature, which was introduced in Intel Nehalem processors (Intel Core 1st Generation) and AMD Opteron. Older CPUs (such as the Intel Core 2 Duo) will not be able to run WSL2, even if the Virtual Machine Platform is successfully installed.
 
 - **Error when trying to upgrade: `Invalid command line option: wsl --set-version Ubuntu 2`**
   - Ensure that you have the Windows Subsystem for Linux enabled, and that you're using Windows Build version 18362 or later. To enable WSL run this command in a PowerShell prompt with admin privileges: `Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux`.
@@ -81,7 +81,7 @@ You can also:
 
 This is likely because your machine has not yet taken the backport for WSL 2. The simplest way to resolve this is by going to Windows Settings and clicking 'Check for Updates' to install the latest updates on your system. See [the full instructions on taking the backport](https://devblogs.microsoft.com/commandline/wsl-2-support-is-coming-to-windows-10-versions-1903-and-1909/#how-do-i-get-it).
 
-If you hit 'Check for Updates' and still do not receive the update you can [install KB KB4566116 manually](https://www.catalog.update.microsoft.com/Search.aspx?q=KB4566116).  
+If you hit 'Check for Updates' and still do not receive the update you can [install KB KB4566116 manually](https://www.catalog.update.microsoft.com/Search.aspx?q=KB4566116).
 
 ### Error: 0x1bc when `wsl --set-default-version 2`
 
@@ -124,11 +124,11 @@ C:\Users\me>wsl
 WSL 2
 ```
 
-To resolve this issue, please visit `https://aka.ms/wsl2kernel` and install the kernel manually by following the directions on that doc page. 
+To resolve this issue, please visit `https://aka.ms/wsl2kernel` and install the kernel manually by following the directions on that doc page.
 
 ### `command not found` when executing Windows .exe in Linux
 
-Users can run Windows executables like notepad.exe directly from Linux. Sometimes, you may hit "command not found" like below: 
+Users can run Windows executables like notepad.exe directly from Linux. Sometimes, you may hit "command not found" like below:
 
 ```Bash
 $ notepad.exe
@@ -137,7 +137,7 @@ $ notepad.exe
 
 If there are no Win32 paths in your $PATH, interop isn't going to find the .exe.
 You can verify it by running `echo $PATH` in Linux. It's expected that you will see a Win32 path (for example, /mnt/c/Windows) in the output.
-If you can't see any Windows paths then most likely your PATH is being overwritten by your Linux shell. 
+If you can't see any Windows paths then most likely your PATH is being overwritten by your Linux shell.
 
 Here is an example that /etc/profile on Debian contributed to the problem:
 
@@ -198,17 +198,17 @@ Learn more about how to [Configure Nested Virtualization](/virtualization/hyper-
 
 ### WSL has no network connection on my work machine or in an Enterprise environment
 
-Business or Enterprise environments may have [Windows Defender Firewall settings configured](/windows/security/threat-protection/windows-firewall/best-practices-configuring) to block unauthorized network traffic. If [local rule merging](/openspecs/windows_protocols/ms-gpfas/2c979624-900a-4b6e-b4ef-09b387cd62ab) is set to "No" then WSL networking will not work by default, and your administrator will need to add a firewall rule to allow it. 
+Business or Enterprise environments may have [Windows Defender Firewall settings configured](/windows/security/threat-protection/windows-firewall/best-practices-configuring) to block unauthorized network traffic. If [local rule merging](/openspecs/windows_protocols/ms-gpfas/2c979624-900a-4b6e-b4ef-09b387cd62ab) is set to "No" then WSL networking will not work by default, and your administrator will need to add a firewall rule to allow it.
 
 You can confirm local rule merging's setting by following these steps:
 
-![Windows Firewall settings screenshot](./media/windows-defender-firewall-settings.png)
+![Windows Firewall settings screenshot](./media/firewallrulemerging.png)
 
 1. Open "Windows Defender Firewall with advanced security" *(this is different than "Windows Defender Firewall" in the Control Panel)*
 2. Right-click on the "Windows Defender Firewall with advanced security on Local Computer" tab
 3. Select "Properties"
 4. Select the "Public Profile" tab on the new Window that opens
-5. Select "Customize" under the "Settings" section 
+5. Select "Customize" under the "Settings" section
 6. Check in the "Customize Settings for the Public Profile" window that opens to see if "Rule Merging" is set to "No". This will block access to WSL.
 
 You can find instructions on how to change this Firewall setting in [Configure Hyper-V firewall](/windows/security/operating-system-security/network-security/windows-firewall/hyper-v-firewall).
@@ -265,7 +265,7 @@ Some VPNs have been tested and confirmed to be incompatible with WSL, including:
 
 HTTP/S proxy mirroring can be configured using the `autoProxy` setting in the [experimental section of the WSL Configuration file](/windows/wsl/wsl-config#experimental-settings). When applying this setting, note these considerations:
 
-- **PAC Proxy**: WSL will configure the setting in Linux by Setting the "WSL_PAC_URL" environment variable. Linux does not support PAC proxies by default. 
+- **PAC Proxy**: WSL will configure the setting in Linux by Setting the "WSL_PAC_URL" environment variable. Linux does not support PAC proxies by default.
 - **Interactions with WSLENV**: User defined environment variables take precedence over those specified by this feature.
 
 When enabled, the following apply to proxy settings on your Linux distributions:
@@ -287,9 +287,9 @@ DNS Tunneling can be configured using the `dnsTunneling` setting in the [experim
 
 - If you use a VPN with WSL, turn on DNS tunneling. Many VPNs use NRPT policies, which are only applied to WSL DNS queries when DNS tunneling is enabled.
 - The `/etc/resolv.conf` file in your Linux distribution has a 3 DNS servers maximum limitation, while Windows may use more than 3 DNS servers. Using DNS tunneling removes this limitation – all Windows DNS servers can now be used by Linux.
-- WSL will use Windows DNS suffixes in the following order (similar to the order used by the Windows DNS client): 
-  1. Global DNS suffixes 
-  2. Supplemental DNS suffixes 
+- WSL will use Windows DNS suffixes in the following order (similar to the order used by the Windows DNS client):
+  1. Global DNS suffixes
+  2. Supplemental DNS suffixes
   3. Per-interface DNS suffixes
   4. If DNS encryption (DoH, DoT) is enabled on Windows, encryption will be applied to DNS queries from WSL. If users want to enable DoH, DoT inside Linux, they need to disable DNS tunneling.
 - DNS queries from Docker containers managed by Docker Desktop will bypass DNS tunneling. Docker Desktop has its own way (different from DNS tunneling) of applying host DNS settings and policies to DNS queries from Docker containers.
@@ -324,10 +324,10 @@ WSL will automatically configure certain Linux networking settings when using mi
 |  addr_gen_mode| Disabled (0) |
 |  disable_ipv6| Disabled (0) |
 |  https://sysctl-explorer.net/net/ipv4/arp_filter/ | Enabled (1) |
- 
+
 ### Docker container issues in WSL2 with Mirrored networking mode enabled when running under the default networking namespace
 
-There is a known issue in which Docker Desktop containers with published ports (docker run –publish/-p) will fail to be created. The WSL team is working with the Docker Desktop team to address this issue. To work around the issue, use the host’s networking namespace in the Docker container. Set the network type via the "--network host" option used in the "docker run" command. An alternative workaround is to list the published port number in the `ignoredPorts` setting of the [experimental section in the WSL Configuration file](/windows/wsl/wsl-config#experimental-settings). 
+There is a known issue in which Docker Desktop containers with published ports (docker run –publish/-p) will fail to be created. The WSL team is working with the Docker Desktop team to address this issue. To work around the issue, use the host’s networking namespace in the Docker container. Set the network type via the "--network host" option used in the "docker run" command. An alternative workaround is to list the published port number in the `ignoredPorts` setting of the [experimental section in the WSL Configuration file](/windows/wsl/wsl-config#experimental-settings).
 
 ### Docker container issues when its Network Manager is running
 
@@ -355,7 +355,7 @@ Note: You need to be on WSL build 2.3.17 or higher in order to have the function
 
 Since Mirrored mode supports multicast traffic, the mDNS (Multicast DNS) protocol can be used to resolve .local names. Linux must be configured to support mDNS, as it does not do so by default. One way to configure it is using the following these two steps:
 
-1) Install the "libnss-mdns" package 
+1) Install the "libnss-mdns" package
 
 ```Bash
 sudo apt-get install libnss-mdns
@@ -492,7 +492,7 @@ This must be unchecked for the NAT DNS proxy configuration to work from WSL, **o
 **4.	The HNS Firewall rule to allow the DNS packets to shared access can become invalid, referencing a previous WSL interface identifier.**
 This is a flaw within HNS which has been fixed with the latest Windows 11 release. On earlier releases, if this occurs, it’s not easily discoverable, but it has a simple work around:
 - Stop WSL
-  
+
   ```wsl.exe –shutdown```
 - Delete the old HNS Firewall rule. This Powershell command should work in most cases:
 
@@ -537,7 +537,7 @@ There are two components of Windows Subsystem for Linux that can require updatin
 1. To update the Windows Subsystem for Linux itself, use the command `wsl --update` in PowerShell or CMD.
 
 2. To update the specific Linux distribution user binaries, use the command: `apt-get update | apt-get upgrade` in the Linux distribution that you are seeking to update.
-  
+
 ### Apt-get upgrade errors
 
 Some packages use features that we haven't implemented yet. `udev`, for example, isn't supported yet and causes several `apt-get upgrade` errors.
@@ -545,25 +545,25 @@ Some packages use features that we haven't implemented yet. `udev`, for example,
 To fix issues related to `udev`, follow the following steps:
 
 1. Write the following to `/usr/sbin/policy-rc.d` and save your changes.
-  
+
    ```bash
    #!/bin/sh
    exit 101
    ```
-  
+
 2. Add execute permissions to `/usr/sbin/policy-rc.d`:
 
    ```bash
    chmod +x /usr/sbin/policy-rc.d
    ```
-  
+
 3. Run the following commands:
 
    ```bash
    dpkg-divert --local --rename --add /sbin/initctl
    ln -s /bin/true /sbin/initctl
    ```
-  
+
 ### "Error: 0x80040306" on installation
 
 This has to do with the fact that we do not support legacy console.
@@ -638,13 +638,13 @@ To collect a memory dump
 
 ### Check your build number
 
-To find your PC's architecture and Windows build number, open  
+To find your PC's architecture and Windows build number, open
 **Settings** > **System** > **About**
 
-Look for the **OS Build** and **System Type** fields.  
+Look for the **OS Build** and **System Type** fields.
     ![Screenshot of Build and System Type fields](media/system.png)
 
-To find your Windows Server build number, run the following in PowerShell:  
+To find your Windows Server build number, run the following in PowerShell:
 
 ``` PowerShell
 systeminfo | Select-String "^OS Name","^OS Version"
@@ -652,7 +652,7 @@ systeminfo | Select-String "^OS Name","^OS Version"
 
 ### Confirm WSL is enabled
 
-You can confirm that the Windows Subsystem for Linux is enabled by running the following in an elevated PowerShell window:  
+You can confirm that the Windows Subsystem for Linux is enabled by running the following in an elevated PowerShell window:
 
 ``` PowerShell
 Get-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
@@ -744,7 +744,7 @@ If you are using openssh-server on Windows and trying to access WSL remotely, yo
 The file cannot be accessed by the system.
 ```
 
-It's a [known issue](./store-release-notes.md#known-issues), 
+It's a [known issue](./store-release-notes.md#known-issues),
 when using the Store version of WSL. You can work around this today by using WSL 1, or by using the in-Windows version of WSL. See https://aka.ms/wslstoreinfo for more info.
 
 
@@ -753,16 +753,16 @@ when using the Store version of WSL. You can work around this today by using WSL
 
 Some distributions [available in Microsoft Store](install-manual.md#step-6---install-your-linux-distribution-of-choice) are yet not fully compatible to run Windows commands out of the box. If you get an error `-bash: powershell.exe: command not found` running `powershell.exe /c start .` or any other Windows command, you can resolve it following these steps:
 
-1. In your WSL distribution run `echo $PATH`.  
+1. In your WSL distribution run `echo $PATH`.
    If it does not include: `/mnt/c/Windows/system32` something is redefining the standard PATH variable.
-2. Check profile settings with `cat /etc/profile`.  
+2. Check profile settings with `cat /etc/profile`.
    If it contains assignment of the PATH variable, edit the file to comment out PATH assignment block with a **#** character.
 3. Check if wsl.conf is present `cat /etc/wsl.conf` and make sure it does not contain `appendWindowsPath=false`, otherwise comment it out.
 4. Restart distribution by typing `wsl -t ` followed by distribution name or run `wsl --shutdown` either in cmd or PowerShell.
 
 ### Unable to boot after installing WSL 2
 
-We are aware of an issue affecting users where they are unable to boot after installing WSL 2. While we fully diagnose those issue, users have reported that [changing the buffer size](https://github.com/microsoft/WSL/issues/4784#issuecomment-639219363) or [installing the right drivers](https://github.com/microsoft/WSL/issues/4784#issuecomment-675702244) can help address this. Please view this [GitHub issue](https://github.com/microsoft/WSL/issues/4784) to see the latest updates on this issue. 
+We are aware of an issue affecting users where they are unable to boot after installing WSL 2. While we fully diagnose those issue, users have reported that [changing the buffer size](https://github.com/microsoft/WSL/issues/4784#issuecomment-639219363) or [installing the right drivers](https://github.com/microsoft/WSL/issues/4784#issuecomment-675702244) can help address this. Please view this [GitHub issue](https://github.com/microsoft/WSL/issues/4784) to see the latest updates on this issue.
 
 ### WSL 2 errors when ICS is disabled
 
