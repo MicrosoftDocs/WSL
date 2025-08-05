@@ -61,6 +61,6 @@ The last group of settings that end with `*UserSettingConfigurable` control acce
 
 ## Set up with group policy
 
-WSL policies are defined by a [WSL ADMX file](https://github.com/microsoft/WSL/blob/master/intune/WSL.admx) which can be downloaded from our GitHub. 
+WSL policies are defined by a [WSL ADMX file](https://github.com/microsoft/WSL/blob/master/intune/WSL.admx) which can be downloaded from our GitHub.
 
-ADMX files can be imported manually and used to manage group policy locally on the machine, [see the ADMX doc page](https://learn.microsoft.com/windows/client-management/understanding-admx-backed-policies) to learn more about that process.
+ADMX files can be imported manually and used to manage group policy locally on the machine, [see the ADMX doc page](/windows/client-management/understanding-admx-backed-policies) to learn more about that process.
