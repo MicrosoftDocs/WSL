@@ -4,6 +4,7 @@ description: Learn how case sensitive file names are handled between Windows and
 keywords: case sensitivity, wsl, windows, linux, ntfs, mount
 ms.date: 09/27/2021
 ms.topic: how-to
+ms.custom: sfi-image-nochange
 ---
 
 # Adjust case sensitivity

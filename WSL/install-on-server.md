@@ -78,7 +78,7 @@ Now that you've downloaded a Linux distribution, in order to extract its content
 1. Unzip the contents to a new folder called `\%USERPROFILE%\AppData\Local\DebianWSL\`.
 
     ```powershell
-    $debianWSLPath = Join-Path -Path $env:UserProfile -ChildPath "AppData\Local\DebianWSL"
+    $debianWSLPath = Join-Path -Path $env:LocalAppData -ChildPath DebianWSL
     New-Item -Path $debianWSLPath -ItemType Directory | Out-Null
     Expand-Archive -Path ".\DistroLauncher-Appx_1.12.2.0_x64.appx" -DestinationPath $debianWSLPath
     ```

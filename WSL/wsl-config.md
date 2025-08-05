@@ -1,7 +1,7 @@
 ---
 title: Advanced settings configuration in WSL
 description: A guide to the wsl.conf and .wslconfig files used for configuring settings when running multiple Linux distributions on Windows Subsystem for Linux.
-ms.date: 05/19/2025
+ms.date: 07/31/2025
 ms.topic: article
 ---
 
@@ -161,7 +161,7 @@ The `wsl.conf` sample file below demonstrates some of the configuration options 
 [automount]
 
 # Set to true will automount fixed drives (C:/ or D:/) with DrvFs under the root directory set above. Set to false means drives won't be mounted automatically, but need to be mounted manually or with fstab.
-enabled = true
+enabled=true
 
 # Sets the directory where fixed drives will be automatically mounted. This example changes the mount location, so your C-drive would be /c, rather than the default /mnt/c.
 root = /
@@ -170,26 +170,26 @@ root = /
 options = "metadata,uid=1003,gid=1003,umask=077,fmask=11,case=off"
 
 # Sets the `/etc/fstab` file to be processed when a WSL distribution is launched.
-mountFsTab = true
+mountFsTab=true
 
 # Network host settings that enable the DNS server used by WSL 2. This example changes the hostname, sets generateHosts to false, preventing WSL from the default behavior of auto-generating /etc/hosts, and sets generateResolvConf to false, preventing WSL from auto-generating /etc/resolv.conf, so that you can create your own (ie. nameserver 1.1.1.1).
 [network]
-hostname = DemoHost
-generateHosts = false
-generateResolvConf = false
+hostname=DemoHost
+generateHosts=false
+generateResolvConf=false
 
 # Set whether WSL supports interop processes like launching Windows apps and adding path variables. Setting these to false will block the launch of Windows processes and block adding $PATH environment variables.
 [interop]
-enabled = false
-appendWindowsPath = false
+enabled=false
+appendWindowsPath=false
 
 # Set the user when launching a distribution with WSL.
 [user]
-default = DemoUser
+default=DemoUser
 
 # Set a command to run when a new WSL instance launches. This example starts the Docker container service.
 [boot]
-command = service docker start
+command=service docker start
 ```
 
 ## .wslconfig
@@ -211,6 +211,10 @@ See [.wslconfig](#wslconfig) for info on where to store the .wslconfig file.
 
 > [!NOTE]
 > Configuring global settings with `.wslconfig` are only available for distributions running as WSL 2 in Windows Build 19041 and later. Keep in mind you may need to run `wsl --shutdown` to shut down the WSL 2 VM and then restart your WSL instance for these changes to take effect.
+>
+> [!TIP]
+> It is recommended to modify WSL configurations directly in WSL Settings, rather than manually editing the .wslconfig file. WSL Settings can be found in the Start menu.
+> ![Windows Subsystem for Linux Settings](./media/wsl-settings.png)
 
 This file can contain the following options that affect the VM that powers any WSL 2 distribution:
 
@@ -232,6 +236,7 @@ This file can contain the following options that affect the VM that powers any W
 | `pageReporting` | boolean | `true` | Setting enables Windows to reclaim unused memory allocated to WSL 2 virtual machine. |
 | `guiApplications` | boolean | `true` | Boolean to turn on or off support for GUI applications ([WSLg](https://github.com/microsoft/wslg)) in WSL.|
 | `debugConsole`¹ | boolean | `false` | Boolean to turn on an output console Window that shows the contents of `dmesg` upon start of a WSL 2 distro instance.|
+| `maxCrashDumpCount` | number | `10` | Set the maximum number of crash dump files that will be retained for debugging purposes. The default number retained by WSL is 10. When this limit is exceeded, older crash dumps will be automatically deleted to make room for new ones. Setting a max can help with reducing the amount of disk space used by these crash files. |
 | `nestedVirtualization`¹ | boolean | `true` | Boolean to turn on or off nested virtualization, enabling other nested VMs to run inside WSL 2.|
 | `vmIdleTimeout`¹ | number | `60000` | The number of milliseconds that a VM is idle, before it is shut down.|
 | `dnsProxy` | boolean | `true` | Only applicable to `networkingMode = NAT`. Boolean to inform WSL to configure the DNS Server in Linux to the NAT on the host. Setting to `false` will mirror DNS servers from Windows to Linux. |
@@ -309,6 +314,9 @@ nestedVirtualization=false
 
 # Turns on output console showing contents of dmesg when opening a WSL 2 distro for debugging
 debugConsole=true
+
+# Sets the maximum number of crash dump files to retain (default is 5)
+maxCrashDumpCount=10
 
 # Enable experimental features
 [experimental]

@@ -1,7 +1,7 @@
 ---
 title: Troubleshooting Windows Subsystem for Linux
-description: Provides detailed information about common errors and issues people run into while running Linux on the Windows Subsystem for Linux.
-ms.date: 06/08/2025
+description: Provides detailed information about common errors and issues people run into while running Linux on the Windows Subsystem for Linux. 
+ms.date: 07/16/2025
 ms.topic: troubleshooting-general
 ---
 
@@ -109,7 +109,7 @@ You can also:
 
 This is likely because your machine has not yet taken the backport for WSL 2. The simplest way to resolve this is by going to [Windows Settings](ms-settings:windowsupdate) and clicking "**Check for Updates**" to install the latest updates on your system. See [the full instructions on taking the backport](https://devblogs.microsoft.com/commandline/wsl-2-support-is-coming-to-windows-10-versions-1903-and-1909/#how-do-i-get-it).
 
-If you hit "**Check for Updates**" and still do not receive the update you can [install KB KB4566116 manually](https://www.catalog.update.microsoft.com/Search.aspx?q=KB4566116).
+If you hit "**Check for Updates**" and still do not receive the update you can [install KB KB4566116 manually](https://catalog.update.microsoft.com/Search.aspx?q=KB4566116).
 
 ### Error: 0x1bc when `wsl --set-default-version 2`
 
@@ -367,13 +367,13 @@ WSL will automatically configure certain Linux networking settings when using mi
 |  `https://sysctl-explorer.net/net/ipv6/accept_ra/` | Disabled (0) |
 |  `https://sysctl-explorer.net/net/ipv6/autoconf/` | Disabled (0) |
 |  `https://sysctl-explorer.net/net/ipv6/use_tempaddr/` | Disabled (0) |
-|  addr_gen_mode| Disabled (0) |
-|  disable_ipv6| Disabled (0) |
+|  addr_gen_mode | Disabled (0) |
+|  disable_ipv6 | Disabled (0) |
 |  `https://sysctl-explorer.net/net/ipv4/arp_filter/` | Enabled (1) |
 
 ### Docker container issues in WSL2 with Mirrored networking mode enabled when running under the default networking namespace
 
-There is a known issue in which Docker Desktop containers with published ports (`docker run –p`) will fail to be created. The WSL team is working with the Docker Desktop team to address this issue. To work around the issue, use the host’s networking namespace in the Docker container. Set the network type via the `--network host` option used in the `docker run` command. An alternative workaround is to list the published port number in the `ignoredPorts` setting of the [experimental section in the WSL Configuration file](./wsl-config.md#experimental-settings).
+There is a known issue in which Docker Desktop containers with published ports (`docker run  –publish/–p`) will fail to be created. The WSL team is working with the Docker Desktop team to address this issue. To work around the issue, use the host’s networking namespace in the Docker container. Set the network type via the `--network host` option used in the `docker run` command. An alternative workaround is to list the published port number in the `ignoredPorts` setting of the [experimental section in the WSL Configuration file](./wsl-config.md#experimental-settings).
 
 ### Docker container issues when its Network Manager is running
 
@@ -495,7 +495,7 @@ Due to this NAT - shared access design, there are a few known configurations whi
     ...
     ```
 
-    ```AllowLocalFirewallRules: False``` means the locally defined firewall rules, like that by HNS, will not be applied or used.
+    `AllowLocalFirewallRules: False` means the locally defined firewall rules, like that by HNS, will not be applied or used.
 
 1. **And Enterprise can push down Group Policy and MDM policy settings that block all inbound rules.**
 
@@ -617,7 +617,7 @@ There are two components of Windows Subsystem for Linux that can require updatin
     wsl.exe --update
     ```
 
-2. To update the specific Linux distribution user binaries, please use the following command in the Linux distribution you wish to update.
+1. To update the specific Linux distribution user binaries, please use the following command in the Linux distribution you wish to update.
 
     ```bash
     apt-get update | apt-get upgrade
@@ -867,3 +867,15 @@ Interoperability command differences:
 ## Uninstall legacy version of WSL
 
 If you originally installed WSL on a version of Windows 10 prior to Creators update (Oct 2017, Build 16299), we recommend that you migrate any necessary files, data, etc. from the older Linux distribution you installed, to a newer distribution installed via the Microsoft Store. To remove the legacy distribution from your machine, run the following from a Command Line or PowerShell instance: `wsl --unregister Legacy`. You also have the option to manually remove the older legacy distribution by deleting the `%LocalAppData%\lxss\` folder (and all it's sub-contents) using Windows File Explorer or with PowerShell: `Remove-Item -Recurse $env:localappdata/lxss/`.
+
+## Error code 0x8000FFFF unexpected failure
+
+This error code typically means there has been an unexpected, or "catastrophic", failure during the system operations when attempting to install or use a Linux distrubution (such as Ubuntu) with WSL. There are many reasons that can lead to this failure. Begin by checking the following:
+
+- Is this a permissions issue? Check to see that you are logged in as the expected user on your command line and have the necessary Admin privileges when installing a Linux distrubution with WSL. (Right-click your Terminal or Command Line taskbar icon to select "Run as Administrator.")
+- Have you updated WSL to the most recent version? Use the command: `wsl --update` to update to the most recent version. You may also want to [update to the latest version of Windows](ms-settings:windowsupdate).
+- Ensure that you are using the [`wsl --install`](./install.md) command correctly and specifying the Linux distrubution that you aim to install.
+- Try shutting down and restarting WSL, using the command: `wsl --shutdown`.
+- If you are using Windows Server, ensure that your version is up to date and follow the [Windows Server Installation Guide](./install-on-server.md).
+- If you suspect this may be related to missing or corrupted system files, from an elevated command prompt (Run as Admin), you can scan and repair system files and/or repair the Windows operating system image. To scan for and repair corrupted or missing Windows system files, use the command: `SFC /SCANNOW`. To repair the Windows image itself, use the command: `DISM /Online /Cleanup-Image /RestoreHealth`.
+- See related [WSL product repo issue 9420](https://github.com/microsoft/WSL/issues/9420).

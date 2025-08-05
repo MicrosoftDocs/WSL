@@ -161,6 +161,14 @@ Let's explore the basic commands of WSL next.
 > [!div class="nextstepaction"]
 > [Basic WSL commands](./basic-commands.md)
 
+## Offline install
+
+To install WSL offline, you need to do these steps:
+
+- Download and install latest WSL MSI package from [the GitHub releases page](github.com/microsoft/wsl/releases)
+- Open a PowerShell window with admin privileges and run `dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart` to enable the Virtual Machine Platform optional component. You will likely need to restart your computer for this to take effect.
+- Install a distribution via a .wsl file. You can find URLs to download these files at [DistributionInfo.json](https://github.com/microsoft/WSL/blob/master/distributions/DistributionInfo.json) for your chosen distro. 
+
 ## Additional resources
 
 - [Windows Command Line Blog: Install WSL with a single command now available in Windows 10 version 2004 and higher](https://devblogs.microsoft.com/commandline/install-wsl-with-a-single-command-now-available-in-windows-10-version-2004-and-higher/)
