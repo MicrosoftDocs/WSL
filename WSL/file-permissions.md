@@ -57,7 +57,7 @@ Chmod will only have one effect, if you remove all the write attributes of a fil
 
 ##### chmod file has metadata
 
-Chmod will change or add metadata depending on the file's already existing metadata. 
+Chmod will change or add metadata depending on the file's already existing metadata.
 
 Please keep in mind that you cannot give yourself more access than what you have on Windows, even if the metadata says that is the case. For example, you could set the metadata to display that you have write permissions to a file using `chmod 777`, but if you tried to access that file you would still not be able to write to it. This is thanks to interoperability, as any read or write commands to Windows files are routed through your Windows user permissions.
 
@@ -73,7 +73,7 @@ The Windows permissions of the newly created file will be the same as if you cre
 
 The file's permission bits are set to follow the Linux umask, and the file will be saved with metadata.
 
-#### Which Linux user and Linux group owns the file? 
+#### Which Linux user and Linux group owns the file?
 
 The result depends on if the file already has existing metadata.
 
@@ -91,7 +91,7 @@ Accessing Linux files via `\\wsl$` will use the default user of your WSL distrib
 
 #### Creating a new file
 
-The default umask is applied when creating a new file inside of a WSL distribution from Windows. The default umask is `022`, or in other words it allows all permissions except write permissions to groups and others. 
+The default umask is applied when creating a new file inside of a WSL distribution from Windows. The default umask is `022`, or in other words it allows all permissions except write permissions to groups and others.
 
 ### Accessing files in the Linux root file system from Linux
 
@@ -101,4 +101,4 @@ Any files created, modified, or accessed in the Linux root file system follow st
 
 You can configure your file permissions inside of your Windows drives using the mount options in wsl.conf. The mount options allow you to set `umask`, `dmask` and `fmask` permissions masks. The `umask` is applied to all files, the `dmask` is applied just to directories and the `fmask` is applied just to files. These permission masks are then put through a logical OR operation when being applied to files, e.g: If you have a `umask` value of `023` and an `fmask` value of `022` then the resulting permissions mask for files will be `023`.
 
-Learn more: [Per distribution configuration options with wsl.conf](/windows/wsl/wsl-config#per-distribution-configuration-options-with-wslconf).
+Learn more: [Per distribution configuration options with wsl.conf](./wsl-config.md#wslconf).
