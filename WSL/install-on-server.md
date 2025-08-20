@@ -59,7 +59,7 @@ See the [Downloading distributions](./install-manual.md#downloading-distribution
 
 ### Extract and install a Linux distribution
 
-Now that you've downloaded a Linux distribution, in order to extract its contents and manually install, follow these steps. Not that you will be downloading an appx file that contains several appx files. In this example we will use debian.
+Now that you've downloaded a Linux distribution, in order to extract its contents and manually install, follow these steps. Note that you will be downloading an appx file that contains several appx files. In this example we will use debian.
 
 1. List the contents of the appx using tar.exe:
 
