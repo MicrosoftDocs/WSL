@@ -149,7 +149,7 @@ This new mode addresses networking issues seen with using a NAT (Network Address
 
 ## DNS Tunneling
 
-On machines running Windows 11 22H2 and higher, setting [`dnsTunneling=true` under `[wsl2]` in the `.wslconfig` file](./wsl-config.md#configuration-settings-for-wslconfig) has WSL use a virtualization feature to answer DNS requests from within WSL, instead of requesting them over a networking packet. This feature is aimed to improve compatibility with VPNs, and other complex networking set ups.
+On machines running Windows 11 22H2 and higher the `dnsTunneling` feature is on by default (which can be found [under `[wsl2]` in the `.wslconfig` file](./wsl-config.md#configuration-settings-for-wslconfig)) and it uses a virtualization feature to answer DNS requests from within WSL, instead of requesting them over a networking packet. This feature is aimed to improve compatibility with VPNs, and other complex networking set ups.
 
 ## Auto Proxy
 
