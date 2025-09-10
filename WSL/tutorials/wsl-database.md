@@ -195,7 +195,7 @@ To see what user accounts have been created on your PostgreSQL installation, use
 
 For more about working with PostgreSQL databases, see the [PostgreSQL docs](https://www.postgresql.org/docs/current/tutorial-createdb.html).
 
-To work with PostgreSQL databases in VS Code, try the [PostgreSQL extension](https://marketplace.visualstudio.com/items?itemName=ms-ossdata.vscode-postgresql).
+To work with PostgreSQL databases in VS Code, try the [PostgreSQL extension](https://marketplace.visualstudio.com/items?itemName=ms-ossdata.vscode-pgsql).
 
 ## Install MongoDB
 
