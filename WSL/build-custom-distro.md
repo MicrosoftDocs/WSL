@@ -263,7 +263,9 @@ wsl --install my-distro-v2 # Installs 'my-distro-v2' explicitly
 
 ## Adding your distribution to `wsl --install` for all WSL users
 
-To make your WSL distribution available to all users, open a pull request on the [WSL GitHub repository](https://github.com/microsoft/WSL) that modifies the [DistributionInfo.json](https://github.com/microsoft/WSL/blob/master/distributions/DistributionInfo.json) file to include your distribution information.
+To be eligible to show up in the `wsl --list --online` list, your [distro needs to meet the distro mailing list security features](https://oss-security.openwall.org/wiki/mailing-lists/distros#membership-criteria) so that we can ensure security for listed distributions.
+
+If you do meet that criteria and would like to add your distro to the `--install` list, open a pull request on the [WSL GitHub repository](https://github.com/microsoft/WSL) that modifies the [DistributionInfo.json](https://github.com/microsoft/WSL/blob/master/distributions/DistributionInfo.json) file to include your distribution information.
 
 This pull request will be reviewed by the WSL team.
 
