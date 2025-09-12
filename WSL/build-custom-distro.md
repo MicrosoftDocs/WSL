@@ -1,7 +1,7 @@
 ---
 title: Build a Custom Linux Distro for WSL - Windows
 description: Learn how to create a custom Linux distribution for Windows Subsystem for Linux.
-ms.date: 02/05/2025
+ms.date: 09/12/2025
 ms.topic: how-to
 ---
 
@@ -263,11 +263,9 @@ wsl --install my-distro-v2 # Installs 'my-distro-v2' explicitly
 
 ## Adding your distribution to `wsl --install` for all WSL users
 
-To be eligible to show up in the `wsl --list --online` list, your [distro needs to meet the distro mailing list security features](https://oss-security.openwall.org/wiki/mailing-lists/distros#membership-criteria) so that we can ensure security for listed distributions.
+In order for your distribution to be included in the list for the command: `wsl --list --online`, the distribution must meet the [Membership criteria](https://oss-security.openwall.org/wiki/mailing-lists/distros#membership-criteria) outlined in the distribution mailing list. This ensures that all listed distributions adhere to the necessary security standards.
 
-If you do meet that criteria and would like to add your distro to the `--install` list, open a pull request on the [WSL GitHub repository](https://github.com/microsoft/WSL) that modifies the [DistributionInfo.json](https://github.com/microsoft/WSL/blob/master/distributions/DistributionInfo.json) file to include your distribution information.
-
-This pull request will be reviewed by the WSL team.
+If your distribution meets the criteria and you would like to add it to the `--install` list, submit a pull request on the WSL GitHub repository (https://github.com/microsoft/WSL) that updates the [DistributionInfo.json file](https://github.com/microsoft/WSL/blob/master/distributions/DistributionInfo.json) with your distribution's details. This pull request will be reviewed by the WSL team.
 
 ## Adding your distribution to `wsl --install` for your enterprise or business group
 
