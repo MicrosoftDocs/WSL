@@ -14,7 +14,7 @@ Setting up the USB/IP project on your Windows machine will enable common develop
 ## Prerequisites
 
 - Running Windows 11 (Build 22000 or later). *(Windows 10 support is possible, see note below).*
-- A machine with an x64 processor is required. (x86 and Arm64 are currently not supported with usbipd-win).
+- A machine with an x64 or ARM64 processor is required. (x86 is currently not supported with usbipd-win).
 - WSL is [installed and set up with the latest version](./install.md).
 - Linux distribution installed and [set to WSL 2](./basic-commands.md#set-wsl-version-to-1-or-2).
 
@@ -53,7 +53,7 @@ This will install:
 Before attaching your USB device, ensure that a WSL command line is open.  This will keep the WSL 2 lightweight VM active.
 
 > [!NOTE]
-> This doc assumes that you have [`usbipd-win 4.0.0` or higher installed](https://github.com/dorssel/usbipd-win/releases/latest)
+> This doc assumes that you have [`usbipd-win 5.0.0` or higher installed](https://github.com/dorssel/usbipd-win/releases/latest)
 
 1. List all of the USB devices connected to Windows by opening PowerShell in *administrator* mode and entering the following command. Once the devices are listed, select and copy the bus ID of the device you’d like to attach to WSL.
 
