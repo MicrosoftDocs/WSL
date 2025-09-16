@@ -303,9 +303,6 @@ swap=8GB
 # Sets swapfile path location, default is %UserProfile%\AppData\Local\Temp\swap.vhdx
 swapfile=C:\\temp\\wsl-swap.vhdx
 
-# Disable page reporting so WSL retains all allocated memory claimed from Windows and releases none back when free
-pageReporting=false
-
 # Turn on default connection to bind WSL 2 localhost to Windows localhost. Setting is ignored when networkingMode=mirrored
 localhostforwarding=true
 
