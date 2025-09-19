@@ -86,18 +86,18 @@ To configure the case sensitivity option in the `wsl.conf` file when mounting a 
 4. If the `wsl.conf` file does not already exist, you can create it using: `sudo touch wsl.conf` or by running `sudo nano /etc/wsl.conf`, which will create the file upon saving from the Nano editor.
 5. The following options are available for you to add into your `wsl.conf` file:
 
-**Default setting: `dir` for enabling case sensitivity per directory.**
-
-```bash
-[automount]
-options = case = dir
-```
-
-**Case sensitivity unavailable (all directories on mounted NTFS drives will be case insensitive): `off`**
+**Default setting: `off` for case sensitivity unavailable (all directories on mounted NTFS drives will be case insensitive).**
 
 ```bash
 [automount]
 options = case = off
+```
+
+**Enabling case sensitivity per directory: `dir`**
+
+```bash
+[automount]
+options = case = dir
 ```
 
 **Treat all directories on the (NTFS) drive as case sensitive: `force`**
