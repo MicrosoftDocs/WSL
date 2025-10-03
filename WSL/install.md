@@ -31,6 +31,7 @@ The first time you launch a newly installed Linux distribution, a console window
 
 > [!NOTE]
 > The above command only works if WSL is not installed at all. If you run `wsl --install` and see the WSL help text, please try running `wsl --list --online` to see a list of available distros and run `wsl --install -d <DistroName>` to install a distro.
+> If the install process hangs at 0.0%, run `wsl --install --web-download -d <DistroName>` to first download the distribution prior to installing.
 > To uninstall WSL, see [Uninstall legacy version of WSL](./troubleshooting.md#uninstall-legacy-version-of-wsl) or [unregister or uninstall a Linux distribution](./basic-commands.md#unregister-or-uninstall-a-linux-distribution).
 
 ## Change the default Linux distribution installed
