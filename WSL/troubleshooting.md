@@ -237,6 +237,15 @@ You can confirm local rule merging's setting by following these steps:
 
 You can find instructions on how to change this Firewall setting in [Configure Hyper-V firewall](/windows/security/operating-system-security/network-security/windows-firewall/hyper-v-firewall).
 
+### WSL has no network connection when disabling IPv6
+
+If IPv6 is disabled using the registry value HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip6\Parameters (REG_DWORD) DisabledComponents, WSL network connectivity can fail.
+See https://learn.microsoft.com/en-us/troubleshoot/windows-server/networking/configure-ipv6-in-windows details on configuring IPv6.
+
+If IPv6 must be disabled on the host system, we recommend using Powershell to do so by directly removing the IPv6 protocol bindings. e.g.
+Disable-NetAdapterBinding -Name "<MyAdapter>" -ComponentID ms_tcpip[6]
+
+
 ### WSL has no network connectivity once connected to a VPN
 
 If after connecting to a VPN on Windows, bash loses network connectivity, try this workaround from within bash. This workaround will allow you to manually override the DNS resolution through `/etc/resolv.conf`.
