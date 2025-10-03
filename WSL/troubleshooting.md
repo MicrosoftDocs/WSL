@@ -1,7 +1,7 @@
 ---
 title: Troubleshooting Windows Subsystem for Linux
 description: Provides detailed information about common errors and issues people run into while running Linux on the Windows Subsystem for Linux. 
-ms.date: 07/16/2025
+ms.date: 10/03/2025
 ms.topic: troubleshooting-general
 ---
 
@@ -236,6 +236,15 @@ You can confirm local rule merging's setting by following these steps:
 6. Check in the "Customize Settings for the Public Profile" window that opens to see if "Rule Merging" is set to "No". This will block access to WSL.
 
 You can find instructions on how to change this Firewall setting in [Configure Hyper-V firewall](/windows/security/operating-system-security/network-security/windows-firewall/hyper-v-firewall).
+
+### WSL has no network connection when disabling IPv6
+
+If IPv6 is disabled using the registry value `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip6\Parameters (REG_DWORD) DisabledComponents`, WSL network connectivity can fail.
+See [Guidance for configuring IPv6 in Windows for advanced users](/troubleshoot/windows-server/networking/configure-ipv6-in-windows).
+
+If IPv6 must be disabled on the host system, we recommend using Powershell to do so by directly removing the IPv6 protocol bindings. For example:
+`Disable-NetAdapterBinding -Name "<MyAdapter>" -ComponentID ms_tcpip[6]`.
+
 
 ### WSL has no network connectivity once connected to a VPN
 
