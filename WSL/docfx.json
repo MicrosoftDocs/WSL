@@ -34,7 +34,7 @@
     "externalReference": [],
     "globalMetadata": {
       "breadcrumb_path": "/windows/wsl/breadcrumb/toc.json",
-      "uhfHeaderId": "MSDocsHeader-Windows",
+      "uhfHeaderId": "MSDocsHeader-Windows-DevTools",
       "recommendations": true,
       "feedback_product_url": "https://github.com/microsoft/WSL/issues",
       "feedback_system": "OpenSource",
