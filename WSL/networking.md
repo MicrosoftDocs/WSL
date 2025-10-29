@@ -68,7 +68,7 @@ If you want to access a networking app running on Windows (for example an app ru
 1. Obtain the IP address of your host machine by running this command from your Linux distribution:
 
     ```bash
-    ip route show | grep -i default | awk '{ print $3}'`
+    ip route show | grep -i default | awk '{ print $3}'
     ```
 
 2. Connect to any Windows server using the copied IP address.
