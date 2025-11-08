@@ -64,7 +64,7 @@ Now that you've downloaded a Linux distribution, in order to extract its content
 1. List the contents of the appx using tar.exe:
 
     ```cmd
-    > tar -tf .\debian.appx
+    > tar -xf .\debian.appx
     DistroLauncher-Appx_1.12.2.0_ARM64.appx
     DistroLauncher-Appx_1.12.2.0_scale-100.appx
     DistroLauncher-Appx_1.12.2.0_scale-125.appx
@@ -80,7 +80,7 @@ Now that you've downloaded a Linux distribution, in order to extract its content
     ```powershell
     $debianWSLPath = Join-Path -Path $env:LocalAppData -ChildPath DebianWSL
     New-Item -Path $debianWSLPath -ItemType Directory | Out-Null
-    Expand-Archive -Path ".\DistroLauncher-Appx_1.12.2.0_x64.appx" -DestinationPath $debianWSLPath
+    tar -xf .\DistroLauncher-Appx_1.12.2.0_x64.appx -C "$env:USERPROFILE\AppData\Local\DebianWSL"
     ```
 
 1. Add your Linux distribution path to the Windows environment PATH (`C:\Users\Administrator\Ubuntu` in this example), using PowerShell:
