@@ -53,7 +53,7 @@ By default, the installed Linux distribution will be Ubuntu. This can be changed
 
 If you run into an issue during the install process, check the [installation section of the troubleshooting guide](./troubleshooting.md#installation-issues).
 
-To install a Linux distribution that is not listed as available, you can [import any Linux distribution](./use-custom-distro.md) using a TAR file. Or in some cases, [as with Arch Linux](https://wsldl-pg.github.io/ArchW-docs/How-to-Setup/), you can install using an `.appx` file. You can also create your own [custom Linux distribution](./build-custom-distro.md) to use with WSL.
+To install a Linux distribution that is not listed as available, you can [import any Linux distribution](./use-custom-distro.md) using a TAR file. Or in some cases you can install using an `.appx` file. You can also create your own [custom Linux distribution](./build-custom-distro.md) to use with WSL.
 
 ## Set up your Linux user info
 
