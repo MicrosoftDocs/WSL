@@ -205,8 +205,6 @@ Imports the specified .vhdx file as a new distribution. The virtual hard disk mu
 
 ## Unregister or uninstall a Linux distribution
 
-While Linux distributions can be installed through the Microsoft Store, they can't be uninstalled through the store.
-
 To unregister and uninstall a WSL distribution:
 
 ```powershell
