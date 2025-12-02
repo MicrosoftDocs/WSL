@@ -1,7 +1,7 @@
 ---
 title: Basic commands for WSL
 description: Reference for the basic commands included with Windows Subsystem for Linux (WSL).
-ms.date: 07/31/2025
+ms.date: 12/01/2025
 ms.topic: article
 ---
 
@@ -76,7 +76,7 @@ wsl --set-default <Distribution Name>
 
 To set the default Linux distribution that WSL commands will use to run, replace `<Distribution Name>` with the name of your preferred Linux distribution.
 
-## Start WSL in user's home
+## Start WSL in user home directory
 
 ```powershell
 wsl ~
