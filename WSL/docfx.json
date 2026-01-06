@@ -47,8 +47,8 @@
       "open_source_feedback_productName": "Windows Subsystem for Linux",
       "ms.service": "dev-environment",
       "ms.subservice": "windows-subsystem-for-linux",
-      "author": "mattwojo",
-      "ms.author": "mattwoj",
+      "author": "GrantMeStrength",
+      "ms.author": "jken",
       "ms.reviewer": "crloewen",
       "searchScope": [
         "WSL"

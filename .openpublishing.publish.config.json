@@ -18,7 +18,8 @@
     }
   ],
   "notification_subscribers": [
-    "mattwoj@microsoft.com"
+    "jken@microsoft.com",
+    "crloewen@microsoft.com"
   ],
   "sync_notification_subscribers": [],
   "branches_to_filter": [],

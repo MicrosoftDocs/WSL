@@ -94,7 +94,7 @@ Let's use Docker to create a development container for an existing app project.
 1. For this example, I'll use the source code from my [Hello World tutorial for Django](/windows/python/web-frameworks#hello-world-tutorial-for-django) in the Python development environment set up docs. You can skip this step if you prefer to use your own project source code. To download my HelloWorld-Django web app from GitHub, open a WSL terminal (Ubuntu for example) and enter:
 
     ```bash
-    git clone https://github.com/mattwojo/helloworld-django.git
+    git clone https://github.com/<username>/helloworld-django.git
     ```
 
     > [!NOTE]
@@ -120,7 +120,7 @@ Let's use Docker to create a development container for an existing app project.
 
     ![VS Code Dev Containers command](../media/docker-extension.png)
 
-5. Select the project folder that you wish to containerize. In my case, this is `\\wsl\Ubuntu-20.04\home\mattwojo\repos\helloworld-django\`
+5. Select the project folder that you wish to containerize. It will look something like: `\\wsl\Ubuntu-20.04\home\<username>\repos\helloworld-django\`
 
     ![VS Code Dev Containers folder](../media/docker-extension2.png)
 
