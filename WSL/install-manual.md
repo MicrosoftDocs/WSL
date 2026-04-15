@@ -196,7 +196,7 @@ If the Microsoft Store app is not available, you can download and manually insta
   - [Debian GNU/Linux](https://aka.ms/wsl-debian-gnulinux) (x64, arm64)
 - Kali Linux:
   - [Kali Linux Rolling](https://aka.ms/wsl-kali-linux-new)
-- OracleLinux:
+- Oracle Linux:
   - [Oracle Linux 9.1](https://publicwsldistros.blob.core.windows.net/wsldistrostorage/OracleLinux_9.1-230428.Appx) (x64)
   - [Oracle Linux 8.7](https://publicwsldistros.blob.core.windows.net/wsldistrostorage/OracleLinux_8.7-230428.Appx) (x64)
   - [Oracle Linux 8.5](https://aka.ms/wsl-oraclelinux-8-5) (x64)
@@ -216,7 +216,7 @@ If the Microsoft Store app is not available, you can download and manually insta
 - Fedora Remix:
   - [Fedora Remix for WSL](https://github.com/WhitewaterFoundry/Fedora-Remix-for-WSL/releases) (x64, arm64)
 
-This will cause the `<distro>.appx` packages to download to a folder of your choosing.
+This will cause the `.appx` or `.AppxBundle` packages to download to a folder of your choosing.
 
 If you prefer, you can also download your preferred distribution(s) via the command line, you can use PowerShell with the [Invoke-WebRequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest) cmdlet. For example, to download Ubuntu 20.04:
 
@@ -235,17 +235,17 @@ curl.exe -LR -o ubuntu-2404.AppxBundle https://wslstorestorage.blob.core.windows
 
 In this example, `curl.exe` is executed (not just `curl`) to ensure that, in PowerShell, the real curl executable is invoked, not the PowerShell curl alias for [Invoke-WebRequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest).
 
-### Installing the Appx package with Add-AppxPackage
+### Installing the package with Add-AppxPackage
 
 **Note** The following command won't work on Server Core installations
 
-Once the distribution has been downloaded, navigate to the folder containing the download and run the following command in that directory, where `app-name` is the name of the Linux distribution .appx file.
+Once the distribution has been downloaded, navigate to the folder containing the download and run the following command in that directory, where `app-name` is the name of the Linux distribution `.appx` or `.AppxBundle` file.
 
 ```powershell
 Add-AppxPackage .\app_name.Appx
 ```
 
-Once the Appx package has finished downloading, you can start running the new distribution by double-clicking the appx file. (The command `wsl -l` will not show that the distribution is installed until this step is complete).
+Once the package has finished installing, you can start running the new distribution by double-clicking the appx file. (The command `wsl -l` will not show that the distribution is installed until this step is complete).
 
 If you are using Windows server, or run into problems running the command above you can find the alternate install instructions on the [Windows Server](install-on-server.md) documentation page to install the `.Appx` file by changing it to a zip file.
 
