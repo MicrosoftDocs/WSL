@@ -1,7 +1,7 @@
 ---
 title: Install Linux Subsystem on Windows Server
 description: Learn how to install the Linux Subsystem on Windows Server. WSL is available for installation on Windows Server 2019 (version 1709) and later.
-ms.date: 06/14/2022
+ms.date: 04/15/2026
 ms.topic: install-set-up-deploy
 ---
 
@@ -9,15 +9,15 @@ ms.topic: install-set-up-deploy
 
 The Windows Subsystem for Linux (WSL) is available for installation on Windows Server 2019 (version 1709) and later. This guide will walk through the steps of enabling WSL on your machine.
 
-## Install WSL on Windows Server 2022 and 2025 Desktop Experience
+## Install WSL on Windows Server 2022 and 2025
 
-[Windows Server 2022](/windows-server/get-started/whats-new-in-windows-server-2022) now supports a simple WSL installation using the command:
+[Windows Server 2022](/windows-server/get-started/whats-new-in-windows-server-2022) and [Windows Server 2025](/windows-server/get-started/whats-new-in-windows-server-2025) support a simple WSL installation using the command:
 
 ```powershell
 wsl.exe --install
 ```
 
-You can now install everything you need to run WSL on Windows Server 2022 by entering this command in an **administrator** PowerShell and then restarting your machine.
+You can now install everything you need to run WSL on Windows Server 2022 or 2025 (including Server Core on 2025) by entering this command in an **administrator** PowerShell and then restarting your machine.
 
 This command will enable the required optional components, download the latest Linux kernel, set WSL 2 as your default, and install a Linux distribution for you *(Ubuntu by default)*.
 
@@ -46,7 +46,13 @@ Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-L
 
 ### Install the WSL Kernel update for WSL 2
 
-This is not necessary for server core 2025.
+> [!NOTE]
+> This step is only needed for Windows Server 2019. On Server 2022 and later, use `wsl --update` instead:
+> ```powershell
+> wsl --update
+> ```
+
+For Windows Server 2019, you can install the WSL 2 kernel update using the MSI package:
 
 ```powershell
 Invoke-WebRequest -Uri "https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi" -OutFile ".\wsl_update_x64.msi"
