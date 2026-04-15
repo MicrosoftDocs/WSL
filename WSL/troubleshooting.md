@@ -1,7 +1,7 @@
 ---
 title: Troubleshooting Windows Subsystem for Linux
 description: Provides detailed information about common errors and issues people run into while running Linux on the Windows Subsystem for Linux. 
-ms.date: 10/03/2025
+ms.date: 04/15/2026
 ms.topic: troubleshooting-general
 ---
 
@@ -25,7 +25,7 @@ The [WSL product repo issues](https://github.com/microsoft/WSL/issues) enables y
 
   - Issue Title
   - Windows Version: Please run `cmd.exe /c ver` to get the build of Windows you are on.
-  - WSL Version: If you are running Windows Subsystem for Linux from the Microsoft Store, please run `wsl.exe -v`.
+  - WSL Version: Run `wsl --version` to get your WSL version.
   - Are you using WSL 1 or WSL 2: Tell us whether the issue is on WSL 2 and/or WSL 1. You can tell by running `wsl.exe -l -v`.
   - Kernel Version: Please tell us what version of the Linux kernel you are using, or if you are using a custom kernel. You can run `wsl.exe --status` if that command is available to you, or by running `cat /proc/version` in your distro.
   - Distro Version: Please tell us what distro you are using (if applicable). You can get additional information about the version where possible, e.g. on Debian / Ubuntu, `run lsb_release -r`.
@@ -104,12 +104,6 @@ You can also:
   - If the Linux kernel package is missing in the `%SystemRoot%\system32\lxss\tools` folder, you will encounter this error. Resolve it by installing the Linux kernel update MSI package in [step 4](./install-manual.md#step-4---download-the-linux-kernel-update-package) of these installation instructions. You may need to uninstall the MSI from "[Add or Remove Programs](ms-settings:appsfeatures-app)", and install it again.
 
 ## Common issues
-
-### I'm on Windows 10 version 1903 and I still do not see options for WSL 2
-
-This is likely because your machine has not yet taken the backport for WSL 2. The simplest way to resolve this is by going to [Windows Settings](ms-settings:windowsupdate) and clicking "**Check for Updates**" to install the latest updates on your system. See [the full instructions on taking the backport](https://devblogs.microsoft.com/commandline/wsl-2-support-is-coming-to-windows-10-versions-1903-and-1909/#how-do-i-get-it).
-
-If you hit "**Check for Updates**" and still do not receive the update you can [install KB KB4566116 manually](https://catalog.update.microsoft.com/Search.aspx?q=KB4566116).
 
 ### Error: 0x1bc when `wsl --set-default-version 2`
 
@@ -872,10 +866,6 @@ Interoperability command differences:
 - Windows path is included in the WSL `$PATH`.
 - When calling a Windows tool from a WSL distribution in an earlier version of Windows 10, you will need to specify the directory path. For example, to call the Windows Notepad app from your WSL command line, enter: `/mnt/c/Windows/System32/notepad.exe`
 - To change the default user to `root` use this command in PowerShell: `C:\> lxrun /setdefaultuser root` and then run Bash.exe to log in: `C:\> bash.exe`. Reset your password using the distributions password command: `$ passwd username` and then close the Linux command line: `$ exit`. From Windows command prompt or Powershell, reset your default user back to your normal Linux user account: `C:\> lxrun.exe /setdefaultuser username`.
-
-## Uninstall legacy version of WSL
-
-If you originally installed WSL on a version of Windows 10 prior to Creators update (Oct 2017, Build 16299), we recommend that you migrate any necessary files, data, etc. from the older Linux distribution you installed, to a newer distribution installed via the Microsoft Store. To remove the legacy distribution from your machine, run the following from a Command Line or PowerShell instance: `wsl --unregister Legacy`. You also have the option to manually remove the older legacy distribution by deleting the `%LocalAppData%\lxss\` folder (and all it's sub-contents) using Windows File Explorer or with PowerShell: `Remove-Item -Recurse $env:localappdata/lxss/`.
 
 ## Error code 0x8000FFFF unexpected failure
 
