@@ -1,7 +1,7 @@
 ---
 title: Advanced settings configuration in WSL
 description: A guide to the wsl.conf and .wslconfig files used for configuring settings when running multiple Linux distributions on Windows Subsystem for Linux.
-ms.date: 07/31/2025
+ms.date: 04/15/2026
 ms.topic: article
 ---
 
@@ -45,7 +45,7 @@ The wsl.conf file supports four sections: `automount`, `network`, `interop`, and
 
 ### systemd support
 
-Many Linux distributions run "systemd" by default (including Ubuntu) and WSL has recently added support for this system/service manager so that WSL is even more similar to using your favorite Linux distributions on a bare metal machine. You will need version 0.67.6+ of WSL to enable systemd. Check your WSL version with command `wsl --version`. If you need to update, you can grab the [latest version of WSL in the Microsoft Store](https://aka.ms/wslstorepage). Learn more in [blog announcement](https://devblogs.microsoft.com/commandline/a-preview-of-wsl-in-the-microsoft-store-is-now-available/).
+Many Linux distributions run "systemd" by default (including Ubuntu) and WSL supports this system/service manager, making WSL even more similar to using your favorite Linux distributions on a bare metal machine. Check your WSL version with command `wsl --version`. If you need to update, you can grab the [latest version of WSL in the Microsoft Store](https://aka.ms/wslstorepage).
 
 To enable systemd, open your `wsl.conf` file in a text editor using `sudo` for admin permissions and add these lines to the `/etc/wsl.conf`:
 
@@ -108,7 +108,7 @@ wsl.conf section label: `[network]`
 
 wsl.conf section label: `[interop]`
 
-These options are available in Insider Build 17713 and later.
+These options are available in Windows Build 17713 and later.
 
 | Key | Value | Default | Notes |
 |:----|:----|:----|:----|
@@ -290,7 +290,7 @@ processors=2
 # Specify a custom Linux kernel to use with your installed distros. The default kernel used can be found at https://github.com/microsoft/WSL2-Linux-Kernel
 kernel=C:\\temp\\myCustomKernel
 
-# Specify the modules VHD for the custum Linux kernel to use with your installed distros.
+# Specify the modules VHD for the custom Linux kernel to use with your installed distros.
 kernelModules=C:\\temp\\modules.vhdx
 
 # Sets additional kernel parameters, in this case enabling older Linux base images such as Centos 6
@@ -311,7 +311,7 @@ nestedVirtualization=false
 # Turns on output console showing contents of dmesg when opening a WSL 2 distro for debugging
 debugConsole=true
 
-# Sets the maximum number of crash dump files to retain (default is 5)
+# Sets the maximum number of crash dump files to retain (default is 10)
 maxCrashDumpCount=10
 
 # Enable experimental features
