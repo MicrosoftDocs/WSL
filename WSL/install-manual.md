@@ -2,7 +2,7 @@
 title: Manual installation steps for older versions of WSL
 description: Step by step instructions to manually install WSL on older versions of Windows, rather than using the wsl install command.
 keywords: wsl, install, BashOnWindows, bash, windows subsystem for linux, install ubuntu on windows, enable WSL2, linux on windows
-ms.date: 06/08/2025
+ms.date: 04/15/2026
 ms.topic: article
 adobe-target: true
 ---
@@ -192,34 +192,31 @@ If the Microsoft Store app is not available, you can download and manually insta
   - [Ubuntu 24.04 LTS](https://wslstorestorage.blob.core.windows.net/wslblob/Ubuntu2404-240425.AppxBundle) (x64, arm64)
   - [Ubuntu 22.04 LTS](https://aka.ms/wslubuntu2204) (x64, arm64)
   - [Ubuntu 20.04 LTS](https://aka.ms/wslubuntu2004) (x64, arm64)
-  - [Ubuntu 18.04 LTS](https://aka.ms/wsl-ubuntu-1804) (x64)
-  - [Ubuntu 18.04 LTS ARM](https://aka.ms/wsl-ubuntu-1804-arm) (arm64)
-  - [Ubuntu 16.04](https://aka.ms/wsl-ubuntu-1604) (x64)
 - Debian:
   - [Debian GNU/Linux](https://aka.ms/wsl-debian-gnulinux) (x64, arm64)
 - Kali Linux:
   - [Kali Linux Rolling](https://aka.ms/wsl-kali-linux-new)
-- OracleLinux:
+- Oracle Linux:
   - [Oracle Linux 9.1](https://publicwsldistros.blob.core.windows.net/wsldistrostorage/OracleLinux_9.1-230428.Appx) (x64)
   - [Oracle Linux 8.7](https://publicwsldistros.blob.core.windows.net/wsldistrostorage/OracleLinux_8.7-230428.Appx) (x64)
   - [Oracle Linux 8.5](https://aka.ms/wsl-oraclelinux-8-5) (x64)
   - [Oracle Linux 7.9](https://aka.ms/wsl-oraclelinux-7-9) (x64)
-  - SUSE:
-    - openSUSE:
-      - [openSUSE Tumbleweed](https://aka.ms/wsl-opensuse-tumbleweed) (x64)
-      - [openSUSE Leap 15.6](https://publicwsldistros.blob.core.windows.net/wsldistrostorage/SUSELeap15p6-240801_x64.Appx) (x64)
-      - [openSUSE Leap 15.3](https://aka.ms/wsl-opensuseleap15-3) (x64)
-      - [openSUSE Leap 15.2](https://aka.ms/wsl-opensuseleap15-2) (x64)
-    - SUSE Linux:
-      - [SUSE Linux Enterprise Server 15 SP6](https://publicwsldistros.blob.core.windows.net/wsldistrostorage/SUSELinuxEnterprise15SP6-241001_x64.Appx) (x64)
-      - [SUSE Linux Enterprise Server 15 SP5](https://publicwsldistros.blob.core.windows.net/wsldistrostorage/SUSELinuxEnterprise15_SP5-240801.Appx) (x64)
-      - [SUSE Linux Enterprise Server 15 SP3](https://aka.ms/wsl-SUSELinuxEnterpriseServer15SP3) (x64)
-      - [SUSE Linux Enterprise Server 15 SP2](https://aka.ms/wsl-SUSELinuxEnterpriseServer15SP2) (x64)
-      - [SUSE Linux Enterprise Server 12](https://aka.ms/wsl-sles-12) (x64)
+- SUSE:
+  - openSUSE:
+    - [openSUSE Tumbleweed](https://aka.ms/wsl-opensuse-tumbleweed) (x64)
+    - [openSUSE Leap 15.6](https://publicwsldistros.blob.core.windows.net/wsldistrostorage/SUSELeap15p6-240801_x64.Appx) (x64)
+    - [openSUSE Leap 15.3](https://aka.ms/wsl-opensuseleap15-3) (x64)
+    - [openSUSE Leap 15.2](https://aka.ms/wsl-opensuseleap15-2) (x64)
+  - SUSE Linux:
+    - [SUSE Linux Enterprise Server 15 SP6](https://publicwsldistros.blob.core.windows.net/wsldistrostorage/SUSELinuxEnterprise15SP6-241001_x64.Appx) (x64)
+    - [SUSE Linux Enterprise Server 15 SP5](https://publicwsldistros.blob.core.windows.net/wsldistrostorage/SUSELinuxEnterprise15_SP5-240801.Appx) (x64)
+    - [SUSE Linux Enterprise Server 15 SP3](https://aka.ms/wsl-SUSELinuxEnterpriseServer15SP3) (x64)
+    - [SUSE Linux Enterprise Server 15 SP2](https://aka.ms/wsl-SUSELinuxEnterpriseServer15SP2) (x64)
+    - [SUSE Linux Enterprise Server 12](https://aka.ms/wsl-sles-12) (x64)
 - Fedora Remix:
   - [Fedora Remix for WSL](https://github.com/WhitewaterFoundry/Fedora-Remix-for-WSL/releases) (x64, arm64)
 
-This will cause the `<distro>.appx` packages to download to a folder of your choosing.
+This will cause the `.appx` or `.AppxBundle` packages to download to a folder of your choosing.
 
 If you prefer, you can also download your preferred distribution(s) via the command line, you can use PowerShell with the [Invoke-WebRequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest) cmdlet. For example, to download Ubuntu 20.04:
 
@@ -230,25 +227,25 @@ Invoke-WebRequest -Uri https://aka.ms/wslubuntu2004 -OutFile Ubuntu.appx -UseBas
 > [!TIP]
 > If the download is taking a long time, turn off the progress bar by setting `$ProgressPreference = 'SilentlyContinue'`
 
-You also have the option to use the [curl command-line utility](https://curl.se/) for downloading. To download Ubuntu 20.04 with curl:
+You also have the option to use the [curl command-line utility](https://curl.se/) for downloading. To download Ubuntu 24.04 LTS with curl:
 
 ```powershell
-curl.exe -LR -o ubuntu-2004.Appx https://aka.ms/wslubuntu2204
+curl.exe -LR -o ubuntu-2404.AppxBundle https://wslstorestorage.blob.core.windows.net/wslblob/Ubuntu2404-240425.AppxBundle
 ```
 
 In this example, `curl.exe` is executed (not just `curl`) to ensure that, in PowerShell, the real curl executable is invoked, not the PowerShell curl alias for [Invoke-WebRequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest).
 
-### Installing the Appx package with Add-AppxPackage
+### Installing the package with Add-AppxPackage
 
 **Note** The following command won't work on Server Core installations
 
-Once the distribution has been downloaded, navigate to the folder containing the download and run the following command in that directory, where `app-name` is the name of the Linux distribution .appx file.
+Once the distribution has been downloaded, navigate to the folder containing the download and run the following command in that directory, where `app-name` is the name of the Linux distribution `.appx` or `.AppxBundle` file.
 
 ```powershell
 Add-AppxPackage .\app_name.Appx
 ```
 
-Once the Appx package has finished downloading, you can start running the new distribution by double-clicking the appx file. (The command `wsl -l` will not show that the distribution is installed until this step is complete).
+Once the package has finished installing, you can start running the new distribution by double-clicking the appx file. (The command `wsl -l` will not show that the distribution is installed until this step is complete).
 
 If you are using Windows server, or run into problems running the command above you can find the alternate install instructions on the [Windows Server](install-on-server.md) documentation page to install the `.Appx` file by changing it to a zip file.
 
