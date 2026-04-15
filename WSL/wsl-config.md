@@ -45,7 +45,7 @@ The wsl.conf file supports four sections: `automount`, `network`, `interop`, and
 
 ### systemd support
 
-Many Linux distributions run "systemd" by default (including Ubuntu) and WSL supports this system/service manager, making WSL even more similar to using your favorite Linux distributions on a bare metal machine. Check your WSL version with command `wsl --version`. If you need to update, you can grab the [latest version of WSL in the Microsoft Store](https://aka.ms/wslstorepage).
+Many Linux distributions run "systemd" by default (including Ubuntu). WSL supports this system/service manager on recent versions of WSL from the Microsoft Store, making WSL even more similar to using your favorite Linux distributions on a bare metal machine. Check your WSL version with `wsl --version`. If you need to update, you can grab the [latest version of WSL in the Microsoft Store](https://aka.ms/wslstorepage). If `wsl --version` is not recognized, you are likely using an older inbox version of WSL that must be updated before systemd is available.
 
 To enable systemd, open your `wsl.conf` file in a text editor using `sudo` for admin permissions and add these lines to the `/etc/wsl.conf`:
 
@@ -108,7 +108,7 @@ wsl.conf section label: `[network]`
 
 wsl.conf section label: `[interop]`
 
-These options are available in Windows Build 17713 and later.
+These options are available in Windows 10 version 1809 (build 17763) and later.
 
 | Key | Value | Default | Notes |
 |:----|:----|:----|:----|
