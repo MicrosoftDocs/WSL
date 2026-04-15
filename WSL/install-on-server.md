@@ -47,10 +47,12 @@ Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-L
 ### Install the WSL Kernel update for WSL 2
 
 > [!NOTE]
-> This step is only needed for Windows Server 2019. On Server 2022 and later, use `wsl --update` instead:
-> ```powershell
-> wsl --update
-> ```
+> To use WSL 2, install or update the WSL kernel using the method for your Windows Server version:
+> - On Windows Server 2022 and later, run:
+>   ```powershell
+>   wsl --update
+>   ```
+> - On Windows Server 2019, install the WSL 2 kernel update using the MSI package shown below.
 
 For Windows Server 2019, you can install the WSL 2 kernel update using the MSI package:
 
