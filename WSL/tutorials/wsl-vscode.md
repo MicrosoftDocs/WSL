@@ -2,7 +2,7 @@
 title: Get started using VS Code with WSL
 description: Learn how to set up VS Code to author and debug code using the Windows Subsystem for Linux.
 keywords: wsl, windows, windowssubsystem, gnu, linux, bash, vs code, remote extension, debug, path, visual studio
-ms.date: 09/27/2021
+ms.date: 04/15/2026
 ms.topic: get-started
 ---
 
@@ -25,10 +25,7 @@ Visual Studio Code, along with the WSL extension, enables you to use WSL as your
 
 * When prompted to **Select Additional Tasks** during installation, be sure to check the **Add to PATH** option so you can easily open a folder in WSL using the code command.
 
-* Install the [Remote Development extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack). This extension pack includes the WSL extension, in addition to the Remote - SSH, and Dev Containers extensions, enabling you to open any folder in a container, on a remote machine, or in WSL.
-
-> [!IMPORTANT]
-> In order to install the WSL extension, you will need the [1.35 May release](https://code.visualstudio.com/updates/v1_35) version or later of VS Code. We do not recommend using WSL in VS Code without the WSL extension as you will lose support for auto-complete, debugging, linting, etc. Fun fact: this WSL extension is installed in $HOME/.vscode/extensions (enter the command `ls $HOME\.vscode\extensions\` in PowerShell).
+* Install the [WSL extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl). If you also plan to work with remote machines or Dev Containers, you can install the [Remote Development extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) instead, which includes the WSL extension along with Remote - SSH and Dev Containers.
 
 ## Update your Linux distribution
 
@@ -86,11 +83,11 @@ To install Git, see [set up Git to work with Windows Subsystem for Linux](./wsl-
 
 ## Install Windows Terminal (optional)
 
-The new Windows Terminal enables multiple tabs (quickly switch between Command Prompt, PowerShell, or multiple Linux distributions), custom key bindings (create your own shortcut keys for opening or closing tabs, copy+paste, etc.), emojis ☺, and custom themes (color schemes, font styles and sizes, background image/blur/transparency). Learn more in the [Windows Terminal docs](/windows/terminal).
+Windows Terminal enables multiple tabs (quickly switch between Command Prompt, PowerShell, or multiple Linux distributions), custom key bindings (create your own shortcut keys for opening or closing tabs, copy+paste, etc.), emojis ☺, and custom themes (color schemes, font styles and sizes, background image/blur/transparency). Windows Terminal comes pre-installed on Windows 11. Learn more in the [Windows Terminal docs](/windows/terminal).
 
 1. Get [Windows Terminal in the Microsoft Store](https://apps.microsoft.com/detail/9N0DX20HK701): By installing via the store, updates are handled automatically.
 
-2. Once installed, open Windows Terminal and select **Settings** to customize your terminal using the `profile.json` file.
+2. Once installed, open Windows Terminal and select **Settings** to customize your terminal using the `settings.json` file.
 
 ## Additional Resources
 
@@ -99,9 +96,8 @@ The new Windows Terminal enables multiple tabs (quickly switch between Command P
 * [Remote development tips and tricks](https://code.visualstudio.com/docs/remote/troubleshooting)
 * [Using Docker with WSL 2 and VS Code](https://code.visualstudio.com/blogs/2020/03/02/docker-in-wsl2)
 * [Using C++ and WSL in VS Code](https://code.visualstudio.com/docs/cpp/config-wsl)
-* [Remote R Service for Linux](/visualstudio/rtvs/setting-up-remote-r-service-on-linux)
 
 A few additional extensions you may want to consider include:
 
 * [Keymaps from other editors](https://marketplace.visualstudio.com/search?target=VSCode&category=Keymaps&sortBy=Downloads): These extensions can help your environment feel right at home if you're transitioning from another text editor (like Atom, Sublime, Vim, eMacs, Notepad++, etc).
-* [Settings Sync](https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync): Enables you to synchronize your VS Code settings across different installations using GitHub. If you work on different machines, this helps keep your environment consistent across them.
+* [Settings Sync](https://code.visualstudio.com/docs/configure/settings-sync): VS Code has built-in Settings Sync that lets you synchronize your settings, extensions, and keybindings across different machines using your GitHub or Microsoft account.
