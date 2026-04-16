@@ -1,6 +1,6 @@
 ---
 title: Set up a WSL development environment
-description: Set up a WSL development environment using best practices from this set-by-step guide. Learn how to run Ubuntu, Visual Studio Code or Visual Studio, Git, Windows Credential Manager, MongoDB, MySQL, Docker remote containers and more.
+description: Set up a WSL development environment using best practices from this step-by-step guide. Learn how to run Ubuntu, Visual Studio Code or Visual Studio, Git, Windows Credential Manager, MongoDB, MySQL, Docker remote containers and more.
 ms.date: 04/16/2026
 ms.topic: how-to
 no-loc: [Terminal]
@@ -18,7 +18,7 @@ Windows Subsystem for Linux comes with the Windows operating system, but you mus
 Open PowerShell (or Windows Command Prompt) and enter:
 
 > [!NOTE]
-> If you prefer to install a Linux distribution other than Ubuntu, or would prefer to complete these steps manually, see the [WSL installation page](../install.md) for more details.
+> The `wsl --install` command requires Windows 10 version 2004 (Build 19041) or later, or Windows 11. If you prefer to install a different Linux distribution, or would prefer to complete these steps manually, see the [WSL installation page](../install.md) for more details.
 
 ```powershell
 wsl --install
