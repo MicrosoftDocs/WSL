@@ -41,7 +41,7 @@ By default, the installed Linux distribution will be Ubuntu. This can be changed
 - To change the distribution installed, enter:
 
     ```powershell
-    wsl.exe --install [Distro]
+    wsl.exe --install -d [Distro]
     ```
 
     Replace `[Distro]` with the name of the distribution you would like to install.
