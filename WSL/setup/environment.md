@@ -1,7 +1,7 @@
 ---
 title: Set up a WSL development environment
-description: Set up a WSL development environment using best practices from this set-by-step guide. Learn how to run Ubuntu, Visual Studio Code or Visual Studio, Git, Windows Credential Manager, MongoDB, MySQL, Docker remote containers and more.
-ms.date: 11/20/2023
+description: Set up a WSL development environment using best practices from this step-by-step guide. Learn how to run Ubuntu, Visual Studio Code or Visual Studio, Git, Windows Credential Manager, MongoDB, MySQL, Docker remote containers and more.
+ms.date: 04/16/2026
 ms.topic: how-to
 no-loc: [Terminal]
 ms.custom: seo-windows-dev
@@ -15,11 +15,10 @@ A step-by-step guide to the best practices for setting up a WSL development envi
 
 Windows Subsystem for Linux comes with the Windows operating system, but you must enable it and install a Linux distribution before you can begin using it.
 
-To use the simplified --install command, you must be running a recent build of Windows (Build 20262+). To check your version and build number, select **Windows logo key + R**, type **winver**, select **OK**. You can update using the [Settings menu](ms-settings:windowsupdate) or [Windows Update Assistant](https://www.microsoft.com/software-download/).
-
-If you prefer to install a Linux distribution other than Ubuntu, or would prefer to complete these steps manually, see the [WSL installation page](../install.md) for more details.
-
 Open PowerShell (or Windows Command Prompt) and enter:
+
+> [!NOTE]
+> The `wsl --install` command requires Windows 10 version 2004 (Build 19041) or later, or Windows 11. If you prefer to install a different Linux distribution, or would prefer to complete these steps manually, see the [WSL installation page](../install.md) for more details.
 
 ```powershell
 wsl --install
@@ -127,7 +126,7 @@ We recommend using Visual Studio Code or Visual Studio, as they directly support
 
 ### Use Visual Studio Code
 
-Follow this step-by-step guide to [Get started using Visual Studio Code with WSL](../tutorials/wsl-vscode.md), which includes installing the [Remote Development extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack). This extension enables you to run WSL, SSH, or a development container for editing and debugging with the full set of Visual Studio Code features. Quickly swap between different, separate development environments and make updates without worrying about impacting your local machine.
+Follow this step-by-step guide to [Get started using Visual Studio Code with WSL](../tutorials/wsl-vscode.md), which includes installing the [WSL extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl). This extension enables you to use WSL as a full-featured development environment directly from VS Code. Quickly swap between different, separate development environments and make updates without worrying about impacting your local machine.
 
 Once VS Code is installed and set up, you can open your WSL project with a VS Code remote server by entering: `code .`
 
