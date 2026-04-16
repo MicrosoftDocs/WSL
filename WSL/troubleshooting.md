@@ -25,10 +25,10 @@ The [WSL product repo issues](https://github.com/microsoft/WSL/issues) enables y
 
   - Issue Title
   - Windows Version: Please run `cmd.exe /c ver` to get the build of Windows you are on.
-  - WSL Version: Run `wsl --version` to get your WSL version.
+  - WSL Version: Run `wsl --version` to get your WSL version. On older (inbox) WSL builds, run `wsl.exe --status` instead.
   - Are you using WSL 1 or WSL 2: Tell us whether the issue is on WSL 2 and/or WSL 1. You can tell by running `wsl.exe -l -v`.
   - Kernel Version: Please tell us what version of the Linux kernel you are using, or if you are using a custom kernel. You can run `wsl.exe --status` if that command is available to you, or by running `cat /proc/version` in your distro.
-  - Distro Version: Please tell us what distro you are using (if applicable). You can get additional information about the version where possible, e.g. on Debian / Ubuntu, `run lsb_release -r`.
+  - Distro Version: Please tell us what distro you are using (if applicable). You can get additional information about the version where possible, e.g. on Debian / Ubuntu, `lsb_release -r`.
   - Other Software: If you're reporting a bug involving WSL's interaction with other applications, please tell us. What applications? What versions?
   - Repro Steps: Please list out the steps to reproduce your bug.
   - Expected Behavior: What were you expecting to see? Include any relevant examples or documentation links.
@@ -684,8 +684,8 @@ sudo update-locale LANG=en_US.UTF8
 
 2. Enable the WSL optional feature (if not already)
 3. Reboot
-4. lxrun /uninstall /full
-5. Install bash
+4. Run `wsl --unregister <DistroName>` to remove the legacy WSL distribution (for older legacy WSL, `lxrun /uninstall /full` was used)
+5. Reinstall the Linux distribution from the Microsoft Store
 
 ### No internet access in WSL
 
@@ -865,7 +865,7 @@ Interoperability command differences:
 - To see what commands are available for a particular distribution, run `[distro.exe] /?`. For example, with Ubuntu: `C:\> ubuntu.exe /?`.
 - Windows path is included in the WSL `$PATH`.
 - When calling a Windows tool from a WSL distribution in an earlier version of Windows 10, you will need to specify the directory path. For example, to call the Windows Notepad app from your WSL command line, enter: `/mnt/c/Windows/System32/notepad.exe`
-- To change the default user to `root` use this command in PowerShell: `C:\> lxrun /setdefaultuser root` and then run Bash.exe to log in: `C:\> bash.exe`. Reset your password using the distributions password command: `$ passwd username` and then close the Linux command line: `$ exit`. From Windows command prompt or Powershell, reset your default user back to your normal Linux user account: `C:\> lxrun.exe /setdefaultuser username`.
+- To run a command as `root` for early versions, use `C:\> bash.exe -c "su -"`. On supported Windows versions, use `wsl -u root` instead.
 
 ## Error code 0x8000FFFF unexpected failure
 
