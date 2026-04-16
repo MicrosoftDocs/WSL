@@ -72,7 +72,7 @@ touch hello_world.txt
 
 You can edit files using any downloaded graphical text-editor or the VS Code Remote – WSL extension. You can learn more about getting started with VS Code [here](./wsl-vscode.md).
 
-If you prefer to edit a file directly from the command-line, you’ll need to use a command-line editor such as `vim`, `emacs`, or `nano`. Many distributions come with one or more of these programs installed, but you can always install these programs by following the installation instructions outlined in the guide from [above](https://github.com/MicrosoftDocs/WSL/edit/linux-tutorial/WSL/tutorials/linux.md#installing-and-updating-software).
+If you prefer to edit a file directly from the command-line, you’ll need to use a command-line editor such as `vim`, `emacs`, or `nano`. Many distributions come with one or more of these programs installed, but you can always install these programs by following the instructions in the [Installing and Updating Software](#installing-and-updating-software) section.
 
 To edit your file with your preferred method of editing, simply run the program name followed by the name of the file you’d like to edit:
 
