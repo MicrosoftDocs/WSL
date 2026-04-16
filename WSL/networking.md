@@ -20,12 +20,12 @@ There are two scenarios to consider when identifying the IP address used for a L
 The Windows host can use command:
 
 ```powershell
-wsl.exe --distribution <DistroName> hostname -i
+wsl.exe --distribution <DistroName> hostname -I
 ```
 
 If querying the default distribution, this part of the command designating the distribution can be omitted: `-d <DistroName>`. Be sure to use a lower-case `-i` flag.
 
-Under the hood, host command wsl.exe launches the target instance and executes Linux command `hostname --ip-addresses`. This command then prints the IP address of the WSL instance to `STDOUT`. The `STDOUT` text content is then relayed back to wsl.exe. Finally, wsl.exe displays that output to the command line.
+Under the hood, host command wsl.exe launches the target instance and executes Linux command `hostname --all-ip-addresses`. This command then prints the IP address of the WSL instance to `STDOUT`. The `STDOUT` text content is then relayed back to wsl.exe. Finally, wsl.exe displays that output to the command line.
 
 A typical output might be:
 
@@ -115,7 +115,7 @@ Using `listenaddress=0.0.0.0` will listen on all [IPv4 ports](https://stackoverf
 
 ## IPv6 access
 
-- `wsl hostname -i` for the IP address of your Linux distribution installed via WSL 2 (the WSL 2 VM address)
+- `wsl hostname -I` for the IP address of your Linux distribution installed via WSL 2 (the WSL 2 VM address)
 - `ip route show | grep -i default | awk '{ print $3}'` for the IP address of the Windows machine as seen from WSL 2 (the WSL 2 VM)
 
 Using `listenaddress=0.0.0.0` will listen on all [IPv4 ports](https://stackoverflow.com/questions/9987409/want-to-know-what-is-ipv4-and-ipv6#:~:text=The%20basic%20difference%20is%20the,whereas%20IPv6%20has%20128%20bits.).
