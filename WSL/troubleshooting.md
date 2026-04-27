@@ -104,7 +104,7 @@ You can also:
   - If the Linux kernel package is missing in the `%SystemRoot%\system32\lxss\tools` folder, you will encounter this error. Resolve it by installing the Linux kernel update MSI package in [step 4](./install-manual.md#step-4---download-the-linux-kernel-update-package) of these installation instructions. You may need to uninstall the MSI from "[Add or Remove Programs](ms-settings:appsfeatures-app)", and install it again.
 
 - **WSL --install fails with "Forbidden (403)."**
-  - This could be caused by github unauthenticated request rate limit. When this happens, please try download the .msi installer directly from [WSL github releases](https://github.com/microsoft/WSL/releases) and install with the installer.
+  - This could be caused by the github unauthenticated request rate limit. When this happens, please try download the .msi installer directly from [WSL github releases](https://github.com/microsoft/WSL/releases) and install with the installer.
 
 ## Common issues
 
