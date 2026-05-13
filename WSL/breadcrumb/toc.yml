@@ -1,7 +1,0 @@
-- name: Windows
-  tocHref: /windows/
-  topicHref: /windows/index
-  items:
-  - name: WSL
-    tocHref: /windows/wsl/
-    topicHref: /windows/wsl/index
