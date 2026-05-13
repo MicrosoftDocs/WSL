@@ -1,0 +1,88 @@
+- name: WSL Documentation
+  href: index.md
+- name: Overview
+  items:
+    - name: What is WSL?
+      href: about.md
+    - name: Comparing WSL Versions
+      href: compare-versions.md
+    - name: Basic WSL commands
+      href: basic-commands.md
+    - name: WSL Open Source code
+      href: opensource.md
+- name: Install
+  items:
+    - name: Install WSL
+      href: install.md
+    - name: Manual install steps for older versions
+      href: install-manual.md
+    - name: Install on Windows Server
+      href: install-on-server.md
+- name: Tutorials
+  items:
+    - name: Best practices for set up
+      href: setup/environment.md
+    - name: Get started with VS Code
+      href: tutorials/wsl-vscode.md
+    - name: Get started with Git
+      href: tutorials/wsl-git.md
+    - name: Get started with databases
+      href: tutorials/wsl-database.md
+    - name: Get started with Docker remote containers
+      href: tutorials/wsl-containers.md
+    - name: Get started with Visual Studio for C++ development
+      href: /cpp/build/walkthrough-build-debug-wsl2
+    - name: Set up GPU acceleration (NVIDIA CUDA/DirectML)
+      href: tutorials/gpu-compute.md
+    - name: Run Linux GUI apps
+      href: tutorials/gui-apps.md
+    - name: Install NodeJS on WSL
+      href: /windows/dev-environment/javascript/nodejs-on-wsl
+    - name: Get started with Linux and Bash
+      href: tutorials/linux.md
+- name: Concepts
+  items:
+    - name: Working across file systems
+      href: filesystems.md
+    - name: Advanced settings configuration
+      href: wsl-config.md
+    - name: File access and permissions
+      href: file-permissions.md
+    - name: Networking considerations
+      href: networking.md
+    - name: Use systemd to manage services
+      href: systemd.md
+- name: How-to
+  items:
+    - name: Import any Linux distribution
+      href: use-custom-distro.md
+    - name: Build a custom distribution
+      href: build-custom-distro.md
+    - name: Mount a disk in WSL 2
+      href: wsl2-mount-disk.md
+    - name: Connect USB devices
+      href: connect-usb.md
+    - name: Adjust case sensitivity
+      href: case-sensitivity.md
+    - name: Manage available disk space
+      href: disk-space.md
+    - name: Create WSL plugins
+      href: wsl-plugins.md
+- name: Enterprise security
+  items:
+    - name: Set up WSL for your company
+      href: enterprise.md
+    - name: Intune settings for WSL
+      href: intune.md
+- name: Frequently Asked Questions
+  href: faq.yml
+- name: Troubleshooting
+  href: troubleshooting.md
+- name: Release Notes
+  items:
+    - name: General Release Notes
+      href: release-notes.md
+    - name: Linux kernel Release Notes
+      href: kernel-release-notes.md
+    - name: Microsoft Store Release Notes
+      href: store-release-notes.md
