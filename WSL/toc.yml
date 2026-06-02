@@ -52,6 +52,8 @@
       href: networking.md
     - name: Use systemd to manage services
       href: systemd.md
+    - name: WSL container
+      href: wsl-container.md
 - name: How-to
   items:
     - name: Import any Linux distribution
