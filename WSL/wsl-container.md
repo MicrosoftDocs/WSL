@@ -32,6 +32,8 @@ curl localhost:8080
 wslc container ps
 # Stop the container
 wslc container stop web
+# Mount a folder
+wslc run -it --rm -v C:\Users\me\project:/workspace ubuntu:latest
 ```
 
 ## WSL container API
