@@ -76,6 +76,16 @@
       href: enterprise.md
     - name: Intune settings for WSL
       href: intune.md
+- name: Developer reference
+  items:
+    - name: WSL container API overview
+      href: developer-reference/index.md
+    - name: C API reference
+      href: developer-reference/wslc-c-api.md
+    - name: C# API reference
+      href: developer-reference/wslc-csharp-api.md
+    - name: C++ API reference
+      href: developer-reference/wslc-cpp-api.md
 - name: Frequently Asked Questions
   href: faq.yml
 - name: Troubleshooting
