@@ -76,7 +76,7 @@
       href: enterprise.md
     - name: Intune settings for WSL
       href: intune.md
-- name: Developer reference
+- name: Developer reference (API docs)
   items:
     - name: WSL container API overview
       href: developer-reference/index.md
