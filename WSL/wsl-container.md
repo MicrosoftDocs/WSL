@@ -38,7 +38,7 @@ You can learn more on how to get started with this feature at [our container tut
 
 Windows applications can make use of Linux containers as well! The WSL container API NuGet package allows you to programmatically pull, run, and interact with Linux containers, including key interactions like stdin and stdout, file mounts, networking mounts, GPU access and more.
 
-For the complete API surface across the C, C#, and C++ projections, see the [WSL container API developer reference](developer-reference/index.md).
+For the complete API surface across the C, C#, and C++ projections, see the [WSL container API reference](https://wsl.dev/api-reference/).
 
 ### Install the API
 
