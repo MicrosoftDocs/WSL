@@ -28,7 +28,7 @@
       href: tutorials/wsl-git.md
     - name: Get started with databases
       href: tutorials/wsl-database.md
-    - name: Get started with Docker remote containers
+    - name: Get started with Linux containers
       href: tutorials/wsl-containers.md
     - name: Get started with Visual Studio for C++ development
       href: /cpp/build/walkthrough-build-debug-wsl2
