@@ -32,7 +32,7 @@ See the standard WSL docs for more information on how to:
 
 ## Install WSL on previous versions of Windows Server and Server Core
 
-To install WSL on Windows Server 2019 (version 1709+), as well as Server Core for 2019 and later you can follow the manual install steps below.
+To install WSL on Windows Server 2019 (version 1709+), as well as Server Core for 2019 and later, you can follow the manual install steps below.
 
 ### Enable the Windows Subsystem for Linux
 
@@ -44,21 +44,14 @@ Open PowerShell **as Administrator** and run:
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux, VirtualMachinePlatform
 ```
 
-### Install the WSL Kernel update for WSL 2
+### Install the WSL kernel update for WSL 2
 
 > [!NOTE]
-> To use WSL 2, install or update the WSL kernel using the method for your Windows Server version:
-> - On Windows Server 2022 and later, run:
->   ```powershell
->   wsl --update
->   ```
-> - On Windows Server 2019, install the WSL 2 kernel update using the MSI package shown below.
+> This step applies only to Windows builds 18362 and higher, as that is where WSL 2 is supported.
 
-For Windows Server 2019, you can install the WSL 2 kernel update using the MSI package:
 
 ```powershell
-Invoke-WebRequest -Uri "https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi" -OutFile ".\wsl_update_x64.msi"
-Start-Process "msiexec.exe" -ArgumentList "/i .\wsl_update_x64.msi /quiet" -NoNewWindow -Wait
+wsl --update
 ```
 
 ### Download a Linux distribution
