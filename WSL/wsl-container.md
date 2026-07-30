@@ -11,6 +11,15 @@ ms.custom: sfi-image-nochange
 
 The WSL container feature has two major components: a CLI called `wslc.exe` to build, run and interact with Linux containers and a WSL container API allowing Windows app developers to use Linux containers as part of their app logic. 
 
+> [!IMPORTANT]
+> The WSL container feature requires **WSL version 2.9.3 or higher**. This version is currently only available as a pre-release, so you need to install it by opening PowerShell and entering:
+>
+> ```powershell
+> wsl --update --pre-release
+> ```
+>
+> Check your installed version at any time with `wsl --version`.
+
 ## WSL container CLI
 
 WSL now includes `wslc.exe` as a built in binary. Its goal is to have a familiar CLI interface, allowing you to easily build, run and interact with Linux containers. 
