@@ -18,19 +18,22 @@ A container is a tool used to create, deploy, and run applications. Containers e
 
 ## Prerequisites
 
-- WSL installed. Run `wsl --update` to ensure you have the latest version.
+- WSL installed, version 2.9.3 or higher. This version is currently only available as a pre-release, so run `wsl --update --pre-release` to get it.
 - [Install Visual Studio Code](https://code.visualstudio.com/download) *(optional)*. This will provide the best experience, including the ability to code and debug your containerized projects connected to your Linux distribution.
 - [Install Windows Terminal](/windows/terminal/get-started) *(optional)*. This will provide the best experience, including the ability to customize and open multiple terminals in the same interface (including Ubuntu, Debian, PowerShell, Azure CLI, or whatever you prefer to use).
 
 ## Install and verify wslc
 
-`wslc.exe` is included with WSL, so there's no separate engine to install. To make sure you have a version of WSL that includes it:
+`wslc.exe` is included with WSL, so there's no separate engine to install. It requires WSL version 2.9.3 or higher. To make sure you have a version of WSL that includes it:
 
-1. [Install WSL](../install.md) if you haven't already, then update to the latest version by opening PowerShell and entering:
+1. [Install WSL](../install.md) if you haven't already, then update to the latest pre-release version by opening PowerShell and entering:
 
     ```powershell
-    wsl --update
+    wsl --update --pre-release
     ```
+
+    > [!NOTE]
+    > WSL container is currently only available in pre-release builds (version 2.9.3 or higher), so the `--pre-release` flag is required. You can confirm your WSL version with `wsl --version`.
 
 2. Confirm that `wslc.exe` is available and check its version by entering:
 
