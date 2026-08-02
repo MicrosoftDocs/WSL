@@ -253,6 +253,15 @@ Entries with the `size` value default to B (bytes), and the unit is omissible. T
 
 ²: Require [Windows 11 version 22H2](https://blogs.windows.com/windows-insider/2023/09/14/releasing-windows-11-build-22621-2359-to-the-release-preview-channel/) or higher.
 
+### General WSL settings
+
+.wslconfig section label: `[general]`
+
+| Key | Value | Default | Notes|
+|:----|:----|:----|:----|
+| `instanceIdleTimeout` | number | `15000` | The number of milliseconds that a distro is idle, before it is shut down. Set to -1 to disable auto shutdown |
+
+
 ### Experimental settings
 
 These settings are opt-in previews of experimental features that we aim to make default in the future.
