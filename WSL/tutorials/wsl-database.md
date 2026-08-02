@@ -1,13 +1,13 @@
 ---
 title: Add or connect a database with WSL
-description: Learn how to set up MySQL MongoDB, PostgreSQL, SQLite, Microsoft SQL Server, or Redis on the Windows Subsystem for Linux.
+description: Learn how to set up MySQL DocumentDB, PostgreSQL, SQLite, Microsoft SQL Server, or Redis on the Windows Subsystem for Linux.
 ms.date: 09/18/2023
 ms.topic: get-started
 ---
 
 # Get started with databases on Windows Subsystem for Linux
 
-This step-by-step guide will help you get started connecting your project in WSL to a database. Get started with MySQL, PostgreSQL, MongoDB, Redis, Microsoft SQL Server, or SQLite.
+This step-by-step guide will help you get started connecting your project in WSL to a database. Get started with MySQL, PostgreSQL, DocumentDB (with MongoDB compatibility), Redis, Microsoft SQL Server, or SQLite.
 
 ## Prerequisites
 
@@ -22,7 +22,7 @@ Some [popular choices](https://survey.stackoverflow.co/2024/technology#most-popu
 - [PostgreSQL](https://www.postgresql.org/about/) (SQL)
 - [Microsoft SQL Server](/sql) (SQL)
 - [SQLite](https://www.sqlite.org/about.html) (SQL)
-- [MongoDB](https://www.mongodb.com/what-is-mongodb) (NoSQL)
+- [DocumentDB (with MongoDB compatibility)](https://documentdb.io/) (NoSQL)
 - [Redis](https://redis.io/topics/introduction) (NoSQL)
 
 **MySQL** is an open-source SQL relational database, organizing data into one or more tables in which data types may be related to each other. It is vertically scalable, which means one ultimate machine will do the work for you. It is currently the most widely used of the four database systems.
@@ -33,7 +33,7 @@ Some [popular choices](https://survey.stackoverflow.co/2024/technology#most-popu
 
 **SQLite** is an open-source self-contained, file-based, "serverless" database, known for its portability, reliability, and good performance even in low-memory environments.
 
-**MongoDB** is an open-source NoSQL document database designed to work with JSON and store schema-free data. It is horizontally scalable, which means multiple smaller machines will do the work for you. It's good for flexibility and unstructured data, and caching real-time analytics.
+**DocumentDB (with MongoDB compatibility)** is an open-source MongoDB-compatible NoSQL document database designed to work with JSON and store schema-free data. It is horizontally scalable, which means multiple smaller machines will do the work for you. It's good for flexibility and unstructured data, and caching real-time analytics.
 
 **Redis** is an open-source NoSQL in-memory data structure store. It uses key-value pairs for storage instead of documents.
 
@@ -197,20 +197,17 @@ For more about working with PostgreSQL databases, see the [PostgreSQL docs](http
 
 To work with PostgreSQL databases in VS Code, try the [PostgreSQL extension](https://marketplace.visualstudio.com/items?itemName=ms-ossdata.vscode-pgsql).
 
-## Install MongoDB
+## Install DocumentDB
 
-To install MongoDB, see the Mongodb docs: [Install MongoDB Community Edition on Linux](https://www.mongodb.com/docs/manual/administration/install-on-linux/)
+To install DocumentDB, see the DocumentDB docs: [Install DocumentDB](https://github.com/documentdb/documentdb?tab=readme-ov-file#get-started)
 
-Installing MongoDB may require slightly different steps depending on the Linux distribution being used for installation. Also note that MongoDB installation may differ depending on the version # that you are aiming to install. Use the version drop-down list in the top-left corner of the MongoDB documentation to select the version that aligns with your goal. Lastly, you may need to [enable systemd support](../systemd.md#how-to-enable-systemd) in the `wsl.conf` configuration file of the Linux distribution that you are using with WSL. The `systemctl` command is a part of the systemd init system and may not work if your distribution is using systemv.
+VS Code supports working with DocumentDB/MongoDB databases via the [DocumentDB Extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-documentdb), you can create, manage and query DocumentDB/MongoDB databases from within VS Code.
 
-VS Code supports working with MongoDB databases via the [Azure CosmosDB extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb), you can create, manage and query MongoDB databases from within VS Code. To learn more, visit the VS Code docs: [Working with MongoDB](https://code.visualstudio.com/docs/azure/mongodb).
+Learn more in the DocumentDB docs:
 
-Learn more in the MongoDB docs:
-
-- [Introduction to using MongoDB](https://www.mongodb.com/docs/manual/introduction/)
-- [Create users](https://www.mongodb.com/docs/manual/tutorial/create-users/)
-- [CRUD: Create, Read, Update, Delete](https://www.mongodb.com/docs/manual/crud/)
-- [Reference Docs](https://www.mongodb.com/docs/manual/reference/)
+- [Introduction to using DocumentDB](https://documentdb.io/)
+- [CRUD: Create, Read, Update, Delete](https://learn.microsoft.com/azure/documentdb/commands/query-and-write/find)
+- [Reference Docs](https://learn.microsoft.com/azure/documentdb/commands/)
 
 ## Install Microsoft SQL Server
 
@@ -314,7 +311,7 @@ To see the services that you currently have running on your WSL distribution, en
 service --status-all
 ```
 
-Typing out `sudo service mongodb start` or `sudo service postgres start` and `sudo -u postgrest psql` can get tedious.  However, you could consider setting up aliases in your `.profile` file on WSL to make these commands quicker to use and easier to remember.
+Typing out `sudo service postgres start` and `sudo -u postgrest psql` can get tedious.  However, you could consider setting up aliases in your `.profile` file on WSL to make these commands quicker to use and easier to remember.
 
 To set up your own custom alias, or shortcut, for executing these commands:
 
