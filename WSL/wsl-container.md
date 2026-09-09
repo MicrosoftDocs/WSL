@@ -2,14 +2,14 @@
 title: WSL container
 description: An overview of what the WSL container feature is, and how to use it to run Linux container workflows on Windows
 keywords: BashOnWindows, bash, wsl, windows, windows subsystem, distro, custom, Linux, container
-ms.date: 05/01/2026
+ms.date: 09/09/2026
 ms.topic: how-to
 ms.custom: sfi-image-nochange
 ---
 
 # WSL container
 
-The WSL container feature has two major components: a CLI called `wslc.exe` to build, run and interact with Linux containers and a WSL container API allowing Windows app developers to use Linux containers as part of their app logic. 
+The WSL container feature, currently in public preview, has two major components: a CLI called `wslc.exe` to build, run, and interact with Linux containers, and a WSL container API allowing Windows app developers to use Linux containers as part of their app logic.
 
 > [!IMPORTANT]
 > The WSL container feature requires **WSL version 2.9.3 or higher**. This version is currently only available as a pre-release, so you need to install it by opening PowerShell and entering:
@@ -19,6 +19,20 @@ The WSL container feature has two major components: a CLI called `wslc.exe` to b
 > ```
 >
 > Check your installed version at any time with `wsl --version`.
+
+## Choose a container workflow
+
+Use the [CLI tutorial](tutorials/wsl-containers.md) to build and run containers from the command line. Use the [WSL container API](#wsl-container-api) to manage Linux containers programmatically from a Windows application, for example to reuse a Linux component in your app.
+
+WSL containers are distinct from other tools and environments that use WSL:
+
+| Tool or environment | Relationship to WSL containers |
+| --- | --- |
+| WSL distributions | Linux environments such as Ubuntu that you install and manage with `wsl.exe`. WSL containers provide a separate container workflow through `wslc.exe` and the API. |
+| Docker Desktop, Podman Desktop, and Rancher Desktop | Separate container tools that can use WSL. The built-in WSL container CLI does not require these tools, but it does not replace their documentation or imply that every workflow is interchangeable. |
+| Dev Containers | Tooling and configuration for container-based development environments, rather than a container engine. Support for a particular engine depends on the development tool and extension version. |
+
+For preview integration details, including VS Code Dev Containers support, see the [WSL container public-preview announcement](https://devblogs.microsoft.com/commandline/wsl-container-is-now-available-for-public-preview/).
 
 ## WSL container CLI
 
@@ -247,4 +261,3 @@ session.Terminate();
 ### Full end-to-end samples
 
 The snippets above show the core building blocks. For complete, runnable examples that cover the full container lifecycle, image management, port mappings, volume mounts, GPU access, and interactive `stdin`/`stdout` streaming, see the [WSL container API samples](https://aka.ms/wslc-samples).
-
