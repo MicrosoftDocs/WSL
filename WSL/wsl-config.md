@@ -66,6 +66,8 @@ wsl.conf section label: `[automount]`
 | `mountFsTab` | boolean | `true` | `true` sets `/etc/fstab` to be processed on WSL start. `/etc/fstab` is a file where you can declare other filesystems, like an SMB share. Thus, you can mount these filesystems automatically in WSL on start up. |
 | `root` | string | `/mnt/` | Sets the directory where fixed drives will be automatically mounted. By default this is set to `/mnt/`, so your Windows file system `C:\` is mounted to `/mnt/c/`. If you change `/mnt/` to `/windir/`, you should expect to see your fixed `C:\` mounted to `/windir/c`. |
 | `options` | comma-separated list of values, such as uid, gid, etc, see automount options below | Null | The automount option values are listed below and are appended to the default DrvFs mount options string. **Only DrvFs-specific options can be specified.** |
+| `ldconfig` | boolean | `true` | Adds Windows-provided GPU libraries to the dynamic linker's search path and runs `ldconfig`. Only applies to WSL 2 with GPU support enabled. |
+| `cgroups` | string | `v2` | Selects the cgroup hierarchy to mount in WSL 2. Available values are `v1` and `v2`. |
 
 The automount options are applied as the mount options for all automatically mounted drives. To change the options for a specific drive only, use the `/etc/fstab` file instead. Options that the mount binary would normally parse into a flag are not supported. If you want to explicitly specify those options, you must include every drive for which you want to do so in `/etc/fstab`.
 
@@ -135,6 +137,8 @@ wsl.conf section label: `[boot]`
 |:----|:----|:----|:----|
 | `command` | string | Null | A string of the command that you would like to run when the WSL instance starts. This command is run as the root user. e.g: `service docker start`. |
 | `protectBinfmt` | boolean | `true` | Prevents WSL from generating systemd units when systemd is enabled.  |
+| `systemd` | boolean | `false` | Enables systemd as the init process for the distribution. Only supported on WSL 2. |
+| `initTimeout` | number | `10000` | The number of milliseconds WSL waits for systemd to initialize. |
 
 ### GPU settings
 
@@ -143,6 +147,7 @@ wsl.conf section label: `[gpu]`
 | Key | Value | Default | Notes |
 |:----|:----|:----|:----|
 | `enabled` | boolean | `true` | Allow Linux applications to access the Windows GPU via para-virtualization. |
+| `appendLibPath` | boolean | `true` | Adds `/usr/lib/wsl/lib` to the `$PATH` environment variable when GPU support is enabled in WSL 2. |
 
 ### Time settings
 
@@ -239,11 +244,24 @@ This file can contain the following options that affect the VM that powers any W
 | `nestedVirtualization`¹ | boolean | `true` | Boolean to turn on or off nested virtualization, enabling other nested VMs to run inside WSL 2.|
 | `vmIdleTimeout`¹ | number | `60000` | The number of milliseconds that a VM is idle, before it is shut down.|
 | `dnsProxy` | boolean | `true` | Only applicable to `networkingMode = NAT`. Boolean to inform WSL to configure the DNS Server in Linux to the NAT on the host. Setting to `false` will mirror DNS servers from Windows to Linux. |
-| `networkingMode`¹² | string | `NAT` | Available values are: `none`, `nat`, `bridged` (deprecated), `mirrored`, and `virtioproxy`. If the value is `none`, the WSL network is disconnected. If the value is `nat` or an unknown value, NAT network mode is used (starting from WSL 2.3.25, if NAT network mode fails, it falls back to using VirtioProxy network mode). If the value is `bridged`, the bridged network mode is used (this mode has been marked as deprecated since WSL 2.4.5). If the value is `mirrored`, the mirrored network mode is used. If the value is `virtioproxy`, the VirtioProxy network mode is used. |
+| `networkingMode`¹² | string | `NAT` | Available values are: `none`, `nat`, `bridged` (deprecated), `mirrored`, `consomme` (This has been called `virtioproxy` in the past). If the value is `none`, the WSL network is disconnected. If the value is `nat` or an unknown value, NAT network mode is used (starting from WSL 2.3.25, if NAT network mode fails, it falls back to using Consomme network mode). If the value is `bridged`, the bridged network mode is used (this mode has been marked as deprecated since WSL 2.4.5). If the value is `mirrored`, the mirrored network mode is used. If the value is `consomme` the Consomme network mode is used. |
 | `firewall`¹² | boolean | `true` | Setting this to true allows the Windows Firewall rules, as well as rules specific to Hyper-V traffic, to filter WSL network traffic. |
 | `dnsTunneling`¹² | boolean | `true` | Changes how DNS requests are proxied from WSL to Windows |
 | `autoProxy`¹ | boolean | `true` | Enforces WSL to use Windows’ HTTP proxy information |
 | `defaultVhdSize` | size | `1099511627776` (1 TB) | Set the Virtual Hard Disk (VHD) size that stores the Linux distribution (for example, Ubuntu) file system. Can be used to limit the maximum size that a distribution file system is allowed to take up. |
+| `virtiofs` | boolean | `false` | An experimental setting to use VirtioFS for Windows filesystem shares. Requires `virtio` and `hostFileSystemAccess` to be enabled. |
+| `kernelDebugPort` | number | `0` | Port used by the Linux kernel debugger relay. Set to `0` to disable kernel debugging. |
+| `gpuSupport` | boolean | `true` | Enables GPU support in the WSL 2 VM. |
+| `systemDistro` | path | The system distribution bundled with WSL | An absolute Windows path to a custom system distribution image. Supported file extensions are `.img` and `.vhd`. |
+| `telemetry` | boolean | `true` in official builds; `false` otherwise | Enables WSL diagnostic telemetry. |
+| `debugConsoleLogFile` | path | Null | An absolute Windows path to a file where Linux kernel console output is appended. |
+| `kernelBootTimeout` | number | `30000` | The number of milliseconds WSL waits for the VM's Linux kernel to start. |
+| `distributionStartTimeout` | number | `60000` | The number of milliseconds WSL waits for a distribution to start. |
+| `mountDeviceTimeout` | number | `5000` | The number of milliseconds WSL waits for disk device operations when mounting or unmounting disks. |
+| `crashDumpFolder` | path | `%Temp%\wsl-crashes` | An absolute Windows path to the directory where WSL crash dumps are stored. |
+| `loadDefaultKernelModules` | boolean | `true` | Loads the default kernel modules (`tun`, `ip_tables`, and `br_netfilter`) when the WSL 2 VM starts. |
+| `loadKernelModules` | string | Null | A comma-separated list of additional kernel modules to load when the WSL 2 VM starts. These are loaded alongside the default modules unless `loadDefaultKernelModules` is set to `false`. |
+| `isolateDistroCgroup` | boolean | `true` | Enables per-distribution cgroup isolation. Requires cgroup v2. |
 
 Entries with the "**path**" value must be Windows paths with escaped backslashes, e.g: `C:\\Temp\\myCustomKernel`
 
@@ -252,6 +270,16 @@ Entries with the `size` value default to B (bytes), and the unit is omissible. T
 ¹: Only available on Windows 11.
 
 ²: Require [Windows 11 version 22H2](https://blogs.windows.com/windows-insider/2023/09/14/releasing-windows-11-build-22621-2359-to-the-release-preview-channel/) or higher.
+
+### General WSL settings
+
+.wslconfig section label: `[general]`
+
+| Key | Value | Default | Notes|
+|:----|:----|:----|:----|
+| `instanceIdleTimeout` | number | `15000` | The number of milliseconds that a distro is idle, before it is shut down. Set to -1 to disable auto shutdown |
+| `distributionInstallPath` | path | `%LocalAppData%\wsl` | An absolute Windows path to the default directory for newly installed distributions. |
+
 
 ### Experimental settings
 
