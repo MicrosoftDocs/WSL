@@ -2,7 +2,7 @@
 title: Windows Subsystem for Linux Documentation
 description: Overview of the Windows Subsystem for Linux documentation.
 ms.topic: overview
-ms.date: 05/19/2025
+ms.date: 09/09/2026
 ---
 
 # Windows Subsystem for Linux Documentation
@@ -29,13 +29,22 @@ Windows Subsystem for Linux (WSL) lets developers run a GNU/Linux environment --
 * [Manual install steps](install-manual.md)
 * [Best practices for setting up a WSL development environment](./setup/environment.md)
 
-## Try WSL preview features by joining the Windows Insiders Program
+## WSL containers (preview)
 
-To try the most recent features or updates to WSL, join the [Windows Insiders Program](https://insider.windows.com/getting-started). Once you have joined Windows Insiders, you can choose the channel you would like to receive preview builds from inside the Windows settings menu. You can choose from:
+Build and run Linux containers on Windows with the built-in `wslc.exe` command-line tool, or integrate Linux containers into Windows applications with the WSL container API. WSL containers are currently available in public preview. See the [WSL container prerequisites](wsl-container.md) before you begin.
 
-* Dev channel: Most recent updates, but low stability.
-* Beta channel: Ideal for early adopters, more reliable builds than the Dev channel.
-* Release Preview channel: Preview fixes and key features on the next version of Windows just before its available to the general public.
+| Your goal | Start here |
+| --- | --- |
+| Explore the feature and choose a workflow | [WSL container overview](wsl-container.md) |
+| Build and run containers from the command line | [Run your first WSL container](tutorials/wsl-containers.md) |
+| Use Linux containers as part of a Windows app | [WSL container API guide](wsl-container.md#wsl-container-api) |
+| Find API details and runnable examples | [API reference](https://wsl.dev/api-reference/) and [samples](https://aka.ms/wslc-samples) |
+
+## Try WSL preview features
+
+WSL prereleases and Windows Insider builds are separate update channels. To try WSL containers, follow the [container installation instructions](tutorials/wsl-containers.md#install-and-verify-wslc), which use `wsl --update --pre-release`. Installing a WSL prerelease does not itself require enrollment in the Windows Insider Program.
+
+Some features depend on a particular Windows build as well as a WSL version. Check each feature's prerequisites. If it requires a Windows preview build, see the [Windows Insider Program](https://insider.windows.com/getting-started) for enrollment and channel information.
 
 ## Team blogs
 

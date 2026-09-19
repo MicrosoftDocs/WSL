@@ -18,6 +18,18 @@
       href: install-manual.md
     - name: Install on Windows Server
       href: install-on-server.md
+- name: WSL containers (preview)
+  items:
+    - name: Overview
+      href: wsl-container.md
+    - name: Build and run containers with the CLI
+      href: tutorials/wsl-containers.md
+    - name: Use containers in a Windows app
+      href: wsl-container.md#wsl-container-api
+    - name: API reference
+      href: https://wsl.dev/api-reference/
+    - name: Samples
+      href: https://aka.ms/wslc-samples
 - name: Tutorials
   items:
     - name: Best practices for set up
@@ -28,8 +40,6 @@
       href: tutorials/wsl-git.md
     - name: Get started with databases
       href: tutorials/wsl-database.md
-    - name: Get started with Linux containers
-      href: tutorials/wsl-containers.md
     - name: Get started with Visual Studio for C++ development
       href: /cpp/build/walkthrough-build-debug-wsl2
     - name: Set up GPU acceleration (NVIDIA CUDA/DirectML)
@@ -52,8 +62,6 @@
       href: networking.md
     - name: Use systemd to manage services
       href: systemd.md
-    - name: WSL container
-      href: wsl-container.md
 - name: How-to
   items:
     - name: Import any Linux distribution
