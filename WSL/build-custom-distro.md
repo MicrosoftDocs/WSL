@@ -190,7 +190,7 @@ The final step, once you have create a tar file to represent your custom Linux d
 
 ## Distribute your WSL distribution
 
-WSL users can view available distributions by running `wsl --list --online` and can install them directly with `wsl --install <distroName>` (replacing `<distroName>` with the actual name of the Linux distribution. This process is controlled by a distribution manifest file. You can add this manifest file to your customer Linux distribution for it to be included in the `wsl --install` command options.
+WSL users can view available distributions by running `wsl --list --online` and can install them directly with `wsl --install <distroName>` (replacing `<distroName>` with the actual name of the Linux distribution. This process is controlled by a distribution manifest file. You can add this manifest file to your custom Linux distribution for it to be included in the `wsl --install` command options.
 
 The custom Linux distribution tar that you’ve created and renamed with a `.wsl` file extension can be distributed however you please. Once downloaded a user can install it directly from the command line with `wsl --install --from-file <fileLocation>` (replacing `<fileLocation>` with the actual location of the file). Alternatively, the `.wsl` file for your custom WSL distribution can be opened by double-clicking it.
 
