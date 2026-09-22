@@ -359,7 +359,7 @@ When you're done, you can delete `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\
 
 If systemd is enabled, units that can cause issues with WSL should be disabled or masked.
 The below units are known to cause issues in WSL distributions (applies to both system and user units):
-
+- console-getty.service
 - systemd-resolved.service
 - systemd-networkd.service
 - NetworkManager.service
