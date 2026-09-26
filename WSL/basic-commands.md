@@ -1,7 +1,7 @@
 ---
 title: Basic commands for WSL
 description: Reference for the basic commands included with Windows Subsystem for Linux (WSL).
-ms.date: 12/01/2025
+ms.date: 09/26/2026
 ms.topic: article
 ---
 
@@ -205,13 +205,29 @@ Imports the specified .vhdx file as a new distribution. The virtual hard disk mu
 
 ## Unregister or uninstall a Linux distribution
 
+> [!WARNING]
+> Unregistering a distribution permanently deletes all of its data, settings, and installed software. [Export the distribution](#export-a-distribution) or back up any files you want to keep before continuing. Reinstalling from the Microsoft Store installs a clean copy of the distribution.
+
 To unregister and uninstall a WSL distribution:
 
 ```powershell
 wsl --unregister <DistributionName>
 ```
 
-Replacing `<DistributionName>` with the name of your targeted Linux distribution will unregister that distribution from WSL so it can be reinstalled or cleaned up. **Caution:** Once unregistered, all data, settings, and software associated with that distribution will be permanently lost.  Reinstalling from the store will install a clean copy of the distribution. For example, `wsl --unregister Ubuntu` would remove Ubuntu from the distributions available in WSL.  Running `wsl --list` will reveal that it is no longer listed.
+Replace `<DistributionName>` with the name of the Linux distribution to remove. For example, `wsl --unregister Ubuntu` removes Ubuntu and its root filesystem. After the operation completes, `wsl --list` no longer includes that distribution.
+
+> [!NOTE]
+> Confirmation is supported on versions of WSL whose `wsl --help` output lists `--force` under `--unregister`. Earlier versions delete the distribution immediately without asking for confirmation.
+
+On versions that support confirmation, the command displays a warning naming the distribution and asks you to type `y` or `yes` before deleting it. Press Enter without an answer, or enter any other response, to cancel.
+
+To skip confirmation on these versions, such as in an automation script, use `--force`:
+
+```powershell
+wsl --unregister <DistributionName> --force
+```
+
+When standard input is redirected, these versions cancel the operation unless `--force` is specified. Piping `y` or `yes` into the command does not confirm deletion. Update scripts that intentionally unregister distributions to pass `--force`.
 
 You can also uninstall the Linux distribution app on your Windows machine just like any other store application. To reinstall, find the distribution in the Microsoft Store and select "Launch".
 
