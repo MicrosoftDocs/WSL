@@ -105,7 +105,7 @@ If you have questions or run into issues, visit the [DirectML repo on GitHub](ht
 
 ## Multiple GPUs
 
-If you have multiple GPUs on your machine you can also access them inside of WSL. However, you will only be able to access one at a time. To choose a specific GPU please set the environment variable below to the name of your GPU as it appears in device manager:
+If you have multiple GPUs on your machine you can also access them inside of WSL. However, you will only be able to access one at a time when using MESA. To choose a specific GPU for MESA access please set the environment variable below to the name of your GPU as it appears in device manager:
 
 ```bash
 export MESA_D3D12_DEFAULT_ADAPTER_NAME="<NameFromDeviceManager>"
