@@ -1,7 +1,7 @@
 ---
 title: Basic commands for WSL
 description: Reference for the basic commands included with Windows Subsystem for Linux (WSL).
-ms.date: 09/26/2026
+ms.date: 09/28/2026
 ms.topic: article
 ---
 
@@ -217,17 +217,17 @@ wsl --unregister <DistributionName>
 Replace `<DistributionName>` with the name of the Linux distribution to remove. For example, `wsl --unregister Ubuntu` removes Ubuntu and its root filesystem. After the operation completes, `wsl --list` no longer includes that distribution.
 
 > [!NOTE]
-> Confirmation is supported on versions of WSL whose `wsl --help` output lists `--force` under `--unregister`. Earlier versions delete the distribution immediately without asking for confirmation.
+> The warning delay is supported on versions of WSL whose `wsl --help` output lists `--force` under `--unregister`. Earlier versions delete the distribution immediately without a warning delay.
 
-On versions that support confirmation, the command displays a warning naming the distribution and asks you to type `y` or `yes` before deleting it. Press Enter without an answer, or enter any other response, to cancel.
+On versions that support the warning delay, the command displays a warning naming the distribution and waits 10 seconds before automatically deleting it. Press Ctrl+C during this warning period to cancel. The command does not ask for confirmation or read an answer from standard input.
 
-To skip confirmation on these versions, such as in an automation script, use `--force`:
+To skip the warning and delay on these versions, such as in an automation script, use `--force`:
 
 ```powershell
 wsl --unregister <DistributionName> --force
 ```
 
-When standard input is redirected, these versions cancel the operation unless `--force` is specified. Piping `y` or `yes` into the command does not confirm deletion. Update scripts that intentionally unregister distributions to pass `--force`.
+The same 10-second delay applies when standard input is redirected. Existing scripts can finish without supplying an answer; use `--force` if the deletion should start immediately.
 
 You can also uninstall the Linux distribution app on your Windows machine just like any other store application. To reinstall, find the distribution in the Microsoft Store and select "Launch".
 
