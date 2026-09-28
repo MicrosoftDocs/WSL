@@ -1,7 +1,7 @@
 ---
 title: Basic commands for WSL
 description: Reference for the basic commands included with Windows Subsystem for Linux (WSL).
-ms.date: 09/28/2026
+ms.date: 09/29/2026
 ms.topic: article
 ---
 
@@ -217,17 +217,25 @@ wsl --unregister <DistributionName>
 Replace `<DistributionName>` with the name of the Linux distribution to remove. For example, `wsl --unregister Ubuntu` removes Ubuntu and its root filesystem. After the operation completes, `wsl --list` no longer includes that distribution.
 
 > [!NOTE]
-> The warning delay is supported on versions of WSL whose `wsl --help` output lists `--force` under `--unregister`. Earlier versions delete the distribution immediately without a warning delay.
+> Interactive confirmation is supported on versions of WSL whose `wsl --help` output lists `--interactive` under `--unregister`. On earlier versions, this option can be ignored and the distribution deleted without confirmation. Check the installed command's help before using this option.
 
-On versions that support the warning delay, the command displays a warning naming the distribution and waits 10 seconds before automatically deleting it. Press Ctrl+C during this warning period to cancel. The command does not ask for confirmation or read an answer from standard input.
+By default, unregistering starts immediately without a confirmation prompt or added delay. To request a warning and confirmation on a supported version, place `--interactive` after the distribution name:
 
-To skip the warning and delay on these versions, such as in an automation script, use `--force`:
+```powershell
+wsl --unregister <DistributionName> --interactive
+```
+
+The warning names the distribution and explains that its files will be permanently deleted. Type `yes` to proceed. Entering `no`, pressing Enter without an answer, or entering any other response cancels. Ctrl+C also cancels the prompt. There is no timeout that automatically confirms deletion.
+
+Interactive confirmation requires console input and output. If input or the prompt's output is redirected, the command cancels without reading standard input or deleting the distribution.
+
+To override interactive confirmation on these versions, use `--force`:
 
 ```powershell
 wsl --unregister <DistributionName> --force
 ```
 
-The same 10-second delay applies when standard input is redirected. Existing scripts can finish without supplying an answer; use `--force` if the deletion should start immediately.
+`--force` takes precedence if both options are supplied. Existing scripts that do not request `--interactive` continue without prompting, reading standard input, or waiting through an added delay.
 
 You can also uninstall the Linux distribution app on your Windows machine just like any other store application. To reinstall, find the distribution in the Microsoft Store and select "Launch".
 
