@@ -229,7 +229,7 @@ To permanently delete a distribution immediately and skip recovery, place `--for
 wsl --unregister <DistributionName> --force
 ```
 
-Scripts that need to reclaim the disk space immediately should use this option. If WSL cannot safely move a disk into recovery storage, unregistering fails and preserves the registration and data; it does not silently fall back to permanent deletion.
+Scripts that need to reclaim the disk space immediately should use this option. If WSL cannot safely move a disk into recovery storage, unregistering fails without silently falling back to permanent deletion; the disk remains in its original or recovery location.
 
 ### Restore an unregistered WSL 2 distribution
 
