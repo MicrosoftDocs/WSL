@@ -9,7 +9,7 @@ ms.custom: sfi-image-nochange
 
 # WSL container
 
-The WSL container feature has two major components: a CLI called `wslc.exe` to build, run and interact with Linux containers and a WSL container API allowing Windows app developers to use Linux containers as part of their app logic. 
+WSL containers are now generally available. The feature has two major components: a CLI called `wslc.exe` (also available as the built-in `container.exe` alias) to build, run and interact with Linux containers, and a WSL container API allowing Windows app developers to use Linux containers as part of their app logic.
 
 > [!IMPORTANT]
 > The WSL container feature requires **WSL version 2.9.3 or higher**. To update to the latest version, open PowerShell and enter:
@@ -22,7 +22,20 @@ The WSL container feature has two major components: a CLI called `wslc.exe` to b
 
 ## WSL container CLI
 
-WSL now includes `wslc.exe` as a built in binary. Its goal is to have a familiar CLI interface, allowing you to easily build, run and interact with Linux containers. 
+WSL now includes `wslc.exe` as a built-in binary, with `container.exe` available as an alias. Its goal is to have a familiar CLI interface, allowing you to easily build, run and interact with Linux containers.
+
+## What's new in GA
+
+Since public preview, WSL containers have added:
+
+- `wslc container restart` to restart a container and `wslc container cp` to copy files in and out of a container via a tar archive.
+- `wslc system info` for an overview of the container environment.
+- `wslc network connect` and `wslc network disconnect` to attach and detach containers from networks. `wslc network create` also supports arbitrary network driver options.
+- `wslc events` to stream container activity, and support for container health checks.
+- `--stop-timeout` on `wslc create` and `wslc run`, including `-1` for an infinite timeout, and `--mount` support on both commands.
+- A configurable storage path for the default `wslc` session.
+
+For details about how WSL containers work with WSL, see the [WSL containers architecture deep dive](https://devblogs.microsoft.com/commandline/wslc-architecture-deep-dive/).
 
 See some of the example commands below:
 
@@ -247,4 +260,3 @@ session.Terminate();
 ### Full end-to-end samples
 
 The snippets above show the core building blocks. For complete, runnable examples that cover the full container lifecycle, image management, port mappings, volume mounts, GPU access, and interactive `stdin`/`stdout` streaming, see the [WSL container API samples](https://aka.ms/wslc-samples).
-

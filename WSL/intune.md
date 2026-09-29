@@ -1,7 +1,7 @@
 ---
 title: Intune settings
 description: Available settings in Intune for the Windows Subsystem for Linux (WSL)
-ms.date: 08/04/2025
+ms.date: 09/29/2026
 ms.topic: article
 ---
 
@@ -27,6 +27,8 @@ To maximize security in an enterprise environment, we recommend that you specify
 | Allow user setting firewall configuration | Disabled | When set to disabled, this policy disables firewall configuration via .wslconfig (wsl2.firewall). This policy only applies to Store WSL. |
 | Allow nested virtualization | Disabled | When set to disabled, this policy disables nested virtualization configuration via .wslconfig (wsl2.nestedVirtualization). This policy only applies to Store WSL. |
 | Allow kernel debugging | Disabled | When set to disabled, this policy disables kernel debugging configuration via .wslconfig (wsl2.kernelDebugPort). This policy only applies to Store WSL. |
+| Allow WSL containers access | Enable only where needed | Controls access to the entire WSL containers feature. |
+| WSL containers registry allow list | Specify approved registries | Restricts WSL container image pulls to an approved list of registries. |
 
 ## Control access to WSL
 
@@ -37,6 +39,10 @@ This will allow you to configure WSL to ensure that users are only using the lat
 ## Control WSL commands
 
 `AllowDebugShell` and `AllowDiskMount` control whether users can run the `wsl --debug-shell` and `wsl --mount` commands. Learn more about how to [Mount a disk in WSL 2](./wsl2-mount-disk.md) using the `wsl --mount` command.
+
+## Control access to WSL containers
+
+The **Allow WSL containers access** setting controls access to the entire WSL containers feature. The **WSL containers registry allow list** setting lets administrators restrict container image pulls to approved registries. For more information about the feature, see [WSL containers](./wsl-container.md).
 
 ## Control access to WSL settings in `.wslconfig`
 
@@ -58,6 +64,8 @@ The last group of settings that end with `*UserSettingConfigurable` control acce
 | Allow user setting firewall configuration | When set to disabled, this policy disables firewall configuration via .wslconfig (wsl2.firewall). This policy only applies to Store WSL. |
 | Allow nested virtualization | When set to disabled, this policy disables nested virtualization configuration via .wslconfig (wsl2.nestedVirtualization). This policy only applies to Store WSL. |
 | Allow kernel debugging | When set to disabled, this policy disables kernel debugging configuration via .wslconfig (wsl2.kernelDebugPort). This policy only applies to Store WSL. |
+| Allow WSL containers access | Controls access to the entire WSL containers feature. |
+| WSL containers registry allow list | Lets administrators restrict WSL container image pulls to an approved list of registries. |
 
 ## Set up with group policy
 

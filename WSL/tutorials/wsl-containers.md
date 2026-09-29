@@ -10,7 +10,7 @@ ms.topic: get-started
 
 This step-by-step guide will help you get started building and running Linux containers on Windows using **`wslc.exe`**, the container CLI that ships built in with WSL. 
 
-`wslc.exe` provides a familiar CLI for building, shipping, and running containerized apps.
+`wslc.exe` provides a familiar CLI for building, shipping, and running containerized apps. You can also use `container.exe` as a built-in alias for `wslc.exe`.
 
 ## Overview of WSL containers
 
@@ -49,6 +49,12 @@ A container is a tool used to create, deploy, and run applications. Containers e
 
     You should see a "Hello" message confirming that your installation appears to be working correctly.
 
+4. Check the state of your container environment:
+
+    ```powershell
+    wslc system info
+    ```
+
 > [!TIP]
 > Here are a few helpful `wslc` commands to know:
 >
@@ -83,6 +89,17 @@ wslc container stop web
 ```
 
 Because the `nginx` container was started with `--rm`, it is removed automatically once it stops.
+
+## Manage containers with GA commands
+
+Restart a container and stream real-time container activity with:
+
+```powershell
+wslc container restart web
+wslc events
+```
+
+WSL containers also support container health checks and the `--stop-timeout` option on `wslc create` and `wslc run` (use `-1` for an infinite timeout).
 
 ## Build and run your own container image
 
