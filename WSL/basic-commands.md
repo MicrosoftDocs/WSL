@@ -206,38 +206,54 @@ Imports the specified .vhdx file as a new distribution. The virtual hard disk mu
 ## Unregister or uninstall a Linux distribution
 
 > [!WARNING]
-> Unregistering a distribution permanently deletes all of its data, settings, and installed software. [Export the distribution](#export-a-distribution) or back up any files you want to keep before continuing. Reinstalling from the Microsoft Store installs a clean copy of the distribution.
+> [Export the distribution](#export-a-distribution) or back up important files before unregistering. WSL 1 distributions, older WSL versions, and unregister operations using `--force` permanently delete the distribution's files, settings, and installed software.
 
-To unregister and uninstall a WSL distribution:
+To unregister a WSL distribution:
 
 ```powershell
 wsl --unregister <DistributionName>
 ```
 
-Replace `<DistributionName>` with the name of the Linux distribution to remove. For example, `wsl --unregister Ubuntu` removes Ubuntu and its root filesystem. After the operation completes, `wsl --list` no longer includes that distribution.
+Replace `<DistributionName>` with the name of the distribution to remove. The operation stops the distribution and removes it from ordinary `wsl --list` output without prompting or reading standard input. The original name and install location can be reused immediately.
 
 > [!NOTE]
-> Interactive confirmation is supported on versions of WSL whose `wsl --help` output lists `--interactive` under `--unregister`. On earlier versions, this option can be ignored and the distribution deleted without confirmation. Check the installed command's help before using this option.
+> Distribution recovery is available only on versions whose `wsl --help` output lists `--restore-distribution`. Earlier versions permanently delete unregistered distributions. Check your installed version's help before relying on recovery.
 
-By default, unregistering starts immediately without a confirmation prompt or added delay. To request a warning and confirmation on a supported version, place `--interactive` after the distribution name:
+On versions that support recovery, unregistering a WSL 2 distribution moves its virtual disk into a separate recovery directory on the same volume. The disk remains recoverable for 24 hours. WSL 1 distributions have no virtual disk and are deleted immediately.
 
-```powershell
-wsl --unregister <DistributionName> --interactive
-```
+Retained disks continue to consume disk space. Cleanup runs after the recovery window while the WSL service is active. If Windows or the service is stopped, cleanup resumes the next time WSL is used. Files that are unavailable or in use are retried later. Recovery is not a backup: manually deleting the recovery directory, removing its parent directory (including by uninstalling a Store app), or losing the disk can still destroy the retained data.
 
-The warning names the distribution and explains that its files will be permanently deleted. Type `yes` to proceed. Entering `no`, pressing Enter without an answer, or entering any other response cancels. Ctrl+C also cancels the prompt. There is no timeout that automatically confirms deletion.
-
-Interactive confirmation requires console input and output. If input or the prompt's output is redirected, the command cancels without reading standard input or deleting the distribution.
-
-To override interactive confirmation on these versions, use `--force`:
+To permanently delete a distribution immediately and skip recovery, place `--force` after its name:
 
 ```powershell
 wsl --unregister <DistributionName> --force
 ```
 
-`--force` takes precedence if both options are supplied. Existing scripts that do not request `--interactive` continue without prompting, reading standard input, or waiting through an added delay.
+Scripts that need to reclaim the disk space immediately should use this option. If WSL cannot safely move a disk into recovery storage, unregistering fails and preserves the registration and data; it does not silently fall back to permanent deletion.
 
-You can also uninstall the Linux distribution app on your Windows machine just like any other store application. To reinstall, find the distribution in the Microsoft Store and select "Launch".
+### Restore an unregistered WSL 2 distribution
+
+List retained distributions and their recovery IDs:
+
+```powershell
+wsl --list --deleted
+```
+
+Restore by name, or by recovery ID when more than one deleted distribution has the same name:
+
+```powershell
+wsl --restore-distribution <DistributionNameOrID>
+```
+
+If a currently registered distribution already has that name, specify a new name:
+
+```powershell
+wsl --restore-distribution <RecoveryID> --name <NewName>
+```
+
+Restoration keeps the disk at its recovery location, preserves the distribution's settings and files, and never overwrites a replacement at the original install location. The restored distribution appears in ordinary listings and can be launched with `wsl --distribution <Name>`. Restored Store distributions are managed independently of the Store app, like imported distributions; app shortcuts and custom Terminal profiles are not restored. You can move a restored distribution later with `wsl --manage <Name> --move <Location>`.
+
+After the 24-hour window, restore is no longer available, even if physical cleanup has been delayed. You can also uninstall a Linux distribution's Windows app like any other Store application. Reinstalling from the Microsoft Store creates a clean copy of the distribution.
 
 ## Mount a disk or device
 
