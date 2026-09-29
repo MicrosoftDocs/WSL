@@ -2,7 +2,7 @@
 title: Get started with containers on WSL
 description: Learn how to build and run Linux containers on the Windows Subsystem for Linux using the built-in wslc.exe CLI.
 keywords: wsl, windows, windowssubsystem, windows 10, wslc, containers
-ms.date: 06/19/2026
+ms.date: 09/29/2026
 ms.topic: get-started
 ---
 
@@ -18,7 +18,7 @@ A container is a tool used to create, deploy, and run applications. Containers e
 
 ## Prerequisites
 
-- WSL installed, version 2.9.3 or higher. This version is currently only available as a pre-release, so run `wsl --update --pre-release` to get it.
+- WSL installed, version 2.9.3 or higher. Run `wsl --update` to get the latest version.
 - [Install Visual Studio Code](https://code.visualstudio.com/download) *(optional)*. This will provide the best experience, including the ability to code and debug your containerized projects connected to your Linux distribution.
 - [Install Windows Terminal](/windows/terminal/get-started) *(optional)*. This will provide the best experience, including the ability to customize and open multiple terminals in the same interface (including Ubuntu, Debian, PowerShell, Azure CLI, or whatever you prefer to use).
 
@@ -26,14 +26,14 @@ A container is a tool used to create, deploy, and run applications. Containers e
 
 `wslc.exe` is included with WSL, so there's no separate engine to install. It requires WSL version 2.9.3 or higher. To make sure you have a version of WSL that includes it:
 
-1. [Install WSL](../install.md) if you haven't already, then update to the latest pre-release version by opening PowerShell and entering:
+1. [Install WSL](../install.md) if you haven't already, then update to the latest version by opening PowerShell and entering:
 
     ```powershell
-    wsl --update --pre-release
+    wsl --update
     ```
 
     > [!NOTE]
-    > WSL container is currently only available in pre-release builds (version 2.9.3 or higher), so the `--pre-release` flag is required. You can confirm your WSL version with `wsl --version`.
+    > WSL container requires WSL version 2.9.3 or higher. You can confirm your WSL version with `wsl --version`.
 
 2. Confirm that `wslc.exe` is available and check its version by entering:
 

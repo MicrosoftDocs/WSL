@@ -2,7 +2,7 @@
 title: WSL container
 description: An overview of what the WSL container feature is, and how to use it to run Linux container workflows on Windows
 keywords: BashOnWindows, bash, wsl, windows, windows subsystem, distro, custom, Linux, container
-ms.date: 05/01/2026
+ms.date: 09/29/2026
 ms.topic: how-to
 ms.custom: sfi-image-nochange
 ---
@@ -12,10 +12,10 @@ ms.custom: sfi-image-nochange
 The WSL container feature has two major components: a CLI called `wslc.exe` to build, run and interact with Linux containers and a WSL container API allowing Windows app developers to use Linux containers as part of their app logic. 
 
 > [!IMPORTANT]
-> The WSL container feature requires **WSL version 2.9.3 or higher**. This version is currently only available as a pre-release, so you need to install it by opening PowerShell and entering:
+> The WSL container feature requires **WSL version 2.9.3 or higher**. To update to the latest version, open PowerShell and enter:
 >
 > ```powershell
-> wsl --update --pre-release
+> wsl --update
 > ```
 >
 > Check your installed version at any time with `wsl --version`.
