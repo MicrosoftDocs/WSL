@@ -18,7 +18,7 @@ A container is a tool used to create, deploy, and run applications. Containers e
 
 ## Prerequisites
 
-- WSL installed, version 3.0.1 or higher. Run `wsl --update` to get the latest version.
+- WSL installed, version 2.9.3 or higher. Run `wsl --update` to get the latest version.
 - [Install Visual Studio Code](https://code.visualstudio.com/download) *(optional)*. This will provide the best experience, including the ability to code and debug your containerized projects connected to your Linux distribution.
 - [Install Windows Terminal](/windows/terminal/get-started) *(optional)*. This will provide the best experience, including the ability to customize and open multiple terminals in the same interface (including Ubuntu, Debian, PowerShell, Azure CLI, or whatever you prefer to use).
 
