@@ -24,7 +24,7 @@ A container is a tool used to create, deploy, and run applications. Containers e
 
 ## Install and verify wslc
 
-`wslc.exe` is included with WSL, so there's no separate engine to install. It requires WSL version 3.0.1 or higher. To make sure you have a version of WSL that includes it:
+`wslc.exe` is included with WSL, so there's no separate engine to install. It requires WSL version 2.9.3 or higher. To make sure you have a version of WSL that includes it:
 
 1. [Install WSL](../install.md) if you haven't already, then update to the latest version by opening PowerShell and entering:
 
@@ -33,7 +33,7 @@ A container is a tool used to create, deploy, and run applications. Containers e
     ```
 
     > [!NOTE]
-    > WSL container requires WSL version 3.0.1 or higher. You can confirm your WSL version with `wsl --version`.
+    > WSL container requires WSL version 2.9.3 or higher. You can confirm your WSL version with `wsl --version`.
 
 2. Confirm that `wslc.exe` is available and check its version by entering:
 
@@ -48,12 +48,6 @@ A container is a tool used to create, deploy, and run applications. Containers e
     ```
 
     You should see a "Hello" message confirming that your installation appears to be working correctly.
-
-4. Check the state of your container environment:
-
-    ```powershell
-    wslc system info
-    ```
 
 > [!TIP]
 > Here are a few helpful `wslc` commands to know:
@@ -89,17 +83,6 @@ wslc container stop web
 ```
 
 Because the `nginx` container was started with `--rm`, it is removed automatically once it stops.
-
-## Manage containers with GA commands
-
-Restart a container and stream real-time container activity with:
-
-```powershell
-wslc container restart web
-wslc events
-```
-
-WSL containers also support container health checks and the `--stop-timeout` option on `wslc create` and `wslc run` (use `-1` for an infinite timeout).
 
 ## Build and run your own container image
 
