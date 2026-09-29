@@ -9,7 +9,7 @@ ms.custom: sfi-image-nochange
 
 # WSL container
 
-The WSL container feature has two major components: a CLI called `wslc.exe` to build, run and interact with Linux containers and a WSL container API allowing Windows app developers to use Linux containers as part of their app logic. 
+The WSL container feature has two major components: a CLI called `wslc.exe` to build, run and interact with Linux containers and a WSL container API allowing Windows app developers to use Linux containers as part of their app logic.
 
 > [!IMPORTANT]
 > The WSL container feature requires **WSL version 2.9.3 or higher**. To update to the latest version, open PowerShell and enter:
@@ -22,7 +22,7 @@ The WSL container feature has two major components: a CLI called `wslc.exe` to b
 
 ## WSL container CLI
 
-WSL now includes `wslc.exe` as a built in binary. Its goal is to have a familiar CLI interface, allowing you to easily build, run and interact with Linux containers. 
+WSL now includes `wslc.exe` as a built-in binary, with `container.exe` available as an alias. Its goal is to have a familiar CLI interface, allowing you to easily build, run and interact with Linux containers.
 
 See some of the example commands below:
 
@@ -247,4 +247,3 @@ session.Terminate();
 ### Full end-to-end samples
 
 The snippets above show the core building blocks. For complete, runnable examples that cover the full container lifecycle, image management, port mappings, volume mounts, GPU access, and interactive `stdin`/`stdout` streaming, see the [WSL container API samples](https://aka.ms/wslc-samples).
-

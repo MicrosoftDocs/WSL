@@ -10,7 +10,7 @@ ms.topic: get-started
 
 This step-by-step guide will help you get started building and running Linux containers on Windows using **`wslc.exe`**, the container CLI that ships built in with WSL. 
 
-`wslc.exe` provides a familiar CLI for building, shipping, and running containerized apps.
+`wslc.exe` provides a familiar CLI for building, shipping, and running containerized apps. You can also use `container.exe` as a built-in alias for `wslc.exe`.
 
 ## Overview of WSL containers
 
