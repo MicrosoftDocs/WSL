@@ -11,6 +11,7 @@ This guide covers how to manage the disk space used by Linux distributions insta
 
 - [How to check the amount of disk space available in the VHD](#how-to-check-your-available-disk-space)
 - [How to expand the size of the VHD](#how-to-expand-the-size-of-your-wsl-2-virtual-hard-disk)
+- [How to optimize the size of the VHD](#how-to-optimize-the-size-of-your-wsl-2-virtual-hard-disk)
 - [How to repair the VHD if an error occurs](#how-to-repair-a-vhd-mounting-error)
 - [How to locate the .vhdx file and disk path for any installed Linux distributions](#how-to-locate-the-vhdx-file-and-disk-path-for-your-linux-distribution)
 
@@ -139,6 +140,27 @@ The virtual drive (ext4.vhdx) for this Linux distribution has now successfully b
 
 > [!IMPORTANT]
 > We recommend that you do not modify, move, or access the WSL related files located inside of your `AppData` folder using Windows tools or editors. Doing so could cause your Linux distribution to become corrupted. If you would like to access your Linux files from Windows, that is possible via the path `\\wsl$\<distribution-name>\`. Open your WSL distribution and enter `explorer.exe .` to view that folder. To learn more, see the blog post: [Accessing Linux files from Windows](https://devblogs.microsoft.com/commandline/whats-new-for-wsl-in-windows-10-version-1903/#accessing-linux-files-from-windows).
+
+## How to optimize the size of your WSL 2 Virtual Hard Disk
+
+If you have previously stored a lot of data inside your VHD causing it's physical file in the host system to grow in size, you won't automatically reclaim that space when removing files inside your WSL. The VHD automatically grows, but it does not automatically shrink.
+In order to free the space on your host system as well, you will need to shutdown your WSL instance and use the `optimize-vhd` command.
+
+Find the name of your distro
+```powershell
+wsl.exe -l
+```
+
+Find the location of your vhdx file using the distro name
+```powershell
+(Get-ChildItem -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Lxss | Where-Object { $_.GetValue("DistributionName") -eq '<Distribution Name>' }).GetValue("BasePath") + "\ext4.vhdx"
+```
+
+Stop WSL and optimize the vhdx file
+```powershell
+wsl --shutdown
+optimize-vhd -Path "<Full path to your .vhdx>" -Mode full
+```
 
 ## How to repair a VHD mounting error
 
