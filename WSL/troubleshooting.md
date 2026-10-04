@@ -62,6 +62,7 @@ You can also:
 - **Installation failed with error 0x80070003 or error 0x80370102**
   - Please make sure that virtualization is enabled inside of your computer's BIOS. The instructions on how to do this will vary from computer to computer, and will most likely be under CPU related options.
   - WSL2 requires that your CPU supports the Second Level Address Translation (SLAT) feature, which was introduced in Intel Nehalem processors (Intel Core 1st Generation) and AMD Opteron. Older CPUs (such as the Intel Core 2 Duo) will not be able to run WSL2, even if the Virtual Machine Platform is successfully installed.
+  - If your CPU does not support SLAT, consider using WSL1 if it meets your needs. WSL1 does not use the WSL2 virtual machine architecture. See [Comparing WSL 1 and WSL 2](./compare-versions.md) for differences and limitations.
 
 - **Error when trying to upgrade, Invalid command line option: `wsl --set-version Ubuntu 2`**
   - Ensure that you have the Windows Subsystem for Linux enabled, and that you're using Windows Build version 18362 or later. To enable WSL run this command in a PowerShell prompt with admin privileges:
