@@ -102,6 +102,22 @@ You can also:
 
 - **Error: WSL 2 requires an update to its kernel component. For information please visit [step 4](./install-manual.md#step-4---download-the-linux-kernel-update-package)**
   - If the Linux kernel package is missing in the `%SystemRoot%\system32\lxss\tools` folder, you will encounter this error. Resolve it by installing the Linux kernel update MSI package in [step 4](./install-manual.md#step-4---download-the-linux-kernel-update-package) of these installation instructions. You may need to uninstall the MSI from "[Add or Remove Programs](ms-settings:appsfeatures-app)", and install it again.
+- **WSL --install or --update fails with "Forbidden (403)." (error code: 0x80190193)**
+  - Store logs show requests to `licensing.md.mp.microsoft.com` with a `market` parameter matching your Microsoft account region.
+  - If you are using a **VPN, proxy, or network accelerator**, try temporarily disabling it — in some environments this resolves the 403 error.
+  - As a workaround, you can download the latest WSL installer directly from [WSL GitHub Releases](https://github.com/microsoft/WSL/releases) and install it manually.
+
+- **WSL --update downloads slowly or fails with connection reset (0x80072eff)**
+  - Downloads via `wsl --update` do not support **resume** — if the connection is interrupted, the download restarts from the beginning.
+  - As a workaround, you can download the installer from [WSL GitHub Releases](https://github.com/microsoft/WSL/releases).
+
+- **WSL update fails with Error 1714 or 1612 ("The older version cannot be removed")**
+  - The Windows Installer cache for the previous WSL MSI package is missing. The installer needs this cached file to uninstall the old version before installing the new one.
+  - Common cause: disk cleanup tools may have removed files from `C:\Windows\Installer\`.
+  - To resolve, try repairing the existing WSL installation first. If that does not help, use the [Microsoft Program Install and Uninstall Troubleshooter](https://support.microsoft.com/topic/fix-problems-that-block-programs-from-being-installed-or-removed-cca7d1b6-65a9-3d98-426b-e9f927e1eb4d).
+  - **Important**: Do not manually delete files from `C:\Windows\Installer\` — they are required by Windows Installer for uninstall, repair, and update operations.
+
+
 
 ## Common issues
 
