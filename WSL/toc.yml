@@ -54,6 +54,8 @@
       href: systemd.md
     - name: WSL container
       href: wsl-container.md
+    - name: WSL container settings
+      href: wsl-container-settings.md
 - name: How-to
   items:
     - name: Import any Linux distribution
