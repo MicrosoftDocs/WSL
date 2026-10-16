@@ -1,7 +1,7 @@
 ---
 title: Advanced settings configuration in WSL
 description: A guide to the wsl.conf and .wslconfig files used for configuring settings when running multiple Linux distributions on Windows Subsystem for Linux.
-ms.date: 04/15/2026
+ms.date: 10/16/2026
 ms.topic: article
 ---
 
@@ -207,6 +207,9 @@ Configure **global settings** with **.wslconfig** across all installed distribut
 - To get to your `%UserProfile%` directory, in PowerShell, use `cd ~` to access your home directory (which is typically your user profile, `C:\Users\<UserName>`) or you can open Windows File Explorer and enter `%UserProfile%` in the address bar. The directory path should look something like: `C:\Users\<UserName>\.wslconfig`.
 
 WSL will detect the existence of these files, read the contents, and automatically apply the configuration settings every time you launch WSL. If the file is missing or malformed (improper markup formatting), WSL will continue to launch as normal without the configuration settings applied.
+
+> [!NOTE]
+> `.wslconfig` settings don't apply to WSL containers run with `wslc.exe`. To configure WSL containers, see [WSL container settings](./wsl-container-settings.md).
 
 ### Configuration settings for .wslconfig
 

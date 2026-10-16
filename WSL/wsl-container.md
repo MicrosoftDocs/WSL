@@ -2,7 +2,7 @@
 title: WSL container
 description: An overview of what the WSL container feature is, and how to use it to run Linux container workflows on Windows
 keywords: BashOnWindows, bash, wsl, windows, windows subsystem, distro, custom, Linux, container
-ms.date: 09/29/2026
+ms.date: 10/16/2026
 ms.topic: how-to
 ms.custom: sfi-image-nochange
 ---
@@ -42,6 +42,8 @@ wslc container stop web
 ```
 
 You can learn more on how to get started with this feature at [our container tutorial](./tutorials/wsl-containers.md).
+
+To configure resources and other options for `wslc.exe`, such as CPU count, memory, and storage location, see [WSL container settings](./wsl-container-settings.md).
 
 ## WSL container API
 
