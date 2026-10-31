@@ -1,7 +1,7 @@
 ---
 title: Intune settings
 description: Available settings in Intune for the Windows Subsystem for Linux (WSL)
-ms.date: 08/04/2025
+ms.date: 10/30/2026
 ms.topic: article
 ---
 
@@ -58,6 +58,10 @@ The last group of settings that end with `*UserSettingConfigurable` control acce
 | Allow user setting firewall configuration | When set to disabled, this policy disables firewall configuration via .wslconfig (wsl2.firewall). This policy only applies to Store WSL. |
 | Allow nested virtualization | When set to disabled, this policy disables nested virtualization configuration via .wslconfig (wsl2.nestedVirtualization). This policy only applies to Store WSL. |
 | Allow kernel debugging | When set to disabled, this policy disables kernel debugging configuration via .wslconfig (wsl2.kernelDebugPort). This policy only applies to Store WSL. |
+| Configure default networking mode | Specifies the default networking mode for WSL 2. Available options are None, NAT, Mirrored, and Consomme. |
+| Allow WSL container | When disabled, this policy blocks users and Windows applications from running Linux containers through WSL. Disabling it can break Windows applications that depend on Linux containers. |
+| Allow privileged WSL containers | Controls whether WSL containers can run in privileged mode or request additional Linux capabilities. When disabled, requests for privileged containers or additional capabilities are refused for all users and Windows applications. |
+| Allowlist for WSL container registries | When enabled, this policy limits WSL container image pulls to the listed registries. It applies to the WSL container CLI and applications that use the WSL container API. |
 
 ## Set up with group policy
 
