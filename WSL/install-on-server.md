@@ -1,7 +1,7 @@
 ---
 title: Install Linux Subsystem on Windows Server
 description: Learn how to install the Linux Subsystem on Windows Server. WSL is available for installation on Windows Server 2019 (version 1709) and later.
-ms.date: 04/15/2026
+ms.date: 11/06/2026
 ms.topic: install-set-up-deploy
 ---
 
@@ -84,13 +84,15 @@ Now that you've downloaded a Linux distribution, in order to extract its content
     tar -xf .\DistroLauncher-Appx_1.12.2.0_x64.appx -C "$env:USERPROFILE\AppData\Local\DebianWSL"
     ```
 
-1. Add your Linux distribution path to the Windows environment PATH (`C:\Users\Administrator\Ubuntu` in this example), using PowerShell:
+1. Add your Linux distribution path to the user PATH (`$env:USERPROFILE\AppData\Local\DebianWSL` in this example), using PowerShell:
 
     ```powershell
-    $userenv = [System.Environment]::GetEnvironmentVariable("Path", "User")
-    [System.Environment]::SetEnvironmentVariable("PATH", $userenv + ";$env:USERPROFILE\AppData\Local\DebianWSL", "User")
+    $userenv = (Get-Item -Path HKCU:\Environment).GetValue("Path", "", "DoNotExpandEnvironmentNames")
+    New-ItemProperty -Path HKCU:\Environment -Name Path -Value ($userenv + ";$env:USERPROFILE\AppData\Local\DebianWSL") -PropertyType ExpandString -Force | Out-Null
     ```
 
-You can now launch your distribution from any path by typing `<DistributionName>.exe`. For example: `ubuntu.exe`. Note that you will need to launch a new powershell instance from the start menu or log off and log on again in the case of Server core to refresh your path
+    This preserves existing environment variable references, such as `%USERPROFILE%`, and stores the updated PATH as an expandable registry string.
+
+Sign out and sign back in to apply the updated PATH. You can then launch your distribution from any path by typing `<DistributionName>.exe`. For example: `debian.exe`.
 
 Once installation is complete, you can [create a user account and password for your new Linux distribution](./setup/environment.md#set-up-your-linux-username-and-password).
