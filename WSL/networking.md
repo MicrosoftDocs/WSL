@@ -2,7 +2,7 @@
 title: Accessing network applications with WSL
 description: Learn about the considerations for accessing network applications when using Windows Subsystem for Linux (WSL).
 keywords: wsl, Linux, Windows, networking, ip address, ip addr, host IP, server, network, localhost, local area network, lan, ipv6, remote
-ms.date: 07/16/2024
+ms.date: 11/06/2026
 ms.topic: how-to
 ms.custom: sfi-image-nochange
 ---
@@ -23,7 +23,10 @@ The Windows host can use command:
 wsl.exe --distribution <DistroName> hostname -I
 ```
 
-If querying the default distribution, this part of the command designating the distribution can be omitted: `-d <DistroName>`. Be sure to use a lower-case `-i` flag.
+If querying the default distribution, this part of the command designating the distribution can be omitted: `-d <DistroName>`.
+
+> [!NOTE]
+> Use the upper-case `-I` flag to list the distribution's IP addresses. The lower-case `-i` option resolves its hostname and can return a loopback address such as `127.0.1.1`. Use `-I` to identify the distribution's address for connections from Windows.
 
 Under the hood, host command wsl.exe launches the target instance and executes Linux command `hostname --all-ip-addresses`. This command then prints the IP address of the WSL instance to `STDOUT`. The `STDOUT` text content is then relayed back to wsl.exe. Finally, wsl.exe displays that output to the command line.
 
@@ -89,10 +92,10 @@ When using a WSL 1 distribution, if your computer was set up to be accessed by y
 
 This isn't the default case in WSL 2. WSL 2 has a virtualized ethernet adapter with its own unique IP address. Currently, to enable this workflow you will need to go through the same steps as you would for a regular virtual machine. (We are looking into ways to improve this experience.)
 
-Here's an example of using the [Netsh interface portproxy](/windows-server/networking/technologies/netsh/netsh-interface-portproxy) Windows command to add a port proxy that listens on your host port and connects that port proxy to the IP address for the WSL 2 VM.
+Here's an example of using the [Netsh interface portproxy](/windows-server/networking/technologies/netsh/netsh-interface-portproxy) Windows command to add a port proxy that listens on your host port and connects that port proxy to the IP address for the WSL 2 VM. First, run `wsl.exe hostname -I` to find the distribution's IP addresses. Replace `<yourWSL2IPAddress>` below with the distribution's IPv4 address, and replace the port placeholders before running the command in an administrator PowerShell window.
 
 ```powershell
-netsh interface portproxy add v4tov4 listenport=<yourPortToForward> listenaddress=0.0.0.0 connectport=<yourPortToConnectToInWSL> connectaddress=(wsl hostname -I)
+netsh interface portproxy add v4tov4 listenport=<yourPortToForward> listenaddress=0.0.0.0 connectport=<yourPortToConnectToInWSL> connectaddress=<yourWSL2IPAddress>
 ```
 
 In this example, you will need to update `<yourPortToForward>` to a port number, for example `listenport=4000`. `listenaddress=0.0.0.0` means that incoming requests will be accepted from ANY IP address. The Listen Address specifies the IPv4 address for which to listen and can be changed to values that include: IP address, computer NetBIOS name, or computer DNS name. If an address isn't specified, the default is the local computer. You need to update the `<yourPortToConnectToInWSL>` value to a port number where you want WSL to connect, for example `connectport=4000`. Lastly, the `connectaddress` value needs to be the IP address of your Linux distribution installed via WSL 2 (the WSL 2 VM address), which can be found by entering the command: `wsl.exe hostname -I`.
@@ -106,19 +109,13 @@ netsh interface portproxy add v4tov4 listenport=4000 listenaddress=0.0.0.0 conne
 To obtain the IP address, use:
 
 - `wsl hostname -I` for the IP address of your Linux distribution installed via WSL 2 (the WSL 2 VM address)
-- `cat /etc/resolv.conf` for the IP address of the Windows machine as seen from WSL 2 (the WSL 2 VM)
+- `ip route show | grep -i default | awk '{ print $3}'` for the IP address of the Windows machine as seen from WSL 2 (the WSL 2 VM)
 
-Using `listenaddress=0.0.0.0` will listen on all [IPv4 ports](https://stackoverflow.com/questions/9987409/want-to-know-what-is-ipv4-and-ipv6#:~:text=The%20basic%20difference%20is%20the,whereas%20IPv6%20has%20128%20bits.).
-
-> [!NOTE]
-> Using a lowercase "i" with the hostname command will generate a different result than using an uppercase "I". `wsl hostname -i` is your local machine (127.0.1.1 is a placeholder diagnostic address), whereas `wsl hostname -I` will return your local machine's IP address as seen by other machines and should be used to identify the `connectaddress` of your Linux distribution running via WSL 2.
+Using `listenaddress=0.0.0.0` will listen on all IPv4 interfaces.
 
 ## IPv6 access
 
-- `wsl hostname -I` for the IP address of your Linux distribution installed via WSL 2 (the WSL 2 VM address)
-- `ip route show | grep -i default | awk '{ print $3}'` for the IP address of the Windows machine as seen from WSL 2 (the WSL 2 VM)
-
-Using `listenaddress=0.0.0.0` will listen on all [IPv4 ports](https://stackoverflow.com/questions/9987409/want-to-know-what-is-ipv4-and-ipv6#:~:text=The%20basic%20difference%20is%20the,whereas%20IPv6%20has%20128%20bits.).
+For IPv6 support, enable [mirrored mode networking](#mirrored-mode-networking), which requires Windows 11 22H2 or later.
 
 ## Mirrored mode networking
 
