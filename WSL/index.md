@@ -2,7 +2,7 @@
 title: Windows Subsystem for Linux Documentation
 description: Overview of the Windows Subsystem for Linux documentation.
 ms.topic: overview
-ms.date: 05/19/2025
+ms.date: 09/29/2026
 ---
 
 # Windows Subsystem for Linux Documentation
@@ -16,6 +16,7 @@ Windows Subsystem for Linux (WSL) lets developers run a GNU/Linux environment --
 
 * [What is the Windows Subsystem for Linux (WSL)?](about.md)
 * [Windows Subsystem for Linux is now open source](https://blogs.windows.com/windowsdeveloper/2025/05/19/the-windows-subsystem-for-linux-is-now-open-source/)
+* [WSL containers are now generally available](https://blogs.windows.com/windowsdeveloper/2026/09/29/wsl-containers-now-generally-available/) — learn more about [WSL containers](wsl-container.md).
 * [What's new with WSL 2?](compare-versions.md#whats-new-in-wsl-2)
 * [Comparing WSL 1 and WSL 2](compare-versions.md)
 * [Frequently Asked Questions](faq.yml)
