@@ -1,7 +1,7 @@
 ---
 title: Get started using Git on WSL
 description: Learn how to set up Git for version control on the Windows Subsystem for Linux, along with Git Credential Manager.
-ms.date: 08/22/2025
+ms.date: 11/06/2026
 ms.topic: get-started
 ---
 
@@ -75,10 +75,32 @@ If you have a reason not to install Git for Windows, you can install GCM as a Li
 
 ### Commands to check and set up GCM for WSL
 
-If you have installed Git for Windows, GCM is already installed and configured. You can verify this by running the following command in a WSL distribution:
+Installing Git for Windows installs and configures GCM for Windows Git. You must also configure Git in each WSL distribution to use the Windows credential helper.
 
-```powershell
-git --version; git credential-manager --version
+From your WSL distribution's Bash shell, run **one** of the following commands, depending on your Git for Windows version and architecture. These examples assume Git for Windows is installed in `C:\Program Files\Git`. Verify the actual location of `git-credential-manager.exe` before copying a command, and adjust the path if needed. See the [GCM configuration instructions for WSL](https://github.com/GitCredentialManager/git-credential-manager/blob/main/docs/wsl.md#configuring-wsl-with-git-for-windows-recommended) for current installation paths.
+
+For x64 Git for Windows version 2.56.0 or later:
+
+```bash
+git config --global credential.helper "/mnt/c/Program\ Files/Git/ucrt64/bin/git-credential-manager.exe"
+```
+
+For x64 Git for Windows version 2.55.x or earlier:
+
+```bash
+git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/bin/git-credential-manager.exe"
+```
+
+For ARM64 Git for Windows:
+
+```bash
+git config --global credential.helper "/mnt/c/Program\ Files/Git/clangarm64/bin/git-credential-manager.exe"
+```
+
+Confirm the configured helper from the same WSL distribution:
+
+```bash
+git config --global --get credential.helper
 ```
 
 > [!NOTE]

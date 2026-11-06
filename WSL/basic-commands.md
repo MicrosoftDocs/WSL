@@ -1,7 +1,7 @@
 ---
 title: Basic commands for WSL
 description: Reference for the basic commands included with Windows Subsystem for Linux (WSL).
-ms.date: 12/01/2025
+ms.date: 11/06/2026
 ms.topic: article
 ---
 
@@ -79,10 +79,10 @@ To set the default Linux distribution that WSL commands will use to run, replace
 ## Start WSL in user home directory
 
 ```powershell
-wsl ~
+wsl "~"
 ```
 
-The `~` can be used with wsl to start in the user's home directory. To jump from any directory back to home from within a WSL command prompt, you can use the command: `cd ~`.
+The `~` can be used with wsl to start in the Linux user's home directory. Keep the double quotation marks so that PowerShell 7 passes the tilde to WSL instead of expanding it to your Windows home directory. This quoted form also works in Windows PowerShell and Windows Command Prompt. To jump from any directory back to home from within a WSL command prompt, you can use the command: `cd ~`.
 
 ## Run a specific Linux distribution from PowerShell or CMD
 
