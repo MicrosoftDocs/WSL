@@ -857,7 +857,7 @@ Systems that require WSL 2 should leave the ICS service (SharedAccess) in it's d
 
 ### WSL 2 workloads use only some processors
 
-On Windows client systems with multiple processor groups, the default root scheduler limits WSL 2 workloads to the first processor group. To work around this limitation, consider [switching to the core scheduler](https://learn.microsoft.com/en-us/windows-server/virtualization/hyper-v/manage/manage-hyper-v-scheduler-types#select-the-hypervisor-scheduler-type-on-windows-server).
+On Windows client systems with multiple processor groups, the default root scheduler limits WSL 2 workloads to the first processor group. To work around this limitation, consider [switching to the core scheduler](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-scheduler-types#select-the-hypervisor-scheduler-type-on-windows-server).
 
 ## Using older versions of Windows and WSL
 
